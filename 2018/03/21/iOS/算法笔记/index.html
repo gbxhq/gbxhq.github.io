@@ -99,18 +99,18 @@
 
 
 
-  <meta name="description" content="尾递归：防止内存爆炸  只返回函数本身。 量放在参数中。Ex:  123456fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int&amp;#123;    if (n == 1)    	return total + 1    else    	return func (n - 1, total + n)&amp;#125; ​">
+  <meta name="description" content="尾递归：防止内存爆炸 只返回函数本身。 量放在参数中。Ex:  123456fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int&amp;#123;    if (n == 1)    	return total + 1    else    	return func (n - 1, total + n)&amp;#125; ​">
 <meta name="keywords" content="note,Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS算法笔记">
 <meta property="og:url" content="https://ixsim.github.io/2018/03/21/iOS/算法笔记/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="尾递归：防止内存爆炸  只返回函数本身。 量放在参数中。Ex:  123456fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int&amp;#123;    if (n == 1)    	return total + 1    else    	return func (n - 1, total + n)&amp;#125; ​">
+<meta property="og:description" content="尾递归：防止内存爆炸 只返回函数本身。 量放在参数中。Ex:  123456fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int&amp;#123;    if (n == 1)    	return total + 1    else    	return func (n - 1, total + n)&amp;#125; ​">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-22T07:39:49.200Z">
+<meta property="og:updated_time" content="2018-03-22T10:36:36.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS算法笔记">
-<meta name="twitter:description" content="尾递归：防止内存爆炸  只返回函数本身。 量放在参数中。Ex:  123456fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int&amp;#123;    if (n == 1)    	return total + 1    else    	return func (n - 1, total + n)&amp;#125; ​">
+<meta name="twitter:description" content="尾递归：防止内存爆炸 只返回函数本身。 量放在参数中。Ex:  123456fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int&amp;#123;    if (n == 1)    	return total + 1    else    	return func (n - 1, total + n)&amp;#125; ​">
 
 
 
@@ -418,16 +418,12 @@
       
 
       
-        <ul>
-<li><p>尾递归：防止内存爆炸</p>
-<ul>
+        <h2 id="尾递归：防止内存爆炸"><a href="#尾递归：防止内存爆炸" class="headerlink" title="尾递归：防止内存爆炸"></a>尾递归：防止内存爆炸</h2><ul>
 <li>只返回函数本身。</li>
 <li>量放在参数中。<br>Ex:</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fun <span class="function"><span class="keyword">func</span><span class="params">(<span class="number">_</span> n :Int, <span class="number">_</span> total :Int = <span class="number">0</span>)</span></span> -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">    	<span class="keyword">return</span> total + <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span> <span class="params">(n - <span class="number">1</span>, total + n)</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>​</p>
-</li>
-</ul>
 
       
     </div>
@@ -463,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/21/iOS/语法问题/" rel="next" title="iOS语法笔记">
-                <i class="fa fa-chevron-left"></i> iOS语法笔记
+              <a href="/2018/03/21/iOS/UIViewHelper.swift/" rel="next" title="iOS 圆角通用配置">
+                <i class="fa fa-chevron-left"></i> iOS 圆角通用配置
               </a>
             
           </div>
@@ -473,8 +469,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/21/iOS/UIViewHelper.swift/" rel="prev" title="iOS 圆角通用配置">
-                iOS 圆角通用配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/21/iOS/语法问题/" rel="prev" title="iOS语法笔记">
+                iOS语法笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -527,8 +523,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -625,6 +630,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#尾递归：防止内存爆炸"><span class="nav-number">1.</span> <span class="nav-text">尾递归：防止内存爆炸</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
