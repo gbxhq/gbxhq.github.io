@@ -793,7 +793,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/2018/03/21/Python廖雪峰练习/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/2018/03/21/Python-以后研读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李炫杉">
@@ -812,7 +812,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/21/Python廖雪峰练习/" itemprop="url">Python廖雪峰练习</a></h1>
+                <a class="post-title-link" href="/2018/03/21/Python-以后研读/" itemprop="url">Python 学习Flag</a></h1>
         
 
         <div class="post-meta">
@@ -860,8 +860,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/21/Python廖雪峰练习/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/03/21/Python廖雪峰练习/" itemprop="commentCount"></span>
+                <a href="/2018/03/21/Python-以后研读/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/03/21/Python-以后研读/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -869,7 +869,7 @@
 
           
           
-             <span id="/2018/03/21/Python廖雪峰练习/" class="leancloud_visitors" data-flag-title="Python廖雪峰练习">
+             <span id="/2018/03/21/Python-以后研读/" class="leancloud_visitors" data-flag-title="Python 学习Flag">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -901,10 +901,10 @@
 
       
         
-          <p>这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。<br>莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！</p>
+          <p>目前主要还是学Python。有空的话会看看Swift。平时课也挺多的。另外真的说我毕业之后做什么方向，我也挺迷茫的。<br>可能这就是生活吧。在跌跌撞撞中成长。<br>写个文档记录下过几天要读的文章。(现在还是Python摸索阶段)</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/21/Python廖雪峰练习/#more" rel="contents">
+            <a class="btn" href="/2018/03/21/Python-以后研读/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1574,5 +1574,35 @@
 
   
 
+<script type="text/javascript">
+/* 鼠标特效 */
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+        var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "#ff6651"
+        });
+        $("body").append($i);
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+});
+</script>
 </body>
 </html>
