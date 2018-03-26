@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="这是阅读《Python for Data Analysis》的读书笔记。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-26T06:22:22.197Z">
+<meta property="og:updated_time" content="2018-03-26T10:57:26.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Python数据分析》学习记录">
 <meta name="twitter:description" content="这是阅读《Python for Data Analysis》的读书笔记。">
@@ -192,7 +192,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</p>
       
   </div>
 
@@ -252,7 +252,7 @@
           
   <li class="menu-item menu-item-访问coding版">
     <a href="https://ixsim.coding.me" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />访问coding版</a>
+      <i class="menu-item-icon fa fa-fw fa-star"></i> <br />访问coding版</a>
 </li>
 
       
@@ -542,7 +542,53 @@
 <p><code>%hist</code> 显示全部或部分输入输出历史，并可选是否带行号</p>
 <h2 id="与OS交互"><a href="#与OS交互" class="headerlink" title="与OS交互"></a>与OS交互</h2><p>自认为还用不到。调用os Shell ，目录书签。以后研读。</p>
 <h2 id="软件开发工具"><a href="#软件开发工具" class="headerlink" title="软件开发工具"></a>软件开发工具</h2><p>本章就这样了。快快开始学干货吧~</p>
-<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1>
+<h1 id="第四章-Numpy"><a href="#第四章-Numpy" class="headerlink" title="第四章 Numpy"></a>第四章 Numpy</h1><h2 id="ndarray"><a href="#ndarray" class="headerlink" title="ndarray"></a>ndarray</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>array</td>
+<td>将输入数据(list,tuple,etc)转为ndarry</td>
+</tr>
+<tr>
+<td>asarray</td>
+<td>与array区别：当输入是个ndarry时，不进行复制</td>
+</tr>
+<tr>
+<td>arange</td>
+<td>不解释</td>
+</tr>
+<tr>
+<td>ones\ones_like</td>
+<td>全1。ones可设shape。而ones_like是传入一个数组a，生成的数组与其同shape。</td>
+</tr>
+<tr>
+<td>zeros\zeros_like</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>empty\empty_like</td>
+<td>不解释</td>
+</tr>
+<tr>
+<td>eye\identity</td>
+<td>NxN单位矩阵（对角1，其余0）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>array和asarray区别</strong>：都可以将结构数据转化为ndarray，但是主要区别就是当数据源是ndarray时，array仍然会copy出一个副本，占用新的内存，但asarray不会。</p>
+<h3 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h3><ul>
+<li>数组切片是原是数组的视图。这意味着：<strong>这些数据不是被复制的，视图上的任何修改都会被直接反映到原数组上。</strong><br>（我虽然改的是切片，但其实原数组也改了）</li>
+<li>如果你想得到的是副本也不是视图。要显式复制：<code>arr[5:8].copy()</code></li>
+</ul>
+<h3 id="布尔型索引"><a href="#布尔型索引" class="headerlink" title="布尔型索引"></a>布尔型索引</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arrary = ([<span class="keyword">True</span>,<span class="keyword">False</span>,<span class="keyword">True</span>],dtype = bool)</span><br><span class="line">data[arrary] <span class="comment">#输出第1、3行</span></span><br><span class="line"><span class="comment">#还可以与切片混用</span></span><br><span class="line">data[arrary,:<span class="number">2</span>] <span class="comment">#输出1、3行的前两列</span></span><br><span class="line"><span class="comment">#索引还可以同时满足多个条件</span></span><br><span class="line">mask = (names == <span class="string">'Bob'</span>) | (names != <span class="string">'Will'</span>) <span class="comment">#mask就是一个bool型数组</span></span><br></pre></td></tr></table></figure>
+<h3 id="花式索引"><a href="#花式索引" class="headerlink" title="花式索引"></a>花式索引</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr[[<span class="number">4</span>,<span class="number">0</span>,<span class="number">6</span>]] <span class="comment"># 输出第5、1、7行</span></span><br><span class="line">arr[[<span class="number">-1</span>,<span class="number">-5</span>]] <span class="comment"># 输出倒数1、5行</span></span><br><span class="line">arr[[<span class="number">1</span>,<span class="number">5</span>,<span class="number">4</span>],[<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>]] <span class="comment">#输出坐标(1,0) (5,3)(4,1)三个数</span></span><br><span class="line"><span class="comment">#那如何利用索引输出该行列呢</span></span><br><span class="line"><span class="comment">#要用切片配合</span></span><br><span class="line">arr[[<span class="number">1</span>,<span class="number">5</span>,<span class="number">4</span>],[:,<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>]] <span class="comment">#输出1、5、4行的0、2、1列</span></span><br></pre></td></tr></table></figure>
+<p><strong>Note</strong> 花式索引跟切片不一样。不是视图是复制。</p>
+
       
     </div>
 
@@ -577,8 +623,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/iOS/UIViewHelper.swift/" rel="next" title="iOS 圆角通用配置">
-                <i class="fa fa-chevron-left"></i> iOS 圆角通用配置
+              <a href="/Python/Python初探/" rel="next" title="Python初探">
+                <i class="fa fa-chevron-left"></i> Python初探
               </a>
             
           </div>
@@ -774,7 +820,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-准备工作"><span class="nav-number">1.</span> <span class="nav-text">第一章 准备工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-引言"><span class="nav-number">2.</span> <span class="nav-text">第二章 引言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#list-手动统计"><span class="nav-number">2.1.</span> <span class="nav-text">list 手动统计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-IPython"><span class="nav-number">3.</span> <span class="nav-text">第三章 IPython</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内省"><span class="nav-number">3.1.</span> <span class="nav-text">内省</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#run"><span class="nav-number">3.1.1.</span> <span class="nav-text">%run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断执行的代码"><span class="nav-number">3.1.2.</span> <span class="nav-text">中断执行的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行剪贴板中的代码"><span class="nav-number">3.1.3.</span> <span class="nav-text">执行剪贴板中的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘快捷键"><span class="nav-number">3.1.4.</span> <span class="nav-text">键盘快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术命令"><span class="nav-number">3.1.5.</span> <span class="nav-text">魔术命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令历史"><span class="nav-number">3.2.</span> <span class="nav-text">命令历史</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出变量"><span class="nav-number">3.2.1.</span> <span class="nav-text">输入输出变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与OS交互"><span class="nav-number">3.3.</span> <span class="nav-text">与OS交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件开发工具"><span class="nav-number">3.4.</span> <span class="nav-text">软件开发工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章"><span class="nav-number">4.</span> <span class="nav-text">第四章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-准备工作"><span class="nav-number">1.</span> <span class="nav-text">第一章 准备工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-引言"><span class="nav-number">2.</span> <span class="nav-text">第二章 引言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#list-手动统计"><span class="nav-number">2.1.</span> <span class="nav-text">list 手动统计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-IPython"><span class="nav-number">3.</span> <span class="nav-text">第三章 IPython</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内省"><span class="nav-number">3.1.</span> <span class="nav-text">内省</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#run"><span class="nav-number">3.1.1.</span> <span class="nav-text">%run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断执行的代码"><span class="nav-number">3.1.2.</span> <span class="nav-text">中断执行的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行剪贴板中的代码"><span class="nav-number">3.1.3.</span> <span class="nav-text">执行剪贴板中的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘快捷键"><span class="nav-number">3.1.4.</span> <span class="nav-text">键盘快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术命令"><span class="nav-number">3.1.5.</span> <span class="nav-text">魔术命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令历史"><span class="nav-number">3.2.</span> <span class="nav-text">命令历史</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出变量"><span class="nav-number">3.2.1.</span> <span class="nav-text">输入输出变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与OS交互"><span class="nav-number">3.3.</span> <span class="nav-text">与OS交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件开发工具"><span class="nav-number">3.4.</span> <span class="nav-text">软件开发工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-Numpy"><span class="nav-number">4.</span> <span class="nav-text">第四章 Numpy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ndarray"><span class="nav-number">4.1.</span> <span class="nav-text">ndarray</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-number">4.1.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引和切片"><span class="nav-number">4.1.2.</span> <span class="nav-text">索引和切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔型索引"><span class="nav-number">4.1.3.</span> <span class="nav-text">布尔型索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#花式索引"><span class="nav-number">4.1.4.</span> <span class="nav-text">花式索引</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
