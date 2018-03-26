@@ -103,11 +103,11 @@
 <meta name="keywords" content="note,Data Analysis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Python数据分析》学习记录">
-<meta property="og:url" content="https://ixsim.github.io/《Python数据分析》学习记录/index.html">
+<meta property="og:url" content="https://ixsim.github.io/Python/《Python数据分析》学习记录/index.html">
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="这是阅读《Python for Data Analysis》的读书笔记。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-23T02:36:23.418Z">
+<meta property="og:updated_time" content="2018-03-26T06:22:22.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Python数据分析》学习记录">
 <meta name="twitter:description" content="这是阅读《Python for Data Analysis》的读书笔记。">
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/《Python数据分析》学习记录/"/>
+  <link rel="canonical" href="https://ixsim.github.io/Python/《Python数据分析》学习记录/"/>
 
 
 
@@ -325,7 +325,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/《Python数据分析》学习记录/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Python/《Python数据分析》学习记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李炫杉">
@@ -390,8 +390,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/《Python数据分析》学习记录/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count valine-comment-count" data-xid="/《Python数据分析》学习记录/" itemprop="commentCount"></span>
+                <a href="/Python/《Python数据分析》学习记录/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count valine-comment-count" data-xid="/Python/《Python数据分析》学习记录/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -399,7 +399,7 @@
 
           
           
-             <span id="/《Python数据分析》学习记录/" class="leancloud_visitors" data-flag-title="《Python数据分析》学习记录">
+             <span id="/Python/《Python数据分析》学习记录/" class="leancloud_visitors" data-flag-title="《Python数据分析》学习记录">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -435,9 +435,10 @@
 <h1 id="第一章-准备工作"><a href="#第一章-准备工作" class="headerlink" title="第一章 准备工作"></a>第一章 准备工作</h1><p>不用准备了。🙂🙂🙂要啥有啥。</p>
 <h1 id="第二章-引言"><a href="#第二章-引言" class="headerlink" title="第二章 引言"></a>第二章 引言</h1><h2 id="list-手动统计"><a href="#list-手动统计" class="headerlink" title="list 手动统计"></a>list 手动统计</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections improt defaultdict</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_count</span><span class="params">(sequence)</span>:</span></span><br><span class="line">    counts = defaultdict(int)</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> sequence:</span><br><span class="line">        counts[x]  += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> counts</span><br></pre></td></tr></table></figure>
 <p>本章内容仅仅是向读者展示。跳~</p>
-<h1 id="第三章-IPython"><a href="#第三章-IPython" class="headerlink" title="第三章 IPython"></a>第三章 IPython</h1><p>虽然不用IPython但是看看有啥不知道的Skill也不错。</p>
+<h1 id="第三章-IPython"><a href="#第三章-IPython" class="headerlink" title="第三章 IPython"></a>第三章 IPython</h1><p>目前使用的IDE是Spyder，是集成了IPython的。值得一学。</p>
 <h2 id="内省"><a href="#内省" class="headerlink" title="内省"></a>内省</h2><ul>
 <li><p>变量前后加? 可查看该对象的通用信息</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a?</span><br><span class="line">Type:        int</span><br><span class="line">String form: <span class="number">10</span></span><br><span class="line">Docstring:  </span><br><span class="line">int(x=0) -&gt; integer</span><br><span class="line">int(x, base=10) -&gt; integer</span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果对象是一个函数或实例方法。其docstring会被显示</li>
 <li>?? 还将显示出该对象的源码</li>
@@ -445,9 +446,103 @@
 </li>
 <li><p>搜索IPython命名空间</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">np.*load*? #列出NumPy顶级命名空间中含有“load”的所有函数</span><br><span class="line">np.load</span><br><span class="line">np.loads</span><br><span class="line">np.loadtxt</span><br><span class="line">no.pkgload</span><br></pre></td></tr></table></figure>
-<h3 id="run"><a href="#run" class="headerlink" title="%run"></a>%run</h3></li>
+</li>
 </ul>
-
+<h3 id="run"><a href="#run" class="headerlink" title="%run"></a>%run</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%run filename.py <span class="comment">#运行这个文件</span></span><br></pre></td></tr></table></figure>
+<p>文件在一个空的命名空间中运行。此后该文件定义的全部变量就可以在IPython Shell中访问了。</p>
+<p><strong>Note</strong><br>访问 Interactive 命名空间的变量：<br><code>%run -i</code></p>
+<h3 id="中断执行的代码"><a href="#中断执行的代码" class="headerlink" title="中断执行的代码"></a>中断执行的代码</h3><p><code>Ctrl + C</code> </p>
+<h3 id="执行剪贴板中的代码"><a href="#执行剪贴板中的代码" class="headerlink" title="执行剪贴板中的代码"></a>执行剪贴板中的代码</h3><p><code>%paster</code><br>执行后，剪贴板中的<strong>一切</strong>文本，在shell中以<strong>整体</strong>的形式执行。<br><code>%cpaste</code><br>执行后，你想粘贴多少就粘贴多少。按下<code>Ctrl + C</code>终止<code>%cpaste</code></p>
+<h3 id="键盘快捷键"><a href="#键盘快捷键" class="headerlink" title="键盘快捷键"></a>键盘快捷键</h3><p>我是个没有快捷键会死星人。<br>记几个常用的吧：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Ctrl+</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">A</td>
+<td style="text-align:center">光标至行首</td>
+</tr>
+<tr>
+<td style="text-align:right">E</td>
+<td style="text-align:center">光标至行尾</td>
+</tr>
+<tr>
+<td style="text-align:right">K</td>
+<td style="text-align:center">从光标往后全删</td>
+</tr>
+<tr>
+<td style="text-align:right">U</td>
+<td style="text-align:center">从光标往前全删</td>
+</tr>
+<tr>
+<td style="text-align:right">L</td>
+<td style="text-align:center">清屏</td>
+</tr>
+</tbody>
+</table>
+<h3 id="魔术命令"><a href="#魔术命令" class="headerlink" title="魔术命令"></a>魔术命令</h3><p>魔术命令是以百分号为前缀的命令</p>
+<p>常用</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%quickref</td>
+<td>显示IPython快速参考</td>
+</tr>
+<tr>
+<td>%magic</td>
+<td>显示所有magic文档</td>
+</tr>
+<tr>
+<td>%debug</td>
+<td></td>
+</tr>
+<tr>
+<td>%hist</td>
+<td>历史</td>
+</tr>
+<tr>
+<td>%paste %cpaste</td>
+<td></td>
+</tr>
+<tr>
+<td>%reset</td>
+<td>删除interactive命名空间中的全部变量/名称</td>
+</tr>
+<tr>
+<td>%run script.py</td>
+<td>执行脚本文件script.py</td>
+</tr>
+<tr>
+<td>%time statement</td>
+<td>报告statement的执行时间</td>
+</tr>
+<tr>
+<td>%timeit statement</td>
+<td>多次执行statement返回平均执行时间</td>
+</tr>
+<tr>
+<td>%who %who_Is %whos</td>
+<td>显示interactive命名空间中定义的变量</td>
+</tr>
+</tbody>
+</table>
+<h2 id="命令历史"><a href="#命令历史" class="headerlink" title="命令历史"></a>命令历史</h2><p>上下键能一个个切换<br><code>Ctrl + P/N</code>能根据你输入向前/后匹配历史</p>
+<h3 id="输入输出变量"><a href="#输入输出变量" class="headerlink" title="输入输出变量"></a>输入输出变量</h3><p><code>_</code>和<code>__</code>分别是最后两个输出</p>
+<p>输入变量：<br>第27行的输入：<code>_i27</code></p>
+<p><code>%hist</code> 显示全部或部分输入输出历史，并可选是否带行号</p>
+<h2 id="与OS交互"><a href="#与OS交互" class="headerlink" title="与OS交互"></a>与OS交互</h2><p>自认为还用不到。调用os Shell ，目录书签。以后研读。</p>
+<h2 id="软件开发工具"><a href="#软件开发工具" class="headerlink" title="软件开发工具"></a>软件开发工具</h2><p>本章就这样了。快快开始学干货吧~</p>
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1>
       
     </div>
 
@@ -482,8 +577,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Python廖雪峰练习/" rel="next" title="Python廖雪峰练习">
-                <i class="fa fa-chevron-left"></i> Python廖雪峰练习
+              <a href="/iOS/UIViewHelper.swift/" rel="next" title="iOS 圆角通用配置">
+                <i class="fa fa-chevron-left"></i> iOS 圆角通用配置
               </a>
             
           </div>
@@ -679,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-准备工作"><span class="nav-number">1.</span> <span class="nav-text">第一章 准备工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-引言"><span class="nav-number">2.</span> <span class="nav-text">第二章 引言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#list-手动统计"><span class="nav-number">2.1.</span> <span class="nav-text">list 手动统计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-IPython"><span class="nav-number">3.</span> <span class="nav-text">第三章 IPython</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内省"><span class="nav-number">3.1.</span> <span class="nav-text">内省</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#run"><span class="nav-number">3.1.1.</span> <span class="nav-text">%run</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-准备工作"><span class="nav-number">1.</span> <span class="nav-text">第一章 准备工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-引言"><span class="nav-number">2.</span> <span class="nav-text">第二章 引言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#list-手动统计"><span class="nav-number">2.1.</span> <span class="nav-text">list 手动统计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-IPython"><span class="nav-number">3.</span> <span class="nav-text">第三章 IPython</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内省"><span class="nav-number">3.1.</span> <span class="nav-text">内省</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#run"><span class="nav-number">3.1.1.</span> <span class="nav-text">%run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断执行的代码"><span class="nav-number">3.1.2.</span> <span class="nav-text">中断执行的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行剪贴板中的代码"><span class="nav-number">3.1.3.</span> <span class="nav-text">执行剪贴板中的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘快捷键"><span class="nav-number">3.1.4.</span> <span class="nav-text">键盘快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术命令"><span class="nav-number">3.1.5.</span> <span class="nav-text">魔术命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令历史"><span class="nav-number">3.2.</span> <span class="nav-text">命令历史</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出变量"><span class="nav-number">3.2.1.</span> <span class="nav-text">输入输出变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与OS交互"><span class="nav-number">3.3.</span> <span class="nav-text">与OS交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件开发工具"><span class="nav-number">3.4.</span> <span class="nav-text">软件开发工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章"><span class="nav-number">4.</span> <span class="nav-text">第四章</span></a></li></ol></div>
             
 
           </div>

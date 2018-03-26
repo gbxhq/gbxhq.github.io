@@ -102,23 +102,23 @@
   <meta name="description" content="刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。 刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python文件处理实战">
-<meta property="og:url" content="https://ixsim.github.io/Python文件处理实战/index.html">
+<meta property="og:url" content="https://ixsim.github.io/Python/Python文件处理实战-1/index.html">
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。 刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ixsim.github.io/images/image-201803241116234.png">
-<meta property="og:updated_time" content="2018-03-24T04:39:27.145Z">
+<meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/image-201803241116234.png">
+<meta property="og:updated_time" content="2018-03-26T02:42:00.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python文件处理实战">
 <meta name="twitter:description" content="刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。 刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。">
-<meta name="twitter:image" content="https://ixsim.github.io/images/image-201803241116234.png">
+<meta name="twitter:image" content="http://p66eruxmw.bkt.clouddn.com/image-201803241116234.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/Python文件处理实战/"/>
+  <link rel="canonical" href="https://ixsim.github.io/Python/Python文件处理实战-1/"/>
 
 
 
@@ -326,7 +326,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Python文件处理实战/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Python/Python文件处理实战-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李炫杉">
@@ -373,8 +373,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Python文件处理实战/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count valine-comment-count" data-xid="/Python文件处理实战/" itemprop="commentCount"></span>
+                <a href="/Python/Python文件处理实战-1/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count valine-comment-count" data-xid="/Python/Python文件处理实战-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -382,7 +382,7 @@
 
           
           
-             <span id="/Python文件处理实战/" class="leancloud_visitors" data-flag-title="Python文件处理实战">
+             <span id="/Python/Python文件处理实战-1/" class="leancloud_visitors" data-flag-title="Python文件处理实战">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -436,8 +436,8 @@
 <p>Return a copy of string S with all occurrences of substring old replaced by new.  If the optional argument count is given, only the first count occurrences are replaced.</p>
 </blockquote>
 <p>替换之后原来是返回一个新的copy，正确的做法是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lines[<span class="number">0</span>] = lines[<span class="number">0</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'---\n title: '</span>)</span><br><span class="line">print(lines[<span class="number">0</span>])</span><br></pre></td></tr></table></figure></p>
-<h3 id="代码-amp-运行结果"><a href="#代码-amp-运行结果" class="headerlink" title="代码&amp;运行结果"></a>代码&amp;运行结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">f=open(<span class="string">'abc.md'</span>,<span class="string">'r+'</span>)</span><br><span class="line">lines = f.readlines()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'源：\n'</span>,lines[<span class="number">0</span>],lines[<span class="number">1</span>],lines[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">lines[<span class="number">0</span>] = lines[<span class="number">0</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'---\ntitle: '</span>) <span class="comment">#注意\n和title没有空格。</span></span><br><span class="line">lines[<span class="number">1</span>] = lines[<span class="number">1</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'date: '</span>)</span><br><span class="line">lines[<span class="number">2</span>] = <span class="string">'---\n'</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'目标：\n'</span>,lines[<span class="number">0</span>],lines[<span class="number">1</span>],lines[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'abc.md'</span>,<span class="string">'w'</span>)</span><br><span class="line">f.writelines(lines)</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-<p><img src="../images/image-201803241116234.png" alt="mage-20180324111623"></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">f=open(<span class="string">'abc.md'</span>,<span class="string">'r+'</span>)</span><br><span class="line">lines = f.readlines()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'源：\n'</span>,lines[<span class="number">0</span>],lines[<span class="number">1</span>],lines[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">lines[<span class="number">0</span>] = lines[<span class="number">0</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'---\ntitle: '</span>) <span class="comment">#注意\n和title没有空格。</span></span><br><span class="line">lines[<span class="number">1</span>] = lines[<span class="number">1</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'date: '</span>)</span><br><span class="line">lines[<span class="number">2</span>] = <span class="string">'---\n'</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'目标：\n'</span>,lines[<span class="number">0</span>],lines[<span class="number">1</span>],lines[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'abc.md'</span>,<span class="string">'w'</span>)</span><br><span class="line">f.writelines(lines)</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="http://p66eruxmw.bkt.clouddn.com/image-201803241116234.png" alt="image-201803241116234"></p>
 <h2 id="批量处理整个文件夹"><a href="#批量处理整个文件夹" class="headerlink" title="批量处理整个文件夹"></a>批量处理整个文件夹</h2><p>好啦。单个文件测试完毕。</p>
 <p>现在去查一下怎么批操作。</p>
 <p>哈哈。搞定：</p>
@@ -678,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题分析"><span class="nav-number">1.</span> <span class="nav-text">问题分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原文件头部"><span class="nav-number">1.1.</span> <span class="nav-text">原文件头部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标文件头部"><span class="nav-number">1.2.</span> <span class="nav-text">目标文件头部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理思路"><span class="nav-number">1.3.</span> <span class="nav-text">处理思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#了解Python文件处理命令"><span class="nav-number">2.1.</span> <span class="nav-text">了解Python文件处理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单文件处理代码"><span class="nav-number">2.2.</span> <span class="nav-text">单文件处理代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的替换函数replace有一个坑"><span class="nav-number">2.2.1.</span> <span class="nav-text">字符串的替换函数replace有一个坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-amp-运行结果"><span class="nav-number">2.2.2.</span> <span class="nav-text">代码&amp;运行结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量处理整个文件夹"><span class="nav-number">2.3.</span> <span class="nav-text">批量处理整个文件夹</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘utf-8’-codec-can’t-decode-byte-0x-in-position-问题"><span class="nav-number">3.</span> <span class="nav-text">‘utf-8’ codec can’t decode byte 0x  in position  问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题分析"><span class="nav-number">1.</span> <span class="nav-text">问题分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原文件头部"><span class="nav-number">1.1.</span> <span class="nav-text">原文件头部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标文件头部"><span class="nav-number">1.2.</span> <span class="nav-text">目标文件头部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理思路"><span class="nav-number">1.3.</span> <span class="nav-text">处理思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#了解Python文件处理命令"><span class="nav-number">2.1.</span> <span class="nav-text">了解Python文件处理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单文件处理代码"><span class="nav-number">2.2.</span> <span class="nav-text">单文件处理代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的替换函数replace有一个坑"><span class="nav-number">2.2.1.</span> <span class="nav-text">字符串的替换函数replace有一个坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">2.2.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行结果"><span class="nav-number">2.2.3.</span> <span class="nav-text">运行结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量处理整个文件夹"><span class="nav-number">2.3.</span> <span class="nav-text">批量处理整个文件夹</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘utf-8’-codec-can’t-decode-byte-0x-in-position-问题"><span class="nav-number">3.</span> <span class="nav-text">‘utf-8’ codec can’t decode byte 0x  in position  问题</span></a></li></ol></div>
             
 
           </div>
