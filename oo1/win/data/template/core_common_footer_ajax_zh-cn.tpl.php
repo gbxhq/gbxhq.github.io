@@ -1,0 +1,2 @@
+<? if(!defined('IN_DZZ')) exit('Access Denied'); /*a:1:{s:90:"/home/oowin/domains/oo1.win/public_html/win/./core/template/default/common/footer_ajax.htm";i:1403883548;}*/?>
+<?php echo output_ajax(); ?>]]></root><?php exit;?>

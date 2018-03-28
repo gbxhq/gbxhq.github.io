@@ -1,0 +1,1 @@
+if(!__lang){var __lang={};}__lang.open="\u6253\u5f00";__lang.delete="\u5220\u9664";__lang.rechristen="\u91cd\u547d\u540d";__lang.apptodesktop="\u6dfb\u52a0\u5230\u684c\u9762";
