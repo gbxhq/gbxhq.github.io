@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话设计模式》，有时间要再读一读了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-26T06:36:31.418Z">
+<meta property="og:updated_time" content="2018-03-31T07:27:25.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift语法笔记">
 <meta name="twitter:description" content="语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话设计模式》，有时间要再读一读了。">
@@ -448,7 +448,7 @@
 <li><p>Tuple 元组：定义变量的一个组合</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 向量 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)  <span class="comment">//向量.0即第一个元素</span></span><br><span class="line"><span class="keyword">var</span> (x,y,z) = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">//用 x,y,z即访问</span></span><br><span class="line"><span class="keyword">var</span> 课程名 = (day:<span class="number">3</span>, unit:<span class="string">"天"</span>, lang:<span class="string">"Swfit"</span>, ver:<span class="string">"4.0"</span>)<span class="comment">//课程.lang</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Optional 选填类型<br><code>var 变量:类型?</code>  默认值是 nil    类型后紧跟?不可省略</p>
+<li><p><strong>Optional 选填类型</strong><br><code>var 变量:类型?</code>  默认值是 nil    类型后紧跟?不可省略</p>
 <p><code>var addr : String?</code></p>
 </li>
 <li><p>鼠标放在变量上，点虚线可以批量对变量改名</p>
@@ -461,7 +461,7 @@
 <li><code>remove(at:8)</code>删除</li>
 </ul>
 </li>
-<li><p>Set类型 【集合】 不重复。无序。</p>
+<li><p><strong>Set类型</strong> 【集合】 不重复。无序。</p>
 <ul>
 <li><p>aΠb <code>a.intersectrs(b)</code></p>
 </li>
@@ -470,7 +470,7 @@
 </li>
 </ul>
 </li>
-<li><p>函数类型 <code>(Int,Int) -&gt; Int</code></p>
+<li><p><strong>函数类型</strong> <code>(Int,Int) -&gt; Int</code></p>
 <ul>
 <li><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">calculate</span><span class="params">(x:Int, y:Int, method:<span class="params">(Int,Int)</span></span></span>-&gt;<span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> method(x,y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -590,7 +590,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
