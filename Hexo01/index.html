@@ -102,15 +102,16 @@
   <meta name="description" content="昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。 本托管在coding上，不过云里雾里，弄得还是不满意。 今天决定换成Hexo。再托管在Git上。一节课的功夫，很顺利的就完成了。写个文章记录下。">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo首记">
+<meta property="og:title" content="Hexo建站问题总结">
 <meta property="og:url" content="https://ixsim.github.io/Hexo01/index.html">
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。 本托管在coding上，不过云里雾里，弄得还是不满意。 今天决定换成Hexo。再托管在Git上。一节课的功夫，很顺利的就完成了。写个文章记录下。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/image-201803221954468.png">
-<meta property="og:updated_time" content="2018-03-26T02:40:33.335Z">
+<meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15220318479586.jpg">
+<meta property="og:updated_time" content="2018-04-01T02:26:59.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo首记">
+<meta name="twitter:title" content="Hexo建站问题总结">
 <meta name="twitter:description" content="昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。 本托管在coding上，不过云里雾里，弄得还是不满意。 今天决定换成Hexo。再托管在Git上。一节课的功夫，很顺利的就完成了。写个文章记录下。">
 <meta name="twitter:image" content="http://p66eruxmw.bkt.clouddn.com/image-201803221954468.png">
 
@@ -129,7 +130,7 @@
   };
 </script>
 
-  <title>Hexo首记 | 炫杉</title>
+  <title>Hexo建站问题总结 | 炫杉</title>
   
 
 
@@ -344,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo首记</h1>
+          <h1 class="post-title" itemprop="name headline">Hexo建站问题总结</h1>
         
 
         <div class="post-meta">
@@ -401,7 +402,7 @@
 
           
           
-             <span id="/Hexo01/" class="leancloud_visitors" data-flag-title="Hexo首记">
+             <span id="/Hexo01/" class="leancloud_visitors" data-flag-title="Hexo建站问题总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -457,11 +458,9 @@
 
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 </span><br><span class="line">src="//music.163.com/outchain/player?type=2&amp;id=544918737&amp;auto=1&amp;height=66"&gt;</span><br><span class="line">&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
 <p>看来Hexo是支持<code>iframe</code>的</p>
-<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>手上有个空闲的<code>.win</code>域名。就先凑合用着吧。<code>.io</code> 博客成型了就买一个。</p>
+<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>手上有个空闲的<code>.win</code>域名。就先凑合用着吧。<code>.io</code> 等博客成型了就买一个。</p>
 <p>试了下把代码部署到 coding.net 上 ,<a href="https://ixsim.coding.me" target="_blank" rel="noopener">访问地址</a>，ping 的平均延迟都能低于50ms </p>
 <p>然而部署都 github.io ，ping 最快也得100 ms【香港节点 2ms，然并卵】</p>
-<p>However，coding上绑定自定义域名是要钱的。。。</p>
-<p>我还是先凑合着用 github.io 吧。</p>
 <p>自定义域名方法：</p>
 <blockquote>
 <p>1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如<a href="https://link.zhihu.com/?target=http%3A//xxxx.com" target="_blank" rel="noopener">http://xxxx.com</a>，<strong>注意前面没有http://，也没有www</strong>，然后使用<code>hexo g &amp;&amp; hexo d</code>上传部署。</p>
@@ -470,6 +469,14 @@
 <p>来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 </blockquote>
 <p>访问下试试 <a href="https://o--o.win" target="_blank" rel="noopener">https://o--o.win</a></p>
+<h3 id="同时部署到github和coding"><a href="#同时部署到github和coding" class="headerlink" title="同时部署到github和coding"></a>同时部署到github和coding</h3><p>根据Hexo的官方文档，只需要这么设置：</p>
+<blockquote>
+<p>deploy:<br>    type: git<br>    message: [message]<br>    repo:<br>        github: <repository url="">,[branch]<br>        gitcafe: <repository url="">,[branch] </repository></repository></p>
+</blockquote>
+<p>Example:</p>
+<p><img src="http://p66eruxmw.bkt.clouddn.com/15220318479586.jpg" alt=""></p>
+<p>Note: <code>&lt;repository url&gt;,[branch]</code>   中 <code>,</code>后不要跟空格直接根branch名。</p>
+<p>最终还是把域名绑在了Coding。速度快多了。</p>
 
       
     </div>
@@ -592,7 +599,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -706,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建"><span class="nav-number">1.</span> <span class="nav-text">搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo安装"><span class="nav-number">1.1.</span> <span class="nav-text">Hexo安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题"><span class="nav-number">1.2.</span> <span class="nav-text">主题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problems"><span class="nav-number">2.</span> <span class="nav-text">Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类创建"><span class="nav-number">2.1.</span> <span class="nav-text">分类创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置多Tag"><span class="nav-number">2.2.</span> <span class="nav-text">设置多Tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md文件命名"><span class="nav-number">2.3.</span> <span class="nav-text">md文件命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插图问题"><span class="nav-number">2.4.</span> <span class="nav-text">插图问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入媒体"><span class="nav-number">2.5.</span> <span class="nav-text">插入媒体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义域名"><span class="nav-number">2.6.</span> <span class="nav-text">自定义域名</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建"><span class="nav-number">1.</span> <span class="nav-text">搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo安装"><span class="nav-number">1.1.</span> <span class="nav-text">Hexo安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题"><span class="nav-number">1.2.</span> <span class="nav-text">主题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problems"><span class="nav-number">2.</span> <span class="nav-text">Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类创建"><span class="nav-number">2.1.</span> <span class="nav-text">分类创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置多Tag"><span class="nav-number">2.2.</span> <span class="nav-text">设置多Tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md文件命名"><span class="nav-number">2.3.</span> <span class="nav-text">md文件命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插图问题"><span class="nav-number">2.4.</span> <span class="nav-text">插图问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入媒体"><span class="nav-number">2.5.</span> <span class="nav-text">插入媒体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义域名"><span class="nav-number">2.6.</span> <span class="nav-text">自定义域名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同时部署到github和coding"><span class="nav-number">2.6.1.</span> <span class="nav-text">同时部署到github和coding</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
