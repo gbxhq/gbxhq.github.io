@@ -100,19 +100,21 @@
 
 
   <meta name="description" content="今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~">
-<meta name="keywords" content="Scrapy">
+<meta name="keywords" content="Scrapy,Demo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="爬虫入门笔记">
+<meta property="og:title" content="爬虫入门笔记+实战爬福利吧图片">
 <meta property="og:url" content="https://ixsim.github.io/爬虫入门笔记/index.html">
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15229998430539.jpg">
+<meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15229999645914.jpg">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15226337908654.jpg">
-<meta property="og:updated_time" content="2018-04-06T06:35:44.787Z">
+<meta property="og:updated_time" content="2018-04-06T07:32:56.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爬虫入门笔记">
+<meta name="twitter:title" content="爬虫入门笔记+实战爬福利吧图片">
 <meta name="twitter:description" content="今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~">
-<meta name="twitter:image" content="http://p66eruxmw.bkt.clouddn.com/15226337908654.jpg">
+<meta name="twitter:image" content="http://p66eruxmw.bkt.clouddn.com/15229998430539.jpg">
 
 
 
@@ -129,7 +131,7 @@
   };
 </script>
 
-  <title>爬虫入门笔记 | 炫杉</title>
+  <title>爬虫入门笔记+实战爬福利吧图片 | 炫杉</title>
   
 
 
@@ -344,7 +346,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">爬虫入门笔记</h1>
+          <h1 class="post-title" itemprop="name headline">爬虫入门笔记+实战爬福利吧图片</h1>
         
 
         <div class="post-meta">
@@ -401,7 +403,7 @@
 
           
           
-             <span id="/爬虫入门笔记/" class="leancloud_visitors" data-flag-title="爬虫入门笔记">
+             <span id="/爬虫入门笔记/" class="leancloud_visitors" data-flag-title="爬虫入门笔记+实战爬福利吧图片">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -458,6 +460,9 @@
 <h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r = requests.get(IMAGE_URL)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./img/image2.png'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(r.content)</span><br></pre></td></tr></table></figure>
 <p> requests 能让你下一点, 保存一点, 而不是要全部下载完才能保存去另外的地方. 这就是一个 chunk 一个 chunk 的下载. 使用 r.iter_content(chunk_size) 来控制每个 chunk 的大小, 然后在文件中写入这个 chunk 大小的数据.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">r = requests.get(IMAGE_URL, stream=True)    # stream loading</span><br><span class="line"></span><br><span class="line">with open(&apos;./img/image3.png&apos;, &apos;wb&apos;) as f:</span><br><span class="line">    for chunk in r.iter_content(chunk_size=32):</span><br><span class="line">        f.write(chunk)</span><br></pre></td></tr></table></figure>
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p>这样基本可以入门了。<br>就来爬一下我每天都要上的福利网址福利吧吧。福利吧每天有个文章叫汇总。里面充满了MM。就拿这些MM练手了~<br>Demo1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">base_URL = &quot;http://fuliba.net/20180&quot;</span><br><span class="line">for i in range(1,10):</span><br><span class="line">    URL = base_URL+str(i)+&quot;.html&quot;</span><br><span class="line">    </span><br><span class="line">    print(&quot;第 %s 期&quot; % i)</span><br><span class="line">    html = requests.get(URL).text</span><br><span class="line">    </span><br><span class="line">    soup = BeautifulSoup(html,features=&quot;lxml&quot;)</span><br><span class="line">    </span><br><span class="line">    imgs = soup.find_all(&apos;img&apos;,&#123;&quot;class&quot;:&quot;alignnone size-large&quot;&#125;)</span><br><span class="line">    </span><br><span class="line">    for img in imgs:</span><br><span class="line">        url = img[&apos;src&apos;]</span><br><span class="line">        r = requests.get(url,stream=True)</span><br><span class="line">        #图片地址用 / 分割，再选最后一块作文件名</span><br><span class="line">        image_name = url.split(&apos;/&apos;)[-1]</span><br><span class="line">        with open(&apos;/Users/lixs/Pictures/%s&apos; % image_name, &apos;wb&apos;) as f:</span><br><span class="line">            for chunk in r.iter_content(chunk_size=128):</span><br><span class="line">                f.write(chunk)</span><br><span class="line">        print(&apos;Saved %s&apos; % image_name)</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="http://p66eruxmw.bkt.clouddn.com/15229998430539.jpg" alt=""><br>战果：<br><img src="http://p66eruxmw.bkt.clouddn.com/15229999645914.jpg" alt=""></p>
 <h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><h2 id="TypeError-expected-string-or-bytes-like-object"><a href="#TypeError-expected-string-or-bytes-like-object" class="headerlink" title="TypeError: expected string or bytes-like object"></a>TypeError: expected string or bytes-like object</h2><p>对着网上教程，开门就遇到这个报错。<br>搜了下，原来是<br><code>re.findall(r&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;, html)</code><br>这种写法是Python2的。<br>在Python3中只需要改写成<br><code>res = re.findall(r&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;, str(html))</code></p>
 <h2 id="百度为什么要用Get而不用Post呢？"><a href="#百度为什么要用Get而不用Post呢？" class="headerlink" title="百度为什么要用Get而不用Post呢？"></a>百度为什么要用Get而不用Post呢？</h2><p>于是搜到这篇文章<br><a href="https://blog.csdn.net/yansong_8686/article/details/48638957" target="_blank" rel="noopener">为什么有了post那么多优点，还有还多网站用get，比如百度搜索</a></p>
 <h2 id="网址是中文的情况如何爬取"><a href="#网址是中文的情况如何爬取" class="headerlink" title="网址是中文的情况如何爬取"></a>网址是中文的情况如何爬取</h2><p>很明显虽然 <code>decode(&#39;utf-8&#39;)</code>可以解决<strong>网页</strong>内容是中文的问题，<br>可当<strong>网址</strong>是中文的时候，还是会报错<br><code>UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 10-12: ordinal not in range(128)</code></p>
@@ -486,7 +491,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Scrapy/" rel="tag"># Scrapy</a>
+            <a href="/tags/Scrapy-Demo/" rel="tag"># Scrapy,Demo</a>
           
         </div>
       
@@ -714,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Notes"><span class="nav-number">1.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.1.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#urllib"><span class="nav-number">1.2.</span> <span class="nav-text">urllib</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读网页"><span class="nav-number">1.2.1.</span> <span class="nav-text">读网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.2.2.</span> <span class="nav-text">下载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeautifulSoup"><span class="nav-number">1.3.</span> <span class="nav-text">BeautifulSoup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Requests"><span class="nav-number">1.4.</span> <span class="nav-text">Requests</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Get"><span class="nav-number">1.4.1.</span> <span class="nav-text">Get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post"><span class="nav-number">1.4.2.</span> <span class="nav-text">Post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-1"><span class="nav-number">1.4.3.</span> <span class="nav-text">下载</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problems"><span class="nav-number">2.</span> <span class="nav-text">Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeError-expected-string-or-bytes-like-object"><span class="nav-number">2.1.</span> <span class="nav-text">TypeError: expected string or bytes-like object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百度为什么要用Get而不用Post呢？"><span class="nav-number">2.2.</span> <span class="nav-text">百度为什么要用Get而不用Post呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网址是中文的情况如何爬取"><span class="nav-number">2.3.</span> <span class="nav-text">网址是中文的情况如何爬取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式小抄"><span class="nav-number">3.</span> <span class="nav-text">正则表达式小抄</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Notes"><span class="nav-number">1.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.1.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#urllib"><span class="nav-number">1.2.</span> <span class="nav-text">urllib</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读网页"><span class="nav-number">1.2.1.</span> <span class="nav-text">读网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.2.2.</span> <span class="nav-text">下载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeautifulSoup"><span class="nav-number">1.3.</span> <span class="nav-text">BeautifulSoup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Requests"><span class="nav-number">1.4.</span> <span class="nav-text">Requests</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Get"><span class="nav-number">1.4.1.</span> <span class="nav-text">Get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post"><span class="nav-number">1.4.2.</span> <span class="nav-text">Post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-1"><span class="nav-number">1.4.3.</span> <span class="nav-text">下载</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problems"><span class="nav-number">3.</span> <span class="nav-text">Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeError-expected-string-or-bytes-like-object"><span class="nav-number">3.1.</span> <span class="nav-text">TypeError: expected string or bytes-like object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百度为什么要用Get而不用Post呢？"><span class="nav-number">3.2.</span> <span class="nav-text">百度为什么要用Get而不用Post呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网址是中文的情况如何爬取"><span class="nav-number">3.3.</span> <span class="nav-text">网址是中文的情况如何爬取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式小抄"><span class="nav-number">4.</span> <span class="nav-text">正则表达式小抄</span></a></li></ol></div>
             
 
           </div>
