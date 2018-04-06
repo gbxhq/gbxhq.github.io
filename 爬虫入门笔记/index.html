@@ -108,7 +108,7 @@
 <meta property="og:description" content="今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15226337908654.jpg">
-<meta property="og:updated_time" content="2018-04-06T06:22:57.453Z">
+<meta property="og:updated_time" content="2018-04-06T06:35:44.787Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫入门笔记">
 <meta name="twitter:description" content="今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~">
@@ -460,13 +460,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">r = requests.get(IMAGE_URL, stream=True)    # stream loading</span><br><span class="line"></span><br><span class="line">with open(&apos;./img/image3.png&apos;, &apos;wb&apos;) as f:</span><br><span class="line">    for chunk in r.iter_content(chunk_size=32):</span><br><span class="line">        f.write(chunk)</span><br></pre></td></tr></table></figure>
 <h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><h2 id="TypeError-expected-string-or-bytes-like-object"><a href="#TypeError-expected-string-or-bytes-like-object" class="headerlink" title="TypeError: expected string or bytes-like object"></a>TypeError: expected string or bytes-like object</h2><p>对着网上教程，开门就遇到这个报错。<br>搜了下，原来是<br><code>re.findall(r&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;, html)</code><br>这种写法是Python2的。<br>在Python3中只需要改写成<br><code>res = re.findall(r&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;, str(html))</code></p>
 <h2 id="百度为什么要用Get而不用Post呢？"><a href="#百度为什么要用Get而不用Post呢？" class="headerlink" title="百度为什么要用Get而不用Post呢？"></a>百度为什么要用Get而不用Post呢？</h2><p>于是搜到这篇文章<br><a href="https://blog.csdn.net/yansong_8686/article/details/48638957" target="_blank" rel="noopener">为什么有了post那么多优点，还有还多网站用get，比如百度搜索</a></p>
-<p>我已经转载到本博：</p>
 <h2 id="网址是中文的情况如何爬取"><a href="#网址是中文的情况如何爬取" class="headerlink" title="网址是中文的情况如何爬取"></a>网址是中文的情况如何爬取</h2><p>很明显虽然 <code>decode(&#39;utf-8&#39;)</code>可以解决<strong>网页</strong>内容是中文的问题，<br>可当<strong>网址</strong>是中文的时候，还是会报错<br><code>UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 10-12: ordinal not in range(128)</code></p>
 <blockquote>
 <p>当我在博客里写下上面这行字的时候，<br>我就突发奇想要再url字符串后decode()一下，<br>哈哈，去试试。<br>哈哈,不行。</p>
 </blockquote>
-<p>于是乎搜到这两篇文章：<br><a href="http://www.ruanyifeng.com/blog/2010/02/url_encoding.html" target="_blank" rel="noopener">关于URL编码</a><br><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">字符编码笔记：ASCII，Unicode 和 UTF-8</a><br>最终解决方案：</p>
-<p><a href="http://tool.chinaz.com/Tools/Unicode.aspx" target="_blank" rel="noopener">在线Unicode编码转换</a></p>
+<p>于是乎搜到这两篇文章：<br><a href="http://www.ruanyifeng.com/blog/2010/02/url_encoding.html" target="_blank" rel="noopener">关于URL编码</a><br><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">字符编码笔记：ASCII，Unicode 和 UTF-8</a><br><strong>最终解决方案：</strong><br><a href="http://tool.chinaz.com/Tools/Unicode.aspx" target="_blank" rel="noopener">在线Unicode编码转换</a></p>
 <h1 id="正则表达式小抄"><a href="#正则表达式小抄" class="headerlink" title="正则表达式小抄"></a>正则表达式小抄</h1><p><img src="http://p66eruxmw.bkt.clouddn.com/15226337908654.jpg" alt="正则表达式小抄"></p>
 
       

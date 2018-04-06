@@ -101,7 +101,7 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="炫杉">
-<meta property="og:url" content="https://ixsim.github.io/tags/note/index.html">
+<meta property="og:url" content="https://ixsim.github.io/tags/Note/index.html">
 <meta property="og:site_name" content="炫杉">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -112,7 +112,7 @@
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/tags/note/"/>
+  <link rel="canonical" href="https://ixsim.github.io/tags/Note/"/>
 
 
 
@@ -122,7 +122,7 @@
   };
 </script>
 
-  <title>标签: note | 炫杉</title>
+  <title>标签: Note | 炫杉</title>
   
 
 
@@ -311,7 +311,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>note<small>标签</small>
+        <h1>Note<small>标签</small>
         </h1>
       </div>
 
@@ -323,9 +323,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/Python/《Python数据分析》学习记录/" itemprop="url">
+            <a class="post-title-link" href="/iOS/<小波说雨燕>/" itemprop="url">
               
-                <span itemprop="name">《Python数据分析》学习记录</span>
+                <span itemprop="name">《小波说雨燕》学习笔记</span>
               
             </a>
         
@@ -333,9 +333,121 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-21T20:48:40+08:00"
-              content="2018-03-21" >
-          03-21
+              datetime="2018-01-01T00:00:00+08:00"
+              content="2018-01-01" >
+          01-01
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/iOS/<懒猫>记录/" itemprop="url">
+              
+                <span itemprop="name">iOS《笨猫快乐学编程》学习笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-01T00:00:00+08:00"
+              content="2018-01-01" >
+          01-01
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/iOS/UIViewHelper.swift/" itemprop="url">
+              
+                <span itemprop="name">iOS 圆角通用配置</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-01T00:00:00+08:00"
+              content="2018-01-01" >
+          01-01
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/iOS/算法笔记/" itemprop="url">
+              
+                <span itemprop="name">iOS算法笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-01T00:00:00+08:00"
+              content="2018-01-01" >
+          01-01
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/iOS/语法问题/" itemprop="url">
+              
+                <span itemprop="name">Swift语法笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-01T00:00:00+08:00"
+              content="2018-01-01" >
+          01-01
         </time>
       </div>
 
@@ -761,105 +873,6 @@
               success: function(counter) {
                 
                   var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
-                
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            
-              var newcounter = new Counter();
-              /* Set ACL */
-              var acl = new AV.ACL();
-              acl.setPublicReadAccess(true);
-              acl.setPublicWriteAccess(true);
-              newcounter.setACL(acl);
-              /* End Set ACL */
-              newcounter.set("title", title);
-              newcounter.set("url", url);
-              newcounter.set("time", 1);
-              newcounter.save(null, {
-                success: function(newcounter) {
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-                },
-                error: function(newcounter, error) {
-                  console.log('Failed to create');
-                }
-              });
-            
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-<script type="text/javascript">
-/* 鼠标特效 */
-var a_idx = 0;
-jQuery(document).ready(function($) {
-    $("body").click(function(e) {
-        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
-        var $i = $("<span/>").text(a[a_idx]);
-        a_idx = (a_idx + 1) % a.length;
-        var x = e.pageX,
-        y = e.pageY;
-        $i.css({
-            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": "#ff6651"
-        });
-        $("body").append($i);
-        $i.animate({
-            "top": y - 180,
-            "opacity": 0
-        },
-        1500,
-        function() {
-            $i.remove();
-        });
-    });
-});
-</script>
-</body>
-</html>
-                 var $element = $(document.getElementById(url));
                   $element.find('.leancloud-visitors-count').text(counter.get('time'));
                 
               },
