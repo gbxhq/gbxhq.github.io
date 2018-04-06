@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="R语言常用命令记录">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-06T07:47:55.013Z">
+<meta property="og:updated_time" content="2018-04-06T07:58:32.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R常用命令">
 <meta name="twitter:description" content="R语言常用命令记录">
@@ -436,385 +436,579 @@
 <li><code>?&#39;mean&#39;</code>可以看介绍</li>
 <li><code>apropos(&quot;mea&quot;)</code>搜包含mea字符的方法</li>
 </ul>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="#运算符"></a>#运算符</h2><p>数学运算：<br>+，-，*，/，^，%%。(加，减，乘，除，乘方，求余。)</p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>数学运算：<br>+，-，*，/，^，%%。(加，减，乘，除，乘方，求余。)</p>
 <p>比较运算：</p>
 <blockquote>
 <p>，&lt;，&gt;=，&lt;=，==，!=。(大于，小于，大于等于，小于等于，等于，不等于。)</p>
 </blockquote>
 <p>逻辑运算：<br>&amp;，|，!。(与，或，非。)</p>
-<h2 id="初始基本操作"><a href="#初始基本操作" class="headerlink" title="###初始基本操作"></a>###初始基本操作</h2><blockquote>
+<ul>
+<li>初始基本操作</li>
+</ul>
+<hr>
+<blockquote>
 <p>getwd()</p>
+<ul>
+<li>获取工作目录。</li>
+</ul>
 </blockquote>
-<p>###获取工作目录。</p>
 <blockquote>
 <p>setwd(“F:/R/myfun”)</p>
+<ul>
+<li>设定工作目录为F:/R/myfun。</li>
+</ul>
 </blockquote>
-<p>###设定工作目录为F:/R/myfun。</p>
 <blockquote>
 <p>help(com)<br>?com</p>
+<ul>
+<li>获得对命令com的说明。</li>
+</ul>
 </blockquote>
-<p>###获得对命令com的说明。</p>
 <blockquote>
 <p>example(com)</p>
+<ul>
+<li>命令com的使用实例。</li>
+</ul>
 </blockquote>
-<p>###命令com的使用实例。</p>
 <blockquote>
 <p>args(com)</p>
+<ul>
+<li>查看命令com的变量格式。</li>
+</ul>
 </blockquote>
-<p>###查看命令com的变量格式。</p>
 <blockquote>
 <p>library()</p>
+<ul>
+<li>列出已安装的包。</li>
+</ul>
 </blockquote>
-<p>###列出已安装的包。</p>
 <blockquote>
-<p>library(AER)  ###或用<br>require(AER)</p>
+<p>library(AER)  -  或用<br>require(AER)</p>
+<ul>
+<li>载入包AER。</li>
+</ul>
 </blockquote>
-<p>###载入包AER。</p>
 <blockquote>
 <p>library(help = AER)</p>
+<ul>
+<li>获取包AER的信息。</li>
+</ul>
 </blockquote>
-<p>###获取包AER的信息。</p>
 <blockquote>
 <p>detach(package:AER)</p>
+<ul>
+<li>去除载入的包AER。</li>
+</ul>
 </blockquote>
-<p>###去除载入的包AER。</p>
 <blockquote>
 <p>search()</p>
+<ul>
+<li>列出已载入的包。</li>
+</ul>
 </blockquote>
-<p>###列出已载入的包。</p>
 <blockquote>
 <p>data()</p>
+<ul>
+<li>列出已载入的包中的所有数据集。</li>
+</ul>
 </blockquote>
-<p>###列出已载入的包中的所有数据集。</p>
 <blockquote>
 <p>data(package = .packages(all.available = TRUE))</p>
+<ul>
+<li>列出已安装的包中的所有数据集。</li>
+</ul>
 </blockquote>
-<p>###列出已安装的包中的所有数据集。</p>
 <blockquote>
 <p>try(data(package = “AER”) )</p>
+<ul>
+<li>列出包AER里的所有数据集。</li>
+</ul>
 </blockquote>
-<p>###列出包AER里的所有数据集。</p>
 <blockquote>
 <p>data(Affairs, “BankWages”)</p>
+<ul>
+<li>读入数据集Affairs和BankWages(这些数据集需已在data()中列出)。</li>
+</ul>
 </blockquote>
-<p>###读入数据集Affairs和BankWages(这些数据集需已在data()中列出)。</p>
 <blockquote>
 <p>help(Affairs)</p>
+<ul>
+<li>获取数据集Affairs的信息。</li>
+</ul>
 </blockquote>
-<p>###获取数据集Affairs的信息。</p>
 <blockquote>
 <p>attach(Affairs)</p>
+<ul>
+<li>贴上数据集Affairs，其作用是可以直接对数据集里的变量进行操作。</li>
+</ul>
 </blockquote>
-<p>###贴上数据集Affairs，其作用是可以直接对数据集里的变量进行操作。</p>
 <blockquote>
 <p>detach(Affairs)</p>
+<ul>
+<li>上述操作的逆操作。</li>
+</ul>
 </blockquote>
-<p>###上述操作的逆操作。</p>
-<h2 id="对一般对象的基本操作"><a href="#对一般对象的基本操作" class="headerlink" title="#对一般对象的基本操作"></a>#对一般对象的基本操作</h2><blockquote>
+<hr>
+<h1 id="对一般对象的基本操作"><a href="#对一般对象的基本操作" class="headerlink" title="对一般对象的基本操作"></a>对一般对象的基本操作</h1><blockquote>
 <p>objects()<br>ls()</p>
+<ul>
+<li>列出所有对象。</li>
+</ul>
 </blockquote>
-<p>###列出所有对象。</p>
 <blockquote>
 <p>mode(x)</p>
+<ul>
+<li>查看对象x的模式：空，数值，字符，逻辑，复数，列表，函数(NULL，numeric，character，logical，complex，list，function)。</li>
+</ul>
 </blockquote>
-<p>###查看对象x的模式：空，数值，字符，逻辑，复数，列表，函数(NULL，numeric，character，logical，complex，list，function)。</p>
 <blockquote>
 <p>class(x)</p>
+<ul>
+<li>查看对象x的类型：除了mode里列出的几种类型外，还有整数，矩阵，因子，阵列，数据框，时间序列(integer，matrix，factor，array，data frame，ts)等其他类型。mode主要用于区别数据存放的方式，而class是一种更细微的分类方式，比如矩阵，就是一种更“有序”的数据存放方式。此命令比mode常用。</li>
+</ul>
 </blockquote>
-<p>###查看对象x的类型：除了mode里列出的几种类型外，还有整数，矩阵，因子，阵列，数据框，时间序列(integer，matrix，factor，array，data frame，ts)等其他类型。mode主要用于区别数据存放的方式，而class是一种更细微的分类方式，比如矩阵，就是一种更“有序”的数据存放方式。此命令比mode常用。</p>
 <blockquote>
 <p>as.matrix(x)</p>
+<ul>
+<li>把对象x转为矩阵型。</li>
+</ul>
 </blockquote>
-<p>###把对象x转为矩阵型。</p>
 <blockquote>
 <p>as.numeric(x)</p>
+<ul>
+<li>把对象x转为数值型。</li>
+</ul>
 </blockquote>
-<p>###把对象x转为数值型。</p>
 <blockquote>
 <p>str(x)</p>
+<ul>
+<li>查看对象x的结构。str是structure的缩写。</li>
+</ul>
 </blockquote>
-<p>###查看对象x的结构。str是structure的缩写。</p>
 <blockquote>
 <p>rm(x)</p>
+<ul>
+<li>移除对象x。</li>
+</ul>
 </blockquote>
-<p>###移除对象x。</p>
 <blockquote>
 <p>rm(list=ls(all=TRUE))</p>
+<ul>
+<li>移除所有对象。</li>
+</ul>
 </blockquote>
-<p>###移除所有对象。</p>
-<p>######################################################################################################</p>
-<h2 id="与向量有关的基本操作"><a href="#与向量有关的基本操作" class="headerlink" title="###与向量有关的基本操作"></a>###与向量有关的基本操作</h2><blockquote>
+<hr>
+<h1 id="与向量有关的基本操作"><a href="#与向量有关的基本操作" class="headerlink" title="与向量有关的基本操作"></a>与向量有关的基本操作</h1><blockquote>
 <p>x = c(1,2,4)</p>
+<ul>
+<li>生成元素依次为1,2,4的向量x，这里的c是concatenate的意思。注意其类型是数值，不是矩阵。</li>
+</ul>
 </blockquote>
-<p>###生成元素依次为1,2,4的向量x，这里的c是concatenate的意思。注意其类型是数值，不是矩阵。</p>
 <blockquote>
 <p>x = c(“a”,”b”,”cd”)</p>
+<ul>
+<li>生成元素依次为”a”,”b”,”cd”的字符向量x。</li>
+</ul>
 </blockquote>
-<p>###生成元素依次为”a”,”b”,”cd”的字符向量x。</p>
 <blockquote>
 <p>x = paste(“a”,”b”,”cd”)</p>
+<ul>
+<li>生成”a b cd”的字符x。</li>
+</ul>
 </blockquote>
-<p>###生成”a b cd”的字符x。</p>
 <blockquote>
 <p>x[a:b]</p>
+<ul>
+<li>向量x的第a到b个元素。</li>
+</ul>
 </blockquote>
-<p>###向量x的第a到b个元素。</p>
 <blockquote>
 <p>x[-i]</p>
+<ul>
+<li>剔除向量x第i个元素所得的向量。</li>
+</ul>
 </blockquote>
-<p>###剔除向量x第i个元素所得的向量。</p>
 <blockquote>
 <p>length(x)</p>
+<ul>
+<li>向量x的长度。</li>
+</ul>
 </blockquote>
-<p>###向量x的长度。</p>
 <blockquote>
 <p>x = seq(a, b, length = n)</p>
+<ul>
+<li>生成以一个n维数值型向量x，第一个元素为a，最后一个元素为b，中间元素依次等距递增。(假设a&lt;b)</li>
+</ul>
 </blockquote>
-<p>###生成以一个n维数值型向量x，第一个元素为a，最后一个元素为b，中间元素依次等距递增。(假设a&lt;b)</p>
 <blockquote>
 <p>x = seq(a, b, c)</p>
+<ul>
+<li>生成一个数值型向量x，第一个元素为a，其后元素依次加c，直到最后一个元素加c大于b。(假设a&lt;b)</li>
+</ul>
 </blockquote>
-<p>###生成一个数值型向量x，第一个元素为a，其后元素依次加c，直到最后一个元素加c大于b。(假设a&lt;b)</p>
 <blockquote>
 <p>x = seq(a)</p>
+<ul>
+<li>从1开始生成一个递增或递减数值型向量x，最后一个元素绝对值为小于等于|a|的最大整数。</li>
+</ul>
 </blockquote>
-<p>###从1开始生成一个递增或递减数值型向量x，最后一个元素绝对值为小于等于|a|的最大整数。</p>
 <blockquote>
 <p>x = a:b</p>
+<ul>
+<li>生成一个从a递增(减)到b的数值型向量x。(a和b都是整数)</li>
+</ul>
 </blockquote>
-<p>###生成一个从a递增(减)到b的数值型向量x。(a和b都是整数)</p>
 <blockquote>
 <p>x = rep(v, n)</p>
+<ul>
+<li>对向量v进行n次复制生成新的向量x。</li>
+</ul>
 </blockquote>
-<p>###对向量v进行n次复制生成新的向量x。</p>
 <blockquote>
 <p>x = rep(v, each = n)</p>
+<ul>
+<li>依次对向量v的每个元素复制n此生成新的向量x。</li>
+</ul>
 </blockquote>
-<p>###依次对向量v的每个元素复制n此生成新的向量x。</p>
 <blockquote>
 <p>x = round(v)</p>
+<ul>
+<li>生成一个向量x，其中每个元素是v对应元素的最近整数。</li>
+</ul>
 </blockquote>
-<p>###生成一个向量x，其中每个元素是v对应元素的最近整数。</p>
 <blockquote>
 <p>order(x)</p>
+<ul>
+<li>获得向量x第i大元素在向量中的位置。</li>
+</ul>
 </blockquote>
-<p>###获得向量x第i大元素在向量中的位置。</p>
 <blockquote>
 <p>rank(x)</p>
+<ul>
+<li>获得向量x每个元素大小位置。</li>
+</ul>
 </blockquote>
-<p>###获得向量x每个元素大小位置。</p>
 <blockquote>
 <p>sort(x)</p>
+<ul>
+<li>对向量x从小到大进行排序。降序：sort(x, decreasing = TRUE)。</li>
+</ul>
 </blockquote>
-<p>###对向量x从小到大进行排序。降序：sort(x, decreasing = TRUE)。</p>
 <blockquote>
 <p>tapply(x,f,g)</p>
+<ul>
+<li>根据因子f对向量x分类执行函数g。</li>
+</ul>
 </blockquote>
-<p>###根据因子f对向量x分类执行函数g。</p>
 <blockquote>
 <p>split(x,f)</p>
+<ul>
+<li>向量x按因子f分类。</li>
+</ul>
 </blockquote>
-<p>###向量x按因子f分类。</p>
 <blockquote>
 <p>diff(x)</p>
+<ul>
+<li>返回向量x的差分向量。</li>
+</ul>
 </blockquote>
-<p>###返回向量x的差分向量。</p>
 <blockquote>
 <p>cumsum(x)</p>
+<ul>
+<li>返回向量x的累加向量。</li>
+</ul>
 </blockquote>
-<p>###返回向量x的累加向量。</p>
-<h2 id="与矩阵有关的基本操作"><a href="#与矩阵有关的基本操作" class="headerlink" title="#与矩阵有关的基本操作"></a>#与矩阵有关的基本操作</h2><blockquote>
+<hr>
+<h1 id="与矩阵有关的基本操作"><a href="#与矩阵有关的基本操作" class="headerlink" title="与矩阵有关的基本操作"></a>与矩阵有关的基本操作</h1><hr>
+<blockquote>
 <p>M = matrix(0,c(m,n))</p>
+<ul>
+<li>生成m行n列的0矩阵。</li>
+</ul>
 </blockquote>
-<p>###生成m行n列的0矩阵。</p>
 <blockquote>
 <p>M = rbind(X,Y)</p>
+<ul>
+<li>按行合并矩阵X和Y形成新矩阵M。(X和Y列数需相同）</li>
+</ul>
 </blockquote>
-<p>###按行合并矩阵X和Y形成新矩阵M。(X和Y列数需相同）</p>
 <blockquote>
 <p>M = cbind(X,Y)</p>
+<ul>
+<li>按列合并矩阵X和Y形成新矩阵M。(X和Y行数需相同）</li>
+</ul>
 </blockquote>
-<p>###按列合并矩阵X和Y形成新矩阵M。(X和Y行数需相同）</p>
 <blockquote>
 <p>colnames(M)</p>
+<ul>
+<li>矩阵M的列名。</li>
+</ul>
 </blockquote>
-<p>###矩阵M的列名。</p>
 <blockquote>
 <p>rownames(M)</p>
+<ul>
+<li>矩阵M的行名。</li>
+</ul>
 </blockquote>
-<p>###矩阵M的行名。</p>
 <blockquote>
 <p>nrow(M)</p>
+<ul>
+<li>矩阵M的行数。</li>
+</ul>
 </blockquote>
-<p>###矩阵M的行数。</p>
 <blockquote>
 <p>ncol(M)</p>
+<ul>
+<li>矩阵M的列数。</li>
+</ul>
 </blockquote>
-<p>###矩阵M的列数。</p>
 <blockquote>
 <p>diag(M)</p>
+<ul>
+<li>矩阵M的对角线元素形成的向量</li>
+</ul>
 </blockquote>
-<p>###矩阵M的对角线元素形成的向量</p>
 <blockquote>
 <p>M = diag(x)</p>
+<ul>
+<li>生成以向量x为对角线元素，其他位置元素为0的矩阵M。</li>
+</ul>
 </blockquote>
-<p>###生成以向量x为对角线元素，其他位置元素为0的矩阵M。</p>
 <blockquote>
 <p>dim(M)</p>
+<ul>
+<li>矩阵M的维度。</li>
+</ul>
 </blockquote>
-<p>###矩阵M的维度。</p>
 <blockquote>
 <p>M[i,]</p>
+<ul>
+<li>矩阵M第i行。(数值型)</li>
+</ul>
 </blockquote>
-<p>###矩阵M第i行。(数值型)</p>
 <blockquote>
 <p>M[i,,drop = FALSE]</p>
+<ul>
+<li>矩阵M第i行。(矩阵型)</li>
+</ul>
 </blockquote>
-<p>###矩阵M第i行。(矩阵型)</p>
 <blockquote>
 <p>M = M[-i,]</p>
+<ul>
+<li>删除矩阵M第i行。</li>
+</ul>
 </blockquote>
-<p>###删除矩阵M第i行。</p>
 <blockquote>
 <p>M[,j]</p>
+<ul>
+<li>矩阵M第j列。</li>
+</ul>
 </blockquote>
-<p>###矩阵M第j列。</p>
 <blockquote>
 <p>M[i,j]</p>
+<ul>
+<li>矩阵M第i行j列元素。</li>
+</ul>
 </blockquote>
-<p>###矩阵M第i行j列元素。</p>
 <blockquote>
 <p>t(M)</p>
+<ul>
+<li>矩阵M的转置。若M为数值型向量，则t(M)为矩阵型行向量。</li>
+</ul>
 </blockquote>
-<p>###矩阵M的转置。若M为数值型向量，则t(M)为矩阵型行向量。</p>
 <blockquote>
 <p>X%*%Y</p>
+<ul>
+<li>矩阵X乘矩阵Y。若Y是数值型的向量，R会自动判断其为行向量还是列向量。若X与Y为维度匹配的数值型向量，则返回的是矩阵型向量的内积。</li>
+</ul>
 </blockquote>
-<p>###矩阵X乘矩阵Y。若Y是数值型的向量，R会自动判断其为行向量还是列向量。若X与Y为维度匹配的数值型向量，则返回的是矩阵型向量的内积。</p>
 <blockquote>
 <p>x%o%y</p>
+<ul>
+<li>数值型向量x与y的外积(矩阵型)。</li>
+</ul>
 </blockquote>
-<p>###数值型向量x与y的外积(矩阵型)。</p>
 <blockquote>
 <p>X*Y</p>
+<ul>
+<li>矩阵X与矩阵Y的Hadamard乘积。加、减、除、求余的规则和乘相同，即相同位置的元素进行运算。</li>
+</ul>
 </blockquote>
-<p>###矩阵X与矩阵Y的Hadamard乘积。加、减、除、求余的规则和乘相同，即相同位置的元素进行运算。</p>
 <blockquote>
 <p>eigen(M)$val<br>eigen(M)$vec</p>
+<ul>
+<li>求矩阵M的特征值和特征向量。</li>
+</ul>
 </blockquote>
-<p>###求矩阵M的特征值和特征向量。</p>
 <blockquote>
 <p>solve(M)</p>
+<ul>
+<li>矩阵M求逆。</li>
+</ul>
 </blockquote>
-<p>###矩阵M求逆。</p>
 <blockquote>
 <p>solve(A,b)</p>
+<ul>
+<li>求解线性方程Ax=b。</li>
+</ul>
 </blockquote>
-<p>###求解线性方程Ax=b。</p>
 <blockquote>
 <p>apply(M, dimcode, f, fargs)</p>
+<ul>
+<li>对矩阵M的行(dimcode=1)或列(dimcode=2)依次进行函数f操作，f的变量(arguments)方正fargs里。</li>
+</ul>
 </blockquote>
-<p>###对矩阵M的行(dimcode=1)或列(dimcode=2)依次进行函数f操作，f的变量(arguments)方正fargs里。</p>
-<h1 id="与列表有关的基本操作"><a href="#与列表有关的基本操作" class="headerlink" title="与列表有关的基本操作"></a>与列表有关的基本操作</h1><hr>
-<blockquote>
+<hr>
+<h1 id="与列表有关的基本操作"><a href="#与列表有关的基本操作" class="headerlink" title="与列表有关的基本操作"></a>与列表有关的基本操作</h1><blockquote>
 <p>L = list(a = , b = , c = ,…)</p>
+<ul>
+<li>建立列表L。</li>
+</ul>
 </blockquote>
-<p>###建立列表L。</p>
 <blockquote>
 <p>L$a<br>L[[a]]</p>
+<ul>
+<li>返回列表L里的对象a。</li>
+</ul>
 </blockquote>
-<p>###返回列表L里的对象a。</p>
 <blockquote>
 <p>L$a = NULL</p>
+<ul>
+<li>去除列表L里的对象a。</li>
+</ul>
 </blockquote>
-<p>###去除列表L里的对象a。</p>
 <blockquote>
 <p>names(L)</p>
+<ul>
+<li>列出列表L里的对象名。</li>
+</ul>
 </blockquote>
-<p>###列出列表L里的对象名。</p>
 <blockquote>
 <p>unname(L)</p>
+<ul>
+<li>去掉列表L里的对象名。</li>
+</ul>
 </blockquote>
-<p>###去掉列表L里的对象名。</p>
 <blockquote>
 <p>lapply(…)</p>
+<ul>
+<li>list apply。功能与apply类似(参考上面的apply)，用于列表型数据。</li>
+</ul>
 </blockquote>
-<p>###list apply。功能与apply类似(参考上面的apply)，用于列表型数据。</p>
 <blockquote>
 <p>sapply(…)</p>
+<ul>
+<li>simplified apply。功能与lapply类似，区别在于函数结果的类型不是列表(list)。</li>
+</ul>
 </blockquote>
-<p>###simplified apply。功能与lapply类似，区别在于函数结果的类型不是列表(list)。</p>
-<h1 id="与数据框有关的基本操作"><a href="#与数据框有关的基本操作" class="headerlink" title="与数据框有关的基本操作"></a>与数据框有关的基本操作</h1><hr>
-<p>###数据框是一种特殊的列表，所以对列表适用的函数往往对数据框也适用。此外，数据框也有矩阵型数据的特征，所以一些适用于矩阵型数据的函数，不如rbind，cbind，apply等也可以作用在数据框上。</p>
+<hr>
+<h1 id="与数据框有关的基本操作"><a href="#与数据框有关的基本操作" class="headerlink" title="与数据框有关的基本操作"></a>与数据框有关的基本操作</h1><ul>
+<li>数据框是一种特殊的列表，所以对列表适用的函数往往对数据框也适用。此外，数据框也有矩阵型数据的特征，所以一些适用于矩阵型数据的函数，不如rbind，cbind，apply等也可以作用在数据框上。</li>
+</ul>
 <blockquote>
 <p>Data = data.frame(…)</p>
+<ul>
+<li>创建数据框Data。</li>
+</ul>
 </blockquote>
-<p>###创建数据框Data。</p>
 <blockquote>
 <p>fix(Data)</p>
+<ul>
+<li>编辑数据框Data。</li>
+</ul>
 </blockquote>
-<p>###编辑数据框Data。</p>
 <blockquote>
 <p>head(Data)</p>
+<ul>
+<li>显示数据框Data的前几行。</li>
+</ul>
 </blockquote>
-<p>###显示数据框Data的前几行。</p>
 <blockquote>
 <p>attribute(Data)</p>
+<ul>
+<li>列出数据框Data的组成部分。</li>
+</ul>
 </blockquote>
-<p>###列出数据框Data的组成部分。</p>
 <blockquote>
 <p>names(Data)</p>
+<ul>
+<li>显示数据框Data的变量名。</li>
+</ul>
 </blockquote>
-<p>###显示数据框Data的变量名。</p>
 <blockquote>
 <p>row.names(Data)</p>
+<ul>
+<li>显示数据框Data的行名。</li>
+</ul>
 </blockquote>
-<p>###显示数据框Data的行名。</p>
 <blockquote>
 <p>Data$name1</p>
+<ul>
+<li>数据框Data中名为name1的变量。</li>
+</ul>
 </blockquote>
-<p>###数据框Data中名为name1的变量。</p>
 <blockquote>
 <p>Data[i]</p>
+<ul>
+<li>数据框Data中第i个变量形成的数据框。</li>
+</ul>
 </blockquote>
-<p>###数据框Data中第i个变量形成的数据框。</p>
 <blockquote>
 <p>merge(D1,D2)</p>
+<ul>
+<li>合并数据框D1和D2，需要D1和D2中有至少一个相同的变量。</li>
+</ul>
 </blockquote>
-<p>###合并数据框D1和D2，需要D1和D2中有至少一个相同的变量。</p>
+<hr>
 <h1 id="与逻辑型数据有关的基本操作"><a href="#与逻辑型数据有关的基本操作" class="headerlink" title="与逻辑型数据有关的基本操作"></a>与逻辑型数据有关的基本操作</h1><hr>
 <blockquote>
 <p>is.data.frame(x)</p>
+<ul>
+<li>判断是否对象x是数据框。类似命令有is.ts(x)，is.numeric(x)等。</li>
+</ul>
 </blockquote>
-<p>###判断是否对象x是数据框。类似命令有is.ts(x)，is.numeric(x)等。</p>
 <blockquote>
 <p>all(x&gt;a)</p>
+<ul>
+<li>判断是否对象x的每个元素都大于a。</li>
+</ul>
 </blockquote>
-<p>###判断是否对象x的每个元素都大于a。</p>
 <blockquote>
 <p>any(x&gt;a)</p>
+<ul>
+<li>判断对象x的元素中是否存在一个大于a。</li>
+</ul>
 </blockquote>
-<p>###判断对象x的元素中是否存在一个大于a。</p>
 <blockquote>
 <p>x&gt;y</p>
+<ul>
+<li>判断x的每个元素是否大于y的每个元素。</li>
+</ul>
 </blockquote>
-<p>###判断x的每个元素是否大于y的每个元素。</p>
 <blockquote>
 <p>x[x&gt;a]</p>
+<ul>
+<li>向量x中大于a的元素组成的新向量。</li>
+</ul>
 </blockquote>
-<p>###向量x中大于a的元素组成的新向量。</p>
 <blockquote>
 <p>subset(x, x&gt;a)</p>
+<ul>
+<li>向量x中大于a的元素组成的新向量。与上面例子的区别在于若向量元素里有NA，上面的例子会保留在结果中，而subset命令会剔除掉。</li>
+</ul>
 </blockquote>
-<p>###向量x中大于a的元素组成的新向量。与上面例子的区别在于若向量元素里有NA，上面的例子会保留在结果中，而subset命令会剔除掉。</p>
 <blockquote>
 <p>which(x, x&gt;a)</p>
+<ul>
+<li>返回向量中大于a的元素的位置。</li>
+</ul>
 </blockquote>
-<p>###返回向量中大于a的元素的位置。</p>
 <blockquote>
 <p>x = ifelse(b, u, v)</p>
+<ul>
+<li>生成一个与b(逻辑向量)维度相同的数值向量，若b[i]为TRUE，则x[i]为u，反之为v。</li>
+</ul>
 </blockquote>
-<p>###生成一个与b(逻辑向量)维度相同的数值向量，若b[i]为TRUE，则x[i]为u，反之为v。</p>
 
       
     </div>
@@ -1067,7 +1261,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">1.</span> <span class="nav-text">#运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始基本操作"><span class="nav-number">2.</span> <span class="nav-text">###初始基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对一般对象的基本操作"><span class="nav-number">3.</span> <span class="nav-text">#对一般对象的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与向量有关的基本操作"><span class="nav-number">4.</span> <span class="nav-text">###与向量有关的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与矩阵有关的基本操作"><span class="nav-number">5.</span> <span class="nav-text">#与矩阵有关的基本操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与列表有关的基本操作"><span class="nav-number"></span> <span class="nav-text">与列表有关的基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与数据框有关的基本操作"><span class="nav-number"></span> <span class="nav-text">与数据框有关的基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与逻辑型数据有关的基本操作"><span class="nav-number"></span> <span class="nav-text">与逻辑型数据有关的基本操作</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符"><span class="nav-number">1.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对一般对象的基本操作"><span class="nav-number">2.</span> <span class="nav-text">对一般对象的基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与向量有关的基本操作"><span class="nav-number">3.</span> <span class="nav-text">与向量有关的基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与矩阵有关的基本操作"><span class="nav-number">4.</span> <span class="nav-text">与矩阵有关的基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与列表有关的基本操作"><span class="nav-number">5.</span> <span class="nav-text">与列表有关的基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与数据框有关的基本操作"><span class="nav-number">6.</span> <span class="nav-text">与数据框有关的基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与逻辑型数据有关的基本操作"><span class="nav-number">7.</span> <span class="nav-text">与逻辑型数据有关的基本操作</span></a></li></ol></div>
             
 
           </div>
