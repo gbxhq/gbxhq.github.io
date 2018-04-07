@@ -99,18 +99,18 @@
 
 
 
-  <meta name="description" content="这是在小波老师的课上学到的一劳永逸地给控件添加圆角效果的代码。保存备用。">
+  <meta name="description" content="这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。">
 <meta name="keywords" content="Note,Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 圆角通用配置">
+<meta property="og:title" content="iOS 圆角、阴影通用配置">
 <meta property="og:url" content="https://ixsim.github.io/iOS/UIViewHelper.swift/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="这是在小波老师的课上学到的一劳永逸地给控件添加圆角效果的代码。保存备用。">
+<meta property="og:description" content="这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-01T03:36:49.609Z">
+<meta property="og:updated_time" content="2018-04-06T09:48:38.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 圆角通用配置">
-<meta name="twitter:description" content="这是在小波老师的课上学到的一劳永逸地给控件添加圆角效果的代码。保存备用。">
+<meta name="twitter:title" content="iOS 圆角、阴影通用配置">
+<meta name="twitter:description" content="这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。">
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>iOS 圆角通用配置 | 炫杉</title>
+  <title>iOS 圆角、阴影通用配置 | 炫杉</title>
   
 
 
@@ -342,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS 圆角通用配置</h1>
+          <h1 class="post-title" itemprop="name headline">iOS 圆角、阴影通用配置</h1>
         
 
         <div class="post-meta">
@@ -399,7 +399,7 @@
 
           
           
-             <span id="/iOS/UIViewHelper.swift/" class="leancloud_visitors" data-flag-title="iOS 圆角通用配置">
+             <span id="/iOS/UIViewHelper.swift/" class="leancloud_visitors" data-flag-title="iOS 圆角、阴影通用配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -430,7 +430,7 @@
       
 
       
-        <p>这是在小波老师的课上学到的一劳永逸地给控件添加圆角效果的代码。保存备用。<br><a id="more"></a></p>
+        <p>这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。<br><a id="more"></a></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="comment">//圆角</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIView</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@IBInspectable</span> <span class="comment">//让它可见</span></span><br><span class="line">  <span class="keyword">var</span> cornerReadius: <span class="type">CGFloat</span> &#123; <span class="comment">//打var选get-set模板 //图形相关属性CG开头</span></span><br><span class="line">      <span class="keyword">get</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> layer.cornerRadius</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">set</span> &#123;</span><br><span class="line">          layer.cornerRadius = newValue</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//阴影圆角</span></span><br><span class="line">  <span class="meta">@IBInspectable</span></span><br><span class="line">  <span class="keyword">var</span> shadowRadius: <span class="type">CGFloat</span> &#123;</span><br><span class="line">      <span class="keyword">get</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> layer.shadowRadius</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">set</span> &#123;</span><br><span class="line">          layer.shadowRadius = newValue</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//阴影透明度</span></span><br><span class="line">  <span class="meta">@IBInspectable</span></span><br><span class="line">  <span class="keyword">var</span> shawodOpacity: <span class="type">Float</span> &#123;</span><br><span class="line">      <span class="keyword">get</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> layer.shadowOpacity</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">set</span> &#123;</span><br><span class="line">          layer.shadowOpacity = newValue</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//阴影颜色</span></span><br><span class="line">  <span class="meta">@IBInspectable</span></span><br><span class="line">  <span class="keyword">var</span> shadowColor: <span class="type">UIColor</span>? &#123;</span><br><span class="line">      <span class="keyword">get</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> layer.shadowColor != <span class="literal">nil</span> ? <span class="type">UIColor</span>(cgColor: layer.shadowColor!) : <span class="literal">nil</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">set</span> &#123;</span><br><span class="line">          layer.shadowColor = newValue?.cgColor</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//阴影大小</span></span><br><span class="line">  <span class="meta">@IBInspectable</span></span><br><span class="line">  <span class="keyword">var</span> shadowOffset: <span class="type">CGSize</span> &#123;</span><br><span class="line">      <span class="keyword">get</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> layer.shadowOffset</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">set</span> &#123;</span><br><span class="line">          layer.shadowOffset = newValue</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -467,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/iOS/算法笔记/" rel="next" title="iOS算法笔记">
-                <i class="fa fa-chevron-left"></i> iOS算法笔记
+              <a href="/iOS/小波iOS11初级篇笔记/" rel="next" title="小波iOS11初级篇笔记">
+                <i class="fa fa-chevron-left"></i> 小波iOS11初级篇笔记
               </a>
             
           </div>
@@ -477,8 +477,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/iOS/<懒猫>记录/" rel="prev" title="iOS《笨猫快乐学编程》学习笔记">
-                iOS《笨猫快乐学编程》学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/Website/Hexo01/" rel="prev" title="Hexo建站问题总结">
+                Hexo建站问题总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -547,7 +547,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -580,10 +580,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
-                    
-                      
                     
                       
                     
