@@ -100,16 +100,19 @@
 
 
   <meta name="description" content="中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。">
+<meta name="keywords" content="Note,Swfit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小波iOS11中级篇笔记">
 <meta property="og:url" content="https://ixsim.github.io/iOS/小波iOS11中级篇笔记/index.html">
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-07T06:15:45.403Z">
+<meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15231886419894.jpg">
+<meta property="og:updated_time" content="2018-04-09T12:49:04.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小波iOS11中级篇笔记">
 <meta name="twitter:description" content="中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。">
+<meta name="twitter:image" content="http://p66eruxmw.bkt.clouddn.com/15231886419894.jpg">
 
 
 
@@ -177,9 +180,7 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> 
-
-<div class="site-brand-wrapper">
+      <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
@@ -204,15 +205,17 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
         
           
+  
   <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
@@ -222,24 +225,7 @@
         
         
           
-  <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-</li>
-
-      
-        
-        
-          
-  <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-</li>
-
-      
-        
-        
-          
+  
   <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
@@ -249,6 +235,27 @@
         
         
           
+  
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+</li>
+
+      
+        
+        
+          
+  
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+</li>
+
+      
+        
+        
+          
+  
   <li class="menu-item menu-item-我的书签">
     <a href="/oo1" rel="section">
       <i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br />我的书签</a>
@@ -257,33 +264,12 @@
       
 
       
+      
     </ul>
   
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -291,11 +277,12 @@
 </nav>
 
 
+
   
 
 
 
- </div>
+</div>
     </header>
 
     
@@ -363,18 +350,26 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/iOS/小波iOS11中级篇笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count valine-comment-count" data-xid="/iOS/小波iOS11中级篇笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -425,6 +420,27 @@
 <li>内容扩展优先级 Content Hugging Priority 大了就低</li>
 <li>Class 中的属性必须有值。如果你不想给值，可以加个 ！ 就是说它一定有值。</li>
 </ul>
+<h1 id="自定义导航条"><a href="#自定义导航条" class="headerlink" title="自定义导航条"></a>自定义导航条</h1><h2 id="颜色（直接改回报错，是Xcode的Bug。只好用代码。）："><a href="#颜色（直接改回报错，是Xcode的Bug。只好用代码。）：" class="headerlink" title="颜色（直接改回报错，是Xcode的Bug。只好用代码。）："></a>颜色（直接改回报错，是Xcode的Bug。只好用代码。）：</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">navigationController?.navigationBar.largeTitleTextAttributes = [</span><br><span class="line">                <span class="type">NSAttributedStringKey</span>.foregroundColor : <span class="type">UIColor</span>(named: <span class="string">"Theme123"</span>)</span><br><span class="line">            ]</span><br><span class="line">            <span class="comment">//Theme123是自定义的Color Set名</span></span><br></pre></td></tr></table></figure>
+<h2 id="背景透明（用一个空图片）"><a href="#背景透明（用一个空图片）" class="headerlink" title="背景透明（用一个空图片）"></a>背景透明（用一个空图片）</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">navigationController?.navigationBar.setBackgroundImage(<span class="type">UIImage</span>(), <span class="keyword">for</span>: .<span class="keyword">default</span>)</span><br><span class="line">navigationController?.navigationBar.shadowImage = <span class="type">UIImage</span>()</span><br></pre></td></tr></table></figure>
+<h2 id="隐藏返回标题"><a href="#隐藏返回标题" class="headerlink" title="隐藏返回标题"></a>隐藏返回标题</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15231886419894.jpg" alt=""><br>点标题。把Back button改成空格就好啦。</p>
+<h2 id="自定义状态栏字体颜色"><a href="#自定义状态栏字体颜色" class="headerlink" title="自定义状态栏字体颜色"></a>自定义状态栏字体颜色</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> preferredStatusBarStyle: <span class="type">UIStatusBarStyle</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> .lightContent</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//写了上面的发现还不行。因为有全局导航条样式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//新建一个swift文件： naviExt.swfit 写入以下内容</span></span><br><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="comment">//扩展导航条</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UINavigationController</span></span>&#123;</span><br><span class="line">    <span class="keyword">open</span> <span class="keyword">override</span> <span class="keyword">var</span> childViewControllerForStatusBarStyle: <span class="type">UIViewController</span>?&#123;</span><br><span class="line">        <span class="keyword">return</span> topViewController</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>没有导航条怎么改状态栏颜色：<br>在AppDelegate.swift文件中，插入到application函数一行：<br><code>UIApplication.shared.statusBarStyle = .lightContent</code></p>
+<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><h2 id="视差"><a href="#视差" class="headerlink" title="视差"></a>视差</h2><p>新建一个UIView变量<code>var headerView : UIView!</code>来替换原生的<code>tableView.tableHeaderView</code><br>代码如下</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">headerView = tableView.tableHeaderView<span class="comment">//取出HeaderView</span></span><br><span class="line">tableView.tableHeaderView = <span class="literal">nil</span> </span><br><span class="line">tableView.addSubview(headerView)</span><br><span class="line"></span><br><span class="line">tableView.contentInset = <span class="type">UIEdgeInsets</span>(top: <span class="number">300</span>, <span class="keyword">left</span>: <span class="number">0</span>, bottom: <span class="number">0</span>, <span class="keyword">right</span>: <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>这时候整个Cell会下移300像素（可以通过输出<code>scrollView.contentOffset.y</code>的值看到是 -300），需要把headerView的位置上移300个像素。<br>代码如下</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">scrollViewDidScroll</span><span class="params">(<span class="number">_</span> scrollView: UIScrollView)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> offsetY = scrollView.contentOffset.y</span><br><span class="line">        headerView.frame = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: offsetY, width: scrollView.bounds.width, height: -offsetY)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="模糊层"><a href="#模糊层" class="headerlink" title="模糊层"></a>模糊层</h2><ol>
+<li>新建模糊层的 ViewController 。背景选成透明（Clear Color）</li>
+<li>右键拖到新的 View Controller，选 Present Modally</li>
+<li>转场效果中选 Over Current Context</li>
+</ol>
+<p>点击退场</p>
+<p>拖一个手势到 <strong>View层</strong> 注意拖得不合适可能点击没效果。可以调试下。</p>
+<p>然后拖着手势建一个IBAction：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">tapBackground</span><span class="params">(<span class="number">_</span> sender: Any)</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.dismiss(animated: <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="入场效果"><a href="#入场效果" class="headerlink" title="入场效果"></a>入场效果</h2><p>先在 didLoaded 时把它放到800里之外<br><code>stackView.transform = .init(translationX: 800, y: 0)</code></p>
+<p>再在 didApeal时 让它飞进来</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(<span class="number">_</span> animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span>  animator = <span class="type">UIViewPropertyAnimator</span>(duration: <span class="number">3</span>, curve: .easeIn)&#123;</span><br><span class="line">            <span class="keyword">self</span>.stackView.transform = .identity</span><br><span class="line">        &#125;</span><br><span class="line">        animator.startAnimation()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -442,6 +458,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Note/" rel="tag"># Note</a>
+          
+            <a href="/tags/Swfit/" rel="tag"># Swfit</a>
+          
+        </div>
       
 
       
@@ -488,7 +512,9 @@
 
   
     <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5"></div>
     </div>
+
   
 
 
@@ -537,7 +563,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -595,7 +621,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -663,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义导航条"><span class="nav-number">2.</span> <span class="nav-text">自定义导航条</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色（直接改回报错，是Xcode的Bug。只好用代码。）："><span class="nav-number">2.1.</span> <span class="nav-text">颜色（直接改回报错，是Xcode的Bug。只好用代码。）：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景透明（用一个空图片）"><span class="nav-number">2.2.</span> <span class="nav-text">背景透明（用一个空图片）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐藏返回标题"><span class="nav-number">2.3.</span> <span class="nav-text">隐藏返回标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义状态栏字体颜色"><span class="nav-number">2.4.</span> <span class="nav-text">自定义状态栏字体颜色</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画"><span class="nav-number">3.</span> <span class="nav-text">动画</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#视差"><span class="nav-number">3.1.</span> <span class="nav-text">视差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模糊层"><span class="nav-number">3.2.</span> <span class="nav-text">模糊层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入场效果"><span class="nav-number">3.3.</span> <span class="nav-text">入场效果</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -684,8 +714,8 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">李炫杉 ❤ 紫玉</span>
 
@@ -697,7 +727,7 @@
 
 
 
-  <div class="powered-by">Hosted by <a class="theme-link" target="_blank" href="https://pages.coding.me">Coding Pages</a></div>
+  <div class="powered-by">Hosted by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a>Hosted by <a class="theme-link" target="_blank" href="https://pages.coding.me">Coding Pages</a></div>
 
 
 
@@ -821,37 +851,24 @@
 
 
   
-
-
-
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: true,
-        appId: '2ajpEY5ADgyM7Usf91Y3w9FC-gzGzoHsz',
-        appKey: 'OOKhkox53eeWftN6OLR9jeYg',
-        placeholder: 'Just go go',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
+
+
+
+
+
+
+
 
 
 
@@ -991,6 +1008,17 @@
   
 
   
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('auto', "#more");
+  
+  </script>
+
 
 <script type="text/javascript">
 /* 鼠标特效 */
