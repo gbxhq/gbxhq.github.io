@@ -100,7 +100,7 @@
 
 
   <meta name="description" content="这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了">
-<meta name="keywords" content="Note,Swift">
+<meta name="keywords" content="Swift,Note">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小波iOS11初级篇笔记">
 <meta property="og:url" content="https://ixsim.github.io/iOS/小波iOS11初级篇笔记/index.html">
@@ -108,7 +108,7 @@
 <meta property="og:description" content="这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15230037794942.jpg">
-<meta property="og:updated_time" content="2018-04-07T05:03:33.732Z">
+<meta property="og:updated_time" content="2018-04-17T06:56:18.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小波iOS11初级篇笔记">
 <meta name="twitter:description" content="这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了">
@@ -427,8 +427,10 @@
 </ol>
 <h2 id="添加导航："><a href="#添加导航：" class="headerlink" title="添加导航："></a>添加导航：</h2><p>菜单栏-Editor–&gt;Embed in–&gt;Nav~</p>
 <ul>
-<li>怎么转到新场景：<br>控件上ctrl拖到新场景 选择 Show (Present是模态展示，没有层级关系)<h2 id="转场"><a href="#转场" class="headerlink" title="转场"></a>转场</h2>自动生成的代码中找到// MARK: - Navigation 解除注释<h1 id="Table-View-代理模式"><a href="#Table-View-代理模式" class="headerlink" title="Table View[代理模式]"></a>Table View[代理模式]</h1>在ViewControler场景后加上<code>UITableViewDataSource</code>就支持了TableView的数据源协议。<br>加上后会报一个当前不支持的错，点Fix自动填写两个方法。<br>第一个是说Table中有多少行。Ex:<code>return 10</code><br>第二个方法设置每个单元格的模板。Ex:</li>
+<li>怎么转到新场景：<br>控件上ctrl拖到新场景 选择 Show (Present是模态展示，没有层级关系)</li>
 </ul>
+<h2 id="转场"><a href="#转场" class="headerlink" title="转场"></a>转场</h2><p>自动生成的代码中找到// MARK: - Navigation 解除注释</p>
+<h1 id="Table-View-代理模式"><a href="#Table-View-代理模式" class="headerlink" title="Table View[代理模式]"></a>Table View[代理模式]</h1><p>在ViewControler场景后加上<code>UITableViewDataSource</code>就支持了TableView的数据源协议。<br>加上后会报一个当前不支持的错，点Fix自动填写两个方法。<br>第一个是说Table中有多少行。Ex:<code>return 10</code><br>第二个方法设置每个单元格的模板。Ex:</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"WeaponCell"</span>, <span class="keyword">for</span>: indexPath)</span><br><span class="line">        cell.textLabel?.text = weapons[indexPath.row]</span><br><span class="line">        <span class="keyword">return</span> cell</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>为什么要重复使用模板呢？</p>
 <blockquote>
@@ -463,9 +465,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Note/" rel="tag"># Note</a>
-          
             <a href="/tags/Swift/" rel="tag"># Swift</a>
+          
+            <a href="/tags/Note/" rel="tag"># Note</a>
           
         </div>
       
@@ -478,18 +480,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/iOS/算法笔记/" rel="next" title="iOS算法笔记">
-                <i class="fa fa-chevron-left"></i> iOS算法笔记
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/iOS/<懒猫>记录/" rel="prev" title="iOS《笨猫快乐学编程》学习笔记">
-                iOS《笨猫快乐学编程》学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/iOS/语法问题/" rel="prev" title="Swift语法笔记">
+                Swift语法笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -569,7 +567,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -590,7 +588,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -631,7 +631,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -107,7 +107,7 @@
 <meta property="og:description" content="通过API查天气。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15226535153796.jpg">
-<meta property="og:updated_time" content="2018-04-02T08:04:18.598Z">
+<meta property="og:updated_time" content="2018-04-18T05:59:53.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift Demo2 查天气">
 <meta name="twitter:description" content="通过API查天气。">
@@ -392,11 +392,12 @@
 <h1 id="载入"><a href="#载入" class="headerlink" title="载入"></a>载入</h1><p>界面简单，<br>三个Label（地址、温度、描述）<br>一个Btn。</p>
 <p>先把Btn写出来。<br>弹出Alert，附带一个文本输入框，把输入框的值传给通过Api获取天气数据的函数。代码如下：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">setCityBtn</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="comment">//先来个alert</span></span><br><span class="line">        <span class="keyword">let</span> alert = <span class="type">UIAlertController</span>(title: <span class="string">"Set City"</span>, message: <span class="literal">nil</span>, preferredStyle: .alert)</span><br><span class="line">        <span class="comment">//加Cancel按钮   </span></span><br><span class="line">        alert.addAction(<span class="type">UIAlertAction</span>(title: <span class="string">"Cancel"</span>, style: .cancel, handler: <span class="literal">nil</span>))</span><br><span class="line">        <span class="comment">//加OK按钮，如果文本不为空则传给tf(TextField)，再用tf传给cityName，再用city传给getWeatherData函数</span></span><br><span class="line">        alert.addAction(<span class="type">UIAlertAction</span>(title: <span class="string">"OK"</span>, style: .<span class="keyword">default</span>, handler: &#123; (action) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> tf = alert.textFields?.first&#123;</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">let</span> cityName = tf.text&#123;</span><br><span class="line">                    <span class="keyword">self</span>.getWeatherData(cityName: cityName)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;))</span><br><span class="line">        <span class="comment">//加个文本框</span></span><br><span class="line">        alert.addTextField(configurationHandler: &#123; (tf) <span class="keyword">in</span></span><br><span class="line">            tf.placeholder=<span class="string">"Please input city"</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">//显示Alert</span></span><br><span class="line">        <span class="keyword">self</span>.present(alert,animated:<span class="literal">true</span>,completion: <span class="literal">nil</span>)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="读天气Api"><a href="#读天气Api" class="headerlink" title="读天气Api"></a>读天气Api</h1><p>用了知心天气的API。<a href="https://api.seniverse.com/v3/weather/now.json?key=123456&amp;location=jinan&amp;language=zh-Hans&amp;unit=c" target="_blank" rel="noopener">https://api.seniverse.com/v3/weather/now.json?key=123456&amp;location=jinan&amp;language=zh-Hans&amp;unit=c</a></p>
+<h1 id="天气Api"><a href="#天气Api" class="headerlink" title="天气Api"></a>天气Api</h1><p>用了知心天气的API。<a href="https://api.seniverse.com/v3/weather/now.json?key=123456&amp;location=jinan&amp;language=zh-Hans&amp;unit=c" target="_blank" rel="noopener">https://api.seniverse.com/v3/weather/now.json?key=123456&amp;location=jinan&amp;language=zh-Hans&amp;unit=c</a></p>
 <p>其中如果要处理非HTTPS的网址，会报错。需要在info.plist文件中添加下面的选项：<br><img src="http://p66eruxmw.bkt.clouddn.com/15226535153796.jpg" alt=""></p>
-<h2 id="SwiftyJSON"><a href="#SwiftyJSON" class="headerlink" title="SwiftyJSON"></a>SwiftyJSON</h2><p>说实话我遇到问题了。等我读了SwfityJSON的文档回来研究明白再说吧。</p>
-<p>有点尬了。撤了撤了。</p>
-
+<h2 id="SwiftyJSON"><a href="#SwiftyJSON" class="headerlink" title="SwiftyJSON"></a>SwiftyJSON</h2><p><del>说实话我遇到问题了。等我读了SwfityJSON的文档回来研究明白再说吧。有点尬了。撤了撤了。</del></p>
+<p>根据我滴最新查询，使用Swift 4.0的Codable暂时可以舍弃SwiftyJSON。<br>我们走起。</p>
+<p>先解决怎么读Url的内容问题：</p>
+<h2 id="读url"><a href="#读url" class="headerlink" title="读url"></a>读url</h2>
       
     </div>
 
@@ -514,7 +515,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -535,7 +536,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -576,7 +579,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -644,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#载入"><span class="nav-number">1.</span> <span class="nav-text">载入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读天气Api"><span class="nav-number">2.</span> <span class="nav-text">读天气Api</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SwiftyJSON"><span class="nav-number">2.1.</span> <span class="nav-text">SwiftyJSON</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#载入"><span class="nav-number">1.</span> <span class="nav-text">载入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#天气Api"><span class="nav-number">2.</span> <span class="nav-text">天气Api</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SwiftyJSON"><span class="nav-number">2.1.</span> <span class="nav-text">SwiftyJSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读url"><span class="nav-number">2.2.</span> <span class="nav-text">读url</span></a></li></ol></li></ol></div>
             
 
           </div>
