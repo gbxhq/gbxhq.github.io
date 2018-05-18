@@ -108,7 +108,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15266453453241.jpg">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15266457689435.jpg">
-<meta property="og:updated_time" content="2018-05-18T12:16:32.471Z">
+<meta property="og:updated_time" content="2018-05-18T12:21:40.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬一个520礼物给紫玉">
 <meta name="twitter:description" content="520送点啥呢。有Python不慌~哈哈我们来试着找一辆5月20号13点14发车的车吧~">
@@ -408,8 +408,7 @@
       
         <p>520送点啥呢。有Python不慌~哈哈<br>我们来试着找一辆5月20号13点14发车的车吧~</p>
 <a id="more"></a>
-<h1 id="从分析到实践"><a href="#从分析到实践" class="headerlink" title="从分析到实践"></a>从分析到实践</h1><h2 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h2><p>百度了下列车时刻表，有个ip138，就爬它啦🤭。先读一下第一页的内容：<br>这网站太老了。竟然不是UTF-8编码的。</p>
-<p>使用urlopen：<br><code>html = urlopen(url).read().decode(&#39;GB2312&#39;)</code></p>
+<h1 id="从分析到实践"><a href="#从分析到实践" class="headerlink" title="从分析到实践"></a>从分析到实践</h1><h2 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h2><p>百度了下列车时刻表，有个ip138，就爬它啦🤭。先读一下第一页的内容：<br>这网站太老了。竟然不是UTF-8编码的。<br>解码：<br>使用urlopen：<br><code>html = urlopen(url).read().decode(&#39;GB2312&#39;)</code></p>
 <p>使用Requests：<br><code>r.encode(&#39;ISO-8859-1&#39;).decode(&#39;GB2312&#39;)</code></p>
 <p>OK，可以愉快地玩耍啦。</p>
 <h2 id="循环读全部列车数据"><a href="#循环读全部列车数据" class="headerlink" title="循环读全部列车数据"></a>循环读全部列车数据</h2><p>先从第一页入口读到每个省的数据，根据a标签的href属性很容易发现他们都是/train开头的，正则搞定：<br><code>province = soup.find_all(&#39;a&#39;,{&quot;href&quot;:re.compile(&quot;/train/&quot;)})</code></p>
@@ -426,9 +425,9 @@
 <h2 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h2><p>原来有好多好多符合条件的列车呀，那么作为花(Qiong)朵（Ren）的我怎么选呢。</p>
 <p>哈哈。当然是用到站时间-发车时间计算出最（Pianyi）的那一辆啦。<br>这里又学到了Python的time包。<br>给你们个模板拿去用：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment">#经停时间是第六列</span></span><br><span class="line">t1 = time.mktime(time.strptime(i.split()[<span class="number">6</span>],<span class="string">'%H:%m'</span>)</span><br><span class="line"><span class="comment">#到站时间是最后一列</span></span><br><span class="line">t2 = time.mktime(time.strptime(i.split()[<span class="number">-1</span>],<span class="string">'%H:%m'</span>)</span><br><span class="line"></span><br><span class="line">t2- t1</span><br></pre></td></tr></table></figure>
-<p>哈哈~</p>
 <p>最后我买了这一班：</p>
 <p><img src="http://p66eruxmw.bkt.clouddn.com/15266457689435.jpg" alt=""></p>
+<p>哈哈，明天抽个空去取票去~</p>
 
       
     </div>
