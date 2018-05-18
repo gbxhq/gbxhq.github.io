@@ -99,25 +99,27 @@
 
 
 
-  <meta name="description" content="diskutil list">
-<meta name="keywords" content="Mac">
+  <meta name="description" content="520送点啥呢。有Python不慌~哈哈我们来试着找一辆5月20号13点14发车的车吧~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="打开macOS原生的NTFS">
-<meta property="og:url" content="https://ixsim.github.io/Others/打开macOS原生的NTFS/index.html">
+<meta property="og:title" content="爬一个520礼物给紫玉">
+<meta property="og:url" content="https://ixsim.github.io/爬一个520礼物给紫玉/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="diskutil list">
+<meta property="og:description" content="520送点啥呢。有Python不慌~哈哈我们来试着找一辆5月20号13点14发车的车吧~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-22T01:13:31.425Z">
+<meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15266453453241.jpg">
+<meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15266457689435.jpg">
+<meta property="og:updated_time" content="2018-05-18T12:16:32.471Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="打开macOS原生的NTFS">
-<meta name="twitter:description" content="diskutil list">
+<meta name="twitter:title" content="爬一个520礼物给紫玉">
+<meta name="twitter:description" content="520送点啥呢。有Python不慌~哈哈我们来试着找一辆5月20号13点14发车的车吧~">
+<meta name="twitter:image" content="http://p66eruxmw.bkt.clouddn.com/15266453453241.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/Others/打开macOS原生的NTFS/"/>
+  <link rel="canonical" href="https://ixsim.github.io/爬一个520礼物给紫玉/"/>
 
 
 
@@ -127,7 +129,7 @@
   };
 </script>
 
-  <title>打开macOS原生的NTFS | 炫杉</title>
+  <title>爬一个520礼物给紫玉 | 炫杉</title>
   
 
 
@@ -309,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Others/打开macOS原生的NTFS/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/爬一个520礼物给紫玉/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李炫杉">
@@ -326,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">打开macOS原生的NTFS</h1>
+          <h1 class="post-title" itemprop="name headline">爬一个520礼物给紫玉</h1>
         
 
         <div class="post-meta">
@@ -338,7 +340,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T15:12:48+08:00">2018-04-13</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T13:54:28+08:00">2018-05-18</time>
             
 
             
@@ -359,7 +361,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
 
                 
                 
@@ -373,7 +375,7 @@
 
           
           
-             <span id="/Others/打开macOS原生的NTFS/" class="leancloud_visitors" data-flag-title="打开macOS原生的NTFS">
+             <span id="/爬一个520礼物给紫玉/" class="leancloud_visitors" data-flag-title="爬一个520礼物给紫玉">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -404,8 +406,29 @@
       
 
       
-        <div class="note default"><p>diskutil list</p></div>
+        <p>520送点啥呢。有Python不慌~哈哈<br>我们来试着找一辆5月20号13点14发车的车吧~</p>
 <a id="more"></a>
+<h1 id="从分析到实践"><a href="#从分析到实践" class="headerlink" title="从分析到实践"></a>从分析到实践</h1><h2 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h2><p>百度了下列车时刻表，有个ip138，就爬它啦🤭。先读一下第一页的内容：<br>这网站太老了。竟然不是UTF-8编码的。</p>
+<p>使用urlopen：<br><code>html = urlopen(url).read().decode(&#39;GB2312&#39;)</code></p>
+<p>使用Requests：<br><code>r.encode(&#39;ISO-8859-1&#39;).decode(&#39;GB2312&#39;)</code></p>
+<p>OK，可以愉快地玩耍啦。</p>
+<h2 id="循环读全部列车数据"><a href="#循环读全部列车数据" class="headerlink" title="循环读全部列车数据"></a>循环读全部列车数据</h2><p>先从第一页入口读到每个省的数据，根据a标签的href属性很容易发现他们都是/train开头的，正则搞定：<br><code>province = soup.find_all(&#39;a&#39;,{&quot;href&quot;:re.compile(&quot;/train/&quot;)})</code></p>
+<p>然后一个循环开始爬这个省的城市，这里的a标签都是以省份的拼音开头的，就是我们上一步的标签i[‘href’]：<br><code>city = soup.find_all(&#39;a&#39;,{&quot;href&quot;:re.compile(i[&#39;href&#39;])})</code></p>
+<p>好啦，开始读每个城市的列车咯。</p>
+<p>由于时刻表被存在了<table>里，所以先用<tr>把每一行跟分开。<br>然后从tr里用正则找内容是 13:14 的td：<br><code>p=re.compile(r&#39;13:14&#39;)</code><br><code>if p.search(str(i)):</code></tr></table></p>
+<p>这时候发现，并不是所有的13:14都是发车的时间，根据表格内容，第4是发车的时间。我们就把筛出来的数据，split后再判断一下是不是第六列内容是 13:14 ，如果是再append到answer列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> i.text.split()[<span class="number">3</span>] == <span class="string">'13:14'</span>:</span><br><span class="line">    answer.append(i.text)`</span><br></pre></td></tr></table></figure>
+<p>至此所有的代码基本就完成了，可运行起来出了个问题，就是循环队列的网页太多，超时了整个循环都会停止，而且爬了一段时候后一直返回HTTP-Err。<br>请教下同学，写了个Try的函数：</p>
+<h2 id="防止HTTP超时"><a href="#防止HTTP超时" class="headerlink" title="防止HTTP超时"></a>防止HTTP超时</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(url)</span>:</span></span><br><span class="line">    result=<span class="string">''</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        result = urlopen(url,timeout=<span class="number">10</span>).read()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        result = fun(url)</span><br><span class="line">        print(<span class="string">'error'</span>)</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<p>这样，如果超时就会print一个error而且一直递归下去，循环也不会break了。爬网页必备啊~</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment">#import webbrowser</span></span><br><span class="line"></span><br><span class="line">base_url = <span class="string">"http://qq.ip138.com"</span></span><br><span class="line">city = [<span class="string">"train/"</span>]</span><br><span class="line">answer=[]</span><br><span class="line"></span><br><span class="line"><span class="comment">#his = his.encode('uft-8')</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#url = base_url + his[-1]</span></span><br><span class="line">html = urlopen(<span class="string">"http://qq.ip138.com/train"</span>).read().decode(<span class="string">'GB2312'</span>)</span><br><span class="line"><span class="comment">#print(html)</span></span><br><span class="line"><span class="comment">#webbrowser.open(url)</span></span><br><span class="line">soup = BeautifulSoup(html,features=<span class="string">'lxml'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#print(soup.find('a').get_text(),'\n后缀：',city[0])</span></span><br><span class="line"><span class="comment">#找到 属性href是/train/开头 的 a标签</span></span><br><span class="line">province = soup.find_all(<span class="string">'a'</span>,&#123;<span class="string">"href"</span>:re.compile(<span class="string">"/train/"</span>)&#125;)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(url)</span>:</span></span><br><span class="line">    result=<span class="string">''</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        result = urlopen(url,timeout=<span class="number">10</span>).read()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        result = fun(url)</span><br><span class="line">        print(<span class="string">'error'</span>)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">print(province)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> province[<span class="number">1</span>:<span class="number">-1</span>]:</span><br><span class="line">    print(i[<span class="string">'href'</span>])</span><br><span class="line">    url = base_url+i[<span class="string">'href'</span>]</span><br><span class="line">    html = fun(url)</span><br><span class="line">    soup = BeautifulSoup(html,features=<span class="string">'lxml'</span>)</span><br><span class="line">    <span class="comment">#读每个省里的城市</span></span><br><span class="line">    </span><br><span class="line">    city = soup.find_all(<span class="string">'a'</span>,&#123;<span class="string">"href"</span>:re.compile(i[<span class="string">'href'</span>])&#125;)</span><br><span class="line">    <span class="comment">#flag这个省</span></span><br><span class="line">    </span><br><span class="line">    flag = i[<span class="string">'href'</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> city[<span class="number">1</span>:<span class="number">-1</span>]:</span><br><span class="line">        <span class="comment">#哈哈。终于读到时刻表了</span></span><br><span class="line">        print(i[<span class="string">'href'</span>])</span><br><span class="line">        url = base_url+i[<span class="string">'href'</span>]</span><br><span class="line">        html = fun(url)</span><br><span class="line">        soup = BeautifulSoup(html,features=<span class="string">'lxml'</span>)</span><br><span class="line">        train = soup.find_all(<span class="string">'tr'</span>)</span><br><span class="line">        p=re.compile(<span class="string">r'13:14'</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> train:</span><br><span class="line">            <span class="keyword">if</span> p.search(str(i)):</span><br><span class="line">                <span class="keyword">if</span> i.text.split()[<span class="number">3</span>] == <span class="string">'13:14'</span>:</span><br><span class="line">                    answer.append(i.text)</span><br></pre></td></tr></table></figure>
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15266453453241.jpg" alt=""></p>
+<h2 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h2><p>原来有好多好多符合条件的列车呀，那么作为花(Qiong)朵（Ren）的我怎么选呢。</p>
+<p>哈哈。当然是用到站时间-发车时间计算出最（Pianyi）的那一辆啦。<br>这里又学到了Python的time包。<br>给你们个模板拿去用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment">#经停时间是第六列</span></span><br><span class="line">t1 = time.mktime(time.strptime(i.split()[<span class="number">6</span>],<span class="string">'%H:%m'</span>)</span><br><span class="line"><span class="comment">#到站时间是最后一列</span></span><br><span class="line">t2 = time.mktime(time.strptime(i.split()[<span class="number">-1</span>],<span class="string">'%H:%m'</span>)</span><br><span class="line"></span><br><span class="line">t2- t1</span><br></pre></td></tr></table></figure>
+<p>哈哈~</p>
+<p>最后我买了这一班：</p>
+<p><img src="http://p66eruxmw.bkt.clouddn.com/15266457689435.jpg" alt=""></p>
 
       
     </div>
@@ -424,12 +447,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Mac/" rel="tag"># Mac</a>
-          
-        </div>
-      
 
       
       
@@ -439,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/iOS/小波iOS11中级篇笔记/" rel="next" title="小波iOS11中级篇笔记">
-                <i class="fa fa-chevron-left"></i> 小波iOS11中级篇笔记
+              <a href="/ofo仿写记录/" rel="next" title="ofo仿写记录">
+                <i class="fa fa-chevron-left"></i> ofo仿写记录
               </a>
             
           </div>
@@ -448,10 +465,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/iOS/UIDevice学习/" rel="prev" title="UIDevice学习">
-                UIDevice学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -505,8 +518,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -647,6 +669,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从分析到实践"><span class="nav-number">1.</span> <span class="nav-text">从分析到实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初探"><span class="nav-number">1.1.</span> <span class="nav-text">初探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环读全部列车数据"><span class="nav-number">1.2.</span> <span class="nav-text">循环读全部列车数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防止HTTP超时"><span class="nav-number">1.3.</span> <span class="nav-text">防止HTTP超时</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行结果"><span class="nav-number">2.1.</span> <span class="nav-text">运行结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收尾工作"><span class="nav-number">2.2.</span> <span class="nav-text">收尾工作</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
