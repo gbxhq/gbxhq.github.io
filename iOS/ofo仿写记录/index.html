@@ -103,12 +103,12 @@
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ofo仿写记录">
-<meta property="og:url" content="https://ixsim.github.io/ofo仿写记录/index.html">
+<meta property="og:url" content="https://ixsim.github.io/iOS/ofo仿写记录/index.html">
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="ofo不解释，教程同样来自小波。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15264706713494.jpg">
-<meta property="og:updated_time" content="2018-05-17T13:17:17.555Z">
+<meta property="og:updated_time" content="2018-05-20T12:04:05.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ofo仿写记录">
 <meta name="twitter:description" content="ofo不解释，教程同样来自小波。">
@@ -119,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/ofo仿写记录/"/>
+  <link rel="canonical" href="https://ixsim.github.io/iOS/ofo仿写记录/"/>
 
 
 
@@ -311,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/ofo仿写记录/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/iOS/ofo仿写记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李炫杉">
@@ -375,7 +375,7 @@
 
           
           
-             <span id="/ofo仿写记录/" class="leancloud_visitors" data-flag-title="ofo仿写记录">
+             <span id="/iOS/ofo仿写记录/" class="leancloud_visitors" data-flag-title="ofo仿写记录">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -411,6 +411,7 @@
 <h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ul>
 <li>解包 .car 文件：<br><a href="https://github.com/insidegui/AssetCatalogTinkerer" target="_blank" rel="noopener">https://github.com/insidegui/AssetCatalogTinkerer</a><br>仿写必备咯</li>
 <li>很多时候Constrain不好加，可以先拖到合适的地方。比如拖得贴近边框</li>
+<li>ImageView没法调宽度（Table Session里）可以先放一个Container View</li>
 </ul>
 <h1 id="加载网页"><a href="#加载网页" class="headerlink" title="加载网页"></a>加载网页</h1><h2 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h2><p>网页自适应选项在这：<br><img src="http://p66eruxmw.bkt.clouddn.com/15264706713494.jpg" alt=""></p>
 <p>写法：</p>
@@ -423,7 +424,17 @@
 <ul>
 <li>由于SWRevealViewController是OC写的，要做一个桥接：<br>新建一个OC文件，自动生成一个桥接.h文件。删除OC文件即可。</li>
 </ul>
-<p>在桥接.h文件里加入<br><code># import &quot;路径/SWRevealViewController.h&quot;</code></p>
+<p>在桥接.h文件里加入<br><code># import &quot;路径/SWRevealViewController.h&quot;</code><br>在要使用的场景里加入<br><code>import SWRevealViewController</code></p>
+<h2 id="使用-SWRevealViewController"><a href="#使用-SWRevealViewController" class="headerlink" title="使用 SWRevealViewController"></a>使用 SWRevealViewController</h2><ol>
+<li>拖一个ViewController，类选择SWRevealViewController</li>
+<li>程序入口改成这个VC</li>
+<li>从这个ViewController右键拖到1场景和2场景，都选择SW-Set</li>
+<li>两个场景的路径设置Segue的id，前面的叫sw_front，后面（划出来）的叫sw_rear</li>
+<li>写代码</li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> revealVC = revealViewController() &#123;</span><br><span class="line">    </span><br><span class="line">    revealVC.rearViewRevealWidth = <span class="number">300</span> <span class="comment">//设宽度</span></span><br><span class="line">    </span><br><span class="line">    navigationItem.leftBarButtonItem?.target = revealVC</span><br><span class="line">    navigationItem.leftBarButtonItem?.action = #selector(<span class="type">SWRevealViewController</span>.revealToggle(<span class="number">_</span>:))<span class="comment">//这句是OC语法   `#selecot`是OC的一个方法</span></span><br><span class="line">    view.addGestureRecognizer(revealVC.panGestureRecognizer())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在滑动菜单里点击按钮转场：<br>右键拖到场景里，选 r-v-c push 即可<br>再放上刚刚的代码（记得在场景里Embed in个导航）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> revealVC = revealViewController() &#123;</span><br><span class="line">    </span><br><span class="line">    revealVC.rearViewRevealWidth = <span class="number">300</span> <span class="comment">//设宽度</span></span><br><span class="line">    </span><br><span class="line">    navigationItem.leftBarButtonItem?.target = revealVC</span><br><span class="line">    navigationItem.leftBarButtonItem?.action = #selector(<span class="type">SWRevealViewController</span>.revealToggle(<span class="number">_</span>:))<span class="comment">//这句是OC语法   `#selecot`是OC的一个方法</span></span><br><span class="line">    view.addGestureRecognizer(revealVC.panGestureRecognizer())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -467,7 +478,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/爬一个520礼物给紫玉/" rel="prev" title="爬一个520礼物给紫玉">
+              <a href="/Python/爬一个520礼物给紫玉/" rel="prev" title="爬一个520礼物给紫玉">
                 爬一个520礼物给紫玉 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -659,6 +670,10 @@
                   </li>
                 
                   <li class="links-of-blogroll-item">
+                    <a href="https://www.aimoon.site" title="我大哥" target="_blank">我大哥</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
                     <a href="https://onebigcabbage.github.io" title="小菜哥" target="_blank">小菜哥</a>
                   </li>
                 
@@ -684,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加载网页"><span class="nav-number">2.</span> <span class="nav-text">加载网页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebView"><span class="nav-number">2.1.</span> <span class="nav-text">WebView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebKit"><span class="nav-number">2.2.</span> <span class="nav-text">WebKit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#侧边栏"><span class="nav-number">3.</span> <span class="nav-text">侧边栏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方库-初探"><span class="nav-number">3.1.</span> <span class="nav-text">第三方库 初探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SWRevealViewController"><span class="nav-number">3.2.</span> <span class="nav-text">安装SWRevealViewController</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加载网页"><span class="nav-number">2.</span> <span class="nav-text">加载网页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebView"><span class="nav-number">2.1.</span> <span class="nav-text">WebView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebKit"><span class="nav-number">2.2.</span> <span class="nav-text">WebKit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#侧边栏"><span class="nav-number">3.</span> <span class="nav-text">侧边栏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方库-初探"><span class="nav-number">3.1.</span> <span class="nav-text">第三方库 初探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SWRevealViewController"><span class="nav-number">3.2.</span> <span class="nav-text">安装SWRevealViewController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-SWRevealViewController"><span class="nav-number">3.3.</span> <span class="nav-text">使用 SWRevealViewController</span></a></li></ol></li></ol></div>
             
 
           </div>
