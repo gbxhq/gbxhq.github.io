@@ -462,7 +462,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/iOS/UIViewHelper.swift/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/iOS/算法笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李炫杉">
@@ -481,7 +481,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/iOS/UIViewHelper.swift/" itemprop="url">iOS 圆角、阴影通用配置</a></h1>
+                <a class="post-title-link" href="/iOS/算法笔记/" itemprop="url">iOS算法笔记</a></h1>
         
 
         <div class="post-meta">
@@ -528,7 +528,7 @@
 
           
           
-             <span id="/iOS/UIViewHelper.swift/" class="leancloud_visitors" data-flag-title="iOS 圆角、阴影通用配置">
+             <span id="/iOS/算法笔记/" class="leancloud_visitors" data-flag-title="iOS算法笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -560,14 +560,15 @@
 
       
         
-          <p>这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/iOS/UIViewHelper.swift/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="尾递归：防止内存爆炸"><a href="#尾递归：防止内存爆炸" class="headerlink" title="尾递归：防止内存爆炸"></a>尾递归：防止内存爆炸</h2><ul>
+<li>只返回函数本身。</li>
+<li>量放在参数中。<br>Ex:</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fun <span class="function"><span class="keyword">func</span><span class="params">(<span class="number">_</span> n :Int, <span class="number">_</span> total :Int = <span class="number">0</span>)</span></span> -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">    	<span class="keyword">return</span> total + <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span> <span class="params">(n - <span class="number">1</span>, total + n)</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+
+          
         
       
     </div>
@@ -619,7 +620,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/iOS/<懒猫>记录/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/iOS/语法问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李炫杉">
@@ -638,7 +639,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/iOS/<懒猫>记录/" itemprop="url">iOS《笨猫快乐学编程》学习笔记</a></h1>
+                <a class="post-title-link" href="/iOS/语法问题/" itemprop="url">Swift语法笔记</a></h1>
         
 
         <div class="post-meta">
@@ -685,7 +686,7 @@
 
           
           
-             <span id="/iOS/<懒猫>记录/" class="leancloud_visitors" data-flag-title="iOS《笨猫快乐学编程》学习笔记">
+             <span id="/iOS/语法问题/" class="leancloud_visitors" data-flag-title="Swift语法笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -717,13 +718,10 @@
 
       
         
-          <p>这是我找到的国内第一份Swift4.0教程，发布在<a href="https://zhuanlan.zhihu.com/p/29746936" target="_blank" rel="noopener">知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcode9版)</a>。</p>
-<p>一份纯文字加图片的教程。但让我感到了快乐。</p>
-<p>下面是学习过程中记录的一些东西。尽管都是傻傻的知识点，但我的iOS之路就是这么开始的。</p>
-<p>感谢那些分享的人！希望有一天我也能用我的能力，来回报这个社会。</p>
+          <p>语法学习记录。学习Swift的语法，大概就是 <strong>面向过程</strong> –》<strong>面向对象</strong> –》 <strong>面向协议</strong> 的过程。<br>另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话设计模式》，有时间要再读一读了。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/iOS/<懒猫>记录/#more" rel="contents">
+            <a class="btn" href="/iOS/语法问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
