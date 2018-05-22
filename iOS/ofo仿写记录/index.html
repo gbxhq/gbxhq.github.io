@@ -108,7 +108,7 @@
 <meta property="og:description" content="ofo不解释，教程同样来自小波。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15264706713494.jpg">
-<meta property="og:updated_time" content="2018-05-20T12:04:05.908Z">
+<meta property="og:updated_time" content="2018-05-22T03:08:19.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ofo仿写记录">
 <meta name="twitter:description" content="ofo不解释，教程同样来自小波。">
@@ -412,6 +412,9 @@
 <li>解包 .car 文件：<br><a href="https://github.com/insidegui/AssetCatalogTinkerer" target="_blank" rel="noopener">https://github.com/insidegui/AssetCatalogTinkerer</a><br>仿写必备咯</li>
 <li>很多时候Constrain不好加，可以先拖到合适的地方。比如拖得贴近边框</li>
 <li>ImageView没法调宽度（Table Session里）可以先放一个Container View</li>
+<li>按比例添加Constarin：在控件总览栏右键从一个容器拖到上一层容器上，选的等宽，右侧属性改为0.25. 就是占上一层容器的1/4</li>
+<li>把一个view放到顶层：<code>view.bringSubview(toFront: ___)</code></li>
+<li>在模拟器按住option可以双指</li>
 </ul>
 <h1 id="加载网页"><a href="#加载网页" class="headerlink" title="加载网页"></a>加载网页</h1><h2 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h2><p>网页自适应选项在这：<br><img src="http://p66eruxmw.bkt.clouddn.com/15264706713494.jpg" alt=""></p>
 <p>写法：</p>
@@ -435,6 +438,12 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> revealVC = revealViewController() &#123;</span><br><span class="line">    </span><br><span class="line">    revealVC.rearViewRevealWidth = <span class="number">300</span> <span class="comment">//设宽度</span></span><br><span class="line">    </span><br><span class="line">    navigationItem.leftBarButtonItem?.target = revealVC</span><br><span class="line">    navigationItem.leftBarButtonItem?.action = #selector(<span class="type">SWRevealViewController</span>.revealToggle(<span class="number">_</span>:))<span class="comment">//这句是OC语法   `#selecot`是OC的一个方法</span></span><br><span class="line">    view.addGestureRecognizer(revealVC.panGestureRecognizer())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在滑动菜单里点击按钮转场：<br>右键拖到场景里，选 r-v-c push 即可<br>再放上刚刚的代码（记得在场景里Embed in个导航）</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> revealVC = revealViewController() &#123;</span><br><span class="line">    </span><br><span class="line">    revealVC.rearViewRevealWidth = <span class="number">300</span> <span class="comment">//设宽度</span></span><br><span class="line">    </span><br><span class="line">    navigationItem.leftBarButtonItem?.target = revealVC</span><br><span class="line">    navigationItem.leftBarButtonItem?.action = #selector(<span class="type">SWRevealViewController</span>.revealToggle(<span class="number">_</span>:))<span class="comment">//这句是OC语法   `#selecot`是OC的一个方法</span></span><br><span class="line">    view.addGestureRecognizer(revealVC.panGestureRecognizer())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="地图定位"><a href="#地图定位" class="headerlink" title="地图定位"></a>地图定位</h1><p>安装包和引用头文件都在文档里。</p>
+<p>引入mapView，先声明一个mapView变量：<code>var mapView: MAMapView!</code><br>然后再viewDidload()里添加View：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mapView = <span class="type">MAMapView</span>(frame: view.bounds)<span class="comment">//占满全屏</span></span><br><span class="line">mapView.delegate = <span class="keyword">self</span> <span class="comment">//地图代理，以方便重写方法.     </span></span><br><span class="line">view.addSubview(mapView)</span><br><span class="line">view.bringSubview(toFront: panelView)</span><br></pre></td></tr></table></figure>
+<p>加了代理要改这里：<br><code>class ViewController: UIViewController,MAMapViewDelegate{}</code>加一个继承</p>
+<p>加Key加HTTPs啥的都在文档里了。比如这些放在<code>AppDelegate.swift</code>的<code>didFininshedLaunching()</code>中：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AMapServices</span>.shared().enableHTTPS = <span class="literal">true</span></span><br><span class="line"><span class="type">AMapServices</span>.shared().apiKey = <span class="string">"YOUR KEY"</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -559,7 +568,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -627,7 +636,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -699,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加载网页"><span class="nav-number">2.</span> <span class="nav-text">加载网页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebView"><span class="nav-number">2.1.</span> <span class="nav-text">WebView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebKit"><span class="nav-number">2.2.</span> <span class="nav-text">WebKit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#侧边栏"><span class="nav-number">3.</span> <span class="nav-text">侧边栏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方库-初探"><span class="nav-number">3.1.</span> <span class="nav-text">第三方库 初探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SWRevealViewController"><span class="nav-number">3.2.</span> <span class="nav-text">安装SWRevealViewController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-SWRevealViewController"><span class="nav-number">3.3.</span> <span class="nav-text">使用 SWRevealViewController</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加载网页"><span class="nav-number">2.</span> <span class="nav-text">加载网页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebView"><span class="nav-number">2.1.</span> <span class="nav-text">WebView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebKit"><span class="nav-number">2.2.</span> <span class="nav-text">WebKit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#侧边栏"><span class="nav-number">3.</span> <span class="nav-text">侧边栏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方库-初探"><span class="nav-number">3.1.</span> <span class="nav-text">第三方库 初探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SWRevealViewController"><span class="nav-number">3.2.</span> <span class="nav-text">安装SWRevealViewController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-SWRevealViewController"><span class="nav-number">3.3.</span> <span class="nav-text">使用 SWRevealViewController</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#地图定位"><span class="nav-number">4.</span> <span class="nav-text">地图定位</span></a></li></ol></div>
             
 
           </div>

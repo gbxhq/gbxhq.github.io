@@ -99,25 +99,25 @@
 
 
 
-  <meta name="description" content="Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。">
-<meta name="keywords" content="Note,Git">
+  <meta name="description" content="紫玉说课没选上，我就想写个脚本挂着看有没有退呗~">
+<meta name="keywords" content="Python,Demo,Spider,selenium">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git笔记">
-<meta property="og:url" content="https://ixsim.github.io/Others/Git笔记/index.html">
+<meta property="og:title" content="服务器跑selenium监控课余量选课">
+<meta property="og:url" content="https://ixsim.github.io/Python/监控课余量选课/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。">
+<meta property="og:description" content="紫玉说课没选上，我就想写个脚本挂着看有没有退呗~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-10T03:42:36.013Z">
+<meta property="og:updated_time" content="2018-05-22T11:57:01.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git笔记">
-<meta name="twitter:description" content="Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。">
+<meta name="twitter:title" content="服务器跑selenium监控课余量选课">
+<meta name="twitter:description" content="紫玉说课没选上，我就想写个脚本挂着看有没有退呗~">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/Others/Git笔记/"/>
+  <link rel="canonical" href="https://ixsim.github.io/Python/监控课余量选课/"/>
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>Git笔记 | 炫杉</title>
+  <title>服务器跑selenium监控课余量选课 | 炫杉</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Others/Git笔记/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Python/监控课余量选课/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李炫杉">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git笔记</h1>
+          <h1 class="post-title" itemprop="name headline">服务器跑selenium监控课余量选课</h1>
         
 
         <div class="post-meta">
@@ -338,7 +338,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T00:00:00+08:00">2018-01-01</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T13:51:49+08:00">2018-05-22</time>
             
 
             
@@ -359,7 +359,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
 
                 
                 
@@ -373,7 +373,7 @@
 
           
           
-             <span id="/Others/Git笔记/" class="leancloud_visitors" data-flag-title="Git笔记">
+             <span id="/Python/监控课余量选课/" class="leancloud_visitors" data-flag-title="服务器跑selenium监控课余量选课">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -404,10 +404,55 @@
       
 
       
-        <p>Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。</p>
+        <p>紫玉说课没选上，我就想写个脚本挂着看有没有退呗~</p>
 <a id="more"></a>
-<h1 id="Git-Pull冲突问题"><a href="#Git-Pull冲突问题" class="headerlink" title="Git Pull冲突问题"></a>Git Pull冲突问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash 暂存本地修改</span><br><span class="line">git pull 从远程版本库拉取新的修改</span><br><span class="line">git stash pop 将暂存起来的修改合并到本地工作库，如果有冲突会有相应的提示，解决冲突并提交即可</span><br></pre></td></tr></table></figure>
-<p><strong>Note：</strong><br><code>git stash</code>一般用于你在某一分支工作做了一半(还不值得做一次提交或者压根还不想提交)时，你突然想切换到其他分支做一点儿别的事。这时，用<code>git stash</code>就再合适不过了。</p>
+<h1 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h1><p>经过同学的推荐使用了selenium。做自动化测试很好啊，解决chekbox分分钟。开始啦~</p>
+<p>上来就遇到问题了。要把<code>geckodriver</code>这个东西放到环境变量里。<br>最后选择手动配置路径：<br><code>dr = webdriver.Firefox(executable_path = &#39;/Users/lixs/anaconda3/geckodriver&#39;)</code><br>虽然麻烦点，但是着急往下写。我们继续~</p>
+<p>先试试用Cookie登录</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">driver.get(<span class="string">'http://jwxk.ucas.ac.cn/courseManage/selectCourse?s=473bcdb8-8d5d-40af-9087-5071b63ff7a8'</span>)</span><br><span class="line"><span class="comment">#将用户名密码写入浏览器cookie中</span></span><br><span class="line">driver.add_cookie(&#123;<span class="string">'name'</span>:<span class="string">'username'</span>,<span class="string">'value'</span>:<span class="string">'chinalixs@qq.com'</span>&#125;)</span><br><span class="line">driver.add_cookie(&#123;<span class="string">'name'</span>:<span class="string">'pwd'</span>,<span class="string">'value'</span>:<span class="string">'Jwsyb9503'</span>&#125;)</span><br><span class="line"><span class="comment">#再次访问网站，将会自动登录</span></span><br><span class="line">driver.get(<span class="string">'http://jwxk.ucas.ac.cn/courseManage/'</span>)</span><br></pre></td></tr></table></figure>
+<p>不行，提示会话过期。先不用Cookie了以后再回来研究~自动填表吧~</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># login</span></span><br><span class="line">input = driver.find_element_by_name(<span class="string">'userName'</span>)</span><br><span class="line">input.send_keys(<span class="string">'NAME'</span>)</span><br><span class="line">input = driver.find_element_by_name(<span class="string">'pwd'</span>)</span><br><span class="line">input.send_keys(<span class="string">'123456'</span>)</span><br><span class="line"><span class="comment">#点击登录</span></span><br><span class="line">sb = driver.find_element_by_name(<span class="string">'sb'</span>).click()</span><br></pre></td></tr></table></figure>
+<p>然后选课找课都是一个模子的。只能说这个selenium很给力~</p>
+<hr>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ul>
+<li><p>嵌套找xpath:<br><code>driver.find_element_by_xpath(&#39;//form[@id=&quot;regfrm2&quot;]//button[@name=&quot;sb&quot;]&#39;).click()</code></p>
+</li>
+<li><p>time包 sleep(3) 等3秒做自动化测试很好用</p>
+</li>
+<li>处理弹窗：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">al = driver.switch_to_alert()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">al.accept()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>判断是否选上了<code>driver.find_element_by_xpath(&#39;//input[@value=&quot;65A7F68B98BB6FB9&quot;]&#39;).is_selected()</code></li>
+</ul>
+<hr>
+<h1 id="实战本地跑"><a href="#实战本地跑" class="headerlink" title="实战本地跑"></a>实战本地跑</h1><p>截止到目前还是没选上的，因为没人退课啊。不过学到了selenium这个包。</p>
+<p>具体思路就是监测那门课的 chekbox 前面的 √ 是否打上了，打不上就刷新，因为有了课余量那个 √ 是可以打上的，然后就一直刷新。<br>之前也是程序跑个20次左右就会报错，可能是请求太多了。然后刚好上次学到了 try/except ，哎呦不错哦。</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">driver = webdriver.Firefox(executable_path = <span class="string">'/Users/lixs/anaconda3/geckodriver'</span>)</span><br><span class="line">driver.get(<span class="string">'http://sep.ucas.ac.cn'</span>)</span><br><span class="line"><span class="comment"># login</span></span><br><span class="line">input = driver.find_element_by_name(<span class="string">'userName'</span>)</span><br><span class="line">input.send_keys(<span class="string">'chinalixs@qq.com'</span>)</span><br><span class="line">input = driver.find_element_by_name(<span class="string">'pwd'</span>)</span><br><span class="line">input.send_keys(<span class="string">'Jwsyb9503'</span>)</span><br><span class="line">sb = driver.find_element_by_name(<span class="string">'sb'</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开选课系统</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//a[@href="/portal/site/226/821"]'</span>).click()</span><br><span class="line"><span class="comment"># 点击选课</span></span><br><span class="line">driver.get(<span class="string">'http://jwxk.ucas.ac.cn/courseManage/main'</span>)</span><br><span class="line"><span class="comment">#选学院</span></span><br><span class="line">driver.find_element_by_id(<span class="string">'id_913'</span>).click()</span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//form[@id="regfrm2"]//button[@name="sb"]'</span>).click()</span><br><span class="line"><span class="comment">#选课</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xuanke</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        driver.find_element_by_xpath(<span class="string">'//input[@value="65A7F68B98BB6FB9"]'</span>).click()</span><br><span class="line">        <span class="keyword">if</span> driver.find_element_by_xpath(<span class="string">'//input[@value="65A7F68B98BB6FB9"]'</span>).is_selected():</span><br><span class="line">            print(<span class="string">'选上啦！！！'</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'没选上继续'</span>)</span><br><span class="line">            <span class="comment">#刷新一下</span></span><br><span class="line">            driver.refresh()</span><br><span class="line">            al = driver.switch_to_alert()</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            al.accept()</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            xuanke()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        xuanke()</span><br><span class="line">        </span><br><span class="line">xuanke()</span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line">sb = driver.find_element_by_xpath(<span class="string">'//button[@type="submit"]'</span>).click()</span><br><span class="line"><span class="comment">#弹出一个提示，选确定</span></span><br><span class="line">sb = driver.find_element_by_xpath(<span class="string">'//button[@value="ok"]'</span>).click()</span><br></pre></td></tr></table></figure>
+<h1 id="服务器跑"><a href="#服务器跑" class="headerlink" title="服务器跑"></a>服务器跑</h1><p>频繁地去刷新网页，跑了一会儿课没选上，我16g的mac内存占用100%，开始发热了。于是服务器跑的思想直接就冒了出来~</p>
+<p>刚好看到这篇文章：《<a href="https://www.cnblogs.com/bestruggle/p/8080983.html" target="_blank" rel="noopener">liunx centos7无GUI服务器跑Selenium部署说明》</a></p>
+<h2 id="安装chrome"><a href="#安装chrome" class="headerlink" title="安装chrome"></a>安装chrome</h2><ol>
+<li><p>添加chrome的repo源</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> vi /etc/yum.repos.d/google.repo</span><br><span class="line">[google]name=Google-x86_64baseurl=http://dl.google.com/linux/rpm/stable/x86_64enabled=1gpgcheck=0gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装<br><code>yum update</code> , 然后<code>yum install google-chrome-stable</code></p>
+</li>
+</ol>
+<p><strong>注意</strong>：google-chrome一定一定不要用root用户去运行</p>
+<h2 id="安装chromedrive"><a href="#安装chromedrive" class="headerlink" title="安装chromedrive"></a>安装chromedrive</h2><p>从<a href="https://sites.google.com/a/chromium.org/chromedriver/home" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/home</a> 下载 chromedriver</p>
+<p>配置在PATH路径或者在脚本中指定路径  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wget -N http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip unzip chromedriver_linux64.zip</span><br><span class="line"></span><br><span class="line">chmod +x chromedriver</span><br><span class="line"></span><br><span class="line">sudo mv -f chromedriver /usr/local/share/chromedriver</span><br><span class="line"></span><br><span class="line">sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver</span><br><span class="line"></span><br><span class="line">sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver</span><br></pre></td></tr></table></figure>
+<h2 id="安装Xvfb"><a href="#安装Xvfb" class="headerlink" title="安装Xvfb"></a>安装Xvfb</h2><p>无GUI时，Xvfb为虚拟GUI</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br><span class="line"></span><br><span class="line">yum install Xvfb</span><br><span class="line"></span><br><span class="line">yum -install libXfont</span><br><span class="line"></span><br><span class="line">yum install xorg-x11-fonts*</span><br></pre></td></tr></table></figure>
+<h2 id="安装selenium、pyvirtualdisplay"><a href="#安装selenium、pyvirtualdisplay" class="headerlink" title="安装selenium、pyvirtualdisplay"></a>安装selenium、pyvirtualdisplay</h2><p>pip install selenium</p>
+<p>pip install pyvirtualdisplay</p>
+<p>5.写个小demo测试下效果</p>
+<p> vim test.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> pyvirtualdisplay <span class="keyword">import</span> Display</span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line">display = Display(visible=<span class="number">0</span>, size=(<span class="number">800</span>,<span class="number">600</span>))</span><br><span class="line">display.start()</span><br><span class="line">driver = webdriver.Chrome(<span class="string">"./chromedriver"</span>)</span><br><span class="line">driver.get(<span class="string">"http://www.baidu.com"</span>)</span><br><span class="line"><span class="keyword">print</span> driver.page_source</span><br><span class="line"></span><br><span class="line">driver.quit()</span><br><span class="line">display.stop()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>python test.py</p>
+</blockquote>
 
       
     </div>
@@ -428,9 +473,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Note/" rel="tag"># Note</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
+            <a href="/tags/Demo/" rel="tag"># Demo</a>
+          
+            <a href="/tags/Spider/" rel="tag"># Spider</a>
+          
+            <a href="/tags/selenium/" rel="tag"># selenium</a>
           
         </div>
       
@@ -443,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/iOS/小波iOS11初级篇笔记/" rel="next" title="小波iOS11初级篇笔记">
-                <i class="fa fa-chevron-left"></i> 小波iOS11初级篇笔记
+              <a href="/Python/爬一个520礼物给紫玉/" rel="next" title="爬一个520礼物给紫玉">
+                <i class="fa fa-chevron-left"></i> 爬一个520礼物给紫玉
               </a>
             
           </div>
@@ -452,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/iOS/语法问题/" rel="prev" title="Swift语法笔记">
-                Swift语法笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -676,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-Pull冲突问题"><span class="nav-number">1.</span> <span class="nav-text">Git Pull冲突问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初探"><span class="nav-number">1.</span> <span class="nav-text">初探</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识点"><span class="nav-number">2.</span> <span class="nav-text">知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战本地跑"><span class="nav-number">3.</span> <span class="nav-text">实战本地跑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器跑"><span class="nav-number">4.</span> <span class="nav-text">服务器跑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装chrome"><span class="nav-number">4.1.</span> <span class="nav-text">安装chrome</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装chromedrive"><span class="nav-number">4.2.</span> <span class="nav-text">安装chromedrive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Xvfb"><span class="nav-number">4.3.</span> <span class="nav-text">安装Xvfb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装selenium、pyvirtualdisplay"><span class="nav-number">4.4.</span> <span class="nav-text">安装selenium、pyvirtualdisplay</span></a></li></ol></li></ol></div>
             
 
           </div>
