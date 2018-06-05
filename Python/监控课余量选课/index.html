@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,9 +84,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="紫玉说课没选上，我就想写个脚本挂着看有没有退呗~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-22T11:57:01.159Z">
+<meta property="og:updated_time" content="2018-05-22T14:29:52.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器跑selenium监控课余量选课">
 <meta name="twitter:description" content="紫玉说课没选上，我就想写个脚本挂着看有没有退呗~">
@@ -312,7 +312,7 @@
     <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Python/监控课余量选课/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李炫杉">
+      <meta itemprop="name" content="ixsim">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -438,8 +438,12 @@
 <hr>
 <h1 id="实战本地跑"><a href="#实战本地跑" class="headerlink" title="实战本地跑"></a>实战本地跑</h1><p>截止到目前还是没选上的，因为没人退课啊。不过学到了selenium这个包。</p>
 <p>具体思路就是监测那门课的 chekbox 前面的 √ 是否打上了，打不上就刷新，因为有了课余量那个 √ 是可以打上的，然后就一直刷新。<br>之前也是程序跑个20次左右就会报错，可能是请求太多了。然后刚好上次学到了 try/except ，哎呦不错哦。</p>
-<p>代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">driver = webdriver.Firefox(executable_path = <span class="string">'/Users/lixs/anaconda3/geckodriver'</span>)</span><br><span class="line">driver.get(<span class="string">'http://sep.ucas.ac.cn'</span>)</span><br><span class="line"><span class="comment"># login</span></span><br><span class="line">input = driver.find_element_by_name(<span class="string">'userName'</span>)</span><br><span class="line">input.send_keys(<span class="string">'chinalixs@qq.com'</span>)</span><br><span class="line">input = driver.find_element_by_name(<span class="string">'pwd'</span>)</span><br><span class="line">input.send_keys(<span class="string">'Jwsyb9503'</span>)</span><br><span class="line">sb = driver.find_element_by_name(<span class="string">'sb'</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开选课系统</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//a[@href="/portal/site/226/821"]'</span>).click()</span><br><span class="line"><span class="comment"># 点击选课</span></span><br><span class="line">driver.get(<span class="string">'http://jwxk.ucas.ac.cn/courseManage/main'</span>)</span><br><span class="line"><span class="comment">#选学院</span></span><br><span class="line">driver.find_element_by_id(<span class="string">'id_913'</span>).click()</span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//form[@id="regfrm2"]//button[@name="sb"]'</span>).click()</span><br><span class="line"><span class="comment">#选课</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xuanke</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        driver.find_element_by_xpath(<span class="string">'//input[@value="65A7F68B98BB6FB9"]'</span>).click()</span><br><span class="line">        <span class="keyword">if</span> driver.find_element_by_xpath(<span class="string">'//input[@value="65A7F68B98BB6FB9"]'</span>).is_selected():</span><br><span class="line">            print(<span class="string">'选上啦！！！'</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'没选上继续'</span>)</span><br><span class="line">            <span class="comment">#刷新一下</span></span><br><span class="line">            driver.refresh()</span><br><span class="line">            al = driver.switch_to_alert()</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            al.accept()</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            xuanke()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        xuanke()</span><br><span class="line">        </span><br><span class="line">xuanke()</span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line">sb = driver.find_element_by_xpath(<span class="string">'//button[@type="submit"]'</span>).click()</span><br><span class="line"><span class="comment">#弹出一个提示，选确定</span></span><br><span class="line">sb = driver.find_element_by_xpath(<span class="string">'//button[@value="ok"]'</span>).click()</span><br></pre></td></tr></table></figure>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">driver = webdriver.Firefox(executable_path = <span class="string">'/Users/lixs/anaconda3/geckodriver'</span>)</span><br><span class="line">driver.get(<span class="string">'http://sep.ucas.ac.cn'</span>)</span><br><span class="line"><span class="comment"># login</span></span><br><span class="line">input = driver.find_element_by_name(<span class="string">'userName'</span>)</span><br><span class="line">input.send_keys(<span class="string">'chinalixs@qq.com'</span>)</span><br><span class="line">input = driver.find_element_by_name(<span class="string">'pwd'</span>)</span><br><span class="line">input.send_keys(<span class="string">'Jwsyb9503'</span>)</span><br><span class="line">sb = driver.find_element_by_name(<span class="string">'sb'</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开选课系统</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">driver = webdriver.Firefox(executable_path = <span class="string">'/Users/lixs/anaconda3/geckodriver'</span>)</span><br><span class="line">driver.get(<span class="string">'http://sep.ucas.ac.cn'</span>)</span><br><span class="line"><span class="comment"># login</span></span><br><span class="line">input = driver.find_element_by_name(<span class="string">'userName'</span>)</span><br><span class="line">input.send_keys(<span class="string">'chinalixs@qq.com'</span>)</span><br><span class="line">input = driver.find_element_by_name(<span class="string">'pwd'</span>)</span><br><span class="line">input.send_keys(<span class="string">'Jwsyb9503'</span>)</span><br><span class="line">sb = driver.find_element_by_name(<span class="string">'sb'</span>).click()</span><br><span class="line"><span class="comment"># 打开选课系统</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//a[@href="/portal/site/226/821"]'</span>).click()</span><br><span class="line"><span class="comment"># 点击选课</span></span><br><span class="line">driver.get(<span class="string">'http://jwxk.ucas.ac.cn/courseManage/main'</span>)</span><br><span class="line"><span class="comment">#选学院</span></span><br><span class="line">driver.find_element_by_id(<span class="string">'id_913'</span>).click()</span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//form[@id="regfrm2"]//button[@name="sb"]'</span>).click()</span><br><span class="line"><span class="comment">#选课</span></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xuanke</span><span class="params">(i)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">100</span>==<span class="number">0</span>:</span><br><span class="line">    <span class="comment">#每当i跑100次就返回一下防止内存爆炸</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        driver.find_element_by_xpath(<span class="string">'//input[@value="65A7F68B98BB6FB9"]'</span>).click()</span><br><span class="line">        <span class="keyword">if</span> driver.find_element_by_xpath(<span class="string">'//input[@value="65A7F68B98BB6FB9"]'</span>).is_selected():</span><br><span class="line">            print(<span class="string">'选上啦！！！'</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(i,<span class="string">'次没选上继续'</span>)</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            <span class="comment">#刷新一下</span></span><br><span class="line">            driver.refresh()</span><br><span class="line">            al = driver.switch_to_alert()</span><br><span class="line">            al.accept()</span><br><span class="line">            xuanke(i)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'---------------ERROR---------------------'</span>)</span><br><span class="line">        xuanke(i)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    xuanke(i)</span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line">sb = driver.find_element_by_xpath(<span class="string">'//button[@type="submit"]'</span>).click()</span><br><span class="line"><span class="comment">#弹出一个提示，选确定</span></span><br><span class="line">sb = driver.find_element_by_xpath(<span class="string">'//button[@value="ok"]'</span>).click()</span><br><span class="line">print(<span class="string">'OVER'</span>)</span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
+<h2 id="代码历史："><a href="#代码历史：" class="headerlink" title="代码历史："></a>代码历史：</h2><ul>
+<li><strong>1.0版本</strong> 开始选课函数是 xuanke()<br>后来我想引入一个统计变量看跑了多少次。就在函数外设了个变量。结果很低级的错误就出现了，函数定义怎么能改全局变量i呢。真的天真</li>
+<li><strong>2.0版本</strong> xuanke(i) 传入i。<br>统计可以了，新问题也就出现了。老版的 xuanke(i) 里每跑2k次左右，就会内存爆炸，于是</li>
+<li><strong>3.0版本</strong> 每i==100就return一次。</li>
+</ul>
 <h1 id="服务器跑"><a href="#服务器跑" class="headerlink" title="服务器跑"></a>服务器跑</h1><p>频繁地去刷新网页，跑了一会儿课没选上，我16g的mac内存占用100%，开始发热了。于是服务器跑的思想直接就冒了出来~</p>
 <p>刚好看到这篇文章：《<a href="https://www.cnblogs.com/bestruggle/p/8080983.html" target="_blank" rel="noopener">liunx centos7无GUI服务器跑Selenium部署说明》</a></p>
 <h2 id="安装chrome"><a href="#安装chrome" class="headerlink" title="安装chrome"></a>安装chrome</h2><ol>
@@ -512,6 +516,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/Others/《移动安全与测评》节课感/" rel="prev" title="《移动安全与测评》结课感">
+                《移动安全与测评》结课感 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -559,6 +567,8 @@
 
   <aside id="sidebar" class="sidebar">
     
+      <div id="sidebar-dimmer"></div>
+    
     <div class="sidebar-inner">
 
       
@@ -578,7 +588,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">李炫杉</p>
+              <p class="site-author-name" itemprop="name">ixsim</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -589,7 +599,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -659,7 +669,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -716,8 +728,23 @@
           
             
           
-          
-
+          <font color="white">EOS今天涨了吗？</font>
+<!-- AICoin Widget Begin -->
+<script type="text/javascript"
+    src="https://widget.aicoin.net.cn/chart/js/aicoin.js"
+></script>
+<script type="text/javascript">
+new AICoin.markets({
+    "symbols": [
+        "huobiproeosusdt"
+    ],
+    "columns": [],
+    "style": "tr%7Bheight%3A34px%3Bcolor%3Awhite%3B%7Dspan%7Bcolor%3Awhite%3B%7D",
+    "container": "markets_container",
+    "lang": "zh"
+})
+</script>
+<!-- AICoin Widget End -->
         </div>
       </section>
 
@@ -731,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初探"><span class="nav-number">1.</span> <span class="nav-text">初探</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识点"><span class="nav-number">2.</span> <span class="nav-text">知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战本地跑"><span class="nav-number">3.</span> <span class="nav-text">实战本地跑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器跑"><span class="nav-number">4.</span> <span class="nav-text">服务器跑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装chrome"><span class="nav-number">4.1.</span> <span class="nav-text">安装chrome</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装chromedrive"><span class="nav-number">4.2.</span> <span class="nav-text">安装chromedrive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Xvfb"><span class="nav-number">4.3.</span> <span class="nav-text">安装Xvfb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装selenium、pyvirtualdisplay"><span class="nav-number">4.4.</span> <span class="nav-text">安装selenium、pyvirtualdisplay</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初探"><span class="nav-number">1.</span> <span class="nav-text">初探</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识点"><span class="nav-number">2.</span> <span class="nav-text">知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战本地跑"><span class="nav-number">3.</span> <span class="nav-text">实战本地跑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码："><span class="nav-number">3.1.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码历史："><span class="nav-number">3.2.</span> <span class="nav-text">代码历史：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器跑"><span class="nav-number">4.</span> <span class="nav-text">服务器跑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装chrome"><span class="nav-number">4.1.</span> <span class="nav-text">安装chrome</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装chromedrive"><span class="nav-number">4.2.</span> <span class="nav-text">安装chromedrive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Xvfb"><span class="nav-number">4.3.</span> <span class="nav-text">安装Xvfb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装selenium、pyvirtualdisplay"><span class="nav-number">4.4.</span> <span class="nav-text">安装selenium、pyvirtualdisplay</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -755,15 +782,12 @@
   <span class="with-love" id="animate">
     <i class="fa fa-"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">李炫杉 ❤ 紫玉</span>
+  <span class="author" itemprop="copyrightHolder">炫杉 ❤ 紫玉</span>
 
   
 
   
 </div>
-
-
-
 
 
 
@@ -788,6 +812,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     

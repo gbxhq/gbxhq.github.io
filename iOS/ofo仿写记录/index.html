@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,9 +84,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -117,7 +117,7 @@
 <meta property="og:description" content="ofo不解释，教程同样来自小波。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15264706713494.jpg">
-<meta property="og:updated_time" content="2018-05-22T03:08:19.395Z">
+<meta property="og:updated_time" content="2018-05-26T08:50:44.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ofo仿写记录">
 <meta name="twitter:description" content="ofo不解释，教程同样来自小波。">
@@ -314,7 +314,7 @@
     <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/iOS/ofo仿写记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李炫杉">
+      <meta itemprop="name" content="ixsim">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -425,6 +425,8 @@
 <li>按比例添加Constarin：在控件总览栏右键从一个容器拖到上一层容器上，选的等宽，右侧属性改为0.25. 就是占上一层容器的1/4</li>
 <li>把一个view放到顶层：<code>view.bringSubview(toFront: ___)</code></li>
 <li>在模拟器按住option可以双指</li>
+<li>dump()有点像print但是可以输出属性</li>
+<li>加注释技巧:<code>// MARK: -这样可以在查看函数时快速定位</code></li>
 </ul>
 <h1 id="加载网页"><a href="#加载网页" class="headerlink" title="加载网页"></a>加载网页</h1><h2 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h2><p>网页自适应选项在这：<br><img src="http://p66eruxmw.bkt.clouddn.com/15264706713494.jpg" alt=""></p>
 <p>写法：</p>
@@ -454,7 +456,10 @@
 <p>加了代理要改这里：<br><code>class ViewController: UIViewController,MAMapViewDelegate{}</code>加一个继承</p>
 <p>加Key加HTTPs啥的都在文档里了。比如这些放在<code>AppDelegate.swift</code>的<code>didFininshedLaunching()</code>中：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AMapServices</span>.shared().enableHTTPS = <span class="literal">true</span></span><br><span class="line"><span class="type">AMapServices</span>.shared().apiKey = <span class="string">"YOUR KEY"</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="GPX文件制作"><a href="#GPX文件制作" class="headerlink" title="GPX文件制作"></a>GPX文件制作</h2><p><a href="http://mygeoposition.com" target="_blank" rel="noopener">http://mygeoposition.com</a></p>
+<p>Note：调用Google地图，需富强上网。</p>
+<p>PS：经纬度数据可能不准确。在<a href="http://mygeoposition.com获取了GPX文件后可以再到http://lbs.amap.com/console/show/picker" target="_blank" rel="noopener">http://mygeoposition.com获取了GPX文件后可以再到http://lbs.amap.com/console/show/picker</a> 查到对应的经纬度修改下。</p>
+<h2 id="POI"><a href="#POI" class="headerlink" title="POI"></a>POI</h2>
       
     </div>
 
@@ -548,6 +553,8 @@
 
   <aside id="sidebar" class="sidebar">
     
+      <div id="sidebar-dimmer"></div>
+    
     <div class="sidebar-inner">
 
       
@@ -567,7 +574,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">李炫杉</p>
+              <p class="site-author-name" itemprop="name">ixsim</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -578,7 +585,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -648,7 +655,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -705,8 +714,23 @@
           
             
           
-          
-
+          <font color="white">EOS今天涨了吗？</font>
+<!-- AICoin Widget Begin -->
+<script type="text/javascript"
+    src="https://widget.aicoin.net.cn/chart/js/aicoin.js"
+></script>
+<script type="text/javascript">
+new AICoin.markets({
+    "symbols": [
+        "huobiproeosusdt"
+    ],
+    "columns": [],
+    "style": "tr%7Bheight%3A34px%3Bcolor%3Awhite%3B%7Dspan%7Bcolor%3Awhite%3B%7D",
+    "container": "markets_container",
+    "lang": "zh"
+})
+</script>
+<!-- AICoin Widget End -->
         </div>
       </section>
 
@@ -720,7 +744,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加载网页"><span class="nav-number">2.</span> <span class="nav-text">加载网页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebView"><span class="nav-number">2.1.</span> <span class="nav-text">WebView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebKit"><span class="nav-number">2.2.</span> <span class="nav-text">WebKit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#侧边栏"><span class="nav-number">3.</span> <span class="nav-text">侧边栏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方库-初探"><span class="nav-number">3.1.</span> <span class="nav-text">第三方库 初探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SWRevealViewController"><span class="nav-number">3.2.</span> <span class="nav-text">安装SWRevealViewController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-SWRevealViewController"><span class="nav-number">3.3.</span> <span class="nav-text">使用 SWRevealViewController</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#地图定位"><span class="nav-number">4.</span> <span class="nav-text">地图定位</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加载网页"><span class="nav-number">2.</span> <span class="nav-text">加载网页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebView"><span class="nav-number">2.1.</span> <span class="nav-text">WebView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebKit"><span class="nav-number">2.2.</span> <span class="nav-text">WebKit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#侧边栏"><span class="nav-number">3.</span> <span class="nav-text">侧边栏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方库-初探"><span class="nav-number">3.1.</span> <span class="nav-text">第三方库 初探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SWRevealViewController"><span class="nav-number">3.2.</span> <span class="nav-text">安装SWRevealViewController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-SWRevealViewController"><span class="nav-number">3.3.</span> <span class="nav-text">使用 SWRevealViewController</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#地图定位"><span class="nav-number">4.</span> <span class="nav-text">地图定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GPX文件制作"><span class="nav-number">4.1.</span> <span class="nav-text">GPX文件制作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POI"><span class="nav-number">4.2.</span> <span class="nav-text">POI</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -744,15 +768,12 @@
   <span class="with-love" id="animate">
     <i class="fa fa-"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">李炫杉 ❤ 紫玉</span>
+  <span class="author" itemprop="copyrightHolder">炫杉 ❤ 紫玉</span>
 
   
 
   
 </div>
-
-
-
 
 
 
@@ -777,6 +798,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
