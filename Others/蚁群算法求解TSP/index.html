@@ -108,22 +108,22 @@
 
 
 
-  <meta name="description" content="蚁群算法的作业，本来想用C写的，百度了一下放弃了🙂  是我实力不行。🙈MATLAB写这个确实好写。😌">
+  <meta name="description" content="蚁群算法的作业，本来想用C写的。感觉就是：  是我实力不行。🙈MATLAB写这个确实好写。😌">
 <meta name="keywords" content="C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="蚁群算法求解TSP-Matlab版">
 <meta property="og:url" content="https://ixsim.github.io/Others/蚁群算法求解TSP/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="蚁群算法的作业，本来想用C写的，百度了一下放弃了🙂  是我实力不行。🙈MATLAB写这个确实好写。😌">
+<meta property="og:description" content="蚁群算法的作业，本来想用C写的。感觉就是：  是我实力不行。🙈MATLAB写这个确实好写。😌">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15284289629541.jpg">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15284295238328.jpg">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15282602841547.jpg">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15282645013553.jpg">
-<meta property="og:updated_time" content="2018-06-08T04:20:54.663Z">
+<meta property="og:updated_time" content="2018-06-08T04:26:11.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="蚁群算法求解TSP-Matlab版">
-<meta name="twitter:description" content="蚁群算法的作业，本来想用C写的，百度了一下放弃了🙂  是我实力不行。🙈MATLAB写这个确实好写。😌">
+<meta name="twitter:description" content="蚁群算法的作业，本来想用C写的。感觉就是：  是我实力不行。🙈MATLAB写这个确实好写。😌">
 <meta name="twitter:image" content="http://p66eruxmw.bkt.clouddn.com/15284289629541.jpg">
 
 
@@ -419,21 +419,18 @@
       
 
       
-        <p>蚁群算法的作业，本来想用C写的，百度了一下放弃了🙂</p>
+        <p>蚁群算法的作业，本来想用C写的。感觉就是：</p>
 <blockquote>
 <p>是我实力不行。🙈<br>MATLAB写这个确实好写。😌</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="C菜🐦的挫败"><a href="#C菜🐦的挫败" class="headerlink" title="C菜🐦的挫败"></a>C菜🐦的挫败</h1><p>用C解TSP，你让我写个什么贪心啥的我觉得我也能憋出来，但让我写蚁群，我还是怂了，不过开始写的第一步学到了这个：<strong>GDB</strong></p>
-<blockquote>
-<p>是的。第一次用Mac写C，丢人现眼了。赶紧百度了一波咋编译。之前只知道有GCC这个东西，简单搜了下，好强大！<br>什么断点啥的我都不学了，<del>这两句就够我今天用的了</del></p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c -o hello</span><br><span class="line"><span class="meta">#</span>这样就把hello.c编译成了hello的可执行文件</span><br><span class="line">./ hello</span><br><span class="line">这就输出了</span><br></pre></td></tr></table></figure>
+<h1 id="C菜🐦的挫败"><a href="#C菜🐦的挫败" class="headerlink" title="C菜🐦的挫败"></a>C菜🐦的挫败</h1><p>先简单介绍下GDB这个东西，Mac下写C神器。没了解过的拿着下面两句就可以先起飞了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c -o hello  #这样就把hello.c编译成了hello的可执行文件</span><br><span class="line"></span><br><span class="line">./ hello #这就输出了</span><br></pre></td></tr></table></figure>
 <p>【事实是半小时后放弃用C】</p>
 <p>那么就MATLAB走起</p>
 <h1 id="MATLAB版-蚁群算法求解TSP"><a href="#MATLAB版-蚁群算法求解TSP" class="headerlink" title="MATLAB版-蚁群算法求解TSP"></a>MATLAB版-蚁群算法求解TSP</h1><p>算法主要过程：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">while</span> NC&lt;=NC_max        <span class="comment">%--- Start ---</span></span><br><span class="line">        <span class="comment">% 随机放置蚂蚁</span></span><br><span class="line">        Tabu=initTabu(n,m);</span><br><span class="line">        <span class="comment">% 蚂蚁跑完一圈</span></span><br><span class="line">        Tabu=selectNextCity(Tabu,Tau,R_best,n,m,Alpha,Beta,Eta,NC);</span><br><span class="line">        <span class="comment">% 寻找路径</span></span><br><span class="line">        [L_best,R_best,L,R]=findBestPath(Tabu,L_best,R_best,D,n,m,NC);</span><br><span class="line">        <span class="comment">%=== End1Time ===</span></span><br><span class="line">        NC=NC+<span class="number">1</span>;</span><br><span class="line">        <span class="comment">% 更新Tau</span></span><br><span class="line">        Tau=updateTau(Tabu,Tau,L,Q,n,m,Rho);</span><br><span class="line">        <span class="comment">% 重置Tabu</span></span><br><span class="line">        Tabu=<span class="built_in">zeros</span>(m,n); </span><br><span class="line"><span class="keyword">end</span>                    <span class="comment">%--- End ---</span></span><br></pre></td></tr></table></figure>
-<h3 id="自定义参数下求解出的最优路径"><a href="#自定义参数下求解出的最优路径" class="headerlink" title="自定义参数下求解出的最优路径"></a>自定义参数下求解出的最优路径</h3><p><img src="http://p66eruxmw.bkt.clouddn.com/15284289629541.jpg" alt=""></p>
+<h2 id="自定义参数下求解出的最优路径"><a href="#自定义参数下求解出的最优路径" class="headerlink" title="自定义参数下求解出的最优路径"></a>自定义参数下求解出的最优路径</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15284289629541.jpg" alt=""></p>
 <h1 id="参数影响"><a href="#参数影响" class="headerlink" title="参数影响"></a>参数影响</h1><h2 id="蚂蚁数m对性能的影响"><a href="#蚂蚁数m对性能的影响" class="headerlink" title="蚂蚁数m对性能的影响"></a>蚂蚁数m对性能的影响</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15284295238328.jpg" alt=""></p>
 <blockquote>
 <p>从图上可以看出，蚂蚁数m越大算法收敛越快。</p>
@@ -735,7 +732,7 @@ new AICoin.markets({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C菜🐦的挫败"><span class="nav-number">1.</span> <span class="nav-text">C菜🐦的挫败</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MATLAB版-蚁群算法求解TSP"><span class="nav-number">2.</span> <span class="nav-text">MATLAB版-蚁群算法求解TSP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义参数下求解出的最优路径"><span class="nav-number">2.0.1.</span> <span class="nav-text">自定义参数下求解出的最优路径</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参数影响"><span class="nav-number">3.</span> <span class="nav-text">参数影响</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#蚂蚁数m对性能的影响"><span class="nav-number">3.1.</span> <span class="nav-text">蚂蚁数m对性能的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息素重要程度Alpha对性能的影响"><span class="nav-number">3.2.</span> <span class="nav-text">信息素重要程度Alpha对性能的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启发因子重要程度Beta对性能的影响"><span class="nav-number">3.3.</span> <span class="nav-text">启发因子重要程度Beta对性能的影响</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C菜🐦的挫败"><span class="nav-number">1.</span> <span class="nav-text">C菜🐦的挫败</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MATLAB版-蚁群算法求解TSP"><span class="nav-number">2.</span> <span class="nav-text">MATLAB版-蚁群算法求解TSP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义参数下求解出的最优路径"><span class="nav-number">2.1.</span> <span class="nav-text">自定义参数下求解出的最优路径</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参数影响"><span class="nav-number">3.</span> <span class="nav-text">参数影响</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#蚂蚁数m对性能的影响"><span class="nav-number">3.1.</span> <span class="nav-text">蚂蚁数m对性能的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息素重要程度Alpha对性能的影响"><span class="nav-number">3.2.</span> <span class="nav-text">信息素重要程度Alpha对性能的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启发因子重要程度Beta对性能的影响"><span class="nav-number">3.3.</span> <span class="nav-text">启发因子重要程度Beta对性能的影响</span></a></li></ol></li></ol></div>
             
 
           </div>
