@@ -120,7 +120,7 @@
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15284295238328.jpg">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15282602841547.jpg">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15282645013553.jpg">
-<meta property="og:updated_time" content="2018-06-08T03:45:51.252Z">
+<meta property="og:updated_time" content="2018-06-08T04:20:54.663Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="蚁群算法求解TSP-Matlab版">
 <meta name="twitter:description" content="蚁群算法的作业，本来想用C写的，百度了一下放弃了🙂  是我实力不行。🙈MATLAB写这个确实好写。😌">
@@ -441,14 +441,14 @@
 </blockquote>
 <h2 id="信息素重要程度Alpha对性能的影响"><a href="#信息素重要程度Alpha对性能的影响" class="headerlink" title="信息素重要程度Alpha对性能的影响"></a>信息素重要程度Alpha对性能的影响</h2><p>Alpha分别取的是 [0,0.5,1,2,5]<br><img src="http://p66eruxmw.bkt.clouddn.com/15282602841547.jpg" alt=""></p>
 <blockquote>
-<p>从图上可以看出Alpha在1和2的时候性能最好。<br>当Alpha=0时，并没有得到最优解。<br>当Alpha=5时，效果更差。<br>当Alpha=0.5时，需要经过较多的代数才能收敛。</p>
+<p>从图上可以看出Alpha在1和2的时候性能最好。<br>当Alpha=0时，并没有得到最优解。此时是贪心算法。<br>当Alpha=5时，效果更差。信息素影响大导致算法过早收敛。<br>当Alpha=0.5时，需要经过较多的代数才能收敛。</p>
 </blockquote>
 <h2 id="启发因子重要程度Beta对性能的影响"><a href="#启发因子重要程度Beta对性能的影响" class="headerlink" title="启发因子重要程度Beta对性能的影响"></a>启发因子重要程度Beta对性能的影响</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15282645013553.jpg" alt=""></p>
 <blockquote>
 <p>如图所示，Beta=5时求得的最短路径最小同时收敛速度也最快。</p>
 <p>Beta为1时需要经过较多的代数才能收敛。</p>
 <p>Beta为2、3时效果一般。而且都不一定能收敛到最优解。</p>
-<p>Beta为0时则结果较差。</p>
+<p>Beta为0时则结果较差。因为此时没有随机选择，容易陷入局部最优。</p>
 </blockquote>
 
       
