@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-22T12:26:49.872Z">
+<meta property="og:updated_time" content="2018-08-07T12:56:21.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git笔记">
 <meta name="twitter:description" content="Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。">
@@ -420,7 +420,7 @@
 <p><strong>Note：</strong><br><code>git stash</code>一般用于你在某一分支工作做了一半(还不值得做一次提交或者压根还不想提交)时，你突然想切换到其他分支做一点儿别的事。这时，用<code>git stash</code>就再合适不过了。</p>
 <h2 id="2-Pull-is-not-possible-because-you-have-unmerged-files"><a href="#2-Pull-is-not-possible-because-you-have-unmerged-files" class="headerlink" title="2.Pull is not possible because you have unmerged files."></a>2.Pull is not possible because you have unmerged files.</h2><p>本地的push和merge会形成MERGE-HEAD(FETCH-HEAD), HEAD（PUSH-HEAD）这样的引用。HEAD代表本地最近成功push后形成的引用。MERGE-HEAD表示成功pull后形成的引用。可以通过MERGE-HEAD或者HEAD来实现类型与svn revet的效果。<br>解决：<br>1.将本地的冲突文件冲掉，不仅需要reset到MERGE-HEAD或者HEAD,还需要–hard。没有后面的hard，不会冲掉本地工作区。只会冲掉stage区。<br><code>git reset --hard FETCH_HEAD</code></p>
 <p>2.<code>git pull</code>就会成功。</p>
-
+<h1 id="多个Git账号问题"><a href="#多个Git账号问题" class="headerlink" title="多个Git账号问题"></a>多个Git账号问题</h1>
       
     </div>
 
@@ -713,7 +713,7 @@ new AICoin.markets({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-Pull冲突问题"><span class="nav-number">1.</span> <span class="nav-text">Git Pull冲突问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Pull-is-not-possible-because-you-have-unmerged-files"><span class="nav-number">1.2.</span> <span class="nav-text">2.Pull is not possible because you have unmerged files.</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-Pull冲突问题"><span class="nav-number">1.</span> <span class="nav-text">Git Pull冲突问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Pull-is-not-possible-because-you-have-unmerged-files"><span class="nav-number">1.2.</span> <span class="nav-text">2.Pull is not possible because you have unmerged files.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多个Git账号问题"><span class="nav-number">2.</span> <span class="nav-text">多个Git账号问题</span></a></li></ol></div>
             
 
           </div>
