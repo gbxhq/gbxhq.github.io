@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-07T12:56:21.691Z">
+<meta property="og:updated_time" content="2018-08-07T13:09:54.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git笔记">
 <meta name="twitter:description" content="Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。">
@@ -420,7 +420,8 @@
 <p><strong>Note：</strong><br><code>git stash</code>一般用于你在某一分支工作做了一半(还不值得做一次提交或者压根还不想提交)时，你突然想切换到其他分支做一点儿别的事。这时，用<code>git stash</code>就再合适不过了。</p>
 <h2 id="2-Pull-is-not-possible-because-you-have-unmerged-files"><a href="#2-Pull-is-not-possible-because-you-have-unmerged-files" class="headerlink" title="2.Pull is not possible because you have unmerged files."></a>2.Pull is not possible because you have unmerged files.</h2><p>本地的push和merge会形成MERGE-HEAD(FETCH-HEAD), HEAD（PUSH-HEAD）这样的引用。HEAD代表本地最近成功push后形成的引用。MERGE-HEAD表示成功pull后形成的引用。可以通过MERGE-HEAD或者HEAD来实现类型与svn revet的效果。<br>解决：<br>1.将本地的冲突文件冲掉，不仅需要reset到MERGE-HEAD或者HEAD,还需要–hard。没有后面的hard，不会冲掉本地工作区。只会冲掉stage区。<br><code>git reset --hard FETCH_HEAD</code></p>
 <p>2.<code>git pull</code>就会成功。</p>
-<h1 id="多个Git账号问题"><a href="#多个Git账号问题" class="headerlink" title="多个Git账号问题"></a>多个Git账号问题</h1>
+<h1 id="多个Git账号问题"><a href="#多个Git账号问题" class="headerlink" title="多个Git账号问题"></a>多个Git账号问题</h1><p><a href="https://www.jianshu.com/p/fbbf6efb50ba" target="_blank" rel="noopener">https://www.jianshu.com/p/fbbf6efb50ba</a></p>
+
       
     </div>
 
@@ -465,8 +466,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/iOS/UIViewHelper.swift/" rel="prev" title="iOS 圆角、阴影通用配置">
-                iOS 圆角、阴影通用配置 <i class="fa fa-chevron-right"></i>
+              <a href="/iOS/<懒猫>记录/" rel="prev" title="iOS《笨猫快乐学编程》学习笔记">
+                iOS《笨猫快乐学编程》学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -585,6 +586,8 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
+                    
+                      
                     
                       
                     
