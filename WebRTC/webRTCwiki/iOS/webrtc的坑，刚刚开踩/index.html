@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="#webrtc的坑，刚刚开踩  此篇是源于自己跟团队小伙伴在运行源码demo时一些稀奇古怪问题的坑，望众基共勉之。由于比较杂，所以主要针对命令行跟踪所遇到的问题出发做笔记。  mobileprovision-read -f app/embedded.mobileprovision 该命令行用于查看app对应的provisonning文件是否和签名对应，其中有几个key可供对比使用： 123451、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="炫杉">
+<meta property="og:url" content="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/webrtc的坑，刚刚开踩/index.html">
+<meta property="og:site_name" content="炫杉">
+<meta property="og:description" content="#webrtc的坑，刚刚开踩  此篇是源于自己跟团队小伙伴在运行源码demo时一些稀奇古怪问题的坑，望众基共勉之。由于比较杂，所以主要针对命令行跟踪所遇到的问题出发做笔记。  mobileprovision-read -f app/embedded.mobileprovision 该命令行用于查看app对应的provisonning文件是否和签名对应，其中有几个key可供对比使用： 123451、">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1636820-586e30c759d81d0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1636820-45674e12d219a60c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1636820-dff5934262b59480.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1636820-4490b4d9dca8fc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-07-02T04:47:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="炫杉">
+<meta name="twitter:description" content="#webrtc的坑，刚刚开踩  此篇是源于自己跟团队小伙伴在运行源码demo时一些稀奇古怪问题的坑，望众基共勉之。由于比较杂，所以主要针对命令行跟踪所遇到的问题出发做笔记。  mobileprovision-read -f app/embedded.mobileprovision 该命令行用于查看app对应的provisonning文件是否和签名对应，其中有几个key可供对比使用： 123451、">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1636820-586e30c759d81d0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+
+
+
+  <link rel="canonical" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/webrtc的坑，刚刚开踩/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | 炫杉</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">炫杉</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/webrtc的坑，刚刚开踩/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ixsim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="炫杉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#webrtc的坑，刚刚开踩</p>
+<blockquote>
+<p>此篇是源于自己跟团队小伙伴在运行源码demo时一些稀奇古怪问题的坑，望众基共勉之。由于比较杂，所以主要针对命令行跟踪所遇到的问题出发做笔记。</p>
+</blockquote>
+<h2 id="mobileprovision-read-f-app-embedded-mobileprovision"><a href="#mobileprovision-read-f-app-embedded-mobileprovision" class="headerlink" title="mobileprovision-read -f app/embedded.mobileprovision"></a>mobileprovision-read -f app/embedded.mobileprovision</h2><p> 该命令行用于查看app对应的provisonning文件是否和签名对应，其中有几个key可供对比使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、com.apple.developer.team-identifier</span><br><span class="line">2、Name</span><br><span class="line">3、ProvisionedDevices</span><br><span class="line">4、TeamName</span><br><span class="line">5、UUID</span><br></pre></td></tr></table></figure>
+<pre><code>1、该命令行中有许多类似key值的string与其相同，用于存储开发者团队的TeamIdentifier
+2、为provisonning文件的文件名
+3、当前项目开发者团队组中授权的设备UUID数组
+4、开发者团队名
+5开发者团队的ID   
+</code></pre><p>▲ 附带贴一个链接（.mobileprovision文件查询工具)<br> <a href="https://github.com/0xc010d/mobileprovision-read" target="_blank" rel="noopener">https://github.com/0xc010d/mobileprovision-read</a><br>▲ 关于provisonning文件，以’iOS Team’开头的文件，现在只能在xcode中进行管理，developer apple中不显示<br>▲ 对比两个APP中的embedded.mobileprovision是否一样，使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md5 embedded.mobileprovision</span><br></pre></td></tr></table></figure>
+<pre><code>例：MD5 (embedded.mobileprovision) = 91a3dc5a9c4ec0edc035231ced41dbfe
+</code></pre><p>▲附上一个地址/Users/ducky/Library/MobileDevice/Provisioning Profiles</p>
+<p>##关于webrtc的源码管理（from大佬）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gclient是用来同步代码，在和src同级目录会有一个隐藏.gclient文件，里面记录了基本的代码拉取设置</span><br><span class="line">src里面的各个目录、甚至子目录，基本上都是一个独立的git库</span><br><span class="line">gclient sync的命令回去检查整个项目的完整情况，并同步代码</span><br><span class="line">如果gclient sync无法通过，一般都不是代码的问题，是因为工具链或依赖库和当前代码需要的不一致</span><br><span class="line">gclient是用来同步代码和工具链的</span><br><span class="line">gn 是用来产生ninja所需的配置文件</span><br><span class="line">ninja 才是编译的</span><br><span class="line">代码里面有很多*.gni，可以认为是和make脚本差不多的，是告诉ninja，我要编译某个项目</span><br><span class="line">例如AppRTCMobile，需要哪些代码文件、以来哪些库</span><br></pre></td></tr></table></figure>
+<p>##git status<br>该命令行可查看自己的对该git的改动</p>
+<p>##gn clean &lt; out_dir&gt;<br>删除输出目录的内容，除了args.gn和创建一个足以重新生成构建的忍者构建环境。<br>个人见解：该命令行作用应与xcode中clean操作功能相识，clean后out中目录相关目录会被删除，<br>但不需要重新gn新的一份，可直接用ninja编译。</p>
+<p>##gn args &lt; out_dir&gt; [–list] [–short] [–args]<br>该命令行其实在生成项目篇有提及到，–list可查看所有参数默认值，若指定为–short则只给出当前设置的参数。<br>其实根据gn的官方文档，该命令行有很强大检索功能，但这点我一直设置错误，待补充。</p>
+<p>##ios_enable_code_signing=false<br>这是gn项目时的一个设置参数，当没有签名时，设置false可不签名，仍可以编译，但不能部署到真机。<br>应该是打包出来的AppRTCMobile.app里面没有了_CodeSignature文件夹（来自大佬的推测）</p>
+<p>##xcrun security find-identity -v -p codesigning<br>该命令行可查询当前环境中可用的有效签名。</p>
+<p>##ios_code_signing_identity<br>同是gn项目的设置参数，用于设置证书ID。<br>▲此处证书为iPhone Developer证书。</p>
+<p>##iOS Code Signing<br>由于项目中自动签名一直出错，需要对其中的.APP文件进行重签名，此处用到iOS Code Signing。<br>贴上一个相关学习网址<a href="http://www.cocoachina.com/ios/20141017/9949.html" target="_blank" rel="noopener">http://www.cocoachina.com/ios/20141017/9949.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、codesign -vv -d /Users/linzq/WebRTC/src/out/arm/AppRTCMobile.app </span><br><span class="line">    该命令行用于查询APP的签名信息</span><br><span class="line">2、$ codesign -f -s &apos;iPhone Developer: Thomas Kollbach (7TPNXN7G6K)&apos; Example.app</span><br><span class="line">    该命令行可对已签名的APP进行重签名，如果APP未被签名，需用其他命令。上面的网址有详细介绍，此处跳过。</span><br></pre></td></tr></table></figure>
+<p>##证书匹配的两个点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、( mobileprovision-read -f AppRTCMobile.app/embedded.mobileprovision )</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1636820-586e30c759d81d0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">与 (codesign -vv -d AppRTCMobile.app )</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1636820-45674e12d219a60c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、通过命令得到签名的UUID后，增加编译参数（ ios_code_signing_identity=&quot;UUID&quot; ）</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1636820-dff5934262b59480.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">与 ( xcrun security find-identity -v -p codesigning ）</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1636820-4490b4d9dca8fc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/WebRTC/webRTCwiki/iOS/Webrtc笔记-获取源码/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/WebRTC/webRTCwiki/iOS/HRRTC-begin/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ixsim</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mobileprovision-read-f-app-embedded-mobileprovision"><span class="nav-number">1.</span> <span class="nav-text">mobileprovision-read -f app/embedded.mobileprovision</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ixsim</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://coding.me">Coding Pages</a> 强力驱动 v3.6.0</div>
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
