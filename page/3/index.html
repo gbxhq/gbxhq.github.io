@@ -281,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/android-note/build/webrtc_0/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/iOS/ofo仿写记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -300,8 +300,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/android-note/build/webrtc_0/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/iOS/ofo仿写记录/" itemprop="url">
+                  ofo仿写记录
                 </a>
               
             
@@ -327,12 +327,46 @@
                 
               
 
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+              <time title="创建时间：2018-05-16 19:34:53" itemprop="dateCreated datePublished" datetime="2018-05-16T19:34:53+08:00">2018-05-16</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-26 16:50:44" itemprop="dateModified" datetime="2018-05-26T16:50:44+08:00">2018-05-26</time>
+              
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -362,50 +396,14 @@
 
       
         
-          
-            <h1 id="WebRTC-for-Android-源码编译篇"><a href="#WebRTC-for-Android-源码编译篇" class="headerlink" title="WebRTC for Android-源码编译篇"></a>WebRTC for Android-源码编译篇</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li>编译环境搭建</li>
-<li>代码同步</li>
-<li>编译参数配置</li>
-<li>源码编译</li>
-<li>踩过的问题</li>
-<li>总结</li>
-</ul>
-<h4 id="一、编译环境搭建"><a href="#一、编译环境搭建" class="headerlink" title="一、编译环境搭建"></a>一、编译环境搭建</h4><p>首先，WebRTC源码编译，官方也说明得很清楚，只能在Linux平台进行编译（笔者在mac os 编译过，后来因为缺少arm架构等编译依赖文件放弃，具体参考<a href="https://webrtc.org/native-code/android/" target="_blank" rel="noopener">官网</a>）,这里笔者使用时ubutun 14.0.1 + vmware。</p>
-<p>当然，这整个过程中，翻墙是不可缺少的，具体可以参考笔者的博客<a href="http://www.jianshu.com/p/2df128aac7d4" target="_blank" rel="noopener">《shadowsocks+proxychains 让ubuntu翻墙飞起来》</a></p>
-<h5 id="一-依赖工具环境配置"><a href="#一-依赖工具环境配置" class="headerlink" title="(一) 依赖工具环境配置"></a>(一) 依赖工具环境配置</h5><p>depot_tools 是同步代码的时候download下来的，但是笔者这里首先先说下依赖文件的环境配置，如果有需要先下载的，请跳转<a href="http://pan.baidu.com/s/1slxxT85" target="_blank" rel="noopener">depot_tools工具</a><br><strong> 具体配置 </strong><br>1、添加环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/profile # 针对每个用户</span><br><span class="line"></span><br><span class="line"># 在最后添加下面语句</span><br><span class="line">export PATH=$PATH:/home/siven/siven/softSetup/depot_tools # depot_tools路径</span><br></pre></td></tr></table></figure></p>
-<p>2、激活生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile #重启全局生效，否则只针对该bash有效</span><br></pre></td></tr></table></figure></p>
-<p>3、验证<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which gn # 如果正常打印出gn命令路径，说明成功</span><br></pre></td></tr></table></figure></p>
-<h4 id="二、代码同步"><a href="#二、代码同步" class="headerlink" title="二、代码同步"></a>二、代码同步</h4><p>1、同步准备<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir webrtc </span><br><span class="line">cd webrtc</span><br></pre></td></tr></table></figure></p>
-<p>2、代码下载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#　选择android 分支版本</span><br><span class="line">fetch --nohooks webrtc_android</span><br><span class="line">#　同步代码</span><br><span class="line">gclient sync</span><br></pre></td></tr></table></figure></p>
-<p>等待… 源码、第三方库、依赖文件鱼等大概16G左右（虚拟机记得配置存储大于20G喔，默认是20G）</p>
-<p>3、依赖环境配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 当代码下载完整</span><br><span class="line">cd src</span><br><span class="line">./build/install-build-deps.sh</span><br></pre></td></tr></table></figure></p>
-<p>这里环境配置也许会遇到以下问题：<br><strong> Automatic java installation filed </strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2516602-407a8f765258d993.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="webrtc-0.png"></p>
-<p>这里直面意思是在配置jdk环境的时候报错。由于ubuntu会自带openjdk 并且版本是1.7.这里webrtc代码打包的jdk环境是java8（控制台信息也建议jdk 8shifou beianz ），所以这里解决方法是卸载原来的openjdk，自己手动安装jdk,而且版本要求是1.8，这里如何配置jdk，笔者就不说明了~</p>
-<h4 id="三、编译参数配置"><a href="#三、编译参数配置" class="headerlink" title="三、编译参数配置"></a>三、编译参数配置</h4><p>1、参数配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gn gen out/Debug --args=&apos;target_os=&quot;android&quot; target_cpu=&quot;arm&quot;&apos;</span><br></pre></td></tr></table></figure></p>
-<p>编译不同平台：<br>To build for ARM64: use target_cpu=”arm64”<br>To build for 32-bit x86: use target_cpu=”x86”<br>To build for 64-bit x64: use target_cpu=”x64”</p>
-<h4 id="四、源码编译"><a href="#四、源码编译" class="headerlink" title="四、源码编译"></a>四、源码编译</h4><h5 id="一-全编译"><a href="#一-全编译" class="headerlink" title="(一) 全编译"></a>(一) 全编译</h5><p>全编译指的是所有源代码的编译，编译文件会稍多，并且编译时间会稍长<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ninja -C out/myWebRTC # myWebRTC 指的是编译输出文件夹</span><br></pre></td></tr></table></figure></p>
-<h5 id="二-编译Android-studio-项目"><a href="#二-编译Android-studio-项目" class="headerlink" title="(二) 编译Android studio 项目"></a>(二) 编译Android studio 项目</h5><p>1、项目编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ninja -C out/myWebRTC　AppRTCMobile</span><br></pre></td></tr></table></figure></p>
-<p>2、gradle 构建文件生成<br>Android studio 项目是依赖gradle进行构建编译的，在上面步骤编译出来的项目并没有gradle依赖文件，因此还需要进行编译生成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">build/android/gradle/generate_gradle.py --output-directory $PWD/out/myWebRTC \</span><br><span class="line">--target &quot;//webrtc/examples:AppRTCMobile&quot; --use-gradle-process-resources \</span><br><span class="line">--split-projects</span><br></pre></td></tr></table></figure></p>
-<p>执行结束后就会在当前 <strong> out/myWebRTC </strong>目录下出现 gradle文件夹，即工程正在的目录</p>
-<p>3、open the project<br>直接启用Android studio，import 当前gradle生成目录，即 out/myWebRTC/gradle</p>
-<h4 id="五、踩过的问题"><a href="#五、踩过的问题" class="headerlink" title="五、踩过的问题"></a>五、踩过的问题</h4><p>（一）环境配置踩的坑<br><strong> Automatic java installation filed </strong><br>上面环境配置已经说明解决方式</p>
-<p>（二）工程项目踩的坑<br>1、编译报错<br>第一次Import项目的时候，会出现R文件编译报错，如下图所示</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2516602-68b461810c326dd3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="webrtc-1.png"></p>
-<p><strong> 原因分析 </strong>：<br>    对于java，命名类名、包名、或者是变量名，我们都不可以以系统关键词命名，例如int、interface、class、package等。这里R文件报错地方指向package,所以问题应该定位在Project生成R文件的时候，由于工程包名使用了package关键字，所以编译会出现报错。</p>
-<p><strong> 解决 </strong>：<br>    R文件包名生成跟AndroidManifest.xml有关，因此只需要修改src/build/android/AndroidManifest.xml 下的package name 即可，如下图所示：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2516602-d9e2167a004a86b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="webrtc-2.png"></p>
-<p>2、运行报错<br>由于读者用的是小米手机,由于系统自带的miui优化，运行安装apk的时候会出下以下报错，如图所示：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2516602-8272600210352f87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="webrtc-3.png"></p>
-<p><strong> 解决 </strong>：<br>    只需要在IDE设置instant Run，取消Enable Instant Run即可，如图所示：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2516602-36fe5d1c7b387c0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="webrtc-4.png"></p>
-<h4 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h4><p>翻墙，翻墙。没有这个前提什么都干不了~源码编译时体力活，如果编译成功后就总结下，对自己是很有帮助的，笔者就踩过很多坑~总之，多记笔记，多总结吧！</p>
-<p>好了，下面开启webrtc之旅吧~</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2516602-bb819a700a67cc8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="webrtc-5.png"></p>
-<p>BY SIVEN - HORI-GZ<br>2017.4.18</p>
-
-          
+          <p>ofo不解释，教程同样来自小波。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/iOS/ofo仿写记录/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -457,7 +455,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/notes/change_default_video_payload/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Blockchain/EOS初探/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -476,8 +474,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/notes/change_default_video_payload/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/Blockchain/EOS初探/" itemprop="url">
+                  EOS初探
                 </a>
               
             
@@ -503,12 +501,46 @@
                 
               
 
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+              <time title="创建时间：2018-05-01 09:55:09" itemprop="dateCreated datePublished" datetime="2018-05-01T09:55:09+08:00">2018-05-01</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-03 13:33:42" itemprop="dateModified" datetime="2018-07-03T13:33:42+08:00">2018-07-03</time>
+              
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -538,10 +570,14 @@
 
       
         
-          
-            <h1 id="修改默认视频PayloadType"><a href="#修改默认视频PayloadType" class="headerlink" title="修改默认视频PayloadType"></a>修改默认视频PayloadType</h1><p>修改文件 <code>webrtc/engine/media/webrtcvideoengine2.cc</code> 中的  <code>AppendVideoCodecs</code> 和 <code>NextFreePayloadType</code> 方法</p>
-
-          
+          <p>EOS这几天就像疯了。两周前我￥35入的（当时价格在0.0008BTC），大约两天后在59左右不到60（0.0011BTC）就出了，当时还觉得很高兴。。。五一出去和紫玉玩了一天回来，今天看120(0.0010)了。再涨买都不买不起了，今天开始好像在大幅回调，我在犹豫上不上车。不废话了，好好看看这EOS到底是何方神圣。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Blockchain/EOS初探/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -593,7 +629,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/notes/disable-rtpmux/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Others/A-Brave-New-World/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -612,8 +648,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/notes/disable-rtpmux/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/Others/A-Brave-New-World/" itemprop="url">
+                  一个美好的新世界
                 </a>
               
             
@@ -639,12 +675,46 @@
                 
               
 
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+              <time title="创建时间：2018-04-27 09:10:55" itemprop="dateCreated datePublished" datetime="2018-04-27T09:10:55+08:00">2018-04-27</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-11 15:01:09" itemprop="dateModified" datetime="2018-05-11T15:01:09+08:00">2018-05-11</time>
+              
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -674,221 +744,17 @@
 
       
         
-          
-            <h1 id="关闭音视频混合RTP"><a href="#关闭音视频混合RTP" class="headerlink" title="关闭音视频混合RTP"></a>关闭音视频混合RTP</h1><p>在PeerConnection CreateOffer和CreateAnswer方法，对参数中的Constraints对象，增加key键googUseRtpMUX，值为false。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">googUseRtpMUX</span>: <span class="string">"false"</span>&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://chromium.googlesource.com/external/webrtc/+/master/webrtc/pc/peerconnection.cc#853" target="_blank" rel="noopener">peerconnection.cc#853</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/Webrtc笔记-运行demo到ios真机/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixsim">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="炫杉">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/iOS/Webrtc笔记-运行demo到ios真机/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Webrtc笔记-运行demo到ios真机"><a href="#Webrtc笔记-运行demo到ios真机" class="headerlink" title="Webrtc笔记-运行demo到ios真机"></a>Webrtc笔记-运行demo到ios真机</h1><blockquote>
-<p>接下来编译源码<br><strong>目标：运行ios的demo到真机上</strong></p>
-</blockquote>
-<p>##ios生成xcode项目</p>
-<p><strong>可产生在真机或者模拟器上面运行的项目</strong></p>
-<p>/src文件目录下执行:</p>
-<ul>
-<li><strong>真机项目：</strong></li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gn gen out/ios_64 --args=<span class="string">'target_os="ios" target_cpu="arm64"'</span> --ide=xcode</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>模拟器项目：</strong></li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gn gen out/ios_sim --args=<span class="string">'target_os="ios" target_cpu="x64"'</span> --ide=xcode</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>gn属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>target_os</td>
-<td>默认值是运行脚本的任何操作系统，运行到ios系统即赋值“ios”</td>
-</tr>
-<tr>
-<td>target_cpu</td>
-<td>根据设备的系统架构将其设置为“arm”或“arm64”或”x64”</td>
-</tr>
-</tbody>
-</table>
-<p>执行命令成功后，会看到以下的提示</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1528347-9452136ed01503de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>并且在<code>out/对应的文件夹</code>下生成了xcode项目,如下图</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1528347-83693c1e19f56675.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>打开<code>all.xcworkspace</code>就在ide中看到完整的WebRTC项目了！</p>
-<p>关于gn的一些操作可以<a href="https://chromium.googlesource.com/chromium/src/+/master/tools/gn/README.md" target="_blank" rel="noopener">参考这里</a></p>
-<p>##运行demo到真机上</p>
+          <p>《A Brave New World》 </p>
 <blockquote>
-<p>打开<code>all.xcworkspace</code>后会看到很多target，其中<code>AppRTCMobile</code>就是官方的demo</p>
+<p>When the winds of change blow, some people build walls and others build windmills.</p>
 </blockquote>
-<p>这里的Identity、Signing不需要修改，也不需要勾选自动签名</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1528347-727afccd40592b22.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>选择设备后<code>command+R</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1528347-b9c9ee0f11d60387.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p><strong>如果没问题的话会直接看到真机上已经安装并运行了WebRTC的demo</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1528347-3b247571dbcdbcd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/320" alt="Paste_Image.png"></p>
-<p>在两台真机上安装该app，输入同一个Room name之后Start call就能互通了（需要翻墙）</p>
-<p>##运行到真机遇到的问题<br><strong>可能会遇到以下这些报错</strong></p>
-<table>
-<thead>
-<tr>
-<th>报错</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="http://upload-images.jianshu.io/upload_images/1528347-ed368100530b0685.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></td>
-<td>检查一下是否生成的cpu架构不符合设备</td>
-</tr>
-<tr>
-<td><img src="http://upload-images.jianshu.io/upload_images/1528347-0fcce1f019362792.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></td>
-<td>证书的签名问题 尝试XCode&gt;Preferences&gt;account 更新provisioning profiles</td>
-</tr>
-<tr>
-<td><img src="http://upload-images.jianshu.io/upload_images/1528347-e0e30630e75aebcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></td>
-<td>打包出来的app的provisioning文件 和teamid和app的签名不一致  附上<a href="./Webrtc笔记-运行demo 遇到的签名问题.md">方法</a></td>
-</tr>
-</tbody>
-</table>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Others/A-Brave-New-World/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -940,7 +806,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/webrtc的坑，刚刚开踩/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/iOS/UIDevice学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -959,8 +825,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/iOS/webrtc的坑，刚刚开踩/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/iOS/UIDevice学习/" itemprop="url">
+                  UIDevice学习
                 </a>
               
             
@@ -986,12 +852,46 @@
                 
               
 
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+              <time title="创建时间：2018-04-16 18:43:23" itemprop="dateCreated datePublished" datetime="2018-04-16T18:43:23+08:00">2018-04-16</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-04-22 09:09:42" itemprop="dateModified" datetime="2018-04-22T09:09:42+08:00">2018-04-22</time>
+              
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1021,43 +921,14 @@
 
       
         
-          
-            <p>#webrtc的坑，刚刚开踩</p>
-<blockquote>
-<p>此篇是源于自己跟团队小伙伴在运行源码demo时一些稀奇古怪问题的坑，望众基共勉之。由于比较杂，所以主要针对命令行跟踪所遇到的问题出发做笔记。</p>
-</blockquote>
-<h2 id="mobileprovision-read-f-app-embedded-mobileprovision"><a href="#mobileprovision-read-f-app-embedded-mobileprovision" class="headerlink" title="mobileprovision-read -f app/embedded.mobileprovision"></a>mobileprovision-read -f app/embedded.mobileprovision</h2><p> 该命令行用于查看app对应的provisonning文件是否和签名对应，其中有几个key可供对比使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、com.apple.developer.team-identifier</span><br><span class="line">2、Name</span><br><span class="line">3、ProvisionedDevices</span><br><span class="line">4、TeamName</span><br><span class="line">5、UUID</span><br></pre></td></tr></table></figure>
-<pre><code>1、该命令行中有许多类似key值的string与其相同，用于存储开发者团队的TeamIdentifier
-2、为provisonning文件的文件名
-3、当前项目开发者团队组中授权的设备UUID数组
-4、开发者团队名
-5开发者团队的ID   
-</code></pre><p>▲ 附带贴一个链接（.mobileprovision文件查询工具)<br> <a href="https://github.com/0xc010d/mobileprovision-read" target="_blank" rel="noopener">https://github.com/0xc010d/mobileprovision-read</a><br>▲ 关于provisonning文件，以’iOS Team’开头的文件，现在只能在xcode中进行管理，developer apple中不显示<br>▲ 对比两个APP中的embedded.mobileprovision是否一样，使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md5 embedded.mobileprovision</span><br></pre></td></tr></table></figure>
-<pre><code>例：MD5 (embedded.mobileprovision) = 91a3dc5a9c4ec0edc035231ced41dbfe
-</code></pre><p>▲附上一个地址/Users/ducky/Library/MobileDevice/Provisioning Profiles</p>
-<p>##关于webrtc的源码管理（from大佬）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gclient是用来同步代码，在和src同级目录会有一个隐藏.gclient文件，里面记录了基本的代码拉取设置</span><br><span class="line">src里面的各个目录、甚至子目录，基本上都是一个独立的git库</span><br><span class="line">gclient sync的命令回去检查整个项目的完整情况，并同步代码</span><br><span class="line">如果gclient sync无法通过，一般都不是代码的问题，是因为工具链或依赖库和当前代码需要的不一致</span><br><span class="line">gclient是用来同步代码和工具链的</span><br><span class="line">gn 是用来产生ninja所需的配置文件</span><br><span class="line">ninja 才是编译的</span><br><span class="line">代码里面有很多*.gni，可以认为是和make脚本差不多的，是告诉ninja，我要编译某个项目</span><br><span class="line">例如AppRTCMobile，需要哪些代码文件、以来哪些库</span><br></pre></td></tr></table></figure>
-<p>##git status<br>该命令行可查看自己的对该git的改动</p>
-<p>##gn clean &lt; out_dir&gt;<br>删除输出目录的内容，除了args.gn和创建一个足以重新生成构建的忍者构建环境。<br>个人见解：该命令行作用应与xcode中clean操作功能相识，clean后out中目录相关目录会被删除，<br>但不需要重新gn新的一份，可直接用ninja编译。</p>
-<p>##gn args &lt; out_dir&gt; [–list] [–short] [–args]<br>该命令行其实在生成项目篇有提及到，–list可查看所有参数默认值，若指定为–short则只给出当前设置的参数。<br>其实根据gn的官方文档，该命令行有很强大检索功能，但这点我一直设置错误，待补充。</p>
-<p>##ios_enable_code_signing=false<br>这是gn项目时的一个设置参数，当没有签名时，设置false可不签名，仍可以编译，但不能部署到真机。<br>应该是打包出来的AppRTCMobile.app里面没有了_CodeSignature文件夹（来自大佬的推测）</p>
-<p>##xcrun security find-identity -v -p codesigning<br>该命令行可查询当前环境中可用的有效签名。</p>
-<p>##ios_code_signing_identity<br>同是gn项目的设置参数，用于设置证书ID。<br>▲此处证书为iPhone Developer证书。</p>
-<p>##iOS Code Signing<br>由于项目中自动签名一直出错，需要对其中的.APP文件进行重签名，此处用到iOS Code Signing。<br>贴上一个相关学习网址<a href="http://www.cocoachina.com/ios/20141017/9949.html" target="_blank" rel="noopener">http://www.cocoachina.com/ios/20141017/9949.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、codesign -vv -d /Users/linzq/WebRTC/src/out/arm/AppRTCMobile.app </span><br><span class="line">    该命令行用于查询APP的签名信息</span><br><span class="line">2、$ codesign -f -s &apos;iPhone Developer: Thomas Kollbach (7TPNXN7G6K)&apos; Example.app</span><br><span class="line">    该命令行可对已签名的APP进行重签名，如果APP未被签名，需用其他命令。上面的网址有详细介绍，此处跳过。</span><br></pre></td></tr></table></figure>
-<p>##证书匹配的两个点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、( mobileprovision-read -f AppRTCMobile.app/embedded.mobileprovision )</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1636820-586e30c759d81d0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">与 (codesign -vv -d AppRTCMobile.app )</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1636820-45674e12d219a60c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、通过命令得到签名的UUID后，增加编译参数（ ios_code_signing_identity=&quot;UUID&quot; ）</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1636820-dff5934262b59480.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">与 ( xcrun security find-identity -v -p codesigning ）</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1636820-4490b4d9dca8fc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-
-          
+          <p>iOS的UIDevice可以方便获取设备的硬件和系统的一些状态信息。写这篇文章是因为选修了《移动安全与测评》这门课。小作业让写一个APP获取系统和其他App的一些信息。在不越狱的iOS中我实在不知道怎么获取其他APP的信息，就借此机会了解下UIDevice吧。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/iOS/UIDevice学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1109,7 +980,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/Webrtc笔记-获取源码/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Others/打开macOS原生的NTFS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -1128,8 +999,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/iOS/Webrtc笔记-获取源码/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/Others/打开macOS原生的NTFS/" itemprop="url">
+                  打开macOS原生的NTFS
                 </a>
               
             
@@ -1155,12 +1026,46 @@
                 
               
 
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+              <time title="创建时间：2018-04-13 15:12:48" itemprop="dateCreated datePublished" datetime="2018-04-13T15:12:48+08:00">2018-04-13</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-04-22 09:13:31" itemprop="dateModified" datetime="2018-04-22T09:13:31+08:00">2018-04-22</time>
+              
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1190,50 +1095,188 @@
 
       
         
-          
-            <h1 id="Webrtc笔记-获取源码"><a href="#Webrtc笔记-获取源码" class="headerlink" title="Webrtc笔记-获取源码"></a>Webrtc笔记-获取源码</h1><p>##1、开发者环境</p>
-<blockquote>
-<p><strong>Webrtc源码支持直接在编译器上调试了，以macOS环境为例</strong></p>
-</blockquote>
-<p>##2、获取webrtc源码（翻墙）</p>
-<blockquote>
-<p>PS：由于国情，下载代码过程，包括gclient sync<br>同步代码都必须翻墙！推荐使用Shadowsocks+Proxifier进行全局代理：<a href="http://www.jianshu.com/p/754863f67022" target="_blank" rel="noopener">方法</a></p>
-</blockquote>
-<p><strong>( 1 )、获取depot_tools工具</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git</span><br></pre></td></tr></table></figure>
-<p><strong>( 2 )、添加depot_tool路径到全局环境变量里面</strong></p>
-<ul>
-<li><p><code>vi ~/.bash_profile</code> 编辑全局环境配置文件（我的是在根目录,如果没有，在根目录下创建一个吧）</p>
-</li>
-<li><p>把depot_tool的路径添进去：<code>PATH=&quot;${PATH}:depot_tool的绝对路径&quot;</code></p>
-</li>
-<li><p>然后执行 <code>. ~/.bash_profile</code>  就生效了</p>
-</li>
-</ul>
-<p><strong>( 3 )、下载源码</strong></p>
-<ul>
-<li><p>新建文件夹，然后cd到这个文件目录下</p>
-</li>
-<li><p><code>fetch --nohooks webrtc_ios</code>获取源码</p>
-</li>
-<li><p>然后是漫长的等待，如图，≈6G </p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1528347-3f79007d2276e7db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>##3、创建分支</p>
-<ul>
-<li><p>建议创建一个新的本地分支<br><code>git new-branch &lt;branch name&gt;</code></p>
-</li>
-<li><p>git管理建议使用<a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener">SourceTree</a></p>
-</li>
-<li><p>把下载好的src拖进<a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener">SourceTree</a>可以详细看版本的更新日志</p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1528347-02e8bad86a47d498.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>##4、源码结构<br>～漫长的代码下载后能会获取到一个src文件目录：如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">├── base</span><br><span class="line">├── build  编译相关脚本</span><br><span class="line">├── build_overrides  覆盖编译参数</span><br><span class="line">├── buildtools</span><br><span class="line">├── data  测试数据</span><br><span class="line">├── infra</span><br><span class="line">├── resources 需要的资源文件</span><br><span class="line">├── testing</span><br><span class="line">├── third_party 用到的第三方库ffmpeg/openh264...代码，5G左右</span><br><span class="line">├── tools</span><br><span class="line">├── tools-webrtc 一些编译脚本</span><br><span class="line">└── webrtc 核心代码</span><br></pre></td></tr></table></figure></p>
-<p>核心代码目录src/webrtc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">├── api</span><br><span class="line">├── audio</span><br><span class="line">├── base</span><br><span class="line">├── call</span><br><span class="line">├── common_audio</span><br><span class="line">├── common_video</span><br><span class="line">│   ├── h264</span><br><span class="line">│   ├── include</span><br><span class="line">│   └── libyuv</span><br><span class="line">├── examples</span><br><span class="line">│   ├── androidapp Android版AppRTCMbile</span><br><span class="line">│   ├── androidjunit</span><br><span class="line">│   ├── androidtests</span><br><span class="line">│   ├── objc  iOS版AppRTCMbile</span><br><span class="line">│   ├── peerconnection</span><br><span class="line">│   ├── relayserver</span><br><span class="line">│   ├── stunprober</span><br><span class="line">│   ├── stunserver</span><br><span class="line">│   └── turnserver</span><br><span class="line">├── logging</span><br><span class="line">├── media</span><br><span class="line">├── modules</span><br><span class="line">│   ├── audio_coding</span><br><span class="line">│   ├── audio_conference_mixer</span><br><span class="line">│   ├── audio_device</span><br><span class="line">│   ├── audio_mixer</span><br><span class="line">│   ├── audio_processing</span><br><span class="line">│   ├── bitrate_controller</span><br><span class="line">│   ├── congestion_controller</span><br><span class="line">│   ├── desktop_capture</span><br><span class="line">│   ├── include</span><br><span class="line">│   ├── media_file</span><br><span class="line">│   ├── pacing</span><br><span class="line">│   ├── remote_bitrate_estimator</span><br><span class="line">│   ├── rtp_rtcp</span><br><span class="line">│   ├── utility</span><br><span class="line">│   ├── video_capture</span><br><span class="line">│   ├── video_coding</span><br><span class="line">│   └── video_processing</span><br><span class="line">├── p2p</span><br><span class="line">│   ├── base</span><br><span class="line">│   ├── client</span><br><span class="line">│   ├── quic</span><br><span class="line">│   └── stunprober</span><br><span class="line">├── pc</span><br><span class="line">├── sdk</span><br><span class="line">│   ├── android  Android sdk封转</span><br><span class="line">│   └── objc iOS sdk封转</span><br><span class="line">├── stats</span><br><span class="line">├── system_wrappers</span><br><span class="line">│   ├── include</span><br><span class="line">│   └── source</span><br><span class="line">├── test</span><br><span class="line">├── tools</span><br><span class="line">├── video</span><br><span class="line">└── voice_engine</span><br></pre></td></tr></table></figure></p>
+          <div class="note default"><p>diskutil list</p></div>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Others/打开macOS原生的NTFS/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/iOS/小波iOS11中级篇笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ixsim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="炫杉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/iOS/小波iOS11中级篇笔记/" itemprop="url">
+                  小波iOS11中级篇笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-07 12:53:54" itemprop="dateCreated datePublished" datetime="2018-04-07T12:53:54+08:00">2018-04-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-16 15:37:45" itemprop="dateModified" datetime="2018-05-16T15:37:45+08:00">2018-05-16</time>
+              
+            
+          </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/iOS/小波iOS11中级篇笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1274,7 +1317,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1317,7 +1360,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">63</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
