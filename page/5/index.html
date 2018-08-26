@@ -281,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/Android/android_webrtc_code_checkout_and_checkout_cmd/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/notes/wireshark-udp-sender/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -300,7 +300,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/Android/android_webrtc_code_checkout_and_checkout_cmd/" itemprop="url">
+                <a class="post-title-link" href="/WebRTC/webRTCwiki/notes/wireshark-udp-sender/" itemprop="url">
                   未命名
                 </a>
               
@@ -363,9 +363,23 @@
       
         
           
-            <h1 id="WebRTC-Android-代码获取-检查命令顺序"><a href="#WebRTC-Android-代码获取-检查命令顺序" class="headerlink" title="WebRTC Android 代码获取/检查命令顺序"></a>WebRTC Android 代码获取/检查命令顺序</h1><p>命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git</span><br><span class="line">export PATH=`pwd`/depot_tools:"$PATH"  # 修改环境变量，建议加到~/.bashrc</span><br><span class="line">mkdir webrtc-checkout</span><br><span class="line">cd webrtc-checkout  </span><br><span class="line">fetch --nohooks webrtc_android  # fetch webrtc android的代码库基础配置</span><br><span class="line"><span class="meta">#</span><span class="bash"> Windows/Linux执行: fetch --nohooks webrtc </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> iOS执行:           fetch --nohooks webrtc_ios </span></span><br><span class="line">cd src</span><br><span class="line">git fetch  # fetch webrtc git代码库</span><br><span class="line">git checkout branch-heads/59 # checkout59的release分支</span><br><span class="line">gclient sync  # 同步59分支相关的工具链、依赖库</span><br><span class="line">./build/install-build-deps.sh # 编译环境安装</span><br><span class="line">./build/install-build-deps-android.sh # Android编译环境安装</span><br><span class="line">gn gen out/Debug --args='target_os="android" target_cpu="arm" is_debug=false dcheck_always_on=true symbol_level=1 is_component_build=false'  # 产生编译配置</span><br><span class="line">ninja -C out/Debug # 编译整个项目</span><br><span class="line">ninja -C out/Debug AppRTCMobile # 编译AppRTCMobile apk，输出目录out/Debug/apks/AppRTCMobile.apk</span><br><span class="line">build/android/gradle/generate_gradle.py --output-directory $PWD/out/Debug --target "//webrtc/examples:AppRTCMobile" --use-gradle-process-resources --split-projects # 产生Android Studio工程</span><br></pre></td></tr></table></figure>
-<p>如果能够顺利执行完以上命令，那么代码获取是完整的，你可以开始安心撸码了。</p>
+            <h1 id="UDP重发WireShark抓包数据"><a href="#UDP重发WireShark抓包数据" class="headerlink" title="UDP重发WireShark抓包数据"></a>UDP重发WireShark抓包数据</h1><h2 id="使用追踪流保存抓包数据"><a href="#使用追踪流保存抓包数据" class="headerlink" title="使用追踪流保存抓包数据"></a>使用追踪流保存抓包数据</h2><ol>
+<li>在要保存的数据上右键，选中<code>追踪流</code>–&gt;<code>UDP 流</code>  </li>
+<li>在弹出的对话框中选 <code>显示和保存数据为</code> –&gt; <code>C Arrays</code>  </li>
+<li>在<code>显示和保存数据为</code>的左边选中对应的流方向  </li>
+<li>保存，选择<code>save as...</code>，保存为<code>1.txt</code>  </li>
+</ol>
+<h2 id="修改为C-可用的数组"><a href="#修改为C-可用的数组" class="headerlink" title="修改为C#可用的数组"></a>修改为C#可用的数组</h2><ul>
+<li>用NotePad++打开<code>1.txt</code>，打开替换，选中<code>正则表达式</code>      </li>
+<li>替换 <code>char peer1_[\d]*\[\] \=</code> 为 <code>new byte[]</code>   </li>
+<li>替换 <code>};</code> 为 <code>},</code>  </li>
+<li>复制到范型<code>List&lt;byte[]&gt;</code>的初始化函数里面。  </li>
+</ul>
+<h2 id="发送数据"><a href="#发送数据" class="headerlink" title="发送数据"></a>发送数据</h2><ul>
+<li>实现一个UDP Socket</li>
+<li>实现对<code>List&lt;byte[]&gt;</code>的foreach循环</li>
+<li>在循环中调用socket发送每个数据</li>
+</ul>
 
           
         
@@ -572,152 +586,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixsim">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="炫杉">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/iOS/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="iOS-编译相关内容"><a href="#iOS-编译相关内容" class="headerlink" title="iOS 编译相关内容"></a>iOS 编译相关内容</h1><ul>
-<li><a href="iOS/webrtc的坑，刚刚开踩.md">Webrtc的坑，刚刚开踩</a></li>
-</ul>
-<h2 id="从获取源码到运行demo"><a href="#从获取源码到运行demo" class="headerlink" title="从获取源码到运行demo"></a>从获取源码到运行demo</h2><ul>
-<li><p><a href="iOS/Webrtc笔记-获取源码.md">Webrtc笔记-获取源码</a></p>
-</li>
-<li><p><a href="iOS/Webrtc笔记-运行demo到ios真机.md">Webrtc笔记-运行demo到ios真机</a></p>
-</li>
-<li><p><a href="iOS/Webrtc笔记-运行demo 遇到的签名问题.md">Webrtc笔记-运行demo 遇到的签名问题</a></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/note-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -826,6 +694,152 @@
 </li>
 </ul>
 <h2 id="DTMF-相关"><a href="#DTMF-相关" class="headerlink" title="DTMF 相关"></a>DTMF 相关</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ixsim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="炫杉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/WebRTC/webRTCwiki/iOS/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="iOS-编译相关内容"><a href="#iOS-编译相关内容" class="headerlink" title="iOS 编译相关内容"></a>iOS 编译相关内容</h1><ul>
+<li><a href="iOS/webrtc的坑，刚刚开踩.md">Webrtc的坑，刚刚开踩</a></li>
+</ul>
+<h2 id="从获取源码到运行demo"><a href="#从获取源码到运行demo" class="headerlink" title="从获取源码到运行demo"></a>从获取源码到运行demo</h2><ul>
+<li><p><a href="iOS/Webrtc笔记-获取源码.md">Webrtc笔记-获取源码</a></p>
+</li>
+<li><p><a href="iOS/Webrtc笔记-运行demo到ios真机.md">Webrtc笔记-运行demo到ios真机</a></p>
+</li>
+<li><p><a href="iOS/Webrtc笔记-运行demo 遇到的签名问题.md">Webrtc笔记-运行demo 遇到的签名问题</a></p>
+</li>
+</ul>
+
           
         
       
@@ -1210,7 +1224,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-count">63</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

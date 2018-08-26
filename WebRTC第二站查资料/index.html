@@ -108,24 +108,26 @@
 
 
 
-  <meta name="description" content="新旧版本WebRTC文件对应关系webrtc/api/java/jni               –&amp;gt;    webrtc/sdk/android/src/jni webrtc/api/videotrack.cc          –&amp;gt;    pc/videotrack.ccwebrtc/api/videotracksource.cc    –&amp;gt;    pc/videotrac">
+  <meta name="description" content="本来第一站是要查资料先了解下知识点的。但是王老师直接就给了我iOS的源码，这样又了Demo对着，了解更好了。不多说了。最近的任务就是多看WebRTC的相关文章。把该知道的多学一点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="炫杉">
-<meta property="og:url" content="https://ixsim.github.io/WebRTC/webRTCwiki/notes/old_version_file_diff/index.html">
+<meta property="og:title" content="WebRTC第二站查资料">
+<meta property="og:url" content="https://ixsim.github.io/WebRTC第二站查资料/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="新旧版本WebRTC文件对应关系webrtc/api/java/jni               –&amp;gt;    webrtc/sdk/android/src/jni webrtc/api/videotrack.cc          –&amp;gt;    pc/videotrack.ccwebrtc/api/videotracksource.cc    –&amp;gt;    pc/videotrac">
+<meta property="og:description" content="本来第一站是要查资料先了解下知识点的。但是王老师直接就给了我iOS的源码，这样又了Demo对着，了解更好了。不多说了。最近的任务就是多看WebRTC的相关文章。把该知道的多学一点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-02T04:47:08.000Z">
+<meta property="og:image" content="http://webrtc.org.cn/wp-content/uploads/2016/06/nat-network.png">
+<meta property="og:updated_time" content="2018-08-26T13:49:41.512Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="炫杉">
-<meta name="twitter:description" content="新旧版本WebRTC文件对应关系webrtc/api/java/jni               –&amp;gt;    webrtc/sdk/android/src/jni webrtc/api/videotrack.cc          –&amp;gt;    pc/videotrack.ccwebrtc/api/videotracksource.cc    –&amp;gt;    pc/videotrac">
+<meta name="twitter:title" content="WebRTC第二站查资料">
+<meta name="twitter:description" content="本来第一站是要查资料先了解下知识点的。但是王老师直接就给了我iOS的源码，这样又了Demo对着，了解更好了。不多说了。最近的任务就是多看WebRTC的相关文章。把该知道的多学一点。">
+<meta name="twitter:image" content="http://webrtc.org.cn/wp-content/uploads/2016/06/nat-network.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/WebRTC/webRTCwiki/notes/old_version_file_diff/"/>
+  <link rel="canonical" href="https://ixsim.github.io/WebRTC第二站查资料/"/>
 
 
 
@@ -135,7 +137,7 @@
   };
 </script>
 
-  <title> | 炫杉</title>
+  <title>WebRTC第二站查资料 | 炫杉</title>
   
 
 
@@ -284,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/notes/old_version_file_diff/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC第二站查资料/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -301,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">WebRTC第二站查资料
               
             
           </h1>
@@ -326,9 +328,13 @@
                 
               
 
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+              <time title="创建时间：2018-08-26 14:40:33 / 修改时间：21:49:41" itemprop="dateCreated datePublished" datetime="2018-08-26T14:40:33+08:00">2018-08-26</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -360,9 +366,47 @@
       
 
       
-        <h1 id="新旧版本WebRTC文件对应关系"><a href="#新旧版本WebRTC文件对应关系" class="headerlink" title="新旧版本WebRTC文件对应关系"></a>新旧版本WebRTC文件对应关系</h1><p>webrtc/api/java/jni               –&gt;    webrtc/sdk/android/src/jni</p>
-<p>webrtc/api/videotrack.cc          –&gt;    pc/videotrack.cc<br>webrtc/api/videotracksource.cc    –&gt;    pc/videotracksource.cc<br>webrtc/api/webrtcsession.cc       –&gt;    pc/webrtcsession.cc</p>
-
+        <p>本来第一站是要查资料先了解下知识点的。但是王老师直接就给了我iOS的源码，这样又了Demo对着，了解更好了。不多说了。最近的任务就是多看WebRTC的相关文章。把该知道的多学一点。</p>
+<a id="more"></a>
+<h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><h2 id="Room-Server"><a href="#Room-Server" class="headerlink" title="Room Server"></a>Room Server</h2><p>房间服务器。创建、管理通话状态。<br>是双方还是多方通话。加入离开房间等等。</p>
+<h2 id="Signaling-Server"><a href="#Signaling-Server" class="headerlink" title="Signaling Server"></a>Signaling Server</h2><p>信令服务器。<br>管理和协助终端建立p2p通话。</p>
+<ul>
+<li><p>任务</p>
+<ul>
+<li>控制通信[发起/结束]的连接控制消息。</li>
+<li>发生错误时，相互通告</li>
+<li>媒体流 元数据【解码器、带宽、媒体类型等等】</li>
+<li>两两之间建立安全连接的关键数据</li>
+<li>外界能看到的网络上的数据【ip、端口等】</li>
+</ul>
+</li>
+</ul>
+<h2 id="STUN-TURN-ICE-Server"><a href="#STUN-TURN-ICE-Server" class="headerlink" title="STUN/ TURN/ ICE Server"></a>STUN/ TURN/ ICE Server</h2><p>防火墙打洞服务器</p>
+<p><img src="http://webrtc.org.cn/wp-content/uploads/2016/06/nat-network.png" alt=""></p>
+<p>如图所示，由于有网络防火墙或配置NAT的路由器。导致我们的计算机ip地址不是广域网的ip地址。因此需要打洞～</p>
+<h2 id="STUN-Simple-Traversal-of-UDP-over-NATs"><a href="#STUN-Simple-Traversal-of-UDP-over-NATs" class="headerlink" title="STUN (Simple Traversal of UDP over NATs)"></a>STUN (Simple Traversal of UDP over NATs)</h2><p>NAT的UDP简单穿越</p>
+<p>确定<strong>内网终端</strong>暴漏在<strong>广域网</strong> 的ip、端口、NAT信息。</p>
+<p>协助<strong>不同内网</strong>之间的计算机建立p2p的<strong>UDP通讯</strong></p>
+<div class="note success"><p>解决了家用路由环境的打洞问题。但是对于大部分企业的网络环境就不是很好了？</p></div>
+<blockquote>
+<p>为什么呢？企业的网络环境有什么不一样？</p>
+</blockquote>
+<p>这是就需要TURN协议了。</p>
+<h2 id="TURN（Traversal-Using-Relay-NAT）"><a href="#TURN（Traversal-Using-Relay-NAT）" class="headerlink" title="TURN（Traversal Using Relay NAT）"></a>TURN（Traversal Using Relay NAT）</h2><p>允许在TCP或UDP的连线上跨越 NAT 或防火墙.</p>
+<blockquote>
+<p>Relay–中继动作</p>
+</blockquote>
+<p>Client-Server协议。</p>
+<p><strong>【[客户]】</strong>在通讯前先与<strong>服务器</strong>交互，要求<strong>服务器</strong>产生[relay port]<strong>接口</strong>，这就是中继跨越<strong>新地址</strong>。这时<strong>服务器</strong>会建立<strong>[peer]</strong>，即<strong>remote endpoints远方终端</strong>，开始<strong>relay中继</strong>动作。<strong>【[客户端]】</strong>利用<strong>接口</strong>将资料传送至<strong>[peer]</strong>，再由<strong>[peer]</strong>传给另一个<strong>【[终端]】</strong>。通过服务器产生新的<strong>[peer]</strong>来进行数据的中转。</p>
+<h2 id="ICE协议"><a href="#ICE协议" class="headerlink" title="ICE协议"></a>ICE协议</h2><p>综合前两种的方案。</p>
+<p>通过offer/answer模型建立基于UDP的通讯。 ICE是offer/answer模型的扩展，通过在offer和answer的SDP(Session Description Protocol)里面包含多种IP地址和端口，然后对本地SDP和远程SDP里面的IP地址进行配对，然后通过P2P连通性检查进行连通性测试工作，如果测试通过即表明该传输地址对可以建立连接。其中IP地址和端口（也就是地址）有以下几种：本机地址、通过 STUN服务器反射后获取的server-reflexive地址（内网地址被NAT映射后的地址）、relayed地址（和 TURN转发服务器相对应的地址）及Peer reflexive地址等。</p>
+<h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><h2 id="GAE"><a href="#GAE" class="headerlink" title="GAE"></a>GAE</h2><p>Google App Engine<br>谷歌的Web应用开发、托管平台。支持Python、Java和Php。</p>
+<h2 id="HLS-HTTP-Live-Streaming"><a href="#HLS-HTTP-Live-Streaming" class="headerlink" title="HLS(HTTP Live Streaming)"></a>HLS(HTTP Live Streaming)</h2><p><a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/HTTP_Live_Streaming</a><br><a href="https://baike.baidu.com/item/HLS/8328931" target="_blank" rel="noopener">https://baike.baidu.com/item/HLS/8328931</a></p>
+<h2 id="H-264"><a href="#H-264" class="headerlink" title="H.264"></a>H.264</h2><p>国际上制定视频编解码技术的组织有两个，一个是“国际电联（ITU-T）”，它制定的标准有H.261、H.263、H.263+等，另一个是“国际标准化组织（ISO）”它制定的标准有MPEG-1、MPEG-2、MPEG-4等。而H.264则是由两个组织联合组建的联合视频组（JVT）共同制定的新数字视频编码标准，所以它既是ITU-T的H.264，又是ISO/IEC的MPEG-4高级视频编码（Advanced Video Coding，AVC）的第10 部分。因此，不论是MPEG-4 AVC、MPEG-4 Part 10，还是ISO/IEC 14496-10，都是指H.264。</p>
+<h2 id="Scaledrone"><a href="#Scaledrone" class="headerlink" title="Scaledrone"></a>Scaledrone</h2><p>Scaledrone is a realtime messaging service and platform. Send live updates, create chatrooms and collaborative tools.</p>
+<p>一个平台。<br>这是这个平台的Demo<br><a href="https://scaledrone.github.io/webrtc/index.html#12345房间号" target="_blank" rel="noopener">https://scaledrone.github.io/webrtc/index.html#12345房间号</a>   貌似不太行啊。</p>
+<p>这是这个平台给的接入教程，里面有WebRTC的基础教程。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1>
       
     </div>
 
@@ -389,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/WebRTC/webRTCwiki/notes/wireshark-udp-sender/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/WebRTC/WebRTC初学/" rel="next" title="WebRTC第一站iOS_Demo">
+                <i class="fa fa-chevron-left"></i> WebRTC第一站iOS_Demo
               </a>
             
           </div>
@@ -398,10 +442,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/WebRTC/webRTCwiki/Android/android_webrtc_code_checkout_and_checkout_cmd/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -588,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#新旧版本WebRTC文件对应关系"><span class="nav-number">1.</span> <span class="nav-text">新旧版本WebRTC文件对应关系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器"><span class="nav-number">1.</span> <span class="nav-text">服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Room-Server"><span class="nav-number">1.1.</span> <span class="nav-text">Room Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Signaling-Server"><span class="nav-number">1.2.</span> <span class="nav-text">Signaling Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STUN-TURN-ICE-Server"><span class="nav-number">1.3.</span> <span class="nav-text">STUN/ TURN/ ICE Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#STUN-Simple-Traversal-of-UDP-over-NATs"><span class="nav-number">1.4.</span> <span class="nav-text">STUN (Simple Traversal of UDP over NATs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TURN（Traversal-Using-Relay-NAT）"><span class="nav-number">1.5.</span> <span class="nav-text">TURN（Traversal Using Relay NAT）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ICE协议"><span class="nav-number">1.6.</span> <span class="nav-text">ICE协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">2.</span> <span class="nav-text">小知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GAE"><span class="nav-number">2.1.</span> <span class="nav-text">GAE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HLS-HTTP-Live-Streaming"><span class="nav-number">2.2.</span> <span class="nav-text">HLS(HTTP Live Streaming)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H-264"><span class="nav-number">2.3.</span> <span class="nav-text">H.264</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaledrone"><span class="nav-number">2.4.</span> <span class="nav-text">Scaledrone</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

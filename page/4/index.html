@@ -281,654 +281,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/HRRTC-begin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixsim">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="炫杉">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/iOS/HRRTC-begin/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="iOS-WebRTC-framwwork开发、使用入门"><a href="#iOS-WebRTC-framwwork开发、使用入门" class="headerlink" title="iOS WebRTC.framwwork开发、使用入门"></a>iOS WebRTC.framwwork开发、使用入门</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
-<li>按照<a href="../develop_with_release.md">基于Release分支的开发</a>的步骤，checkout 完整的branch_59分支代码及其相关的工具链</li>
-<li>切换到iOS分支，<code>git checkout branch_59_iOS</code>，具体版本日志看<a href="http://192.168.51.107/log/webrtc%2F.git/branch_59_iOS" target="_blank" rel="noopener">这里</a></li>
-</ol>
-<h2 id="编译调试"><a href="#编译调试" class="headerlink" title="编译调试"></a>编译调试</h2><ol>
-<li><p>参考<a href="../cmd.md">常用命令</a>，生成项目编译配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gn gen out/ios64 -args=&quot;target_os=\&quot;ios\&quot; target_cpu=\&quot;arm64\&quot; is_component_build=false ios_enable_code_signing=false&quot; --ide=xcode</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开生成的<code>out/ios64/products.xcodeproj</code>，项目中的target：<code>rtc_sdk_framework_objc</code>即<br><code>WebRTC.framework</code>的配置</p>
-</li>
-</ol>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p><code>WebRTC.framework</code>中的最重要的是<code>WebrtcEngine</code>、<code>HRMediaParameter</code>类和<code>WebrtcDelegate</code>协议</p>
-<p><code>WebrtcEngine</code>：入口，主要方法<code>initWithDelegate</code>,<code>startEngine</code>,<code>stopEngine</code></p>
-<p><code>HRMediaParameter</code>：启动参数配置</p>
-<p><code>WebrtcDelegate</code>：通知连接成功的回调,<code>onIceConnected</code>连接成功</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">WebrtcEngine</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) HRMediaParameter *mediaParameter;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) RTCCameraPreviewView *localVideoView;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) __kindof <span class="built_in">UIView</span>&lt;RTCVideoRenderer&gt; *remoteVideoView;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> shouldStats;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithDelegate:(<span class="keyword">id</span>&lt;WebrtcDelegate&gt;) delegate;</span><br><span class="line">- (<span class="keyword">void</span>)startEngine:(HRMediaParameter *)mediaParameter;</span><br><span class="line">- (<span class="keyword">void</span>)stopEngine;</span><br><span class="line">- (<span class="keyword">void</span>)switchCamera;</span><br><span class="line">- (<span class="keyword">void</span>)pauseVideo;</span><br><span class="line">- (<span class="keyword">void</span>)resumeVideo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">WebrtcDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@required</span></span><br><span class="line">- (<span class="keyword">void</span>)onIceConnected;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@optional</span></span><br><span class="line">- (<span class="keyword">void</span>)onGetStats:(<span class="built_in">NSArray</span> *)stats;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p>项目中的target：<code>HRRTCMobile</code> 是针对WebrtcEngine调用的demo</p>
-<h2 id="使用WebRTC-framework"><a href="#使用WebRTC-framework" class="headerlink" title="使用WebRTC.framework"></a>使用WebRTC.framework</h2><ol>
-<li>使用<a href="../cmd.md">iOS FAT库打包</a>的脚本生成FAT库<br><code>./tools-webrtc/ios/build_ios_libs.sh --extra-gn-args=&#39;is_debug=true&#39;</code></li>
-<li>参考demo的代码和Framework的调用实现功能</li>
-</ol>
-<p>如果编译 FAT库是出现如下错误，这是因为Xcode 8.3的问题，需要修改<code>third_party/usrsctp/usrsctplib</code>库的代码。相关代码修改的patch在<code>patch/fix_usrsctplib_ios_fat_build_error.diff</code>，可直接<code>cd third_party/usrsctp/usrsctplib</code>，然后执行<code>git apply ../../../patch/fix_usrsctplib_ios_fat_build_error.diff</code>修改代码。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_output.c:6020:30: error: taking address of packed member 'time_entered' of class or structure 'sctp_state_cookie' may result in an unaligned pointer value [-Werror,-Waddress-of-packed-member]</span><br><span class="line">        (void)SCTP_GETTIME_TIMEVAL(&amp;stc.time_entered);</span><br><span class="line">                                    ^~~~~~~~~~~~~~~~</span><br><span class="line">../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_constants.h:1028:46: note: expanded from macro 'SCTP_GETTIME_TIMEVAL'</span><br><span class="line"><span class="meta">#</span><span class="bash">define SCTP_GETTIME_TIMEVAL(x) gettimeofday(x, NULL)</span></span><br><span class="line">                                             ^</span><br><span class="line">1 error generated.</span><br></pre></td></tr></table></figure>
-<h2 id="发布到私有cocoapods仓库-HoriSpecs"><a href="#发布到私有cocoapods仓库-HoriSpecs" class="headerlink" title="发布到私有cocoapods仓库 HoriSpecs"></a>发布到私有cocoapods仓库 HoriSpecs</h2><p>1、签出HRWebRTC 二进制文件库，<code>git clone http://192.168.51.107/r/iOS/Cocoapods/WebRTC.git</code><br>2、使用编译framework编译命令，、编译并生成 <code>WebRTC.framework</code><br>3、复制<code>WebRTC.framework</code>到clone后的库目录，并覆盖原有的<br>4、编辑文件<code>HRWebRTC.podspec</code>，修改<code>s.version</code>的参数为最新的版本号，例如<code>0.2.0</code><br>5、<code>git add .</code> &amp; <code>git commit -m [log]</code><br>6、打tag <code>git tag [版本号]</code><br>7、<code>git push --tag</code><br>8、发布版本到私有仓库HoriSpecs <code>pod repo push HoriSpecs HRWebRTC.podspec</code></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/webrtc的坑，刚刚开踩/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixsim">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="炫杉">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/iOS/webrtc的坑，刚刚开踩/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#webrtc的坑，刚刚开踩</p>
-<blockquote>
-<p>此篇是源于自己跟团队小伙伴在运行源码demo时一些稀奇古怪问题的坑，望众基共勉之。由于比较杂，所以主要针对命令行跟踪所遇到的问题出发做笔记。</p>
-</blockquote>
-<h2 id="mobileprovision-read-f-app-embedded-mobileprovision"><a href="#mobileprovision-read-f-app-embedded-mobileprovision" class="headerlink" title="mobileprovision-read -f app/embedded.mobileprovision"></a>mobileprovision-read -f app/embedded.mobileprovision</h2><p> 该命令行用于查看app对应的provisonning文件是否和签名对应，其中有几个key可供对比使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、com.apple.developer.team-identifier</span><br><span class="line">2、Name</span><br><span class="line">3、ProvisionedDevices</span><br><span class="line">4、TeamName</span><br><span class="line">5、UUID</span><br></pre></td></tr></table></figure>
-<pre><code>1、该命令行中有许多类似key值的string与其相同，用于存储开发者团队的TeamIdentifier
-2、为provisonning文件的文件名
-3、当前项目开发者团队组中授权的设备UUID数组
-4、开发者团队名
-5开发者团队的ID   
-</code></pre><p>▲ 附带贴一个链接（.mobileprovision文件查询工具)<br> <a href="https://github.com/0xc010d/mobileprovision-read" target="_blank" rel="noopener">https://github.com/0xc010d/mobileprovision-read</a><br>▲ 关于provisonning文件，以’iOS Team’开头的文件，现在只能在xcode中进行管理，developer apple中不显示<br>▲ 对比两个APP中的embedded.mobileprovision是否一样，使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md5 embedded.mobileprovision</span><br></pre></td></tr></table></figure>
-<pre><code>例：MD5 (embedded.mobileprovision) = 91a3dc5a9c4ec0edc035231ced41dbfe
-</code></pre><p>▲附上一个地址/Users/ducky/Library/MobileDevice/Provisioning Profiles</p>
-<p>##关于webrtc的源码管理（from大佬）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gclient是用来同步代码，在和src同级目录会有一个隐藏.gclient文件，里面记录了基本的代码拉取设置</span><br><span class="line">src里面的各个目录、甚至子目录，基本上都是一个独立的git库</span><br><span class="line">gclient sync的命令回去检查整个项目的完整情况，并同步代码</span><br><span class="line">如果gclient sync无法通过，一般都不是代码的问题，是因为工具链或依赖库和当前代码需要的不一致</span><br><span class="line">gclient是用来同步代码和工具链的</span><br><span class="line">gn 是用来产生ninja所需的配置文件</span><br><span class="line">ninja 才是编译的</span><br><span class="line">代码里面有很多*.gni，可以认为是和make脚本差不多的，是告诉ninja，我要编译某个项目</span><br><span class="line">例如AppRTCMobile，需要哪些代码文件、以来哪些库</span><br></pre></td></tr></table></figure>
-<p>##git status<br>该命令行可查看自己的对该git的改动</p>
-<p>##gn clean &lt; out_dir&gt;<br>删除输出目录的内容，除了args.gn和创建一个足以重新生成构建的忍者构建环境。<br>个人见解：该命令行作用应与xcode中clean操作功能相识，clean后out中目录相关目录会被删除，<br>但不需要重新gn新的一份，可直接用ninja编译。</p>
-<p>##gn args &lt; out_dir&gt; [–list] [–short] [–args]<br>该命令行其实在生成项目篇有提及到，–list可查看所有参数默认值，若指定为–short则只给出当前设置的参数。<br>其实根据gn的官方文档，该命令行有很强大检索功能，但这点我一直设置错误，待补充。</p>
-<p>##ios_enable_code_signing=false<br>这是gn项目时的一个设置参数，当没有签名时，设置false可不签名，仍可以编译，但不能部署到真机。<br>应该是打包出来的AppRTCMobile.app里面没有了_CodeSignature文件夹（来自大佬的推测）</p>
-<p>##xcrun security find-identity -v -p codesigning<br>该命令行可查询当前环境中可用的有效签名。</p>
-<p>##ios_code_signing_identity<br>同是gn项目的设置参数，用于设置证书ID。<br>▲此处证书为iPhone Developer证书。</p>
-<p>##iOS Code Signing<br>由于项目中自动签名一直出错，需要对其中的.APP文件进行重签名，此处用到iOS Code Signing。<br>贴上一个相关学习网址<a href="http://www.cocoachina.com/ios/20141017/9949.html" target="_blank" rel="noopener">http://www.cocoachina.com/ios/20141017/9949.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、codesign -vv -d /Users/linzq/WebRTC/src/out/arm/AppRTCMobile.app </span><br><span class="line">    该命令行用于查询APP的签名信息</span><br><span class="line">2、$ codesign -f -s &apos;iPhone Developer: Thomas Kollbach (7TPNXN7G6K)&apos; Example.app</span><br><span class="line">    该命令行可对已签名的APP进行重签名，如果APP未被签名，需用其他命令。上面的网址有详细介绍，此处跳过。</span><br></pre></td></tr></table></figure>
-<p>##证书匹配的两个点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、( mobileprovision-read -f AppRTCMobile.app/embedded.mobileprovision )</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1636820-586e30c759d81d0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">与 (codesign -vv -d AppRTCMobile.app )</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1636820-45674e12d219a60c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、通过命令得到签名的UUID后，增加编译参数（ ios_code_signing_identity=&quot;UUID&quot; ）</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1636820-dff5934262b59480.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">与 ( xcrun security find-identity -v -p codesigning ）</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1636820-4490b4d9dca8fc6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/Webrtc笔记-获取源码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixsim">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="炫杉">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/iOS/Webrtc笔记-获取源码/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Webrtc笔记-获取源码"><a href="#Webrtc笔记-获取源码" class="headerlink" title="Webrtc笔记-获取源码"></a>Webrtc笔记-获取源码</h1><p>##1、开发者环境</p>
-<blockquote>
-<p><strong>Webrtc源码支持直接在编译器上调试了，以macOS环境为例</strong></p>
-</blockquote>
-<p>##2、获取webrtc源码（翻墙）</p>
-<blockquote>
-<p>PS：由于国情，下载代码过程，包括gclient sync<br>同步代码都必须翻墙！推荐使用Shadowsocks+Proxifier进行全局代理：<a href="http://www.jianshu.com/p/754863f67022" target="_blank" rel="noopener">方法</a></p>
-</blockquote>
-<p><strong>( 1 )、获取depot_tools工具</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git</span><br></pre></td></tr></table></figure>
-<p><strong>( 2 )、添加depot_tool路径到全局环境变量里面</strong></p>
-<ul>
-<li><p><code>vi ~/.bash_profile</code> 编辑全局环境配置文件（我的是在根目录,如果没有，在根目录下创建一个吧）</p>
-</li>
-<li><p>把depot_tool的路径添进去：<code>PATH=&quot;${PATH}:depot_tool的绝对路径&quot;</code></p>
-</li>
-<li><p>然后执行 <code>. ~/.bash_profile</code>  就生效了</p>
-</li>
-</ul>
-<p><strong>( 3 )、下载源码</strong></p>
-<ul>
-<li><p>新建文件夹，然后cd到这个文件目录下</p>
-</li>
-<li><p><code>fetch --nohooks webrtc_ios</code>获取源码</p>
-</li>
-<li><p>然后是漫长的等待，如图，≈6G </p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1528347-3f79007d2276e7db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>##3、创建分支</p>
-<ul>
-<li><p>建议创建一个新的本地分支<br><code>git new-branch &lt;branch name&gt;</code></p>
-</li>
-<li><p>git管理建议使用<a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener">SourceTree</a></p>
-</li>
-<li><p>把下载好的src拖进<a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener">SourceTree</a>可以详细看版本的更新日志</p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1528347-02e8bad86a47d498.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>##4、源码结构<br>～漫长的代码下载后能会获取到一个src文件目录：如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">├── base</span><br><span class="line">├── build  编译相关脚本</span><br><span class="line">├── build_overrides  覆盖编译参数</span><br><span class="line">├── buildtools</span><br><span class="line">├── data  测试数据</span><br><span class="line">├── infra</span><br><span class="line">├── resources 需要的资源文件</span><br><span class="line">├── testing</span><br><span class="line">├── third_party 用到的第三方库ffmpeg/openh264...代码，5G左右</span><br><span class="line">├── tools</span><br><span class="line">├── tools-webrtc 一些编译脚本</span><br><span class="line">└── webrtc 核心代码</span><br></pre></td></tr></table></figure></p>
-<p>核心代码目录src/webrtc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">├── api</span><br><span class="line">├── audio</span><br><span class="line">├── base</span><br><span class="line">├── call</span><br><span class="line">├── common_audio</span><br><span class="line">├── common_video</span><br><span class="line">│   ├── h264</span><br><span class="line">│   ├── include</span><br><span class="line">│   └── libyuv</span><br><span class="line">├── examples</span><br><span class="line">│   ├── androidapp Android版AppRTCMbile</span><br><span class="line">│   ├── androidjunit</span><br><span class="line">│   ├── androidtests</span><br><span class="line">│   ├── objc  iOS版AppRTCMbile</span><br><span class="line">│   ├── peerconnection</span><br><span class="line">│   ├── relayserver</span><br><span class="line">│   ├── stunprober</span><br><span class="line">│   ├── stunserver</span><br><span class="line">│   └── turnserver</span><br><span class="line">├── logging</span><br><span class="line">├── media</span><br><span class="line">├── modules</span><br><span class="line">│   ├── audio_coding</span><br><span class="line">│   ├── audio_conference_mixer</span><br><span class="line">│   ├── audio_device</span><br><span class="line">│   ├── audio_mixer</span><br><span class="line">│   ├── audio_processing</span><br><span class="line">│   ├── bitrate_controller</span><br><span class="line">│   ├── congestion_controller</span><br><span class="line">│   ├── desktop_capture</span><br><span class="line">│   ├── include</span><br><span class="line">│   ├── media_file</span><br><span class="line">│   ├── pacing</span><br><span class="line">│   ├── remote_bitrate_estimator</span><br><span class="line">│   ├── rtp_rtcp</span><br><span class="line">│   ├── utility</span><br><span class="line">│   ├── video_capture</span><br><span class="line">│   ├── video_coding</span><br><span class="line">│   └── video_processing</span><br><span class="line">├── p2p</span><br><span class="line">│   ├── base</span><br><span class="line">│   ├── client</span><br><span class="line">│   ├── quic</span><br><span class="line">│   └── stunprober</span><br><span class="line">├── pc</span><br><span class="line">├── sdk</span><br><span class="line">│   ├── android  Android sdk封转</span><br><span class="line">│   └── objc iOS sdk封转</span><br><span class="line">├── stats</span><br><span class="line">├── system_wrappers</span><br><span class="line">│   ├── include</span><br><span class="line">│   └── source</span><br><span class="line">├── test</span><br><span class="line">├── tools</span><br><span class="line">├── video</span><br><span class="line">└── voice_engine</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/Android/android_webrtc_h264_spupport/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixsim">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="炫杉">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/WebRTC/webRTCwiki/Android/android_webrtc_h264_spupport/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="WebRTC支持Andrroid-H264编解码"><a href="#WebRTC支持Andrroid-H264编解码" class="headerlink" title="WebRTC支持Andrroid H264编解码"></a>WebRTC支持Andrroid H264编解码</h1><p><strong> 最后更新：2017-05-05  </strong>  by <a href="mailto:rex@re2x.com" target="_blank" rel="noopener">linzq</a> </p>
-<h2 id="gn-命令参数"><a href="#gn-命令参数" class="headerlink" title="gn 命令参数"></a>gn 命令参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gn gen out/debug -args='target_os="android" target_cpu="arm" is_component_build=false proprietary_codecs=true rtc_use_h264=true use_openh264=true ffmpeg_branding="Chrome"'</span><br></pre></td></tr></table></figure>
-<p><strong> 注意参数顺序，顺序不对可能会产生错误 </strong></p>
-<h1 id="实现其他平台的H264硬编硬解"><a href="#实现其他平台的H264硬编硬解" class="headerlink" title="实现其他平台的H264硬编硬解"></a>实现其他平台的H264硬编硬解</h1><p>具体修改请看 <a href="http://192.168.51.107/commit/webrtc/24240686795944ea980c60d9140c8d1742f532cf" target="_blank" rel="noopener">本次提交</a></p>
-<h2 id="修改ffpmeg，实现h264软解码"><a href="#修改ffpmeg，实现h264软解码" class="headerlink" title="修改ffpmeg，实现h264软解码"></a>修改ffpmeg，实现h264软解码</h2><p>直接对 <code>third_party/ffmpeg</code> 应用 <a href="http://192.168.51.107/blob/webrtc/f2cb08299ac29c60c6a7fdce2908673b6f6d2bef/patch%2Fffmpeg_patch.diff" target="_blank" rel="noopener">ffmpeg_patch.diff</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd third_party/ffmpeg</span><br><span class="line">git apply ../../ffmpeg_patch.diff</span><br></pre></td></tr></table></figure></p>
-<h2 id="x86架构问题补充"><a href="#x86架构问题补充" class="headerlink" title="x86架构问题补充"></a>x86架构问题补充</h2><p>如果你的<code>target_cpu=&quot;x86&quot;</code>的话，编译的时候会出现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warning: shared library text segment is not shareable</span><br></pre></td></tr></table></figure></p>
-<p>x86架构出现此问题原因暂时不得而知，但是可以通过修改编译参数忽略这个warning。<br>默认是把此warning视为error，故会出现编译失败</p>
-<p>可对<code>build</code>目录应用 <a href="http://192.168.51.107/blob/webrtc/f2cb08299ac29c60c6a7fdce2908673b6f6d2bef/patch%2Ffix_x86_h264_build_error_patch.diff" target="_blank" rel="noopener">fix_x86_h264_build_error_patch.diff</a>,<br>通过增加 <code>&quot;-Wl,--warn-shared-textrel&quot;</code> 参数来忽略这个warning</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/Windows/windows_webrtc_build/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1219,6 +571,584 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/iOS/HRRTC-begin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ixsim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="炫杉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/WebRTC/webRTCwiki/iOS/HRRTC-begin/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="iOS-WebRTC-framwwork开发、使用入门"><a href="#iOS-WebRTC-framwwork开发、使用入门" class="headerlink" title="iOS WebRTC.framwwork开发、使用入门"></a>iOS WebRTC.framwwork开发、使用入门</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li>按照<a href="../develop_with_release.md">基于Release分支的开发</a>的步骤，checkout 完整的branch_59分支代码及其相关的工具链</li>
+<li>切换到iOS分支，<code>git checkout branch_59_iOS</code>，具体版本日志看<a href="http://192.168.51.107/log/webrtc%2F.git/branch_59_iOS" target="_blank" rel="noopener">这里</a></li>
+</ol>
+<h2 id="编译调试"><a href="#编译调试" class="headerlink" title="编译调试"></a>编译调试</h2><ol>
+<li><p>参考<a href="../cmd.md">常用命令</a>，生成项目编译配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gn gen out/ios64 -args=&quot;target_os=\&quot;ios\&quot; target_cpu=\&quot;arm64\&quot; is_component_build=false ios_enable_code_signing=false&quot; --ide=xcode</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开生成的<code>out/ios64/products.xcodeproj</code>，项目中的target：<code>rtc_sdk_framework_objc</code>即<br><code>WebRTC.framework</code>的配置</p>
+</li>
+</ol>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p><code>WebRTC.framework</code>中的最重要的是<code>WebrtcEngine</code>、<code>HRMediaParameter</code>类和<code>WebrtcDelegate</code>协议</p>
+<p><code>WebrtcEngine</code>：入口，主要方法<code>initWithDelegate</code>,<code>startEngine</code>,<code>stopEngine</code></p>
+<p><code>HRMediaParameter</code>：启动参数配置</p>
+<p><code>WebrtcDelegate</code>：通知连接成功的回调,<code>onIceConnected</code>连接成功</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">WebrtcEngine</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) HRMediaParameter *mediaParameter;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) RTCCameraPreviewView *localVideoView;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) __kindof <span class="built_in">UIView</span>&lt;RTCVideoRenderer&gt; *remoteVideoView;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> shouldStats;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithDelegate:(<span class="keyword">id</span>&lt;WebrtcDelegate&gt;) delegate;</span><br><span class="line">- (<span class="keyword">void</span>)startEngine:(HRMediaParameter *)mediaParameter;</span><br><span class="line">- (<span class="keyword">void</span>)stopEngine;</span><br><span class="line">- (<span class="keyword">void</span>)switchCamera;</span><br><span class="line">- (<span class="keyword">void</span>)pauseVideo;</span><br><span class="line">- (<span class="keyword">void</span>)resumeVideo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">WebrtcDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@required</span></span><br><span class="line">- (<span class="keyword">void</span>)onIceConnected;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@optional</span></span><br><span class="line">- (<span class="keyword">void</span>)onGetStats:(<span class="built_in">NSArray</span> *)stats;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p>项目中的target：<code>HRRTCMobile</code> 是针对WebrtcEngine调用的demo</p>
+<h2 id="使用WebRTC-framework"><a href="#使用WebRTC-framework" class="headerlink" title="使用WebRTC.framework"></a>使用WebRTC.framework</h2><ol>
+<li>使用<a href="../cmd.md">iOS FAT库打包</a>的脚本生成FAT库<br><code>./tools-webrtc/ios/build_ios_libs.sh --extra-gn-args=&#39;is_debug=true&#39;</code></li>
+<li>参考demo的代码和Framework的调用实现功能</li>
+</ol>
+<p>如果编译 FAT库是出现如下错误，这是因为Xcode 8.3的问题，需要修改<code>third_party/usrsctp/usrsctplib</code>库的代码。相关代码修改的patch在<code>patch/fix_usrsctplib_ios_fat_build_error.diff</code>，可直接<code>cd third_party/usrsctp/usrsctplib</code>，然后执行<code>git apply ../../../patch/fix_usrsctplib_ios_fat_build_error.diff</code>修改代码。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_output.c:6020:30: error: taking address of packed member 'time_entered' of class or structure 'sctp_state_cookie' may result in an unaligned pointer value [-Werror,-Waddress-of-packed-member]</span><br><span class="line">        (void)SCTP_GETTIME_TIMEVAL(&amp;stc.time_entered);</span><br><span class="line">                                    ^~~~~~~~~~~~~~~~</span><br><span class="line">../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_constants.h:1028:46: note: expanded from macro 'SCTP_GETTIME_TIMEVAL'</span><br><span class="line"><span class="meta">#</span><span class="bash">define SCTP_GETTIME_TIMEVAL(x) gettimeofday(x, NULL)</span></span><br><span class="line">                                             ^</span><br><span class="line">1 error generated.</span><br></pre></td></tr></table></figure>
+<h2 id="发布到私有cocoapods仓库-HoriSpecs"><a href="#发布到私有cocoapods仓库-HoriSpecs" class="headerlink" title="发布到私有cocoapods仓库 HoriSpecs"></a>发布到私有cocoapods仓库 HoriSpecs</h2><p>1、签出HRWebRTC 二进制文件库，<code>git clone http://192.168.51.107/r/iOS/Cocoapods/WebRTC.git</code><br>2、使用编译framework编译命令，、编译并生成 <code>WebRTC.framework</code><br>3、复制<code>WebRTC.framework</code>到clone后的库目录，并覆盖原有的<br>4、编辑文件<code>HRWebRTC.podspec</code>，修改<code>s.version</code>的参数为最新的版本号，例如<code>0.2.0</code><br>5、<code>git add .</code> &amp; <code>git commit -m [log]</code><br>6、打tag <code>git tag [版本号]</code><br>7、<code>git push --tag</code><br>8、发布版本到私有仓库HoriSpecs <code>pod repo push HoriSpecs HRWebRTC.podspec</code></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/Android/android_webrtc_h264_spupport/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ixsim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="炫杉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/WebRTC/webRTCwiki/Android/android_webrtc_h264_spupport/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="WebRTC支持Andrroid-H264编解码"><a href="#WebRTC支持Andrroid-H264编解码" class="headerlink" title="WebRTC支持Andrroid H264编解码"></a>WebRTC支持Andrroid H264编解码</h1><p><strong> 最后更新：2017-05-05  </strong>  by <a href="mailto:rex@re2x.com" target="_blank" rel="noopener">linzq</a> </p>
+<h2 id="gn-命令参数"><a href="#gn-命令参数" class="headerlink" title="gn 命令参数"></a>gn 命令参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gn gen out/debug -args='target_os="android" target_cpu="arm" is_component_build=false proprietary_codecs=true rtc_use_h264=true use_openh264=true ffmpeg_branding="Chrome"'</span><br></pre></td></tr></table></figure>
+<p><strong> 注意参数顺序，顺序不对可能会产生错误 </strong></p>
+<h1 id="实现其他平台的H264硬编硬解"><a href="#实现其他平台的H264硬编硬解" class="headerlink" title="实现其他平台的H264硬编硬解"></a>实现其他平台的H264硬编硬解</h1><p>具体修改请看 <a href="http://192.168.51.107/commit/webrtc/24240686795944ea980c60d9140c8d1742f532cf" target="_blank" rel="noopener">本次提交</a></p>
+<h2 id="修改ffpmeg，实现h264软解码"><a href="#修改ffpmeg，实现h264软解码" class="headerlink" title="修改ffpmeg，实现h264软解码"></a>修改ffpmeg，实现h264软解码</h2><p>直接对 <code>third_party/ffmpeg</code> 应用 <a href="http://192.168.51.107/blob/webrtc/f2cb08299ac29c60c6a7fdce2908673b6f6d2bef/patch%2Fffmpeg_patch.diff" target="_blank" rel="noopener">ffmpeg_patch.diff</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd third_party/ffmpeg</span><br><span class="line">git apply ../../ffmpeg_patch.diff</span><br></pre></td></tr></table></figure></p>
+<h2 id="x86架构问题补充"><a href="#x86架构问题补充" class="headerlink" title="x86架构问题补充"></a>x86架构问题补充</h2><p>如果你的<code>target_cpu=&quot;x86&quot;</code>的话，编译的时候会出现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warning: shared library text segment is not shareable</span><br></pre></td></tr></table></figure></p>
+<p>x86架构出现此问题原因暂时不得而知，但是可以通过修改编译参数忽略这个warning。<br>默认是把此warning视为error，故会出现编译失败</p>
+<p>可对<code>build</code>目录应用 <a href="http://192.168.51.107/blob/webrtc/f2cb08299ac29c60c6a7fdce2908673b6f6d2bef/patch%2Ffix_x86_h264_build_error_patch.diff" target="_blank" rel="noopener">fix_x86_h264_build_error_patch.diff</a>,<br>通过增加 <code>&quot;-Wl,--warn-shared-textrel&quot;</code> 参数来忽略这个warning</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/Android/android_webrtc_code_checkout_and_checkout_cmd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ixsim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="炫杉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/WebRTC/webRTCwiki/Android/android_webrtc_code_checkout_and_checkout_cmd/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="WebRTC-Android-代码获取-检查命令顺序"><a href="#WebRTC-Android-代码获取-检查命令顺序" class="headerlink" title="WebRTC Android 代码获取/检查命令顺序"></a>WebRTC Android 代码获取/检查命令顺序</h1><p>命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git</span><br><span class="line">export PATH=`pwd`/depot_tools:"$PATH"  # 修改环境变量，建议加到~/.bashrc</span><br><span class="line">mkdir webrtc-checkout</span><br><span class="line">cd webrtc-checkout  </span><br><span class="line">fetch --nohooks webrtc_android  # fetch webrtc android的代码库基础配置</span><br><span class="line"><span class="meta">#</span><span class="bash"> Windows/Linux执行: fetch --nohooks webrtc </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> iOS执行:           fetch --nohooks webrtc_ios </span></span><br><span class="line">cd src</span><br><span class="line">git fetch  # fetch webrtc git代码库</span><br><span class="line">git checkout branch-heads/59 # checkout59的release分支</span><br><span class="line">gclient sync  # 同步59分支相关的工具链、依赖库</span><br><span class="line">./build/install-build-deps.sh # 编译环境安装</span><br><span class="line">./build/install-build-deps-android.sh # Android编译环境安装</span><br><span class="line">gn gen out/Debug --args='target_os="android" target_cpu="arm" is_debug=false dcheck_always_on=true symbol_level=1 is_component_build=false'  # 产生编译配置</span><br><span class="line">ninja -C out/Debug # 编译整个项目</span><br><span class="line">ninja -C out/Debug AppRTCMobile # 编译AppRTCMobile apk，输出目录out/Debug/apks/AppRTCMobile.apk</span><br><span class="line">build/android/gradle/generate_gradle.py --output-directory $PWD/out/Debug --target "//webrtc/examples:AppRTCMobile" --use-gradle-process-resources --split-projects # 产生Android Studio工程</span><br></pre></td></tr></table></figure>
+<p>如果能够顺利执行完以上命令，那么代码获取是完整的，你可以开始安心撸码了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC/webRTCwiki/notes/old_version_file_diff/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ixsim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="炫杉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/WebRTC/webRTCwiki/notes/old_version_file_diff/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-02 12:47:08" itemprop="dateCreated datePublished" datetime="2018-07-02T12:47:08+08:00">2018-07-02</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="新旧版本WebRTC文件对应关系"><a href="#新旧版本WebRTC文件对应关系" class="headerlink" title="新旧版本WebRTC文件对应关系"></a>新旧版本WebRTC文件对应关系</h1><p>webrtc/api/java/jni               –&gt;    webrtc/sdk/android/src/jni</p>
+<p>webrtc/api/videotrack.cc          –&gt;    pc/videotrack.cc<br>webrtc/api/videotracksource.cc    –&gt;    pc/videotracksource.cc<br>webrtc/api/webrtcsession.cc       –&gt;    pc/webrtcsession.cc</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1266,7 +1196,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-count">63</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
