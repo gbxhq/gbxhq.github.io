@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="p2p的核心RTCPeerConnection APIs的介绍">
+<meta name="keywords" content="tutorial">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebRTC入门教程02">
+<meta property="og:url" content="https://ixsim.github.io/WebRTC05入门教程02/index.html">
+<meta property="og:site_name" content="炫杉">
+<meta property="og:description" content="p2p的核心RTCPeerConnection APIs的介绍">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-31T03:11:24.044Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebRTC入门教程02">
+<meta name="twitter:description" content="p2p的核心RTCPeerConnection APIs的介绍">
+
+
+
+
+
+
+  <link rel="canonical" href="https://ixsim.github.io/WebRTC05入门教程02/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>WebRTC入门教程02 | 炫杉</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">炫杉</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-我的书签">
+    <a href="/oo1" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br />我的书签</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/WebRTC05入门教程02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ixsim">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="炫杉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">WebRTC入门教程02
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-30 14:29:44" itemprop="dateCreated datePublished" datetime="2018-08-30T14:29:44+08:00">2018-08-30</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/WebRTC/" itemprop="url" rel="index"><span itemprop="name">WebRTC</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/WebRTC05入门教程02/" class="leancloud_visitors" data-flag-title="WebRTC入门教程02">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>p2p的核心<strong>RTCPeerConnection APIs</strong>的介绍</p>
+<a id="more"></a>
+<h1 id="RTCPeerConnection-APIs"><a href="#RTCPeerConnection-APIs" class="headerlink" title="RTCPeerConnection APIs"></a>RTCPeerConnection APIs</h1><p>简单样例：<code>var pc = RTCPeerConnection(config);</code></p>
+<p>config包含 key, iceServers。这是一个有着STUN和TURN服务器信息的URL对象数组，用于查找ICE候选。你可以在<a href="https://code.google.com找到一些可用的公共STUN服务器" target="_blank" rel="noopener">https://code.google.com找到一些可用的公共STUN服务器</a>.</p>
+<p>这是user’s flow用户流的一个例子：</p>
+<ul>
+<li>注册<em>onincecandidate</em>句柄。收到时发送ICE candidates给其他peer。</li>
+<li>注册<em>onaddstream</em>句柄。一旦收到远端peer接收，则控制视频流的展示</li>
+<li>注册<em>message</em>句柄。你的信令服务器应该也有一个句柄用于收消息。如果message包含<em>RTCSeesionDescription</em>对象，则使用<em>setRemoteDescription()</em>方法将其加入到<u><em>RTCPeerConnection</em></u><u>对象</u>。如果message包含<em>RTCIceCandidate</em>对象，使用<em>addIceCandidate()</em>方法将其加入到<u><em>RTCPeerConnection</em></u><u>对象</u>。</li>
+<li>用<em>getUserMedia()</em>设置本地媒体流，用 <em>addStream()</em> 方法将其加入到<u><em>RTCPeerConnection</em></u><u>对象</u>。</li>
+<li>开始 <strong>offer/answer</strong> 协商。这是唯一一个[主叫流caller flow]和[被叫callee]有所不同的一步。caller用<strong><u><em>createOffer()</em></u></strong>方法开始协商，注册一个接收 <em><u>RTCSessionDescription</u></em>对象的callback。这个callback应使用<em>setLocalDescriptionI()</em>方法添加这个<em><u>RTCSessionDescription</u></em>到你的<em>RTCPeerConnection</em>。  最后，caller应该用信令服务器发送这个<em><u>RTCPeerConnection</u></em>到远端peer。 callee注册相同的callback，但是用的是<strong><u><em>createAnswer()</em></u></strong>方法。仅在收到caller的<strong>offer</strong>后callee flow初始化完成。</li>
+</ul>
+<h2 id="RTCPeerConnection-API"><a href="#RTCPeerConnection-API" class="headerlink" title="RTCPeerConnection API"></a>RTCPeerConnection API</h2><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li><p><strong>RTCPeerConnection.iceConnectionState (read only)</strong> − 返回一个RTCIceConnectionState</p>
+<p>enum描述连接状态.  值改变时触发一个iceconnectionstatechange 事件。</p>
+<p>可能的值：</p>
+<ul>
+<li><strong>new</strong> − ICE代理在等待远程候选或收集地址。</li>
+<li><strong>checking</strong> − ICE 代理 有远程候选但还没有发现连接。</li>
+<li><strong>connected</strong> − ICE 代理已经发现了可用连接，但仍然在checking更远的候选以便更好地连接。</li>
+<li><strong>completed</strong> − ICE 代理已经发现了可用连接并停止检测远程候选。</li>
+<li><strong>failed</strong> − ICE 代理已经检查完所有的远程候选们但找不到一个可匹配的。</li>
+<li><strong>disconnected</strong> − 至少有一个部分不再工作。</li>
+<li><strong>closed</strong> − ICE 代理关闭。</li>
+</ul>
+</li>
+<li><p><strong>RTCPeerConnection.iceGatheringState (read only)</strong> − 返回一个 RTCIceGatheringState enum描述连接的ICE收集状态−</p>
+<ul>
+<li><strong>new</strong> − 对象刚被创建</li>
+<li><strong>gathering</strong> − ICE 代理在收集候选过程中</li>
+<li><strong>complete</strong> ICE 代理 已经完成收集</li>
+</ul>
+</li>
+<li><p><strong>RTCPeerConnection.localDescription (read only)</strong> − 返回一个RTCSessionDescription 描述本地节点。如果还没有被设置则为null</p>
+</li>
+<li><p><strong>RTCPeerConnection.peerIdentity (read only)</strong> − 返回一个 RTCIdentityAssertion. 包含一个idp(domain name) 和一个描述远程peer的name</p>
+</li>
+<li><p><strong>RTCPeerConnection.remoteDescription (read only)</strong> − 返回一个 RTCSessionDescription 描述远程节点. 没设置为null</p>
+</li>
+<li><p><strong>RTCPeerConnection.signalingState (read only)</strong> − 返回一个 RTCSignalingState enum描述本地连接的信令状态。这个状态描述SDP offer。值改变时触发一个signalingstatechange 事件。可能的值： </p>
+<ul>
+<li><strong>stable</strong> − 初始状态。不存在 SDP offer/answer 交换。</li>
+<li><strong>have-local-offer</strong> − 连接的本地端已经在当地申请了一个SDP offer.</li>
+<li><strong>have-remote-offer</strong> − 连接的远程端已经在当地申请了一个SDP offer.</li>
+<li><strong>have-local-pranswer</strong> − 一个远程SDP offer已申请，本地已申请一个SDP pranswer.</li>
+<li><strong>have-remote-pranswer</strong> − 一个本地SDP已申请，远程已申请一个SDP pranswer.</li>
+<li><strong>closed</strong> − 连接关闭。</li>
+</ul>
+</li>
+</ul>
+<h3 id="事件句柄"><a href="#事件句柄" class="headerlink" title="事件句柄"></a>事件句柄</h3><p>下面是常用的几个</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Event Handlers</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.onaddstream</strong></td>
+<td style="text-align:left">addstream 事件触发. 当MediaSteam被远程peer添加到连接中时发送这个事件。</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.ondatachannel</strong></td>
+<td style="text-align:left">datachannel 事件触发. 当RTCDataChannel添加到连接中时发送这个事件。</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.onicecandidate</strong></td>
+<td style="text-align:left">Icecandidate 事件触发. 当RTCIceCandidate对象添加到script中时发送这个事件。</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.oniceconnectionstatechange</strong></td>
+<td style="text-align:left">This handler is called when Iceconnectionstatechange 事件触发时. This event is sent 当value of iceConnectionState changes.</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.onidentityresult</strong></td>
+<td style="text-align:left">This handler is called when Identityresult 事件触发时. This event is sent when an identity assertion is generated during the creating of an offer or an answer of via getIdentityAssertion().</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.onidpassertionerror</strong></td>
+<td style="text-align:left">This handler is called when Idpassertionerror 事件触发时. This event is sent when IdP (Identitry Provider) finds an error while generating an identity assertion.</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.onidpvalidation</strong></td>
+<td style="text-align:left">This handler is called when Idpvalidationerror 事件触发时. This event is sent when IdP (Identitry Provider) finds an error while validating an identity assertion.</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.onnegotiationneeded</strong></td>
+<td style="text-align:left">This handler is called 当negotiationneeded 事件触发时. This event is sent by the browser to inform the negotiation will be required at some point in the future.</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.onpeeridentity</strong></td>
+<td style="text-align:left">This handler is called 当peeridentity 事件触发时. This event is sent when a peer identity has been set and verified on this connection.</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.onremovestream</strong></td>
+<td style="text-align:left">This handler is called 当signalingstatechange 事件触发时. This event is sent 当value of signalingState changes.</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>RTCPeerConnection.onsignalingstatechange</strong></td>
+<td style="text-align:left">This handler is called 当removestream 事件触发时. This event is sent when a MediaStream is removed from this connection.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><p>下面是常用的几个</p>
+<table>
+<thead>
+<tr>
+<th>S.No.</th>
+<th>Methods &amp; Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>RTCPeerConnection()</strong>返回一个 new RTCPeerConnection object.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>RTCPeerConnection.createOffer()</strong>Creates an offer(request) to find a remote peer. The two first parameters of this method are success and error callbacks. The optional third parameter are options, like enabling audio or video streams.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>RTCPeerConnection.createAnswer()</strong>Creates an answer to the offer received by the remote peer during the offer/answer negotiation process. The two first parameters of this method are success and error callbacks. The optional third parameter are options for the answer to be created.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>RTCPeerConnection.setLocalDescription()</strong>Changes the local connection description. The description defines the properties of the connection. The connection must be able to support both old and new descriptions. The method takes three parameters, RTCSessionDescription object, callback if the change of description succeeds, callback if the change of description fails.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>RTCPeerConnection.setRemoteDescription()</strong>Changes the remote connection description. The description defines the properties of the connection. The connection must be able to support both old and new descriptions. The method takes three parameters, RTCSessionDescription object, callback if the change of description succeeds, callback if the change of description fails.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>RTCPeerConnection.updateIce()</strong>Updates ICE 代理 process of pinging remote candidates and gathering local candidates.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>RTCPeerConnection.addIceCandidate()</strong>Provides a remote candidate to ICE 代理.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>RTCPeerConnection.getConfiguration()</strong>返回一个 RTCConfiguration object. It represents the configuration of the RTCPeerConnection object.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>RTCPeerConnection.getLocalStreams()</strong>返回一个n array of local MediaStream connection.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>RTCPeerConnection.getRemoteStreams()</strong>返回一个n array of remote MediaStream connection.</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>RTCPeerConnection.getStreamById()</strong>Returns local or remote MediaStream by the given ID.</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>RTCPeerConnection.addStream()</strong>Adds a MediaStream as a local source of video or audio.</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>RTCPeerConnection.removeStream()</strong>Removes a MediaStream as a local source of video or audio.</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>RTCPeerConnection.close()</strong>Closes a connection.</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>RTCPeerConnection.createDataChannel()</strong>Creates a new RTCDataChannel.</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>RTCPeerConnection.createDTMFSender()</strong>Creates a new RTCDTMFSender, associated to a specific MediaStreamTrack. Allows to send DTMF (Dual-tone multifrequency) phone signaling over the connection.</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>RTCPeerConnection.getStats()</strong>Creates a new RTCStatsReport that contains statistics concerning the connection.</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>RTCPeerConnection.setIdentityProvider()</strong>Sets IdP. Takes three parameters − the name, the protocol used to communicate and an optional username.</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>RTCPeerConnection.getIdentityAssertion()</strong>Gathers an identity assertion. It is not expected to deal with this method in the application. So you may call it explicitly only to anticipate the need.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="建立一个连接"><a href="#建立一个连接" class="headerlink" title="建立一个连接"></a>建立一个连接</h3><p>先把信令服务器跑起来。</p>
+<p>代码：<code>server.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//require our websocket library </span></span><br><span class="line"><span class="keyword">var</span> WebSocketServer = <span class="built_in">require</span>(<span class="string">'ws'</span>).Server;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//creating a websocket server at port 9090 </span></span><br><span class="line"><span class="keyword">var</span> wss = <span class="keyword">new</span> WebSocketServer(&#123;<span class="attr">port</span>: <span class="number">9090</span>&#125;); </span><br><span class="line"></span><br><span class="line"><span class="comment">//all connected to the server users </span></span><br><span class="line"><span class="keyword">var</span> users = &#123;&#125;;</span><br><span class="line">  </span><br><span class="line"><span class="comment">//when a user connects to our sever </span></span><br><span class="line">wss.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">connection</span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"User connected"</span>);</span><br><span class="line">	</span><br><span class="line">   <span class="comment">//when server gets a message from a connected user</span></span><br><span class="line">   connection.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">message</span>) </span>&#123; </span><br><span class="line">	</span><br><span class="line">      <span class="keyword">var</span> data; </span><br><span class="line">      <span class="comment">//accepting only JSON messages </span></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">         data = <span class="built_in">JSON</span>.parse(message); </span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123; </span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">"Invalid JSON"</span>); </span><br><span class="line">         data = &#123;&#125;; </span><br><span class="line">      &#125; </span><br><span class="line">		</span><br><span class="line">      <span class="comment">//switching type of the user message </span></span><br><span class="line">      <span class="keyword">switch</span> (data.type) &#123; </span><br><span class="line">         <span class="comment">//when a user tries to login </span></span><br><span class="line">			</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"login"</span>: </span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"User logged"</span>, data.name); </span><br><span class="line">				</span><br><span class="line">            <span class="comment">//if anyone is logged in with this username then refuse </span></span><br><span class="line">            <span class="keyword">if</span>(users[data.name]) &#123; </span><br><span class="line">               sendTo(connection, &#123; </span><br><span class="line">                  type: <span class="string">"login"</span>, </span><br><span class="line">                  success: <span class="literal">false</span> </span><br><span class="line">               &#125;); </span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">               <span class="comment">//save user connection on the server </span></span><br><span class="line">               users[data.name] = connection; </span><br><span class="line">               connection.name = data.name; </span><br><span class="line">					</span><br><span class="line">               sendTo(connection, &#123; </span><br><span class="line">                  type: <span class="string">"login"</span>, </span><br><span class="line">                  success: <span class="literal">true</span> </span><br><span class="line">               &#125;); </span><br><span class="line">            &#125; </span><br><span class="line">				</span><br><span class="line">            <span class="keyword">break</span>; </span><br><span class="line">				</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"offer"</span>: </span><br><span class="line">            <span class="comment">//for ex. UserA wants to call UserB </span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Sending offer to: "</span>, data.name); </span><br><span class="line">				</span><br><span class="line">            <span class="comment">//if UserB exists then send him offer details </span></span><br><span class="line">            <span class="keyword">var</span> conn = users[data.name];</span><br><span class="line">				</span><br><span class="line">            <span class="keyword">if</span>(conn != <span class="literal">null</span>) &#123; </span><br><span class="line">               <span class="comment">//setting that UserA connected with UserB </span></span><br><span class="line">               connection.otherName = data.name; </span><br><span class="line">					</span><br><span class="line">               sendTo(conn, &#123; </span><br><span class="line">                  type: <span class="string">"offer"</span>, </span><br><span class="line">                  offer: data.offer, </span><br><span class="line">                  name: connection.name </span><br><span class="line">               &#125;); </span><br><span class="line">            &#125; </span><br><span class="line">				</span><br><span class="line">            <span class="keyword">break</span>;  </span><br><span class="line">				</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"answer"</span>: </span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Sending answer to: "</span>, data.name); </span><br><span class="line">            <span class="comment">//for ex. UserB answers UserA </span></span><br><span class="line">            <span class="keyword">var</span> conn = users[data.name]; </span><br><span class="line">				</span><br><span class="line">            <span class="keyword">if</span>(conn != <span class="literal">null</span>) &#123; </span><br><span class="line">               connection.otherName = data.name; </span><br><span class="line">               sendTo(conn, &#123; </span><br><span class="line">                  type: <span class="string">"answer"</span>, </span><br><span class="line">                  answer: data.answer </span><br><span class="line">               &#125;); </span><br><span class="line">            &#125; </span><br><span class="line">				</span><br><span class="line">            <span class="keyword">break</span>;  </span><br><span class="line">				</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"candidate"</span>: </span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Sending candidate to:"</span>,data.name); </span><br><span class="line">            <span class="keyword">var</span> conn = users[data.name];  </span><br><span class="line">				</span><br><span class="line">            <span class="keyword">if</span>(conn != <span class="literal">null</span>) &#123; </span><br><span class="line">               sendTo(conn, &#123; </span><br><span class="line">                  type: <span class="string">"candidate"</span>, </span><br><span class="line">                  candidate: data.candidate </span><br><span class="line">               &#125;);</span><br><span class="line">            &#125; </span><br><span class="line">				</span><br><span class="line">            <span class="keyword">break</span>;  </span><br><span class="line">				</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"leave"</span>: </span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Disconnecting from"</span>, data.name); </span><br><span class="line">            <span class="keyword">var</span> conn = users[data.name]; </span><br><span class="line">            conn.otherName = <span class="literal">null</span>; </span><br><span class="line">				</span><br><span class="line">            <span class="comment">//notify the other user so he can disconnect his peer connection </span></span><br><span class="line">            <span class="keyword">if</span>(conn != <span class="literal">null</span>) &#123; </span><br><span class="line">               sendTo(conn, &#123; </span><br><span class="line">                  type: <span class="string">"leave"</span> </span><br><span class="line">               &#125;); </span><br><span class="line">            &#125;  </span><br><span class="line">				</span><br><span class="line">            <span class="keyword">break</span>;  </span><br><span class="line">				</span><br><span class="line">         <span class="keyword">default</span>: </span><br><span class="line">            sendTo(connection, &#123; </span><br><span class="line">               type: <span class="string">"error"</span>, </span><br><span class="line">               message: <span class="string">"Command not found: "</span> + data.type </span><br><span class="line">            &#125;); </span><br><span class="line">				</span><br><span class="line">            <span class="keyword">break</span>; </span><br><span class="line">      &#125;  </span><br><span class="line">   &#125;);  </span><br><span class="line">	</span><br><span class="line">   <span class="comment">//when user exits, for example closes a browser window </span></span><br><span class="line">   <span class="comment">//this may help if we are still in "offer","answer" or "candidate" state </span></span><br><span class="line">   connection.on(<span class="string">"close"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">	</span><br><span class="line">      <span class="keyword">if</span>(connection.name) &#123; </span><br><span class="line">      <span class="keyword">delete</span> users[connection.name]; </span><br><span class="line">		</span><br><span class="line">         <span class="keyword">if</span>(connection.otherName) &#123; </span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Disconnecting from "</span>, connection.otherName);</span><br><span class="line">            <span class="keyword">var</span> conn = users[connection.otherName]; </span><br><span class="line">            conn.otherName = <span class="literal">null</span>;  </span><br><span class="line">				</span><br><span class="line">            <span class="keyword">if</span>(conn != <span class="literal">null</span>) &#123; </span><br><span class="line">               sendTo(conn, &#123; </span><br><span class="line">                  type: <span class="string">"leave"</span> </span><br><span class="line">               &#125;);</span><br><span class="line">            &#125;  </span><br><span class="line">         &#125; </span><br><span class="line">      &#125; </span><br><span class="line">   &#125;);  </span><br><span class="line">	</span><br><span class="line">   <span class="comment">//connection.send("Hello world"); </span></span><br><span class="line">	</span><br><span class="line">&#125;);  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendTo</span>(<span class="params">connection, message</span>) </span>&#123; </span><br><span class="line">   connection.send(<span class="built_in">JSON</span>.stringify(message)); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后<code>node server</code> 把上面的信令服务器跑起来。（上一篇教程说过要安装好nodejs环境）</p>
+<p>如果想测试是否跑起来了，可以用wscat命令：<code>wscat -c ws://localhost:9090</code> </p>
+<p>然后是前端：<code>index.html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span> = <span class="string">"en"</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span> = <span class="string">"utf-8"</span> /&gt;</span> </span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line">	</span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span> </span><br><span class="line">         <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> = <span class="string">"text"</span> <span class="attr">id</span> = <span class="string">"loginInput"</span> /&gt;</span> </span><br><span class="line">         <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span> = <span class="string">"loginBtn"</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">	</span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span> </span><br><span class="line">         <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> = <span class="string">"text"</span> <span class="attr">id</span> = <span class="string">"otherUsernameInput"</span> /&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span> = <span class="string">"connectToOtherUsernameBtn"</span>&gt;</span>Establish connection<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">		</span><br><span class="line">      <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span> = <span class="string">"client.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个不用解释吧。就是两个输入框两个按钮。</p>
+<p>最后是客户端js文件：<code>client.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> connection = <span class="keyword">new</span> WebSocket(<span class="string">'ws://localhost:9090'</span>); </span><br><span class="line"><span class="keyword">var</span> name = <span class="string">""</span>; </span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> loginInput = <span class="built_in">document</span>.querySelector(<span class="string">'#loginInput'</span>); </span><br><span class="line"><span class="keyword">var</span> loginBtn = <span class="built_in">document</span>.querySelector(<span class="string">'#loginBtn'</span>); </span><br><span class="line"><span class="keyword">var</span> otherUsernameInput = <span class="built_in">document</span>.querySelector(<span class="string">'#otherUsernameInput'</span>); </span><br><span class="line"><span class="keyword">var</span> connectToOtherUsernameBtn = <span class="built_in">document</span>.querySelector(<span class="string">'#connectToOtherUsernameBtn'</span>); </span><br><span class="line"><span class="keyword">var</span> connectedUser, myConnection;</span><br><span class="line">  </span><br><span class="line"><span class="comment">//when a user clicks the login button </span></span><br><span class="line">loginBtn.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123; </span><br><span class="line">   name = loginInput.value; </span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span>(name.length &gt; <span class="number">0</span>)&#123; </span><br><span class="line">      send(&#123; </span><br><span class="line">         type: <span class="string">"login"</span>, </span><br><span class="line">         name: name </span><br><span class="line">      &#125;); </span><br><span class="line">   &#125; </span><br><span class="line">   </span><br><span class="line">&#125;);</span><br><span class="line">  </span><br><span class="line"><span class="comment">//handle messages from the server </span></span><br><span class="line">connection.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">message</span>) </span>&#123; </span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Got message"</span>, message.data);</span><br><span class="line">   <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(message.data); </span><br><span class="line">   </span><br><span class="line">   <span class="keyword">switch</span>(data.type) &#123; </span><br><span class="line">      <span class="keyword">case</span> <span class="string">"login"</span>: </span><br><span class="line">         onLogin(data.success); </span><br><span class="line">         <span class="keyword">break</span>; </span><br><span class="line">      <span class="keyword">case</span> <span class="string">"offer"</span>: </span><br><span class="line">         onOffer(data.offer, data.name); </span><br><span class="line">         <span class="keyword">break</span>; </span><br><span class="line">      <span class="keyword">case</span> <span class="string">"answer"</span>: </span><br><span class="line">         onAnswer(data.answer); </span><br><span class="line">         <span class="keyword">break</span>; </span><br><span class="line">      <span class="keyword">case</span> <span class="string">"candidate"</span>: </span><br><span class="line">         onCandidate(data.candidate); </span><br><span class="line">         <span class="keyword">break</span>; </span><br><span class="line">      <span class="keyword">default</span>: </span><br><span class="line">         <span class="keyword">break</span>; </span><br><span class="line">   &#125; </span><br><span class="line">&#125;;</span><br><span class="line">  </span><br><span class="line"><span class="comment">//when a user logs in </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onLogin</span>(<span class="params">success</span>) </span>&#123; </span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (success === <span class="literal">false</span>) &#123; </span><br><span class="line">      alert(<span class="string">"oops...try a different username"</span>); </span><br><span class="line">   &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">      <span class="comment">//creating our RTCPeerConnection object </span></span><br><span class="line">      </span><br><span class="line">      <span class="keyword">var</span> configuration = &#123; </span><br><span class="line">         <span class="string">"iceServers"</span>: [&#123; <span class="string">"url"</span>: <span class="string">"stun:stun.1.google.com:19302"</span> &#125;] </span><br><span class="line">      &#125;; </span><br><span class="line">      </span><br><span class="line">      myConnection = <span class="keyword">new</span> webkitRTCPeerConnection(configuration); </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"RTCPeerConnection object was created"</span>); </span><br><span class="line">      <span class="built_in">console</span>.log(myConnection); </span><br><span class="line">  </span><br><span class="line">      <span class="comment">//setup ice handling</span></span><br><span class="line">      <span class="comment">//when the browser finds an ice candidate we send it to another peer </span></span><br><span class="line">      myConnection.onicecandidate = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123; </span><br><span class="line">      </span><br><span class="line">         <span class="keyword">if</span> (event.candidate) &#123; </span><br><span class="line">            send(&#123; </span><br><span class="line">               type: <span class="string">"candidate"</span>, </span><br><span class="line">               candidate: event.candidate </span><br><span class="line">            &#125;); </span><br><span class="line">         &#125; </span><br><span class="line">      &#125;; </span><br><span class="line">   &#125; </span><br><span class="line">&#125;;</span><br><span class="line">  </span><br><span class="line">connection.onopen = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Connected"</span>); </span><br><span class="line">&#125;;</span><br><span class="line">  </span><br><span class="line">connection.onerror = <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123; </span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"Got error"</span>, err); </span><br><span class="line">&#125;;</span><br><span class="line">  </span><br><span class="line"><span class="comment">// Alias for sending messages in JSON format </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params">message</span>) </span>&#123; </span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (connectedUser) &#123; </span><br><span class="line">      message.name = connectedUser; </span><br><span class="line">   &#125; </span><br><span class="line">   </span><br><span class="line">   connection.send(<span class="built_in">JSON</span>.stringify(message)); </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//setup a peer connection with another user </span></span><br><span class="line">connectToOtherUsernameBtn.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line"> </span><br><span class="line">   <span class="keyword">var</span> otherUsername = otherUsernameInput.value; </span><br><span class="line">   connectedUser = otherUsername;</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">if</span> (otherUsername.length &gt; <span class="number">0</span>) &#123; </span><br><span class="line">      <span class="comment">//make an offer </span></span><br><span class="line">      myConnection.createOffer(<span class="function"><span class="keyword">function</span> (<span class="params">offer</span>) </span>&#123; </span><br><span class="line">         <span class="built_in">console</span>.log(); </span><br><span class="line">         send(&#123; </span><br><span class="line">            type: <span class="string">"offer"</span>, </span><br><span class="line">            offer: offer </span><br><span class="line">         &#125;);</span><br><span class="line">         </span><br><span class="line">         myConnection.setLocalDescription(offer); </span><br><span class="line">      &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123; </span><br><span class="line">         alert(<span class="string">"An error has occurred."</span>); </span><br><span class="line">      &#125;); </span><br><span class="line">   &#125; </span><br><span class="line">&#125;); </span><br><span class="line"> </span><br><span class="line"><span class="comment">//when somebody wants to call us </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onOffer</span>(<span class="params">offer, name</span>) </span>&#123; </span><br><span class="line">   connectedUser = name; </span><br><span class="line">   myConnection.setRemoteDescription(<span class="keyword">new</span> RTCSessionDescription(offer)); </span><br><span class="line">   </span><br><span class="line">   myConnection.createAnswer(<span class="function"><span class="keyword">function</span> (<span class="params">answer</span>) </span>&#123; </span><br><span class="line">      myConnection.setLocalDescription(answer); </span><br><span class="line">      </span><br><span class="line">      send(&#123; </span><br><span class="line">         type: <span class="string">"answer"</span>, </span><br><span class="line">         answer: answer </span><br><span class="line">      &#125;); </span><br><span class="line">      </span><br><span class="line">   &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123; </span><br><span class="line">      alert(<span class="string">"oops...error"</span>); </span><br><span class="line">   &#125;); </span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="comment">//when another user answers to our offer </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onAnswer</span>(<span class="params">answer</span>) </span>&#123; </span><br><span class="line">   myConnection.setRemoteDescription(<span class="keyword">new</span> RTCSessionDescription(answer)); </span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line"><span class="comment">//when we got ice candidate from another user </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onCandidate</span>(<span class="params">candidate</span>) </span>&#123; </span><br><span class="line">   myConnection.addIceCandidate(<span class="keyword">new</span> RTCIceCandidate(candidate)); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样 <strong>offer/answer</strong>的过程就模拟完了。可以通过输入输出在控制台看到相关信息。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tutorial/" rel="tag"># tutorial</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/WebRTC04Kurento流程分析/" rel="next" title="WebRTC04KurentoDemo流程分析">
+                <i class="fa fa-chevron-left"></i> WebRTC04KurentoDemo流程分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ixsim</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:xuanshanli@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/lixsh" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://oo1.win/" title="炫猿" target="_blank">炫猿</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.aimoon.site" title="我大哥" target="_blank">我大哥</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://onebigcabbage.github.io" title="小菜哥" target="_blank">小菜哥</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RTCPeerConnection-APIs"><span class="nav-number">1.</span> <span class="nav-text">RTCPeerConnection APIs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RTCPeerConnection-API"><span class="nav-number">1.1.</span> <span class="nav-text">RTCPeerConnection API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">1.1.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件句柄"><span class="nav-number">1.1.2.</span> <span class="nav-text">事件句柄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Methods"><span class="nav-number">1.1.3.</span> <span class="nav-text">Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立一个连接"><span class="nav-number">1.1.4.</span> <span class="nav-text">建立一个连接</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">炫杉 ❤ 紫玉</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.4.0"></script>
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "2ajpEY5ADgyM7Usf91Y3w9FC-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "2ajpEY5ADgyM7Usf91Y3w9FC-gzGzoHsz",
+                'X-LC-Key': "OOKhkox53eeWftN6OLR9jeYg",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+
+  
+</body>
+</html>

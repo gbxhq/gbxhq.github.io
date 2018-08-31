@@ -109,14 +109,14 @@
 
 
   <meta name="description" content="空白处点击鼠标，弹出文字的网页特效。">
-<meta name="keywords" content="Js">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网页空白处点击弹出文字">
 <meta property="og:url" content="https://ixsim.github.io/Website/网页空白处点击弹出文字/index.html">
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="空白处点击鼠标，弹出文字的网页特效。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-21T13:26:09.027Z">
+<meta property="og:updated_time" content="2018-08-29T03:35:09.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网页空白处点击弹出文字">
 <meta name="twitter:description" content="空白处点击鼠标，弹出文字的网页特效。">
@@ -453,7 +453,17 @@
 <a id="more"></a>
 <p>代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">/* 鼠标特效 */</span></span><br><span class="line"><span class="keyword">var</span> a_idx = <span class="number">0</span>;</span><br><span class="line">jQuery(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"body"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"富强"</span>, <span class="string">"民主"</span>, <span class="string">"文明"</span>, <span class="string">"和谐"</span>, <span class="string">"自由"</span>, <span class="string">"平等"</span>, <span class="string">"公正"</span> ,<span class="string">"法治"</span>, <span class="string">"爱国"</span>, <span class="string">"敬业"</span>, <span class="string">"诚信"</span>, <span class="string">"友善"</span>);</span><br><span class="line">        <span class="keyword">var</span> $i = $(<span class="string">"&lt;span/&gt;"</span>).text(a[a_idx]);</span><br><span class="line">        a_idx = (a_idx + <span class="number">1</span>) % a.length;</span><br><span class="line">        <span class="keyword">var</span> x = e.pageX,</span><br><span class="line">        y = e.pageY;</span><br><span class="line">        $i.css(&#123;</span><br><span class="line">            <span class="string">"z-index"</span>: <span class="number">999999999999999999999999999999999999999999999999999999999999999999999</span>,</span><br><span class="line">            <span class="string">"top"</span>: y - <span class="number">20</span>,</span><br><span class="line">            <span class="string">"left"</span>: x,</span><br><span class="line">            <span class="string">"position"</span>: <span class="string">"absolute"</span>,</span><br><span class="line">            <span class="string">"font-weight"</span>: <span class="string">"bold"</span>,</span><br><span class="line">            <span class="string">"color"</span>: <span class="string">"#ff6651"</span></span><br><span class="line">        &#125;);</span><br><span class="line">        $(<span class="string">"body"</span>).append($i);</span><br><span class="line">        $i.animate(&#123;</span><br><span class="line">            <span class="string">"top"</span>: y - <span class="number">180</span>,</span><br><span class="line">            <span class="string">"opacity"</span>: <span class="number">0</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="number">1500</span>,</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            $i.remove();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<script type="text/javascript"> /* 鼠标特效 */ 
 
+var a_idx = 0; 
+
+jQuery(document).ready(function($) { 
+
+$("body").click(function(e) {
+
+ var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善"); var $i = $("<span/>").text(a[a_idx]); a_idx = (a_idx + 1) % a.length; var x = e.pageX, y = e.pageY; 
+
+i.css({ "z-index": 999999999999999999999999999999999999999999999999999999999999999999999, "top": y - 20, "left": x, "position": "absolute", "font-weight": "bold", "color": "#ff6651" }); ("body").append($i); $i.animate({ "top": y - 180, "opacity": 0 }, 1500, function() { $i.remove(); }); }); }); </script>
       
     </div>
 
@@ -473,7 +483,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Js/" rel="tag"># Js</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -566,7 +576,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -648,9 +658,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

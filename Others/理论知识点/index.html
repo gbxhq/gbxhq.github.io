@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="乱七八糟的东西。都是看博文啥的不懂现搜的~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-24T02:31:38.241Z">
+<meta property="og:updated_time" content="2018-08-31T01:05:24.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小知识点「理论」">
 <meta name="twitter:description" content="乱七八糟的东西。都是看博文啥的不懂现搜的~">
@@ -451,14 +451,17 @@
       
         <p>乱七八糟的东西。都是看博文啥的不懂现搜的~</p>
 <a id="more"></a>
-<ul>
-<li>RESTful</li>
-</ul>
-<p><a href="http://www.cnblogs.com/wang-yaz/p/9237981.html" target="_blank" rel="noopener">http://www.cnblogs.com/wang-yaz/p/9237981.html</a></p>
-<ul>
-<li>i18n</li>
-</ul>
-<p>i18n（其来源是英文单词 internationalization的首末字符i和n，18为中间的字符数）是“国际化”的简称。在资讯领域，国际化(i18n)指让产品（出版物，软件，硬件等）无需做大的改变就能够适应不同的语言和地区的需要。对程序来说，在不修改内部代码的情况下，能根据不同语言及地区显示相应的界面。 在全球化的时代，国际化尤为重要，因为产品的潜在用户可能来自世界的各个角落。通常与i18n相关的还有L10n（“本地化”的简称）。</p>
+<h1 id="名词相关"><a href="#名词相关" class="headerlink" title="名词相关"></a>名词相关</h1><h3 id="RESTful"><a href="#RESTful" class="headerlink" title="RESTful"></a>RESTful</h3><p><a href="http://www.cnblogs.com/wang-yaz/p/9237981.html" target="_blank" rel="noopener">http://www.cnblogs.com/wang-yaz/p/9237981.html</a></p>
+<h3 id="i18n"><a href="#i18n" class="headerlink" title="i18n"></a>i18n</h3><p>i18n（其来源是英文单词 internationalization的首末字符i和n，18为中间的字符数）是“国际化”的简称。在资讯领域，国际化(i18n)指让产品（出版物，软件，硬件等）无需做大的改变就能够适应不同的语言和地区的需要。对程序来说，在不修改内部代码的情况下，能根据不同语言及地区显示相应的界面。 在全球化的时代，国际化尤为重要，因为产品的潜在用户可能来自世界的各个角落。通常与i18n相关的还有L10n（“本地化”的简称）。</p>
+<h1 id="二进制包和源代码安装的差距"><a href="#二进制包和源代码安装的差距" class="headerlink" title="二进制包和源代码安装的差距"></a>二进制包和源代码安装的差距</h1><p>源代码方式和二进制包是软件包的两种形式。二进制包里面包括了已经经过编译，可以马上运行的程 序。你只需要下载和解包（安装）它们以后，就马上可以使用。源代码包里面包括了程序原始的程序代码，需要在你的计算机上进行编译以后才可以产生可以运行程 序,所以从源代码安装的时间会比较长。  </p>
+<p>source code 是程序員寫的碼， binary code 是機器跑的碼。</p>
+<p>source code 得經過 compile 才能成為 binary code。</p>
+<p>RPM 有分兩種：binary rpm 跟 source rpm。前者是編好的 binary，安裝就可用。  後者是還沒編好的 source ，需 rebuild 之後才能安裝。  </p>
+<p>rpm格式很好区分，二进制格式的包名字很长，都带有版本号、适应平台、适应的硬件类型等，而源码格式仅仅就是一个版本号的tar包。 </p>
+<p>mysql-5.0.45.tar.gz 是 源码包    </p>
+<p>像这样的 mysql-5.0.45-linux-x86_64-glibc23.tar.gz   是二进制包  </p>
+<p>如果你用过压缩工具就会明白，压缩包未必就是软件，它也可能是备份的许多图片，也可能是打包在一起的普通资料，要分辨它到底是什么最好的办法就是查看包里的文件清单，使用命令tar ztvf  <em> . 或者  tar ytvf  </em>.bz2   *</p>
+<p><em>源代码包里的文件往往会含有种种源代码文件，头文件</em>.h、c代码源文件<em>.c、C++代码源文件</em>.cc/*.cpp等；而二进制包里的文件则会有可执行文件（与软件同名的往往是主执行文件），标志是其所在路径含有名为bin的目录（仅有少数例外）</p>
 
       
     </div>
@@ -502,8 +505,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Others/Sublime3屏蔽更新/" rel="prev" title="Problems in using Sublime">
-                Problems in using Sublime <i class="fa fa-chevron-right"></i>
+              <a href="/Others/技术知识点/" rel="prev" title="小知识点「技术」">
+                小知识点「技术」 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -556,8 +559,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -572,7 +584,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -654,9 +666,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -717,6 +727,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#名词相关"><span class="nav-number">1.</span> <span class="nav-text">名词相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RESTful"><span class="nav-number">1.0.1.</span> <span class="nav-text">RESTful</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#i18n"><span class="nav-number">1.0.2.</span> <span class="nav-text">i18n</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二进制包和源代码安装的差距"><span class="nav-number">2.</span> <span class="nav-text">二进制包和源代码安装的差距</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

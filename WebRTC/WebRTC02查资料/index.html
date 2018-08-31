@@ -117,7 +117,7 @@
 <meta property="og:description" content="本来第一站是要查资料先了解下知识点的。但是王老师直接就给了我iOS的源码，这样又了Demo对着，了解更好了。不多说了。最近的任务就是多看WebRTC的相关文章。把该知道的多学一点。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://webrtc.org.cn/wp-content/uploads/2016/06/nat-network.png">
-<meta property="og:updated_time" content="2018-08-27T05:38:06.823Z">
+<meta property="og:updated_time" content="2018-08-31T03:33:27.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebRTC02查基础资料">
 <meta name="twitter:description" content="本来第一站是要查资料先了解下知识点的。但是王老师直接就给了我iOS的源码，这样又了Demo对着，了解更好了。不多说了。最近的任务就是多看WebRTC的相关文章。把该知道的多学一点。">
@@ -495,6 +495,62 @@
 </ul>
 <p>综合前两种的方案。</p>
 <p>通过offer/answer模型建立基于UDP的通讯。 ICE是offer/answer模型的扩展，通过在offer和answer的SDP(Session Description Protocol)里面包含多种IP地址和端口，然后对本地SDP和远程SDP里面的IP地址进行配对，然后通过P2P连通性检查进行连通性测试工作，如果测试通过即表明该传输地址对可以建立连接。其中IP地址和端口（也就是地址）有以下几种：本机地址、通过 STUN服务器反射后获取的server-reflexive地址（内网地址被NAT映射后的地址）、relayed地址（和 TURN转发服务器相对应的地址）及Peer reflexive地址等。</p>
+<ul>
+<li>概览</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>STUN</th>
+<th>TURN</th>
+<th>ICE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>实现复杂度</td>
+<td>实现简单</td>
+<td>难于实现。TURN的安全性设计增加终端设置的复杂度</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>TCP穿透支持</td>
+<td>不支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>对现有设备的要求</td>
+<td>要求客户端支持，对现有NAT设备无改动要求，需增加STUN服务器</td>
+<td>对现有NAT设备无要求，要求客户端支持，需增加TURN服务器</td>
+<td>对NAT设备无要求，支持所有类型的NAT设备。客户端必须支持，网路结构中需增加STUN/TURN服务器</td>
+</tr>
+<tr>
+<td>可扩展性</td>
+<td>可扩展性好，与具体协议无关</td>
+<td>可扩展性好，与具体协议无关</td>
+<td>可扩展性好，与具体协议无关</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>一般</td>
+<td>一般</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>健壮性</td>
+<td>差，不支持symmentric型NAT</td>
+<td>好，支持所有类型的NAT</td>
+<td>好，适用与所有NAT及NAT拓扑类型，且由于存在中继服务器，NAT 穿透一般总是能成功</td>
+</tr>
+<tr>
+<td>穿透一般总是能成功其他</td>
+<td>支持自动检测NAT类型，使用户即使在使用STUN协议无法实现NAT穿透时还可以根据NAT类型自主选择其他可使用的NAT穿透方案</td>
+<td>与P2P穿透方式相比，性能是relay穿透方式的弱点。另外TURN无法实现负载分担，解决的方式是把media relay服务器的分配工作放在 SIP proxy完成</td>
+</tr>
+</tbody>
+</table>
 <h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><h2 id="GAE"><a href="#GAE" class="headerlink" title="GAE"></a>GAE</h2><p>Google App Engine<br>谷歌的Web应用开发、托管平台。支持Python、Java和Php。</p>
 <h2 id="HLS-HTTP-Live-Streaming"><a href="#HLS-HTTP-Live-Streaming" class="headerlink" title="HLS(HTTP Live Streaming)"></a>HLS(HTTP Live Streaming)</h2><p><a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/HTTP_Live_Streaming</a><br><a href="https://baike.baidu.com/item/HLS/8328931" target="_blank" rel="noopener">https://baike.baidu.com/item/HLS/8328931</a></p>
 <h2 id="H-264"><a href="#H-264" class="headerlink" title="H.264"></a>H.264</h2><p>国际上制定视频编解码技术的组织有两个，一个是“国际电联（ITU-T）”，它制定的标准有H.261、H.263、H.263+等，另一个是“国际标准化组织（ISO）”它制定的标准有MPEG-1、MPEG-2、MPEG-4等。而H.264则是由两个组织联合组建的联合视频组（JVT）共同制定的新数字视频编码标准，所以它既是ITU-T的H.264，又是ISO/IEC的MPEG-4高级视频编码（Advanced Video Coding，AVC）的第10 部分。因此，不论是MPEG-4 AVC、MPEG-4 Part 10，还是ISO/IEC 14496-10，都是指H.264。</p>
@@ -545,8 +601,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/WebRTC/WebRTC03入门教程翻译/" rel="prev" title="WebRTC03入门教程">
-                WebRTC03入门教程 <i class="fa fa-chevron-right"></i>
+              <a href="/WebRTC/WebRTC03入门教程翻译/" rel="prev" title="WebRTC03入门教程01">
+                WebRTC03入门教程01 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -624,7 +680,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -706,9 +762,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
