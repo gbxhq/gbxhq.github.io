@@ -117,7 +117,7 @@
 <meta property="og:description" content="Shell相关 touch xxx.x 新建文件 ls -a查看隐藏文件 清屏: edit菜单里找。Terminal:⌃+⌘+L iTerm:⌘+K  自动运行命令脚本shell命令写在记事本存成 1.sh shell里运行sh 1.sh即可 Markdown相关Markdown 写上标下标 HTML  123&amp;lt;!--利用HTML--&amp;gt;&amp;lt;sub&amp;gt;上标&amp;lt;/sub&amp;gt">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/20180904153603023933676.png">
-<meta property="og:updated_time" content="2018-09-04T03:04:17.866Z">
+<meta property="og:updated_time" content="2018-09-04T03:15:22.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小知识点「技术」">
 <meta name="twitter:description" content="Shell相关 touch xxx.x 新建文件 ls -a查看隐藏文件 清屏: edit菜单里找。Terminal:⌃+⌘+L iTerm:⌘+K  自动运行命令脚本shell命令写在记事本存成 1.sh shell里运行sh 1.sh即可 Markdown相关Markdown 写上标下标 HTML  123&amp;lt;!--利用HTML--&amp;gt;&amp;lt;sub&amp;gt;上标&amp;lt;/sub&amp;gt">
@@ -503,6 +503,7 @@
 <h2 id="支持C-11"><a href="#支持C-11" class="headerlink" title="支持C++11"></a>支持C++11</h2><p>tools–&gt;new build sys</p>
 <p>输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &apos;$&#123;file&#125;&apos; -std=c++11 -stdlib=libc++ -o &apos;$&#123;file_path&#125;/$&#123;file_base_name&#125;&apos;&quot;],</span><br><span class="line">    &quot;file_regex&quot;: &quot;^(..&#123;FNXX==XXFN&#125;*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,</span><br><span class="line">    &quot;working_dir&quot;: &quot;$&#123;file_path&#125;&quot;,</span><br><span class="line">    &quot;selector&quot;: &quot;source.c, source.c++&quot;,</span><br><span class="line">    &quot;variants&quot;:</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">        &quot;name&quot;: &quot;Run&quot;,</span><br><span class="line">        &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &apos;$&#123;file&#125;&apos; -std=c++11 -stdlib=libc++ -o &apos;$&#123;file_path&#125;/$&#123;file_base_name&#125;&apos; &amp;&amp; open -a Terminal.app &apos;$&#123;file_path&#125;/$&#123;file_base_name&#125;&apos;&quot;]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>保存的时候注意后缀不要改，是<code>.sublime-build</code></p>
 <p>如果想调用iTerm2把里面的<code>Terminal.app</code>换成<code>iTerm.app</code>就行了。</p>
 <p>换成iTerm之后程序执行完iTerm会自己关闭窗口，需要在设置里修改一下默认配置文件：</p>
 <p><img src="http://p66eruxmw.bkt.clouddn.com/20180904153603023933676.png" alt="20180904153603023933676.png"></p>
@@ -638,7 +639,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -722,7 +723,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
