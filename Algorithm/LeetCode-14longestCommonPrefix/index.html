@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="无聊的一道题">
+  <meta name="description" content="知识点：substr(pos,n)">
 <meta name="keywords" content="C++,LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode#13RomanToInteger">
-<meta property="og:url" content="https://ixsim.github.io/LeetCode-13RomanToInteger/index.html">
+<meta property="og:title" content="LeetCode#14longestCommonPrefix">
+<meta property="og:url" content="https://ixsim.github.io/Algorithm/LeetCode-14longestCommonPrefix/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="无聊的一道题">
+<meta property="og:description" content="知识点：substr(pos,n)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-05T06:23:24.578Z">
+<meta property="og:updated_time" content="2018-09-05T08:21:45.987Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode#13RomanToInteger">
-<meta name="twitter:description" content="无聊的一道题">
+<meta name="twitter:title" content="LeetCode#14longestCommonPrefix">
+<meta name="twitter:description" content="知识点：substr(pos,n)">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/LeetCode-13RomanToInteger/"/>
+  <link rel="canonical" href="https://ixsim.github.io/Algorithm/LeetCode-14longestCommonPrefix/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>LeetCode#13RomanToInteger | 炫杉</title>
+  <title>LeetCode#14longestCommonPrefix | 炫杉</title>
   
 
 
@@ -344,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/LeetCode-13RomanToInteger/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Algorithm/LeetCode-14longestCommonPrefix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -361,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode#13RomanToInteger
+          <h1 class="post-title" itemprop="name headline">LeetCode#14longestCommonPrefix
               
             
           </h1>
@@ -386,7 +386,7 @@
                 
               
 
-              <time title="创建时间：2018-09-05 14:04:22" itemprop="dateCreated datePublished" datetime="2018-09-05T14:04:22+08:00">2018-09-05</time>
+              <time title="创建时间：2018-09-05 15:54:07" itemprop="dateCreated datePublished" datetime="2018-09-05T15:54:07+08:00">2018-09-05</time>
             
 
             
@@ -418,7 +418,7 @@
 
           
           
-             <span id="/LeetCode-13RomanToInteger/" class="leancloud_visitors" data-flag-title="LeetCode#13RomanToInteger">
+             <span id="/Algorithm/LeetCode-14longestCommonPrefix/" class="leancloud_visitors" data-flag-title="LeetCode#14longestCommonPrefix">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,29 +449,44 @@
       
 
       
-        <p>无聊的一道题</p>
+        <p>知识点：<code>substr(pos,n)</code></p>
 <a id="more"></a>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>罗马数字包含以下七种字符：<code>I</code>， <code>V</code>， <code>X</code>， <code>L</code>，<code>C</code>，<code>D</code> 和 <code>M</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">字符          数值</span><br><span class="line">I             1</span><br><span class="line">V             5</span><br><span class="line">X             10</span><br><span class="line">L             50</span><br><span class="line">C             100</span><br><span class="line">D             500</span><br><span class="line">M             1000</span><br></pre></td></tr></table></figure>
-<p>例如， 罗马数字 2 写做 <code>II</code> ，即为两个并列的 1。12 写做 <code>XII</code> ，即为 <code>X</code> + <code>II</code> 。 27 写做  <code>XXVII</code>, 即为 <code>XX</code> + <code>V</code> + <code>II</code> 。</p>
-<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 <code>IIII</code>，而是 <code>IV</code>。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 <code>IX</code>。这个特殊的规则只适用于以下六种情况：</p>
-<ul>
-<li><code>I</code> 可以放在 <code>V</code> (5) 和 <code>X</code> (10) 的左边，来表示 4 和 9。</li>
-<li><code>X</code> 可以放在 <code>L</code> (50) 和 <code>C</code> (100) 的左边，来表示 40 和 90。 </li>
-<li><code>C</code> 可以放在 <code>D</code> (500) 和 <code>M</code> (1000) 的左边，来表示 400 和 900。</li>
-</ul>
-<p>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
+<p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
 <p><strong>示例 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;III&quot;</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">输出: &quot;fl&quot;</span><br></pre></td></tr></table></figure>
 <p><strong>示例 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;IV&quot;</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure>
-<p><strong>示例 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;IX&quot;</span><br><span class="line">输出: 9</span><br></pre></td></tr></table></figure>
-<p><strong>示例 4:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;LVIII&quot;</span><br><span class="line">输出: 58</span><br><span class="line">解释: C = 100, L = 50, XXX = 30, III = 3.</span><br></pre></td></tr></table></figure>
-<p><strong>示例 5:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;MCMXCIV&quot;</span><br><span class="line">输出: 1994</span><br><span class="line">解释: M = 1000, CM = 900, XC = 90, IV = 4.</span><br></pre></td></tr></table></figure>
-<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span> ban_io_sync = []()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="literal">nullptr</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;();</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        	<span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//I的三种情况</span></span><br><span class="line">		<span class="keyword">if</span> ( s[i] == <span class="string">'I'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (s[i+<span class="number">1</span>] == <span class="string">'V'</span> )</span><br><span class="line">			&#123;ans += <span class="number">4</span>;i++;&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(s[i+<span class="number">1</span>] == <span class="string">'X'</span>)</span><br><span class="line">				&#123;ans += <span class="number">9</span>;i++;&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				ans += <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//X的三种情况</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> ( s[i] == <span class="string">'X'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (s[i+<span class="number">1</span>] == <span class="string">'L'</span> )</span><br><span class="line">				&#123;ans += <span class="number">40</span>;i++;&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(s[i+<span class="number">1</span>] == <span class="string">'C'</span>)</span><br><span class="line">				&#123;ans += <span class="number">90</span>;i++;&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				ans += <span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//C的三种情况</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">'C'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (s[i+<span class="number">1</span>] == <span class="string">'D'</span> )</span><br><span class="line">				&#123;ans += <span class="number">400</span>;i++;&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(s[i+<span class="number">1</span>] == <span class="string">'M'</span>)</span><br><span class="line">				&#123;ans += <span class="number">900</span>;i++;&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				ans += <span class="number">100</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">'V'</span>)</span><br><span class="line">			ans += <span class="number">5</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">'L'</span>)</span><br><span class="line">			ans += <span class="number">50</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">'D'</span>)</span><br><span class="line">			ans += <span class="number">500</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			ans += <span class="number">1000</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</span><br><span class="line">输出: &quot;&quot;</span><br><span class="line">解释: 输入不存在公共前缀。</span><br></pre></td></tr></table></figure>
+<p><strong>说明:</strong></p>
+<p>所有输入只包含小写字母 <code>a-z</code> 。</p>
+<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">Prefix2</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span></span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(p &lt;= (a.size()<span class="number">-1</span>) &amp;&amp; p &lt;= (b.size()<span class="number">-1</span>) )&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[p] == b [p])&#123;</span><br><span class="line">                        ans += a[p];</span><br><span class="line">                        p++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">auto</span> iter1 = strs.begin();</span><br><span class="line">    <span class="keyword">while</span>(iter1 != (strs.end()<span class="number">-1</span>))&#123;</span><br><span class="line">        <span class="keyword">auto</span> iter2 = iter1 +<span class="number">1</span>;</span><br><span class="line">        ans = Prefix2(*iter1,*iter2);</span><br><span class="line">        <span class="keyword">if</span>(ans == <span class="string">""</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        iter1++;</span><br><span class="line">        *iter1 = ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>我的解真是弱爆了。</p>
+<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><ul>
+<li><p>第一次报错</p>
+<blockquote>
+<p>“Runtime Error Message:reference binding to null pointer of type ‘struct value_type’</p>
+<p> Last executed input: []</p>
+</blockquote>
+<p>百度了一下。<a href="https://blog.csdn.net/zy2317878/article/details/78820900" target="_blank" rel="noopener">https://blog.csdn.net/zy2317878/article/details/78820900</a></p>
+<p>我强行加了一句，如果size()是0则返回””</p>
+</li>
+<li><p>第二次是输入只有有个单词的时候。因为我是自己写了个比较两个单词最长前缀的函数。所以输入只有一个的时候，直接返回了””。正确答案应该是返回这个单词。我又强行加了这么一种情况。</p>
+</li>
+<li><p>我的解法效率极低。下面去看看大神们怎么解吧。</p>
+</li>
+</ul>
+<h1 id="优化解"><a href="#优化解" class="headerlink" title="优化解"></a>优化解</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> vec_len=strs.size();</span><br><span class="line">        <span class="keyword">if</span>(vec_len==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> str_len=strs[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str_len;i++)</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;vec_len;j++)</span><br><span class="line">            <span class="keyword">if</span>(strs[j][i]!=strs[<span class="number">0</span>][i])</span><br><span class="line">                <span class="keyword">return</span> strs[<span class="number">0</span>].substr(<span class="number">0</span>,i);</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>知识点：</p>
+<ul>
+<li><code>str.substr(x,y)</code>就是取子串。</li>
+<li><code>str.substr(0,0)</code>应该就是<code>&quot;&quot;</code></li>
+</ul>
+<p>这个解的逻辑确实很清晰！</p>
+<ul>
+<li><p>相同的逻辑，解答里还有一个0ms的写法就是</p>
+<p><code>while((strs[0])[i])</code>看来这种方法也能遍历一个字符串。</p>
+</li>
+</ul>
 
       
     </div>
@@ -507,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Algorithm/LeetCode-9PalinedromeNumber/" rel="next" title="LeetCode#9PalinedromeNumber">
-                <i class="fa fa-chevron-left"></i> LeetCode#9PalinedromeNumber
+              <a href="/Algorithm/LeetCode-13RomanToInteger/" rel="next" title="LeetCode#13RomanToInteger">
+                <i class="fa fa-chevron-left"></i> LeetCode#13RomanToInteger
               </a>
             
           </div>
@@ -517,8 +532,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/LeetCode-14longestCommonPrefix/" rel="prev" title="LeetCode#14longestCommonPrefix">
-                LeetCode#14longestCommonPrefix <i class="fa fa-chevron-right"></i>
+              <a href="/Algorithm/LeetCode-20ValidParentheses/" rel="prev" title="LeetCode#20ValidParentheses">
+                LeetCode#20ValidParentheses <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -759,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解"><span class="nav-number">2.</span> <span class="nav-text">解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解"><span class="nav-number">2.</span> <span class="nav-text">解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problems"><span class="nav-number">3.</span> <span class="nav-text">Problems</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优化解"><span class="nav-number">4.</span> <span class="nav-text">优化解</span></a></li></ol></div>
             
 
           </div>

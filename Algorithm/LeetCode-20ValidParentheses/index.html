@@ -112,11 +112,11 @@
 <meta name="keywords" content="C++,LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode#20ValidParentheses">
-<meta property="og:url" content="https://ixsim.github.io/LeetCode-20ValidParentheses/index.html">
+<meta property="og:url" content="https://ixsim.github.io/Algorithm/LeetCode-20ValidParentheses/index.html">
 <meta property="og:site_name" content="炫杉">
 <meta property="og:description" content="知识点：stack,ascii">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-06T01:46:06.005Z">
+<meta property="og:updated_time" content="2018-09-06T01:48:32.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode#20ValidParentheses">
 <meta name="twitter:description" content="知识点：stack,ascii">
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/LeetCode-20ValidParentheses/"/>
+  <link rel="canonical" href="https://ixsim.github.io/Algorithm/LeetCode-20ValidParentheses/"/>
 
 
 
@@ -344,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/LeetCode-20ValidParentheses/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Algorithm/LeetCode-20ValidParentheses/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -418,7 +418,7 @@
 
           
           
-             <span id="/LeetCode-20ValidParentheses/" class="leancloud_visitors" data-flag-title="LeetCode#20ValidParentheses">
+             <span id="/Algorithm/LeetCode-20ValidParentheses/" class="leancloud_visitors" data-flag-title="LeetCode#20ValidParentheses">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -485,9 +485,345 @@
 <li><p>没有瞎判断字符是不是<code>&#39;{([])}&#39;</code></p>
 <p>而是利用了ascii码。那为啥有 -1 有 -2 呢？</p>
 <p>看了ascii码表你就知道了。</p>
-<p>| ASCII值 | 控制字符 | ASCII值 | 控制字符 | ASCII值 | 控制字符 | ASCII值 | 控制字符 |<br>| ——- | ——– | ——- | ——– | ——- | ——– | ——- | ——– |<br>| 0       | NUT      | 32      | (space)  | 64      | @        | 96      | 、       |<br>| 1       | SOH      | 33      | !        | 65      | A        | 97      | a        |<br>| 2       | STX      | 34      | “        | 66      | B        | 98      | b        |<br>| 3       | ETX      | 35      | #        | 67      | C        | 99      | c        |<br>| 4       | EOT      | 36      | $        | 68      | D        | 100     | d        |<br>| 5       | ENQ      | 37      | %        | 69      | E        | 101     | e        |<br>| 6       | ACK      | 38      | &amp;        | 70      | F        | 102     | f        |<br>| 7       | BEL      | 39      | ,        | 71      | G        | 103     | g        |<br>| 8       | BS       | <strong>40</strong>  | <strong>(</strong>    | 72      | H        | 104     | h        |<br>| 9       | HT       | <strong>41</strong>  | <strong>)</strong>    | 73      | I        | 105     | i        |<br>| 10      | LF       | 42      | *        | 74      | J        | 106     | j        |<br>| 11      | VT       | 43      | +        | 75      | K        | 107     | k        |<br>| 12      | FF       | 44      | ,        | 76      | L        | 108     | l        |<br>| 13      | CR       | 45      | -        | 77      | M        | 109     | m        |<br>| 14      | SO       | 46      | .        | 78      | N        | 110     | n        |<br>| 15      | SI       | 47      | /        | 79      | O        | 111     | o        |<br>| 16      | DLE      | 48      | 0        | 80      | P        | 112     | p        |<br>| 17      | DCI      | 49      | 1        | 81      | Q        | 113     | q        |<br>| 18      | DC2      | 50      | 2        | 82      | R        | 114     | r        |<br>| 19      | DC3      | 51      | 3        | 83      | S        | 115     | s        |<br>| 20      | DC4      | 52      | 4        | 84      | T        | 116     | t        |<br>| 21      | NAK      | 53      | 5        | 85      | U        | 117     | u        |<br>| 22      | SYN      | 54      | 6        | 86      | V        | 118     | v        |<br>| 23      | TB       | 55      | 7        | 87      | W        | 119     | w        |<br>| 24      | CAN      | 56      | 8        | 88      | X        | 120     | x        |<br>| 25      | EM       | 57      | 9        | 89      | Y        | 121     | y        |<br>| 26      | SUB      | 58      | :        | 90      | Z        | 122     | z        |<br>| 27      | ESC      | 59      | ;        | <strong>91</strong>  | <strong>[</strong>    | <strong>123</strong> | <strong>{</strong>    |<br>| 28      | FS       | 60      | &lt;        | 92      | /        | 124     | |       |<br>| 29      | GS       | 61      | =        | <strong>93</strong>  | <strong>]</strong>    | <strong>125</strong> | <strong>}</strong>    |<br>| 30      | RS       | 62      | &gt;        | 94      | ^        | 126     | `        |<br>| 31      | US       | 63      | ?        | 95      | _        | 127     | DEL      |</p>
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>ASCII值</th>
+<th>控制字符</th>
+<th>ASCII值</th>
+<th>控制字符</th>
+<th>ASCII值</th>
+<th>控制字符</th>
+<th>ASCII值</th>
+<th>控制字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>NUT</td>
+<td>32</td>
+<td>(space)</td>
+<td>64</td>
+<td>@</td>
+<td>96</td>
+<td>、</td>
+</tr>
+<tr>
+<td>1</td>
+<td>SOH</td>
+<td>33</td>
+<td>!</td>
+<td>65</td>
+<td>A</td>
+<td>97</td>
+<td>a</td>
+</tr>
+<tr>
+<td>2</td>
+<td>STX</td>
+<td>34</td>
+<td>“</td>
+<td>66</td>
+<td>B</td>
+<td>98</td>
+<td>b</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ETX</td>
+<td>35</td>
+<td>#</td>
+<td>67</td>
+<td>C</td>
+<td>99</td>
+<td>c</td>
+</tr>
+<tr>
+<td>4</td>
+<td>EOT</td>
+<td>36</td>
+<td>$</td>
+<td>68</td>
+<td>D</td>
+<td>100</td>
+<td>d</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ENQ</td>
+<td>37</td>
+<td>%</td>
+<td>69</td>
+<td>E</td>
+<td>101</td>
+<td>e</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ACK</td>
+<td>38</td>
+<td>&amp;</td>
+<td>70</td>
+<td>F</td>
+<td>102</td>
+<td>f</td>
+</tr>
+<tr>
+<td>7</td>
+<td>BEL</td>
+<td>39</td>
+<td>,</td>
+<td>71</td>
+<td>G</td>
+<td>103</td>
+<td>g</td>
+</tr>
+<tr>
+<td>8</td>
+<td>BS</td>
+<td><strong>40</strong></td>
+<td><strong>(</strong></td>
+<td>72</td>
+<td>H</td>
+<td>104</td>
+<td>h</td>
+</tr>
+<tr>
+<td>9</td>
+<td>HT</td>
+<td><strong>41</strong></td>
+<td><strong>)</strong></td>
+<td>73</td>
+<td>I</td>
+<td>105</td>
+<td>i</td>
+</tr>
+<tr>
+<td>10</td>
+<td>LF</td>
+<td>42</td>
+<td>*</td>
+<td>74</td>
+<td>J</td>
+<td>106</td>
+<td>j</td>
+</tr>
+<tr>
+<td>11</td>
+<td>VT</td>
+<td>43</td>
+<td>+</td>
+<td>75</td>
+<td>K</td>
+<td>107</td>
+<td>k</td>
+</tr>
+<tr>
+<td>12</td>
+<td>FF</td>
+<td>44</td>
+<td>,</td>
+<td>76</td>
+<td>L</td>
+<td>108</td>
+<td>l</td>
+</tr>
+<tr>
+<td>13</td>
+<td>CR</td>
+<td>45</td>
+<td>-</td>
+<td>77</td>
+<td>M</td>
+<td>109</td>
+<td>m</td>
+</tr>
+<tr>
+<td>14</td>
+<td>SO</td>
+<td>46</td>
+<td>.</td>
+<td>78</td>
+<td>N</td>
+<td>110</td>
+<td>n</td>
+</tr>
+<tr>
+<td>15</td>
+<td>SI</td>
+<td>47</td>
+<td>/</td>
+<td>79</td>
+<td>O</td>
+<td>111</td>
+<td>o</td>
+</tr>
+<tr>
+<td>16</td>
+<td>DLE</td>
+<td>48</td>
+<td>0</td>
+<td>80</td>
+<td>P</td>
+<td>112</td>
+<td>p</td>
+</tr>
+<tr>
+<td>17</td>
+<td>DCI</td>
+<td>49</td>
+<td>1</td>
+<td>81</td>
+<td>Q</td>
+<td>113</td>
+<td>q</td>
+</tr>
+<tr>
+<td>18</td>
+<td>DC2</td>
+<td>50</td>
+<td>2</td>
+<td>82</td>
+<td>R</td>
+<td>114</td>
+<td>r</td>
+</tr>
+<tr>
+<td>19</td>
+<td>DC3</td>
+<td>51</td>
+<td>3</td>
+<td>83</td>
+<td>S</td>
+<td>115</td>
+<td>s</td>
+</tr>
+<tr>
+<td>20</td>
+<td>DC4</td>
+<td>52</td>
+<td>4</td>
+<td>84</td>
+<td>T</td>
+<td>116</td>
+<td>t</td>
+</tr>
+<tr>
+<td>21</td>
+<td>NAK</td>
+<td>53</td>
+<td>5</td>
+<td>85</td>
+<td>U</td>
+<td>117</td>
+<td>u</td>
+</tr>
+<tr>
+<td>22</td>
+<td>SYN</td>
+<td>54</td>
+<td>6</td>
+<td>86</td>
+<td>V</td>
+<td>118</td>
+<td>v</td>
+</tr>
+<tr>
+<td>23</td>
+<td>TB</td>
+<td>55</td>
+<td>7</td>
+<td>87</td>
+<td>W</td>
+<td>119</td>
+<td>w</td>
+</tr>
+<tr>
+<td>24</td>
+<td>CAN</td>
+<td>56</td>
+<td>8</td>
+<td>88</td>
+<td>X</td>
+<td>120</td>
+<td>x</td>
+</tr>
+<tr>
+<td>25</td>
+<td>EM</td>
+<td>57</td>
+<td>9</td>
+<td>89</td>
+<td>Y</td>
+<td>121</td>
+<td>y</td>
+</tr>
+<tr>
+<td>26</td>
+<td>SUB</td>
+<td>58</td>
+<td>:</td>
+<td>90</td>
+<td>Z</td>
+<td>122</td>
+<td>z</td>
+</tr>
+<tr>
+<td>27</td>
+<td>ESC</td>
+<td>59</td>
+<td>;</td>
+<td><strong>91</strong></td>
+<td><strong>[</strong></td>
+<td><strong>123</strong></td>
+<td><strong>{</strong></td>
+</tr>
+<tr>
+<td>28</td>
+<td>FS</td>
+<td>60</td>
+<td>&lt;</td>
+<td>92</td>
+<td>/</td>
+<td>124</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>GS</td>
+<td>61</td>
+<td>=</td>
+<td><strong>93</strong></td>
+<td><strong>]</strong></td>
+<td><strong>125</strong></td>
+<td><strong>}</strong></td>
+</tr>
+<tr>
+<td>30</td>
+<td>RS</td>
+<td>62</td>
+<td>&gt;</td>
+<td>94</td>
+<td>^</td>
+<td>126</td>
+<td>`</td>
+</tr>
+<tr>
+<td>31</td>
+<td>US</td>
+<td>63</td>
+<td>?</td>
+<td>95</td>
+<td>_</td>
+<td>127</td>
+<td>DEL</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -523,7 +859,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/LeetCode-14longestCommonPrefix/" rel="next" title="LeetCode#14longestCommonPrefix">
+              <a href="/Algorithm/LeetCode-14longestCommonPrefix/" rel="next" title="LeetCode#14longestCommonPrefix">
                 <i class="fa fa-chevron-left"></i> LeetCode#14longestCommonPrefix
               </a>
             
