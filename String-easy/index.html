@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="知识点：String">
+  <meta name="description" content="知识点：String  reverse()   istringstream[见#557]">
 <meta name="keywords" content="C++,LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 字符串+简单">
 <meta property="og:url" content="https://ixsim.github.io/String-easy/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="知识点：String">
+<meta property="og:description" content="知识点：String  reverse()   istringstream[见#557]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-10T11:08:45.816Z">
+<meta property="og:updated_time" content="2018-09-11T09:02:46.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 字符串+简单">
-<meta name="twitter:description" content="知识点：String">
+<meta name="twitter:description" content="知识点：String  reverse()   istringstream[见#557]">
 
 
 
@@ -449,8 +449,19 @@
       
 
       
-        <p>知识点：String</p>
+        <p>知识点：<code>String</code>  <code>reverse()</code>   <code>istringstream</code>[见#557]</p>
 <a id="more"></a>
+<h1 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h1><ul>
+<li><p>string对象的操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">os&lt;&lt;s   <span class="comment">//s写入到输出流os中。返回os</span></span><br><span class="line">is&gt;&gt;s	<span class="comment">//从输入流is读取字符串赋给s，返回is。</span></span><br><span class="line">s.empty()</span><br><span class="line">s.size()</span><br><span class="line">s[n] <span class="comment">//n从0计</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="709转换成小写字母"><a href="#709转换成小写字母" class="headerlink" title="#709转换成小写字母"></a>#709转换成小写字母</h1><p><code>A~Z</code>的ascii码为<code>65~90</code>   小写字母对应+32</p>
+<h1 id="657机器人能否返回原点"><a href="#657机器人能否返回原点" class="headerlink" title="#657机器人能否返回原点"></a>#657机器人能否返回原点</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judgeCircle</span><span class="params">(<span class="built_in">string</span> moves)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> tb[<span class="number">256</span>]&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> ch : moves)</span><br><span class="line">        ++tb[ch];</span><br><span class="line">    <span class="keyword">return</span> tb[<span class="string">'R'</span>] == tb[<span class="string">'L'</span>] &amp;&amp; tb[<span class="string">'U'</span>] == tb[<span class="string">'D'</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="344反转字符串"><a href="#344反转字符串" class="headerlink" title="#344反转字符串"></a>#344反转字符串</h1><p>EASY</p>
+<h1 id="557反转字符串中的单词III"><a href="#557反转字符串中的单词III" class="headerlink" title="#557反转字符串中的单词III"></a>#557反转字符串中的单词III</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseWords</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="built_in">istringstream</span> <span class="title">is</span><span class="params">(s)</span></span>;</span><br><span class="line">    <span class="built_in">string</span> t = <span class="string">""</span>;</span><br><span class="line">    <span class="built_in">string</span> res = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">while</span> (is &gt;&gt; t)</span><br><span class="line">    &#123;</span><br><span class="line">        reverse(t.begin(), t.end());</span><br><span class="line">        res += t + <span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    res.pop_back();</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="521最长特殊序列I"><a href="#521最长特殊序列I" class="headerlink" title="#521最长特殊序列I"></a>#521最长特殊序列I</h1><p>垃圾题。抠定义的题。直接返回最长的子串长度即可。</p>
+<h1 id="520检测大写字母"><a href="#520检测大写字母" class="headerlink" title="#520检测大写字母"></a>#520检测大写字母</h1><p>各种if分情况🙂</p>
 
       
     </div>
@@ -546,8 +557,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -715,6 +735,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础部分"><span class="nav-number">1.</span> <span class="nav-text">基础部分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#709转换成小写字母"><span class="nav-number">2.</span> <span class="nav-text">#709转换成小写字母</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#657机器人能否返回原点"><span class="nav-number">3.</span> <span class="nav-text">#657机器人能否返回原点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#344反转字符串"><span class="nav-number">4.</span> <span class="nav-text">#344反转字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#557反转字符串中的单词III"><span class="nav-number">5.</span> <span class="nav-text">#557反转字符串中的单词III</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#521最长特殊序列I"><span class="nav-number">6.</span> <span class="nav-text">#521最长特殊序列I</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#520检测大写字母"><span class="nav-number">7.</span> <span class="nav-text">#520检测大写字母</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
