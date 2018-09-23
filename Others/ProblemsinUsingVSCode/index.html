@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="知识点：str.substr(pos,n) pos是开始位置。n是步长。">
-<meta name="keywords" content="C++,LeetCode">
+  <meta name="description" content="Sublime转战VS Code。因为Debug。">
+<meta name="keywords" content="tips">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode#14longestCommonPrefix">
-<meta property="og:url" content="https://ixsim.github.io/Algorithm/LeetCode-14longestCommonPrefix/index.html">
+<meta property="og:title" content="Problems in Using VSCode">
+<meta property="og:url" content="https://ixsim.github.io/Others/ProblemsinUsingVSCode/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="知识点：str.substr(pos,n) pos是开始位置。n是步长。">
+<meta property="og:description" content="Sublime转战VS Code。因为Debug。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-11T06:05:59.716Z">
+<meta property="og:updated_time" content="2018-09-12T00:34:29.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode#14longestCommonPrefix">
-<meta name="twitter:description" content="知识点：str.substr(pos,n) pos是开始位置。n是步长。">
+<meta name="twitter:title" content="Problems in Using VSCode">
+<meta name="twitter:description" content="Sublime转战VS Code。因为Debug。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/Algorithm/LeetCode-14longestCommonPrefix/"/>
+  <link rel="canonical" href="https://ixsim.github.io/Others/ProblemsinUsingVSCode/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>LeetCode#14longestCommonPrefix | 炫杉</title>
+  <title>Problems in Using VSCode | 炫杉</title>
   
 
 
@@ -344,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Algorithm/LeetCode-14longestCommonPrefix/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Others/ProblemsinUsingVSCode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -361,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode#14longestCommonPrefix
+          <h1 class="post-title" itemprop="name headline">Problems in Using VSCode
               
             
           </h1>
@@ -386,7 +386,7 @@
                 
               
 
-              <time title="创建时间：2018-09-05 15:54:07" itemprop="dateCreated datePublished" datetime="2018-09-05T15:54:07+08:00">2018-09-05</time>
+              <time title="创建时间：2018-09-07 09:14:07" itemprop="dateCreated datePublished" datetime="2018-09-07T09:14:07+08:00">2018-09-07</time>
             
 
             
@@ -404,7 +404,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a></span>
 
                 
                 
@@ -418,7 +418,7 @@
 
           
           
-             <span id="/Algorithm/LeetCode-14longestCommonPrefix/" class="leancloud_visitors" data-flag-title="LeetCode#14longestCommonPrefix">
+             <span id="/Others/ProblemsinUsingVSCode/" class="leancloud_visitors" data-flag-title="Problems in Using VSCode">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,42 +449,50 @@
       
 
       
-        <p>知识点：<code>str.substr(pos,n)</code> pos是开始位置。n是<strong>步长</strong>。</p>
+        <p>Sublime转战VS Code。因为Debug。</p>
 <a id="more"></a>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
-<p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">输出: &quot;fl&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</span><br><span class="line">输出: &quot;&quot;</span><br><span class="line">解释: 输入不存在公共前缀。</span><br></pre></td></tr></table></figure>
-<p><strong>说明:</strong></p>
-<p>所有输入只包含小写字母 <code>a-z</code> 。</p>
-<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">Prefix2</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span></span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(p &lt;= (a.size()<span class="number">-1</span>) &amp;&amp; p &lt;= (b.size()<span class="number">-1</span>) )&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[p] == b [p])&#123;</span><br><span class="line">                        ans += a[p];</span><br><span class="line">                        p++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">auto</span> iter1 = strs.begin();</span><br><span class="line">    <span class="keyword">while</span>(iter1 != (strs.end()<span class="number">-1</span>))&#123;</span><br><span class="line">        <span class="keyword">auto</span> iter2 = iter1 +<span class="number">1</span>;</span><br><span class="line">        ans = Prefix2(*iter1,*iter2);</span><br><span class="line">        <span class="keyword">if</span>(ans == <span class="string">""</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        iter1++;</span><br><span class="line">        *iter1 = ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>我的解真是弱爆了。</p>
-<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><ul>
-<li><p>第一次报错</p>
-<blockquote>
-<p>“Runtime Error Message:reference binding to null pointer of type ‘struct value_type’</p>
-<p> Last executed input: []</p>
-</blockquote>
-<p>百度了一下。<a href="https://blog.csdn.net/zy2317878/article/details/78820900" target="_blank" rel="noopener">https://blog.csdn.net/zy2317878/article/details/78820900</a></p>
-<p>我强行加了一句，如果size()是0则返回””</p>
-</li>
-<li><p>第二次是输入只有1个单词的时候。因为我是自己写了个比较两个单词最长前缀的函数。所以输入只有一个的时候，直接返回了””。正确答案应该是返回这个单词。我又强行加了这么一种情况。</p>
-</li>
-<li><p>我的解法效率极低。下面去看看大神们怎么解吧。</p>
-</li>
+<h1 id="先加入环境变量"><a href="#先加入环境变量" class="headerlink" title="先加入环境变量"></a>先加入环境变量</h1><p>从终端调起VS Code还是很常用的。</p>
+<p>先打开环境变量配置文件。目录是<code>~/.bash_profile</code>。我用Sublime打开（玩不了vim）命令就是</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subl ~/.bash_profile //哈哈过河拆桥系列</span><br></pre></td></tr></table></figure>
+<p>然后加入这么一行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>这样就能用 <code>code</code>这个命令了。 比如 <code>code .</code>就是打开当前文件夹。</p>
+<p>再补充一个知识点。</p>
+<p>就是可以给命令加别名。在<code>.bash_profile</code>文件添加这样的语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias  web=&quot;code ~/work/web&quot;</span><br></pre></td></tr></table></figure>
+<p>最后运行<code>source ~/.bash_profile</code>让配置文件生效。</p>
+<p>就是说<code>web</code>已经成了一个命令。 alias就是别名嘛~</p>
+<h1 id="配置C-C-环境"><a href="#配置C-C-环境" class="headerlink" title="配置C/C++环境"></a>配置C/C++环境</h1><ul>
+<li>如果只是编译。一个Code Runner的插件就够了。但是想Debug。还是要动动手啊！</li>
 </ul>
-<h1 id="优化解"><a href="#优化解" class="headerlink" title="优化解"></a>优化解</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> vec_len=strs.size();</span><br><span class="line">        <span class="keyword">if</span>(vec_len==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> str_len=strs[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str_len;i++)</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;vec_len;j++)</span><br><span class="line">            <span class="keyword">if</span>(strs[j][i]!=strs[<span class="number">0</span>][i])</span><br><span class="line">                <span class="keyword">return</span> strs[<span class="number">0</span>].substr(<span class="number">0</span>,i);</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>知识点：</p>
+<p>然后我主要参考了这篇博客。还是很清楚的。</p>
+<p><a href="https://blog.csdn.net/qq547276542/article/details/73823570?locationNum=5&amp;fps=1" target="_blank" rel="noopener">https://blog.csdn.net/qq547276542/article/details/73823570?locationNum=5&amp;fps=1</a></p>
 <ul>
-<li><code>str.substr(x,y)</code>就是取子串。</li>
-<li><code>str.substr(0,0)</code>应该就是<code>&quot;&quot;</code></li>
+<li>现在遗留了一个问题就是。Debug的过程必须在系统的终端进行。怎么在VSCode里内置的终端呢。那样看起来就方便很多了。</li>
 </ul>
-<p>这个解的逻辑确实很清晰！</p>
+<h1 id="快捷键积累"><a href="#快捷键积累" class="headerlink" title="快捷键积累"></a>快捷键积累</h1><p>用到啥记点啥挺不错 ⌘⇧⌃⌥</p>
 <ul>
-<li><p>相同的逻辑，解答里还有一个0ms的写法就是</p>
-<p><code>while((strs[0])[i])</code></p>
+<li><p>后退： <strong>⌃ -</strong>  </p>
+<p>前进：<strong>⌃⇧ -</strong> </p>
+</li>
+<li><p>扩选：<strong>⌘⇧⌃→</strong></p>
+<p>缩选：<strong>⌘⇧⌃←</strong></p>
+</li>
+<li><p>选择下一个匹配项：<strong>⌘D</strong></p>
+<p>选择所有匹配项：<strong>⌘⇧L</strong></p>
+</li>
+<li><p>向上移动一行：<strong>⌥↑</strong></p>
+<p>向下移动一行：<strong>⌥↓</strong></p>
+</li>
+<li><p>向上复制一行：<strong>⇧⌥↑</strong></p>
+<p>向下复制一行：<strong>⇧⌥↓</strong></p>
+</li>
+<li><p>在上面添加光标：<strong>⌘⌥↑</strong></p>
+<p>在下面添加光标：<strong>⌘⌥↓</strong></p>
+</li>
+<li><p>到行首：<strong>ctrl + a</strong></p>
+<p>到行尾：<strong>ctrl + e</strong></p>
+<p>前进后退：<strong>ctrl + f/b</strong> (相当于左右方向键)</p>
 </li>
 </ul>
 
@@ -507,9 +515,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C++</a>
-          
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+            <a href="/tags/tips/" rel="tag"># tips</a>
           
         </div>
       
@@ -522,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Algorithm/LeetCode-13RomanToInteger/" rel="next" title="LeetCode#13RomanToInteger">
-                <i class="fa fa-chevron-left"></i> LeetCode#13RomanToInteger
+              <a href="/Algorithm/ListNode_easy/" rel="next" title="LeetCode 链表Esay题">
+                <i class="fa fa-chevron-left"></i> LeetCode 链表Esay题
               </a>
             
           </div>
@@ -532,8 +538,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Algorithm/LeetCode-20ValidParentheses/" rel="prev" title="LeetCode#20ValidParentheses">
-                LeetCode#20ValidParentheses <i class="fa fa-chevron-right"></i>
+              <a href="/Algorithm/String-easy/" rel="prev" title="LeetCode 字符串+简单">
+                LeetCode 字符串+简单 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -611,7 +617,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -776,7 +782,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解"><span class="nav-number">2.</span> <span class="nav-text">解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problems"><span class="nav-number">3.</span> <span class="nav-text">Problems</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优化解"><span class="nav-number">4.</span> <span class="nav-text">优化解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先加入环境变量"><span class="nav-number">1.</span> <span class="nav-text">先加入环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置C-C-环境"><span class="nav-number">2.</span> <span class="nav-text">配置C/C++环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快捷键积累"><span class="nav-number">3.</span> <span class="nav-text">快捷键积累</span></a></li></ol></div>
             
 
           </div>

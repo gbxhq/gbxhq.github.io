@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="知识点：int的范围">
+  <meta name="description" content="知识点：String、  reverse()[557]、   istringstream[557] 、memset[387] 、树[606]、to_string()[788]、npos[345] 、transform()[819]、strA.find(strB) != string:npos[#686]">
 <meta name="keywords" content="C++,LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode#7ReverseInteger">
-<meta property="og:url" content="https://ixsim.github.io/Algorithm/LeetCode-7ReverseInteger/index.html">
+<meta property="og:title" content="LeetCode 字符串+简单">
+<meta property="og:url" content="https://ixsim.github.io/Algorithm/String-easy/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="知识点：int的范围">
+<meta property="og:description" content="知识点：String、  reverse()[557]、   istringstream[557] 、memset[387] 、树[606]、to_string()[788]、npos[345] 、transform()[819]、strA.find(strB) != string:npos[#686]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-04T11:29:56.012Z">
+<meta property="og:updated_time" content="2018-09-23T06:19:40.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode#7ReverseInteger">
-<meta name="twitter:description" content="知识点：int的范围">
+<meta name="twitter:title" content="LeetCode 字符串+简单">
+<meta name="twitter:description" content="知识点：String、  reverse()[557]、   istringstream[557] 、memset[387] 、树[606]、to_string()[788]、npos[345] 、transform()[819]、strA.find(strB) != string:npos[#686]">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/Algorithm/LeetCode-7ReverseInteger/"/>
+  <link rel="canonical" href="https://ixsim.github.io/Algorithm/String-easy/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>LeetCode#7ReverseInteger | 炫杉</title>
+  <title>LeetCode 字符串+简单 | 炫杉</title>
   
 
 
@@ -344,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Algorithm/LeetCode-7ReverseInteger/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Algorithm/String-easy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -361,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode#7ReverseInteger
+          <h1 class="post-title" itemprop="name headline">LeetCode 字符串+简单
               
             
           </h1>
@@ -386,7 +386,7 @@
                 
               
 
-              <time title="创建时间：2018-09-04 19:04:44" itemprop="dateCreated datePublished" datetime="2018-09-04T19:04:44+08:00">2018-09-04</time>
+              <time title="创建时间：2018-09-10 19:07:02" itemprop="dateCreated datePublished" datetime="2018-09-10T19:07:02+08:00">2018-09-10</time>
             
 
             
@@ -418,7 +418,7 @@
 
           
           
-             <span id="/Algorithm/LeetCode-7ReverseInteger/" class="leancloud_visitors" data-flag-title="LeetCode#7ReverseInteger">
+             <span id="/Algorithm/String-easy/" class="leancloud_visitors" data-flag-title="LeetCode 字符串+简单">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,29 +449,96 @@
       
 
       
-        <p>知识点：int的范围</p>
+        <p>知识点：<code>String</code>、  <code>reverse()</code>[557]、   <code>istringstream</code>[557] 、<code>memset</code>[387] 、<code>树</code>[606]、<code>to_string()</code>[788]、<code>npos</code>[345] 、<code>transform()</code>[819]、<code>strA.find(strB) != string:npos</code>[#686]</p>
 <a id="more"></a>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个 32 位有符号整数，将整数中的数字进行反转。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 123</span><br><span class="line">输出: 321</span><br></pre></td></tr></table></figure>
-<p> <strong>示例 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: -123</span><br><span class="line">输出: -321</span><br></pre></td></tr></table></figure>
-<p><strong>示例 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 120</span><br><span class="line">输出: 21</span><br></pre></td></tr></table></figure>
-<p><strong>注意:</strong></p>
-<p>假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−231,  231 − 1]。根据这个假设，如果反转后的整数溢出，则返回 0。</p>
-<h1 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x==<span class="number">-2147483648</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        	<span class="keyword">int</span> sign ;</span><br><span class="line">	x&gt;<span class="number">0</span>? sign=<span class="number">1</span>: (sign=<span class="number">-1</span>,x=-x);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		<span class="keyword">int</span> tmp = x;</span><br><span class="line">		x = x/<span class="number">10</span>;</span><br><span class="line">		ans = ans*<span class="number">10</span> + (tmp-x*<span class="number">10</span>);	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (ans &gt; INT_MAX)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ans*sign;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><ol>
-<li><p>第一次问题出在ans的类型上。没有存成<code>long</code>。</p>
-<p>输入是1534236469时，输出错误。</p>
-<p>Int 的范围是 -2^31 ~ 2^31-1，即-2147483648~2147483647</p>
-<p>输入1534236469输出应该是9646435461都就90多万了。int最大存21万。</p>
-<p>所以应该输出零。而且这个数在ans存的时候要用<code>long</code>型，再和<code>INT_MAX</code>判断一次再return。</p>
+<h1 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h1><ul>
+<li><p>string对象的操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">istringstram os</span><br><span class="line">os&lt;&lt;s   <span class="comment">//s写入到输出流os中。返回os</span></span><br><span class="line">is&gt;&gt;s	<span class="comment">//从输入流is读取字符串赋给s，返回is。</span></span><br><span class="line">s.empty()</span><br><span class="line">s.size()</span><br><span class="line">s[n] <span class="comment">//n从0计</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>改了long之后。1032个用例就差一个过不了了。就是-2147483648。</p>
-<p>这个数在我的第一步会被转成正的。而正int里最大是2147483647。存不下2147483648 。所以我直接在第一步判断 return 0了。并不是什么好方法。</p>
+</ul>
+<h1 id="709-转换成小写字母"><a href="#709-转换成小写字母" class="headerlink" title="#709. 转换成小写字母"></a>#709. 转换成小写字母</h1><p><code>A~Z</code>的ascii码为<code>65~90</code>   小写字母对应+32</p>
+<h1 id="657-机器人能否返回原点"><a href="#657-机器人能否返回原点" class="headerlink" title="#657. 机器人能否返回原点"></a>#657. 机器人能否返回原点</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judgeCircle</span><span class="params">(<span class="built_in">string</span> moves)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> tb[<span class="number">256</span>]&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> ch : moves)</span><br><span class="line">        ++tb[ch];</span><br><span class="line">    <span class="keyword">return</span> tb[<span class="string">'R'</span>] == tb[<span class="string">'L'</span>] &amp;&amp; tb[<span class="string">'U'</span>] == tb[<span class="string">'D'</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="344-反转字符串"><a href="#344-反转字符串" class="headerlink" title="#344. 反转字符串"></a>#344. 反转字符串</h1><p>EASY</p>
+<h1 id="557-反转字符串中的单词III"><a href="#557-反转字符串中的单词III" class="headerlink" title="#557. 反转字符串中的单词III"></a>#557. 反转字符串中的单词III</h1><p>从句子里取单词的方法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseWords</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="built_in">istringstream</span> <span class="title">is</span><span class="params">(s)</span></span>;</span><br><span class="line">    <span class="built_in">string</span> t = <span class="string">""</span>;</span><br><span class="line">    <span class="built_in">string</span> res = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">while</span> (is &gt;&gt; t)</span><br><span class="line">    &#123;</span><br><span class="line">        reverse(t.begin(), t.end());</span><br><span class="line">        res += t + <span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    res.pop_back();</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="521-最长特殊序列I"><a href="#521-最长特殊序列I" class="headerlink" title="#521. 最长特殊序列I"></a>#521. 最长特殊序列I</h1><p>抠定义的题。直接返回最长的子串长度即可。</p>
+<h1 id="520-检测大写字母"><a href="#520-检测大写字母" class="headerlink" title="#520. 检测大写字母"></a>#520. 检测大写字母</h1><p>各种if分情况🙂</p>
+<h1 id="788-旋转数字"><a href="#788-旋转数字" class="headerlink" title="#788. 旋转数字"></a>#788. 旋转数字</h1><ul>
+<li><p>int转string： <code>str = tostring(i);</code></p>
 </li>
-</ol>
+<li><p>最好不要一次写两次循环。能拆出函数来就写一个函数。</p>
+</li>
+</ul>
+<h1 id="824-山羊拉丁文"><a href="#824-山羊拉丁文" class="headerlink" title="#824. 山羊拉丁文"></a>#824. 山羊拉丁文</h1><ul>
+<li><p>用istringsteam挨个读单词并处理。处理后加一个空格。</p>
+<p>注意，这样句子最后就会多一个空格。需要输出<code>ans.substr(0,ans.size()-1)</code></p>
+</li>
+<li><p>把单词的第一个字母放到最后的方法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stringsteam oss;</span><br><span class="line">oss&lt;&lt;word.substr(<span class="number">1</span>)&lt;&lt;word[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="606-根据二叉树创建字符串"><a href="#606-根据二叉树创建字符串" class="headerlink" title="#606. 根据二叉树创建字符串"></a>#606. 根据二叉树创建字符串</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//唯一要注意的地方就是函数定义参数时ans前面加引用&amp;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(TreeNode* t,<span class="built_in">string</span> &amp;ans)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (t == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    ans += to_string(t-&gt;val);</span><br><span class="line">    <span class="keyword">if</span>(t-&gt;left)</span><br><span class="line">        ans += <span class="string">"("</span>;</span><br><span class="line">    <span class="keyword">if</span>(!t-&gt;left&amp;&amp;t-&gt;right)<span class="comment">//如果没有←但是有→儿子</span></span><br><span class="line">        ans += <span class="string">"()"</span>;</span><br><span class="line">    visit(t-&gt;left,ans);</span><br><span class="line">    <span class="keyword">if</span>(t-&gt;left)</span><br><span class="line">        ans += <span class="string">")"</span>;</span><br><span class="line">    <span class="keyword">if</span>(t-&gt;right)</span><br><span class="line">        ans += <span class="string">"("</span>;</span><br><span class="line">    visit(t-&gt;right,ans);</span><br><span class="line">    <span class="keyword">if</span>(t-&gt;right)</span><br><span class="line">        ans += <span class="string">")"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">tree2str</span><span class="params">(TreeNode* t)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">    visit(t,ans);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="38-报数"><a href="#38-报数" class="headerlink" title="#38. 报数"></a>#38. 报数</h1><p>水题不解释</p>
+<h1 id="696-计数二进制子串"><a href="#696-计数二进制子串" class="headerlink" title="#696. 计数二进制子串"></a>#696. 计数二进制子串</h1><ul>
+<li><p>挨个取子串的解法过了85/90用例。败在一个超级长的的字符串上。也是，人家长度范围就是50000呢。咋整捏。</p>
+</li>
+<li><p>找到了规律。奇低的效率过了。</p>
+</li>
+<li><p>看个好答案吧：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">countBinarySubstrings</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=s.size(),pre=<span class="number">0</span>,cur=<span class="number">1</span>,res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==s[i<span class="number">-1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            ++cur;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            pre=cur;</span><br><span class="line">            cur=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(pre&gt;=cur)</span><br><span class="line">            ++res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="893-特殊等价字符串组"><a href="#893-特殊等价字符串组" class="headerlink" title="#893. 特殊等价字符串组"></a>#893. 特殊等价字符串组</h1><p>不会🙂</p>
+<h1 id="551-学生出勤记录"><a href="#551-学生出勤记录" class="headerlink" title="#551. 学生出勤记录"></a>#551. 学生出勤记录</h1><p>水题</p>
+<h1 id="67-二进制求和"><a href="#67-二进制求和" class="headerlink" title="#67. 二进制求和"></a>#67. 二进制求和</h1><ul>
+<li>二进制转了int。发现人家给的二进制数太大了int存不下–》换long，存不下。–》long long，存不下—》unsigned long long，存下了，加和以后存不下。😂。—》此方法卒。</li>
+<li>纯字符判断的方法过了~没啥意思。</li>
+</ul>
+<h1 id="345-反转字符串中的元音字母"><a href="#345-反转字符串中的元音字母" class="headerlink" title="#345. 反转字符串中的元音字母"></a>#345. 反转字符串中的元音字母</h1><p>水题 </p>
+<ul>
+<li><p>学到知识点 : npos</p>
+<p>std::string::npos 常数值，等于size_t的最大值。通常用来做string<strong>不存在的位置</strong>的标记。</p>
+</li>
+</ul>
+<h1 id="541-反转字符串-II"><a href="#541-反转字符串-II" class="headerlink" title="#541. 反转字符串 II"></a>#541. 反转字符串 II</h1><p><code>#557</code>知道了有reverse()后。分分钟。</p>
+<ul>
+<li>进阶：<code>reverse(s.begin(),s.begin()+i)</code> 可以用<strong>s.begin()+i</strong>这种方式定位</li>
+</ul>
+<h1 id="383-赎金信"><a href="#383-赎金信" class="headerlink" title="#383.赎金信"></a>#383.赎金信</h1><p>水。存数组OK</p>
+<h1 id="819-最常见的单词"><a href="#819-最常见的单词" class="headerlink" title="#819. 最常见的单词"></a>#819. 最常见的单词</h1><ul>
+<li><p>vector中没有find方法。要利用algorithm这个头文件。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;::iterator it = find(vt.begin(),vt.end(),s);</span><br><span class="line"><span class="keyword">if</span>(it != vt.end())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串转小写：<code>transform(s.begin(),s.end(),s.begin(),::towlower);</code></p>
+</li>
+</ul>
+<h1 id="28-实现strStr"><a href="#28-实现strStr" class="headerlink" title="#28. 实现strStr()"></a>#28. 实现strStr()</h1><ul>
+<li>小写字母ascii码是大写的  <strong>+</strong>   32</li>
+</ul>
+<h1 id="125-验证回文串"><a href="#125-验证回文串" class="headerlink" title="#125. 验证回文串"></a>#125. 验证回文串</h1><p>水。</p>
+<h1 id="459-重复的子字符串"><a href="#459-重复的子字符串" class="headerlink" title="#459. 重复的子字符串"></a>#459. 重复的子字符串</h1><ul>
+<li>之前我取 tmp = s.substr(0,step) 取出来之后 每次让tmp加上自己来增加。没考虑到这样tmp这样是2的指数级增加。</li>
+<li>有continue的情况却忘了i— 进入了死循环</li>
+</ul>
+<h1 id="387-字符串中的第一个唯一字符"><a href="#387-字符串中的第一个唯一字符" class="headerlink" title="#387. 字符串中的第一个唯一字符"></a>#387. 字符串中的第一个唯一字符</h1><ul>
+<li><p>初始化数组全为0：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> nums[<span class="number">26</span>];</span><br><span class="line"><span class="built_in">memset</span>(nums,<span class="number">0</span>,len * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="443-压缩字符串"><a href="#443-压缩字符串" class="headerlink" title="#443. 压缩字符串"></a>#443. 压缩字符串</h1><p><strong>不会！</strong></p>
+<h1 id="58-最后一个单词的长度"><a href="#58-最后一个单词的长度" class="headerlink" title="#58.最后一个单词的长度"></a>#58.最后一个单词的长度</h1><p>4行就解决的问题不明白为啥通过这么低</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">istringstream</span> <span class="title">is</span><span class="params">(s)</span></span>;</span><br><span class="line"><span class="built_in">string</span> tmp;</span><br><span class="line"><span class="keyword">while</span>(is&gt;&gt;tmp)&#123;&#125;</span><br><span class="line"><span class="keyword">return</span> tmp.size();</span><br></pre></td></tr></table></figure>
+<h1 id="434-字符串中的单词数"><a href="#434-字符串中的单词数" class="headerlink" title="#434.字符串中的单词数"></a>#434.字符串中的单词数</h1><p>和上题一样水。</p>
+<h1 id="68-验证回文字符串-Ⅱ"><a href="#68-验证回文字符串-Ⅱ" class="headerlink" title="#68.验证回文字符串 Ⅱ"></a>#68.验证回文字符串 Ⅱ</h1><p>排除一个字符只让一个标记移动的时候。要判断清除。(不好形容)</p>
+<p>比如字符串cuucu。s[0]≠s[4]…</p>
+<p>但是s[1]=s[4]..这时候如果让第一个标记右移，新字符串是uucu就错了。</p>
+<p>因为其实s[0]=s[3]..应该让第二个标记左移。得到新串cuuc。</p>
+<h1 id="686-重复叠加字符串匹配"><a href="#686-重复叠加字符串匹配" class="headerlink" title="#686. 重复叠加字符串匹配"></a>#686. 重复叠加字符串匹配</h1><p>折腾半天。过了。这题要二刷。样例太狗了哈哈。</p>
+<h1 id="859-亲密字符串"><a href="#859-亲密字符串" class="headerlink" title="#859. 亲密字符串"></a>#859. 亲密字符串</h1><ul>
+<li>突然有个感悟就是。不要老是在判断过程中就 <code>return true ,false</code> 的。导致常常有的情况都没有return 的。最好是这样  <code>ans = 1; break;</code>、然后最后<code>return ans;</code>    稳</li>
+</ul>
+<hr>
+<p>字符串的Easy完结啦。下面按Easy题号刷满100再做计划！</p>
 
       
     </div>
@@ -507,8 +574,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Algorithm/Leetcode-1TwoSum/" rel="next" title="LeetCode#1TwoSum">
-                <i class="fa fa-chevron-left"></i> LeetCode#1TwoSum
+              <a href="/Others/ProblemsinUsingVSCode/" rel="next" title="Problems in Using VSCode">
+                <i class="fa fa-chevron-left"></i> Problems in Using VSCode
               </a>
             
           </div>
@@ -517,8 +584,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Algorithm/LeetCode-9PalinedromeNumber/" rel="prev" title="LeetCode#9PalinedromeNumber">
-                LeetCode#9PalinedromeNumber <i class="fa fa-chevron-right"></i>
+              <a href="/Others/Heroku_ssh/" rel="prev" title="Heroku搭建自己的ss服务器教程">
+                Heroku搭建自己的ss服务器教程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -596,7 +663,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -761,7 +828,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正解"><span class="nav-number">2.</span> <span class="nav-text">正解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Problems"><span class="nav-number">3.</span> <span class="nav-text">Problems</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础部分"><span class="nav-number">1.</span> <span class="nav-text">基础部分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#709-转换成小写字母"><span class="nav-number">2.</span> <span class="nav-text">#709. 转换成小写字母</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#657-机器人能否返回原点"><span class="nav-number">3.</span> <span class="nav-text">#657. 机器人能否返回原点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#344-反转字符串"><span class="nav-number">4.</span> <span class="nav-text">#344. 反转字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#557-反转字符串中的单词III"><span class="nav-number">5.</span> <span class="nav-text">#557. 反转字符串中的单词III</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#521-最长特殊序列I"><span class="nav-number">6.</span> <span class="nav-text">#521. 最长特殊序列I</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#520-检测大写字母"><span class="nav-number">7.</span> <span class="nav-text">#520. 检测大写字母</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#788-旋转数字"><span class="nav-number">8.</span> <span class="nav-text">#788. 旋转数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#824-山羊拉丁文"><span class="nav-number">9.</span> <span class="nav-text">#824. 山羊拉丁文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#606-根据二叉树创建字符串"><span class="nav-number">10.</span> <span class="nav-text">#606. 根据二叉树创建字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#38-报数"><span class="nav-number">11.</span> <span class="nav-text">#38. 报数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#696-计数二进制子串"><span class="nav-number">12.</span> <span class="nav-text">#696. 计数二进制子串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#893-特殊等价字符串组"><span class="nav-number">13.</span> <span class="nav-text">#893. 特殊等价字符串组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#551-学生出勤记录"><span class="nav-number">14.</span> <span class="nav-text">#551. 学生出勤记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#67-二进制求和"><span class="nav-number">15.</span> <span class="nav-text">#67. 二进制求和</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#345-反转字符串中的元音字母"><span class="nav-number">16.</span> <span class="nav-text">#345. 反转字符串中的元音字母</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#541-反转字符串-II"><span class="nav-number">17.</span> <span class="nav-text">#541. 反转字符串 II</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#383-赎金信"><span class="nav-number">18.</span> <span class="nav-text">#383.赎金信</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#819-最常见的单词"><span class="nav-number">19.</span> <span class="nav-text">#819. 最常见的单词</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#28-实现strStr"><span class="nav-number">20.</span> <span class="nav-text">#28. 实现strStr()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#125-验证回文串"><span class="nav-number">21.</span> <span class="nav-text">#125. 验证回文串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#459-重复的子字符串"><span class="nav-number">22.</span> <span class="nav-text">#459. 重复的子字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#387-字符串中的第一个唯一字符"><span class="nav-number">23.</span> <span class="nav-text">#387. 字符串中的第一个唯一字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#443-压缩字符串"><span class="nav-number">24.</span> <span class="nav-text">#443. 压缩字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#58-最后一个单词的长度"><span class="nav-number">25.</span> <span class="nav-text">#58.最后一个单词的长度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#434-字符串中的单词数"><span class="nav-number">26.</span> <span class="nav-text">#434.字符串中的单词数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#68-验证回文字符串-Ⅱ"><span class="nav-number">27.</span> <span class="nav-text">#68.验证回文字符串 Ⅱ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#686-重复叠加字符串匹配"><span class="nav-number">28.</span> <span class="nav-text">#686. 重复叠加字符串匹配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#859-亲密字符串"><span class="nav-number">29.</span> <span class="nav-text">#859. 亲密字符串</span></a></li></ol></div>
             
 
           </div>

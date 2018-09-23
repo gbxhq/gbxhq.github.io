@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="知识点：Hash 双指针">
+  <meta name="description" content="知识点：Hash、双指针[1]   int的范围[7]   stack、ascii[20] str.substr(pos,n) pos是开始位置。n是步长。[14]">
 <meta name="keywords" content="C++,Leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode#1TwoSum">
-<meta property="og:url" content="https://ixsim.github.io/Algorithm/Leetcode-1TwoSum/index.html">
+<meta property="og:title" content="LeetCode Easy前6道">
+<meta property="og:url" content="https://ixsim.github.io/Algorithm/LeetcodeFirstBlood/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="知识点：Hash 双指针">
+<meta property="og:description" content="知识点：Hash、双指针[1]   int的范围[7]   stack、ascii[20] str.substr(pos,n) pos是开始位置。n是步长。[14]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-04T07:02:34.839Z">
+<meta property="og:updated_time" content="2018-09-23T06:32:09.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode#1TwoSum">
-<meta name="twitter:description" content="知识点：Hash 双指针">
+<meta name="twitter:title" content="LeetCode Easy前6道">
+<meta name="twitter:description" content="知识点：Hash、双指针[1]   int的范围[7]   stack、ascii[20] str.substr(pos,n) pos是开始位置。n是步长。[14]">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ixsim.github.io/Algorithm/Leetcode-1TwoSum/"/>
+  <link rel="canonical" href="https://ixsim.github.io/Algorithm/LeetcodeFirstBlood/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>LeetCode#1TwoSum | 炫杉</title>
+  <title>LeetCode Easy前6道 | 炫杉</title>
   
 
 
@@ -344,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Algorithm/Leetcode-1TwoSum/">
+    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/Algorithm/LeetcodeFirstBlood/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ixsim">
@@ -361,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode#1TwoSum
+          <h1 class="post-title" itemprop="name headline">LeetCode Easy前6道
               
             
           </h1>
@@ -418,7 +418,7 @@
 
           
           
-             <span id="/Algorithm/Leetcode-1TwoSum/" class="leancloud_visitors" data-flag-title="LeetCode#1TwoSum">
+             <span id="/Algorithm/LeetcodeFirstBlood/" class="leancloud_visitors" data-flag-title="LeetCode Easy前6道">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,22 +449,19 @@
       
 
       
-        <p>知识点：Hash 双指针</p>
+        <p>知识点：<code>Hash、双指针</code>[1]   <code>int的范围</code>[7]   <code>stack、ascii</code>[20]</p>
+<p><code>str.substr(pos,n)</code> pos是开始位置。n是<strong>步长</strong>。[14]</p>
 <a id="more"></a>
-<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>Given an array of integers, find two numbers such that they add up to a specific target number.<br>The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.<br>You may assume that each input would have exactly one solution.</p>
-<blockquote>
-<p>Input: numbers={2, 7, 11, 15}, target=9<br>Output: index1=1, index2=2</p>
-</blockquote>
-<h1 id="朴素法"><a href="#朴素法" class="headerlink" title="朴素法"></a>朴素法</h1><p>我的第一道LeetCode。上来就暴力解。我还纳闷呢，怎么输出结果和答案都一样。就是过不了。</p>
+<h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="#1.两数之和"></a>#1.两数之和</h1><h2 id="朴素法"><a href="#朴素法" class="headerlink" title="朴素法"></a>朴素法</h2><p>我的第一道LeetCode。上来就暴力解。我还纳闷呢，怎么输出结果和答案都一样。就是过不了。</p>
 <p>原来是，时间复杂度为O(N)。过不了的。</p>
-<h1 id="Hash-O-nlogn"><a href="#Hash-O-nlogn" class="headerlink" title="Hash O(nlogn)"></a>Hash O(nlogn)</h1><p>哈希表Hash[x]  下标x表示x在nums中的下标。</p>
+<h2 id="Hash-O-nlogn"><a href="#Hash-O-nlogn" class="headerlink" title="Hash O(nlogn)"></a>Hash O(nlogn)</h2><p>哈希表Hash[x]  下标x表示x在nums中的下标。</p>
 <p><strong>注意“</strong> map底层使用平衡树一类的数据结构进行实现，插入和查询是O(logn)级别的。</p>
 <p>代码</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; Hash;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)<span class="comment">//建Hash</span></span><br><span class="line">        &#123;</span><br><span class="line">        	Hash[nums[i]]= i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans(<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">        	<span class="keyword">if</span> (Hash.find(target - nums[i])!=Hash.end()&amp;&amp;Hash[target-nums[i]]!=i)</span><br><span class="line">        	&#123;</span><br><span class="line">        		ans[<span class="number">0</span>] = i;</span><br><span class="line">        		ans[<span class="number">1</span>] = Hash[target-nums[i]];</span><br><span class="line">        		<span class="keyword">break</span>;</span><br><span class="line">        	&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>上面这个版本更好理解。</p>
 <p>然后看到这个版本更简洁。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> N = nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span> ,<span class="keyword">int</span>&gt; subMap;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">            <span class="keyword">auto</span> it = subMap.find(temp);</span><br><span class="line">            <span class="keyword">if</span>(it != subMap.end())</span><br><span class="line">            &#123;</span><br><span class="line">                res.push_back(it-&gt;second);</span><br><span class="line">                 res.push_back(i);</span><br><span class="line">            &#125;</span><br><span class="line">            subMap[nums[i]] = i;<span class="comment">//i=0时肯定不会输出结果，这样建Hash和判断合二为一。</span></span><br><span class="line">        &#125;        </span><br><span class="line">        <span class="keyword">return</span> res;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h1><p>为啥要和 <code>map.end()</code> 比较呢？</p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p>为啥要和 <code>map.end()</code> 比较呢？</p>
 <blockquote>
 <p> <strong>修改和查找数据</strong></p>
 <p>  （1）修改Map[“sunquan”]=11111;</p>
@@ -475,6 +472,447 @@
 </blockquote>
 <p>初学map哈哈。</p>
 <p><a href="https://www.cnblogs.com/panweiwei/p/6657583.html" target="_blank" rel="noopener">https://www.cnblogs.com/panweiwei/p/6657583.html</a></p>
+<h1 id="7-反转整数"><a href="#7-反转整数" class="headerlink" title="#7.反转整数"></a>#7.反转整数</h1><h2 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x==<span class="number">-2147483648</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        	<span class="keyword">int</span> sign ;</span><br><span class="line">	x&gt;<span class="number">0</span>? sign=<span class="number">1</span>: (sign=<span class="number">-1</span>,x=-x);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		<span class="keyword">int</span> tmp = x;</span><br><span class="line">		x = x/<span class="number">10</span>;</span><br><span class="line">		ans = ans*<span class="number">10</span> + (tmp-x*<span class="number">10</span>);	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (ans &gt; INT_MAX)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ans*sign;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2><ol>
+<li><p>第一次问题出在ans的类型上。没有存成<code>long</code>。</p>
+<p>输入是1534236469时，输出错误。</p>
+<p>Int 的范围是 -2^31 ~ 2^31-1，即-2147483648~2147483647</p>
+<p>输入1534236469输出应该是9646435461都就90多万了。int最大存21万。</p>
+<p>所以应该输出零。而且这个数在ans存的时候要用<code>long</code>型，再和<code>INT_MAX</code>判断一次再return。</p>
+</li>
+<li><p>改了long之后。1032个用例就差一个过不了了。就是-2147483648。</p>
+<p>这个数在我的第一步会被转成正的。而正int里最大是2147483647。存不下2147483648 。所以我直接在第一步判断 return 0了。并不是什么好方法。</p>
+</li>
+</ol>
+<h1 id="9-回文数"><a href="#9-回文数" class="headerlink" title="#9.回文数"></a>#9.回文数</h1><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> tmp = x;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">if</span> (x%<span class="number">10</span> == <span class="number">0</span>)</span><br><span class="line">	    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		y = y*<span class="number">10</span> + (x%<span class="number">10</span>);</span><br><span class="line">		x = x/<span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(y==tmp)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Problems-1"><a href="#Problems-1" class="headerlink" title="Problems"></a>Problems</h2><ol>
+<li><p>开始忘了把x先存到tmp中。最后就直接判断<code>y==x</code> 结果每次都是返回false。</p>
+<p>很尴尬。x在while中肯定会被改成0啊。</p>
+</li>
+<li><p>最后一个if只判断了true的情况，忘了写else😂😂😂</p>
+</li>
+</ol>
+<p>低级错误。见笑。</p>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ul>
+<li><p>取消cin同步。取消cin与cout绑定。</p>
+<p>在这题和翻转数字那题的优化解里都看到这么一断：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//lambda 表达式，可以立即执行，在main函数之前执行，取消输入输出同步，较快输入输出速度</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span> ban_io_sync = []()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="literal">nullptr</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;();</span><br><span class="line"><span class="comment">//以后直接当模板用</span></span><br></pre></td></tr></table></figure>
+<h3 id="std-ios-sync-with-stdio-false"><a href="#std-ios-sync-with-stdio-false" class="headerlink" title="std::ios::sync_with_stdio(false)"></a><code>std::ios::sync_with_stdio(false)</code></h3><p>这句语句是用来<strong>取消cin的同步</strong>，什么叫同步呢？就是iostream的缓冲跟stdio的同步。如果你已经在头文件上用了using namespace std;那么就可以去掉前面的std::了。</p>
+<p>取消后就cin就不能和scanf，sscanf, getchar, fgets之类同时用了，否则就可能会导致输出和预期的不一样。 </p>
+<p>取消同步的目的，是为了让cin不超时，另外<strong>cout的时候尽量少用endl，换用”\n”，也是防止超时的方法</strong>。<br>当然，<strong>尽量用scanf，printf就不用考虑这种因为缓冲的超时</strong>了。</p>
+<h3 id="cin-tie-NULL"><a href="#cin-tie-NULL" class="headerlink" title="cin.tie(NULL)"></a><code>cin.tie(NULL)</code></h3><p>取消cin与cout的绑定</p>
+</li>
+</ul>
+<hr>
+<pre><code>把上一段代码加到我的解法前面，运行时间直接从120ms到了64ms。
+</code></pre><hr>
+<ul>
+<li><p>再看这个解法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">auto</span> x = []() &#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stringstream</span> ss;</span><br><span class="line">		ss &lt;&lt; x;</span><br><span class="line">		<span class="built_in">string</span> str;</span><br><span class="line">		ss &gt;&gt; str;</span><br><span class="line">        <span class="built_in">string</span> strTmp = str;</span><br><span class="line">        reverse(str.begin(), str.end());</span><br><span class="line">		<span class="keyword">if</span> (strTmp == str)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>存成字符串。然后用了个reverse翻转。STL里面啥都有啊。</p>
+</li>
+</ul>
+<h1 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="#13.罗马数字转整数"></a>#13.罗马数字转整数</h1><ul>
+<li>无聊的一题</li>
+</ul>
+<h1 id="14-最长公共前缀"><a href="#14-最长公共前缀" class="headerlink" title="#14.最长公共前缀"></a>#14.最长公共前缀</h1><h2 id="解"><a href="#解" class="headerlink" title="解"></a>解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">Prefix2</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span></span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(p &lt;= (a.size()<span class="number">-1</span>) &amp;&amp; p &lt;= (b.size()<span class="number">-1</span>) )&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[p] == b [p])&#123;</span><br><span class="line">                        ans += a[p];</span><br><span class="line">                        p++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">auto</span> iter1 = strs.begin();</span><br><span class="line">    <span class="keyword">while</span>(iter1 != (strs.end()<span class="number">-1</span>))&#123;</span><br><span class="line">        <span class="keyword">auto</span> iter2 = iter1 +<span class="number">1</span>;</span><br><span class="line">        ans = Prefix2(*iter1,*iter2);</span><br><span class="line">        <span class="keyword">if</span>(ans == <span class="string">""</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        iter1++;</span><br><span class="line">        *iter1 = ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>我的解真是弱爆了。</p>
+<h2 id="Problems-2"><a href="#Problems-2" class="headerlink" title="Problems"></a>Problems</h2><ul>
+<li><p>第一次报错</p>
+<blockquote>
+<p>“Runtime Error Message:reference binding to null pointer of type ‘struct value_type’</p>
+<p> Last executed input: []</p>
+</blockquote>
+<p>百度了一下。<a href="https://blog.csdn.net/zy2317878/article/details/78820900" target="_blank" rel="noopener">https://blog.csdn.net/zy2317878/article/details/78820900</a></p>
+<p>我强行加了一句，如果size()是0则返回””</p>
+</li>
+<li><p>第二次是输入只有1个单词的时候。因为我是自己写了个比较两个单词最长前缀的函数。所以输入只有一个的时候，直接返回了””。正确答案应该是返回这个单词。我又强行加了这么一种情况。</p>
+</li>
+<li><p>我的解法效率极低。下面去看看大神们怎么解吧。</p>
+</li>
+</ul>
+<h2 id="优化解"><a href="#优化解" class="headerlink" title="优化解"></a>优化解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> vec_len=strs.size();</span><br><span class="line">        <span class="keyword">if</span>(vec_len==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> str_len=strs[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str_len;i++)</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;vec_len;j++)</span><br><span class="line">            <span class="keyword">if</span>(strs[j][i]!=strs[<span class="number">0</span>][i])</span><br><span class="line">                <span class="keyword">return</span> strs[<span class="number">0</span>].substr(<span class="number">0</span>,i);</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>知识点：</p>
+<ul>
+<li><code>str.substr(x,y)</code>就是取子串。</li>
+<li><code>str.substr(0,0)</code>应该就是<code>&quot;&quot;</code></li>
+</ul>
+<p>这个解的逻辑确实很清晰！</p>
+<ul>
+<li><p>相同的逻辑，解答里还有一个0ms的写法就是</p>
+<p><code>while((strs[0])[i])</code></p>
+</li>
+</ul>
+<h1 id="20-有效的括号"><a href="#20-有效的括号" class="headerlink" title="#20.有效的括号"></a>#20.有效的括号</h1><h2 id="Problems-3"><a href="#Problems-3" class="headerlink" title="Problems"></a>Problems</h2><ul>
+<li><p><code>char</code>类型就用<strong>单引号</strong>啊！！！</p>
+<p>之前写 <code>s[i] == &quot;(&quot;</code>一直报错。我就是整不明白为啥报错。</p>
+<p><strong>单引号啊！！！</strong></p>
+</li>
+<li><p><code>vector.end()</code>是地址，而且还是最后一个元素后面的地址。所以最后一个元素应该是</p>
+<p><code>*(vector.end()-1)</code> </p>
+<p>遍历的话可以用<code>for(auto s:vector)</code></p>
+</li>
+<li><p>拿过题就用vector声明了一个栈做。不知道有<code>stack</code>都。NAIVE~</p>
+</li>
+<li><p>判断”)}]”这三种情况的时候应该先看栈里是不是空。再看栈顶的元素。不然如果栈为空，取栈top()会跑不出来。</p>
+</li>
+<li><p>每次<code>return flase</code>之后都要记得<strong>break</strong>跳出循环啊</p>
+</li>
+<li><p><strong>vector中v[i]与v.at(i)的区别</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v[<span class="number">0</span>];    <span class="comment">// A</span></span><br><span class="line">v.at[<span class="number">0</span>];  <span class="comment">// B</span></span><br></pre></td></tr></table></figure>
+<p>如果v非空，A行和B行没有任何区别。</p>
+<p>如果<strong>v为空或者下标越界</strong>，B行会抛出std::out_of_range异常，A行的行为未定义。</p>
+<p>c++标准不要求vector::operator[]进行下标越界检查，原因是为了效率，总是强制下标越界检查会增加程序的性能开销。设计vector是用来代替内置数组的，所以效率问题也应该考虑。不过使用operator[]就要自己承担越界风险了。</p>
+<p>如果需要下标越界检查，请使用at。</p>
+</li>
+</ul>
+<p>我的解效率特别差。看一下人家的</p>
+<h2 id="优化解-1"><a href="#优化解-1" class="headerlink" title="优化解"></a>优化解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">       <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; sta;</span><br><span class="line">	<span class="keyword">int</span> length = s.length();</span><br><span class="line">	<span class="keyword">if</span> (length % <span class="number">2</span> == <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span> (s.empty()) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (sta.empty())</span><br><span class="line">		&#123;</span><br><span class="line">			sta.push(s.at(i)); </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(sta.top() == s.at(i) - <span class="number">2</span> || sta.top() == s.at(i) - <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			sta.pop();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			sta.push(s.at(i));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sta.empty() ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>哎！简洁又效率。</p>
+<ul>
+<li><p>先判断了长度是奇数返回false.为空返回false.</p>
+</li>
+<li><p>没有瞎判断字符是不是<code>&#39;{([])}&#39;</code></p>
+<p>而是利用了ascii码。那为啥有 -1 有 -2 呢？</p>
+<p>看了ascii码表你就知道了。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ASCII值</th>
+<th>控制字符</th>
+<th>ASCII值</th>
+<th>控制字符</th>
+<th>ASCII值</th>
+<th>控制字符</th>
+<th>ASCII值</th>
+<th>控制字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>NUT</td>
+<td>32</td>
+<td>(space)</td>
+<td>64</td>
+<td>@</td>
+<td>96</td>
+<td>、</td>
+</tr>
+<tr>
+<td>1</td>
+<td>SOH</td>
+<td>33</td>
+<td>!</td>
+<td>65</td>
+<td>A</td>
+<td>97</td>
+<td>a</td>
+</tr>
+<tr>
+<td>2</td>
+<td>STX</td>
+<td>34</td>
+<td>“</td>
+<td>66</td>
+<td>B</td>
+<td>98</td>
+<td>b</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ETX</td>
+<td>35</td>
+<td>#</td>
+<td>67</td>
+<td>C</td>
+<td>99</td>
+<td>c</td>
+</tr>
+<tr>
+<td>4</td>
+<td>EOT</td>
+<td>36</td>
+<td>$</td>
+<td>68</td>
+<td>D</td>
+<td>100</td>
+<td>d</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ENQ</td>
+<td>37</td>
+<td>%</td>
+<td>69</td>
+<td>E</td>
+<td>101</td>
+<td>e</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ACK</td>
+<td>38</td>
+<td>&amp;</td>
+<td>70</td>
+<td>F</td>
+<td>102</td>
+<td>f</td>
+</tr>
+<tr>
+<td>7</td>
+<td>BEL</td>
+<td>39</td>
+<td>,</td>
+<td>71</td>
+<td>G</td>
+<td>103</td>
+<td>g</td>
+</tr>
+<tr>
+<td>8</td>
+<td>BS</td>
+<td><strong>40</strong></td>
+<td><strong>(</strong></td>
+<td>72</td>
+<td>H</td>
+<td>104</td>
+<td>h</td>
+</tr>
+<tr>
+<td>9</td>
+<td>HT</td>
+<td><strong>41</strong></td>
+<td><strong>)</strong></td>
+<td>73</td>
+<td>I</td>
+<td>105</td>
+<td>i</td>
+</tr>
+<tr>
+<td>10</td>
+<td>LF</td>
+<td>42</td>
+<td>*</td>
+<td>74</td>
+<td>J</td>
+<td>106</td>
+<td>j</td>
+</tr>
+<tr>
+<td>11</td>
+<td>VT</td>
+<td>43</td>
+<td>+</td>
+<td>75</td>
+<td>K</td>
+<td>107</td>
+<td>k</td>
+</tr>
+<tr>
+<td>12</td>
+<td>FF</td>
+<td>44</td>
+<td>,</td>
+<td>76</td>
+<td>L</td>
+<td>108</td>
+<td>l</td>
+</tr>
+<tr>
+<td>13</td>
+<td>CR</td>
+<td>45</td>
+<td>-</td>
+<td>77</td>
+<td>M</td>
+<td>109</td>
+<td>m</td>
+</tr>
+<tr>
+<td>14</td>
+<td>SO</td>
+<td>46</td>
+<td>.</td>
+<td>78</td>
+<td>N</td>
+<td>110</td>
+<td>n</td>
+</tr>
+<tr>
+<td>15</td>
+<td>SI</td>
+<td>47</td>
+<td>/</td>
+<td>79</td>
+<td>O</td>
+<td>111</td>
+<td>o</td>
+</tr>
+<tr>
+<td>16</td>
+<td>DLE</td>
+<td>48</td>
+<td>0</td>
+<td>80</td>
+<td>P</td>
+<td>112</td>
+<td>p</td>
+</tr>
+<tr>
+<td>17</td>
+<td>DCI</td>
+<td>49</td>
+<td>1</td>
+<td>81</td>
+<td>Q</td>
+<td>113</td>
+<td>q</td>
+</tr>
+<tr>
+<td>18</td>
+<td>DC2</td>
+<td>50</td>
+<td>2</td>
+<td>82</td>
+<td>R</td>
+<td>114</td>
+<td>r</td>
+</tr>
+<tr>
+<td>19</td>
+<td>DC3</td>
+<td>51</td>
+<td>3</td>
+<td>83</td>
+<td>S</td>
+<td>115</td>
+<td>s</td>
+</tr>
+<tr>
+<td>20</td>
+<td>DC4</td>
+<td>52</td>
+<td>4</td>
+<td>84</td>
+<td>T</td>
+<td>116</td>
+<td>t</td>
+</tr>
+<tr>
+<td>21</td>
+<td>NAK</td>
+<td>53</td>
+<td>5</td>
+<td>85</td>
+<td>U</td>
+<td>117</td>
+<td>u</td>
+</tr>
+<tr>
+<td>22</td>
+<td>SYN</td>
+<td>54</td>
+<td>6</td>
+<td>86</td>
+<td>V</td>
+<td>118</td>
+<td>v</td>
+</tr>
+<tr>
+<td>23</td>
+<td>TB</td>
+<td>55</td>
+<td>7</td>
+<td>87</td>
+<td>W</td>
+<td>119</td>
+<td>w</td>
+</tr>
+<tr>
+<td>24</td>
+<td>CAN</td>
+<td>56</td>
+<td>8</td>
+<td>88</td>
+<td>X</td>
+<td>120</td>
+<td>x</td>
+</tr>
+<tr>
+<td>25</td>
+<td>EM</td>
+<td>57</td>
+<td>9</td>
+<td>89</td>
+<td>Y</td>
+<td>121</td>
+<td>y</td>
+</tr>
+<tr>
+<td>26</td>
+<td>SUB</td>
+<td>58</td>
+<td>:</td>
+<td>90</td>
+<td>Z</td>
+<td>122</td>
+<td>z</td>
+</tr>
+<tr>
+<td>27</td>
+<td>ESC</td>
+<td>59</td>
+<td>;</td>
+<td><strong>91</strong></td>
+<td><strong>[</strong></td>
+<td><strong>123</strong></td>
+<td><strong>{</strong></td>
+</tr>
+<tr>
+<td>28</td>
+<td>FS</td>
+<td>60</td>
+<td>&lt;</td>
+<td>92</td>
+<td>/</td>
+<td>124</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>GS</td>
+<td>61</td>
+<td>=</td>
+<td><strong>93</strong></td>
+<td><strong>]</strong></td>
+<td><strong>125</strong></td>
+<td><strong>}</strong></td>
+</tr>
+<tr>
+<td>30</td>
+<td>RS</td>
+<td>62</td>
+<td>&gt;</td>
+<td>94</td>
+<td>^</td>
+<td>126</td>
+<td>`</td>
+</tr>
+<tr>
+<td>31</td>
+<td>US</td>
+<td>63</td>
+<td>?</td>
+<td>95</td>
+<td>_</td>
+<td>127</td>
+<td>DEL</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -520,8 +958,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Algorithm/LeetCode-7ReverseInteger/" rel="prev" title="LeetCode#7ReverseInteger">
-                LeetCode#7ReverseInteger <i class="fa fa-chevron-right"></i>
+              <a href="/Algorithm/ListNode_easy/" rel="prev" title="LeetCode 链表Esay题">
+                LeetCode 链表Esay题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -599,7 +1037,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -764,7 +1202,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#描述"><span class="nav-number">1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素法"><span class="nav-number">2.</span> <span class="nav-text">朴素法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hash-O-nlogn"><span class="nav-number">3.</span> <span class="nav-text">Hash O(nlogn)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识点："><span class="nav-number">4.</span> <span class="nav-text">知识点：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-两数之和"><span class="nav-number">1.</span> <span class="nav-text">#1.两数之和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素法"><span class="nav-number">1.1.</span> <span class="nav-text">朴素法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hash-O-nlogn"><span class="nav-number">1.2.</span> <span class="nav-text">Hash O(nlogn)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点："><span class="nav-number">1.3.</span> <span class="nav-text">知识点：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-反转整数"><span class="nav-number">2.</span> <span class="nav-text">#7.反转整数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#正解"><span class="nav-number">2.1.</span> <span class="nav-text">正解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems"><span class="nav-number">2.2.</span> <span class="nav-text">Problems</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-回文数"><span class="nav-number">3.</span> <span class="nav-text">#9.回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解法"><span class="nav-number">3.1.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems-1"><span class="nav-number">3.2.</span> <span class="nav-text">Problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点"><span class="nav-number">3.3.</span> <span class="nav-text">知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#std-ios-sync-with-stdio-false"><span class="nav-number">3.3.1.</span> <span class="nav-text">std::ios::sync_with_stdio(false)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cin-tie-NULL"><span class="nav-number">3.3.2.</span> <span class="nav-text">cin.tie(NULL)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-罗马数字转整数"><span class="nav-number">4.</span> <span class="nav-text">#13.罗马数字转整数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-最长公共前缀"><span class="nav-number">5.</span> <span class="nav-text">#14.最长公共前缀</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解"><span class="nav-number">5.1.</span> <span class="nav-text">解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems-2"><span class="nav-number">5.2.</span> <span class="nav-text">Problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化解"><span class="nav-number">5.3.</span> <span class="nav-text">优化解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-有效的括号"><span class="nav-number">6.</span> <span class="nav-text">#20.有效的括号</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems-3"><span class="nav-number">6.1.</span> <span class="nav-text">Problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化解-1"><span class="nav-number">6.2.</span> <span class="nav-text">优化解</span></a></li></ol></li></ol></div>
             
 
           </div>
