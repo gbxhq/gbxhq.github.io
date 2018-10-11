@@ -1,456 +1,569 @@
-<!DOCTYPE html>
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '6.4.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
+  <meta charset="UTF-8">
   
+    <title>LeetCodeEasy50 | 炫杉</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="ixsim">
+    
 
-
-
-
-  <meta name="description" content="知识点：int的范围、牛顿迭代法[69] copy(1.begin,1.end,2.begin)、rbegin\rend[88]">
+    
+    <meta name="description" content="知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]   str.substr(pos,n)注意n是步长 [14]  int的范围、牛顿迭代法[69]   copy(1.begin,1.end,2.begin)、rbegin\rend[88]">
 <meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCodeEasy50">
 <meta property="og:url" content="https://ixsim.github.io/LeetCodeEasy50/index.html">
 <meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="知识点：int的范围、牛顿迭代法[69] copy(1.begin,1.end,2.begin)、rbegin\rend[88]">
+<meta property="og:description" content="知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]   str.substr(pos,n)注意n是步长 [14]  int的范围、牛顿迭代法[69]   copy(1.begin,1.end,2.begin)、rbegin\rend[88]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-29T05:17:27.881Z">
+<meta property="og:updated_time" content="2018-10-10T07:54:00.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCodeEasy50">
-<meta name="twitter:description" content="知识点：int的范围、牛顿迭代法[69] copy(1.begin,1.end,2.begin)、rbegin\rend[88]">
+<meta name="twitter:description" content="知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]   str.substr(pos,n)注意n是步长 [14]  int的范围、牛顿迭代法[69]   copy(1.begin,1.end,2.begin)、rbegin\rend[88]">
 
-
-
-
-
-
-  <link rel="canonical" href="https://ixsim.github.io/LeetCodeEasy50/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>LeetCodeEasy50 | 炫杉</title>
-  
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">炫杉</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
+  <body>
+    <header>
       
-        <p class="site-subtitle">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</p>
-      
-    
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-我的书签">
-    <a href="/oo1" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br />我的书签</a>
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
-  
-</nav>
-
-
-
-  
-
-
-
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="炫杉" title="炫杉"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="炫杉">炫杉</a></h1>
+				<h2 class="blog-motto">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:ixsim.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
 </div>
     </header>
-
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
     
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+      <a href="/LeetCodeEasy50/" title="LeetCodeEasy50" itemprop="url">LeetCodeEasy50</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="ixsim" target="_blank" itemprop="author">ixsim</a>
+		
+  <p class="article-time">
+    <time datetime="2018-09-23T06:33:54.000Z" itemprop="datePublished"> 发表于 2018-09-23</time>
     
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ixsim.github.io/LeetCodeEasy50/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ixsim">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="炫杉">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">LeetCodeEasy50
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-23 14:33:54" itemprop="dateCreated datePublished" datetime="2018-09-23T14:33:54+08:00">2018-09-23</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/LeetCodeEasy50/" class="leancloud_visitors" data-flag-title="LeetCodeEasy50">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>知识点：<code>int的范围、牛顿迭代法</code>[69] <code>copy(1.begin,1.end,2.begin)、rbegin\rend</code>[88]</p>
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-两数之和"><span class="toc-number">1.</span> <span class="toc-text">#1.两数之和</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#朴素法"><span class="toc-number">1.1.</span> <span class="toc-text">朴素法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hash-O-nlogn"><span class="toc-number">1.2.</span> <span class="toc-text">Hash O(nlogn)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点："><span class="toc-number">1.3.</span> <span class="toc-text">知识点：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-反转整数"><span class="toc-number">2.</span> <span class="toc-text">#7.反转整数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正解"><span class="toc-number">2.1.</span> <span class="toc-text">正解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems"><span class="toc-number">2.2.</span> <span class="toc-text">Problems</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-回文数"><span class="toc-number">3.</span> <span class="toc-text">#9.回文数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解法"><span class="toc-number">3.1.</span> <span class="toc-text">解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-1"><span class="toc-number">3.2.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点"><span class="toc-number">3.3.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#std-ios-sync-with-stdio-false"><span class="toc-number">3.3.1.</span> <span class="toc-text">std::ios::sync_with_stdio(false)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cin-tie-NULL"><span class="toc-number">3.3.2.</span> <span class="toc-text">cin.tie(NULL)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-罗马数字转整数"><span class="toc-number">4.</span> <span class="toc-text">#13.罗马数字转整数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-最长公共前缀"><span class="toc-number">5.</span> <span class="toc-text">#14.最长公共前缀</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解"><span class="toc-number">5.1.</span> <span class="toc-text">解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-2"><span class="toc-number">5.2.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化解"><span class="toc-number">5.3.</span> <span class="toc-text">优化解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-有效的括号"><span class="toc-number">6.</span> <span class="toc-text">#20.有效的括号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-3"><span class="toc-number">6.1.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化解-1"><span class="toc-number">6.2.</span> <span class="toc-text">优化解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#26-删除排序数组中的重复项"><span class="toc-number">7.</span> <span class="toc-text">26. 删除排序数组中的重复项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#27-移除元素"><span class="toc-number">8.</span> <span class="toc-text">27. 移除元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#35-搜索插入位置"><span class="toc-number">9.</span> <span class="toc-text">35. 搜索插入位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#53-最大子序和"><span class="toc-number">10.</span> <span class="toc-text">53. 最大子序和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#66-加一"><span class="toc-number">11.</span> <span class="toc-text">66. 加一</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#69-x的平方根"><span class="toc-number">12.</span> <span class="toc-text">69 x的平方根</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#70爬楼梯"><span class="toc-number">13.</span> <span class="toc-text">70爬楼梯</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#88-合并两个有序数组"><span class="toc-number">14.</span> <span class="toc-text">88.合并两个有序数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#100-相同的树"><span class="toc-number">15.</span> <span class="toc-text">100.相同的树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#101-对称二叉树"><span class="toc-number">16.</span> <span class="toc-text">101.对称二叉树</span></a></li></ol>
+		
+		</div>
+		
+		<p>知识点：<code>Hash、双指针</code>[1]     <code>int的范围</code>[7]     <code>stack、ascii</code>[20]  </p>
+<p><code>str.substr(pos,n)注意n是步长</code> [14]  <code>int的范围、牛顿迭代法</code>[69]   <code>copy(1.begin,1.end,2.begin)、rbegin\rend</code>[88]   </p>
 <a id="more"></a>
+<h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="#1.两数之和"></a>#1.两数之和</h1><h2 id="朴素法"><a href="#朴素法" class="headerlink" title="朴素法"></a>朴素法</h2><p>我的第一道LeetCode。上来就暴力解。我还纳闷呢，怎么输出结果和答案都一样。就是过不了。</p>
+<p>原来是，时间复杂度为O(N)。过不了的。</p>
+<h2 id="Hash-O-nlogn"><a href="#Hash-O-nlogn" class="headerlink" title="Hash O(nlogn)"></a>Hash O(nlogn)</h2><p>哈希表Hash[x]  下标x表示x在nums中的下标。</p>
+<p><strong>注意“</strong> map底层使用平衡树一类的数据结构进行实现，插入和查询是O(logn)级别的。</p>
+<p>代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; Hash;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)<span class="comment">//建Hash</span></span><br><span class="line">        &#123;</span><br><span class="line">        	Hash[nums[i]]= i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans(<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">        	<span class="keyword">if</span> (Hash.find(target - nums[i])!=Hash.end()&amp;&amp;Hash[target-nums[i]]!=i)</span><br><span class="line">        	&#123;</span><br><span class="line">        		ans[<span class="number">0</span>] = i;</span><br><span class="line">        		ans[<span class="number">1</span>] = Hash[target-nums[i]];</span><br><span class="line">        		<span class="keyword">break</span>;</span><br><span class="line">        	&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上面这个版本更好理解。</p>
+<p>然后看到这个版本更简洁。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> N = nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span> ,<span class="keyword">int</span>&gt; subMap;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">            <span class="keyword">auto</span> it = subMap.find(temp);</span><br><span class="line">            <span class="keyword">if</span>(it != subMap.end())</span><br><span class="line">            &#123;</span><br><span class="line">                res.push_back(it-&gt;second);</span><br><span class="line">                 res.push_back(i);</span><br><span class="line">            &#125;</span><br><span class="line">            subMap[nums[i]] = i;<span class="comment">//i=0时肯定不会输出结果，这样建Hash和判断合二为一。</span></span><br><span class="line">        &#125;        </span><br><span class="line">        <span class="keyword">return</span> res;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p>为啥要和 <code>map.end()</code> 比较呢？</p>
+<blockquote>
+<p><strong>修改和查找数据</strong></p>
+<p> （1）修改Map[“sunquan”]=11111;</p>
+<p> （2）查找数据 用Map.find(key); 可以通过键来查。</p>
+<p><strong>切记不要用int value=Map[key];</strong></p>
+<p><strong>这样会在Map中增加这个key</strong>，<strong>而value就是缺省值（int 为0，string为空字符串）</strong>。</p>
+<p>通过方法（2），会返回迭代器的地址， <strong>key不存在的话迭代器的值为</strong><code>Map.end()</code></p>
+</blockquote>
+<p>初学map哈哈。</p>
+<p><a href="https://www.cnblogs.com/panweiwei/p/6657583.html" target="_blank" rel="noopener">https://www.cnblogs.com/panweiwei/p/6657583.html</a></p>
+<h1 id="7-反转整数"><a href="#7-反转整数" class="headerlink" title="#7.反转整数"></a>#7.反转整数</h1><h2 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x==<span class="number">-2147483648</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        	<span class="keyword">int</span> sign ;</span><br><span class="line">	x&gt;<span class="number">0</span>? sign=<span class="number">1</span>: (sign=<span class="number">-1</span>,x=-x);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		<span class="keyword">int</span> tmp = x;</span><br><span class="line">		x = x/<span class="number">10</span>;</span><br><span class="line">		ans = ans*<span class="number">10</span> + (tmp-x*<span class="number">10</span>);	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (ans &gt; INT_MAX)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ans*sign;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2><ol>
+<li><p>第一次问题出在ans的类型上。没有存成<code>long</code>。</p>
+<p>输入是1534236469时，输出错误。</p>
+<p>Int 的范围是 -2^31 ~ 2^31-1，即-2147483648~2147483647</p>
+<p>输入1534236469输出应该是9646435461都就90多万了。int最大存21万。</p>
+<p>所以应该输出零。而且这个数在ans存的时候要用<code>long</code>型，再和<code>INT_MAX</code>判断一次再return。</p>
+</li>
+<li><p>改了long之后。1032个用例就差一个过不了了。就是-2147483648。</p>
+<p>这个数在我的第一步会被转成正的。而正int里最大是2147483647。存不下2147483648 。所以我直接在第一步判断 return 0了。并不是什么好方法。</p>
+</li>
+</ol>
+<h1 id="9-回文数"><a href="#9-回文数" class="headerlink" title="#9.回文数"></a>#9.回文数</h1><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> tmp = x;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">if</span> (x%<span class="number">10</span> == <span class="number">0</span>)</span><br><span class="line">	    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		y = y*<span class="number">10</span> + (x%<span class="number">10</span>);</span><br><span class="line">		x = x/<span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(y==tmp)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Problems-1"><a href="#Problems-1" class="headerlink" title="Problems"></a>Problems</h2><ol>
+<li><p>开始忘了把x先存到tmp中。最后就直接判断<code>y==x</code> 结果每次都是返回false。</p>
+<p>很尴尬。x在while中肯定会被改成0啊。</p>
+</li>
+<li><p>最后一个if只判断了true的情况，忘了写else😂😂😂</p>
+</li>
+</ol>
+<p>低级错误。见笑。</p>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ul>
+<li><p>取消cin同步。取消cin与cout绑定。</p>
+<p>在这题和翻转数字那题的优化解里都看到这么一断：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//lambda 表达式，可以立即执行，在main函数之前执行，取消输入输出同步，较快输入输出速度</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span> ban_io_sync = []()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="literal">nullptr</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;();</span><br><span class="line"><span class="comment">//以后直接当模板用</span></span><br></pre></td></tr></table></figure>
+<h3 id="std-ios-sync-with-stdio-false"><a href="#std-ios-sync-with-stdio-false" class="headerlink" title="std::ios::sync_with_stdio(false)"></a><code>std::ios::sync_with_stdio(false)</code></h3><p>这句语句是用来<strong>取消cin的同步</strong>，什么叫同步呢？就是iostream的缓冲跟stdio的同步。如果你已经在头文件上用了using namespace std;那么就可以去掉前面的std::了。</p>
+<p>取消后就cin就不能和scanf，sscanf, getchar, fgets之类同时用了，否则就可能会导致输出和预期的不一样。 </p>
+<p>取消同步的目的，是为了让cin不超时，另外<strong>cout的时候尽量少用endl，换用”\n”，也是防止超时的方法</strong>。<br>当然，<strong>尽量用scanf，printf就不用考虑这种因为缓冲的超时</strong>了。</p>
+<h3 id="cin-tie-NULL"><a href="#cin-tie-NULL" class="headerlink" title="cin.tie(NULL)"></a><code>cin.tie(NULL)</code></h3><p>取消cin与cout的绑定</p>
+</li>
+</ul>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">把上一段代码加到我的解法前面，运行时间直接从120ms到了64ms。</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li><p>再看这个解法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">auto</span> x = []() &#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stringstream</span> ss;</span><br><span class="line">		ss &lt;&lt; x;</span><br><span class="line">		<span class="built_in">string</span> str;</span><br><span class="line">		ss &gt;&gt; str;</span><br><span class="line">        <span class="built_in">string</span> strTmp = str;</span><br><span class="line">        reverse(str.begin(), str.end());</span><br><span class="line">		<span class="keyword">if</span> (strTmp == str)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>存成字符串。然后用了个reverse翻转。STL里面啥都有啊。</p>
+</li>
+</ul>
+<h1 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="#13.罗马数字转整数"></a>#13.罗马数字转整数</h1><ul>
+<li>无聊的一题</li>
+</ul>
+<h1 id="14-最长公共前缀"><a href="#14-最长公共前缀" class="headerlink" title="#14.最长公共前缀"></a>#14.最长公共前缀</h1><h2 id="解"><a href="#解" class="headerlink" title="解"></a>解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">Prefix2</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span></span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(p &lt;= (a.size()<span class="number">-1</span>) &amp;&amp; p &lt;= (b.size()<span class="number">-1</span>) )&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[p] == b [p])&#123;</span><br><span class="line">                        ans += a[p];</span><br><span class="line">                        p++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">auto</span> iter1 = strs.begin();</span><br><span class="line">    <span class="keyword">while</span>(iter1 != (strs.end()<span class="number">-1</span>))&#123;</span><br><span class="line">        <span class="keyword">auto</span> iter2 = iter1 +<span class="number">1</span>;</span><br><span class="line">        ans = Prefix2(*iter1,*iter2);</span><br><span class="line">        <span class="keyword">if</span>(ans == <span class="string">""</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        iter1++;</span><br><span class="line">        *iter1 = ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>我的解真是弱爆了。</p>
+<h2 id="Problems-2"><a href="#Problems-2" class="headerlink" title="Problems"></a>Problems</h2><ul>
+<li><p>第一次报错</p>
+<blockquote>
+<p>“Runtime Error Message:reference binding to null pointer of type ‘struct value_type’</p>
+<p> Last executed input: []</p>
+</blockquote>
+<p>百度了一下。<a href="https://blog.csdn.net/zy2317878/article/details/78820900" target="_blank" rel="noopener">https://blog.csdn.net/zy2317878/article/details/78820900</a></p>
+<p>我强行加了一句，如果size()是0则返回””</p>
+</li>
+<li><p>第二次是输入只有1个单词的时候。因为我是自己写了个比较两个单词最长前缀的函数。所以输入只有一个的时候，直接返回了””。正确答案应该是返回这个单词。我又强行加了这么一种情况。</p>
+</li>
+<li><p>我的解法效率极低。下面去看看大神们怎么解吧。</p>
+</li>
+</ul>
+<h2 id="优化解"><a href="#优化解" class="headerlink" title="优化解"></a>优化解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> vec_len=strs.size();</span><br><span class="line">        <span class="keyword">if</span>(vec_len==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> str_len=strs[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str_len;i++)</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;vec_len;j++)</span><br><span class="line">            <span class="keyword">if</span>(strs[j][i]!=strs[<span class="number">0</span>][i])</span><br><span class="line">                <span class="keyword">return</span> strs[<span class="number">0</span>].substr(<span class="number">0</span>,i);</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>知识点：</p>
+<ul>
+<li><code>str.substr(x,y)</code>就是取子串。</li>
+<li><code>str.substr(0,0)</code>应该就是<code>&quot;&quot;</code></li>
+</ul>
+<p>这个解的逻辑确实很清晰！</p>
+<ul>
+<li><p>相同的逻辑，解答里还有一个0ms的写法就是</p>
+<p><code>while((strs[0])[i])</code></p>
+</li>
+</ul>
+<h1 id="20-有效的括号"><a href="#20-有效的括号" class="headerlink" title="#20.有效的括号"></a>#20.有效的括号</h1><h2 id="Problems-3"><a href="#Problems-3" class="headerlink" title="Problems"></a>Problems</h2><ul>
+<li><p><code>char</code>类型就用<strong>单引号</strong>啊！！！</p>
+<p>之前写 <code>s[i] == &quot;(&quot;</code>一直报错。我就是整不明白为啥报错。</p>
+<p><strong>单引号啊！！！</strong></p>
+</li>
+<li><p><code>vector.end()</code>是地址，而且还是最后一个元素后面的地址。所以最后一个元素应该是</p>
+<p><code>*(vector.end()-1)</code> </p>
+<p>遍历的话可以用<code>for(auto s:vector)</code></p>
+</li>
+<li><p>拿过题就用vector声明了一个栈做。不知道有<code>stack</code>都。NAIVE~</p>
+</li>
+<li><p>判断”)}]”这三种情况的时候应该先看栈里是不是空。再看栈顶的元素。不然如果栈为空，取栈top()会跑不出来。</p>
+</li>
+<li><p>每次<code>return flase</code>之后都要记得<strong>break</strong>跳出循环啊</p>
+</li>
+<li><p><strong>vector中v[i]与v.at(i)的区别</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v[<span class="number">0</span>];    <span class="comment">// A</span></span><br><span class="line">v.at[<span class="number">0</span>];  <span class="comment">// B</span></span><br></pre></td></tr></table></figure>
+<p>如果v非空，A行和B行没有任何区别。</p>
+<p>如果<strong>v为空或者下标越界</strong>，B行会抛出std::out_of_range异常，A行的行为未定义。</p>
+<p>c++标准不要求vector::operator[]进行下标越界检查，原因是为了效率，总是强制下标越界检查会增加程序的性能开销。设计vector是用来代替内置数组的，所以效率问题也应该考虑。不过使用operator[]就要自己承担越界风险了。</p>
+<p>如果需要下标越界检查，请使用at。</p>
+</li>
+</ul>
+<p>我的解效率特别差。看一下人家的</p>
+<h2 id="优化解-1"><a href="#优化解-1" class="headerlink" title="优化解"></a>优化解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">       <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; sta;</span><br><span class="line">	<span class="keyword">int</span> length = s.length();</span><br><span class="line">	<span class="keyword">if</span> (length % <span class="number">2</span> == <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span> (s.empty()) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (sta.empty())</span><br><span class="line">		&#123;</span><br><span class="line">			sta.push(s.at(i)); </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(sta.top() == s.at(i) - <span class="number">2</span> || sta.top() == s.at(i) - <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			sta.pop();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			sta.push(s.at(i));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sta.empty() ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>哎！简洁又效率。</p>
+<ul>
+<li><p>先判断了长度是奇数返回false.为空返回false.</p>
+</li>
+<li><p>没有瞎判断字符是不是<code>&#39;{([])}&#39;</code></p>
+<p>而是利用了ascii码。那为啥有 -1 有 -2 呢？</p>
+<p>看了ascii码表你就知道了。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ASCII值</th>
+<th>控制字符</th>
+<th>ASCII值</th>
+<th>控制字符</th>
+<th>ASCII值</th>
+<th>控制字符</th>
+<th>ASCII值</th>
+<th>控制字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>NUT</td>
+<td>32</td>
+<td>(space)</td>
+<td>64</td>
+<td>@</td>
+<td>96</td>
+<td>、</td>
+</tr>
+<tr>
+<td>1</td>
+<td>SOH</td>
+<td>33</td>
+<td>!</td>
+<td>65</td>
+<td>A</td>
+<td>97</td>
+<td>a</td>
+</tr>
+<tr>
+<td>2</td>
+<td>STX</td>
+<td>34</td>
+<td>“</td>
+<td>66</td>
+<td>B</td>
+<td>98</td>
+<td>b</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ETX</td>
+<td>35</td>
+<td>#</td>
+<td>67</td>
+<td>C</td>
+<td>99</td>
+<td>c</td>
+</tr>
+<tr>
+<td>4</td>
+<td>EOT</td>
+<td>36</td>
+<td>$</td>
+<td>68</td>
+<td>D</td>
+<td>100</td>
+<td>d</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ENQ</td>
+<td>37</td>
+<td>%</td>
+<td>69</td>
+<td>E</td>
+<td>101</td>
+<td>e</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ACK</td>
+<td>38</td>
+<td>&amp;</td>
+<td>70</td>
+<td>F</td>
+<td>102</td>
+<td>f</td>
+</tr>
+<tr>
+<td>7</td>
+<td>BEL</td>
+<td>39</td>
+<td>,</td>
+<td>71</td>
+<td>G</td>
+<td>103</td>
+<td>g</td>
+</tr>
+<tr>
+<td>8</td>
+<td>BS</td>
+<td><strong>40</strong></td>
+<td><strong>(</strong></td>
+<td>72</td>
+<td>H</td>
+<td>104</td>
+<td>h</td>
+</tr>
+<tr>
+<td>9</td>
+<td>HT</td>
+<td><strong>41</strong></td>
+<td><strong>)</strong></td>
+<td>73</td>
+<td>I</td>
+<td>105</td>
+<td>i</td>
+</tr>
+<tr>
+<td>10</td>
+<td>LF</td>
+<td>42</td>
+<td>*</td>
+<td>74</td>
+<td>J</td>
+<td>106</td>
+<td>j</td>
+</tr>
+<tr>
+<td>11</td>
+<td>VT</td>
+<td>43</td>
+<td>+</td>
+<td>75</td>
+<td>K</td>
+<td>107</td>
+<td>k</td>
+</tr>
+<tr>
+<td>12</td>
+<td>FF</td>
+<td>44</td>
+<td>,</td>
+<td>76</td>
+<td>L</td>
+<td>108</td>
+<td>l</td>
+</tr>
+<tr>
+<td>13</td>
+<td>CR</td>
+<td>45</td>
+<td>-</td>
+<td>77</td>
+<td>M</td>
+<td>109</td>
+<td>m</td>
+</tr>
+<tr>
+<td>14</td>
+<td>SO</td>
+<td>46</td>
+<td>.</td>
+<td>78</td>
+<td>N</td>
+<td>110</td>
+<td>n</td>
+</tr>
+<tr>
+<td>15</td>
+<td>SI</td>
+<td>47</td>
+<td>/</td>
+<td>79</td>
+<td>O</td>
+<td>111</td>
+<td>o</td>
+</tr>
+<tr>
+<td>16</td>
+<td>DLE</td>
+<td>48</td>
+<td>0</td>
+<td>80</td>
+<td>P</td>
+<td>112</td>
+<td>p</td>
+</tr>
+<tr>
+<td>17</td>
+<td>DCI</td>
+<td>49</td>
+<td>1</td>
+<td>81</td>
+<td>Q</td>
+<td>113</td>
+<td>q</td>
+</tr>
+<tr>
+<td>18</td>
+<td>DC2</td>
+<td>50</td>
+<td>2</td>
+<td>82</td>
+<td>R</td>
+<td>114</td>
+<td>r</td>
+</tr>
+<tr>
+<td>19</td>
+<td>DC3</td>
+<td>51</td>
+<td>3</td>
+<td>83</td>
+<td>S</td>
+<td>115</td>
+<td>s</td>
+</tr>
+<tr>
+<td>20</td>
+<td>DC4</td>
+<td>52</td>
+<td>4</td>
+<td>84</td>
+<td>T</td>
+<td>116</td>
+<td>t</td>
+</tr>
+<tr>
+<td>21</td>
+<td>NAK</td>
+<td>53</td>
+<td>5</td>
+<td>85</td>
+<td>U</td>
+<td>117</td>
+<td>u</td>
+</tr>
+<tr>
+<td>22</td>
+<td>SYN</td>
+<td>54</td>
+<td>6</td>
+<td>86</td>
+<td>V</td>
+<td>118</td>
+<td>v</td>
+</tr>
+<tr>
+<td>23</td>
+<td>TB</td>
+<td>55</td>
+<td>7</td>
+<td>87</td>
+<td>W</td>
+<td>119</td>
+<td>w</td>
+</tr>
+<tr>
+<td>24</td>
+<td>CAN</td>
+<td>56</td>
+<td>8</td>
+<td>88</td>
+<td>X</td>
+<td>120</td>
+<td>x</td>
+</tr>
+<tr>
+<td>25</td>
+<td>EM</td>
+<td>57</td>
+<td>9</td>
+<td>89</td>
+<td>Y</td>
+<td>121</td>
+<td>y</td>
+</tr>
+<tr>
+<td>26</td>
+<td>SUB</td>
+<td>58</td>
+<td>:</td>
+<td>90</td>
+<td>Z</td>
+<td>122</td>
+<td>z</td>
+</tr>
+<tr>
+<td>27</td>
+<td>ESC</td>
+<td>59</td>
+<td>;</td>
+<td><strong>91</strong></td>
+<td><strong>[</strong></td>
+<td><strong>123</strong></td>
+<td><strong>{</strong></td>
+</tr>
+<tr>
+<td>28</td>
+<td>FS</td>
+<td>60</td>
+<td>&lt;</td>
+<td>92</td>
+<td>/</td>
+<td>124</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>GS</td>
+<td>61</td>
+<td>=</td>
+<td><strong>93</strong></td>
+<td><strong>]</strong></td>
+<td><strong>125</strong></td>
+<td><strong>}</strong></td>
+</tr>
+<tr>
+<td>30</td>
+<td>RS</td>
+<td>62</td>
+<td>&gt;</td>
+<td>94</td>
+<td>^</td>
+<td>126</td>
+<td>`</td>
+</tr>
+<tr>
+<td>31</td>
+<td>US</td>
+<td>63</td>
+<td>?</td>
+<td>95</td>
+<td>_</td>
+<td>127</td>
+<td>DEL</td>
+</tr>
+</tbody>
+</table>
 <h1 id="26-删除排序数组中的重复项"><a href="#26-删除排序数组中的重复项" class="headerlink" title="26. 删除排序数组中的重复项"></a>26. 删除排序数组中的重复项</h1><ul>
 <li>循环左移之后。记得这一轮就不要让标记位置走到下一个了。</li>
 <li>传入空字符串的时候。我的程序会完全没有符合的条件。而导致没有返回值超时。以后要注意写条件的时候就想清楚会不会有特殊情况。</li>
@@ -479,365 +592,464 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="keyword">int</span> m, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> b1 = nums1.rbegin() + n, b2 = nums2.rbegin();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> cur = nums1.rbegin(); b1 != nums1.rend(); ++cur)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b2 == nums2.rend())</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span> (*b2 &lt; *b1)</span><br><span class="line">            *cur = *b1++;</span><br><span class="line">        <span class="keyword">else</span> *cur = *b2++;</span><br><span class="line">    &#125;</span><br><span class="line">    copy(b2, nums2.rend(), nums1.rend() - (nums2.rend() - b2));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p># </p>
-
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/Others/Heroku_ssh/" rel="next" title="Heroku搭建自己的ss服务器教程">
-                <i class="fa fa-chevron-left"></i> Heroku搭建自己的ss服务器教程
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
+<h1 id="100-相同的树"><a href="#100-相同的树" class="headerlink" title="100.相同的树"></a>100.相同的树</h1><p>先来看我之前写法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isSameTree</span><span class="params">(TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p&amp;&amp;q)</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;val!=q-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(p&amp;&amp;!q)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(q&amp;&amp;!p)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(!p&amp;&amp;!q)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;left&amp;&amp;q-&gt;left) <span class="comment">//加上这个if条件是因为不然会因为p\q指向空指针报这个错：member access null pointer of type 'struct TreeNode'</span></span><br><span class="line">        isSameTree(p-&gt;left,q-&gt;left);</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;right&amp;&amp;q-&gt;right)</span><br><span class="line">        isSameTree(p-&gt;right,q-&gt;right);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这写法过不了。师哥改：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isSameTree</span><span class="params">(TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p&amp;&amp;q)</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;val!=q-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(p&amp;&amp;!q)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(q&amp;&amp;!p)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(!p&amp;&amp;!q)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> isSameTree(p-&gt;left,q-&gt;left)</span><br><span class="line">        &amp;&amp;isSameTree(p-&gt;right,q-&gt;right)</span><br><span class="line">        &amp;&amp;p-&gt;val==q-&gt;val;</span><br><span class="line">&#125;<span class="comment">//直接返回两个结果&amp;&amp;起来不就解决了吗。这样有一边走到了false都会返回false</span></span><br></pre></td></tr></table></figure>
+<h1 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101.对称二叉树"></a>101.对称二叉树</h1><ul>
+<li><p>开始写成了判断节点的两个孩子是否相同。完全整错了题。</p>
+</li>
+<li><p>用两个前序遍历把结果存到vector里。一个先遍历左孩子，一个先遍历右孩子。然后比较两个vt相同。</p>
+<ul>
+<li>Problem，空节点的时候，不会存入vector，导致一些情况判错。解决方法：空节点存入-9999</li>
+</ul>
+</li>
+<li><p>正经的解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">bool</span> <span class="title">symmetric</span><span class="params">(TreeNode* left, TreeNode* right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!left &amp;&amp; !right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!left || !right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left-&gt;val == right-&gt;val &amp;&amp; symmetric(left-&gt;left, right-&gt;right) &amp;&amp; symmetric(left-&gt;right, right-&gt;left);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!root)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> symmetric(root-&gt;left, root-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
   
-  
-  
-  </article>
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+</div>
 
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/LeetCode/">LeetCode</a>
   </div>
 
-
-          </div>
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5"></div>
-    </div>
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-      <div id="sidebar-dimmer"></div>
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">ixsim</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">44</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">7</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">24</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:xuanshanli@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://weibo.com/lixsh" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://oo1.win/" title="炫猿" target="_blank">炫猿</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.aimoon.site" title="我大哥" target="_blank">我大哥</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://onebigcabbage.github.io" title="小菜哥" target="_blank">小菜哥</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-            
-          
-          
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#26-删除排序数组中的重复项"><span class="nav-number">1.</span> <span class="nav-text">26. 删除排序数组中的重复项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#27-移除元素"><span class="nav-number">2.</span> <span class="nav-text">27. 移除元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-搜索插入位置"><span class="nav-number">3.</span> <span class="nav-text">35. 搜索插入位置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-最大子序和"><span class="nav-number">4.</span> <span class="nav-text">53. 最大子序和</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#66-加一"><span class="nav-number">5.</span> <span class="nav-text">66. 加一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#69-x的平方根"><span class="nav-number">6.</span> <span class="nav-text">69 x的平方根</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70爬楼梯"><span class="nav-number">7.</span> <span class="nav-text">70爬楼梯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#88-合并两个有序数组"><span class="nav-number">8.</span> <span class="nav-text">88.合并两个有序数组</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">炫杉 ❤ 紫玉</span>
-
-  
-
-  
 </div>
 
 
 
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
-        
-      </div>
-    
-
-    
+	<div class="article-share" id="share">
 	
-    
+	  <div data-url="https://ixsim.github.io/LeetCodeEasy50/" data-title="LeetCodeEasy50 | 炫杉" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
 
-    
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/LeetCode探索课/" title="LeetCode探索课">
+  <strong>上一篇：</strong><br/>
+  <span>
+  LeetCode探索课</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/Others/Heroku_ssh/"  title="Heroku搭建自己的ss服务器教程">
+ <strong>下一篇：</strong><br/> 
+ <span>Heroku搭建自己的ss服务器教程
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-两数之和"><span class="toc-number">1.</span> <span class="toc-text">#1.两数之和</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#朴素法"><span class="toc-number">1.1.</span> <span class="toc-text">朴素法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hash-O-nlogn"><span class="toc-number">1.2.</span> <span class="toc-text">Hash O(nlogn)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点："><span class="toc-number">1.3.</span> <span class="toc-text">知识点：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-反转整数"><span class="toc-number">2.</span> <span class="toc-text">#7.反转整数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正解"><span class="toc-number">2.1.</span> <span class="toc-text">正解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems"><span class="toc-number">2.2.</span> <span class="toc-text">Problems</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-回文数"><span class="toc-number">3.</span> <span class="toc-text">#9.回文数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解法"><span class="toc-number">3.1.</span> <span class="toc-text">解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-1"><span class="toc-number">3.2.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点"><span class="toc-number">3.3.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#std-ios-sync-with-stdio-false"><span class="toc-number">3.3.1.</span> <span class="toc-text">std::ios::sync_with_stdio(false)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cin-tie-NULL"><span class="toc-number">3.3.2.</span> <span class="toc-text">cin.tie(NULL)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-罗马数字转整数"><span class="toc-number">4.</span> <span class="toc-text">#13.罗马数字转整数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-最长公共前缀"><span class="toc-number">5.</span> <span class="toc-text">#14.最长公共前缀</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解"><span class="toc-number">5.1.</span> <span class="toc-text">解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-2"><span class="toc-number">5.2.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化解"><span class="toc-number">5.3.</span> <span class="toc-text">优化解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-有效的括号"><span class="toc-number">6.</span> <span class="toc-text">#20.有效的括号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-3"><span class="toc-number">6.1.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化解-1"><span class="toc-number">6.2.</span> <span class="toc-text">优化解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#26-删除排序数组中的重复项"><span class="toc-number">7.</span> <span class="toc-text">26. 删除排序数组中的重复项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#27-移除元素"><span class="toc-number">8.</span> <span class="toc-text">27. 移除元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#35-搜索插入位置"><span class="toc-number">9.</span> <span class="toc-text">35. 搜索插入位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#53-最大子序和"><span class="toc-number">10.</span> <span class="toc-text">53. 最大子序和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#66-加一"><span class="toc-number">11.</span> <span class="toc-text">66. 加一</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#69-x的平方根"><span class="toc-number">12.</span> <span class="toc-text">69 x的平方根</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#70爬楼梯"><span class="toc-number">13.</span> <span class="toc-text">70爬楼梯</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#88-合并两个有序数组"><span class="toc-number">14.</span> <span class="toc-text">88.合并两个有序数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#100-相同的树"><span class="toc-number">15.</span> <span class="toc-text">100.相同的树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#101-对称二叉树"><span class="toc-number">16.</span> <span class="toc-text">101.对称二叉树</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
 
   
 
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Blockchain/" title="Blockchain">Blockchain<sup>1</sup></a></li>
+		  
+		
+		  
+		
+		  
+		
+		  
+			<li><a href="/categories/Others/" title="Others">Others<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/WebRTC/" title="WebRTC">WebRTC<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Website/" title="Website">Website<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/iOS/" title="iOS">iOS<sup>10</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Note/" title="Note">Note<sup>11</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Swift/" title="Swift">Swift<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Demo/" title="Demo">Demo<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/LeetCode/" title="LeetCode">LeetCode<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tips/" title="tips">tips<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tutorial/" title="tutorial">tutorial<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Spider/" title="Spider">Spider<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Data-Analysis/" title="Data Analysis">Data Analysis<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Matlab/" title="Matlab">Matlab<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Swfit/" title="Swfit">Swfit<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/File-Process/" title="File Process">File Process<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/note/" title="note">note<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/IoT/" title="IoT">IoT<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/selenium/" title="selenium">selenium<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://oo1.win" target="_blank" title="炫猿">炫猿</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.aimoon.site/" target="_blank" title="我大哥">我大哥</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://onebigcabbage.github.io/" target="_blank" title="小菜哥">小菜哥</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, <br/>
+			World!</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/lixsh" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:xuanshanli@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="ixsim">ixsim</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
 <script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'oo1';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
 </script>
 
 
@@ -847,550 +1059,65 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
-
-
-
-  
-
-
-
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
     });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
     });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
 
 
 
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=6.4.0"></script>
+<!-- Analytics Begin -->
 
 
 
-  
-
-  
-  <script>
-    
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
-        .done(function ({ results }) {
-          if (results.length > 0) {
-            var counter = results[0];
-            
-            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
-            
-            .done(function () {
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
-            })
-            
-            .fail(function ({ responseJSON }) {
-                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
-            })
-          } else {
-            
-              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
-                .done(function () {
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(1);
-                })
-                .fail(function () {
-                  console.log('Failed to create');
-                });
-            
-          }
-        })
-      .fail(function ({ responseJSON }) {
-        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
-      });
-    }
-    
-
-    $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + "2ajpEY5ADgyM7Usf91Y3w9FC-gzGzoHsz")
-        .done(function ({ api_server }) {
-          var Counter = function (method, url, data) {
-            return $.ajax({
-              method: method,
-              url: `https://${api_server}/1.1${url}`,
-              headers: {
-                'X-LC-Id': "2ajpEY5ADgyM7Usf91Y3w9FC-gzGzoHsz",
-                'X-LC-Key': "OOKhkox53eeWftN6OLR9jeYg",
-                'Content-Type': 'application/json',
-              },
-              data: data,
-            });
-          };
-          
-          addCount(Counter);
-          
-        })
-    });
-  </script>
-
-
-
-  
-
-  
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
 })();
 </script>
 
 
-  
 
-  
-  
+<!-- Analytics End -->
 
-  
+<!-- Totop Begin -->
 
-  
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
 
-  
+<!-- Totop End -->
 
-  
-  
-  
-    
-  
-  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js"></script>
-  <script type="text/javascript">
-  
-    bookmark.scrollToMark('auto', "#更多");
-  
-  </script>
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
 
 
-  
+<!-- MathJax End -->
 
-  
-</body>
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
 </html>
