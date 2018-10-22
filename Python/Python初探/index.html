@@ -93,6 +93,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -162,16 +171,25 @@
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -330,59 +348,59 @@
 </ul>
 <ul>
 <li><p><strong>关键字参数</strong></p>
-<pre><code class="python">&gt;&gt;&gt; extra = {&#39;city&#39;: &#39;Beijing&#39;, &#39;job&#39;: &#39;Engineer&#39;}
-&gt;&gt;&gt; person(&#39;Jack&#39;, 24, **extra)
-name: Jack age: 24 other: {&#39;city&#39;: &#39;Beijing&#39;, &#39;job&#39;: &#39;Engineer&#39;}
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> extra <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'Beijing'</span><span class="token punctuation">,</span> <span class="token string">'job'</span><span class="token punctuation">:</span> <span class="token string">'Engineer'</span><span class="token punctuation">}</span>
+<span class="token operator">>></span><span class="token operator">></span> person<span class="token punctuation">(</span><span class="token string">'Jack'</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token operator">**</span>extra<span class="token punctuation">)</span>
+name<span class="token punctuation">:</span> Jack age<span class="token punctuation">:</span> <span class="token number">24</span> other<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'city'</span><span class="token punctuation">:</span> <span class="token string">'Beijing'</span><span class="token punctuation">,</span> <span class="token string">'job'</span><span class="token punctuation">:</span> <span class="token string">'Engineer'</span><span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><code>**extra</code>表示把<code>extra</code>这个dict的所有key-value用关键字参数传入到函数的<code>**kw</code>参数，<code>kw</code>将获得一个dict，注意<code>kw</code>获得的dict是<code>extra</code>的一份拷贝，对<code>kw</code>的改动不会影响到函数外的<code>extra</code>。</p>
 <p><strong>命名关键字参数</strong></p>
 <p>对于关键字参数，函数的调用者可以传入任意不受限制的关键字参数。至于到底传入了哪些，就需要在函数内部通过<code>kw</code>检查。</p>
 <p>仍以<code>person()</code>函数为例，我们希望检查是否有<code>city</code>和<code>job</code>参数：</p>
-<pre><code class="Python">def person(name, age, **kw):
-    if &#39;city&#39; in kw:
+<pre class="line-numbers language-Python"><code class="language-Python">def person(name, age, **kw):
+    if 'city' in kw:
         # 有city参数
         pass
-    if &#39;job&#39; in kw:
+    if 'job' in kw:
         # 有job参数
         pass
-    print(&#39;name:&#39;, name, &#39;age:&#39;, age, &#39;other:&#39;, kw)
-</code></pre>
+    print('name:', name, 'age:', age, 'other:', kw)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>但是调用者仍可以传入不受限制的关键字参数：</p>
-<pre><code class="python">&gt;&gt;&gt; person(&#39;Jack&#39;,24,city=&#39;Beijing&#39;,addr=&#39;Chaoyang&#39;,zipcode=123456)
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> person<span class="token punctuation">(</span><span class="token string">'Jack'</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">,</span>city<span class="token operator">=</span><span class="token string">'Beijing'</span><span class="token punctuation">,</span>addr<span class="token operator">=</span><span class="token string">'Chaoyang'</span><span class="token punctuation">,</span>zipcode<span class="token operator">=</span><span class="token number">123456</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>如果要限制关键字参数的名字，就可以用命名关键字参数，例如，<strong>只接收<code>city</code>和<code>job</code>作为关键字参数</strong>。这种方式定义的函数如下：</p>
-<pre><code class="Python">def person(name, age, *, city, job):
+<pre class="line-numbers language-Python"><code class="language-Python">def person(name, age, *, city, job):
     print(name, age, city, job)
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>和关键字参数<code>**kw</code>不同，命名关键字参数需要一个特殊分隔符<code>*</code>，<code>*</code>后面的参数被视为命名关键字参数。</p>
 <p>调用方式如下：</p>
-<pre><code class="Python">&gt;&gt;&gt; person(&#39;Jack&#39;, 24, city=&#39;Beijing&#39;, job=&#39;Engineer&#39;)
+<pre class="line-numbers language-Python"><code class="language-Python">>>> person('Jack', 24, city='Beijing', job='Engineer')
 Jack 24 Beijing Engineer
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符<code>*</code>了：</p>
-<pre><code class="Python">def person(name, age, *args, city, job):
+<pre class="line-numbers language-Python"><code class="language-Python">def person(name, age, *args, city, job):
     print(name, age, args, city, job)
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>命名关键字参数必须传入参数名，这和位置参数不同。如果没有传入参数名，调用将报错：</p>
-<pre><code class="Python">&gt;&gt;&gt; person(&#39;Jack&#39;, 24, &#39;Beijing&#39;, &#39;Engineer&#39;)
+<pre class="line-numbers language-Python"><code class="language-Python">>>> person('Jack', 24, 'Beijing', 'Engineer')
 Traceback (most recent call last):
-  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File "<stdin>", line 1, in <module>
 TypeError: person() takes 2 positional arguments but 4 were given
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></module></stdin></code></pre>
 <p>由于调用时缺少参数名<code>city</code>和<code>job</code>，Python解释器把这4个参数均视为位置参数，但<code>person()</code>函数仅接受2个位置参数。</p>
 <p>命名关键字参数可以有缺省值，从而简化调用：</p>
-<pre><code class="Python">def person(name, age, *, city=&#39;Beijing&#39;, job):
+<pre class="line-numbers language-Python"><code class="language-Python">def person(name, age, *, city='Beijing', job):
     print(name, age, city, job)
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>由于命名关键字参数<code>city</code>具有默认值，调用时，可不传入<code>city</code>参数：</p>
-<pre><code class="Python">&gt;&gt;&gt; person(&#39;Jack&#39;, 24, job=&#39;Engineer&#39;)
+<pre class="line-numbers language-Python"><code class="language-Python">>>> person('Jack', 24, job='Engineer')
 Jack 24 Beijing Engineer
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>使用命名关键字参数时，要特别注意，<strong>如果没有可变参数，就必须加一个<code>*</code>作为特殊分隔符</strong>。如果缺少<code>*</code>，Python解释器将无法识别位置参数和命名关键字参数：</p>
-<pre><code class="Python">def person(name, age, city, job):
+<pre class="line-numbers language-Python"><code class="language-Python">def person(name, age, city, job):
     # 缺少 *，city和job被视为位置参数
     pass
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>参数定义的顺序必须是：</p>
 <ol>
@@ -397,25 +415,25 @@ Jack 24 Beijing Engineer
 </li>
 <li><p>如果一个函数定义中包含<code>yield</code>关键字，那么这个函数就不再是一个普通函数，而是一个generator</p>
 </li>
-<li><pre><code class="Python">&gt;&gt;&gt; from functools import reduce
-&gt;&gt;&gt; def fn(x, y):
+<li><pre class="line-numbers language-Python"><code class="language-Python">>>> from functools import reduce
+>>> def fn(x, y):
 ...     return x * 10 + y
 ...
-&gt;&gt;&gt; reduce(fn, [1, 3, 5, 7, 9])
+>>> reduce(fn, [1, 3, 5, 7, 9])
 13579
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><code>lambda</code> 匿名函数   <code>lambda x: x * x</code></p>
 </li>
 <li><p><a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener">Python内置函数</a></p>
 </li>
-<li><pre><code class="Python">#!/usr/bin/env python3
+<li><pre class="line-numbers language-Python"><code class="language-Python">#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-&#39; a test module &#39;
+' a test module '
 
-__author__ = &#39;Michael Liao&#39;
-</code></pre>
+__author__ = 'Michael Liao'
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>第1行和第2行是标准注释，第1行注释可以让这个<code>hello.py</code>文件直接在Unix/Linux/Mac上运行，</p>
 <p>第2行注释表示.py文件本身使用标准UTF-8编码；</p>
 <p>第4行是一个字符串，表示模块的文档注释，任何模块代码的第一个字符串都被视为模块的文档注释；</p>
@@ -427,15 +445,15 @@ __author__ = &#39;Michael Liao&#39;
 </li>
 <li><p>判断一个变量是否是某个类型可以用<code>isinstance()</code>判断：</p>
 </li>
-<li><pre><code class="PYthon">&gt;&gt;&gt; type(fn)==types.FunctionType
+<li><pre class="line-numbers language-PYthon"><code class="language-PYthon">>>> type(fn)==types.FunctionType
 True
-&gt;&gt;&gt; type(abs)==types.BuiltinFunctionType
+>>> type(abs)==types.BuiltinFunctionType
 True
-&gt;&gt;&gt; type(lambda x: x)==types.LambdaType
+>>> type(lambda x: x)==types.LambdaType
 True
-&gt;&gt;&gt; type((x for x in range(10)))==types.GeneratorType
+>>> type((x for x in range(10)))==types.GeneratorType
 True
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>types</code>模块中定义的常量</p>
 </li>
 <li><p>获得一个对象的所有属性和方法，可以使用<code>dir()</code>函数</p>
@@ -448,24 +466,24 @@ True
 </li>
 <li><p>没有&amp;&amp;只有and </p>
 </li>
-<li><pre><code class="Python">try:
-    file=open(&#39;eeee.txt&#39;,&#39;r+&#39;)
+<li><pre class="line-numbers language-Python"><code class="language-Python">try:
+    file=open('eeee.txt','r+')
 except Exception as e:
     print(e)
-    response = input(&#39;do you want to create a new file:&#39;)
-    if response==&#39;y&#39;:
-        file=open(&#39;eeee.txt&#39;,&#39;w&#39;)
+    response = input('do you want to create a new file:')
+    if response=='y':
+        file=open('eeee.txt','w')
     else:
         pass
 else:
-    file.write(&#39;ssss&#39;)
+    file.write('ssss')
     file.close()
-&quot;&quot;&quot;
-[Errno 2] No such file or directory: &#39;eeee.txt&#39;
+"""
+[Errno 2] No such file or directory: 'eeee.txt'
 do you want to create a new file:y
 
-ssss  #eeee.txt中会写入&#39;ssss&#39;
-</code></pre>
+ssss  #eeee.txt中会写入'ssss'
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><pre><code>&gt;&gt;&gt; list(map(fun,[1,2],[3,4]))
 &quot;&quot;&quot;
@@ -476,8 +494,8 @@ ssss  #eeee.txt中会写入&#39;ssss&#39;
 </li>
 <li><p><code>flatten</code>是一个展开性质的函数，将多维的矩阵进行展开成1行的数列。而<code>flat</code>是一个迭代器，本身是一个<code>object</code>属性。</p>
 </li>
-<li><pre><code class="Python">A[:,np.newaxis]
-</code></pre>
+<li><pre class="line-numbers language-Python"><code class="language-Python">A[:,np.newaxis]
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>可将一行元素转置</p>
 </li>
 <li><p><code>split()</code>是等量分割。<code>array_split()</code>可以不等量分割</p>
@@ -518,123 +536,6 @@ ssss  #eeee.txt中会写入&#39;ssss&#39;
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -696,51 +597,6 @@ ssss  #eeee.txt中会写入&#39;ssss&#39;
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/Python/Python廖雪峰练习/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Python廖雪峰练习">
-                        
-                        <span class="card-title">Python廖雪峰练习</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！
-
-函数的参数def pr</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
                 <a href="/Website/Hexo01/">
                     <div class="card-image">
                         
@@ -755,9 +611,9 @@ ssss  #eeee.txt中会写入&#39;ssss&#39;
 本托管在coding上，不过云里雾里，弄得还是不满意。
 今天决定换成Hexo。再托管在Git上。一节课的功夫，很顺利的就完成了。写个文章记录下。</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -775,6 +631,61 @@ ssss  #eeee.txt中会写入&#39;ssss&#39;
                     
                     <a href="/tags/Hexo/" target="_blank">
                         <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/iOS/小波iOS11初级篇笔记/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="小波iOS11初级篇笔记">
+                        
+                        <span class="card-title">小波iOS11初级篇笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了
+
+小知识点
+IB : Interface Builder 界面构建器
+
+这种写法来防止id出错
+
+
+  let id</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/Swift/" target="_blank">
+                        <span class="chip bg-color">Swift</span>
                     </a>
                     
                 </div>
@@ -867,13 +778,13 @@ ssss  #eeee.txt中会写入&#39;ssss&#39;
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

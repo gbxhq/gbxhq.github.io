@@ -93,6 +93,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -162,16 +171,25 @@
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -312,38 +330,37 @@
 <a id="more"></a>
 <h1 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h1><ul>
 <li><p>string对象的操作</p>
-<pre><code class="c++">istringstram os
-os&lt;&lt;s   //s写入到输出流os中。返回os
-is&gt;&gt;s    //从输入流is读取字符串赋给s，返回is。
+<pre class="line-numbers language-c++"><code class="language-c++">istringstram os
+os<<s s写入到输出流os中。返回os="" is="">>s    //从输入流is读取字符串赋给s，返回is。
 s.empty()
 s.size()
 s[n] //n从0计
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></s></code></pre>
 </li>
 </ul>
 <h1 id="709-转换成小写字母"><a href="#709-转换成小写字母" class="headerlink" title="#709. 转换成小写字母"></a>#709. 转换成小写字母</h1><p><code>A~Z</code>的ascii码为<code>65~90</code>   小写字母对应+32</p>
-<h1 id="657-机器人能否返回原点"><a href="#657-机器人能否返回原点" class="headerlink" title="#657. 机器人能否返回原点"></a>#657. 机器人能否返回原点</h1><pre><code class="c++">bool judgeCircle(string moves) {
+<h1 id="657-机器人能否返回原点"><a href="#657-机器人能否返回原点" class="headerlink" title="#657. 机器人能否返回原点"></a>#657. 机器人能否返回原点</h1><pre class="line-numbers language-c++"><code class="language-c++">bool judgeCircle(string moves) {
     char tb[256]{0};
     for(auto ch : moves)
         ++tb[ch];
-    return tb[&#39;R&#39;] == tb[&#39;L&#39;] &amp;&amp; tb[&#39;U&#39;] == tb[&#39;D&#39;];
+    return tb['R'] == tb['L'] && tb['U'] == tb['D'];
 }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="344-反转字符串"><a href="#344-反转字符串" class="headerlink" title="#344. 反转字符串"></a>#344. 反转字符串</h1><p>EASY</p>
 <h1 id="557-反转字符串中的单词III"><a href="#557-反转字符串中的单词III" class="headerlink" title="#557. 反转字符串中的单词III"></a>#557. 反转字符串中的单词III</h1><p>从句子里取单词的方法：</p>
-<pre><code class="c++">string reverseWords(string s) {
+<pre class="line-numbers language-c++"><code class="language-c++">string reverseWords(string s) {
     istringstream is(s);
-    string t = &quot;&quot;;
-    string res = &quot;&quot;;
-    while (is &gt;&gt; t)
+    string t = "";
+    string res = "";
+    while (is >> t)
     {
         reverse(t.begin(), t.end());
-        res += t + &quot; &quot;;
+        res += t + " ";
     }
     res.pop_back();
     return res;
 }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="521-最长特殊序列I"><a href="#521-最长特殊序列I" class="headerlink" title="#521. 最长特殊序列I"></a>#521. 最长特殊序列I</h1><p>抠定义的题。直接返回最长的子串长度即可。</p>
 <h1 id="520-检测大写字母"><a href="#520-检测大写字母" class="headerlink" title="#520. 检测大写字母"></a>#520. 检测大写字母</h1><p>各种if分情况🙂</p>
 <h1 id="788-旋转数字"><a href="#788-旋转数字" class="headerlink" title="#788. 旋转数字"></a>#788. 旋转数字</h1><ul>
@@ -357,35 +374,34 @@ s[n] //n从0计
 <p>注意，这样句子最后就会多一个空格。需要输出<code>ans.substr(0,ans.size()-1)</code></p>
 </li>
 <li><p>把单词的第一个字母放到最后的方法：</p>
-<pre><code class="c++">stringsteam oss;
-oss&lt;&lt;word.substr(1)&lt;&lt;word[0];
-</code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">stringsteam oss;
+oss<<word.substr(1)<<word[0]; <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span></word.substr(1)<<word[0];></code></pre>
 </li>
 </ul>
-<h1 id="606-根据二叉树创建字符串"><a href="#606-根据二叉树创建字符串" class="headerlink" title="#606. 根据二叉树创建字符串"></a>#606. 根据二叉树创建字符串</h1><pre><code class="c++">//唯一要注意的地方就是函数定义参数时ans前面加引用&amp;
-void visit(TreeNode* t,string &amp;ans){
+<h1 id="606-根据二叉树创建字符串"><a href="#606-根据二叉树创建字符串" class="headerlink" title="#606. 根据二叉树创建字符串"></a>#606. 根据二叉树创建字符串</h1><pre class="line-numbers language-c++"><code class="language-c++">//唯一要注意的地方就是函数定义参数时ans前面加引用&
+void visit(TreeNode* t,string &ans){
     if (t == NULL)
         return;
-    ans += to_string(t-&gt;val);
-    if(t-&gt;left)
-        ans += &quot;(&quot;;
-    if(!t-&gt;left&amp;&amp;t-&gt;right)//如果没有←但是有→儿子
-        ans += &quot;()&quot;;
-    visit(t-&gt;left,ans);
-    if(t-&gt;left)
-        ans += &quot;)&quot;;
-    if(t-&gt;right)
-        ans += &quot;(&quot;;
-    visit(t-&gt;right,ans);
-    if(t-&gt;right)
-        ans += &quot;)&quot;;
+    ans += to_string(t->val);
+    if(t->left)
+        ans += "(";
+    if(!t->left&&t->right)//如果没有←但是有→儿子
+        ans += "()";
+    visit(t->left,ans);
+    if(t->left)
+        ans += ")";
+    if(t->right)
+        ans += "(";
+    visit(t->right,ans);
+    if(t->right)
+        ans += ")";
 }
 string tree2str(TreeNode* t) {
-    string ans = &quot;&quot;;
+    string ans = "";
     visit(t,ans);
     return ans;
 }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="38-报数"><a href="#38-报数" class="headerlink" title="#38. 报数"></a>#38. 报数</h1><p>水题不解释</p>
 <h1 id="696-计数二进制子串"><a href="#696-计数二进制子串" class="headerlink" title="#696. 计数二进制子串"></a>#696. 计数二进制子串</h1><ul>
 <li><p>挨个取子串的解法过了85/90用例。败在一个超级长的的字符串上。也是，人家长度范围就是50000呢。咋整捏。</p>
@@ -393,25 +409,14 @@ string tree2str(TreeNode* t) {
 <li><p>找到了规律。奇低的效率过了。</p>
 </li>
 <li><p>看个好答案吧：</p>
-<pre><code class="c++">int countBinarySubstrings(string s) {
+<pre class="line-numbers language-c++"><code class="language-c++">int countBinarySubstrings(string s) {
     int n=s.size(),pre=0,cur=1,res=0;
-    for(int i=1;i&lt;n;++i)
-    {
-        if(s[i]==s[i-1])
-        {
-            ++cur;
-        }
-        else
-        {
-            pre=cur;
-            cur=1;
-        }
-        if(pre&gt;=cur)
+    for(int i=1;i<n;++i) {="" if(s[i]="=s[i-1])" ++cur;="" }="" else="" pre="cur;" cur="1;" if(pre="">=cur)
             ++res;
     }
     return res;
 }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></n;++i)></code></pre>
 </li>
 </ul>
 <h1 id="893-特殊等价字符串组"><a href="#893-特殊等价字符串组" class="headerlink" title="#893. 特殊等价字符串组"></a>#893. 特殊等价字符串组</h1><p>不会🙂</p>
@@ -433,9 +438,9 @@ string tree2str(TreeNode* t) {
 <h1 id="383-赎金信"><a href="#383-赎金信" class="headerlink" title="#383.赎金信"></a>#383.赎金信</h1><p>水。存数组OK</p>
 <h1 id="819-最常见的单词"><a href="#819-最常见的单词" class="headerlink" title="#819. 最常见的单词"></a>#819. 最常见的单词</h1><ul>
 <li><p>vector中没有find方法。要利用algorithm这个头文件。</p>
-<pre><code class="c++">vector&lt;string&gt;::iterator it = find(vt.begin(),vt.end(),s);
+<pre class="line-numbers language-c++"><code class="language-c++">vector<string>::iterator it = find(vt.begin(),vt.end(),s);
 if(it != vt.end())
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></string></code></pre>
 </li>
 <li><p>字符串转小写：<code>transform(s.begin(),s.end(),s.begin(),::towlower);</code></p>
 </li>
@@ -450,18 +455,18 @@ if(it != vt.end())
 </ul>
 <h1 id="387-字符串中的第一个唯一字符"><a href="#387-字符串中的第一个唯一字符" class="headerlink" title="#387. 字符串中的第一个唯一字符"></a>#387. 字符串中的第一个唯一字符</h1><ul>
 <li><p>初始化数组全为0：</p>
-<pre><code class="c++">int nums[26];
+<pre class="line-numbers language-c++"><code class="language-c++">int nums[26];
 memset(nums,0,len * sizeof(int));
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h1 id="443-压缩字符串"><a href="#443-压缩字符串" class="headerlink" title="#443. 压缩字符串"></a>#443. 压缩字符串</h1><p><strong>不会！</strong></p>
 <h1 id="58-最后一个单词的长度"><a href="#58-最后一个单词的长度" class="headerlink" title="#58.最后一个单词的长度"></a>#58.最后一个单词的长度</h1><p>4行就解决的问题不明白为啥通过这么低</p>
-<pre><code class="c++">istringstream is(s);
+<pre class="line-numbers language-c++"><code class="language-c++">istringstream is(s);
 string tmp;
-while(is&gt;&gt;tmp){}
+while(is>>tmp){}
 return tmp.size();
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="434-字符串中的单词数"><a href="#434-字符串中的单词数" class="headerlink" title="#434.字符串中的单词数"></a>#434.字符串中的单词数</h1><p>和上题一样水。</p>
 <h1 id="68-验证回文字符串-Ⅱ"><a href="#68-验证回文字符串-Ⅱ" class="headerlink" title="#68.验证回文字符串 Ⅱ"></a>#68.验证回文字符串 Ⅱ</h1><p>排除一个字符只让一个标记移动的时候。要判断清除。(不好形容)</p>
 <p>比如字符串cuucu。s[0]≠s[4]…</p>
@@ -477,123 +482,6 @@ return tmp.size();
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -826,13 +714,13 @@ subl ~/.bas</div>
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

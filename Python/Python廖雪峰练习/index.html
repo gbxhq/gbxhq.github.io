@@ -95,6 +95,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -164,16 +173,25 @@
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -308,51 +326,51 @@
             <div id="articleContent">
                 <p>这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。<br>莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！</p>
 <a id="more"></a>
-<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><pre><code class="Python">def product(*number):    
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><pre class="line-numbers language-Python"><code class="language-Python">def product(*number):    
   if number == ():
      raise TypeError 
   a = 1
   for x in number:
       a = x*a
   return a
-</code></pre>
-<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><pre><code class="Python">def move(n, a, b, c):
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><pre class="line-numbers language-Python"><code class="language-Python">def move(n, a, b, c):
     if n == 1:
-        print ( a , &#39;--&gt;&#39; , c)
+        print ( a , '-->' , c)
     else:
         move(n-1,a,c,b) #假设move函数没问题，A上前n-1个会被移动至B
         move(1,a,b,c) #此时把最大的放到C
         move(n-1,b,a,c)
-#move(4,&#39;A&#39;,&#39;B&#39;,&#39;C&#39;)
-</code></pre>
-<h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><pre><code class="python">def trim(s):
-    if s == &#39;&#39;:
-        return s
-    while s[0] == &#39; &#39;:
-        s = s[1:]
-        if s == &#39; &#39;:
-            return &#39;&#39;
-    while s[-1] == &#39; &#39;:
-        s = s[0:-1]
-    return s
-</code></pre>
-<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><pre><code class="Python">def findMinAndMax(L):
+#move(4,'A','B','C')
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">trim</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> s <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> s
+    <span class="token keyword">while</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> s <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string">''</span>
+    <span class="token keyword">while</span> s<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> s
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><pre class="line-numbers language-Python"><code class="language-Python">def findMinAndMax(L):
     if L == []:
         return (None,None)
     else:
         a = L[0]
         b = L[0]
         for i in L:
-            if i &lt; a:
+            if i < a:
                 a = i
-            if i &gt; b:
+            if i > b:
                 b = i
     return (a,b)
-</code></pre>
-<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><pre><code class="Python">L1 = [&#39;Hello&#39;, &#39;World&#39;, 18, &#39;Apple&#39;, None]
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><pre class="line-numbers language-Python"><code class="language-Python">L1 = ['Hello', 'World', 18, 'Apple', None]
 L2 = [ x.lower() for x in L1 if isinstance(x,str) ]
-</code></pre>
-<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><pre><code class="Python">def triangles():
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><pre class="line-numbers language-Python"><code class="language-Python">def triangles():
     n = 2
     a = [1,1]
     b = [1]
@@ -366,17 +384,17 @@ L2 = [ x.lower() for x in L1 if isinstance(x,str) ]
         a = b
         b = [1]
         yield a
-</code></pre>
-<h2 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h2><pre><code class="Python">def normalize(name):
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h2><pre class="line-numbers language-Python"><code class="language-Python">def normalize(name):
     return name[0].upper() + name[1:].lower()
-</code></pre>
-<pre><code class="Python">def cheng(x,y):
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-Python"><code class="language-Python">def cheng(x,y):
     return x*y
 return reduce(cheng,L)
-</code></pre>
-<pre><code class="Python">from functools import reduce
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-Python"><code class="language-Python">from functools import reduce
 def str2float(s):
-    DIGITS = {&#39;0&#39;: 0, &#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;.&#39;: 999}
+    DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '.': 999}
     def fn(x, y):
         if y == 999:
             return x
@@ -384,144 +402,27 @@ def str2float(s):
     def char2num(s):
         return DIGITS[s]
 
-    n = s.index(&#39;.&#39;)
+    n = s.index('.')
 
     return reduce(fn, map(char2num, s))/(10**n)
 
 #跳过小数点：
-#我把 &#39;.&#39; 转换成 999 当遇到999 不做计算 return x 。像个傻子 🤪
+#我把 '.' 转换成 999 当遇到999 不做计算 return x 。像个傻子 🤪
 #正确方法：
 #s[:n]+s[n+1:] n是小数点位置。取 前n个和第n+1个开始往后的字符串即可。
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="fliter"><a href="#fliter" class="headerlink" title="fliter"></a>fliter</h2><p>跳过</p>
-<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><pre><code class="Python">def by_name(t):
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><pre class="line-numbers language-Python"><code class="language-Python">def by_name(t):
     return t[0]
-</code></pre>
-<pre><code class="Python">def by_score(t):
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-Python"><code class="language-Python">def by_score(t):
     return -t[1]
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>​</p>
 
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -617,16 +518,16 @@ def g</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Data-Analysis/" target="_blank">
-                        <span class="chip bg-color">Data Analysis</span>
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
                     </a>
                     
                     <a href="/tags/Python/" target="_blank">
                         <span class="chip bg-color">Python</span>
                     </a>
                     
-                    <a href="/tags/note/" target="_blank">
-                        <span class="chip bg-color">note</span>
+                    <a href="/tags/Data-Analysis/" target="_blank">
+                        <span class="chip bg-color">Data Analysis</span>
                     </a>
                     
                 </div>
@@ -638,17 +539,19 @@ def g</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Python/Python初探/">
+                <a href="/Website/Hexo01/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Python初探">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Hexo建站问题总结">
                         
-                        <span class="card-title">Python初探</span>
+                        <span class="card-title">Hexo建站问题总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是我刚开始学习Python时做的笔记，百度Python后先看到有廖雪峰的教程。就对着看了一遍。紧接着同学推荐了莫烦的教程，果然，这个教程上手更快。另外我认为Python作为一个脚本语言，很多东西是在学习的时候没法记忆的，勤查着点就够了。因</div>
+                    <div class="summary">昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。
+本托管在coding上，不过云里雾里，弄得还是不满意。
+今天决定换成Hexo。再托管在Git上。一节课的功夫，很顺利的就完成了。写个文章记录下。</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
@@ -657,8 +560,8 @@ def g</div>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/Website/" class="post-category" target="_blank">
+                                    Website
                                 </a>
                             
                             
@@ -668,8 +571,8 @@ def g</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/Hexo/" target="_blank">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>
@@ -762,13 +665,13 @@ def g</div>
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

@@ -97,6 +97,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -166,16 +175,25 @@
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -295,27 +313,27 @@
 <a id="more"></a>
 <h1 id="载入"><a href="#载入" class="headerlink" title="载入"></a>载入</h1><p>界面简单，<br>三个Label（地址、温度、描述）<br>一个Btn。</p>
 <p>先把Btn写出来。<br>弹出Alert，附带一个文本输入框，把输入框的值传给通过Api获取天气数据的函数。代码如下：</p>
-<pre><code class="swift">@IBAction func setCityBtn() {
-//先来个alert
-        let alert = UIAlertController(title: &quot;Set City&quot;, message: nil, preferredStyle: .alert)
-        //加Cancel按钮   
-        alert.addAction(UIAlertAction(title: &quot;Cancel&quot;, style: .cancel, handler: nil))
-        //加OK按钮，如果文本不为空则传给tf(TextField)，再用tf传给cityName，再用city传给getWeatherData函数
-        alert.addAction(UIAlertAction(title: &quot;OK&quot;, style: .default, handler: { (action) in
-            if let tf = alert.textFields?.first{
-                if let cityName = tf.text{
-                    self.getWeatherData(cityName: cityName)
-                }
-            }
-        }))
-        //加个文本框
-        alert.addTextField(configurationHandler: { (tf) in
-            tf.placeholder=&quot;Please input city&quot;
-        })
-        //显示Alert
-        self.present(alert,animated:true,completion: nil)
-    }
-</code></pre>
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token atrule">@IBAction</span> <span class="token keyword">func</span> <span class="token function">setCityBtn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">//先来个alert</span>
+        <span class="token keyword">let</span> alert <span class="token operator">=</span> <span class="token function">UIAlertController</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">"Set City"</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">,</span> preferredStyle<span class="token punctuation">:</span> <span class="token punctuation">.</span>alert<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//加Cancel按钮   </span>
+        alert<span class="token punctuation">.</span><span class="token function">addAction</span><span class="token punctuation">(</span><span class="token function">UIAlertAction</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">"Cancel"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token punctuation">.</span>cancel<span class="token punctuation">,</span> handler<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//加OK按钮，如果文本不为空则传给tf(TextField)，再用tf传给cityName，再用city传给getWeatherData函数</span>
+        alert<span class="token punctuation">.</span><span class="token function">addAction</span><span class="token punctuation">(</span><span class="token function">UIAlertAction</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">"OK"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">,</span> handler<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token keyword">in</span>
+            <span class="token keyword">if</span> <span class="token keyword">let</span> tf <span class="token operator">=</span> alert<span class="token punctuation">.</span>textFields<span class="token operator">?</span><span class="token punctuation">.</span><span class="token builtin">first</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token keyword">let</span> cityName <span class="token operator">=</span> tf<span class="token punctuation">.</span>text<span class="token punctuation">{</span>
+                    <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">getWeatherData</span><span class="token punctuation">(</span>cityName<span class="token punctuation">:</span> cityName<span class="token punctuation">)</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//加个文本框</span>
+        alert<span class="token punctuation">.</span><span class="token function">addTextField</span><span class="token punctuation">(</span>configurationHandler<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>tf<span class="token punctuation">)</span> <span class="token keyword">in</span>
+            tf<span class="token punctuation">.</span>placeholder<span class="token operator">=</span><span class="token string">"Please input city"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//显示Alert</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">present</span><span class="token punctuation">(</span>alert<span class="token punctuation">,</span>animated<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>completion<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="天气Api"><a href="#天气Api" class="headerlink" title="天气Api"></a>天气Api</h1><p>用了知心天气的API。<a href="https://api.seniverse.com/v3/weather/now.json?key=123456&amp;location=jinan&amp;language=zh-Hans&amp;unit=c" target="_blank" rel="noopener">https://api.seniverse.com/v3/weather/now.json?key=123456&amp;location=jinan&amp;language=zh-Hans&amp;unit=c</a></p>
 <p>其中如果要处理非HTTPS的网址，会报错。需要在info.plist文件中添加下面的选项：<br><img src="http://p66eruxmw.bkt.clouddn.com/15226535153796.jpg" alt=""></p>
 <h2 id="SwiftyJSON"><a href="#SwiftyJSON" class="headerlink" title="SwiftyJSON"></a>SwiftyJSON</h2><p><del>说实话我遇到问题了。等我读了SwfityJSON的文档回来研究明白再说吧。有点尬了。撤了撤了。</del></p>
@@ -325,123 +343,6 @@
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -692,13 +593,13 @@ re.compile()函数是什么？将正则表达式的字符串形式编译为Patte
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

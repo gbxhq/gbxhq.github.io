@@ -10,9 +10,10 @@
 只返回函数本身。
 量放在参数中。Ex:
 
-fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int{
+fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
     if (n == 1)
-        return total + 1">
+        return total + 1
+  ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -99,6 +100,15 @@ fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int{
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -168,16 +178,25 @@ fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int{
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -318,135 +337,18 @@ fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int{
 <li>只返回函数本身。</li>
 <li>量放在参数中。<br>Ex:</li>
 </ul>
-<pre><code class="swift">fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
-    if (n == 1)
-        return total + 1
-    else
-        return func (n - 1, total + n)
-}
-</code></pre>
+<pre class="line-numbers language-swift"><code class="language-swift">fun <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token number">_</span> n <span class="token punctuation">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span> <span class="token number">_</span> total <span class="token punctuation">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Int</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> total <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">return</span> <span class="token keyword">func</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> total <span class="token operator">+</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​</p>
 
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -508,25 +410,23 @@ fun func(_ n :Int, _ total :Int = 0) -&amp;gt; Int{
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/iOS/小波iOS11初级篇笔记/">
+                <a href="/iOS/UIViewHelper.swift/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="小波iOS11初级篇笔记">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="iOS 圆角、阴影通用配置">
                         
-                        <span class="card-title">小波iOS11初级篇笔记</span>
+                        <span class="card-title">iOS 圆角、阴影通用配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了
+                    <div class="summary">这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。
+import UIKit
+//圆角
+extension UIView {
 
-小知识点
-IB : Interface Builder 界面构建器
-
-这种写法来防止id出错
-
-
-  let id</div>
+  @IBInspectable //让它可见
+  var cornerReadiu</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -563,21 +463,20 @@ IB : Interface Builder 界面构建器
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/iOS/语法问题/">
+                <a href="/Others/Git笔记/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Swift语法笔记">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Git笔记">
                         
-                        <span class="card-title">Swift语法笔记</span>
+                        <span class="card-title">Git笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话设计模式》，有时间要再读一读了。
+                    <div class="summary">Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。
 
-
-Tuple 元组：定义变量的一个组合
-va</div>
+Git Pull冲突问题1git stash 暂存本地修改
+git pull 从</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -586,8 +485,8 @@ va</div>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/iOS/" class="post-category" target="_blank">
-                                    iOS
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
                                 </a>
                             
                             
@@ -601,8 +500,8 @@ va</div>
                         <span class="chip bg-color">Note</span>
                     </a>
                     
-                    <a href="/tags/Swift/" target="_blank">
-                        <span class="chip bg-color">Swift</span>
+                    <a href="/tags/Git/" target="_blank">
+                        <span class="chip bg-color">Git</span>
                     </a>
                     
                 </div>
@@ -695,13 +594,13 @@ va</div>
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

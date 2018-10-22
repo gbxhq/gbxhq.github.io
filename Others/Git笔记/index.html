@@ -96,6 +96,15 @@ git pull 从">
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -165,16 +174,25 @@ git pull 从">
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -313,10 +331,10 @@ git pull 从">
             <div id="articleContent">
                 <p>Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。</p>
 <a id="more"></a>
-<h1 id="Git-Pull冲突问题"><a href="#Git-Pull冲突问题" class="headerlink" title="Git Pull冲突问题"></a>Git Pull冲突问题</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><pre><code class="git">git stash 暂存本地修改
+<h1 id="Git-Pull冲突问题"><a href="#Git-Pull冲突问题" class="headerlink" title="Git Pull冲突问题"></a>Git Pull冲突问题</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><pre class="line-numbers language-git"><code class="language-git">git stash 暂存本地修改
 git pull 从远程版本库拉取新的修改
 git stash pop 将暂存起来的修改合并到本地工作库，如果有冲突会有相应的提示，解决冲突并提交即可
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>Note：</strong><br><code>git stash</code>一般用于你在某一分支工作做了一半(还不值得做一次提交或者压根还不想提交)时，你突然想切换到其他分支做一点儿别的事。这时，用<code>git stash</code>就再合适不过了。</p>
 <h2 id="2-Pull-is-not-possible-because-you-have-unmerged-files"><a href="#2-Pull-is-not-possible-because-you-have-unmerged-files" class="headerlink" title="2.Pull is not possible because you have unmerged files."></a>2.Pull is not possible because you have unmerged files.</h2><p>本地的push和merge会形成MERGE-HEAD(FETCH-HEAD), HEAD（PUSH-HEAD）这样的引用。HEAD代表本地最近成功push后形成的引用。MERGE-HEAD表示成功pull后形成的引用。可以通过MERGE-HEAD或者HEAD来实现类型与svn revet的效果。<br>解决：<br>1.将本地的冲突文件冲掉，不仅需要reset到MERGE-HEAD或者HEAD,还需要–hard。没有后面的hard，不会冲掉本地工作区。只会冲掉stage区。<br><code>git reset --hard FETCH_HEAD</code></p>
 <p>2.<code>git pull</code>就会成功。</p>
@@ -325,123 +343,6 @@ git stash pop 将暂存起来的修改合并到本地工作库，如果有冲突
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -503,19 +404,24 @@ git stash pop 将暂存起来的修改合并到本地工作库，如果有冲突
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/iOS/<懒猫>记录/">
+                <a href="/iOS/算法笔记/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="iOS《笨猫快乐学编程》学习笔记">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="iOS算法笔记">
                         
-                        <span class="card-title">iOS《笨猫快乐学编程》学习笔记</span>
+                        <span class="card-title">iOS算法笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是我找到的国内第一份Swift4.0教程，发布在知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcode9版)。
-一份纯文字加图片的教程。但让我感到了快乐。
-下面是学习过程中记录的一些东西。尽管都是傻傻</div>
+                    <div class="summary">尾递归：防止内存爆炸
+只返回函数本身。
+量放在参数中。Ex:
+
+fun func(_ n :Int, _ total :Int = 0) -> Int{
+    if (n == 1)
+        return total + 1
+  </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -552,25 +458,21 @@ git stash pop 将暂存起来的修改合并到本地工作库，如果有冲突
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/iOS/小波iOS11初级篇笔记/">
+                <a href="/iOS/语法问题/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="小波iOS11初级篇笔记">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Swift语法笔记">
                         
-                        <span class="card-title">小波iOS11初级篇笔记</span>
+                        <span class="card-title">Swift语法笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了
-
-小知识点
-IB : Interface Builder 界面构建器
-
-这种写法来防止id出错
+                    <div class="summary">语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话设计模式》，有时间要再读一读了。
 
 
-  let id</div>
+Tuple 元组：定义变量的一个组合
+va</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -688,13 +590,13 @@ IB : Interface Builder 界面构建器
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

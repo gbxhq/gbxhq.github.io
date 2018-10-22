@@ -9,11 +9,12 @@
     <meta name="description" content="知识点：ListNode单链表、 快慢指针
 
 基础部分这段代码可以帮助你在IDE调试。
-#include&amp;lt;iostream&amp;gt;
+#include
 using namespace std;
 typedef struct ListNode
 {
-    ">
+    int val;
+    str">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -100,6 +101,15 @@ typedef struct ListNode
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -169,16 +179,25 @@ typedef struct ListNode
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -318,7 +337,7 @@ typedef struct ListNode
                 <p>知识点：<code>ListNode单链表</code>、 快慢指针</p>
 <a id="more"></a>
 <h1 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h1><p>这段代码可以帮助你在IDE调试。</p>
-<pre><code class="c++">#include&lt;iostream&gt;
+<pre class="line-numbers language-c++"><code class="language-c++">#include<iostream>
 using namespace std;
 typedef struct ListNode
 {
@@ -337,21 +356,21 @@ ListNode *initList(ListNode *preheadInit)
     int a[] = {1,2,3,4,5};
     ListNode *cur,*head;
     cur = preheadInit;
-    for(int i = 0;i &lt; sizeof(a)/sizeof(a[0]);i++)
+    for(int i = 0;i < sizeof(a)/sizeof(a[0]);i++)
     {
         ListNode *p = new ListNode(a[i]);
-        cur-&gt;next = p;
-        cur = cur-&gt;next;
+        cur->next = p;
+        cur = cur->next;
     }
     head = preheadInit;
-    return head-&gt;next; 
+    return head->next; 
 }
 void showList(ListNode *head)
 {
     while(head)
     {
-        cout &lt;&lt; head-&gt;val &lt;&lt; &quot;_&quot;;
-        head = head-&gt;next;
+        cout << head->val << "_";
+        head = head->next;
     }
 }
 int main()
@@ -360,10 +379,10 @@ int main()
     ListNode *head = initList(prehead);
     showList(head);
 }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></iostream></code></pre>
 <h1 id="21-合并有序链表"><a href="#21-合并有序链表" class="headerlink" title="#21 合并有序链表"></a>#21 合并有序链表</h1><h2 id="解"><a href="#解" class="headerlink" title="解"></a>解</h2><p>不贴我的了。写的太烂了。新建了一个链表一个数一个数插进去的。</p>
 <p>贴一个同效率的。简洁好多。</p>
-<pre><code class="c++">/**
+<pre class="line-numbers language-c++"><code class="language-c++">/**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -378,25 +397,25 @@ public:
 
         ListNode* head=new ListNode(-1);
         l0=head;
-        while(l1!=NULL&amp;&amp;l2!=NULL)
+        while(l1!=NULL&&l2!=NULL)
         {
-            if(l1-&gt;val&lt;=l2-&gt;val) 
+            if(l1->val<=l2->val) 
             {
-                l0-&gt;next=new ListNode(l1-&gt;val);
-                l1=l1-&gt;next;
+                l0->next=new ListNode(l1->val);
+                l1=l1->next;
             }
             else 
             {
-                l0-&gt;next=new ListNode(l2-&gt;val);
-                l2=l2-&gt;next;
+                l0->next=new ListNode(l2->val);
+                l2=l2->next;
             }
-            l0=l0-&gt;next;
+            l0=l0->next;
         }
-        l0-&gt;next = l1 ? l1 : l2;
-        return head-&gt;next;
+        l0->next = l1 ? l1 : l2;
+        return head->next;
     }
 };
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></=l2-></code></pre>
 <p>~ 知识点</p>
 <ul>
 <li><p>一个是建ListNode。声明节点的细节。<code>new struct</code></p>
@@ -422,24 +441,24 @@ public:
 </li>
 <li>循环遍历所有节点最好用<code>while(list-&gt;next)</code>。这样指针刚好停在最后一个节点。</li>
 </ul>
-<h2 id="递归的解法"><a href="#递归的解法" class="headerlink" title="递归的解法"></a>递归的解法</h2><pre><code class="c++">class Solution {
+<h2 id="递归的解法"><a href="#递归的解法" class="headerlink" title="递归的解法"></a>递归的解法</h2><pre class="line-numbers language-c++"><code class="language-c++">class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         if(l1==NULL || l2==NULL) return (l1==NULL ? l2: l1);
-        if(l1-&gt;val&lt;l2-&gt;val) 
+        if(l1->val<l2->val) 
         {
-            l1-&gt;next=mergeTwoLists(l1-&gt;next, l2);
+            l1->next=mergeTwoLists(l1->next, l2);
             return l1;
         }
         else
         {
-            l2-&gt;next=mergeTwoLists(l1,l2-&gt;next);
+            l2->next=mergeTwoLists(l1,l2->next);
             return l2;
         }
 
     }//end function
 };
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></l2-></code></pre>
 <p><strong>合并</strong>两个链表。就是判断完<strong>头</strong>元素后。<strong>合并</strong> <u>剩下的部分</u> 连接到 小的头里。</p>
 <p>结束条件：</p>
 <p>如果一个为Null（总是合并剩下的部分一定会遇到null）则返回另一个。</p>
@@ -479,13 +498,13 @@ public:
 }
 </code></pre><p>要点就是我备注的两个地方了。</p>
 <p>但是我这个写法。光顾着递归了。效率是排行倒数。人家第一的递归写法：</p>
-<pre><code class="c++">if(head==NULL||head-&gt;next==NULL)
+<pre class="line-numbers language-c++"><code class="language-c++">if(head==NULL||head->next==NULL)
     return head;
-ListNode *res=reverseList(head-&gt;next);
-head-&gt;next-&gt;next=head;
-head-&gt;next=NULL;
+ListNode *res=reverseList(head->next);
+head->next->next=head;
+head->next=NULL;
 return res;
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这就是另一个境界的思想问题了。</p>
 <p>他的解法也是把第一个取出来。把后面的反转了接上第一个。</p>
 <p><strong>但是</strong>，人家是在地址上操作的。我是新开辟空间的。</p>
@@ -504,56 +523,56 @@ return res;
 <h1 id="203-删除链表中的节点"><a href="#203-删除链表中的节点" class="headerlink" title="#203 删除链表中的节点"></a>#203 删除链表中的节点</h1><p>和237题不同的是这个题是给了值。237题给的是节点。</p>
 <p>感悟和上一个#83题查不多。就是想删除某个节点。只把 cur指针赋NULL是不行的。因为<strong>上一个节点的next 还指着 之前 cur的地址</strong>啊。cur是为空了，上一个节点的next不是空啊。</p>
 <p>因为觉得删最后一个节点的情况不好写。转递归法一气呵成哈哈。</p>
-<pre><code class="c++">ListNode* removeElements(ListNode* head, int val) {
+<pre class="line-numbers language-c++"><code class="language-c++">ListNode* removeElements(ListNode* head, int val) {
     if(head==NULL)
         return head;
-    if(head-&gt;next == NULL){
-        if(head-&gt;val == val)
+    if(head->next == NULL){
+        if(head->val == val)
             return NULL;
         else
             return head;
     }
-    if(head-&gt;val == val)
-        if(head-&gt;next)
-            return removeElements(head-&gt;next,val);
+    if(head->val == val)
+        if(head->next)
+            return removeElements(head->next,val);
         else
             return NULL;
     else
     {
-        head-&gt;next = removeElements(head-&gt;next,val);
+        head->next = removeElements(head->next,val);
         return head;
     }
 }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当然效率一般。超越了96%。我再参考下别的。</p>
 <ul>
 <li><p>处理最后一个节点的方法。可以再声明一个指针p。一个指针往下移。p不移动。这样就可以定位倒数第二的节点。</p>
 </li>
 <li><p>下面这个解法很清晰了。</p>
-<pre><code class="c++">if (head == NULL)
+<pre class="line-numbers language-c++"><code class="language-c++">if (head == NULL)
     return head;
 ListNode phead(0);
 ListNode *ptemp = head;
-ListNode *p = &amp;phead; //phead是一个结构体。所以要指向它的地址。
+ListNode *p = &phead; //phead是一个结构体。所以要指向它的地址。
 //也可以在之前就声明ListNode* phead = new ListNode(9999);就不用取地址了。
 phead.next = ptemp;
 while (1)
 {
-    if (ptemp-&gt;val == val)
+    if (ptemp->val == val)
     {
-        p-&gt;next = ptemp-&gt;next;
-        ptemp = p-&gt;next;
+        p->next = ptemp->next;
+        ptemp = p->next;
     }
     else
     {
         p = ptemp;
-        ptemp = ptemp-&gt;next;
+        ptemp = ptemp->next;
     }
     if (ptemp==NULL)
         break;
 }
 return phead.next;
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="#234 回文链表"></a>#234 回文链表</h1><ul>
@@ -566,7 +585,7 @@ return phead.next;
 <h2 id="快慢指针。"><a href="#快慢指针。" class="headerlink" title="快慢指针。"></a>快慢指针。</h2><blockquote>
 <p>知识点：快指针走两步。慢指针走一步。快指针到链尾。慢指针到中间。</p>
 </blockquote>
-<pre><code class="c++">bool isPalindrome(ListNode* head) {
+<pre class="line-numbers language-c++"><code class="language-c++">bool isPalindrome(ListNode* head) {
     ListNode *pre = nullptr, *cur = head, *quick = head;
     //下面这一段很巧妙。不仅找到了中间节点。还把链表的前半部分都倒置了存在pre里。
     //倒置的方法：
@@ -574,26 +593,26 @@ return phead.next;
     //2.cur后移，保证下一步进行。但我们有tmp预存了cur。
     //3.tmp的next置为pre(初始的pre刚好是NULL)。
     //4.pre=tmp。这时候pre已经是倒置链表的头。
-    while (quick &amp;&amp; quick-&gt;next) {
-        quick = quick-&gt;next-&gt;next;
+    while (quick && quick->next) {
+        quick = quick->next->next;
         auto tmp = cur;
-        cur = cur-&gt;next;
-        tmp-&gt;next = pre;
+        cur = cur->next;
+        tmp->next = pre;
         pre = tmp;
     }
     if (quick != nullptr)
-        cur = cur-&gt;next;
+        cur = cur->next;
     while (cur) {
-        if (cur-&gt;val != pre-&gt;val)
+        if (cur->val != pre->val)
             return false;
         else {
-            cur = cur-&gt;next;
-            pre = pre-&gt;next;
+            cur = cur->next;
+            pre = pre->next;
         }
     }
     return true;
 }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>最后说一下排行第一的方法。人家没存到栈里。存到了向量里。然后直接用坐标定位来判断首尾是否一样。我真的是太定向思维了。看到是从中间往两侧判断就知道用栈。辣鸡~</li>
 </ul>
@@ -609,123 +628,6 @@ return phead.next;
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -968,13 +870,13 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

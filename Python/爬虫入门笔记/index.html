@@ -98,6 +98,15 @@ re.compile()函数是什么？将正则表达式的字符串形式编译为Patte
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -167,16 +176,25 @@ re.compile()函数是什么？将正则表达式的字符串形式编译为Patte
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -337,58 +355,58 @@ print(html)
 urlretrieve(IMAGE_URL, &#39;./img/image1.png&#39;)
 </code></pre><h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/index.html" target="_blank" rel="noopener">官方文档</a></p>
 <p>这才是正餐？<br>Ex：</p>
-<pre><code class="python">from bs4 import BeautifulSoup
-from urllib.request import urlopen
-import re
-import random
-#import webbrowser
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token keyword">from</span> urllib<span class="token punctuation">.</span>request <span class="token keyword">import</span> urlopen
+<span class="token keyword">import</span> re
+<span class="token keyword">import</span> random
+<span class="token comment" spellcheck="true">#import webbrowser</span>
 
-base_url = &quot;https://baike.baidu.com&quot;
-his = [&quot;/item/%e5%91%a8%e6%9d%b0%e4%bc%a6&quot;]
+base_url <span class="token operator">=</span> <span class="token string">"https://baike.baidu.com"</span>
+his <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"/item/%e5%91%a8%e6%9d%b0%e4%bc%a6"</span><span class="token punctuation">]</span>
 
-#his = his.encode(&#39;uft-8&#39;)
-for i in range(5):
-    print(i)
-    url = base_url + his[-1]
+<span class="token comment" spellcheck="true">#his = his.encode('uft-8')</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    url <span class="token operator">=</span> base_url <span class="token operator">+</span> his<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
 
-    html = urlopen(url).read().decode(&#39;utf-8&#39;)
+    html <span class="token operator">=</span> urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
 
-    #webbrowser.open(url)
+    <span class="token comment" spellcheck="true">#webbrowser.open(url)</span>
 
-    soup = BeautifulSoup(html,features=&#39;lxml&#39;)
+    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span>features<span class="token operator">=</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
 
-    print(soup.find(&#39;h1&#39;).get_text(),&#39;\n后缀：&#39;,his[0])
-    #正则找到 属性href是/item/开头 的 a标签
-    sub_urls = soup.find_all(&#39;a&#39;,{&quot;target&quot;:&quot;_blank&quot;,&quot;href&quot;:re.compile(&quot;/item/&quot;)})
+    <span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_text<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'\n后缀：'</span><span class="token punctuation">,</span>his<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#正则找到 属性href是/item/开头 的 a标签</span>
+    sub_urls <span class="token operator">=</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">"target"</span><span class="token punctuation">:</span><span class="token string">"_blank"</span><span class="token punctuation">,</span><span class="token string">"href"</span><span class="token punctuation">:</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">"/item/"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-    #随机选取一个a标签中的href属性值，接到his后。
-    his.append(random.sample(sub_urls,1)[0][&#39;href&#39;])
+    <span class="token comment" spellcheck="true">#随机选取一个a标签中的href属性值，接到his后。</span>
+    his<span class="token punctuation">.</span>append<span class="token punctuation">(</span>random<span class="token punctuation">.</span>sample<span class="token punctuation">(</span>sub_urls<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-    #sample(population, k)从list中随机抽k个元素，也就是说抽完的结果还是个list，因此先跟了个[0]。
-</code></pre>
+    <span class="token comment" spellcheck="true">#sample(population, k)从list中随机抽k个元素，也就是说抽完的结果还是个list，因此先跟了个[0]。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>若想加入容错,最后一句改成:</p>
-<pre><code class="Python"> if len(sub_urls) != 0:
-        his.append(random.sample(sub_urls, 1)[0][&#39;href&#39;])
+<pre class="line-numbers language-Python"><code class="language-Python"> if len(sub_urls) != 0:
+        his.append(random.sample(sub_urls, 1)[0]['href'])
     else:
         # no valid sub link found
         his.pop()
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><p>强大的外部需求模块<br><a href="http://docs.python-requests.org/zh_CN/latest/" target="_blank" rel="noopener">官方文档</a></p>
-<h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><pre><code class="Python">import requests
+<h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><pre class="line-numbers language-Python"><code class="language-Python">import requests
 import webbrowser
-param = {&quot;wd&quot;: &quot;炫猿&quot;}  # 搜索的信息
-r = requests.get(&#39;http://www.baidu.com/s&#39;, params=param)
+param = {"wd": "炫猿"}  # 搜索的信息
+r = requests.get('http://www.baidu.com/s', params=param)
 print(r.url)
 webbrowser.open(r.url)
-</code></pre>
-<h3 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h3><pre><code class="python">data = {&#39;firstname&#39;: &#39;莫烦&#39;, &#39;lastname&#39;: &#39;周&#39;}
-r = requests.post(&#39;http://pythonscraping.com/files/processing.php&#39;, data=data)
-print(r.text)
-</code></pre>
-<h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><pre><code class="python">r = requests.get(IMAGE_URL)
-with open(&#39;./img/image2.png&#39;, &#39;wb&#39;) as f:
-    f.write(r.content)
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h3><pre class="line-numbers language-python"><code class="language-python">data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'firstname'</span><span class="token punctuation">:</span> <span class="token string">'莫烦'</span><span class="token punctuation">,</span> <span class="token string">'lastname'</span><span class="token punctuation">:</span> <span class="token string">'周'</span><span class="token punctuation">}</span>
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'http://pythonscraping.com/files/processing.php'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><pre class="line-numbers language-python"><code class="language-python">r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>IMAGE_URL<span class="token punctuation">)</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'./img/image2.png'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>r<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p> requests 能让你下一点, 保存一点, 而不是要全部下载完才能保存去另外的地方. 这就是一个 chunk 一个 chunk 的下载. 使用 r.iter_content(chunk_size) 来控制每个 chunk 的大小, 然后在文件中写入这个 chunk 大小的数据.</p>
 <pre><code>r = requests.get(IMAGE_URL, stream=True)    # stream loading
 
@@ -433,123 +451,6 @@ for i in range(1,10):
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -772,13 +673,13 @@ for i in range(1,10):
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

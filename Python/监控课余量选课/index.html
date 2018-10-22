@@ -96,6 +96,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -165,16 +174,25 @@
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -324,22 +342,22 @@
 <h1 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h1><p>经过同学的推荐使用了selenium。做自动化测试很好啊，解决chekbox分分钟。开始啦~</p>
 <p>上来就遇到问题了。要把<code>geckodriver</code>这个东西放到环境变量里。<br>最后选择手动配置路径：<br><code>dr = webdriver.Firefox(executable_path = &#39;/Users/lixs/anaconda3/geckodriver&#39;)</code><br>虽然麻烦点，但是着急往下写。我们继续~</p>
 <p>先试试用Cookie登录</p>
-<pre><code class="Python">driver.get(&#39;http://jwxk.ucas.ac.cn/courseManage/selectCourse?s=473bcdb8-8d5d-40af-9087-5071b63ff7a8&#39;)
+<pre class="line-numbers language-Python"><code class="language-Python">driver.get('http://jwxk.ucas.ac.cn/courseManage/selectCourse?s=473bcdb8-8d5d-40af-9087-5071b63ff7a8')
 #将用户名密码写入浏览器cookie中
-driver.add_cookie({&#39;name&#39;:&#39;username&#39;,&#39;value&#39;:&#39;chinalixs@qq.com&#39;})
-driver.add_cookie({&#39;name&#39;:&#39;pwd&#39;,&#39;value&#39;:&#39;Jwsyb9503&#39;})
+driver.add_cookie({'name':'username','value':'chinalixs@qq.com'})
+driver.add_cookie({'name':'pwd','value':'Jwsyb9503'})
 #再次访问网站，将会自动登录
-driver.get(&#39;http://jwxk.ucas.ac.cn/courseManage/&#39;)
-</code></pre>
+driver.get('http://jwxk.ucas.ac.cn/courseManage/')
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>不行，提示会话过期。先不用Cookie了以后再回来研究~自动填表吧~</p>
-<pre><code class="python"># login
-input = driver.find_element_by_name(&#39;userName&#39;)
-input.send_keys(&#39;NAME&#39;)
-input = driver.find_element_by_name(&#39;pwd&#39;)
-input.send_keys(&#39;123456&#39;)
-#点击登录
-sb = driver.find_element_by_name(&#39;sb&#39;).click()
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># login</span>
+input <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">'userName'</span><span class="token punctuation">)</span>
+input<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'NAME'</span><span class="token punctuation">)</span>
+input <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">)</span>
+input<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'123456'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#点击登录</span>
+sb <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">'sb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>然后选课找课都是一个模子的。只能说这个selenium很给力~</p>
 <hr>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ul>
@@ -349,46 +367,46 @@ sb = driver.find_element_by_name(&#39;sb&#39;).click()
 </li>
 <li>处理弹窗：</li>
 </ul>
-<pre><code class="python">al = driver.switch_to_alert()
-time.sleep(1)
-al.accept()
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">al <span class="token operator">=</span> driver<span class="token punctuation">.</span>switch_to_alert<span class="token punctuation">(</span><span class="token punctuation">)</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+al<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>判断是否选上了<code>driver.find_element_by_xpath(&#39;//input[@value=&quot;65A7F68B98BB6FB9&quot;]&#39;).is_selected()</code></li>
 </ul>
 <hr>
 <h1 id="实战本地跑"><a href="#实战本地跑" class="headerlink" title="实战本地跑"></a>实战本地跑</h1><p>截止到目前还是没选上的，因为没人退课啊。不过学到了selenium这个包。</p>
 <p>具体思路就是监测那门课的 chekbox 前面的 √ 是否打上了，打不上就刷新，因为有了课余量那个 √ 是可以打上的，然后就一直刷新。<br>之前也是程序跑个20次左右就会报错，可能是请求太多了。然后刚好上次学到了 try/except ，哎呦不错哦。</p>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><pre><code class="Python">from selenium import webdriver
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><pre class="line-numbers language-Python"><code class="language-Python">from selenium import webdriver
 import time
 
-driver = webdriver.Firefox(executable_path = &#39;/Users/lixs/anaconda3/geckodriver&#39;)
-driver.get(&#39;http://sep.ucas.ac.cn&#39;)
+driver = webdriver.Firefox(executable_path = '/Users/lixs/anaconda3/geckodriver')
+driver.get('http://sep.ucas.ac.cn')
 # login
-input = driver.find_element_by_name(&#39;userName&#39;)
-input.send_keys(&#39;chinalixs@qq.com&#39;)
-input = driver.find_element_by_name(&#39;pwd&#39;)
-input.send_keys(&#39;Jwsyb9503&#39;)
-sb = driver.find_element_by_name(&#39;sb&#39;).click()
+input = driver.find_element_by_name('userName')
+input.send_keys('chinalixs@qq.com')
+input = driver.find_element_by_name('pwd')
+input.send_keys('Jwsyb9503')
+sb = driver.find_element_by_name('sb').click()
 
 # 打开选课系统
 from selenium import webdriver
 import time
-driver = webdriver.Firefox(executable_path = &#39;/Users/lixs/anaconda3/geckodriver&#39;)
-driver.get(&#39;http://sep.ucas.ac.cn&#39;)
+driver = webdriver.Firefox(executable_path = '/Users/lixs/anaconda3/geckodriver')
+driver.get('http://sep.ucas.ac.cn')
 # login
-input = driver.find_element_by_name(&#39;userName&#39;)
-input.send_keys(&#39;chinalixs@qq.com&#39;)
-input = driver.find_element_by_name(&#39;pwd&#39;)
-input.send_keys(&#39;Jwsyb9503&#39;)
-sb = driver.find_element_by_name(&#39;sb&#39;).click()
+input = driver.find_element_by_name('userName')
+input.send_keys('chinalixs@qq.com')
+input = driver.find_element_by_name('pwd')
+input.send_keys('Jwsyb9503')
+sb = driver.find_element_by_name('sb').click()
 # 打开选课系统
-driver.find_element_by_xpath(&#39;//a[@href=&quot;/portal/site/226/821&quot;]&#39;).click()
+driver.find_element_by_xpath('//a[@href="/portal/site/226/821"]').click()
 # 点击选课
-driver.get(&#39;http://jwxk.ucas.ac.cn/courseManage/main&#39;)
+driver.get('http://jwxk.ucas.ac.cn/courseManage/main')
 #选学院
-driver.find_element_by_id(&#39;id_913&#39;).click()
-driver.find_element_by_xpath(&#39;//form[@id=&quot;regfrm2&quot;]//button[@name=&quot;sb&quot;]&#39;).click()
+driver.find_element_by_id('id_913').click()
+driver.find_element_by_xpath('//form[@id="regfrm2"]//button[@name="sb"]').click()
 #选课
 i = 1
 def xuanke(i):
@@ -396,12 +414,12 @@ def xuanke(i):
     #每当i跑100次就返回一下防止内存爆炸
         return
     try:
-        driver.find_element_by_xpath(&#39;//input[@value=&quot;65A7F68B98BB6FB9&quot;]&#39;).click()
-        if driver.find_element_by_xpath(&#39;//input[@value=&quot;65A7F68B98BB6FB9&quot;]&#39;).is_selected():
-            print(&#39;选上啦！！！&#39;)
+        driver.find_element_by_xpath('//input[@value="65A7F68B98BB6FB9"]').click()
+        if driver.find_element_by_xpath('//input[@value="65A7F68B98BB6FB9"]').is_selected():
+            print('选上啦！！！')
             return
         else:
-            print(i,&#39;次没选上继续&#39;)
+            print(i,'次没选上继续')
             i += 1
             #刷新一下
             driver.refresh()
@@ -410,17 +428,17 @@ def xuanke(i):
             xuanke(i)
 
     except:
-        print(&#39;---------------ERROR---------------------&#39;)
+        print('---------------ERROR---------------------')
         xuanke(i)
 for a in range(10000):
     xuanke(i)
 #提交
-sb = driver.find_element_by_xpath(&#39;//button[@type=&quot;submit&quot;]&#39;).click()
+sb = driver.find_element_by_xpath('//button[@type="submit"]').click()
 #弹出一个提示，选确定
-sb = driver.find_element_by_xpath(&#39;//button[@value=&quot;ok&quot;]&#39;).click()
-print(&#39;OVER&#39;)
+sb = driver.find_element_by_xpath('//button[@value="ok"]').click()
+print('OVER')
 driver.close()
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="代码历史："><a href="#代码历史：" class="headerlink" title="代码历史："></a>代码历史：</h2><ul>
 <li><strong>1.0版本</strong> 开始选课函数是 xuanke()<br>后来我想引入一个统计变量看跑了多少次。就在函数外设了个变量。结果很低级的错误就出现了，函数定义怎么能改全局变量i呢。真的天真</li>
 <li><strong>2.0版本</strong> xuanke(i) 传入i。<br>统计可以了，新问题也就出现了。老版的 xuanke(i) 里每跑2k次左右，就会内存爆炸，于是</li>
@@ -448,31 +466,31 @@ sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 
 sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
 </code></pre><h2 id="安装Xvfb"><a href="#安装Xvfb" class="headerlink" title="安装Xvfb"></a>安装Xvfb</h2><p>无GUI时，Xvfb为虚拟GUI</p>
-<pre><code class="shell">yum update
+<pre class="line-numbers language-shell"><code class="language-shell">yum update
 
 yum install Xvfb
 
 yum -install libXfont
 
 yum install xorg-x11-fonts*
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="安装selenium、pyvirtualdisplay"><a href="#安装selenium、pyvirtualdisplay" class="headerlink" title="安装selenium、pyvirtualdisplay"></a>安装selenium、pyvirtualdisplay</h2><p>pip install selenium</p>
 <p>pip install pyvirtualdisplay</p>
 <p>5.写个小demo测试下效果</p>
 <p> vim test.py</p>
-<pre><code class="python">from selenium import webdriver
-from pyvirtualdisplay import Display
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> pyvirtualdisplay <span class="token keyword">import</span> Display
 　　
 
-display = Display(visible=0, size=(800,600))
-display.start()
-driver = webdriver.Chrome(&quot;./chromedriver&quot;)
-driver.get(&quot;http://www.baidu.com&quot;)
-print driver.page_source
+display <span class="token operator">=</span> Display<span class="token punctuation">(</span>visible<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">800</span><span class="token punctuation">,</span><span class="token number">600</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+display<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token string">"./chromedriver"</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://www.baidu.com"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> driver<span class="token punctuation">.</span>page_source
 
-driver.quit()
-display.stop()
-</code></pre>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+display<span class="token punctuation">.</span>stop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>python test.py</p>
 </blockquote>
@@ -480,123 +498,6 @@ display.stop()
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -838,13 +739,13 @@ display.stop()
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

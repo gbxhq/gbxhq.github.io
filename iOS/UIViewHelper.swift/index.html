@@ -99,6 +99,15 @@ extension UIView {
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -168,16 +177,25 @@ extension UIView {
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -315,183 +333,66 @@ extension UIView {
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。<br><a id="more"></a></p>
-<pre><code class="swift">import UIKit
-//圆角
-extension UIView {
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">import</span> <span class="token builtin">UIKit</span>
+<span class="token comment" spellcheck="true">//圆角</span>
+<span class="token keyword">extension</span> <span class="token builtin">UIView</span> <span class="token punctuation">{</span>
 
-  @IBInspectable //让它可见
-  var cornerReadius: CGFloat { //打var选get-set模板 //图形相关属性CG开头
-      get {
-          return layer.cornerRadius
-      }
-      set {
-          layer.cornerRadius = newValue
-      }
-  }
-//阴影圆角
-  @IBInspectable
-  var shadowRadius: CGFloat {
-      get {
-          return layer.shadowRadius
-      }
-      set {
-          layer.shadowRadius = newValue
-      }
-  }
-//阴影透明度
-  @IBInspectable
-  var shawodOpacity: Float {
-      get {
-          return layer.shadowOpacity
-      }
-      set {
-          layer.shadowOpacity = newValue
-      }
-  }
-//阴影颜色
-  @IBInspectable
-  var shadowColor: UIColor? {
-      get {
-          return layer.shadowColor != nil ? UIColor(cgColor: layer.shadowColor!) : nil
-      }
-      set {
-          layer.shadowColor = newValue?.cgColor
-      }
-  }
-//阴影大小
-  @IBInspectable
-  var shadowOffset: CGSize {
-      get {
-          return layer.shadowOffset
-      }
-      set {
-          layer.shadowOffset = newValue
-      }
-  }
+  <span class="token atrule">@IBInspectable</span> <span class="token comment" spellcheck="true">//让它可见</span>
+  <span class="token keyword">var</span> cornerReadius<span class="token punctuation">:</span> <span class="token builtin">CGFloat</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//打var选get-set模板 //图形相关属性CG开头</span>
+      <span class="token keyword">get</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> layer<span class="token punctuation">.</span>cornerRadius
+      <span class="token punctuation">}</span>
+      <span class="token keyword">set</span> <span class="token punctuation">{</span>
+          layer<span class="token punctuation">.</span>cornerRadius <span class="token operator">=</span> newValue
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//阴影圆角</span>
+  <span class="token atrule">@IBInspectable</span>
+  <span class="token keyword">var</span> shadowRadius<span class="token punctuation">:</span> <span class="token builtin">CGFloat</span> <span class="token punctuation">{</span>
+      <span class="token keyword">get</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> layer<span class="token punctuation">.</span>shadowRadius
+      <span class="token punctuation">}</span>
+      <span class="token keyword">set</span> <span class="token punctuation">{</span>
+          layer<span class="token punctuation">.</span>shadowRadius <span class="token operator">=</span> newValue
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//阴影透明度</span>
+  <span class="token atrule">@IBInspectable</span>
+  <span class="token keyword">var</span> shawodOpacity<span class="token punctuation">:</span> <span class="token builtin">Float</span> <span class="token punctuation">{</span>
+      <span class="token keyword">get</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> layer<span class="token punctuation">.</span>shadowOpacity
+      <span class="token punctuation">}</span>
+      <span class="token keyword">set</span> <span class="token punctuation">{</span>
+          layer<span class="token punctuation">.</span>shadowOpacity <span class="token operator">=</span> newValue
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//阴影颜色</span>
+  <span class="token atrule">@IBInspectable</span>
+  <span class="token keyword">var</span> shadowColor<span class="token punctuation">:</span> <span class="token builtin">UIColor</span><span class="token operator">?</span> <span class="token punctuation">{</span>
+      <span class="token keyword">get</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> layer<span class="token punctuation">.</span>shadowColor <span class="token operator">!=</span> <span class="token constant">nil</span> <span class="token operator">?</span> <span class="token function">UIColor</span><span class="token punctuation">(</span>cgColor<span class="token punctuation">:</span> layer<span class="token punctuation">.</span>shadowColor<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token constant">nil</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">set</span> <span class="token punctuation">{</span>
+          layer<span class="token punctuation">.</span>shadowColor <span class="token operator">=</span> newValue<span class="token operator">?</span><span class="token punctuation">.</span>cgColor
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//阴影大小</span>
+  <span class="token atrule">@IBInspectable</span>
+  <span class="token keyword">var</span> shadowOffset<span class="token punctuation">:</span> <span class="token builtin">CGSize</span> <span class="token punctuation">{</span>
+      <span class="token keyword">get</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> layer<span class="token punctuation">.</span>shadowOffset
+      <span class="token punctuation">}</span>
+      <span class="token keyword">set</span> <span class="token punctuation">{</span>
+          layer<span class="token punctuation">.</span>shadowOffset <span class="token operator">=</span> newValue
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
 
-}
-</code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -553,21 +454,19 @@ extension UIView {
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/iOS/语法问题/">
+                <a href="/iOS/<懒猫>记录/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Swift语法笔记">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="iOS《笨猫快乐学编程》学习笔记">
                         
-                        <span class="card-title">Swift语法笔记</span>
+                        <span class="card-title">iOS《笨猫快乐学编程》学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话设计模式》，有时间要再读一读了。
-
-
-Tuple 元组：定义变量的一个组合
-va</div>
+                    <div class="summary">这是我找到的国内第一份Swift4.0教程，发布在知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcode9版)。
+一份纯文字加图片的教程。但让我感到了快乐。
+下面是学习过程中记录的一些东西。尽管都是傻傻</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -602,25 +501,26 @@ va</div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">本篇</div>
+            <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/iOS/UIViewHelper.swift/">
+                <a href="/iOS/算法笔记/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="iOS 圆角、阴影通用配置">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="iOS算法笔记">
                         
-                        <span class="card-title">iOS 圆角、阴影通用配置</span>
+                        <span class="card-title">iOS算法笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。
-import UIKit
-//圆角
-extension UIView {
+                    <div class="summary">尾递归：防止内存爆炸
+只返回函数本身。
+量放在参数中。Ex:
 
-  @IBInspectable //让它可见
-  var cornerReadiu</div>
+fun func(_ n :Int, _ total :Int = 0) -> Int{
+    if (n == 1)
+        return total + 1
+  </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -637,7 +537,6 @@ extension UIView {
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -739,13 +638,13 @@ extension UIView {
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

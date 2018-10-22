@@ -96,6 +96,15 @@ Demo 1 StopWatch第一个小demo是个秒表。功能简单就是点击Play计�
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -165,16 +174,25 @@ Demo 1 StopWatch第一个小demo是个秒表。功能简单就是点击Play计�
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -316,15 +334,15 @@ Demo 1 StopWatch第一个小demo是个秒表。功能简单就是点击Play计�
 <h1 id="Demo-1-StopWatch"><a href="#Demo-1-StopWatch" class="headerlink" title="Demo 1 StopWatch"></a>Demo 1 StopWatch</h1><p>第一个小demo是个秒表。功能简单就是点击Play计时。Pause暂停。Reset重置。</p>
 <h1 id="载入"><a href="#载入" class="headerlink" title="载入"></a>载入</h1><p>设一个计数器<code>counter</code>初值0.0.然后用String()方法转成字符串传给Label。</p>
 <h1 id="Play"><a href="#Play" class="headerlink" title="Play"></a>Play</h1><p>一个<code>Timer</code>对象。<br>点下Play时：</p>
-<pre><code class="swift">
-timer = Timer.scheduledTimer(
-    timeInterval: 0.1, 
-    target: self,
-    selector: #selector(ViewController.UpdateTimer),
-    userInfo: nil,
-    repeats: true)
+<pre class="line-numbers language-swift"><code class="language-swift">
+timer <span class="token operator">=</span> <span class="token builtin">Timer</span><span class="token punctuation">.</span><span class="token function">scheduledTimer</span><span class="token punctuation">(</span>
+    timeInterval<span class="token punctuation">:</span> <span class="token number">0.1</span><span class="token punctuation">,</span> 
+    target<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">,</span>
+    selector<span class="token punctuation">:</span> #<span class="token function">selector</span><span class="token punctuation">(</span><span class="token builtin">ViewController</span><span class="token punctuation">.</span><span class="token builtin">UpdateTimer</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    userInfo<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">,</span>
+    repeats<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
 
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>其中<code>UpdateTimer</code>方法是更新Label的。也就是每个时间间隔<code>timeInterval: 0.1</code>都会执行 <code>counter+=1</code></p>
 <p>运行测试。没问题。点击Play后。每0.1s时间标签会累加。<br>如果想更规范可以这么写String以控制数字显示格式：</p>
 <pre><code>timeLabel.text = String(format: &quot;%.1f&quot;, counter)
@@ -345,123 +363,6 @@ timer = Timer.scheduledTimer(
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -596,11 +497,12 @@ apropos(&quot;mea&quot;)搜包含mea字符的方法
                     <div class="summary">刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。
 刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。
 
-问题分析原文件头部&gt; Title
-&gt; Date
-&gt; Tags
+问题分析原文件头部> Title
+> Date
+> Tags
 
-目标文</div>
+目标文件头部---
+ti</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-24
@@ -722,13 +624,13 @@ apropos(&quot;mea&quot;)搜包含mea字符的方法
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

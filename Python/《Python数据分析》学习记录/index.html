@@ -97,6 +97,15 @@ def g">
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -166,16 +175,25 @@ def g">
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -282,16 +300,16 @@ def g">
             
             <div class="article-tag">
                 
-                <a href="/tags/Data-Analysis/" target="_blank">
-                    <span class="chip bg-color">Data Analysis</span>
+                <a href="/tags/Note/" target="_blank">
+                    <span class="chip bg-color">Note</span>
                 </a>
                 
                 <a href="/tags/Python/" target="_blank">
                     <span class="chip bg-color">Python</span>
                 </a>
                 
-                <a href="/tags/note/" target="_blank">
-                    <span class="chip bg-color">note</span>
+                <a href="/tags/Data-Analysis/" target="_blank">
+                    <span class="chip bg-color">Data Analysis</span>
                 </a>
                 
             </div>
@@ -319,24 +337,24 @@ def g">
                 <p>这是阅读《Python for Data Analysis》的读书笔记。</p>
 <a id="more"></a>
 <h1 id="第一章-准备工作"><a href="#第一章-准备工作" class="headerlink" title="第一章 准备工作"></a>第一章 准备工作</h1><p>不用准备了。🙂🙂🙂要啥有啥。</p>
-<h1 id="第二章-引言"><a href="#第二章-引言" class="headerlink" title="第二章 引言"></a>第二章 引言</h1><h2 id="list-手动统计"><a href="#list-手动统计" class="headerlink" title="list 手动统计"></a>list 手动统计</h2><pre><code class="python">from collections improt defaultdict
-def get_count(sequence):
-    counts = defaultdict(int)
-    for x in sequence:
-        counts[x]  += 1
-    return counts
-</code></pre>
+<h1 id="第二章-引言"><a href="#第二章-引言" class="headerlink" title="第二章 引言"></a>第二章 引言</h1><h2 id="list-手动统计"><a href="#list-手动统计" class="headerlink" title="list 手动统计"></a>list 手动统计</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> collections improt defaultdict
+<span class="token keyword">def</span> <span class="token function">get_count</span><span class="token punctuation">(</span>sequence<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    counts <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span>int<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> sequence<span class="token punctuation">:</span>
+        counts<span class="token punctuation">[</span>x<span class="token punctuation">]</span>  <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> counts
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>本章内容仅仅是向读者展示。跳~</p>
 <h1 id="第三章-IPython"><a href="#第三章-IPython" class="headerlink" title="第三章 IPython"></a>第三章 IPython</h1><p>目前使用的IDE是Spyder，是集成了IPython的。值得一学。</p>
 <h2 id="内省"><a href="#内省" class="headerlink" title="内省"></a>内省</h2><ul>
 <li><p>变量前后加? 可查看该对象的通用信息</p>
-<pre><code class="python">  a?
-  Type:        int
-  String form: 10
-  Docstring:  
-  int(x=0) -&gt; integer
-  int(x, base=10) -&gt; integer
-</code></pre>
+<pre class="line-numbers language-python"><code class="language-python">  a?
+  Type<span class="token punctuation">:</span>        int
+  String form<span class="token punctuation">:</span> <span class="token number">10</span>
+  Docstring<span class="token punctuation">:</span>  
+  int<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> integer
+  int<span class="token punctuation">(</span>x<span class="token punctuation">,</span> base<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> integer
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <ul>
@@ -345,16 +363,16 @@ def get_count(sequence):
 </ul>
 <ul>
 <li><p>搜索IPython命名空间</p>
-<pre><code class="shell">np.*load*? #列出NumPy顶级命名空间中含有“load”的所有函数
+<pre class="line-numbers language-shell"><code class="language-shell">np.*load*? #列出NumPy顶级命名空间中含有“load”的所有函数
 np.load
 np.loads
 np.loadtxt
 no.pkgload
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h3 id="run"><a href="#run" class="headerlink" title="%run"></a>%run</h3><pre><code class="Python">%run filename.py #运行这个文件
-</code></pre>
+<h3 id="run"><a href="#run" class="headerlink" title="%run"></a>%run</h3><pre class="line-numbers language-Python"><code class="language-Python">%run filename.py #运行这个文件
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>文件在一个空的命名空间中运行。此后该文件定义的全部变量就可以在IPython Shell中访问了。</p>
 <p><strong>Note</strong><br>访问 Interactive 命名空间的变量：<br><code>%run -i</code></p>
 <h3 id="中断执行的代码"><a href="#中断执行的代码" class="headerlink" title="中断执行的代码"></a>中断执行的代码</h3><p><code>Ctrl + C</code> </p>
@@ -491,20 +509,20 @@ no.pkgload
 <li>数组切片是原是数组的视图。这意味着：<strong>这些数据不是被复制的，视图上的任何修改都会被直接反映到原数组上。</strong><br>（我虽然改的是切片，但其实原数组也改了）</li>
 <li>如果你想得到的是副本也不是视图。要显式复制：<code>arr[5:8].copy()</code></li>
 </ul>
-<h3 id="布尔型索引"><a href="#布尔型索引" class="headerlink" title="布尔型索引"></a>布尔型索引</h3><pre><code class="python">arrary = ([True,False,True],dtype = bool)
-data[arrary] #输出第1、3行
-#还可以与切片混用
-data[arrary,:2] #输出1、3行的前两列
-#索引还可以同时满足多个条件
-mask = (names == &#39;Bob&#39;) | (names != &#39;Will&#39;) #mask就是一个bool型数组
-</code></pre>
-<h3 id="花式索引"><a href="#花式索引" class="headerlink" title="花式索引"></a>花式索引</h3><pre><code class="python">arr[[4,0,6]] # 输出第5、1、7行
-arr[[-1,-5]] # 输出倒数1、5行
-arr[[1,5,4],[0,2,1]] #输出坐标(1,0) (5,3)(4,1)三个数
-#那如何利用索引输出该行列呢
-#要用切片配合
-arr[[1,5,4],[:,0,2,1]] #输出1、5、4行的0、2、1列
-</code></pre>
+<h3 id="布尔型索引"><a href="#布尔型索引" class="headerlink" title="布尔型索引"></a>布尔型索引</h3><pre class="line-numbers language-python"><code class="language-python">arrary <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token boolean">False</span><span class="token punctuation">,</span><span class="token boolean">True</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dtype <span class="token operator">=</span> bool<span class="token punctuation">)</span>
+data<span class="token punctuation">[</span>arrary<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#输出第1、3行</span>
+<span class="token comment" spellcheck="true">#还可以与切片混用</span>
+data<span class="token punctuation">[</span>arrary<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#输出1、3行的前两列</span>
+<span class="token comment" spellcheck="true">#索引还可以同时满足多个条件</span>
+mask <span class="token operator">=</span> <span class="token punctuation">(</span>names <span class="token operator">==</span> <span class="token string">'Bob'</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span>names <span class="token operator">!=</span> <span class="token string">'Will'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#mask就是一个bool型数组</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="花式索引"><a href="#花式索引" class="headerlink" title="花式索引"></a>花式索引</h3><pre class="line-numbers language-python"><code class="language-python">arr<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 输出第5、1、7行</span>
+arr<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 输出倒数1、5行</span>
+arr<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#输出坐标(1,0) (5,3)(4,1)三个数</span>
+<span class="token comment" spellcheck="true">#那如何利用索引输出该行列呢</span>
+<span class="token comment" spellcheck="true">#要用切片配合</span>
+arr<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#输出1、5、4行的0、2、1列</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Note</strong> 花式索引跟切片不一样。不是视图是复制。</p>
 <h3 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h3><p>转置返回的是<strong>视图</strong></p>
 <h3 id="通用函数"><a href="#通用函数" class="headerlink" title="通用函数"></a>通用函数</h3><p>ufuns(元素级数组方法)<br>函数<br><code>abs、fabs</code><br>计算整数、浮点数或复数的绝对值。对于非复数值,可以使用更快的fabs<br><code>sgrt</code><br>计算各元素的平方根。相当于arr <strong> 0.5<br><code>square</code><br>计算各元素的平方。相当于arr </strong> 2<br><code>exp</code><br>计算各元素的指数e<br><code>log、log10、log2、log1p</code><br>分别为自然对数(底数为e)、底数为10的log、底数为2的log、log(1+x)<br><code>sign</code><br>计算各元素的正负号:1(正数)、0(零)1(负数)<br><code>ceil</code><br>计算各元素的 ceiling值,即大于等于该值的最小整数<br><code>floor</code><br>计算各元素的for值,即小于等于该值的最大整数<br><code>rint</code><br>将各元素值四舍五入到最接近的整数,保留 dtype<br><code>modf</code><br>将数组的小数和整数部分以两个独立数组的形式返回<br><code>isnan</code><br>返回一个表示“哪些值是NaN(这不是一个数字)”的布尔型数组<br><code>isfinite、 isinf</code><br>分别返回一个表示“哪些元素是有穷的(非inf,feiNaN)”或“哪些元素是无穷的”的布尔型数组<br><code>cos、cosh、sin、Sinh、tan、tanh</code><br>普通型和双曲型三角函数<br><img src="http://p66eruxmw.bkt.clouddn.com/15221187685515.jpg" alt=""></p>
@@ -556,13 +574,13 @@ arch[&#39;b&#39;] #可单独访问
 <h3 id="索引对象"><a href="#索引对象" class="headerlink" title="索引对象"></a>索引对象</h3><ul>
 <li>Index对象是<strong>不可修改</strong>的</li>
 </ul>
-<h2 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h2><h3 id="重新索引"><a href="#重新索引" class="headerlink" title="重新索引"></a>重新索引</h3><pre><code class="python">obj.reindex([index],#新索引
-    method,#差插值填充方式：=ffill/pad 向前填充 =bfill/backfill向后填充
-    fill_vaule，#缺失值填充
-    limit,#向前、后填充时的最大填充量
-    level,#没看懂
-    copy#默认True，无论如何都复制。设为FALSE则新旧相等就不复制了)
-</code></pre>
+<h2 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h2><h3 id="重新索引"><a href="#重新索引" class="headerlink" title="重新索引"></a>重新索引</h3><pre class="line-numbers language-python"><code class="language-python">obj<span class="token punctuation">.</span>reindex<span class="token punctuation">(</span><span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">#新索引</span>
+    method<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#差插值填充方式：=ffill/pad 向前填充 =bfill/backfill向后填充</span>
+    fill_vaule，<span class="token comment" spellcheck="true">#缺失值填充</span>
+    limit<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#向前、后填充时的最大填充量</span>
+    level<span class="token punctuation">,</span><span class="token comment" spellcheck="true">#没看懂</span>
+    copy<span class="token comment" spellcheck="true">#默认True，无论如何都复制。设为FALSE则新旧相等就不复制了)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="丢弃"><a href="#丢弃" class="headerlink" title="丢弃"></a>丢弃</h3><p><code>obj.drop([&#39;d&#39;,&#39;c&#39;])</code><br><code>obj.drop([&#39;1&#39;,&#39;3&#39;],axis=1)</code>竖着丢 </p>
 <p><code>drop</code>方法返回的是一个在指定轴上删除了指定值的新对象：<br><code>new_obj = obj.drop(&#39;c&#39;)</code></p>
 <h3 id="索引选取过滤"><a href="#索引选取过滤" class="headerlink" title="索引选取过滤"></a>索引选取过滤</h3><p><code>obj[&#39;a&#39;:&#39;c&#39;]</code> 这是根据列名来 选取（过滤）列<br>与Python切片不同的是c是<strong>包含</strong>的。<br><code>obj.ix[val]</code> 这是根据行名来选取行。<br><code>obj.ix[:,val]</code> 选取列</p>
@@ -579,123 +597,6 @@ arch[&#39;b&#39;] #可单独访问
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -770,10 +671,10 @@ arch[&#39;b&#39;] #可单独访问
                     <div class="summary">空白处点击鼠标，弹出文字的网页特效。
 
 代码如下：
-&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;script type="text/javascript">
 /* 鼠标特效 */
 var a_idx = 0;
-jQuery(document).rea</div>
+jQuery(document).ready(function($</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-23
@@ -932,13 +833,13 @@ jQuery(document).rea</div>
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

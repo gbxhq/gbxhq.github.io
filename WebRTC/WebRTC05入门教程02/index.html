@@ -96,6 +96,15 @@ config包含 key, iceServers">
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -165,16 +174,25 @@ config包含 key, iceServers">
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -505,184 +523,184 @@ config包含 key, iceServers">
 </table>
 <h3 id="建立一个连接"><a href="#建立一个连接" class="headerlink" title="建立一个连接"></a>建立一个连接</h3><p>先把信令服务器跑起来。</p>
 <p>代码：<code>server.js</code></p>
-<pre><code class="javascript">//信令服务器代码请转到入门教程03
-</code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//信令服务器代码请转到入门教程03</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后<code>node server</code> 把上面的信令服务器跑起来。</p>
 <p>（教程01说过要安装好nodejs环境）</p>
 <p>如果想测试是否跑起来了，可以用wscat命令：</p>
 <p><code>wscat -c ws://localhost:9090</code> </p>
 <p>然后是前端：<code>index.html</code></p>
-<pre><code class="html">&lt;html lang = &quot;en&quot;&gt; 
-   &lt;head&gt; 
-      &lt;meta charset = &quot;utf-8&quot; /&gt; 
-   &lt;/head&gt;
+<pre class="line-numbers language-html"><code class="language-html">&lt;html lang = "en"> 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span> 
+      &lt;meta charset = "utf-8" /> 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
 
-   &lt;body&gt; 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span> 
 
-      &lt;div&gt; 
-         &lt;input type = &quot;text&quot; id = &quot;loginInput&quot; /&gt; 
-         &lt;button id = &quot;loginBtn&quot;&gt;Login&lt;/button&gt; 
-      &lt;/div&gt; 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span> 
+         &lt;input type = "text" id = "loginInput" /> 
+         &lt;button id = "loginBtn">Login<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
 
-      &lt;div&gt; 
-         &lt;input type = &quot;text&quot; id = &quot;otherUsernameInput&quot; /&gt;
-         &lt;button id = &quot;connectToOtherUsernameBtn&quot;&gt;Establish connection&lt;/button&gt; 
-      &lt;/div&gt; 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span> 
+         &lt;input type = "text" id = "otherUsernameInput" />
+         &lt;button id = "connectToOtherUsernameBtn">Establish connection<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
 
-      &lt;script src = &quot;client.js&quot;&gt;&lt;/script&gt;
+      &lt;script src = "client.js"><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
-   &lt;/body&gt;
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 
-&lt;/html&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这个不用解释吧。就是两个输入框两个按钮。</p>
 <p>最后是客户端js文件：<code>client.js</code></p>
-<pre><code class="javascript">var connection = new WebSocket(&#39;ws://localhost:9090&#39;); 
-var name = &quot;&quot;; 
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> connection <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocket</span><span class="token punctuation">(</span><span class="token string">'ws://localhost:9090'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span> 
 
-var loginInput = document.querySelector(&#39;#loginInput&#39;); 
-var loginBtn = document.querySelector(&#39;#loginBtn&#39;); 
-var otherUsernameInput = document.querySelector(&#39;#otherUsernameInput&#39;); 
-var connectToOtherUsernameBtn = document.querySelector(&#39;#connectToOtherUsernameBtn&#39;); 
-var connectedUser, myConnection;
+<span class="token keyword">var</span> loginInput <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#loginInput'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">var</span> loginBtn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#loginBtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">var</span> otherUsernameInput <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#otherUsernameInput'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">var</span> connectToOtherUsernameBtn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#connectToOtherUsernameBtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">var</span> connectedUser<span class="token punctuation">,</span> myConnection<span class="token punctuation">;</span>
 
-//当一个用户点击登录 
-loginBtn.addEventListener(&quot;click&quot;, function(event){ 
-   name = loginInput.value; 
+<span class="token comment" spellcheck="true">//当一个用户点击登录 </span>
+loginBtn<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+   name <span class="token operator">=</span> loginInput<span class="token punctuation">.</span>value<span class="token punctuation">;</span> 
 
-   if(name.length &gt; 0){ //发送一个message{ 
-         type: &quot;login&quot;, 
-         name: name 
-      }
-      send({ 
-         type: &quot;login&quot;, 
-         name: name 
-      }); 
-   } 
+   <span class="token keyword">if</span><span class="token punctuation">(</span>name<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//发送一个message{ </span>
+         type<span class="token punctuation">:</span> <span class="token string">"login"</span><span class="token punctuation">,</span> 
+         name<span class="token punctuation">:</span> name 
+      <span class="token punctuation">}</span>
+      <span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+         type<span class="token punctuation">:</span> <span class="token string">"login"</span><span class="token punctuation">,</span> 
+         name<span class="token punctuation">:</span> name 
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> 
 
-});
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-//handle messages from the server 
-connection.onmessage = function (message) { 
-   console.log(&quot;Got message&quot;, message.data);
-   var data = JSON.parse(message.data); 
+<span class="token comment" spellcheck="true">//handle messages from the server </span>
+connection<span class="token punctuation">.</span>onmessage <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Got message"</span><span class="token punctuation">,</span> message<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">var</span> data <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>message<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-   switch(data.type) { 
-      case &quot;login&quot;: 
-         onLogin(data.success); 
-         break; 
-      case &quot;offer&quot;: 
-         onOffer(data.offer, data.name); 
-         break; 
-      case &quot;answer&quot;: 
-         onAnswer(data.answer); 
-         break; 
-      case &quot;candidate&quot;: 
-         onCandidate(data.candidate); 
-         break; 
-      default: 
-         break; 
-   } 
-};
+   <span class="token keyword">switch</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      <span class="token keyword">case</span> <span class="token string">"login"</span><span class="token punctuation">:</span> 
+         <span class="token function">onLogin</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>success<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         <span class="token keyword">break</span><span class="token punctuation">;</span> 
+      <span class="token keyword">case</span> <span class="token string">"offer"</span><span class="token punctuation">:</span> 
+         <span class="token function">onOffer</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>offer<span class="token punctuation">,</span> data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         <span class="token keyword">break</span><span class="token punctuation">;</span> 
+      <span class="token keyword">case</span> <span class="token string">"answer"</span><span class="token punctuation">:</span> 
+         <span class="token function">onAnswer</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>answer<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         <span class="token keyword">break</span><span class="token punctuation">;</span> 
+      <span class="token keyword">case</span> <span class="token string">"candidate"</span><span class="token punctuation">:</span> 
+         <span class="token function">onCandidate</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>candidate<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         <span class="token keyword">break</span><span class="token punctuation">;</span> 
+      <span class="token keyword">default</span><span class="token punctuation">:</span> 
+         <span class="token keyword">break</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-//当用户登录
-function onLogin(success) { 
+<span class="token comment" spellcheck="true">//当用户登录</span>
+<span class="token keyword">function</span> <span class="token function">onLogin</span><span class="token punctuation">(</span>success<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
 
-   if (success === false) { //重名了
-      alert(&quot;oops...try a different username&quot;); 
-   } else { 
-      //创建RTCPeerConnection对象 
+   <span class="token keyword">if</span> <span class="token punctuation">(</span>success <span class="token operator">===</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//重名了</span>
+      <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"oops...try a different username"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> 
+      <span class="token comment" spellcheck="true">//创建RTCPeerConnection对象 </span>
 
-      var configuration = { 
-         &quot;iceServers&quot;: [{ &quot;url&quot;: &quot;stun:stun.1.google.com:19302&quot; }] 
-      }; 
+      <span class="token keyword">var</span> configuration <span class="token operator">=</span> <span class="token punctuation">{</span> 
+         <span class="token string">"iceServers"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"stun:stun.1.google.com:19302"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> 
+      <span class="token punctuation">}</span><span class="token punctuation">;</span> 
 
-      myConnection = new webkitRTCPeerConnection(configuration); 
-      console.log(&quot;RTCPeerConnection object was created&quot;); 
-      console.log(myConnection); 
+      myConnection <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">webkitRTCPeerConnection</span><span class="token punctuation">(</span>configuration<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"RTCPeerConnection object was created"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myConnection<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-      //setup ice handling
-      //当浏览器发现一个ICE候选我们就发送给其他人。 
-      myConnection.onicecandidate = function (event) { 
+      <span class="token comment" spellcheck="true">//setup ice handling</span>
+      <span class="token comment" spellcheck="true">//当浏览器发现一个ICE候选我们就发送给其他人。 </span>
+      myConnection<span class="token punctuation">.</span>onicecandidate <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
 
-         if (event.candidate) { 
-            send({ 
-               type: &quot;candidate&quot;, 
-               candidate: event.candidate 
-            }); 
-         } 
-      }; 
-   } 
-};
+         <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>candidate<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            <span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+               type<span class="token punctuation">:</span> <span class="token string">"candidate"</span><span class="token punctuation">,</span> 
+               candidate<span class="token punctuation">:</span> event<span class="token punctuation">.</span>candidate 
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         <span class="token punctuation">}</span> 
+      <span class="token punctuation">}</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-connection.onopen = function () { 
-   console.log(&quot;Connected&quot;); 
-};
+connection<span class="token punctuation">.</span>onopen <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Connected"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-connection.onerror = function (err) { 
-   console.log(&quot;Got error&quot;, err); 
-};
+connection<span class="token punctuation">.</span>onerror <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Got error"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-// 发送JSON格式message的Alias(别名) 
-function send(message) { 
+<span class="token comment" spellcheck="true">// 发送JSON格式message的Alias(别名) </span>
+<span class="token keyword">function</span> <span class="token function">send</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
 
-   if (connectedUser) { 
-      message.name = connectedUser; 
-   } 
+   <span class="token keyword">if</span> <span class="token punctuation">(</span>connectedUser<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      message<span class="token punctuation">.</span>name <span class="token operator">=</span> connectedUser<span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> 
 
-   connection.send(JSON.stringify(message)); 
-};
+   connection<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-//setup a peer connection with another user 
-connectToOtherUsernameBtn.addEventListener(&quot;click&quot;, function () { 
+<span class="token comment" spellcheck="true">//setup a peer connection with another user </span>
+connectToOtherUsernameBtn<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
 
-   var otherUsername = otherUsernameInput.value; 
-   connectedUser = otherUsername;
+   <span class="token keyword">var</span> otherUsername <span class="token operator">=</span> otherUsernameInput<span class="token punctuation">.</span>value<span class="token punctuation">;</span> 
+   connectedUser <span class="token operator">=</span> otherUsername<span class="token punctuation">;</span>
 
-   if (otherUsername.length &gt; 0) { 
-      //make an offer 
-      myConnection.createOffer(function (offer) { 
-         console.log(); 
-         send({ 
-            type: &quot;offer&quot;, 
-            offer: offer 
-         });
+   <span class="token keyword">if</span> <span class="token punctuation">(</span>otherUsername<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      <span class="token comment" spellcheck="true">//make an offer </span>
+      myConnection<span class="token punctuation">.</span><span class="token function">createOffer</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>offer<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         <span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+            type<span class="token punctuation">:</span> <span class="token string">"offer"</span><span class="token punctuation">,</span> 
+            offer<span class="token punctuation">:</span> offer 
+         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-         myConnection.setLocalDescription(offer); 
-      }, function (error) { 
-         alert(&quot;An error has occurred.&quot;); 
-      }); 
-   } 
-}); 
+         myConnection<span class="token punctuation">.</span><span class="token function">setLocalDescription</span><span class="token punctuation">(</span>offer<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+         <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"An error has occurred."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-//当有人想打给我们 
-function onOffer(offer, name) { 
-   connectedUser = name; 
-   myConnection.setRemoteDescription(new RTCSessionDescription(offer)); 
+<span class="token comment" spellcheck="true">//当有人想打给我们 </span>
+<span class="token keyword">function</span> <span class="token function">onOffer</span><span class="token punctuation">(</span>offer<span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   connectedUser <span class="token operator">=</span> name<span class="token punctuation">;</span> 
+   myConnection<span class="token punctuation">.</span><span class="token function">setRemoteDescription</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">RTCSessionDescription</span><span class="token punctuation">(</span>offer<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-   myConnection.createAnswer(function (answer) { 
-      myConnection.setLocalDescription(answer); 
+   myConnection<span class="token punctuation">.</span><span class="token function">createAnswer</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>answer<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      myConnection<span class="token punctuation">.</span><span class="token function">setLocalDescription</span><span class="token punctuation">(</span>answer<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-      send({ 
-         type: &quot;answer&quot;, 
-         answer: answer 
-      }); 
+      <span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+         type<span class="token punctuation">:</span> <span class="token string">"answer"</span><span class="token punctuation">,</span> 
+         answer<span class="token punctuation">:</span> answer 
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-   }, function (error) { 
-      alert(&quot;oops...error&quot;); 
-   }); 
-}
+   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"oops...error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
 
-//另一个用户要answer我们的offer
-function onAnswer(answer) { 
-   myConnection.setRemoteDescription(new RTCSessionDescription(answer)); 
-} 
+<span class="token comment" spellcheck="true">//另一个用户要answer我们的offer</span>
+<span class="token keyword">function</span> <span class="token function">onAnswer</span><span class="token punctuation">(</span>answer<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   myConnection<span class="token punctuation">.</span><span class="token function">setRemoteDescription</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">RTCSessionDescription</span><span class="token punctuation">(</span>answer<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
 
-//当我们收到ICE候选
-function onCandidate(candidate) { 
-   myConnection.addIceCandidate(new RTCIceCandidate(candidate)); 
-}
-</code></pre>
+<span class="token comment" spellcheck="true">//当我们收到ICE候选</span>
+<span class="token keyword">function</span> <span class="token function">onCandidate</span><span class="token punctuation">(</span>candidate<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   myConnection<span class="token punctuation">.</span><span class="token function">addIceCandidate</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">RTCIceCandidate</span><span class="token punctuation">(</span>candidate<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这样 <strong>offer/answer</strong>的过程就模拟完了。可以通过输入输出在控制台看到相关信息.</p>
 <h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><p><code>alisa</code>在 linux 中，alias 命令（注意全为小写）的功能是设置命令的别名，以简写命令，提高操作效率。根据参数的不同，该命令可查看已设定的别名，或为命令设置新的别名。对于用户自定义别名，仅当前登录期内有效；也可修改配置文件使其长期有效。</p>
 <p>相关命令：<code>unalias</code></p>
@@ -691,123 +709,6 @@ function onCandidate(candidate) {
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -1050,13 +951,13 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

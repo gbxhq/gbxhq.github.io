@@ -97,6 +97,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -166,16 +175,25 @@
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -322,27 +340,27 @@
 </ul>
 <h1 id="加载网页"><a href="#加载网页" class="headerlink" title="加载网页"></a>加载网页</h1><h2 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h2><p>网页自适应选项在这：<br><img src="http://p66eruxmw.bkt.clouddn.com/15264706713494.jpg" alt=""></p>
 <p>写法：</p>
-<pre><code class="Swift">let url = URL(string: &quot;http://m.ofo.so/active.html&quot;)!
+<pre class="line-numbers language-Swift"><code class="language-Swift">let url = URL(string: "http://m.ofo.so/active.html")!
 
 let requset = URLRequest(url: url)
 
 webView.loadRequest(requset)
-</code></pre>
-<h2 id="WebKit"><a href="#WebKit" class="headerlink" title="WebKit"></a>WebKit</h2><pre><code class="Swift">import WebKit
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="WebKit"><a href="#WebKit" class="headerlink" title="WebKit"></a>WebKit</h2><pre class="line-numbers language-Swift"><code class="language-Swift">import WebKit
 
 var webView: WKWebView!
 webView = WKWebView(frame: self.view.frame) //调大小
 view.addSubview(webView) //加到视图里
 
-let url = URL(string: &quot;http://m.ofo.so/active.html&quot;)!
+let url = URL(string: "http://m.ofo.so/active.html")!
 let requset = URLRequest(url: url)
 
 webView.load(requset)
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="侧边栏"><a href="#侧边栏" class="headerlink" title="侧边栏"></a>侧边栏</h1><h2 id="第三方库-初探"><a href="#第三方库-初探" class="headerlink" title="第三方库 初探"></a>第三方库 初探</h2><p><a href="https://cocoapods.org" target="_blank" rel="noopener">https://cocoapods.org</a></p>
 <p>装 cocoapods:</p>
-<pre><code class="shell">sudo gem install cocoapods
-</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">sudo gem install cocoapods
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="安装SWRevealViewController"><a href="#安装SWRevealViewController" class="headerlink" title="安装SWRevealViewController"></a>安装SWRevealViewController</h2><p>在podfile加入<br><code>pod &#39;SWRevealViewController&#39;,2.3</code><br>Terminal运行：<br><code>pod install</code></p>
 <ul>
 <li>由于SWRevealViewController是OC写的，要做一个桥接：<br>新建一个OC文件，自动生成一个桥接.h文件。删除OC文件即可。</li>
@@ -355,37 +373,37 @@ webView.load(requset)
 <li>两个场景的路径设置Segue的id，前面的叫sw_front，后面（划出来）的叫sw_rear</li>
 <li>写代码</li>
 </ol>
-<pre><code class="swift">if let revealVC = revealViewController() {
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">if</span> <span class="token keyword">let</span> revealVC <span class="token operator">=</span> <span class="token function">revealViewController</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    revealVC.rearViewRevealWidth = 300 //设宽度
+    revealVC<span class="token punctuation">.</span>rearViewRevealWidth <span class="token operator">=</span> <span class="token number">300</span> <span class="token comment" spellcheck="true">//设宽度</span>
 
-    navigationItem.leftBarButtonItem?.target = revealVC
-    navigationItem.leftBarButtonItem?.action = #selector(SWRevealViewController.revealToggle(_:))//这句是OC语法   `#selecot`是OC的一个方法
-    view.addGestureRecognizer(revealVC.panGestureRecognizer())
-}
-</code></pre>
+    navigationItem<span class="token punctuation">.</span>leftBarButtonItem<span class="token operator">?</span><span class="token punctuation">.</span>target <span class="token operator">=</span> revealVC
+    navigationItem<span class="token punctuation">.</span>leftBarButtonItem<span class="token operator">?</span><span class="token punctuation">.</span>action <span class="token operator">=</span> #<span class="token function">selector</span><span class="token punctuation">(</span><span class="token builtin">SWRevealViewController</span><span class="token punctuation">.</span><span class="token function">revealToggle</span><span class="token punctuation">(</span><span class="token number">_</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//这句是OC语法   `#selecot`是OC的一个方法</span>
+    view<span class="token punctuation">.</span><span class="token function">addGestureRecognizer</span><span class="token punctuation">(</span>revealVC<span class="token punctuation">.</span><span class="token function">panGestureRecognizer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在滑动菜单里点击按钮转场：<br>右键拖到场景里，选 r-v-c push 即可<br>再放上刚刚的代码（记得在场景里Embed in个导航）</p>
-<pre><code class="swift">if let revealVC = revealViewController() {
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">if</span> <span class="token keyword">let</span> revealVC <span class="token operator">=</span> <span class="token function">revealViewController</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    revealVC.rearViewRevealWidth = 300 //设宽度
+    revealVC<span class="token punctuation">.</span>rearViewRevealWidth <span class="token operator">=</span> <span class="token number">300</span> <span class="token comment" spellcheck="true">//设宽度</span>
 
-    navigationItem.leftBarButtonItem?.target = revealVC
-    navigationItem.leftBarButtonItem?.action = #selector(SWRevealViewController.revealToggle(_:))//这句是OC语法   `#selecot`是OC的一个方法
-    view.addGestureRecognizer(revealVC.panGestureRecognizer())
-}
-</code></pre>
+    navigationItem<span class="token punctuation">.</span>leftBarButtonItem<span class="token operator">?</span><span class="token punctuation">.</span>target <span class="token operator">=</span> revealVC
+    navigationItem<span class="token punctuation">.</span>leftBarButtonItem<span class="token operator">?</span><span class="token punctuation">.</span>action <span class="token operator">=</span> #<span class="token function">selector</span><span class="token punctuation">(</span><span class="token builtin">SWRevealViewController</span><span class="token punctuation">.</span><span class="token function">revealToggle</span><span class="token punctuation">(</span><span class="token number">_</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//这句是OC语法   `#selecot`是OC的一个方法</span>
+    view<span class="token punctuation">.</span><span class="token function">addGestureRecognizer</span><span class="token punctuation">(</span>revealVC<span class="token punctuation">.</span><span class="token function">panGestureRecognizer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="地图定位"><a href="#地图定位" class="headerlink" title="地图定位"></a>地图定位</h1><p>安装包和引用头文件都在文档里。</p>
 <p>引入mapView，先声明一个mapView变量：<code>var mapView: MAMapView!</code><br>然后再viewDidload()里添加View：</p>
-<pre><code class="swift">mapView = MAMapView(frame: view.bounds)//占满全屏
-mapView.delegate = self //地图代理，以方便重写方法.     
-view.addSubview(mapView)
-view.bringSubview(toFront: panelView)
-</code></pre>
+<pre class="line-numbers language-swift"><code class="language-swift">mapView <span class="token operator">=</span> <span class="token function">MAMapView</span><span class="token punctuation">(</span>frame<span class="token punctuation">:</span> view<span class="token punctuation">.</span>bounds<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//占满全屏</span>
+mapView<span class="token punctuation">.</span>delegate <span class="token operator">=</span> <span class="token keyword">self</span> <span class="token comment" spellcheck="true">//地图代理，以方便重写方法.     </span>
+view<span class="token punctuation">.</span><span class="token function">addSubview</span><span class="token punctuation">(</span>mapView<span class="token punctuation">)</span>
+view<span class="token punctuation">.</span><span class="token function">bringSubview</span><span class="token punctuation">(</span>toFront<span class="token punctuation">:</span> panelView<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>加了代理要改这里：<br><code>class ViewController: UIViewController,MAMapViewDelegate{}</code>加一个继承</p>
 <p>加Key加HTTPs啥的都在文档里了。比如这些放在<code>AppDelegate.swift</code>的<code>didFininshedLaunching()</code>中：</p>
-<pre><code class="swift">AMapServices.shared().enableHTTPS = true
-AMapServices.shared().apiKey = &quot;YOUR KEY&quot;
-</code></pre>
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token builtin">AMapServices</span><span class="token punctuation">.</span><span class="token function">shared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>enableHTTPS <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token builtin">AMapServices</span><span class="token punctuation">.</span><span class="token function">shared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>apiKey <span class="token operator">=</span> <span class="token string">"YOUR KEY"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="GPX文件制作"><a href="#GPX文件制作" class="headerlink" title="GPX文件制作"></a>GPX文件制作</h2><p><a href="http://mygeoposition.com" target="_blank" rel="noopener">http://mygeoposition.com</a></p>
 <p>Note：调用Google地图，需富强上网。</p>
 <p>PS：经纬度数据可能不准确。在<a href="http://mygeoposition.com获取了GPX文件后可以再到http://lbs.amap.com/console/show/picker" target="_blank" rel="noopener">http://mygeoposition.com获取了GPX文件后可以再到http://lbs.amap.com/console/show/picker</a> 查到对应的经纬度修改下。</p>
@@ -393,123 +411,6 @@ AMapServices.shared().apiKey = &quot;YOUR KEY&quot;
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -740,13 +641,13 @@ AMapServices.shared().apiKey = &quot;YOUR KEY&quot;
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

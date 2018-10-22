@@ -102,6 +102,15 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -171,16 +180,25 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -331,10 +349,7 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
 <h2 id="自动运行命令脚本"><a href="#自动运行命令脚本" class="headerlink" title="自动运行命令脚本"></a>自动运行命令脚本</h2><p>shell命令写在记事本存成 1.sh</p>
 <p>shell里运行<code>sh 1.sh</code>即可</p>
 <p>关于需要输入密码时的交互：</p>
-<pre><code class="shell">ssh tester@192.168.139.218 &lt;&lt; EOF #用 &lt;&lt;EOF 分割。这里就是输密码的地方
-cd kurento/kurento-tutorial-java/kurento-group-call
-mvn exec:java
-</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">ssh tester@192.168.139.218 << EOF #用 <<eof 分割。这里就是输密码的地方="" cd="" kurento="" kurento-tutorial-java="" kurento-group-call="" mvn="" exec:java="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></eof></code></pre>
 <h2 id="终端走代理"><a href="#终端走代理" class="headerlink" title="终端走代理"></a>终端走代理</h2><p>参考：<a href="https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</a></p>
 <h2 id="Finder和终端快速转"><a href="#Finder和终端快速转" class="headerlink" title="Finder和终端快速转"></a>Finder和终端快速转</h2><ul>
 <li>Finder到终端：拖窗口到终端界面</li>
@@ -423,9 +438,9 @@ mvn exec:java
 <p>延伸：Mac系统的bash环境变量，加载顺序为：<br>/etc/profile<br>/etc/paths<br>~/.bash_profile<br>~/.bash_login<br>~/.profile<br>~/.bashrc</p>
 </blockquote>
 <p>设置PATH的语法都为：</p>
-<pre><code class="shell">#中间用冒号隔开
-export PATH=$PATH:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;:------:&lt;PATH N&gt;
-</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">#中间用冒号隔开
+export PATH=$PATH:<path 1="">:<path 2="">:<path 3="">:------:<path n="">
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></path></path></path></path></code></pre>
 <h1 id="Sublime相关"><a href="#Sublime相关" class="headerlink" title="Sublime相关"></a>Sublime相关</h1><p>这几个问题怕是用过sublime的都解决过吧~记录一下防止下次碰到再百度了。</p>
 <!--more-->
 <h2 id="加入subl命令"><a href="#加入subl命令" class="headerlink" title="加入subl命令"></a>加入subl命令</h2><p><code>sudo ln -s &#39;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&#39; /usr/local/bin/subl&#39;</code></p>
@@ -460,12 +475,12 @@ export PATH=$PATH:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;:------:&lt;PATH N
 <p>换成iTerm之后程序执行完iTerm会自己关闭窗口，需要在设置里修改一下默认配置文件：</p>
 <p><img src="http://p66eruxmw.bkt.clouddn.com/20180904153603023933676.png" alt="20180904153603023933676.png"></p>
 <h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><h2 id="npm-install提示没有package-json"><a href="#npm-install提示没有package-json" class="headerlink" title="npm install提示没有package.json"></a>npm install提示没有package.json</h2><h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>首先，初始化项目，一路回车就行</p>
-<pre><code class="shell">npm init -f
-</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">npm init -f
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>-f</code>表示force的意思，不加这个，npm会让你输入一堆信息，比如name、version之类，如果只是做做实验小demo，直接<code>-f</code>，npm帮你初始化package.json，并填充各种默认值，省事。</p>
 <p>接着安装依赖</p>
-<pre><code class="shell">npm install formidable --save
-</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">npm install formidable --save
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>--save</code>表示将安装的包加入依赖列表的意思，可以看下package.json 里的<code>dependencies</code>字段。后面再运行 <code>npm install</code>，就会把所有依赖安装下来。如果不加<code>--save</code>，什么都不会安装。</p>
 <h2 id="淘宝-npm-镜像"><a href="#淘宝-npm-镜像" class="headerlink" title="淘宝 npm 镜像"></a>淘宝 npm 镜像</h2><p><code>npm config set registry https://registry.npm.taobao.org</code></p>
 <h2 id="npm安装全局模块没有权限"><a href="#npm安装全局模块没有权限" class="headerlink" title="npm安装全局模块没有权限"></a>npm安装全局模块没有权限</h2><p>提示：npm WARN checkPermissions Missing write access to xxx</p>
@@ -480,123 +495,6 @@ export PATH=$PATH:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;:------:&lt;PATH N
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -831,13 +729,13 @@ i18ni18n（其来源是英文单词 internationalization的</div>
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

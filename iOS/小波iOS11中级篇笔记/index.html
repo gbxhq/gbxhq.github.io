@@ -98,6 +98,15 @@ Scale to fill 拉伸 即拉到和框框一样的">
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -167,16 +176,25 @@ Scale to fill 拉伸 即拉到和框框一样的">
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -332,43 +350,43 @@ Scale to fill 拉伸 即拉到和框框一样的">
 <li>在整个Controller的属性中，选高度–》Freedom–》可以随意设置。方便查看。</li>
 <li>转String可以不用<code>String(a)</code>用<code>a.description</code></li>
 </ul>
-<h1 id="自定义导航条"><a href="#自定义导航条" class="headerlink" title="自定义导航条"></a>自定义导航条</h1><h2 id="颜色（直接改回报错，是Xcode的Bug。只好用代码。）："><a href="#颜色（直接改回报错，是Xcode的Bug。只好用代码。）：" class="headerlink" title="颜色（直接改回报错，是Xcode的Bug。只好用代码。）："></a>颜色（直接改回报错，是Xcode的Bug。只好用代码。）：</h2><pre><code class="swift">navigationController?.navigationBar.largeTitleTextAttributes = [
-                NSAttributedStringKey.foregroundColor : UIColor(named: &quot;Theme123&quot;)
-            ]
-            //Theme123是自定义的Color Set名
-</code></pre>
-<h2 id="背景透明（用一个空图片）"><a href="#背景透明（用一个空图片）" class="headerlink" title="背景透明（用一个空图片）"></a>背景透明（用一个空图片）</h2><pre><code class="swift">navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-navigationController?.navigationBar.shadowImage = UIImage()
-</code></pre>
+<h1 id="自定义导航条"><a href="#自定义导航条" class="headerlink" title="自定义导航条"></a>自定义导航条</h1><h2 id="颜色（直接改回报错，是Xcode的Bug。只好用代码。）："><a href="#颜色（直接改回报错，是Xcode的Bug。只好用代码。）：" class="headerlink" title="颜色（直接改回报错，是Xcode的Bug。只好用代码。）："></a>颜色（直接改回报错，是Xcode的Bug。只好用代码。）：</h2><pre class="line-numbers language-swift"><code class="language-swift">navigationController<span class="token operator">?</span><span class="token punctuation">.</span>navigationBar<span class="token punctuation">.</span>largeTitleTextAttributes <span class="token operator">=</span> <span class="token punctuation">[</span>
+                <span class="token builtin">NSAttributedStringKey</span><span class="token punctuation">.</span>foregroundColor <span class="token punctuation">:</span> <span class="token function">UIColor</span><span class="token punctuation">(</span>named<span class="token punctuation">:</span> <span class="token string">"Theme123"</span><span class="token punctuation">)</span>
+            <span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true">//Theme123是自定义的Color Set名</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="背景透明（用一个空图片）"><a href="#背景透明（用一个空图片）" class="headerlink" title="背景透明（用一个空图片）"></a>背景透明（用一个空图片）</h2><pre class="line-numbers language-swift"><code class="language-swift">navigationController<span class="token operator">?</span><span class="token punctuation">.</span>navigationBar<span class="token punctuation">.</span><span class="token function">setBackgroundImage</span><span class="token punctuation">(</span><span class="token function">UIImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span>
+navigationController<span class="token operator">?</span><span class="token punctuation">.</span>navigationBar<span class="token punctuation">.</span>shadowImage <span class="token operator">=</span> <span class="token function">UIImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="隐藏返回标题"><a href="#隐藏返回标题" class="headerlink" title="隐藏返回标题"></a>隐藏返回标题</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15231886419894.jpg" alt=""><br>点标题。把Back button改成空格就好啦。</p>
-<h2 id="自定义状态栏字体颜色"><a href="#自定义状态栏字体颜色" class="headerlink" title="自定义状态栏字体颜色"></a>自定义状态栏字体颜色</h2><pre><code class="swift">    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
-    }
-//写了上面的发现还不行。因为有全局导航条样式
+<h2 id="自定义状态栏字体颜色"><a href="#自定义状态栏字体颜色" class="headerlink" title="自定义状态栏字体颜色"></a>自定义状态栏字体颜色</h2><pre class="line-numbers language-swift"><code class="language-swift">    <span class="token keyword">override</span> <span class="token keyword">var</span> preferredStatusBarStyle<span class="token punctuation">:</span> <span class="token builtin">UIStatusBarStyle</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">.</span>lightContent
+    <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//写了上面的发现还不行。因为有全局导航条样式</span>
 
-//新建一个swift文件： naviExt.swfit 写入以下内容
-import UIKit
-//扩展导航条
-extension UINavigationController{
-    open override var childViewControllerForStatusBarStyle: UIViewController?{
-        return topViewController
-    }
-}
-</code></pre>
+<span class="token comment" spellcheck="true">//新建一个swift文件： naviExt.swfit 写入以下内容</span>
+<span class="token keyword">import</span> <span class="token builtin">UIKit</span>
+<span class="token comment" spellcheck="true">//扩展导航条</span>
+<span class="token keyword">extension</span> <span class="token builtin">UINavigationController</span><span class="token punctuation">{</span>
+    open <span class="token keyword">override</span> <span class="token keyword">var</span> childViewControllerForStatusBarStyle<span class="token punctuation">:</span> <span class="token builtin">UIViewController</span><span class="token operator">?</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> topViewController
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>没有导航条怎么改状态栏颜色：<br>在AppDelegate.swift文件中，插入到application函数一行：<br><code>UIApplication.shared.statusBarStyle = .lightContent</code></p>
 <h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><h2 id="视差"><a href="#视差" class="headerlink" title="视差"></a>视差</h2><p>新建一个UIView变量<code>var headerView : UIView!</code>来替换原生的<code>tableView.tableHeaderView</code><br>代码如下</p>
-<pre><code class="swift">        headerView = tableView.tableHeaderView//取出HeaderView
-        tableView.tableHeaderView = nil 
-        tableView.addSubview(headerView)
+<pre class="line-numbers language-swift"><code class="language-swift">        headerView <span class="token operator">=</span> tableView<span class="token punctuation">.</span>tableHeaderView<span class="token comment" spellcheck="true">//取出HeaderView</span>
+        tableView<span class="token punctuation">.</span>tableHeaderView <span class="token operator">=</span> <span class="token constant">nil</span> 
+        tableView<span class="token punctuation">.</span><span class="token function">addSubview</span><span class="token punctuation">(</span>headerView<span class="token punctuation">)</span>
 
-        tableView.contentInset = UIEdgeInsets(top: 300, left: 0, bottom: 0, right: 0)
-</code></pre>
+        tableView<span class="token punctuation">.</span>contentInset <span class="token operator">=</span> <span class="token function">UIEdgeInsets</span><span class="token punctuation">(</span>top<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span> <span class="token keyword">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> bottom<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这时候整个Cell会下移300像素（可以通过输出<code>scrollView.contentOffset.y</code>的值看到是 -300），需要把headerView的位置上移300个像素。<br>代码如下</p>
-<pre><code class="swift">override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        headerView.frame = CGRect(x: 0, y: offsetY, width: scrollView.bounds.width, height: -offsetY)
-    }
-</code></pre>
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">scrollViewDidScroll</span><span class="token punctuation">(</span><span class="token number">_</span> scrollView<span class="token punctuation">:</span> <span class="token builtin">UIScrollView</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> offsetY <span class="token operator">=</span> scrollView<span class="token punctuation">.</span>contentOffset<span class="token punctuation">.</span>y
+        headerView<span class="token punctuation">.</span>frame <span class="token operator">=</span> <span class="token function">CGRect</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> offsetY<span class="token punctuation">,</span> width<span class="token punctuation">:</span> scrollView<span class="token punctuation">.</span>bounds<span class="token punctuation">.</span>width<span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token operator">-</span>offsetY<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="模糊层"><a href="#模糊层" class="headerlink" title="模糊层"></a>模糊层</h2><ol>
 <li>新建模糊层的 ViewController 。背景选成透明（Clear Color）</li>
 <li>右键拖到新的 View Controller，选 Present Modally</li>
@@ -377,72 +395,72 @@ extension UINavigationController{
 <p>点击退场</p>
 <p>拖一个手势到 <strong>View层</strong> 注意拖得不合适可能点击没效果。可以调试下。</p>
 <p>然后拖着手势建一个IBAction：</p>
-<pre><code class="swift">@IBAction func tapBackground(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-</code></pre>
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token atrule">@IBAction</span> <span class="token keyword">func</span> <span class="token function">tapBackground</span><span class="token punctuation">(</span><span class="token number">_</span> sender<span class="token punctuation">:</span> <span class="token builtin">Any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">dismiss</span><span class="token punctuation">(</span>animated<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="入场动画"><a href="#入场动画" class="headerlink" title="入场动画"></a>入场动画</h2><p>先在 didLoaded 时把它放到800里之外<br><code>stackView.transform = .init(translationX: 800, y: 0)</code></p>
 <p>再在 didApeal时 让它飞进来</p>
-<pre><code class="swift">override func viewDidAppear(_ animated: Bool) {
-        let  animator = UIViewPropertyAnimator(duration: 3, curve: .easeIn){
-            self.stackView.transform = .identity
-        }
-        animator.startAnimation()
-    }
-</code></pre>
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidAppear</span><span class="token punctuation">(</span><span class="token number">_</span> animated<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span>  animator <span class="token operator">=</span> <span class="token function">UIViewPropertyAnimator</span><span class="token punctuation">(</span>duration<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> curve<span class="token punctuation">:</span> <span class="token punctuation">.</span>easeIn<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>stackView<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token punctuation">.</span>identity
+        <span class="token punctuation">}</span>
+        animator<span class="token punctuation">.</span><span class="token function">startAnimation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>进阶版<br>按钮组在这里拖按钮。<br><img src="http://p66eruxmw.bkt.clouddn.com/15233413710890.jpg" alt="按钮组"></p>
 <p>然后把变量分别拖到各个按钮上，这些按钮就是一组的了。</p>
-<pre><code class="swift">override func viewDidLoad() {
-        super.viewDidLoad()
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-        let startPostion = CGAffineTransform(translationX: 500, y: 0)
+        <span class="token keyword">let</span> startPostion <span class="token operator">=</span> <span class="token function">CGAffineTransform</span><span class="token punctuation">(</span>translationX<span class="token punctuation">:</span> <span class="token number">500</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span>
 
-        for button in rateItemBtn{
-            button.transform = startPostion
-            button.alpha = 0 //把他们都设透明
-        } 
-    }
+        <span class="token keyword">for</span> button <span class="token keyword">in</span> rateItemBtn<span class="token punctuation">{</span>
+            button<span class="token punctuation">.</span>transform <span class="token operator">=</span> startPostion
+            button<span class="token punctuation">.</span>alpha <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment" spellcheck="true">//把他们都设透明</span>
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span>
 
-    override func viewDidAppear(_ animated: Bool) {
-UIViewPropertyAnimator(duration: 0.4, dampingRatio: 0.5) {
-            self.rateItemBtn[0].transform = .identity
-            self.rateItemBtn[0].alpha = 1
-            }.startAnimation(afterDelay: 0.1)//第一个按钮0.1秒后出现
-    }
-</code></pre>
-<h2 id="拖拽手势"><a href="#拖拽手势" class="headerlink" title="拖拽手势"></a>拖拽手势</h2><pre><code class="swift">    @IBAction func dragStackView(_ sender: UIPanGestureRecognizer) {
-        switch sender.state {
-        case .changed:
-            let translate = sender.translation(in: view)
-            let position = CGAffineTransform(translationX: translate.x, y: translate.y)
-            let angle = sin(translate.x / stackView.frame.width)
-            stackView.transform = position.rotated(by: angle)
-        case .ended:
-            UIViewPropertyAnimator(duration: 0.4, dampingRatio: 0.5) {
-                self.stackView.transform = .identity
-            }.startAnimation()
-        default:
-            break
-        }   
-    }   
-</code></pre>
+    <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidAppear</span><span class="token punctuation">(</span><span class="token number">_</span> animated<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token function">UIViewPropertyAnimator</span><span class="token punctuation">(</span>duration<span class="token punctuation">:</span> <span class="token number">0.4</span><span class="token punctuation">,</span> dampingRatio<span class="token punctuation">:</span> <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>rateItemBtn<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token punctuation">.</span>identity
+            <span class="token keyword">self</span><span class="token punctuation">.</span>rateItemBtn<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>alpha <span class="token operator">=</span> <span class="token number">1</span>
+            <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">startAnimation</span><span class="token punctuation">(</span>afterDelay<span class="token punctuation">:</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//第一个按钮0.1秒后出现</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="拖拽手势"><a href="#拖拽手势" class="headerlink" title="拖拽手势"></a>拖拽手势</h2><pre class="line-numbers language-swift"><code class="language-swift">    <span class="token atrule">@IBAction</span> <span class="token keyword">func</span> <span class="token function">dragStackView</span><span class="token punctuation">(</span><span class="token number">_</span> sender<span class="token punctuation">:</span> <span class="token builtin">UIPanGestureRecognizer</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">switch</span> sender<span class="token punctuation">.</span>state <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span>changed<span class="token punctuation">:</span>
+            <span class="token keyword">let</span> translate <span class="token operator">=</span> sender<span class="token punctuation">.</span><span class="token function">translation</span><span class="token punctuation">(</span><span class="token keyword">in</span><span class="token punctuation">:</span> view<span class="token punctuation">)</span>
+            <span class="token keyword">let</span> position <span class="token operator">=</span> <span class="token function">CGAffineTransform</span><span class="token punctuation">(</span>translationX<span class="token punctuation">:</span> translate<span class="token punctuation">.</span>x<span class="token punctuation">,</span> y<span class="token punctuation">:</span> translate<span class="token punctuation">.</span>y<span class="token punctuation">)</span>
+            <span class="token keyword">let</span> angle <span class="token operator">=</span> <span class="token function">sin</span><span class="token punctuation">(</span>translate<span class="token punctuation">.</span>x <span class="token operator">/</span> stackView<span class="token punctuation">.</span>frame<span class="token punctuation">.</span>width<span class="token punctuation">)</span>
+            stackView<span class="token punctuation">.</span>transform <span class="token operator">=</span> position<span class="token punctuation">.</span><span class="token function">rotated</span><span class="token punctuation">(</span>by<span class="token punctuation">:</span> angle<span class="token punctuation">)</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span>ended<span class="token punctuation">:</span>
+            <span class="token function">UIViewPropertyAnimator</span><span class="token punctuation">(</span>duration<span class="token punctuation">:</span> <span class="token number">0.4</span><span class="token punctuation">,</span> dampingRatio<span class="token punctuation">:</span> <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">self</span><span class="token punctuation">.</span>stackView<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token punctuation">.</span>identity
+            <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">startAnimation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+        <span class="token punctuation">}</span>   
+    <span class="token punctuation">}</span>   
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="反向转场"><a href="#反向转场" class="headerlink" title="反向转场"></a>反向转场</h2><p>先写一个转场函数：</p>
 <pre><code>@IBAction func backToDetail(segue: UIStoryboardSegue){}
 </code></pre><p><img src="http://p66eruxmw.bkt.clouddn.com/15233456161140.jpg" alt=""><br>把按钮拖到这个Exit上。选择上面的函数就好啦。</p>
-<h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h2 id="Encode-JSON"><a href="#Encode-JSON" class="headerlink" title="Encode JSON"></a>Encode JSON</h2><pre><code class="swift"> func saveToJson() {
-        let coder = JSONEncoder()
+<h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h2 id="Encode-JSON"><a href="#Encode-JSON" class="headerlink" title="Encode JSON"></a>Encode JSON</h2><pre class="line-numbers language-swift"><code class="language-swift"> <span class="token keyword">func</span> <span class="token function">saveToJson</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> coder <span class="token operator">=</span> <span class="token function">JSONEncoder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-        do {
-            let data = try coder.encode(weapons)
-            let saveUrl = URL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent(&quot;weapons.json&quot;)
+        <span class="token keyword">do</span> <span class="token punctuation">{</span>
+            <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token keyword">try</span> coder<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>weapons<span class="token punctuation">)</span>
+            <span class="token keyword">let</span> saveUrl <span class="token operator">=</span> <span class="token function">URL</span><span class="token punctuation">(</span>fileURLWithPath<span class="token punctuation">:</span> <span class="token function">NSHomeDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendingPathComponent</span><span class="token punctuation">(</span><span class="token string">"weapons.json"</span><span class="token punctuation">)</span>
 
-            try data.write(to: saveUrl)
-            print(&quot;保存成功！路径：&quot;,saveUrl)
-        } catch {
-            print(&quot;编码错误: &quot;,error)
-        }
-    }  
-</code></pre>
+            <span class="token keyword">try</span> data<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>to<span class="token punctuation">:</span> saveUrl<span class="token punctuation">)</span>
+            <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"保存成功！路径："</span><span class="token punctuation">,</span>saveUrl<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">{</span>
+            <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"编码错误: "</span><span class="token punctuation">,</span>error<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Decode-JSON"><a href="#Decode-JSON" class="headerlink" title="Decode JSON"></a>Decode JSON</h2><pre><code>func loadJson()  {
     let coder = JSONDecoder()
 
@@ -459,165 +477,48 @@ UIViewPropertyAnimator(duration: 0.4, dampingRatio: 0.5) {
 <li>ctrl拖到Controller上选上Delegate和DataSource</li>
 <li>新建一个PickerViewFill.swift写入以下内容：</li>
 </ol>
-<pre><code class="swift">import UIKit
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">import</span> <span class="token builtin">UIKit</span>
 
-extension 你要扩展的面controller:UIPickerViewDelegate,UIPickerViewDataSource{
-}
-</code></pre>
+<span class="token keyword">extension</span> 你要扩展的面controller<span class="token punctuation">:</span><span class="token builtin">UIPickerViewDelegate</span><span class="token punctuation">,</span><span class="token builtin">UIPickerViewDataSource</span><span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>会自动填充出两个函数。<br>一个控制行，一个控制列。</p>
 <p>如何区分不同的列呢。<br><code>component</code>就是列数 （从0开始）</p>
 <p>联动：打didselect联想出这个函数：</p>
-<pre><code class="swift">func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView.tag == 12 {
-            if component == 0 {
-                pickerView.reloadComponent(1)
-            }
-        }
-    }
-</code></pre>
-<h2 id="Stepper"><a href="#Stepper" class="headerlink" title="Stepper"></a>Stepper</h2><pre><code class="swift">@IBAction func mvStepper(_ sender: UIStepper) {
-        textFieldMv.text = Int(exactly: sender.value)!.description
-    }
-</code></pre>
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">func</span> <span class="token function">pickerView</span><span class="token punctuation">(</span><span class="token number">_</span> pickerView<span class="token punctuation">:</span> <span class="token builtin">UIPickerView</span><span class="token punctuation">,</span> didSelectRow row<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> inComponent component<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> pickerView<span class="token punctuation">.</span>tag <span class="token operator">==</span> <span class="token number">12</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> component <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+                pickerView<span class="token punctuation">.</span><span class="token function">reloadComponent</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Stepper"><a href="#Stepper" class="headerlink" title="Stepper"></a>Stepper</h2><pre class="line-numbers language-swift"><code class="language-swift"><span class="token atrule">@IBAction</span> <span class="token keyword">func</span> <span class="token function">mvStepper</span><span class="token punctuation">(</span><span class="token number">_</span> sender<span class="token punctuation">:</span> <span class="token builtin">UIStepper</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        textFieldMv<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token function">Int</span><span class="token punctuation">(</span>exactly<span class="token punctuation">:</span> sender<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">.</span>description
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h1 id="点击单元格"><a href="#点击单元格" class="headerlink" title="点击单元格"></a>点击单元格</h1><p><strong>didSelect</strong></p>
-<pre><code class="swift">override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-// indexPath就是坐标 [0,0] 第一个是session号，第二个是行
-}
-</code></pre>
-<h2 id="Alert"><a href="#Alert" class="headerlink" title="Alert"></a>Alert</h2><h3 id="Alertsheet"><a href="#Alertsheet" class="headerlink" title="Alertsheet"></a>Alertsheet</h3><pre><code class="swift"> let actionSheet = UIAlertController(title: &quot;总标题&quot;, message: nil, preferredStyle: .actionSheet)
+<pre class="line-numbers language-swift"><code class="language-swift"><span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">tableView</span><span class="token punctuation">(</span><span class="token number">_</span> tableView<span class="token punctuation">:</span> <span class="token builtin">UITableView</span><span class="token punctuation">,</span> didSelectRowAt indexPath<span class="token punctuation">:</span> <span class="token builtin">IndexPath</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">// indexPath就是坐标 [0,0] 第一个是session号，第二个是行</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="Alert"><a href="#Alert" class="headerlink" title="Alert"></a>Alert</h2><h3 id="Alertsheet"><a href="#Alertsheet" class="headerlink" title="Alertsheet"></a>Alertsheet</h3><pre class="line-numbers language-swift"><code class="language-swift"> <span class="token keyword">let</span> actionSheet <span class="token operator">=</span> <span class="token function">UIAlertController</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">"总标题"</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">,</span> preferredStyle<span class="token punctuation">:</span> <span class="token punctuation">.</span>actionSheet<span class="token punctuation">)</span>
 
-            let action1 = UIAlertAction(title: &quot;111&quot;, style: .default ) { (_) in
-            }
-            let action2 = UIAlertAction(title: &quot;222&quot;, style: .default) { (_) in
+            <span class="token keyword">let</span> action1 <span class="token operator">=</span> <span class="token function">UIAlertAction</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">"111"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token keyword">default</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span><span class="token number">_</span><span class="token punctuation">)</span> <span class="token keyword">in</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">let</span> action2 <span class="token operator">=</span> <span class="token function">UIAlertAction</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">"222"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span><span class="token number">_</span><span class="token punctuation">)</span> <span class="token keyword">in</span>
 
-            let cancel = UIAlertAction(title: &quot;Cancel&quot;, style: .cancel, handler: nil)
+            <span class="token keyword">let</span> cancel <span class="token operator">=</span> <span class="token function">UIAlertAction</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">"Cancel"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token punctuation">.</span>cancel<span class="token punctuation">,</span> handler<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span>
 
-            actionSheet.addAction(action1)
-            actionSheet.addAction(action2)
+            actionSheet<span class="token punctuation">.</span><span class="token function">addAction</span><span class="token punctuation">(</span>action1<span class="token punctuation">)</span>
+            actionSheet<span class="token punctuation">.</span><span class="token function">addAction</span><span class="token punctuation">(</span>action2<span class="token punctuation">)</span>
 
-            present(actionSheet,animated: true)
-</code></pre>
+            <span class="token function">present</span><span class="token punctuation">(</span>actionSheet<span class="token punctuation">,</span>animated<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -838,13 +739,13 @@ extension 你要扩展的面controller:UIPickerViewDelegate,UIPickerViewDataSour
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

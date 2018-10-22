@@ -96,6 +96,15 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -165,16 +174,25 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -356,11 +374,11 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
 <li><p>RTCPeerConnection</p>
 <p>建立连接用的</p>
 <p>例子：</p>
-<pre><code class="javascript">var conn = new RTCPeerConnection(conf); 
-conn.onaddstream = function(stream) { 
-   // use stream here 
-}; 
-</code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> conn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RTCPeerConnection</span><span class="token punctuation">(</span>conf<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+conn<span class="token punctuation">.</span>onaddstream <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>stream<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   <span class="token comment" spellcheck="true">// use stream here </span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span> 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <ul>
@@ -368,57 +386,57 @@ conn.onaddstream = function(stream) {
 <p>音视频处理</p>
 <p>例子：</p>
 <p>创建一个HTML网页：</p>
-<pre><code class="html">&lt;html&gt;
-   &lt;head&gt; 
-      &lt;meta charset = &quot;utf-8&quot;&gt; 
-   &lt;/head&gt;
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span> 
+      &lt;meta charset = "utf-8"> 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
 
-   &lt;body&gt; 
-      &lt;video autoplay&gt;&lt;/video&gt; 
-      &lt;script src = &quot;client.js&quot;&gt;&lt;/script&gt; 
-   &lt;/body&gt; 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>video</span> <span class="token attr-name">autoplay</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>video</span><span class="token punctuation">></span></span> 
+      &lt;script src = "client.js"><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span> 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span> 
 
-&lt;/html&gt; 
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span> 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>再加一个<code>client.js</code>文件：</p>
-<pre><code class="javascript">//checks if the browser supports WebRTC 
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//checks if the browser supports WebRTC </span>
 
-function hasUserMedia() { 
-   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
-      || navigator.mozGetUserMedia || navigator.msGetUserMedia; 
-   return !!navigator.getUserMedia; 
-}
+<span class="token keyword">function</span> <span class="token function">hasUserMedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   navigator<span class="token punctuation">.</span>getUserMedia <span class="token operator">=</span> navigator<span class="token punctuation">.</span>getUserMedia <span class="token operator">||</span> navigator<span class="token punctuation">.</span>webkitGetUserMedia 
+      <span class="token operator">||</span> navigator<span class="token punctuation">.</span>mozGetUserMedia <span class="token operator">||</span> navigator<span class="token punctuation">.</span>msGetUserMedia<span class="token punctuation">;</span> 
+   <span class="token keyword">return</span> <span class="token operator">!</span><span class="token operator">!</span>navigator<span class="token punctuation">.</span>getUserMedia<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
 
-if (hasUserMedia()) { 
-   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia
-      || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasUserMedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   navigator<span class="token punctuation">.</span>getUserMedia <span class="token operator">=</span> navigator<span class="token punctuation">.</span>getUserMedia <span class="token operator">||</span> navigator<span class="token punctuation">.</span>webkitGetUserMedia
+      <span class="token operator">||</span> navigator<span class="token punctuation">.</span>mozGetUserMedia <span class="token operator">||</span> navigator<span class="token punctuation">.</span>msGetUserMedia<span class="token punctuation">;</span>
 
-   //get both video and audio streams from user&#39;s camera 
-   navigator.getUserMedia({ video: true, audio: true }, function (stream) { 
-      var video = document.querySelector(&#39;video&#39;); 
+   <span class="token comment" spellcheck="true">//get both video and audio streams from user's camera </span>
+   navigator<span class="token punctuation">.</span><span class="token function">getUserMedia</span><span class="token punctuation">(</span><span class="token punctuation">{</span> video<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> audio<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>stream<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      <span class="token keyword">var</span> video <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'video'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-      //insert stream into the video tag 
-      video.src = window.URL.createObjectURL(stream); 
-   }, function (err) {}); 
+      <span class="token comment" spellcheck="true">//insert stream into the video tag </span>
+      video<span class="token punctuation">.</span>src <span class="token operator">=</span> window<span class="token punctuation">.</span>URL<span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>stream<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-}else {
-   alert(&quot;Error. WebRTC is not supported!&quot;); 
-}
-</code></pre>
+<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+   <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"Error. WebRTC is not supported!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>然后打开那个HTML网页就能看到你自己啦~</p>
 </li>
 <li><p>RTCDataChannel</p>
 <p>通过RTCPeerConnection对象来创建信道</p>
 <p>例子：</p>
-<pre><code class="javascript">var peerConn = new RTCPeerConnection(); 
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> peerConn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RTCPeerConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-//establishing peer connection 
-//... 
-//end of establishing peer connection 
-var dataChannel = peerConnection.createDataChannel(&quot;myChannel&quot;, dataChannelOptions); 
+<span class="token comment" spellcheck="true">//establishing peer connection </span>
+<span class="token comment" spellcheck="true">//... </span>
+<span class="token comment" spellcheck="true">//end of establishing peer connection </span>
+<span class="token keyword">var</span> dataChannel <span class="token operator">=</span> peerConnection<span class="token punctuation">.</span><span class="token function">createDataChannel</span><span class="token punctuation">(</span><span class="token string">"myChannel"</span><span class="token punctuation">,</span> dataChannelOptions<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-// here we can start sending direct messages to another peer 
-</code></pre>
+<span class="token comment" spellcheck="true">// here we can start sending direct messages to another peer </span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>这里作者用的就是 HTML+JS+Node.js</p>
@@ -488,86 +506,86 @@ var dataChannel = peerConnection.createDataChannel(&quot;myChannel&quot;, dataCh
 <li><strong>MediaStream.removeTrack()</strong> − 从MediaSteam中移除 <em>MediaStreamTrack</em>对象。如果这个track已经被移除则什么也不做</li>
 </ul>
 <p>例子</p>
-<pre><code class="html">&lt;!DOCTYPE html&gt; 
-&lt;html lang = &quot;en&quot;&gt;
+<pre class="line-numbers language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span> 
+&lt;html lang = "en">
 
-   &lt;head&gt; 
-      &lt;meta charset = &quot;utf-8&quot; /&gt; 
-   &lt;/head&gt;
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span> 
+      &lt;meta charset = "utf-8" /> 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
 
-   &lt;body&gt; 
-      &lt;video autoplay&gt;&lt;/video&gt; 
-      &lt;div&gt;&lt;button id = &quot;btnGetAudioTracks&quot;&gt;getAudioTracks()
-         &lt;/button&gt;&lt;/div&gt; 
-      &lt;div&gt;&lt;button id = &quot;btnGetTrackById&quot;&gt;getTrackById()
-         &lt;/button&gt;&lt;/div&gt; 
-      &lt;div&gt;&lt;button id = &quot;btnGetTracks&quot;&gt;getTracks()&lt;/button&gt;&lt;/div&gt; 
-      &lt;div&gt;&lt;button id = &quot;btnGetVideoTracks&quot;&gt;getVideoTracks()
-         &lt;/button&gt;&lt;/div&gt; 
-      &lt;div&gt;&lt;button id = &quot;btnRemoveAudioTrack&quot;&gt;removeTrack() - audio
-         &lt;/button&gt;&lt;/div&gt; 
-      &lt;div&gt;&lt;button id = &quot;btnRemoveVideoTrack&quot;&gt;removeTrack() - video
-         &lt;/button&gt;&lt;/div&gt; 
-      &lt;script src = &quot;client.js&quot;&gt;&lt;/script&gt; 
-   &lt;/body&gt; 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>video</span> <span class="token attr-name">autoplay</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>video</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&lt;button id = "btnGetAudioTracks">getAudioTracks()
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&lt;button id = "btnGetTrackById">getTrackById()
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&lt;button id = "btnGetTracks">getTracks()<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&lt;button id = "btnGetVideoTracks">getVideoTracks()
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&lt;button id = "btnRemoveAudioTrack">removeTrack() - audio
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&lt;button id = "btnRemoveVideoTrack">removeTrack() - video
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> 
+      &lt;script src = "client.js"><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span> 
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span> 
 
-&lt;/html&gt;
-</code></pre>
-<pre><code class="javascript">var stream;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> stream<span class="token punctuation">;</span>
 
-function hasUserMedia() { 
-   //check if the browser supports the WebRTC 
-   return !!(navigator.getUserMedia || navigator.webkitGetUserMedia || 
-      navigator.mozGetUserMedia); 
-} 
+<span class="token keyword">function</span> <span class="token function">hasUserMedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   <span class="token comment" spellcheck="true">//check if the browser supports the WebRTC </span>
+   <span class="token keyword">return</span> <span class="token operator">!</span><span class="token operator">!</span><span class="token punctuation">(</span>navigator<span class="token punctuation">.</span>getUserMedia <span class="token operator">||</span> navigator<span class="token punctuation">.</span>webkitGetUserMedia <span class="token operator">||</span> 
+      navigator<span class="token punctuation">.</span>mozGetUserMedia<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
 
-if (hasUserMedia()) {
-   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia
-      || navigator.mozGetUserMedia; 
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasUserMedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   navigator<span class="token punctuation">.</span>getUserMedia <span class="token operator">=</span> navigator<span class="token punctuation">.</span>getUserMedia <span class="token operator">||</span> navigator<span class="token punctuation">.</span>webkitGetUserMedia
+      <span class="token operator">||</span> navigator<span class="token punctuation">.</span>mozGetUserMedia<span class="token punctuation">;</span> 
 
-   //enabling video and audio channels 
-   navigator.getUserMedia({ video: true, audio: true }, function (s) { 
-      stream = s; 
-      var video = document.querySelector(&#39;video&#39;); 
+   <span class="token comment" spellcheck="true">//enabling video and audio channels </span>
+   navigator<span class="token punctuation">.</span><span class="token function">getUserMedia</span><span class="token punctuation">(</span><span class="token punctuation">{</span> video<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> audio<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      stream <span class="token operator">=</span> s<span class="token punctuation">;</span> 
+      <span class="token keyword">var</span> video <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'video'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-      //inserting our stream to the video tag     
-      video.src = window.URL.createObjectURL(stream); 
-   }, function (err) {}); 
+      <span class="token comment" spellcheck="true">//inserting our stream to the video tag     </span>
+      video<span class="token punctuation">.</span>src <span class="token operator">=</span> window<span class="token punctuation">.</span>URL<span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>stream<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-} else { 
-   alert(&quot;WebRTC is not supported&quot;); 
-}
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> 
+   <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"WebRTC is not supported"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
 
-btnGetAudioTracks.addEventListener(&quot;click&quot;, function(){ 
-   console.log(&quot;getAudioTracks&quot;); 
-   console.log(stream.getAudioTracks()); 
-});
+btnGetAudioTracks<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"getAudioTracks"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span><span class="token function">getAudioTracks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-btnGetTrackById.addEventListener(&quot;click&quot;, function(){ 
-   console.log(&quot;getTrackById&quot;); 
-   console.log(stream.getTrackById(stream.getAudioTracks()[0].id)); 
-});
+btnGetTrackById<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"getTrackById"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span><span class="token function">getTrackById</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span><span class="token function">getAudioTracks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-btnGetTracks.addEventListener(&quot;click&quot;, function(){ 
-   console.log(&quot;getTracks()&quot;); 
-   console.log(stream.getTracks()); 
-});
+btnGetTracks<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"getTracks()"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span><span class="token function">getTracks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-btnGetVideoTracks.addEventListener(&quot;click&quot;, function(){ 
-   console.log(&quot;getVideoTracks()&quot;); 
-   console.log(stream.getVideoTracks()); 
-});
+btnGetVideoTracks<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"getVideoTracks()"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span><span class="token function">getVideoTracks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-btnRemoveAudioTrack.addEventListener(&quot;click&quot;, function(){ 
-   console.log(&quot;removeAudioTrack()&quot;); 
-   stream.removeTrack(stream.getAudioTracks()[0]); 
-});
+btnRemoveAudioTrack<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"removeAudioTrack()"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   stream<span class="token punctuation">.</span><span class="token function">removeTrack</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span><span class="token function">getAudioTracks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-btnRemoveVideoTrack.addEventListener(&quot;click&quot;, function(){ 
-   console.log(&quot;removeVideoTrack()&quot;); 
-   stream.removeTrack(stream.getVideoTracks()[0]); 
-});
-</code></pre>
+btnRemoveVideoTrack<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"removeVideoTrack()"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   stream<span class="token punctuation">.</span><span class="token function">removeTrack</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span><span class="token function">getVideoTracks</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="RTCDataChannel-APIs"><a href="#RTCDataChannel-APIs" class="headerlink" title="RTCDataChannel APIs"></a>RTCDataChannel APIs</h1><p>WebRTC不仅擅长发送音频和视频，还可能是任意数据。这就是RTCDataChannel对象的功能。</p>
 <h2 id="RTCDataChannel-API"><a href="#RTCDataChannel-API" class="headerlink" title="RTCDataChannel API"></a>RTCDataChannel API</h2><h3 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h3><ul>
 <li><p><strong>RTCDataChannel.label (read only)</strong> − 返回一个数据信道名的字符串</p>
@@ -620,123 +638,6 @@ btnRemoveVideoTrack.addEventListener(&quot;click&quot;, function(){
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -971,13 +872,13 @@ btnRemoveVideoTrack.addEventListener(&quot;click&quot;, function(){
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

@@ -97,6 +97,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -166,16 +175,25 @@
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -319,112 +337,112 @@
 <li>ALTER TABLE</li>
 </ul>
 <p>更新  已存在  表  的  结构</p>
-<pre><code class="sql">ALTER TABLE table
-(
-    ADD|DROP column datatype [NULL|NOT NULL] [CONSTRAINTS],
-    ADD|DROP column datatype [NULL|NOT NULL] [CONSTRAINTS],
-    ...
-);
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token keyword">table</span>
+<span class="token punctuation">(</span>
+    <span class="token keyword">ADD</span><span class="token operator">|</span><span class="token keyword">DROP</span> <span class="token keyword">column</span> datatype <span class="token punctuation">[</span><span class="token boolean">NULL</span><span class="token operator">|</span><span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>CONSTRAINTS<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token keyword">ADD</span><span class="token operator">|</span><span class="token keyword">DROP</span> <span class="token keyword">column</span> datatype <span class="token punctuation">[</span><span class="token boolean">NULL</span><span class="token operator">|</span><span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>CONSTRAINTS<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>COMMIT</li>
 </ul>
 <p>将 事务 写入 数据库。</p>
-<pre><code class="sql">COMMIT [TRANSACTION];
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">COMMIT</span> <span class="token punctuation">[</span><span class="token keyword">TRANSACTION</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>CREATE INDEX</li>
 </ul>
 <p>在 一个或多个 列 上 创建 索引。</p>
-<pre><code class="sql">CREATE INDEX i ndexname
-ON tablename (column, ...);
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> i ndexname
+<span class="token keyword">ON</span> tablename <span class="token punctuation">(</span><span class="token keyword">column</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>CREATE PROCEDURE</li>
 </ul>
 <p>创建存储过程。 Oracle 使用的语法稍有不同。</p>
-<pre><code class="sql">CREATE PROCEDURE procedurename [parameters] [options]
-AS
-SQL statement;
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> procedurename <span class="token punctuation">[</span>parameters<span class="token punctuation">]</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span>
+<span class="token keyword">AS</span>
+SQL statement<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>CREATE TABLE </li>
 </ul>
 <p>创建 新数据库表。</p>
-<pre><code class="sql">CREATE TABLE tablename
-(
-    column datatype [NULL INOT NULL] [CONSTRAINTS] ,
-    column datatype [NULL INOT NULL] [CONSTRAINTS] ,
-);
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> tablename
+<span class="token punctuation">(</span>
+    <span class="token keyword">column</span> datatype <span class="token punctuation">[</span><span class="token boolean">NULL</span> INOT <span class="token boolean">NULL</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>CONSTRAINTS<span class="token punctuation">]</span> <span class="token punctuation">,</span>
+    <span class="token keyword">column</span> datatype <span class="token punctuation">[</span><span class="token boolean">NULL</span> INOT <span class="token boolean">NULL</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>CONSTRAINTS<span class="token punctuation">]</span> <span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>CREATE VIEW</li>
 </ul>
 <p>用来创建 一个或多个 表上的新视图。</p>
-<pre><code class="sql">CREATE VIEW viewname AS
-SELECT columns, 。。。
-FROM tables, ...
-[WHERE ...]
-[GROUP BY ...]
-[HAVING ...];
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> viewname <span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> <span class="token keyword">columns</span><span class="token punctuation">,</span> 。。。
+<span class="token keyword">FROM</span> <span class="token keyword">tables</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">HAVING</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>DELETE</li>
 </ul>
 <p>从表中 删除 一行或多行。</p>
-<pre><code class="sql">DELETE FROM tablename
-[WHERE ...];
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> tablename
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>DROP</li>
 </ul>
 <p>永久地删除数据厍对象</p>
-<pre><code class="sql">DROP INDEX | PROCEDURE | TABLE | VIEW
-indexname | procedurename | tablename | viewname;
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">INDEX</span> <span class="token operator">|</span> <span class="token keyword">PROCEDURE</span> <span class="token operator">|</span> <span class="token keyword">TABLE</span> <span class="token operator">|</span> <span class="token keyword">VIEW</span>
+indexname <span class="token operator">|</span> procedurename <span class="token operator">|</span> tablename <span class="token operator">|</span> viewname<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>INSERT</li>
 </ul>
 <p>为表添加一行。</p>
-<pre><code class="sql">INSERT INTO tablename [(co1umns, ...)]
-VALUES(values, ..);
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> tablename <span class="token punctuation">[</span><span class="token punctuation">(</span>co1umns<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token keyword">values</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>INSERT SELECT </li>
 </ul>
 <p>将SELECT的结果插人到一个表</p>
-<pre><code class="sql">INSERT INTO tablename [ (columns,)]
-SELECT columns ， ... FROM tablename , ...
-[WHERE ...];
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> tablename <span class="token punctuation">[</span> <span class="token punctuation">(</span><span class="token keyword">columns</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token keyword">SELECT</span> <span class="token keyword">columns</span> ， <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">FROM</span> tablename <span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>ROLLBACK</li>
 </ul>
 <p>用于撤销-一个事务块。</p>
-<pre><code class="sql">ROLLBACK [TO savepointname];
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">ROLLBACK</span> <span class="token punctuation">[</span><span class="token keyword">TO</span> savepointname<span class="token punctuation">]</span><span class="token punctuation">;</span>
 或
-ROLLBACK TRANSCATION;
-</code></pre>
+<span class="token keyword">ROLLBACK</span> TRANSCATION<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>SELECT</li>
 </ul>
 <p>用于从一个或多个表(视图)中检索数据。</p>
-<pre><code class="sql">SELECT columnname ，...
-FROM tablename ， ...
-[WHERE ...]
-[UNION ...]
-[GROUP BY ...]
-[HAVING ...]
-[ORDERBY ...];
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> columnname ，<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">FROM</span> tablename ， <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">UNION</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token keyword">HAVING</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>ORDERBY <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>UPDATE</li>
 </ul>
 <p>更新表中的一行或多行。</p>
-<pre><code class="sql">UPDATE tablename
-SET columname = value , ...
-[WHERE ...];
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">UPDATE</span> tablename
+<span class="token keyword">SET</span> columname <span class="token operator">=</span> <span class="token keyword">value</span> <span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
 <li>CHAR<ul>
 <li>1-255个字符的定长字符串。长度必须在创建时规定。</li>
@@ -470,27 +488,27 @@ SET columname = value , ...
 <li><p>MySQL PostgreSQL SQLite MariaDB<br>  SELECT xxx FROM xxx LIMIT 5;</p>
 </li>
 <li><p>进阶：LIMIT 后跟两个参数</p>
-<pre><code class="sql">  LIMIT 10,2 -- 从第10个往后输出2个。输出的是 11 和 12
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql">  <span class="token keyword">LIMIT</span> <span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span> <span class="token comment" spellcheck="true">-- 从第10个往后输出2个。输出的是 11 和 12</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ul>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><pre><code class="sql"># 可以这样
-SELECT xxx -- 可以这样
-/*也可以
-这样*/
-</code></pre>
-<h1 id="排序检索数据"><a href="#排序检索数据" class="headerlink" title="排序检索数据"></a>排序检索数据</h1><pre><code class="sql">SELECT id,name,grade
-FROM Stu
-ORDER BY grade,name; --当出现并列分数则按姓名排列
-#也可以写成：
-ORDER BY 3,2; --3就是grade 2就是name 。对应于SELECT第一句
-</code></pre>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 可以这样</span>
+<span class="token keyword">SELECT</span> xxx <span class="token comment" spellcheck="true">-- 可以这样</span>
+<span class="token comment" spellcheck="true">/*也可以
+这样*/</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="排序检索数据"><a href="#排序检索数据" class="headerlink" title="排序检索数据"></a>排序检索数据</h1><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>name<span class="token punctuation">,</span>grade
+<span class="token keyword">FROM</span> Stu
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade<span class="token punctuation">,</span>name<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">--当出现并列分数则按姓名排列</span>
+<span class="token comment" spellcheck="true">#也可以写成：</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">--3就是grade 2就是name 。对应于SELECT第一句</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>重要：应保证 ORDER BY 子句是 SELECT 语句中的 <em>最后一个</em> 子句 ，否则会报错！</strong></p>
 <h2 id="排序方向："><a href="#排序方向：" class="headerlink" title="排序方向："></a>排序方向：</h2><p>默认升序[A~Z] ，改降序：</p>
-<pre><code class="sql">ORDER BY grade DESC
-#多个属性想降序，必须对每一列都进行声明！
-ORDER BY grade DESC, name  --name就是升序(ASC)排列
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade <span class="token keyword">DESC</span>
+<span class="token comment" spellcheck="true">#多个属性想降序，必须对每一列都进行声明！</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade <span class="token keyword">DESC</span><span class="token punctuation">,</span> name  <span class="token comment" spellcheck="true">--name就是升序(ASC)排列</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h1 id="过滤数据"><a href="#过滤数据" class="headerlink" title="过滤数据"></a>过滤数据</h1><p>WHERE 子句操作符：</p>
 <table>
 <thead>
@@ -512,21 +530,21 @@ ORDER BY grade DESC, name  --name就是升序(ASC)排列
 </table>
 <h1 id="高级过滤"><a href="#高级过滤" class="headerlink" title="高级过滤"></a>高级过滤</h1><h2 id="组合WHERE子句"><a href="#组合WHERE子句" class="headerlink" title="组合WHERE子句"></a>组合WHERE子句</h2><p>用AND或OR组合子句</p>
 <h2 id="AND和OR的顺序"><a href="#AND和OR的顺序" class="headerlink" title="AND和OR的顺序"></a>AND和OR的顺序</h2><p>AND级别比OR高。 如果需要改变顺序，请加括号：</p>
-<pre><code class="sql">WHERE (name = &#39;XiaoMing&#39; OR name = &#39;XiaoHong&#39;)
-    AND grade = 100;
-</code></pre>
-<h2 id="IN操作符"><a href="#IN操作符" class="headerlink" title="IN操作符"></a>IN操作符</h2><pre><code class="sql">WHERE id IN (&#39;001&#39;,&#39;002&#39;);
-#等价于OR
-WHERE id = &#39;001&#39; OR id = &#39;002&#39;;
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">WHERE</span> <span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">'XiaoMing'</span> <span class="token operator">OR</span> name <span class="token operator">=</span> <span class="token string">'XiaoHong'</span><span class="token punctuation">)</span>
+    <span class="token operator">AND</span> grade <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="IN操作符"><a href="#IN操作符" class="headerlink" title="IN操作符"></a>IN操作符</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">WHERE</span> id <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'001'</span><span class="token punctuation">,</span><span class="token string">'002'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">#等价于OR</span>
+<span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token string">'001'</span> <span class="token operator">OR</span> id <span class="token operator">=</span> <span class="token string">'002'</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>IN的优点：</p>
 <p>简单直观。比OR更快。</p>
 <p>可以包含其他SELECT子句后面会介绍。</p>
 <h2 id="NOT-操作符"><a href="#NOT-操作符" class="headerlink" title="NOT 操作符"></a>NOT 操作符</h2><p>否定后面的条件。不单独使用。</p>
-<pre><code class="SQL">WHERE NOT id = &#39;01&#39;
+<pre class="line-numbers language-SQL"><code class="language-SQL">WHERE NOT id = '01'
 #等价于
-WHERE id != &#39;01&#39;
-</code></pre>
+WHERE id != '01'
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>那为啥还要用NOT呢？</p>
 <p>在复杂的条件中，可以迅速找出 <strong>不符合</strong> 条件的</p>
 <h1 id="通配符过滤"><a href="#通配符过滤" class="headerlink" title="通配符过滤"></a>通配符过滤</h1><p>使用谓词 <code>LIKE</code> </p>
@@ -534,9 +552,9 @@ WHERE id != &#39;01&#39;
 <li>%通配符</li>
 </ul>
 <p>表示任意字符出现任意次</p>
-<pre><code class="sql">WHERE name LIKE &#39;Xiao%&#39;
-#XiaoMing XiaoHong XiaoLiang就都被搜出来了
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'Xiao%'</span>
+<span class="token comment" spellcheck="true">#XiaoMing XiaoHong XiaoLiang就都被搜出来了</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>%可以匹配 0 个 1 个 多个字符（包括空格）。当然 ，并不会匹配NULL值</p>
 <ul>
 <li>_通配符</li>
@@ -546,9 +564,9 @@ WHERE id != &#39;01&#39;
 <li>[]通配符</li>
 </ul>
 <p>匹配字符集（仅SQL Server支持）从<code>[ ]</code>里取一个字符</p>
-<pre><code class="sql">WHERE name LIKE &#39;Xiao[MH]&#39;  -- 匹配XiaoM和XiaoH
-WHERE name LIKE &#39;Xiao[^MH]&#39; -- 除了XiaoM和XiaoH所有的
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'Xiao[MH]'</span>  <span class="token comment" spellcheck="true">-- 匹配XiaoM和XiaoH</span>
+<span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'Xiao[^MH]'</span> <span class="token comment" spellcheck="true">-- 除了XiaoM和XiaoH所有的</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="通配符技巧"><a href="#通配符技巧" class="headerlink" title="通配符技巧"></a>通配符技巧</h2><ul>
 <li>不要过度使用通配符。有其他操作符能达到目的应优先考虑其他。</li>
 <li>通配符置于开始处，搜索起来是最慢的</li>
@@ -556,20 +574,20 @@ WHERE name LIKE &#39;Xiao[^MH]&#39; -- 除了XiaoM和XiaoH所有的
 <hr>
 <p><strong>SELECT name + ‘(‘ + classId + ‘)’拼接字段</strong></p>
 <p>就是合并列</p>
-<pre><code class="sql">#在SQL Server中 用 +
-SELECT name + &#39;(&#39; + classId + &#39;)&#39;
-#在DB2 Oracle PostgreSQL SQLite中 用 ||
-SELECT name || &#39;(&#39; || classId || &#39;)&#39;
-#在 MySQL MariaDB 中
-SELECT Concat(name, &#39; (&#39;, classId, &#39;)&#39;)
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#在SQL Server中 用 +</span>
+<span class="token keyword">SELECT</span> name <span class="token operator">+</span> <span class="token string">'('</span> <span class="token operator">+</span> classId <span class="token operator">+</span> <span class="token string">')'</span>
+<span class="token comment" spellcheck="true">#在DB2 Oracle PostgreSQL SQLite中 用 ||</span>
+<span class="token keyword">SELECT</span> name <span class="token operator">||</span> <span class="token string">'('</span> <span class="token operator">||</span> classId <span class="token operator">||</span> <span class="token string">')'</span>
+<span class="token comment" spellcheck="true">#在 MySQL MariaDB 中</span>
+<span class="token keyword">SELECT</span> Concat<span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">' ('</span><span class="token punctuation">,</span> classId<span class="token punctuation">,</span> <span class="token string">')'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>TRIM 函数 去某个字段的空格</p>
 <p>LTRIM() 去掉字符左边的空格  RTRIM()右边   TRIM()两边</p>
 </blockquote>
 <h2 id="使用别名"><a href="#使用别名" class="headerlink" title="使用别名"></a>使用别名</h2><p>拼接之后 AS newName 给新的字段用别名</p>
-<h2 id="算数计算"><a href="#算数计算" class="headerlink" title="算数计算"></a>算数计算</h2><pre><code class="sql">SELECT quantity, price, quantity*price AS Pay
-</code></pre>
+<h2 id="算数计算"><a href="#算数计算" class="headerlink" title="算数计算"></a>算数计算</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> quantity<span class="token punctuation">,</span> price<span class="token punctuation">,</span> quantity<span class="token operator">*</span>price <span class="token keyword">AS</span> Pay
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>不同的sql还不一样名。不怎么通用。 P65 Mark</p>
 <h1 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h1><h2 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h2><ul>
 <li><p>AVG() 返回列的平均值</p>
@@ -583,20 +601,20 @@ SELECT Concat(name, &#39; (&#39;, classId, &#39;)&#39;)
 <li><p>MAX() MIN()</p>
 </li>
 <li><p>SUM() 列值之和</p>
-<pre><code class="sql">SELECT AVG(price) AS avg_price FROM xxx; --返回平均价格
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">AS</span> avg_price <span class="token keyword">FROM</span> xxx<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">--返回平均价格</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ul>
-<h2 id="DISTINCT去重"><a href="#DISTINCT去重" class="headerlink" title="DISTINCT去重"></a>DISTINCT去重</h2><pre><code class="sql">SELECT AVG(DISTINCT price) AS avg_price
-</code></pre>
+<h2 id="DISTINCT去重"><a href="#DISTINCT去重" class="headerlink" title="DISTINCT去重"></a>DISTINCT去重</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> price<span class="token punctuation">)</span> <span class="token keyword">AS</span> avg_price
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h1 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h1><p>GROPU BY和HAVING</p>
-<h2 id="不用GROUP-BY"><a href="#不用GROUP-BY" class="headerlink" title="不用GROUP BY"></a>不用GROUP BY</h2><pre><code class="sql">SELECT SUM(grade) AS 小明的总分 FROM Stu
-WHERE name = &#39;小明&#39;；
-</code></pre>
+<h2 id="不用GROUP-BY"><a href="#不用GROUP-BY" class="headerlink" title="不用GROUP BY"></a>不用GROUP BY</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token keyword">AS</span> 小明的总分 <span class="token keyword">FROM</span> Stu
+<span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'小明'</span>；
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>但这时候如果还想看小红，还想看小亮的总分，总不能挨个都写到WHERE里。</p>
-<h2 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h2><pre><code class="Sql">SELECT nmae, SUM(grade) AS 总分 FROM Stu
+<h2 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h2><pre class="line-numbers language-Sql"><code class="language-Sql">SELECT nmae, SUM(grade) AS 总分 FROM Stu
 GROUP BY name;
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>GROUP BY必须出现于WHERE之后 ORDER BY之前</li>
 <li>NULL也会被分成一组</li>
@@ -610,24 +628,24 @@ GROUP BY name;
 <p>HAVING再对分组后的结果过滤</p>
 </blockquote>
 <h1 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h1><h2 id="IN-SELECT"><a href="#IN-SELECT" class="headerlink" title="IN(SELECT)"></a>IN(SELECT)</h2><p>用 IN 操作符 嵌套 SECLECT 查询</p>
-<pre><code class="sql">SELECT name FROM Stu
-WHERE grade IN (
-        SELECT grade FROM Stu
-        WHERE grade &gt; 60
-    );
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> Stu
+<span class="token keyword">WHERE</span> grade <span class="token operator">IN</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> grade <span class="token keyword">FROM</span> Stu
+        <span class="token keyword">WHERE</span> grade <span class="token operator">></span> <span class="token number">60</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>作为子查询的SELECT子句只能是单列</li>
 <li>多次嵌套会影响效率</li>
 </ul>
 <h2 id="作为计算字段"><a href="#作为计算字段" class="headerlink" title="作为计算字段"></a>作为计算字段</h2><p>当做返回值</p>
-<pre><code class="sql">SELECT name, (
-        SELECT COUNT(*)
-        FROM tab1
-        WHERE tab1.id = tab2.id
-    ) AS quantity
-FROM tab2
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> <span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>
+        <span class="token keyword">FROM</span> tab1
+        <span class="token keyword">WHERE</span> tab1<span class="token punctuation">.</span>id <span class="token operator">=</span> tab2<span class="token punctuation">.</span>id
+    <span class="token punctuation">)</span> <span class="token keyword">AS</span> quantity
+<span class="token keyword">FROM</span> tab2
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p>完全限定列名</p>
 <p>两个表里都已id字段，要加前缀的</p>
@@ -636,18 +654,18 @@ FROM tab2
 </li>
 </ul>
 <h1 id="联结表"><a href="#联结表" class="headerlink" title="联结表"></a>联结表</h1><h2 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h2><p>WHERE条件子句不写，直接</p>
-<pre><code class="sql">SELECT id,name，grade
-FROM tab1,tab2
-</code></pre>
-<h2 id="内联结-等值联结"><a href="#内联结-等值联结" class="headerlink" title="内联结 等值联结"></a>内联结 等值联结</h2><pre><code class="sql">SELECT id, name, grade
-FROM Stu INNER JOIN Quit
-    ON Stu.id = Quit.id
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span>name，grade
+<span class="token keyword">FROM</span> tab1<span class="token punctuation">,</span>tab2
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="内联结-等值联结"><a href="#内联结-等值联结" class="headerlink" title="内联结 等值联结"></a>内联结 等值联结</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span> name<span class="token punctuation">,</span> grade
+<span class="token keyword">FROM</span> Stu <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> Quit
+    <span class="token keyword">ON</span> Stu<span class="token punctuation">.</span>id <span class="token operator">=</span> Quit<span class="token punctuation">.</span>id
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>等价于</p>
-<pre><code class="sql">SELECT id, name, grade
-FROM Stu, Quit
-WHERE Stu.id = Quit.id
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span> name<span class="token punctuation">,</span> grade
+<span class="token keyword">FROM</span> Stu<span class="token punctuation">,</span> Quit
+<span class="token keyword">WHERE</span> Stu<span class="token punctuation">.</span>id <span class="token operator">=</span> Quit<span class="token punctuation">.</span>id
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>只不过关键词 WHERE 换成 ON</p>
 <blockquote>
 <p>ANSI SQL规范首选 INNER JOIN 语法</p>
@@ -655,22 +673,22 @@ WHERE Stu.id = Quit.id
 </blockquote>
 <p>但第二种写法还可以联结多个表，当然性能会下降</p>
 <h1 id="高级联结"><a href="#高级联结" class="headerlink" title="高级联结"></a>高级联结</h1><h2 id="表的别名"><a href="#表的别名" class="headerlink" title="表的别名"></a>表的别名</h2><p>使用AS ，注意，也可以在FROM之前的SELECT中使用哦</p>
-<pre><code class="sql">SELECT A.*, B.name
-FROM tab1 AS A, tab2 AS B
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> A<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span> B<span class="token punctuation">.</span>name
+<span class="token keyword">FROM</span> tab1 <span class="token keyword">AS</span> A<span class="token punctuation">,</span> tab2 <span class="token keyword">AS</span> B
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <hr>
 <p>除了内联结（等值联结） 还有三种其他联结</p>
 <h2 id="自联结"><a href="#自联结" class="headerlink" title="自联结"></a>自联结</h2><p>假如查询和小明考了一样分数的同学们的名字，用嵌套查询的方式可以这样：</p>
-<pre><code class="sql">SELECT name FROM Grade
-WHERE grade = (SELECT grade FROM Grade 
-              WHERE name = &#39;小明&#39;)
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> Grade
+<span class="token keyword">WHERE</span> grade <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> grade <span class="token keyword">FROM</span> Grade 
+              <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'小明'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>用自联结就可以这样：</p>
-<pre><code class="sql">SELECT name
-FROM Grade AS g1, Grade AS g2
-WHERE g2.name = &#39;小明&#39; 
-    AND g1.grade = g2.grade
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> name
+<span class="token keyword">FROM</span> Grade <span class="token keyword">AS</span> g1<span class="token punctuation">,</span> Grade <span class="token keyword">AS</span> g2
+<span class="token keyword">WHERE</span> g2<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'小明'</span> 
+    <span class="token operator">AND</span> g1<span class="token punctuation">.</span>grade <span class="token operator">=</span> g2<span class="token punctuation">.</span>grade
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>一般情况下使用[[联结]]比使用[[子查询]]快得多。</p>
 <p>当然也可以试用两种方法，以确定哪种性能更好</p>
@@ -678,26 +696,26 @@ WHERE g2.name = &#39;小明&#39;
 <h2 id="自然联结"><a href="#自然联结" class="headerlink" title="自然联结"></a>自然联结</h2><p>排除多次出现。每一列只返回一次。</p>
 <p>一般通过对一个表使用通配符(SELECT *)，对其他表使用 明确的 子集来完成。</p>
 <p>比如查询同学的成绩。学号的那张表肯定是唯一的，就可以</p>
-<pre><code class="sql">SELECT S.* , xxxxxx
-FROM Stu AS S, tab2, xxxxx
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> S<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token punctuation">,</span> xxxxxx
+<span class="token keyword">FROM</span> Stu <span class="token keyword">AS</span> S<span class="token punctuation">,</span> tab2<span class="token punctuation">,</span> xxxxx
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="外联结"><a href="#外联结" class="headerlink" title="外联结"></a>外联结</h2><p>左外联结和右外联结，</p>
 <p>有时候 表1 和 表2 联结，并不能出现一一对应的情况，这时候以表一的数据为准，【表一中有，表二中没有的】 联结之后填充NULL值。就是左外联结。 关键词是</p>
-<pre><code class="sql">FROM tab1 LEFT OUTER JOIN tab2
-    ON 条件
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">FROM</span> tab1 <span class="token keyword">LEFT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> tab2
+    <span class="token keyword">ON</span> 条件
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>右外联结 就是 <code>RIGHT OUTER JOIN</code></p>
 <blockquote>
 <p><strong>全外联结</strong>  <code>FULL OUTER JOIN</code></p>
 <p>带上左右不关联的行全部返回。但是 MySQL  SQLite MariaDB等不支持 FULL OUTER JOIN 的 语法</p>
 </blockquote>
 <h1 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h1><p>用 UNION 联结两条 SELECT</p>
-<pre><code class="sql">SELECT name,id FROM xxx
-WHERE id IN (&#39;001&#39;,&#39;002&#39;,&#39;003&#39;)
-UNION
-SELECT name,id FROM xxx
-WHERE xxx
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span>id <span class="token keyword">FROM</span> xxx
+<span class="token keyword">WHERE</span> id <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'001'</span><span class="token punctuation">,</span><span class="token string">'002'</span><span class="token punctuation">,</span><span class="token string">'003'</span><span class="token punctuation">)</span>
+<span class="token keyword">UNION</span>
+<span class="token keyword">SELECT</span> name<span class="token punctuation">,</span>id <span class="token keyword">FROM</span> xxx
+<span class="token keyword">WHERE</span> xxx
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>上面的例子当然可以用 WHERE 配合 OR 来组合条件完成，</p>
 <p>但是当遇到复杂的过滤条件， UNION 处理起来更简单。</p>
@@ -719,35 +737,35 @@ WHERE xxx
 <li>插入行的一部分</li>
 <li>插入查询的结果</li>
 </ul>
-<h2 id="插入完整的行"><a href="#插入完整的行" class="headerlink" title="插入完整的行"></a>插入完整的行</h2><pre><code class="sql">INSERT INTO tab1
-VALUES(&#39;001&#39;,&#39;XiaoMing&#39;,99,Null,Null);
-</code></pre>
+<h2 id="插入完整的行"><a href="#插入完整的行" class="headerlink" title="插入完整的行"></a>插入完整的行</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> tab1
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token string">'001'</span><span class="token punctuation">,</span><span class="token string">'XiaoMing'</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token boolean">Null</span><span class="token punctuation">,</span><span class="token boolean">Null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>但是这种方法不安全。完全依赖列的顺序插入。表的结构变动后，迟早会出问题。更安全（麻烦）的方法：</p>
-<pre><code class="sql">INSERT INTO tab1(id,name,math,english,PE)
-VALUES(&#39;001&#39;,&#39;XiaoMing&#39;,99,Null,Null);
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> tab1<span class="token punctuation">(</span>id<span class="token punctuation">,</span>name<span class="token punctuation">,</span>math<span class="token punctuation">,</span>english<span class="token punctuation">,</span>PE<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token string">'001'</span><span class="token punctuation">,</span><span class="token string">'XiaoMing'</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token boolean">Null</span><span class="token punctuation">,</span><span class="token boolean">Null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="插入部分行"><a href="#插入部分行" class="headerlink" title="插入部分行"></a>插入部分行</h2><p>就是说列名可以不写全。但必须满足以下某个条件：</p>
 <ul>
 <li>该列定义 允许 NULL值</li>
 <li>表定义中给出了默认值</li>
 </ul>
-<h2 id="插入检索的数据"><a href="#插入检索的数据" class="headerlink" title="插入检索的数据"></a>插入检索的数据</h2><pre><code class="sql">INSERT INTO tab1(xxx,xxx,xxx)
-SELECT xxx,xxx,xxx FROM xxx
-</code></pre>
+<h2 id="插入检索的数据"><a href="#插入检索的数据" class="headerlink" title="插入检索的数据"></a>插入检索的数据</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> tab1<span class="token punctuation">(</span>xxx<span class="token punctuation">,</span>xxx<span class="token punctuation">,</span>xxx<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> xxx<span class="token punctuation">,</span>xxx<span class="token punctuation">,</span>xxx <span class="token keyword">FROM</span> xxx
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>其中INSERT 和 SELECT 的列名不要求匹配。插入只看位置。</p>
-<h2 id="从一张表复制到另一张表"><a href="#从一张表复制到另一张表" class="headerlink" title="从一张表复制到另一张表"></a>从一张表复制到另一张表</h2><pre><code class="sql">SELECT *
-INTO tabCopy -- 创建一张新表
-FROM tab1
-</code></pre>
+<h2 id="从一张表复制到另一张表"><a href="#从一张表复制到另一张表" class="headerlink" title="从一张表复制到另一张表"></a>从一张表复制到另一张表</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">INTO</span> tabCopy <span class="token comment" spellcheck="true">-- 创建一张新表</span>
+<span class="token keyword">FROM</span> tab1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>如果只是复制部分列，把 * 换成 列名</p>
 <p><strong>MySQL  Oracle  PostgreSQL  SQLite</strong>语法不同：</p>
-<pre><code class="sql">CREATE TABLE tabCopy AS
-SELECT * FROM tab1;
-</code></pre>
-<h1 id="删改"><a href="#删改" class="headerlink" title="删改"></a>删改</h1><h2 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h2><pre><code class="sql">UPDATE Stu
-SET QQ = &#39;123&#39;, WeChat = &#39;123&#39;
-WHERE id = &#39;001&#39;;
-</code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> tabCopy <span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tab1<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="删改"><a href="#删改" class="headerlink" title="删改"></a>删改</h1><h2 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">UPDATE</span> Stu
+<span class="token keyword">SET</span> QQ <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">,</span> WeChat <span class="token operator">=</span> <span class="token string">'123'</span>
+<span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token string">'001'</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>更新总是要以  要更新的 表名 开始。</p>
 <p>会以 WHERE 子句结束，它告诉DBMS要更新哪一行。</p>
 <p><strong>没有WHERE子句会更新所有行</strong> 这不是我们所希望的</p>
@@ -755,123 +773,6 @@ WHERE id = &#39;001&#39;;
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -1108,13 +1009,13 @@ Mac的软件包管理</div>
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

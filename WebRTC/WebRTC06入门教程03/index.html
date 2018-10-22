@@ -99,6 +99,15 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -168,16 +177,25 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -332,467 +350,350 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
 <p>上个图是用户使用信令服务器时的信息流。</p>
 <p>首先，每个用户在服务器注册。传一个简单的字符串username即可。注册后的用户可以相互呼叫。用户1发一个带有他想呼叫的用户id的offer。其他人应当answer。最后，在用户中间发送ICE候选直到他们建立连接。</p>
 <p>去创建一个WebRTC连接服务器必须有能力在没有使用WebRTCpeer连接的情况下发送messages。因此我们使用HTML5 WebSockets—一个两端(一个web服务器一个web浏览器)的双向socket连接。现在我们开始使用WebSocket库。创建<code>server.js</code>文件并加入以下代码：</p>
-<pre><code class="javascript">//依赖ws库 声明一个WebSocketServer服务器
-var WebSocketServer = require(&#39;ws&#39;).Server; 
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//依赖ws库 声明一个WebSocketServer服务器</span>
+<span class="token keyword">var</span> WebSocketServer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ws'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Server<span class="token punctuation">;</span> 
 
-//创建端口9090的WebSocket服务器
-var wss = new WebSocketServer({port: 9090}); 
+<span class="token comment" spellcheck="true">//创建端口9090的WebSocket服务器</span>
+<span class="token keyword">var</span> wss <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocketServer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>port<span class="token punctuation">:</span> <span class="token number">9090</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-//当有一个用户接入服务器
-wss.on(&#39;connection&#39;, function(connection) { 
-   console.log(&quot;user connected&quot;);
+<span class="token comment" spellcheck="true">//当有一个用户接入服务器</span>
+wss<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'connection'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>connection<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"user connected"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-   //服务器收到已接入用户的消息
-   connection.on(&#39;message&#39;, function(message){ 
-      console.log(&quot;Got message from a user:&quot;, message); 
-   }); 
+   <span class="token comment" spellcheck="true">//服务器收到已接入用户的消息</span>
+   connection<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Got message from a user:"</span><span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-   connection.send(&quot;Hello from server&quot;); 
-});
-</code></pre>
+   connection<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"Hello from server"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>先要求WebSocket库。再创建9090端口的socket服务器。下一步，监听connection事件。监听用户发来的任何消息。最后我们发送一个回复给已连接的用户说Hello from Server.</p>
 <p>终端运行<code>node server</code>服务器就跑起来了。</p>
 <p>为了测试服务器。我们用<code>wscat</code>这个程序。他可以直接连入服务器并测试命令。先在终端让服务器跑起来之后，再开一个终端，运行<code>wscat -c ws://localhost:9090</code>命令。</p>
 <h2 id="用户注册"><a href="#用户注册" class="headerlink" title="用户注册"></a>用户注册</h2><p>在我们的信令服务器中，我们将使用基于字符串的username来让我们知道信息的去向。下面更改一下connection的句柄。</p>
-<pre><code class="javascript">connection.on(&#39;message&#39;, function(message) { 
-   var data; 
+<pre class="line-numbers language-javascript"><code class="language-javascript">connection<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   <span class="token keyword">var</span> data<span class="token punctuation">;</span> 
 
-   //只接收JSON
-   try { 
-      data = JSON.parse(message); 
-   } catch (e) { 
-      console.log(&quot;Invalid JSON&quot;); 
-      data = {}; 
-   } 
+   <span class="token comment" spellcheck="true">//只接收JSON</span>
+   <span class="token keyword">try</span> <span class="token punctuation">{</span> 
+      data <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Invalid JSON"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+      data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> 
 
-});
-</code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这样我们就做到了只接收JSON。下一步我们需要存储所有连接到用户。使用一个简单的js对象。</p>
 <p>在我们的文件头部增加一句<code>var users={};</code>。</p>
 <p><strong>这个数组里存的都是connection,而下标就是name。</strong></p>
 <p>现在我们还要为每一个从客户端发来的message增加一个<em>type</em>域。例如是登录就发<em>login</em> type的message。现在来定义。</p>
-<pre><code class="javascript">connection.on(&#39;message&#39;, function(message){
-   var data; 
+<pre class="line-numbers language-javascript"><code class="language-javascript">connection<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token keyword">var</span> data<span class="token punctuation">;</span> 
 
-   //只接收JSON
-   try { 
-      data = JSON.parse(message); //是JSON就给它分组
-   } catch (e) { 
-      console.log(&quot;Invalid JSON&quot;); 
-      data = {}; 
-   }
+   <span class="token comment" spellcheck="true">//只接收JSON</span>
+   <span class="token keyword">try</span> <span class="token punctuation">{</span> 
+      data <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//是JSON就给它分组</span>
+   <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Invalid JSON"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+      data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span>
 
-   //分开各种type 
-   switch (data.type) { 
-      //一个用户尝试登录
-      case &quot;login&quot;: 
-         console.log(&quot;User logged:&quot;, data.name); 
+   <span class="token comment" spellcheck="true">//分开各种type </span>
+   <span class="token keyword">switch</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      <span class="token comment" spellcheck="true">//一个用户尝试登录</span>
+      <span class="token keyword">case</span> <span class="token string">"login"</span><span class="token punctuation">:</span> 
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"User logged:"</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-         //存在这个name则拒绝登录
-         if(users[data.name]) { 
-            sendTo(connection, { 
-               type: &quot;login&quot;, 
-               success: false 
-            }); 
-         } else { 
-            //保存这个用户连接
-            users[data.name] = connection; //connection进入users[]
-            connection.name = data.name; 
+         <span class="token comment" spellcheck="true">//存在这个name则拒绝登录</span>
+         <span class="token keyword">if</span><span class="token punctuation">(</span>users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            <span class="token function">sendTo</span><span class="token punctuation">(</span>connection<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+               type<span class="token punctuation">:</span> <span class="token string">"login"</span><span class="token punctuation">,</span> 
+               success<span class="token punctuation">:</span> <span class="token boolean">false</span> 
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> 
+            <span class="token comment" spellcheck="true">//保存这个用户连接</span>
+            users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> connection<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//connection进入users[]</span>
+            connection<span class="token punctuation">.</span>name <span class="token operator">=</span> data<span class="token punctuation">.</span>name<span class="token punctuation">;</span> 
 
-            sendTo(connection, { 
-               type: &quot;login&quot;, 
-               success: true 
-            });
+            <span class="token function">sendTo</span><span class="token punctuation">(</span>connection<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+               type<span class="token punctuation">:</span> <span class="token string">"login"</span><span class="token punctuation">,</span> 
+               success<span class="token punctuation">:</span> <span class="token boolean">true</span> 
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-         } 
+         <span class="token punctuation">}</span> 
 
-         break;
+         <span class="token keyword">break</span><span class="token punctuation">;</span>
 
-      default: 
-         sendTo(connection, { 
-            type: &quot;error&quot;, 
-            message: &quot;Command no found: &quot; + data.type 
-         }); 
+      <span class="token keyword">default</span><span class="token punctuation">:</span> 
+         <span class="token function">sendTo</span><span class="token punctuation">(</span>connection<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+            type<span class="token punctuation">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span> 
+            message<span class="token punctuation">:</span> <span class="token string">"Command no found: "</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>type 
+         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-         break; 
-   } 
+         <span class="token keyword">break</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> 
 
-});
-</code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>下面这一段代码是发送消息到连接的辅助函数。这个函数可以确保我们发送的消息都是JSON格式。</p>
-<pre><code class="javascript">function sendTo(connection, message) { 
-   connection.send(JSON.stringify(message)); 
-}
-</code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">sendTo</span><span class="token punctuation">(</span>connection<span class="token punctuation">,</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   connection<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>你可以在wscat发送一段json来测试一下了。</p>
 <h2 id="呼叫"><a href="#呼叫" class="headerlink" title="呼叫"></a>呼叫</h2><p>登录后的用户想要呼叫就要做一个offer发给别人。现在我们来添加<em>offer</em>句柄。</p>
-<pre><code class="javascript">case &quot;offer&quot;: 
-   //for ex. A
-   console.log(&quot;Sending offer to: &quot;, data.name); 
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">case</span> <span class="token string">"offer"</span><span class="token punctuation">:</span> 
+   <span class="token comment" spellcheck="true">//for ex. A</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Sending offer to: "</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-   //如果B存在则发送A的offer细节
-   var conn = users[data.name]; 
+   <span class="token comment" spellcheck="true">//如果B存在则发送A的offer细节</span>
+   <span class="token keyword">var</span> conn <span class="token operator">=</span> users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span> 
 
-   if(conn != null){ 
-      //设置A的连接对象是B
-      connection.otherName = data.name;
-       //A的offer发送给B
-      sendTo(conn, { 
-         type: &quot;offer&quot;, 
-         offer: data.offer, 
-         name: connection.name 
-      }); 
-   }
+   <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+      <span class="token comment" spellcheck="true">//设置A的连接对象是B</span>
+      connection<span class="token punctuation">.</span>otherName <span class="token operator">=</span> data<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+       <span class="token comment" spellcheck="true">//A的offer发送给B</span>
+      <span class="token function">sendTo</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+         type<span class="token punctuation">:</span> <span class="token string">"offer"</span><span class="token punctuation">,</span> 
+         offer<span class="token punctuation">:</span> data<span class="token punctuation">.</span>offer<span class="token punctuation">,</span> 
+         name<span class="token punctuation">:</span> connection<span class="token punctuation">.</span>name 
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span>
 
-   break;
-</code></pre>
+   <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="接听"><a href="#接听" class="headerlink" title="接听"></a>接听</h2><p>接听回话和<em>offer</em>句柄类似。在<em>offer</em>句柄后面加入<em>answer</em>，answer的内容无论是什么都会被发送。</p>
-<pre><code class="javascript">case &quot;answer&quot;: 
-   console.log(&quot;Sending answer to: &quot;, data.name); 
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">case</span> <span class="token string">"answer"</span><span class="token punctuation">:</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Sending answer to: "</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-   //for ex. UserB answers UserA 
-   var conn = users[data.name]; 
+   <span class="token comment" spellcheck="true">//for ex. UserB answers UserA </span>
+   <span class="token keyword">var</span> conn <span class="token operator">=</span> users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span> 
 
-   if(conn != null) { 
-       //同理回了人家的answer你的连接对象也就是他了
-      connection.otherName = data.name; 
-      sendTo(conn, { 
-         type: &quot;answer&quot;, 
-         answer: data.answer 
-      }); 
-   }
+   <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+       <span class="token comment" spellcheck="true">//同理回了人家的answer你的连接对象也就是他了</span>
+      connection<span class="token punctuation">.</span>otherName <span class="token operator">=</span> data<span class="token punctuation">.</span>name<span class="token punctuation">;</span> 
+      <span class="token function">sendTo</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+         type<span class="token punctuation">:</span> <span class="token string">"answer"</span><span class="token punctuation">,</span> 
+         answer<span class="token punctuation">:</span> data<span class="token punctuation">.</span>answer 
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span>
 
-   break;
-</code></pre>
+   <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在例子中，offer和answer都是简单的字符串。但在真正的应用中他们会被SDP数据填充。</p>
 <h2 id="ICE候选"><a href="#ICE候选" class="headerlink" title="ICE候选"></a>ICE候选</h2><p>最后一部分是处理用户之间的ICE候选。我们在用户中间用相同的机制通过message。主要的不同就是候选消息可能会多次、无序地发送给每个用户。添加<em>candidate</em>句柄：</p>
-<pre><code class="javascript">case &quot;candidate&quot;: 
-   console.log(&quot;Sending candidate to:&quot;,data.name); 
-   var conn = users[data.name]; 
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">case</span> <span class="token string">"candidate"</span><span class="token punctuation">:</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Sending candidate to:"</span><span class="token punctuation">,</span>data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token keyword">var</span> conn <span class="token operator">=</span> users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span> 
 
-   if(conn != null) {
-      sendTo(conn, { 
-         type: &quot;candidate&quot;, 
-         candidate: data.candidate 
-      }); 
-   }
+   <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">sendTo</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+         type<span class="token punctuation">:</span> <span class="token string">"candidate"</span><span class="token punctuation">,</span> 
+         candidate<span class="token punctuation">:</span> data<span class="token punctuation">.</span>candidate 
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span>
 
-   break;
-</code></pre>
+   <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="断开对话"><a href="#断开对话" class="headerlink" title="断开对话"></a>断开对话</h2><p>为了让用户之间断开对话。我们要一个挂起函数。她同时会告诉服务器删掉所有的用户引用。添加<em>leave</em>句柄：</p>
-<pre><code class="javascript">case &quot;leave&quot;: 
-   console.log(&quot;Disconnecting from&quot;, data.name); 
-   var conn = users[data.name]; 
-   conn.otherName = null; 
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">case</span> <span class="token string">"leave"</span><span class="token punctuation">:</span> 
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Disconnecting from"</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token keyword">var</span> conn <span class="token operator">=</span> users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+   conn<span class="token punctuation">.</span>otherName <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> 
 
-   //notify the other user so he can disconnect his peer connection 
-   if(conn != null) { 
-      sendTo(conn, { 
-         type: &quot;leave&quot; 
-      }); 
-   } 
+   <span class="token comment" spellcheck="true">//notify the other user so he can disconnect his peer connection </span>
+   <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      <span class="token function">sendTo</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+         type<span class="token punctuation">:</span> <span class="token string">"leave"</span> 
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token punctuation">}</span> 
 
-   break;
-</code></pre>
+   <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>同时吧leave事件发送给另一个用户，让他也你能相应的断开对话。</p>
 <p>当用户从信令服务器中丢弃掉连接的时候我们还需要有<em>close</em>句柄。</p>
-<pre><code class="javascript">connection.on(&quot;close&quot;, function() { 
+<pre class="line-numbers language-javascript"><code class="language-javascript">connection<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"close"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
 
-   if(connection.name) { 
-      delete users[connection.name]; 
+   <span class="token keyword">if</span><span class="token punctuation">(</span>connection<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      <span class="token keyword">delete</span> users<span class="token punctuation">[</span>connection<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span> 
 
-      if(connection.otherName) { 
-         console.log(&quot;Disconnecting from &quot;, connection.otherName); 
-         var conn = users[connection.otherName]; 
-         conn.otherName = null;
+      <span class="token keyword">if</span><span class="token punctuation">(</span>connection<span class="token punctuation">.</span>otherName<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Disconnecting from "</span><span class="token punctuation">,</span> connection<span class="token punctuation">.</span>otherName<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         <span class="token keyword">var</span> conn <span class="token operator">=</span> users<span class="token punctuation">[</span>connection<span class="token punctuation">.</span>otherName<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+         conn<span class="token punctuation">.</span>otherName <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 
-         if(conn != null) { 
-            sendTo(conn, { 
-               type: &quot;leave&quot; 
-            }); 
-         }  
-      } 
-   } 
-});
-</code></pre>
+         <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            <span class="token function">sendTo</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+               type<span class="token punctuation">:</span> <span class="token string">"leave"</span> 
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         <span class="token punctuation">}</span>  
+      <span class="token punctuation">}</span> 
+   <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>信令服务器完成。</p>
-<h2 id="完整的代码"><a href="#完整的代码" class="headerlink" title="完整的代码"></a>完整的代码</h2><pre><code class="javascript">//依赖ws库
-var WebSocketServer = require(&#39;ws&#39;).Server;
+<h2 id="完整的代码"><a href="#完整的代码" class="headerlink" title="完整的代码"></a>完整的代码</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//依赖ws库</span>
+<span class="token keyword">var</span> WebSocketServer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ws'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Server<span class="token punctuation">;</span>
 
-//开9090端口。服务器名字叫wss
-var wss = new WebSocketServer({port: 9090}); 
+<span class="token comment" spellcheck="true">//开9090端口。服务器名字叫wss</span>
+<span class="token keyword">var</span> wss <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocketServer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>port<span class="token punctuation">:</span> <span class="token number">9090</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-//用户群组。里面存的是connection。下标是name。
-var users = {};
+<span class="token comment" spellcheck="true">//用户群组。里面存的是connection。下标是name。</span>
+<span class="token keyword">var</span> users <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-//有人要连接时 
-wss.on(&#39;connection&#39;, function(connection) {
+<span class="token comment" spellcheck="true">//有人要连接时 </span>
+wss<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'connection'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>connection<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-   console.log(&quot;User connected&quot;);
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"User connected"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-   //服务器收到了message
-   connection.on(&#39;message&#39;, function(message) { 
+   <span class="token comment" spellcheck="true">//服务器收到了message</span>
+   connection<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
 
-      var data; 
-      //只接收JSON 
-      try {
-         data = JSON.parse(message); //切分JSON存入data
-      } catch (e) { 
-         console.log(&quot;Invalid JSON&quot;); 
-         data = {}; 
-      } 
+      <span class="token keyword">var</span> data<span class="token punctuation">;</span> 
+      <span class="token comment" spellcheck="true">//只接收JSON </span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         data <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//切分JSON存入data</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Invalid JSON"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+         data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
+      <span class="token punctuation">}</span> 
 
-      //用户消息的type 
-      switch (data.type) { 
-         //尝试登录
+      <span class="token comment" spellcheck="true">//用户消息的type </span>
+      <span class="token keyword">switch</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+         <span class="token comment" spellcheck="true">//尝试登录</span>
 
-         case &quot;login&quot;: 
-            console.log(&quot;User logged&quot;, data.name); 
+         <span class="token keyword">case</span> <span class="token string">"login"</span><span class="token punctuation">:</span> 
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"User logged"</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-            //重名了 
-            if(users[data.name]) { 
-               sendTo(connection, { 
-                  type: &quot;login&quot;, 
-                  success: false 
-               }); 
-            } else { 
-               //可以登则存入数组 
-               users[data.name] = connection; 
-               connection.name = data.name; 
+            <span class="token comment" spellcheck="true">//重名了 </span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+               <span class="token function">sendTo</span><span class="token punctuation">(</span>connection<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+                  type<span class="token punctuation">:</span> <span class="token string">"login"</span><span class="token punctuation">,</span> 
+                  success<span class="token punctuation">:</span> <span class="token boolean">false</span> 
+               <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> 
+               <span class="token comment" spellcheck="true">//可以登则存入数组 </span>
+               users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> connection<span class="token punctuation">;</span> 
+               connection<span class="token punctuation">.</span>name <span class="token operator">=</span> data<span class="token punctuation">.</span>name<span class="token punctuation">;</span> 
 
-               sendTo(connection, { 
-                  type: &quot;login&quot;, 
-                  success: true 
-               }); 
-            } 
+               <span class="token function">sendTo</span><span class="token punctuation">(</span>connection<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+                  type<span class="token punctuation">:</span> <span class="token string">"login"</span><span class="token punctuation">,</span> 
+                  success<span class="token punctuation">:</span> <span class="token boolean">true</span> 
+               <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">}</span> 
 
-            break; 
+            <span class="token keyword">break</span><span class="token punctuation">;</span> 
 
-         case &quot;offer&quot;: 
-            //for ex. A想打给B 
-            console.log(&quot;Sending offer to: &quot;, data.name); 
+         <span class="token keyword">case</span> <span class="token string">"offer"</span><span class="token punctuation">:</span> 
+            <span class="token comment" spellcheck="true">//for ex. A想打给B </span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Sending offer to: "</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-            //B存在则发给B offer 
-            var conn = users[data.name];
+            <span class="token comment" spellcheck="true">//B存在则发给B offer </span>
+            <span class="token keyword">var</span> conn <span class="token operator">=</span> users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-            if(conn != null) { 
-               /A 的连接对象设为 B
-               connection.otherName = data.name; 
+            <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+               <span class="token operator">/</span>A 的连接对象设为 B
+               connection<span class="token punctuation">.</span>otherName <span class="token operator">=</span> data<span class="token punctuation">.</span>name<span class="token punctuation">;</span> 
 
-               sendTo(conn, { 
-                  type: &quot;offer&quot;, 
-                  offer: data.offer, 
-                  name: connection.name 
-               }); 
-            } 
+               <span class="token function">sendTo</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+                  type<span class="token punctuation">:</span> <span class="token string">"offer"</span><span class="token punctuation">,</span> 
+                  offer<span class="token punctuation">:</span> data<span class="token punctuation">.</span>offer<span class="token punctuation">,</span> 
+                  name<span class="token punctuation">:</span> connection<span class="token punctuation">.</span>name 
+               <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">}</span> 
 
-            break;  
+            <span class="token keyword">break</span><span class="token punctuation">;</span>  
 
-         case &quot;answer&quot;: 
-            console.log(&quot;Sending answer to: &quot;, data.name); 
-            //for ex. B要接听A
-            var conn = users[data.name]; 
+         <span class="token keyword">case</span> <span class="token string">"answer"</span><span class="token punctuation">:</span> 
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Sending answer to: "</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token comment" spellcheck="true">//for ex. B要接听A</span>
+            <span class="token keyword">var</span> conn <span class="token operator">=</span> users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span> 
 
-            if(conn != null) { 
-               connection.otherName = data.name; 
-               sendTo(conn, { 
-                  type: &quot;answer&quot;, 
-                  answer: data.answer 
-               }); 
-            } 
+            <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+               connection<span class="token punctuation">.</span>otherName <span class="token operator">=</span> data<span class="token punctuation">.</span>name<span class="token punctuation">;</span> 
+               <span class="token function">sendTo</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+                  type<span class="token punctuation">:</span> <span class="token string">"answer"</span><span class="token punctuation">,</span> 
+                  answer<span class="token punctuation">:</span> data<span class="token punctuation">.</span>answer 
+               <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">}</span> 
 
-            break;  
+            <span class="token keyword">break</span><span class="token punctuation">;</span>  
 
-         case &quot;candidate&quot;: 
-            console.log(&quot;Sending candidate to:&quot;,data.name); 
-            var conn = users[data.name];  
+         <span class="token keyword">case</span> <span class="token string">"candidate"</span><span class="token punctuation">:</span> 
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Sending candidate to:"</span><span class="token punctuation">,</span>data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token keyword">var</span> conn <span class="token operator">=</span> users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span>  
 
-            if(conn != null) { 
-               sendTo(conn, { 
-                  type: &quot;candidate&quot;, 
-                  candidate: data.candidate 
-               });
-            } 
+            <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+               <span class="token function">sendTo</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+                  type<span class="token punctuation">:</span> <span class="token string">"candidate"</span><span class="token punctuation">,</span> 
+                  candidate<span class="token punctuation">:</span> data<span class="token punctuation">.</span>candidate 
+               <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> 
 
-            break;  
+            <span class="token keyword">break</span><span class="token punctuation">;</span>  
 
-         case &quot;leave&quot;: 
-            console.log(&quot;Disconnecting from&quot;, data.name); 
-            var conn = users[data.name]; 
-            conn.otherName = null; 
+         <span class="token keyword">case</span> <span class="token string">"leave"</span><span class="token punctuation">:</span> 
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Disconnecting from"</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token keyword">var</span> conn <span class="token operator">=</span> users<span class="token punctuation">[</span>data<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+            conn<span class="token punctuation">.</span>otherName <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> 
 
-            //notify the other user so he can disconnect his peer connection 
-            if(conn != null) { 
-               sendTo(conn, { 
-                  type: &quot;leave&quot; 
-               }); 
-            }  
+            <span class="token comment" spellcheck="true">//notify the other user so he can disconnect his peer connection </span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+               <span class="token function">sendTo</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+                  type<span class="token punctuation">:</span> <span class="token string">"leave"</span> 
+               <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">}</span>  
 
-            break;  
+            <span class="token keyword">break</span><span class="token punctuation">;</span>  
 
-         default: 
-            sendTo(connection, { 
-               type: &quot;error&quot;, 
-               message: &quot;Command not found: &quot; + data.type 
-            }); 
+         <span class="token keyword">default</span><span class="token punctuation">:</span> 
+            <span class="token function">sendTo</span><span class="token punctuation">(</span>connection<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+               type<span class="token punctuation">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span> 
+               message<span class="token punctuation">:</span> <span class="token string">"Command not found: "</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>type 
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-            break; 
-      }  
-   });  
+            <span class="token keyword">break</span><span class="token punctuation">;</span> 
+      <span class="token punctuation">}</span>  
+   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
 
-   //用户退出，比如关闭了浏览器窗口 
-   //如果我们仍在offer\answer\candidate状态。则起作用。 
-   connection.on(&quot;close&quot;, function() { 
+   <span class="token comment" spellcheck="true">//用户退出，比如关闭了浏览器窗口 </span>
+   <span class="token comment" spellcheck="true">//如果我们仍在offer\answer\candidate状态。则起作用。 </span>
+   connection<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"close"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
 
-      if(connection.name) { 
-      delete users[connection.name]; 
+      <span class="token keyword">if</span><span class="token punctuation">(</span>connection<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+      <span class="token keyword">delete</span> users<span class="token punctuation">[</span>connection<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span> 
 
-         if(connection.otherName) { 
-            console.log(&quot;Disconnecting from &quot;, connection.otherName);
-            //A的连接对B象存到Conn
-            var conn = users[connection.otherName]; 
-            //设置A为无连接状态
-            conn.otherName = null;  
-                //让B也leave会话
-            if(conn != null) { 
-               sendTo(conn, { 
-                  type: &quot;leave&quot; 
-               });
-            }  
-         } 
-      } 
-   });  
+         <span class="token keyword">if</span><span class="token punctuation">(</span>connection<span class="token punctuation">.</span>otherName<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Disconnecting from "</span><span class="token punctuation">,</span> connection<span class="token punctuation">.</span>otherName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//A的连接对B象存到Conn</span>
+            <span class="token keyword">var</span> conn <span class="token operator">=</span> users<span class="token punctuation">[</span>connection<span class="token punctuation">.</span>otherName<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+            <span class="token comment" spellcheck="true">//设置A为无连接状态</span>
+            conn<span class="token punctuation">.</span>otherName <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>  
+                <span class="token comment" spellcheck="true">//让B也leave会话</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+               <span class="token function">sendTo</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+                  type<span class="token punctuation">:</span> <span class="token string">"leave"</span> 
+               <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>  
+         <span class="token punctuation">}</span> 
+      <span class="token punctuation">}</span> 
+   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
 
-   connection.send(&quot;Hello world&quot;); 
+   connection<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"Hello world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-});  
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
 
-function sendTo(connection, message) { 
-   connection.send(JSON.stringify(message)); 
-}
-</code></pre>
+<span class="token keyword">function</span> <span class="token function">sendTo</span><span class="token punctuation">(</span>connection<span class="token punctuation">,</span> message<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+   connection<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这篇文章一定要和入门教程02一起看~</p>
 
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -867,11 +768,12 @@ function sendTo(connection, message) {
                     <div class="summary">知识点：ListNode单链表、 快慢指针
 
 基础部分这段代码可以帮助你在IDE调试。
-#include&lt;iostream&gt;
+#include
 using namespace std;
 typedef struct ListNode
 {
-    </div>
+    int val;
+    str</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-06
@@ -1039,13 +941,13 @@ config包含 key, iceServers</div>
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

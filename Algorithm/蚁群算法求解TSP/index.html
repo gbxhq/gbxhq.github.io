@@ -99,6 +99,15 @@ gcc hello.c -o hell">
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -168,16 +177,25 @@ gcc hello.c -o hell">
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -316,28 +334,14 @@ gcc hello.c -o hell">
 </blockquote>
 <a id="more"></a>
 <h1 id="C菜🐦的挫败"><a href="#C菜🐦的挫败" class="headerlink" title="C菜🐦的挫败"></a>C菜🐦的挫败</h1><p>先简单介绍下GDB这个东西，Mac下写C神器。没了解过的拿着下面两句就可以先起飞了。</p>
-<pre><code class="shell">gcc hello.c -o hello  #这样就把hello.c编译成了hello的可执行文件
+<pre class="line-numbers language-shell"><code class="language-shell">gcc hello.c -o hello  #这样就把hello.c编译成了hello的可执行文件
 
 ./ hello #这就输出了
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>【事实是半小时后放弃用C】</p>
 <p>那么就MATLAB走起</p>
 <h1 id="MATLAB版-蚁群算法求解TSP"><a href="#MATLAB版-蚁群算法求解TSP" class="headerlink" title="MATLAB版-蚁群算法求解TSP"></a>MATLAB版-蚁群算法求解TSP</h1><p>算法主要过程：</p>
-<pre><code class="Matlab"> while NC&lt;=NC_max        %--- Start ---
-        % 随机放置蚂蚁
-        Tabu=initTabu(n,m);
-        % 蚂蚁跑完一圈
-        Tabu=selectNextCity(Tabu,Tau,R_best,n,m,Alpha,Beta,Eta,NC);
-        % 寻找路径
-        [L_best,R_best,L,R]=findBestPath(Tabu,L_best,R_best,D,n,m,NC);
-        %=== End1Time ===
-        NC=NC+1;
-        % 更新Tau
-        Tau=updateTau(Tabu,Tau,L,Q,n,m,Rho);
-        % 重置Tabu
-        Tabu=zeros(m,n); 
-end                    %--- End ---
-</code></pre>
+<pre class="line-numbers language-Matlab"><code class="language-Matlab"> while NC<=nc_max %---="" start="" ---="" %="" 随机放置蚂蚁="" tabu="initTabu(n,m);" 蚂蚁跑完一圈="" 寻找路径="" [l_best,r_best,l,r]="findBestPath(Tabu,L_best,R_best,D,n,m,NC);" end1time="==" nc="NC+1;" 更新tau="" tau="updateTau(Tabu,Tau,L,Q,n,m,Rho);" 重置tabu="" end="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></=nc_max></code></pre>
 <h2 id="自定义参数下求解出的最优路径"><a href="#自定义参数下求解出的最优路径" class="headerlink" title="自定义参数下求解出的最优路径"></a>自定义参数下求解出的最优路径</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15284289629541.jpg" alt=""></p>
 <h1 id="参数影响"><a href="#参数影响" class="headerlink" title="参数影响"></a>参数影响</h1><h2 id="蚂蚁数m对性能的影响"><a href="#蚂蚁数m对性能的影响" class="headerlink" title="蚂蚁数m对性能的影响"></a>蚂蚁数m对性能的影响</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15284295238328.jpg" alt=""></p>
 <blockquote>
@@ -360,123 +364,6 @@ end                    %--- End ---
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -711,13 +598,13 @@ i18ni18n（其来源是英文单词 internationalization的</div>
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>

@@ -95,6 +95,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
             <i id="searchIcon" class="mdi-action-search"></i>
@@ -164,16 +173,25 @@
             </a>
         </li>
         
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
         
     </ul>
 
-    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
@@ -323,86 +341,86 @@
 <p>然后一个循环开始爬这个省的城市，这里的a标签都是以省份的拼音开头的，就是我们上一步的标签i[‘href’]：<br><code>city = soup.find_all(&#39;a&#39;,{&quot;href&quot;:re.compile(i[&#39;href&#39;])})</code><br>太多了不上图了。开始读每个城市的列车咯。</p>
 <p>由于时刻表被存在了<table>里，所以先用<tr>把每一行跟分开。<br>然后从tr里用正则找内容是 13:14 的td：<br><code>p=re.compile(r&#39;13:14&#39;)</code><br><code>if p.search(str(i)):</code></tr></table></p>
 <p>这时候发现，并不是所有的13:14都是发车的时间，根据表格内容，第4是发车的时间。我们就把筛出来的数据，split后再判断一下是不是第六列内容是 13:14 ，如果是再append到answer列表：</p>
-<pre><code class="Python">if i.text.split()[3] == &#39;13:14&#39;:
+<pre class="line-numbers language-Python"><code class="language-Python">if i.text.split()[3] == '13:14':
     answer.append(i.text)`
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>至此所有的代码基本就完成了，可运行起来出了个问题，就是循环队列的网页太多，超时了整个循环都会停止，而且爬了一段时候后一直返回HTTP-Err。<br>请教下同学，写了个Try的函数：</p>
-<h2 id="防止HTTP超时"><a href="#防止HTTP超时" class="headerlink" title="防止HTTP超时"></a>防止HTTP超时</h2><pre><code class="python">def fun(url):
-    result=&#39;&#39;
-    try:
-        result = urlopen(url,timeout=10).read()
-    except:
-        result = fun(url)
-        print(&#39;error&#39;)
-    return result
-</code></pre>
+<h2 id="防止HTTP超时"><a href="#防止HTTP超时" class="headerlink" title="防止HTTP超时"></a>防止HTTP超时</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">fun</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    result<span class="token operator">=</span><span class="token string">''</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> urlopen<span class="token punctuation">(</span>url<span class="token punctuation">,</span>timeout<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> fun<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> result
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这样，如果超时就会print一个error而且一直递归下去，循环也不会break了。爬网页必备啊~</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code class="python">from bs4 import BeautifulSoup
-from urllib.request import urlopen
-import re
-#import webbrowser
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token keyword">from</span> urllib<span class="token punctuation">.</span>request <span class="token keyword">import</span> urlopen
+<span class="token keyword">import</span> re
+<span class="token comment" spellcheck="true">#import webbrowser</span>
 
-base_url = &quot;http://qq.ip138.com&quot;
-city = [&quot;train/&quot;]
-answer=[]
+base_url <span class="token operator">=</span> <span class="token string">"http://qq.ip138.com"</span>
+city <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"train/"</span><span class="token punctuation">]</span>
+answer<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
 
-#his = his.encode(&#39;uft-8&#39;)
+<span class="token comment" spellcheck="true">#his = his.encode('uft-8')</span>
 
-    #url = base_url + his[-1]
-html = urlopen(&quot;http://qq.ip138.com/train&quot;).read().decode(&#39;GB2312&#39;)
-#print(html)
-#webbrowser.open(url)
-soup = BeautifulSoup(html,features=&#39;lxml&#39;)
+    <span class="token comment" spellcheck="true">#url = base_url + his[-1]</span>
+html <span class="token operator">=</span> urlopen<span class="token punctuation">(</span><span class="token string">"http://qq.ip138.com/train"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'GB2312'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#print(html)</span>
+<span class="token comment" spellcheck="true">#webbrowser.open(url)</span>
+soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span>features<span class="token operator">=</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
 
-#print(soup.find(&#39;a&#39;).get_text(),&#39;\n后缀：&#39;,city[0])
-#找到 属性href是/train/开头 的 a标签
-province = soup.find_all(&#39;a&#39;,{&quot;href&quot;:re.compile(&quot;/train/&quot;)})
-def fun(url):
-    result=&#39;&#39;
-    try:
-        result = urlopen(url,timeout=10).read()
-    except:
-        result = fun(url)
-        print(&#39;error&#39;)
-    return result
-print(province)
-for i in province[1:-1]:
-    print(i[&#39;href&#39;])
-    url = base_url+i[&#39;href&#39;]
-    html = fun(url)
-    soup = BeautifulSoup(html,features=&#39;lxml&#39;)
-    #读每个省里的城市
+<span class="token comment" spellcheck="true">#print(soup.find('a').get_text(),'\n后缀：',city[0])</span>
+<span class="token comment" spellcheck="true">#找到 属性href是/train/开头 的 a标签</span>
+province <span class="token operator">=</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">"href"</span><span class="token punctuation">:</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">"/train/"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">fun</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    result<span class="token operator">=</span><span class="token string">''</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> urlopen<span class="token punctuation">(</span>url<span class="token punctuation">,</span>timeout<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> fun<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> result
+<span class="token keyword">print</span><span class="token punctuation">(</span>province<span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> province<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> base_url<span class="token operator">+</span>i<span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span>
+    html <span class="token operator">=</span> fun<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span>features<span class="token operator">=</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#读每个省里的城市</span>
 
-    city = soup.find_all(&#39;a&#39;,{&quot;href&quot;:re.compile(i[&#39;href&#39;])})
-    #flag这个省
+    city <span class="token operator">=</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">"href"</span><span class="token punctuation">:</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#flag这个省</span>
 
-    flag = i[&#39;href&#39;]
-    for i in city[1:-1]:
-        #哈哈。终于读到时刻表了
-        print(i[&#39;href&#39;])
-        url = base_url+i[&#39;href&#39;]
-        html = fun(url)
-        soup = BeautifulSoup(html,features=&#39;lxml&#39;)
-        train = soup.find_all(&#39;tr&#39;)
-        p=re.compile(r&#39;13:14&#39;)
+    flag <span class="token operator">=</span> i<span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> city<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#哈哈。终于读到时刻表了</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        url <span class="token operator">=</span> base_url<span class="token operator">+</span>i<span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span>
+        html <span class="token operator">=</span> fun<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+        soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span>features<span class="token operator">=</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
+        train <span class="token operator">=</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'tr'</span><span class="token punctuation">)</span>
+        p<span class="token operator">=</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'13:14'</span><span class="token punctuation">)</span>
 
-        for i in train:
-            if p.search(str(i)):
-                if i.text.split()[3] == &#39;13:14&#39;:
-                    answer.append(i.text)
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> train<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> p<span class="token punctuation">.</span>search<span class="token punctuation">(</span>str<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> i<span class="token punctuation">.</span>text<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'13:14'</span><span class="token punctuation">:</span>
+                    answer<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
 
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15266453453241.jpg" alt=""></p>
 <h2 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h2><p>原来有好多好多符合条件的列车呀，那么作为花(Qiong)朵（Ren）的我怎么选呢。</p>
 <p>哈哈。当然是用到站时间-发车时间计算出最（Pianyi）的那一辆啦。<br>这里又学到了Python的time包。<br>给你们个模板拿去用：</p>
-<pre><code class="python">import time
-#经停时间是第六列
-t1 = time.mktime(time.strptime(i.split()[6],&#39;%H:%m&#39;)
-#到站时间是最后一列
-t2 = time.mktime(time.strptime(i.split()[-1],&#39;%H:%m&#39;)
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> time
+<span class="token comment" spellcheck="true">#经停时间是第六列</span>
+t1 <span class="token operator">=</span> time<span class="token punctuation">.</span>mktime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>strptime<span class="token punctuation">(</span>i<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'%H:%m'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#到站时间是最后一列</span>
+t2 <span class="token operator">=</span> time<span class="token punctuation">.</span>mktime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>strptime<span class="token punctuation">(</span>i<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'%H:%m'</span><span class="token punctuation">)</span>
 
-t2- t1
-</code></pre>
+t2<span class="token operator">-</span> t1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>最后我买了这一班：</p>
 <p><img src="http://p66eruxmw.bkt.clouddn.com/15266457689435.jpg" alt=""></p>
 <p>哈哈，明天抽个空去取票去~</p>
@@ -410,123 +428,6 @@ t2- t1
             </div>
             <hr>
 
-            
-            <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
             
 
             <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
@@ -774,13 +675,13 @@ t2- t1
             <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
         </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
