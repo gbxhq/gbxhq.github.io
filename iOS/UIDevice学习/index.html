@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="UIDevice学习, 炫杉">
     <meta name="description" content="iOS的UIDevice可以方便获取设备的硬件和系统的一些状态信息。写这篇文章是因为选修了《移动安全与测评》这门课。小作业让写一个APP获取系统和其他App的一些信息。在不越狱的iOS中我实在不知道怎么获取其他APP的信息，就借此机会了解下">
@@ -26,7 +26,8 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -109,7 +110,7 @@
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -450,7 +451,7 @@ let paste = UIPasteboard.general.string
 <p>应该是可以的。因为我手机上装了个QQ同步助手，这软件只有一个读通讯录的权限，我也从不打开它，但它常常发来<strong>云端通讯录已同步完成</strong>的通知。猜测是利用调用通知激活后台180s，再利用这180s肆意妄为。当然只是猜测。<br>由于实力有限在这方面没有过多测试。</p>
 
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -734,8 +735,8 @@ Scale to fill 拉伸 即拉到和框框一样的</div>
         <div class="toc-widget">
             <h4>目录</h4>
             <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#系统设备信息"><span class="post-toc-text">系统设备信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#传感器相关"><span class="post-toc-text">传感器相关</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#行为侦听"><span class="post-toc-text">行为侦听</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过程与分析"><span class="post-toc-text">过程与分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#系统设备信息-1"><span class="post-toc-text">系统设备信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#传感器相关-1"><span class="post-toc-text">传感器相关</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#行为侦听-1"><span class="post-toc-text">行为侦听</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取其他APP信息"><span class="post-toc-text">获取其他APP信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后台运行问题"><span class="post-toc-text">后台运行问题</span></a></li></ol>
-            </div>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#系统设备信息"><span class="post-toc-text">系统设备信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#传感器相关"><span class="post-toc-text">传感器相关</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#行为侦听"><span class="post-toc-text">行为侦听</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过程与分析"><span class="post-toc-text">过程与分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#系统设备信息-1"><span class="post-toc-text">系统设备信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#传感器相关-1"><span class="post-toc-text">传感器相关</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#行为侦听-1"><span class="post-toc-text">行为侦听</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取其他APP信息"><span class="post-toc-text">获取其他APP信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后台运行问题"><span class="post-toc-text">后台运行问题</span></a></li></ol>
+            </li></div>
         </div>
     </div>
 </div>
@@ -754,7 +755,8 @@ Scale to fill 拉伸 即拉到和框框一样的</div>
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -831,8 +833,7 @@ Scale to fill 拉伸 即拉到和框框一样的</div>
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

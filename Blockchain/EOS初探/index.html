@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="EOS初探, 炫杉">
     <meta name="description" content="EOS这几天就像疯了。两周前我￥35入的（当时价格在0.0008BTC），大约两天后在59左右不到60（0.0011BTC）就出了，当时还觉得很高兴。。。五一出去和紫玉玩了一天回来，今天看120(0.0010)了。再涨买都不买不起了，今天开">
@@ -26,7 +26,8 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -109,7 +110,7 @@
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -334,7 +335,7 @@
 <p>再见👋👋👋</p>
 
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -633,7 +634,8 @@ p1物联网正在改变一切。不</div>
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -710,8 +712,7 @@ p1物联网正在改变一切。不</div>
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

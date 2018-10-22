@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="iOS 圆角、阴影通用配置, 炫杉">
     <meta name="description" content="这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。
@@ -32,7 +32,8 @@ extension UIView {
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -115,7 +116,7 @@ extension UIView {
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -372,7 +373,7 @@ extension UIView {
 </code></pre>
 
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -552,20 +553,21 @@ extension UIView {
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/Others/Git笔记/">
+                <a href="/iOS/语法问题/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Git笔记">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Swift语法笔记">
                         
-                        <span class="card-title">Git笔记</span>
+                        <span class="card-title">Swift语法笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。
+                    <div class="summary">语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话设计模式》，有时间要再读一读了。
 
-Git Pull冲突问题1git stash 暂存本地修改
-git pull 从</div>
+
+Tuple 元组：定义变量的一个组合
+va</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -574,8 +576,8 @@ git pull 从</div>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                            <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
                                 </a>
                             
                             
@@ -589,8 +591,8 @@ git pull 从</div>
                         <span class="chip bg-color">Note</span>
                     </a>
                     
-                    <a href="/tags/Git/" target="_blank">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/Swift/" target="_blank">
+                        <span class="chip bg-color">Swift</span>
                     </a>
                     
                 </div>
@@ -600,27 +602,25 @@ git pull 从</div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="article-badge right-badge text-color">本篇</div>
             <div class="card">
-                <a href="/iOS/小波iOS11初级篇笔记/">
+                <a href="/iOS/UIViewHelper.swift/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="小波iOS11初级篇笔记">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="iOS 圆角、阴影通用配置">
                         
-                        <span class="card-title">小波iOS11初级篇笔记</span>
+                        <span class="card-title">iOS 圆角、阴影通用配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了
+                    <div class="summary">这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。
+import UIKit
+//圆角
+extension UIView {
 
-小知识点
-IB : Interface Builder 界面构建器
-
-这种写法来防止id出错
-
-
-  let id</div>
+  @IBInspectable //让它可见
+  var cornerReadiu</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -637,6 +637,7 @@ IB : Interface Builder 界面构建器
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -681,7 +682,8 @@ IB : Interface Builder 界面构建器
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -758,8 +760,7 @@ IB : Interface Builder 界面构建器
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

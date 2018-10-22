@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="SQL, 炫杉">
     <meta name="description" content="noSql数据库满天飞的情况下，安下心来让SQL尘埃落定吧。（出来混总要还的😌）《SQL必知必会》读书笔记，Ben Forta著。
@@ -30,7 +30,8 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -113,7 +114,7 @@
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -529,13 +530,22 @@ WHERE id != &#39;01&#39;
 <p>那为啥还要用NOT呢？</p>
 <p>在复杂的条件中，可以迅速找出 <strong>不符合</strong> 条件的</p>
 <h1 id="通配符过滤"><a href="#通配符过滤" class="headerlink" title="通配符过滤"></a>通配符过滤</h1><p>使用谓词 <code>LIKE</code> </p>
-<h2 id="通配符"><a href="#通配符" class="headerlink" title="%通配符"></a>%通配符</h2><p>表示任意字符出现任意次</p>
+<ul>
+<li>%通配符</li>
+</ul>
+<p>表示任意字符出现任意次</p>
 <pre><code class="sql">WHERE name LIKE &#39;Xiao%&#39;
 #XiaoMing XiaoHong XiaoLiang就都被搜出来了
 </code></pre>
 <p>%可以匹配 0 个 1 个 多个字符（包括空格）。当然 ，并不会匹配NULL值</p>
-<h2 id="通配符-1"><a href="#通配符-1" class="headerlink" title="_通配符"></a>_通配符</h2><p>_只匹配一个字符</p>
-<h2 id="通配符-2"><a href="#通配符-2" class="headerlink" title="[]通配符"></a>[]通配符</h2><p>匹配字符集（仅SQL Server支持）从<code>[ ]</code>里取一个字符</p>
+<ul>
+<li>_通配符</li>
+</ul>
+<p>_只匹配一个字符</p>
+<ul>
+<li>[]通配符</li>
+</ul>
+<p>匹配字符集（仅SQL Server支持）从<code>[ ]</code>里取一个字符</p>
 <pre><code class="sql">WHERE name LIKE &#39;Xiao[MH]&#39;  -- 匹配XiaoM和XiaoH
 WHERE name LIKE &#39;Xiao[^MH]&#39; -- 除了XiaoM和XiaoH所有的
 </code></pre>
@@ -543,7 +553,9 @@ WHERE name LIKE &#39;Xiao[^MH]&#39; -- 除了XiaoM和XiaoH所有的
 <li>不要过度使用通配符。有其他操作符能达到目的应优先考虑其他。</li>
 <li>通配符置于开始处，搜索起来是最慢的</li>
 </ul>
-<h1 id="SELECT-name-‘-‘-classId-‘-’拼接字段"><a href="#SELECT-name-‘-‘-classId-‘-’拼接字段" class="headerlink" title="SELECT name + ‘(‘ + classId + ‘)’拼接字段"></a>SELECT name + ‘(‘ + classId + ‘)’拼接字段</h1><p>就是合并列</p>
+<hr>
+<p><strong>SELECT name + ‘(‘ + classId + ‘)’拼接字段</strong></p>
+<p>就是合并列</p>
 <pre><code class="sql">#在SQL Server中 用 +
 SELECT name + &#39;(&#39; + classId + &#39;)&#39;
 #在DB2 Oracle PostgreSQL SQLite中 用 ||
@@ -741,7 +753,7 @@ WHERE id = &#39;001&#39;;
 <p><strong>没有WHERE子句会更新所有行</strong> 这不是我们所希望的</p>
 
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -918,7 +930,7 @@ WHERE id = &#39;001&#39;;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
                 <a href="/SQL/">
@@ -1019,7 +1031,7 @@ Mac的软件包管理</div>
         <div class="toc-widget">
             <h4>目录</h4>
             <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#了解SQL"><span class="post-toc-text">了解SQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基础语法"><span class="post-toc-text">基础语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据类型"><span class="post-toc-text">数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串"><span class="post-toc-text">字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数值"><span class="post-toc-text">数值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#日期时间"><span class="post-toc-text">日期时间</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#检索数据"><span class="post-toc-text">检索数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#限制结果"><span class="post-toc-text">限制结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注释"><span class="post-toc-text">注释</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#排序检索数据"><span class="post-toc-text">排序检索数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#排序方向："><span class="post-toc-text">排序方向：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过滤数据"><span class="post-toc-text">过滤数据</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高级过滤"><span class="post-toc-text">高级过滤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组合WHERE子句"><span class="post-toc-text">组合WHERE子句</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AND和OR的顺序"><span class="post-toc-text">AND和OR的顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IN操作符"><span class="post-toc-text">IN操作符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NOT-操作符"><span class="post-toc-text">NOT 操作符</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通配符过滤"><span class="post-toc-text">通配符过滤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通配符"><span class="post-toc-text">%通配符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通配符-1"><span class="post-toc-text">_通配符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通配符-2"><span class="post-toc-text">[]通配符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通配符技巧"><span class="post-toc-text">通配符技巧</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SELECT-name-‘-‘-classId-‘-’拼接字段"><span class="post-toc-text">SELECT name + ‘(‘ + classId + ‘)’拼接字段</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用别名"><span class="post-toc-text">使用别名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算数计算"><span class="post-toc-text">算数计算</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数"><span class="post-toc-text">函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇总数据"><span class="post-toc-text">汇总数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#聚集函数"><span class="post-toc-text">聚集函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DISTINCT去重"><span class="post-toc-text">DISTINCT去重</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分组"><span class="post-toc-text">分组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不用GROUP-BY"><span class="post-toc-text">不用GROUP BY</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GROUP-BY"><span class="post-toc-text">GROUP BY</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#过滤分组"><span class="post-toc-text">过滤分组</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#子查询"><span class="post-toc-text">子查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IN-SELECT"><span class="post-toc-text">IN(SELECT)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作为计算字段"><span class="post-toc-text">作为计算字段</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#联结表"><span class="post-toc-text">联结表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#笛卡尔积"><span class="post-toc-text">笛卡尔积</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内联结-等值联结"><span class="post-toc-text">内联结 等值联结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高级联结"><span class="post-toc-text">高级联结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表的别名"><span class="post-toc-text">表的别名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自联结"><span class="post-toc-text">自联结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自然联结"><span class="post-toc-text">自然联结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#外联结"><span class="post-toc-text">外联结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组合查询"><span class="post-toc-text">组合查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重复的行"><span class="post-toc-text">重复的行</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插入数据"><span class="post-toc-text">插入数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入完整的行"><span class="post-toc-text">插入完整的行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入部分行"><span class="post-toc-text">插入部分行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入检索的数据"><span class="post-toc-text">插入检索的数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从一张表复制到另一张表"><span class="post-toc-text">从一张表复制到另一张表</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#删改"><span class="post-toc-text">删改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新数据"><span class="post-toc-text">更新数据</span></a></li></ol></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#了解SQL"><span class="post-toc-text">了解SQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基础语法"><span class="post-toc-text">基础语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据类型"><span class="post-toc-text">数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串"><span class="post-toc-text">字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数值"><span class="post-toc-text">数值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#日期时间"><span class="post-toc-text">日期时间</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#检索数据"><span class="post-toc-text">检索数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#限制结果"><span class="post-toc-text">限制结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注释"><span class="post-toc-text">注释</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#排序检索数据"><span class="post-toc-text">排序检索数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#排序方向："><span class="post-toc-text">排序方向：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过滤数据"><span class="post-toc-text">过滤数据</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高级过滤"><span class="post-toc-text">高级过滤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组合WHERE子句"><span class="post-toc-text">组合WHERE子句</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AND和OR的顺序"><span class="post-toc-text">AND和OR的顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IN操作符"><span class="post-toc-text">IN操作符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NOT-操作符"><span class="post-toc-text">NOT 操作符</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通配符过滤"><span class="post-toc-text">通配符过滤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通配符技巧"><span class="post-toc-text">通配符技巧</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用别名"><span class="post-toc-text">使用别名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算数计算"><span class="post-toc-text">算数计算</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数"><span class="post-toc-text">函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇总数据"><span class="post-toc-text">汇总数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#聚集函数"><span class="post-toc-text">聚集函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DISTINCT去重"><span class="post-toc-text">DISTINCT去重</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分组"><span class="post-toc-text">分组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不用GROUP-BY"><span class="post-toc-text">不用GROUP BY</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GROUP-BY"><span class="post-toc-text">GROUP BY</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#过滤分组"><span class="post-toc-text">过滤分组</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#子查询"><span class="post-toc-text">子查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IN-SELECT"><span class="post-toc-text">IN(SELECT)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作为计算字段"><span class="post-toc-text">作为计算字段</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#联结表"><span class="post-toc-text">联结表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#笛卡尔积"><span class="post-toc-text">笛卡尔积</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内联结-等值联结"><span class="post-toc-text">内联结 等值联结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高级联结"><span class="post-toc-text">高级联结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表的别名"><span class="post-toc-text">表的别名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自联结"><span class="post-toc-text">自联结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自然联结"><span class="post-toc-text">自然联结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#外联结"><span class="post-toc-text">外联结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组合查询"><span class="post-toc-text">组合查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重复的行"><span class="post-toc-text">重复的行</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插入数据"><span class="post-toc-text">插入数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入完整的行"><span class="post-toc-text">插入完整的行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入部分行"><span class="post-toc-text">插入部分行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入检索的数据"><span class="post-toc-text">插入检索的数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从一张表复制到另一张表"><span class="post-toc-text">从一张表复制到另一张表</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#删改"><span class="post-toc-text">删改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新数据"><span class="post-toc-text">更新数据</span></a></li></ol></li>
             </div>
         </div>
     </div>
@@ -1039,7 +1051,8 @@ Mac的软件包管理</div>
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -1116,8 +1129,7 @@ Mac的软件包管理</div>
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

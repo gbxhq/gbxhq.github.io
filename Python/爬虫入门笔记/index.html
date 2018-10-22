@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="爬虫入门笔记+实战爬福利吧图片, 炫杉">
     <meta name="description" content="今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~
@@ -31,7 +31,8 @@ re.compile()函数是什么？将正则表达式的字符串形式编译为Patte
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -114,7 +115,7 @@ re.compile()函数是什么？将正则表达式的字符串形式编译为Patte
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -430,7 +431,7 @@ for i in range(1,10):
 <h1 id="正则表达式小抄"><a href="#正则表达式小抄" class="headerlink" title="正则表达式小抄"></a>正则表达式小抄</h1><p><img src="http://p66eruxmw.bkt.clouddn.com/15226337908654.jpg" alt="正则表达式小抄"></p>
 
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -714,7 +715,8 @@ for i in range(1,10):
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -791,8 +793,7 @@ for i in range(1,10):
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="《Python数据分析》学习记录, 炫杉">
     <meta name="description" content="这是阅读《Python for Data Analysis》的读书笔记。
@@ -30,7 +30,8 @@ def g">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -113,7 +114,7 @@ def g">
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -281,16 +282,16 @@ def g">
             
             <div class="article-tag">
                 
+                <a href="/tags/Data-Analysis/" target="_blank">
+                    <span class="chip bg-color">Data Analysis</span>
+                </a>
+                
                 <a href="/tags/Python/" target="_blank">
                     <span class="chip bg-color">Python</span>
                 </a>
                 
                 <a href="/tags/note/" target="_blank">
                     <span class="chip bg-color">note</span>
-                </a>
-                
-                <a href="/tags/Data-Analysis/" target="_blank">
-                    <span class="chip bg-color">Data Analysis</span>
                 </a>
                 
             </div>
@@ -576,7 +577,7 @@ arch[&#39;b&#39;] #可单独访问
 <p>到此为止吧。数据分析。有缘再见！</p>
 
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -805,19 +806,19 @@ jQuery(document).rea</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Website/Hexo01/">
+                <a href="/Python/Python廖雪峰练习/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Hexo建站问题总结">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Python廖雪峰练习">
                         
-                        <span class="card-title">Hexo建站问题总结</span>
+                        <span class="card-title">Python廖雪峰练习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。
-本托管在coding上，不过云里雾里，弄得还是不满意。
-今天决定换成Hexo。再托管在Git上。一节课的功夫，很顺利的就完成了。写个文章记录下。</div>
+                    <div class="summary">这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！
+
+函数的参数def pr</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
@@ -826,8 +827,8 @@ jQuery(document).rea</div>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Website/" class="post-category" target="_blank">
-                                    Website
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
                                 </a>
                             
                             
@@ -837,8 +838,8 @@ jQuery(document).rea</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -874,7 +875,8 @@ jQuery(document).rea</div>
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -951,8 +953,7 @@ jQuery(document).rea</div>
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

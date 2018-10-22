@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Swift Demo1 秒表, 炫杉">
     <meta name="description" content="这是阅读项目30Days of Swift源码的仿写记录，该项目受到国外一个教程：Swift100天的启发。
@@ -29,7 +29,8 @@ Demo 1 StopWatch第一个小demo是个秒表。功能简单就是点击Play计�
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -112,7 +113,7 @@ Demo 1 StopWatch第一个小demo是个秒表。功能简单就是点击Play计�
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -342,7 +343,7 @@ timer = Timer.scheduledTimer(
 <h1 id="GitHub地址"><a href="#GitHub地址" class="headerlink" title="GitHub地址"></a>GitHub地址</h1><p><a href="https://github.com/ixsim/Swift30demos.git" target="_blank" rel="noopener">https://github.com/ixsim/Swift30demos.git</a></p>
 
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -664,7 +665,8 @@ apropos(&quot;mea&quot;)搜包含mea字符的方法
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -741,8 +743,7 @@ apropos(&quot;mea&quot;)搜包含mea字符的方法
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

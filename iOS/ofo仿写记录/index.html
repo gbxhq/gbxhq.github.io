@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="ofo仿写记录, 炫杉">
     <meta name="description" content="ofo不解释，教程同样来自小波。
@@ -30,7 +30,8 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -113,7 +114,7 @@
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -390,7 +391,7 @@ AMapServices.shared().apiKey = &quot;YOUR KEY&quot;
 <p>PS：经纬度数据可能不准确。在<a href="http://mygeoposition.com获取了GPX文件后可以再到http://lbs.amap.com/console/show/picker" target="_blank" rel="noopener">http://mygeoposition.com获取了GPX文件后可以再到http://lbs.amap.com/console/show/picker</a> 查到对应的经纬度修改下。</p>
 <h2 id="POI"><a href="#POI" class="headerlink" title="POI"></a>POI</h2>
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -682,7 +683,8 @@ AMapServices.shared().apiKey = &quot;YOUR KEY&quot;
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -759,8 +761,7 @@ AMapServices.shared().apiKey = &quot;YOUR KEY&quot;
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

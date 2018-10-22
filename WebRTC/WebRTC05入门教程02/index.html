@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="WebRTC05入门教程02, 炫杉">
     <meta name="description" content="p2p的核心RTCPeerConnection APIs的介绍
@@ -29,7 +29,8 @@ config包含 key, iceServers">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -112,7 +113,7 @@ config包含 key, iceServers">
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -688,7 +689,7 @@ function onCandidate(candidate) {
 <p>参考链接：<a href="https://baike.baidu.com/item/Alias/3105303#viewPageContent" target="_blank" rel="noopener">https://baike.baidu.com/item/Alias/3105303#viewPageContent</a></p>
 
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -992,7 +993,8 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -1069,8 +1071,7 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

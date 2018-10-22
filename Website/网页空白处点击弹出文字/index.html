@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="网页空白处点击弹出文字, 炫杉">
     <meta name="description" content="空白处点击鼠标，弹出文字的网页特效。
@@ -32,7 +32,8 @@ jQuery(document).rea">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -115,7 +116,7 @@ jQuery(document).rea">
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -355,7 +356,7 @@ $("body").click(function(e) {
 
 i.css({ "z-index": 999999999999999999999999999999999999999999999999999999999999999999999, "top": y - 20, "left": x, "position": "absolute", "font-weight": "bold", "color": "#ff6651" }); ("body").append($i); $i.animate({ "top": y - 180, "opacity": 0 }, 1500, function() { $i.remove(); }); }); }); </script>
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -627,16 +628,16 @@ def g</div>
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/Data-Analysis/" target="_blank">
+                        <span class="chip bg-color">Data Analysis</span>
+                    </a>
+                    
                     <a href="/tags/Python/" target="_blank">
                         <span class="chip bg-color">Python</span>
                     </a>
                     
                     <a href="/tags/note/" target="_blank">
                         <span class="chip bg-color">note</span>
-                    </a>
-                    
-                    <a href="/tags/Data-Analysis/" target="_blank">
-                        <span class="chip bg-color">Data Analysis</span>
                     </a>
                     
                 </div>
@@ -672,7 +673,8 @@ def g</div>
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -749,8 +751,7 @@ def g</div>
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="小知识点「理论」, 炫杉">
     <meta name="description" content="乱七八糟的东西。都是看博文啥的不懂现搜的~
@@ -29,7 +29,8 @@ i18ni18n（其来源是英文单词 internationalization的">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -112,7 +113,7 @@ i18ni18n（其来源是英文单词 internationalization的">
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -321,7 +322,7 @@ i18ni18n（其来源是英文单词 internationalization的">
 <p><em>源代码包里的文件往往会含有种种源代码文件，头文件</em>.h、c代码源文件<em>.c、C++代码源文件</em>.cc/*.cpp等；而二进制包里的文件则会有可执行文件（与软件同名的往往是主执行文件），标志是其所在路径含有名为bin的目录（仅有少数例外）</p>
 
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -606,7 +607,7 @@ gcc hello.c -o hell</div>
         <div class="toc-widget">
             <h4>目录</h4>
             <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#名词相关"><span class="post-toc-text">名词相关</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RESTful"><span class="post-toc-text">RESTful</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#i18n"><span class="post-toc-text">i18n</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二进制包和源代码安装的差距"><span class="post-toc-text">二进制包和源代码安装的差距</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#名词相关"><span class="post-toc-text">名词相关</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RESTful"><span class="post-toc-text">RESTful</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#i18n"><span class="post-toc-text">i18n</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二进制包和源代码安装的差距"><span class="post-toc-text">二进制包和源代码安装的差距</span></a></li>
             </div>
         </div>
     </div>
@@ -626,7 +627,8 @@ gcc hello.c -o hell</div>
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -703,8 +705,7 @@ gcc hello.c -o hell</div>
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>

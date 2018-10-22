@@ -3,7 +3,7 @@
 <head>
     
 
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="一个美好的新世界, 炫杉">
     <meta name="description" content="《A Brave New World》 
@@ -31,7 +31,8 @@ p1物联网正在改变一切。不">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 </head>
 
@@ -114,7 +115,7 @@ p1物联网正在改变一切。不">
         <div class="logo-name">炫杉</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
             
         </div>
     </div>
@@ -422,7 +423,7 @@ p1物联网正在改变一切。不">
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在这一章中，我们看到了在物联网的帮助下，世界是如何发展和走向更美好的未来的。看到了当今世界物联网的各种用途，然后简要介绍了它的概念。<br>在下一章中，我们将了解各种威胁以及我们可以采取的避免/克服这些威胁的措施。</p>
 
             </div>
-            <hr/>
+            <hr>
 
             
             <style>
@@ -704,7 +705,8 @@ p1物联网正在改变一切。不">
         });
 
         let titleTopArr = [];
-        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+        //更改find('h1, h2, h3, h4, h5, h6')
+        $('#articleContent').find('h1').each(function () {
             titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
         });
         let titleLen = titleTopArr.length;
@@ -781,8 +783,7 @@ p1物联网正在改变一切。不">
     <div class="modal-content">
         <div class="search-header">
             <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input" autofocus="">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
         </div>
         <div id="searchResult"></div>
     </div>
