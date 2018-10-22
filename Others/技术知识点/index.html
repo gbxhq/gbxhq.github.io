@@ -1,108 +1,318 @@
-
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="小知识点「技术」, 炫杉">
+    <meta name="description" content="
+Shell相关
+touch xxx.x 新建文件
+
+ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目录
+-C 按列列出文件
+
+清屏: edit菜单里找。Terminal:⌃+⌘+L iTerm:⌘+K
+
+删除文件：">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>小知识点「技术」 | 炫杉</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="ixsim">
-    
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    
-    <meta name="description" content="Shell相关 touch xxx.x 新建文件  ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目录 -C 按列列出文件  清屏: edit菜单里找。Terminal:⌃+⌘+L iTerm:⌘+K  删除文件：rm -f -f后不会给任何提示。 -i是交互式删除 删除文件夹 -r  查找   自动运行命令脚本shell命令写在记事本存成 1.sh shell里运行sh">
-<meta name="keywords" content="tips">
-<meta property="og:type" content="article">
-<meta property="og:title" content="小知识点「技术」">
-<meta property="og:url" content="https://ixsim.github.io/Others/技术知识点/index.html">
-<meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="Shell相关 touch xxx.x 新建文件  ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目录 -C 按列列出文件  清屏: edit菜单里找。Terminal:⌃+⌘+L iTerm:⌘+K  删除文件：rm -f -f后不会给任何提示。 -i是交互式删除 删除文件夹 -r  查找   自动运行命令脚本shell命令写在记事本存成 1.sh shell里运行sh">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/20180904153603023933676.png">
-<meta property="og:updated_time" content="2018-10-13T13:53:18.940Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小知识点「技术」">
-<meta name="twitter:description" content="Shell相关 touch xxx.x 新建文件  ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目录 -C 按列列出文件  清屏: edit菜单里找。Terminal:⌃+⌘+L iTerm:⌘+K  删除文件：rm -f -f后不会给任何提示。 -i是交互式删除 删除文件夹 -r  查找   自动运行命令脚本shell命令写在记事本存成 1.sh shell里运行sh">
-<meta name="twitter:image" content="http://p66eruxmw.bkt.clouddn.com/20180904153603023933676.png">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="炫杉" title="炫杉"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="炫杉">炫杉</a></h1>
-				<h2 class="blog-motto">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:ixsim.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
 </div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/Others/技术知识点/" title="小知识点「技术」" itemprop="url">小知识点「技术」</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="ixsim" target="_blank" itemprop="author">ixsim</a>
-		
-  <p class="article-time">
-    <time datetime="2018-07-25T13:04:09.000Z" itemprop="datePublished"> 发表于 2018-07-25</time>
-    
-  </p>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell相关"><span class="toc-number">1.</span> <span class="toc-text">Shell相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自动运行命令脚本"><span class="toc-number">1.1.</span> <span class="toc-text">自动运行命令脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#终端走代理"><span class="toc-number">1.2.</span> <span class="toc-text">终端走代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Finder和终端快速转"><span class="toc-number">1.3.</span> <span class="toc-text">Finder和终端快速转</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iTerm2"><span class="toc-number">2.</span> <span class="toc-text">iTerm2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">2.1.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown相关"><span class="toc-number">3.</span> <span class="toc-text">Markdown相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown-写上标下标"><span class="toc-number">3.1.</span> <span class="toc-text">Markdown 写上标下标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ruby-gem源更换国内源"><span class="toc-number">4.</span> <span class="toc-text">ruby gem源更换国内源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mac相关"><span class="toc-number">5.</span> <span class="toc-text">Mac相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示-隐藏文件"><span class="toc-number">5.1.</span> <span class="toc-text">显示/隐藏文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#app已损坏-打不开"><span class="toc-number">5.2.</span> <span class="toc-text">.app已损坏 打不开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打开macOS原生的NTFS"><span class="toc-number">5.3.</span> <span class="toc-text">打开macOS原生的NTFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac终端下出现bogon的解决办法"><span class="toc-number">5.4.</span> <span class="toc-text">Mac终端下出现bogon的解决办法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac更改MAC地址（外接网卡）"><span class="toc-number">5.5.</span> <span class="toc-text">Mac更改MAC地址（外接网卡）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量问题"><span class="toc-number">5.6.</span> <span class="toc-text">环境变量问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sublime相关"><span class="toc-number">6.</span> <span class="toc-text">Sublime相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#加入subl命令"><span class="toc-number">6.1.</span> <span class="toc-text">加入subl命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sublime3屏蔽更新"><span class="toc-number">6.2.</span> <span class="toc-text">Sublime3屏蔽更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中文乱码问题"><span class="toc-number">6.3.</span> <span class="toc-text">中文乱码问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#支持C-11"><span class="toc-number">6.4.</span> <span class="toc-text">支持C++11</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm"><span class="toc-number">7.</span> <span class="toc-text">npm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install提示没有package-json"><span class="toc-number">7.1.</span> <span class="toc-text">npm install提示没有package.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法："><span class="toc-number">7.2.</span> <span class="toc-text">解决方法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#淘宝-npm-镜像"><span class="toc-number">7.3.</span> <span class="toc-text">淘宝 npm 镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm安装全局模块没有权限"><span class="toc-number">7.4.</span> <span class="toc-text">npm安装全局模块没有权限</span></a></li></ol></li></ol>
-		
-		</div>
-		
-		<a id="more"></a>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        小知识点「技术」
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
+
+    #artDetail h2 {
+        line-height: 3rem;
+    }
+
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
+
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
+
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/tips/" target="_blank">
+                    <span class="chip bg-color">tips</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Others/" class="post-category" target="_blank">
+                        Others
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-07-25
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <a id="more"></a>
 <h1 id="Shell相关"><a href="#Shell相关" class="headerlink" title="Shell相关"></a>Shell相关</h1><ul>
 <li><p><code>touch xxx.x</code> 新建文件</p>
 </li>
@@ -119,28 +329,38 @@
 </ul>
 <h2 id="自动运行命令脚本"><a href="#自动运行命令脚本" class="headerlink" title="自动运行命令脚本"></a>自动运行命令脚本</h2><p>shell命令写在记事本存成 1.sh</p>
 <p>shell里运行<code>sh 1.sh</code>即可</p>
+<p>关于需要输入密码时的交互：</p>
+<pre><code class="shell">ssh tester@192.168.139.218 &lt;&lt; EOF #用 &lt;&lt;EOF 分割。这里就是输密码的地方
+cd kurento/kurento-tutorial-java/kurento-group-call
+mvn exec:java
+</code></pre>
 <h2 id="终端走代理"><a href="#终端走代理" class="headerlink" title="终端走代理"></a>终端走代理</h2><p>参考：<a href="https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</a></p>
 <h2 id="Finder和终端快速转"><a href="#Finder和终端快速转" class="headerlink" title="Finder和终端快速转"></a>Finder和终端快速转</h2><ul>
 <li>Finder到终端：拖窗口到终端界面</li>
 <li>终端到Finder：<code>open .</code></li>
 </ul>
-<h1 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h1><p>参考文章：<a href="https://www.cnblogs.com/kenz520/p/8259432.html" target="_blank" rel="noopener">https://www.cnblogs.com/kenz520/p/8259432.html</a></p>
+<h1 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h1><h2 id="添加alias"><a href="#添加alias" class="headerlink" title="添加alias"></a>添加alias</h2><p>在 <code>.zshrc</code>这个文件里配置</p>
+<p>注意例子：<code>alias blog=&quot;cd Documents/Hexo&quot;</code></p>
+<p>其中<code>blog=&quot;xxx&quot;</code>等号两边不允许有空格！不然alias会失效。</p>
+<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><p>参考文章：<a href="https://www.cnblogs.com/kenz520/p/8259432.html" target="_blank" rel="noopener">https://www.cnblogs.com/kenz520/p/8259432.html</a></p>
 <ul>
 <li><p>iTerm2 -&gt; Make iTerm2 Default Term</p>
 </li>
 <li><p>配色：<a href="http://ethanschoonover.com/solarized" target="_blank" rel="noopener">http://ethanschoonover.com/solarized</a></p>
 </li>
-<li><p>主题：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh</a></p>
-<p>配置主题：</p>
+<li><p>oh_my_zsh：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh</a></p>
+<p>装好后配置主题：</p>
 <ul>
 <li>修改<code>~/.zshrc</code>文件的ZSH_THEME=“”属性为”agnoster”</li>
-<li>下载字体<strong>Meslo</strong> 不然会有乱码</li>
-<li>应用字体并重启</li>
 </ul>
 </li>
-<li><p>自动提示 命令补全</p>
+<li><p>字体：</p>
+<p>克隆这个仓库到本地：<a href="https://github.com/powerline/fonts.git" target="_blank" rel="noopener">https://github.com/powerline/fonts.git</a></p>
+<p>运行里面的 <code>install.sh</code> 就装好了</p>
 </li>
-<li><p>比iTerm2自带的更强大的命令提示与补全</p>
+</ul>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><ul>
+<li><p>命令提示与补全</p>
 <ol>
 <li>克隆仓库到本地 ~/.oh-my-zsh/custom/plugins 路径下<br><code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></li>
 <li>用 vim 编辑 .zshrc 文件，找到插件设置命令，默认是 <code>plugins=(git)</code> ，我们把它修改为<code>plugins=(zsh-autosuggestions git)</code></li>
@@ -154,7 +374,7 @@
 <li><p>语法高亮效果</p>
 <ol>
 <li>使用homebrew包管理工具安装 zsh-syntax-highlighting 插件<br><code>brew install zsh-syntax-highlighting</code><br>如果电脑上还没有安装homebrew，请先安装homebrew<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></li>
-<li>配置.zshrc文件，插入一行<br><code>source /xxx/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</code><br>(注意： /xxx/ 代表.zshrc所在的路径)</li>
+<li>配置.zshrc文件，插入一行<br><code>source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</code></li>
 <li>加载.zshrc配置<br><code>source ~/.zshrc</code></li>
 <li>重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到效果</li>
 </ol>
@@ -168,8 +388,10 @@
 </ol>
 <h1 id="Markdown相关"><a href="#Markdown相关" class="headerlink" title="Markdown相关"></a>Markdown相关</h1><h2 id="Markdown-写上标下标"><a href="#Markdown-写上标下标" class="headerlink" title="Markdown 写上标下标"></a>Markdown 写上标下标</h2><ol>
 <li><p>HTML</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--利用HTML--&gt;</span><br><span class="line">&lt;sub&gt;上标&lt;/sub&gt;</span><br><span class="line">&lt;sup&gt;下标&lt;/sup&gt;</span><br></pre></td></tr></table></figure>
-<p> 例如<br> <code>X&lt;sub&gt;1&lt;/sub&gt;</code> ==&gt; X<sub>1</sub><br> <code>Y&lt;sup&gt;2345&lt;/sup&gt;</code> ==&gt;Y<sup>2345</sup></p>
+<pre><code> &lt;!--利用HTML--&gt;
+ &lt;sub&gt;上标&lt;/sub&gt;
+ &lt;sup&gt;下标&lt;/sup&gt;
+</code></pre><p> 例如<br> <code>X&lt;sub&gt;1&lt;/sub&gt;</code> ==&gt; X<sub>1</sub><br> <code>Y&lt;sup&gt;2345&lt;/sup&gt;</code> ==&gt;Y<sup>2345</sup></p>
 </li>
 <li><p>MathJax<br>MathJax不仅可以打上下标，还可以打双标。</p>
 <blockquote>
@@ -190,9 +412,19 @@
 <h2 id="Mac更改MAC地址（外接网卡）"><a href="#Mac更改MAC地址（外接网卡）" class="headerlink" title="Mac更改MAC地址（外接网卡）"></a>Mac更改MAC地址（外接网卡）</h2><p><code>sudo ifconfig en9 ether aa:bb:cc:dd:ee</code></p>
 <p>但是我外接了Type-C转网线的口，找到对应的也是en9，命令运行后，再用<code>ifconfig</code>看发现mac地址并没有更改成功。<br>在网上又搜了搜，原来需要<strong>装驱动</strong>。<br>这篇文章对这个问题写得相当明白了：<a href="https://blog.csdn.net/u014051620/article/details/75050934" target="_blank" rel="noopener">https://blog.csdn.net/u014051620/article/details/75050934</a></p>
 <h2 id="环境变量问题"><a href="#环境变量问题" class="headerlink" title="环境变量问题"></a>环境变量问题</h2><ol>
-<li>在<code>.bash</code>的文件中加路径</li>
-<li>手动放快捷方式到<code>usr/local/bin</code>目录下</li>
+<li>在<code>.bash</code>的文件中加路径<ul>
+<li>zsh则是添加到 <code>.zshrc</code>中 </li>
+</ul>
+</li>
+<li>手动放快捷方式到<code>usr/bin</code>或<code>usr/local/bin</code>目录下</li>
 </ol>
+<blockquote>
+<p>延伸：Mac系统的bash环境变量，加载顺序为：<br>/etc/profile<br>/etc/paths<br>~/.bash_profile<br>~/.bash_login<br>~/.profile<br>~/.bashrc</p>
+</blockquote>
+<p>设置PATH的语法都为：</p>
+<pre><code class="shell">#中间用冒号隔开
+export PATH=$PATH:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;:------:&lt;PATH N&gt;
+</code></pre>
 <h1 id="Sublime相关"><a href="#Sublime相关" class="headerlink" title="Sublime相关"></a>Sublime相关</h1><p>这几个问题怕是用过sublime的都解决过吧~记录一下防止下次碰到再百度了。</p>
 <!--more-->
 <h2 id="加入subl命令"><a href="#加入subl命令" class="headerlink" title="加入subl命令"></a>加入subl命令</h2><p><code>sudo ln -s &#39;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&#39; /usr/local/bin/subl&#39;</code></p>
@@ -209,505 +441,439 @@
 <h2 id="中文乱码问题"><a href="#中文乱码问题" class="headerlink" title="中文乱码问题"></a>中文乱码问题</h2><p>安装<code>ConvertToUtf8</code>和<code>GBK</code>两个包</p>
 <h2 id="支持C-11"><a href="#支持C-11" class="headerlink" title="支持C++11"></a>支持C++11</h2><p>tools–&gt;new build sys</p>
 <p>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &apos;$&#123;file&#125;&apos; -std=c++11 -stdlib=libc++ -o &apos;$&#123;file_path&#125;/$&#123;file_base_name&#125;&apos;&quot;],</span><br><span class="line">    &quot;file_regex&quot;: &quot;^(..&#123;FNXX==XXFN&#125;*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,</span><br><span class="line">    &quot;working_dir&quot;: &quot;$&#123;file_path&#125;&quot;,</span><br><span class="line">    &quot;selector&quot;: &quot;source.c, source.c++&quot;,</span><br><span class="line">    &quot;variants&quot;:</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">        &quot;name&quot;: &quot;Run&quot;,</span><br><span class="line">        &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &apos;$&#123;file&#125;&apos; -std=c++11 -stdlib=libc++ -o &apos;$&#123;file_path&#125;/$&#123;file_base_name&#125;&apos; &amp;&amp; open -a Terminal.app &apos;$&#123;file_path&#125;/$&#123;file_base_name&#125;&apos;&quot;]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>保存的时候注意后缀不要改，是<code>.sublime-build</code></p>
+<pre><code>{
+    &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &#39;${file}&#39; -std=c++11 -stdlib=libc++ -o &#39;${file_path}/${file_base_name}&#39;&quot;],
+    &quot;file_regex&quot;: &quot;^(..{FNXX==XXFN}*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,
+    &quot;working_dir&quot;: &quot;${file_path}&quot;,
+    &quot;selector&quot;: &quot;source.c, source.c++&quot;,
+    &quot;variants&quot;:
+    [
+        {
+        &quot;name&quot;: &quot;Run&quot;,
+        &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &#39;${file}&#39; -std=c++11 -stdlib=libc++ -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; open -a Terminal.app &#39;${file_path}/${file_base_name}&#39;&quot;]
+        }
+    ]
+}
+</code></pre><p>保存的时候注意后缀不要改，是<code>.sublime-build</code></p>
 <p>如果想调用iTerm2把里面的<code>Terminal.app</code>换成<code>iTerm.app</code>就行了。</p>
 <p>换成iTerm之后程序执行完iTerm会自己关闭窗口，需要在设置里修改一下默认配置文件：</p>
 <p><img src="http://p66eruxmw.bkt.clouddn.com/20180904153603023933676.png" alt="20180904153603023933676.png"></p>
 <h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><h2 id="npm-install提示没有package-json"><a href="#npm-install提示没有package-json" class="headerlink" title="npm install提示没有package.json"></a>npm install提示没有package.json</h2><h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>首先，初始化项目，一路回车就行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -f</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">npm init -f
+</code></pre>
 <p><code>-f</code>表示force的意思，不加这个，npm会让你输入一堆信息，比如name、version之类，如果只是做做实验小demo，直接<code>-f</code>，npm帮你初始化package.json，并填充各种默认值，省事。</p>
 <p>接着安装依赖</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install formidable --save</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">npm install formidable --save
+</code></pre>
 <p><code>--save</code>表示将安装的包加入依赖列表的意思，可以看下package.json 里的<code>dependencies</code>字段。后面再运行 <code>npm install</code>，就会把所有依赖安装下来。如果不加<code>--save</code>，什么都不会安装。</p>
 <h2 id="淘宝-npm-镜像"><a href="#淘宝-npm-镜像" class="headerlink" title="淘宝 npm 镜像"></a>淘宝 npm 镜像</h2><p><code>npm config set registry https://registry.npm.taobao.org</code></p>
 <h2 id="npm安装全局模块没有权限"><a href="#npm安装全局模块没有权限" class="headerlink" title="npm安装全局模块没有权限"></a>npm安装全局模块没有权限</h2><p>提示：npm WARN checkPermissions Missing write access to xxx</p>
 <p>Mac直接用<code>brew install</code> Linux用yum</p>
 <p>后来还不行。在 npm 前加了 <code>sudo</code>搞定了</p>
-  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
+<h1 id="Heroku"><a href="#Heroku" class="headerlink" title="Heroku"></a>Heroku</h1><h2 id="连接PGSQL"><a href="#连接PGSQL" class="headerlink" title="连接PGSQL"></a>连接PGSQL</h2><p>想给紫玉搭一个Typecho的博客，结果得用pgsql的数据库。</p>
+<ol>
+<li>添加环境扩展：<a href="https://elements.heroku.com/addons/heroku-postgresql" target="_blank" rel="noopener">https://elements.heroku.com/addons/heroku-postgresql</a></li>
+<li>添加好后点Setting可以看到数据库名啥的，正常配置即可</li>
+</ol>
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Others/">Others</a>
-</div>
+            </div>
+            <hr/>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/tips/">tips</a>
-  </div>
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://ixsim.github.io/Others/技术知识点/" data-title="小知识点「技术」 | 炫杉" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/Python/Python学习遇到的坑/" title="Problems in studying Python">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Problems in studying Python</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/Others/理论知识点/"  title="小知识点「理论」">
- <strong>下一篇：</strong><br/> 
- <span>小知识点「理论」
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell相关"><span class="toc-number">1.</span> <span class="toc-text">Shell相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自动运行命令脚本"><span class="toc-number">1.1.</span> <span class="toc-text">自动运行命令脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#终端走代理"><span class="toc-number">1.2.</span> <span class="toc-text">终端走代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Finder和终端快速转"><span class="toc-number">1.3.</span> <span class="toc-text">Finder和终端快速转</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iTerm2"><span class="toc-number">2.</span> <span class="toc-text">iTerm2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">2.1.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown相关"><span class="toc-number">3.</span> <span class="toc-text">Markdown相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown-写上标下标"><span class="toc-number">3.1.</span> <span class="toc-text">Markdown 写上标下标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ruby-gem源更换国内源"><span class="toc-number">4.</span> <span class="toc-text">ruby gem源更换国内源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mac相关"><span class="toc-number">5.</span> <span class="toc-text">Mac相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示-隐藏文件"><span class="toc-number">5.1.</span> <span class="toc-text">显示/隐藏文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#app已损坏-打不开"><span class="toc-number">5.2.</span> <span class="toc-text">.app已损坏 打不开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打开macOS原生的NTFS"><span class="toc-number">5.3.</span> <span class="toc-text">打开macOS原生的NTFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac终端下出现bogon的解决办法"><span class="toc-number">5.4.</span> <span class="toc-text">Mac终端下出现bogon的解决办法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac更改MAC地址（外接网卡）"><span class="toc-number">5.5.</span> <span class="toc-text">Mac更改MAC地址（外接网卡）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量问题"><span class="toc-number">5.6.</span> <span class="toc-text">环境变量问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sublime相关"><span class="toc-number">6.</span> <span class="toc-text">Sublime相关</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#加入subl命令"><span class="toc-number">6.1.</span> <span class="toc-text">加入subl命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sublime3屏蔽更新"><span class="toc-number">6.2.</span> <span class="toc-text">Sublime3屏蔽更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中文乱码问题"><span class="toc-number">6.3.</span> <span class="toc-text">中文乱码问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#支持C-11"><span class="toc-number">6.4.</span> <span class="toc-text">支持C++11</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm"><span class="toc-number">7.</span> <span class="toc-text">npm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install提示没有package-json"><span class="toc-number">7.1.</span> <span class="toc-text">npm install提示没有package.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法："><span class="toc-number">7.2.</span> <span class="toc-text">解决方法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#淘宝-npm-镜像"><span class="toc-number">7.3.</span> <span class="toc-text">淘宝 npm 镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm安装全局模块没有权限"><span class="toc-number">7.4.</span> <span class="toc-text">npm安装全局模块没有权限</span></a></li></ol></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>5</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Blockchain/" title="Blockchain">Blockchain<sup>1</sup></a></li>
-		  
-		
-		  
-		
-		  
-		
-		  
-			<li><a href="/categories/Others/" title="Others">Others<sup>8</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>9</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/WebRTC/" title="WebRTC">WebRTC<sup>6</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Website/" title="Website">Website<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS/" title="iOS">iOS<sup>10</sup></a></li>
-		  
-		
-		</ul>
-</div>
-
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/Note/" title="Note">Note<sup>11</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Python/" title="Python">Python<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Demo/" title="Demo">Demo<sup>7</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/LeetCode/" title="LeetCode">LeetCode<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tips/" title="tips">tips<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tutorial/" title="tutorial">tutorial<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/js/" title="js">js<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Spider/" title="Spider">Spider<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/C/" title="C++">C++<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Data-Analysis/" title="Data Analysis">Data Analysis<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Matlab/" title="Matlab">Matlab<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swfit/" title="Swfit">Swfit<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/File-Process/" title="File Process">File Process<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/note/" title="note">note<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/IoT/" title="IoT">IoT<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/selenium/" title="selenium">selenium<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
             
-            	<a href="https://oo1.win" target="_blank" title="炫猿">炫猿</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://www.aimoon.site/" target="_blank" title="我大哥">我大哥</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://onebigcabbage.github.io/" target="_blank" title="小菜哥">小菜哥</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, <br/>
-			World!</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/lixsh" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:xuanshanli@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="ixsim">ixsim</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
     }
-  });
-});
-</script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-  $('.hoverqrcode').hide();
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
 
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
 
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
 
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
 
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
 
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
 
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
 
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
 
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
 
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
 
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/Others/技术知识点/" class="b-link-green">小知识点「技术」</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/Python/Python学习遇到的坑/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Problems in studying Python">
+                        
+                        <span class="card-title">Problems in studying Python</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一些杂碎问题不至于写一篇文章了。放在这收集吧。
+
+Spyder使用IPython Console弹出绘图窗口的设置方法matplotlib 画图show()不显示图
+Spyder设置（Cmd + ，）–&gt;IPython Console</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Others/理论知识点/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="小知识点「理论」">
+                        
+                        <span class="card-title">小知识点「理论」</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">乱七八糟的东西。都是看博文啥的不懂现搜的~
+
+名词相关RESTfulhttp://www.cnblogs.com/wang-yaz/p/9237981.html
+i18ni18n（其来源是英文单词 internationalization的</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Shell相关"><span class="post-toc-text">Shell相关</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自动运行命令脚本"><span class="post-toc-text">自动运行命令脚本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#终端走代理"><span class="post-toc-text">终端走代理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Finder和终端快速转"><span class="post-toc-text">Finder和终端快速转</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#iTerm2"><span class="post-toc-text">iTerm2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加alias"><span class="post-toc-text">添加alias</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#美化"><span class="post-toc-text">美化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拓展"><span class="post-toc-text">拓展</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他"><span class="post-toc-text">其他</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Markdown相关"><span class="post-toc-text">Markdown相关</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Markdown-写上标下标"><span class="post-toc-text">Markdown 写上标下标</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ruby-gem源更换国内源"><span class="post-toc-text">ruby gem源更换国内源</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Mac相关"><span class="post-toc-text">Mac相关</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#显示-隐藏文件"><span class="post-toc-text">显示/隐藏文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#app已损坏-打不开"><span class="post-toc-text">.app已损坏 打不开</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#打开macOS原生的NTFS"><span class="post-toc-text">打开macOS原生的NTFS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mac终端下出现bogon的解决办法"><span class="post-toc-text">Mac终端下出现bogon的解决办法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mac更改MAC地址（外接网卡）"><span class="post-toc-text">Mac更改MAC地址（外接网卡）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境变量问题"><span class="post-toc-text">环境变量问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Sublime相关"><span class="post-toc-text">Sublime相关</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#加入subl命令"><span class="post-toc-text">加入subl命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sublime3屏蔽更新"><span class="post-toc-text">Sublime3屏蔽更新</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#中文乱码问题"><span class="post-toc-text">中文乱码问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#支持C-11"><span class="post-toc-text">支持C++11</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#npm"><span class="post-toc-text">npm</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#npm-install提示没有package-json"><span class="post-toc-text">npm install提示没有package.json</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方法："><span class="post-toc-text">解决方法：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#淘宝-npm-镜像"><span class="post-toc-text">淘宝 npm 镜像</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#npm安装全局模块没有权限"><span class="post-toc-text">npm安装全局模块没有权限</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Heroku"><span class="post-toc-text">Heroku</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#连接PGSQL"><span class="post-toc-text">连接PGSQL</span></a></li></ol></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            }
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
 
 
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
 
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
 </html>

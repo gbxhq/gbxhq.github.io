@@ -1,604 +1,805 @@
-
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python廖雪峰练习, 炫杉">
+    <meta name="description" content="这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！
+
+函数的参数def pr">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Python廖雪峰练习 | 炫杉</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="ixsim">
-    
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    
-    <meta name="description" content="这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！">
-<meta name="keywords" content="Python">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python廖雪峰练习">
-<meta property="og:url" content="https://ixsim.github.io/Python/Python廖雪峰练习/index.html">
-<meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-01T03:38:09.459Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python廖雪峰练习">
-<meta name="twitter:description" content="这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="炫杉" title="炫杉"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="炫杉">炫杉</a></h1>
-				<h2 class="blog-motto">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:ixsim.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
     
-      <a href="/Python/Python廖雪峰练习/" title="Python廖雪峰练习" itemprop="url">Python廖雪峰练习</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="ixsim" target="_blank" itemprop="author">ixsim</a>
-		
-  <p class="article-time">
-    <time datetime="2018-03-20T16:00:00.000Z" itemprop="datePublished"> 发表于 2018-03-21</time>
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
     
-  </p>
-</header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数的参数"><span class="toc-number">1.</span> <span class="toc-text">函数的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递归函数"><span class="toc-number">2.</span> <span class="toc-text">递归函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切片"><span class="toc-number">3.</span> <span class="toc-text">切片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代"><span class="toc-number">4.</span> <span class="toc-text">迭代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表生成式"><span class="toc-number">5.</span> <span class="toc-text">列表生成式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成器"><span class="toc-number">6.</span> <span class="toc-text">生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map-reduce"><span class="toc-number">7.</span> <span class="toc-text">map/reduce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fliter"><span class="toc-number">8.</span> <span class="toc-text">fliter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort"><span class="toc-number">9.</span> <span class="toc-text">sort</span></a></li></ol>
-		
-		</div>
-		
-		<p>这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。<br>莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！</p>
-<a id="more"></a>
-<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">product</span><span class="params">(*number)</span>:</span>	</span><br><span class="line">  <span class="keyword">if</span> number == ():</span><br><span class="line">     <span class="keyword">raise</span> TypeError </span><br><span class="line">  a = <span class="number">1</span></span><br><span class="line">  <span class="keyword">for</span> x <span class="keyword">in</span> number:</span><br><span class="line">      a = x*a</span><br><span class="line">  <span class="keyword">return</span> a</span><br></pre></td></tr></table></figure>
-<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(n, a, b, c)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">print</span> ( a , <span class="string">'--&gt;'</span> , c)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        move(n<span class="number">-1</span>,a,c,b) <span class="comment">#假设move函数没问题，A上前n-1个会被移动至B</span></span><br><span class="line">        move(<span class="number">1</span>,a,b,c) <span class="comment">#此时把最大的放到C</span></span><br><span class="line">        move(n<span class="number">-1</span>,b,a,c)</span><br><span class="line"><span class="comment">#move(4,'A','B','C')</span></span><br></pre></td></tr></table></figure>
-<h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trim</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> s == <span class="string">''</span>:</span><br><span class="line">        <span class="keyword">return</span> s</span><br><span class="line">    <span class="keyword">while</span> s[<span class="number">0</span>] == <span class="string">' '</span>:</span><br><span class="line">        s = s[<span class="number">1</span>:]</span><br><span class="line">        <span class="keyword">if</span> s == <span class="string">' '</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">    <span class="keyword">while</span> s[<span class="number">-1</span>] == <span class="string">' '</span>:</span><br><span class="line">        s = s[<span class="number">0</span>:<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
-<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findMinAndMax</span><span class="params">(L)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> L == []:</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">None</span>,<span class="keyword">None</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        a = L[<span class="number">0</span>]</span><br><span class="line">        b = L[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> L:</span><br><span class="line">            <span class="keyword">if</span> i &lt; a:</span><br><span class="line">                a = i</span><br><span class="line">            <span class="keyword">if</span> i &gt; b:</span><br><span class="line">                b = i</span><br><span class="line">    <span class="keyword">return</span> (a,b)</span><br></pre></td></tr></table></figure>
-<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">L1 = [<span class="string">'Hello'</span>, <span class="string">'World'</span>, <span class="number">18</span>, <span class="string">'Apple'</span>, <span class="keyword">None</span>]</span><br><span class="line">L2 = [ x.lower() <span class="keyword">for</span> x <span class="keyword">in</span> L1 <span class="keyword">if</span> isinstance(x,str) ]</span><br></pre></td></tr></table></figure>
-<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">triangles</span><span class="params">()</span>:</span></span><br><span class="line">    n = <span class="number">2</span></span><br><span class="line">    a = [<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">    b = [<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">yield</span> [<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">yield</span> [<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n):</span><br><span class="line">            b.append(a[i] + a[i<span class="number">-1</span>])</span><br><span class="line">        b.append(<span class="number">1</span>)</span><br><span class="line">        n = n+<span class="number">1</span></span><br><span class="line">        a = b</span><br><span class="line">        b = [<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">yield</span> a</span><br></pre></td></tr></table></figure>
-<h2 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalize</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> name[<span class="number">0</span>].upper() + name[<span class="number">1</span>:].lower()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cheng</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x*y</span><br><span class="line"><span class="keyword">return</span> reduce(cheng,L)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">str2float</span><span class="params">(s)</span>:</span></span><br><span class="line">    DIGITS = &#123;<span class="string">'0'</span>: <span class="number">0</span>, <span class="string">'1'</span>: <span class="number">1</span>, <span class="string">'2'</span>: <span class="number">2</span>, <span class="string">'3'</span>: <span class="number">3</span>, <span class="string">'4'</span>: <span class="number">4</span>, <span class="string">'5'</span>: <span class="number">5</span>, <span class="string">'6'</span>: <span class="number">6</span>, <span class="string">'7'</span>: <span class="number">7</span>, <span class="string">'8'</span>: <span class="number">8</span>, <span class="string">'9'</span>: <span class="number">9</span>, <span class="string">'.'</span>: <span class="number">999</span>&#125;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x, y)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> y == <span class="number">999</span>:</span><br><span class="line">            <span class="keyword">return</span> x</span><br><span class="line">        <span class="keyword">return</span> x * <span class="number">10</span> + y</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">char2num</span><span class="params">(s)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> DIGITS[s]</span><br><span class="line"></span><br><span class="line">    n = s.index(<span class="string">'.'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> reduce(fn, map(char2num, s))/(<span class="number">10</span>**n)</span><br><span class="line"></span><br><span class="line"><span class="comment">#跳过小数点：</span></span><br><span class="line"><span class="comment">#我把 '.' 转换成 999 当遇到999 不做计算 return x 。像个傻子 🤪</span></span><br><span class="line"><span class="comment">#正确方法：</span></span><br><span class="line"><span class="comment">#s[:n]+s[n+1:] n是小数点位置。取 前n个和第n+1个开始往后的字符串即可。</span></span><br></pre></td></tr></table></figure>
-<h2 id="fliter"><a href="#fliter" class="headerlink" title="fliter"></a>fliter</h2><p>跳过</p>
-<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">by_name</span><span class="params">(t)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> t[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">by_score</span><span class="params">(t)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> -t[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
-<p>​</p>
-  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Python/">Python</a>
-</div>
+</ul>
 
+<div class="side-nav" id="mobile-nav">
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Python/">Python</a>
-  </div>
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://ixsim.github.io/Python/Python廖雪峰练习/" data-title="Python廖雪峰练习 | 炫杉" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/Website/Hexo01/" title="Hexo建站问题总结">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Hexo建站问题总结</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/iOS/<懒猫>记录/"  title="iOS《笨猫快乐学编程》学习笔记">
- <strong>下一篇：</strong><br/> 
- <span>iOS《笨猫快乐学编程》学习笔记
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数的参数"><span class="toc-number">1.</span> <span class="toc-text">函数的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#递归函数"><span class="toc-number">2.</span> <span class="toc-text">递归函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切片"><span class="toc-number">3.</span> <span class="toc-text">切片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代"><span class="toc-number">4.</span> <span class="toc-text">迭代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表生成式"><span class="toc-number">5.</span> <span class="toc-text">列表生成式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成器"><span class="toc-number">6.</span> <span class="toc-text">生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map-reduce"><span class="toc-number">7.</span> <span class="toc-text">map/reduce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fliter"><span class="toc-number">8.</span> <span class="toc-text">fliter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort"><span class="toc-number">9.</span> <span class="toc-text">sort</span></a></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>5</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Blockchain/" title="Blockchain">Blockchain<sup>1</sup></a></li>
-		  
-		
-		  
-		
-		  
-		
-		  
-			<li><a href="/categories/Others/" title="Others">Others<sup>8</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>9</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/WebRTC/" title="WebRTC">WebRTC<sup>6</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Website/" title="Website">Website<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS/" title="iOS">iOS<sup>10</sup></a></li>
-		  
-		
-		</ul>
-</div>
-
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/Note/" title="Note">Note<sup>11</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Python/" title="Python">Python<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Demo/" title="Demo">Demo<sup>7</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/LeetCode/" title="LeetCode">LeetCode<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tips/" title="tips">tips<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tutorial/" title="tutorial">tutorial<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/js/" title="js">js<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Spider/" title="Spider">Spider<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/C/" title="C++">C++<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Data-Analysis/" title="Data Analysis">Data Analysis<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Matlab/" title="Matlab">Matlab<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swfit/" title="Swfit">Swfit<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/File-Process/" title="File Process">File Process<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/note/" title="note">note<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/IoT/" title="IoT">IoT<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/selenium/" title="selenium">selenium<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
+    <div class="mobile-head bg-color">
         
-          <li>
-            
-            	<a href="https://oo1.win" target="_blank" title="炫猿">炫猿</a>
-            
-          </li>
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-          <li>
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
             
-            	<a href="https://www.aimoon.site/" target="_blank" title="我大哥">我大哥</a>
+            Never really desperate, only the lost of the soul.
             
-          </li>
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
         
-          <li>
-            
-            	<a href="https://onebigcabbage.github.io/" target="_blank" title="小菜哥">小菜哥</a>
-            
-          </li>
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
         
     </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
 </div>
 
-  
+            </div>
+        </div>
 
-
-  <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, <br/>
-			World!</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/lixsh" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:xuanshanli@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="ixsim">ixsim</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
         
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Python廖雪峰练习
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
     }
-  });
-});
-</script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
 
+    #artDetail h2 {
+        line-height: 3rem;
+    }
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
 
-  $('.hoverqrcode').hide();
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
 
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
 
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
 
+    .toc-widget {
+        padding-left: 20px;
+    }
 
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
 
+    .post-toc ol {
+        padding-left: 20px;
+    }
 
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
 
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
 
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Python/" target="_blank">
+                    <span class="chip bg-color">Python</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Python/" class="post-category" target="_blank">
+                        Python
+                    </a>
+                    
+                </span>
+                
 
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-03-21
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。<br>莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！</p>
+<a id="more"></a>
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><pre><code class="Python">def product(*number):    
+  if number == ():
+     raise TypeError 
+  a = 1
+  for x in number:
+      a = x*a
+  return a
+</code></pre>
+<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><pre><code class="Python">def move(n, a, b, c):
+    if n == 1:
+        print ( a , &#39;--&gt;&#39; , c)
+    else:
+        move(n-1,a,c,b) #假设move函数没问题，A上前n-1个会被移动至B
+        move(1,a,b,c) #此时把最大的放到C
+        move(n-1,b,a,c)
+#move(4,&#39;A&#39;,&#39;B&#39;,&#39;C&#39;)
+</code></pre>
+<h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><pre><code class="python">def trim(s):
+    if s == &#39;&#39;:
+        return s
+    while s[0] == &#39; &#39;:
+        s = s[1:]
+        if s == &#39; &#39;:
+            return &#39;&#39;
+    while s[-1] == &#39; &#39;:
+        s = s[0:-1]
+    return s
+</code></pre>
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><pre><code class="Python">def findMinAndMax(L):
+    if L == []:
+        return (None,None)
+    else:
+        a = L[0]
+        b = L[0]
+        for i in L:
+            if i &lt; a:
+                a = i
+            if i &gt; b:
+                b = i
+    return (a,b)
+</code></pre>
+<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><pre><code class="Python">L1 = [&#39;Hello&#39;, &#39;World&#39;, 18, &#39;Apple&#39;, None]
+L2 = [ x.lower() for x in L1 if isinstance(x,str) ]
+</code></pre>
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><pre><code class="Python">def triangles():
+    n = 2
+    a = [1,1]
+    b = [1]
+    yield [1]
+    yield [1,1]
+    while 1:
+        for i in range(1,n):
+            b.append(a[i] + a[i-1])
+        b.append(1)
+        n = n+1
+        a = b
+        b = [1]
+        yield a
+</code></pre>
+<h2 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h2><pre><code class="Python">def normalize(name):
+    return name[0].upper() + name[1:].lower()
+</code></pre>
+<pre><code class="Python">def cheng(x,y):
+    return x*y
+return reduce(cheng,L)
+</code></pre>
+<pre><code class="Python">from functools import reduce
+def str2float(s):
+    DIGITS = {&#39;0&#39;: 0, &#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9, &#39;.&#39;: 999}
+    def fn(x, y):
+        if y == 999:
+            return x
+        return x * 10 + y
+    def char2num(s):
+        return DIGITS[s]
 
+    n = s.index(&#39;.&#39;)
 
+    return reduce(fn, map(char2num, s))/(10**n)
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
+#跳过小数点：
+#我把 &#39;.&#39; 转换成 999 当遇到999 不做计算 return x 。像个傻子 🤪
+#正确方法：
+#s[:n]+s[n+1:] n是小数点位置。取 前n个和第n+1个开始往后的字符串即可。
+</code></pre>
+<h2 id="fliter"><a href="#fliter" class="headerlink" title="fliter"></a>fliter</h2><p>跳过</p>
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><pre><code class="Python">def by_name(t):
+    return t[0]
+</code></pre>
+<pre><code class="Python">def by_score(t):
+    return -t[1]
+</code></pre>
+<p>​</p>
 
+            </div>
+            <hr/>
 
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
 
-<!-- Analytics Begin -->
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/Python/Python廖雪峰练习/" class="b-link-green">Python廖雪峰练习</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/Python/Python初探/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Python初探">
+                        
+                        <span class="card-title">Python初探</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">这是我刚开始学习Python时做的笔记，百度Python后先看到有廖雪峰的教程。就对着看了一遍。紧接着同学推荐了莫烦的教程，果然，这个教程上手更快。另外我认为Python作为一个脚本语言，很多东西是在学习的时候没法记忆的，勤查着点就够了。因</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Others/Git笔记/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Git笔记">
+                        
+                        <span class="card-title">Git笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。
+
+Git Pull冲突问题1git stash 暂存本地修改
+git pull 从</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/Git/" target="_blank">
+                        <span class="chip bg-color">Git</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的参数"><span class="post-toc-text">函数的参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#递归函数"><span class="post-toc-text">递归函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#切片"><span class="post-toc-text">切片</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#迭代"><span class="post-toc-text">迭代</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表生成式"><span class="post-toc-text">列表生成式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生成器"><span class="post-toc-text">生成器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#map-reduce"><span class="post-toc-text">map/reduce</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#fliter"><span class="post-toc-text">fliter</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sort"><span class="post-toc-text">sort</span></a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            }
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
 
 
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
 
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
 </html>

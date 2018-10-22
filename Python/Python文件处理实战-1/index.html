@@ -1,136 +1,403 @@
-
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python文件处理实战, 炫杉">
+    <meta name="description" content="刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。
+刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。
+
+问题分析原文件头部&amp;gt; Title
+&amp;gt; Date
+&amp;gt; Tags
+
+目标文">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Python文件处理实战 | 炫杉</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="ixsim">
-    
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    
-    <meta name="description" content="刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。 刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。">
-<meta name="keywords" content="Demo,Python,File Process">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python文件处理实战">
-<meta property="og:url" content="https://ixsim.github.io/Python/Python文件处理实战-1/index.html">
-<meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。 刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/image-201803241116234.png">
-<meta property="og:updated_time" content="2018-04-01T03:40:00.855Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python文件处理实战">
-<meta name="twitter:description" content="刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。 刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。">
-<meta name="twitter:image" content="http://p66eruxmw.bkt.clouddn.com/image-201803241116234.png">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="炫杉" title="炫杉"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="炫杉">炫杉</a></h1>
-				<h2 class="blog-motto">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:ixsim.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
 </div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/Python/Python文件处理实战-1/" title="Python文件处理实战" itemprop="url">Python文件处理实战</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="ixsim" target="_blank" itemprop="author">ixsim</a>
-		
-  <p class="article-time">
-    <time datetime="2018-03-24T04:37:05.000Z" itemprop="datePublished"> 发表于 2018-03-24</time>
-    
-  </p>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题分析"><span class="toc-number">1.</span> <span class="toc-text">问题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原文件头部"><span class="toc-number">1.1.</span> <span class="toc-text">原文件头部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标文件头部"><span class="toc-number">1.2.</span> <span class="toc-text">目标文件头部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理思路"><span class="toc-number">1.3.</span> <span class="toc-text">处理思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实战"><span class="toc-number">2.</span> <span class="toc-text">实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#了解Python文件处理命令"><span class="toc-number">2.1.</span> <span class="toc-text">了解Python文件处理命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单文件处理代码"><span class="toc-number">2.2.</span> <span class="toc-text">单文件处理代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的替换函数replace有一个坑"><span class="toc-number">2.2.1.</span> <span class="toc-text">字符串的替换函数replace有一个坑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">2.2.2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行结果"><span class="toc-number">2.2.3.</span> <span class="toc-text">运行结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#批量处理整个文件夹"><span class="toc-number">2.3.</span> <span class="toc-text">批量处理整个文件夹</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#‘utf-8’-codec-can’t-decode-byte-0x-in-position-问题"><span class="toc-number">3.</span> <span class="toc-text">‘utf-8’ codec can’t decode byte 0x  in position  问题</span></a></li></ol>
-		
-		</div>
-		
-		<p>刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。</p>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Python文件处理实战
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
+
+    #artDetail h2 {
+        line-height: 3rem;
+    }
+
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
+
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
+
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Demo/" target="_blank">
+                    <span class="chip bg-color">Demo</span>
+                </a>
+                
+                <a href="/tags/Python/" target="_blank">
+                    <span class="chip bg-color">Python</span>
+                </a>
+                
+                <a href="/tags/File-Process/" target="_blank">
+                    <span class="chip bg-color">File Process</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Python/" class="post-category" target="_blank">
+                        Python
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-03-24
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。</p>
 <p>刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。</p>
 <a id="more"></a>
-<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><h2 id="原文件头部"><a href="#原文件头部" class="headerlink" title="原文件头部"></a>原文件头部</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; Title</span></span><br><span class="line"><span class="quote">&gt; Date</span></span><br><span class="line"><span class="quote">&gt; Tags</span></span><br></pre></td></tr></table></figure>
-<h2 id="目标文件头部"><a href="#目标文件头部" class="headerlink" title="目标文件头部"></a>目标文件头部</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Title</span><br><span class="line">date: Date</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><h2 id="原文件头部"><a href="#原文件头部" class="headerlink" title="原文件头部"></a>原文件头部</h2><pre><code class="markdown">&gt; Title
+&gt; Date
+&gt; Tags
+</code></pre>
+<h2 id="目标文件头部"><a href="#目标文件头部" class="headerlink" title="目标文件头部"></a>目标文件头部</h2><pre><code class="markdown">---
+title: Title
+date: Date
+---
+</code></pre>
 <h2 id="处理思路"><a href="#处理思路" class="headerlink" title="处理思路"></a>处理思路</h2><p>根据差异。<code>&gt; Tags</code>是可以取消处理的。因为之前写的Md都是日记。也没有什么tag。</p>
 <p>主要就是对<strong>title和date</strong>进行处理。</p>
 <p>可以读取文章的前三行。然后把第一行的 <code>&gt;</code> 改成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br></pre></td></tr></table></figure>
-<p>第二行的<code>&gt;</code>改成<code>date:</code><br>第三行完全改成<code>---</code></p>
+<pre><code>---
+title:
+</code></pre><p>第二行的<code>&gt;</code>改成<code>date:</code><br>第三行完全改成<code>---</code></p>
 <h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h2 id="了解Python文件处理命令"><a href="#了解Python文件处理命令" class="headerlink" title="了解Python文件处理命令"></a>了解Python文件处理命令</h2><p>当然要先找一个单独的文档试试手啦。然后再看看如何进行批处理。</p>
 <p>大体看了看。感觉要用到的代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">''</span>，<span class="string">'r+'</span>) <span class="comment">#读文件</span></span><br><span class="line">lines = f.readlines() <span class="comment">#读到list</span></span><br><span class="line"><span class="comment">#然后对list进行字符串修改</span></span><br><span class="line">f.writelines(lines) <span class="comment">#写到file里</span></span><br></pre></td></tr></table></figure>
+<pre><code class="Python">f = open(&#39;&#39;，&#39;r+&#39;) #读文件
+lines = f.readlines() #读到list
+#然后对list进行字符串修改
+f.writelines(lines) #写到file里
+</code></pre>
 <p>然后按下标改lines这个list。思路差不多了。再去看看字符串处理有啥函数。</p>
 <p>lines[0]肯定是 &gt; 标题 找找字符串替换需要啥函数。</p>
 <h2 id="单文件处理代码"><a href="#单文件处理代码" class="headerlink" title="单文件处理代码"></a>单文件处理代码</h2><p><strong>字符串替换遇到问题</strong></p>
-<h3 id="字符串的替换函数replace有一个坑"><a href="#字符串的替换函数replace有一个坑" class="headerlink" title="字符串的替换函数replace有一个坑"></a>字符串的替换函数replace有一个坑</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lines[<span class="number">0</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'---\n title: '</span>)</span><br><span class="line">print(lines[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的替换函数replace有一个坑"><a href="#字符串的替换函数replace有一个坑" class="headerlink" title="字符串的替换函数replace有一个坑"></a>字符串的替换函数replace有一个坑</h3><pre><code class="python">lines[0].replace(&#39;&gt; &#39;,&#39;---\n title: &#39;)
+print(lines[0])
+</code></pre>
 <p>结果lines[0]并没有改变</p>
 <p>看看replace函数的介绍，</p>
 <blockquote>
 <p>Return a copy of string S with all occurrences of substring old replaced by new.  If the optional argument count is given, only the first count occurrences are replaced.</p>
 </blockquote>
-<p>替换之后原来是返回一个新的copy，正确的做法是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lines[<span class="number">0</span>] = lines[<span class="number">0</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'---\n title: '</span>)</span><br><span class="line">print(lines[<span class="number">0</span>])</span><br></pre></td></tr></table></figure></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">f=open(<span class="string">'abc.md'</span>,<span class="string">'r+'</span>)</span><br><span class="line">lines = f.readlines()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'源：\n'</span>,lines[<span class="number">0</span>],lines[<span class="number">1</span>],lines[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">lines[<span class="number">0</span>] = lines[<span class="number">0</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'---\ntitle: '</span>) <span class="comment">#注意\n和title没有空格。</span></span><br><span class="line">lines[<span class="number">1</span>] = lines[<span class="number">1</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'date: '</span>)</span><br><span class="line">lines[<span class="number">2</span>] = <span class="string">'---\n'</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'目标：\n'</span>,lines[<span class="number">0</span>],lines[<span class="number">1</span>],lines[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'abc.md'</span>,<span class="string">'w'</span>)</span><br><span class="line">f.writelines(lines)</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>替换之后原来是返回一个新的copy，正确的做法是：</p>
+<pre><code class="python">lines[0] = lines[0].replace(&#39;&gt; &#39;,&#39;---\n title: &#39;)
+print(lines[0])
+</code></pre>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="python">f=open(&#39;abc.md&#39;,&#39;r+&#39;)
+lines = f.readlines()
+
+print(&#39;源：\n&#39;,lines[0],lines[1],lines[2])
+
+lines[0] = lines[0].replace(&#39;&gt; &#39;,&#39;---\ntitle: &#39;) #注意\n和title没有空格。
+lines[1] = lines[1].replace(&#39;&gt; &#39;,&#39;date: &#39;)
+lines[2] = &#39;---\n&#39;
+
+print(&#39;目标：\n&#39;,lines[0],lines[1],lines[2])
+
+f = open(&#39;abc.md&#39;,&#39;w&#39;)
+f.writelines(lines)
+
+f.close()
+</code></pre>
 <h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="http://p66eruxmw.bkt.clouddn.com/image-201803241116234.png" alt="image-201803241116234"></p>
 <h2 id="批量处理整个文件夹"><a href="#批量处理整个文件夹" class="headerlink" title="批量处理整个文件夹"></a>批量处理整个文件夹</h2><p>好啦。单个文件测试完毕。</p>
 <p>现在去查一下怎么批操作。</p>
 <p>哈哈。搞定：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">filepath = <span class="string">'/Users/lixs/Desktop/jia'</span></span><br><span class="line">filelist = os.listdir(filepath)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> filelist:</span><br><span class="line">    f=open(<span class="string">'/Users/lixs/Desktop/jia/'</span>+file,<span class="string">'r+'</span>)</span><br><span class="line">    lines = f.readlines()</span><br><span class="line">    </span><br><span class="line">    print(<span class="string">'源：\n'</span>,lines[<span class="number">0</span>],lines[<span class="number">1</span>],lines[<span class="number">2</span>])</span><br><span class="line">    </span><br><span class="line">    lines[<span class="number">0</span>] = lines[<span class="number">0</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'---\ntitle: '</span>)</span><br><span class="line">    lines[<span class="number">1</span>] = lines[<span class="number">1</span>].replace(<span class="string">'&gt; '</span>,<span class="string">'date: '</span>)</span><br><span class="line">    lines[<span class="number">2</span>] = <span class="string">'---\n'</span></span><br><span class="line">    </span><br><span class="line">    print(<span class="string">'目标：\n'</span>,lines[<span class="number">0</span>],lines[<span class="number">1</span>],lines[<span class="number">2</span>])</span><br><span class="line">    </span><br><span class="line">    f = open(<span class="string">'/Users/lixs/Desktop/jia/'</span>+file,<span class="string">'w'</span>)</span><br><span class="line">    f.writelines(lines)</span><br><span class="line">    </span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import os
+filepath = &#39;/Users/lixs/Desktop/jia&#39;
+filelist = os.listdir(filepath)
+for file in filelist:
+    f=open(&#39;/Users/lixs/Desktop/jia/&#39;+file,&#39;r+&#39;)
+    lines = f.readlines()
+
+    print(&#39;源：\n&#39;,lines[0],lines[1],lines[2])
+
+    lines[0] = lines[0].replace(&#39;&gt; &#39;,&#39;---\ntitle: &#39;)
+    lines[1] = lines[1].replace(&#39;&gt; &#39;,&#39;date: &#39;)
+    lines[2] = &#39;---\n&#39;
+
+    print(&#39;目标：\n&#39;,lines[0],lines[1],lines[2])
+
+    f = open(&#39;/Users/lixs/Desktop/jia/&#39;+file,&#39;w&#39;)
+    f.writelines(lines)
+
+    f.close()
+</code></pre>
 <p>这段代码在测试文件夹下没问题。文件夹下内容全部变成目标格式。</p>
 <p>Now，开始处理我的日记了。</p>
 <p>结果并不行：</p>
@@ -139,494 +406,419 @@
 <p>可我的Markdown肯定都是UTF-8编码的啊。到底哪里出错了呢。</p>
 <p>我真是太机智了。</p>
 <p>聪明的你看到这行应该也就懂了：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> file == <span class="string">'.DS_Store'</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    f=open(<span class="string">'/Users/lixs/Desktop/test/'</span>+file,<span class="string">'r+'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">if file == &#39;.DS_Store&#39;:
+        continue
+    f=open(&#39;/Users/lixs/Desktop/test/&#39;+file,&#39;r+&#39;)
+</code></pre>
 <p>没错。正是 Mac系统的 <strong>.DS_Store</strong>文件在搞鬼。</p>
 <p>百度上对于这个问题的解决。并没有人提到这一点。</p>
 <p>哈哈。一切完工。吃饭咯。</p>
-  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Python/">Python</a>
-</div>
+            </div>
+            <hr/>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Demo/">Demo</a><a href="/tags/Python/">Python</a><a href="/tags/File-Process/">File Process</a>
-  </div>
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://ixsim.github.io/Python/Python文件处理实战-1/" data-title="Python文件处理实战 | 炫杉" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/iOS/SwiftDemo1/" title="Swift Demo1 秒表">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Swift Demo1 秒表</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/Website/网页空白处点击弹出文字/"  title="网页空白处点击弹出文字">
- <strong>下一篇：</strong><br/> 
- <span>网页空白处点击弹出文字
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题分析"><span class="toc-number">1.</span> <span class="toc-text">问题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原文件头部"><span class="toc-number">1.1.</span> <span class="toc-text">原文件头部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标文件头部"><span class="toc-number">1.2.</span> <span class="toc-text">目标文件头部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理思路"><span class="toc-number">1.3.</span> <span class="toc-text">处理思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实战"><span class="toc-number">2.</span> <span class="toc-text">实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#了解Python文件处理命令"><span class="toc-number">2.1.</span> <span class="toc-text">了解Python文件处理命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单文件处理代码"><span class="toc-number">2.2.</span> <span class="toc-text">单文件处理代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的替换函数replace有一个坑"><span class="toc-number">2.2.1.</span> <span class="toc-text">字符串的替换函数replace有一个坑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">2.2.2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行结果"><span class="toc-number">2.2.3.</span> <span class="toc-text">运行结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#批量处理整个文件夹"><span class="toc-number">2.3.</span> <span class="toc-text">批量处理整个文件夹</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#‘utf-8’-codec-can’t-decode-byte-0x-in-position-问题"><span class="toc-number">3.</span> <span class="toc-text">‘utf-8’ codec can’t decode byte 0x  in position  问题</span></a></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>5</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Blockchain/" title="Blockchain">Blockchain<sup>1</sup></a></li>
-		  
-		
-		  
-		
-		  
-		
-		  
-			<li><a href="/categories/Others/" title="Others">Others<sup>8</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>9</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/WebRTC/" title="WebRTC">WebRTC<sup>6</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Website/" title="Website">Website<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS/" title="iOS">iOS<sup>10</sup></a></li>
-		  
-		
-		</ul>
-</div>
-
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/Note/" title="Note">Note<sup>11</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Python/" title="Python">Python<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Demo/" title="Demo">Demo<sup>7</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/LeetCode/" title="LeetCode">LeetCode<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tips/" title="tips">tips<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tutorial/" title="tutorial">tutorial<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/js/" title="js">js<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Spider/" title="Spider">Spider<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/C/" title="C++">C++<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Data-Analysis/" title="Data Analysis">Data Analysis<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Matlab/" title="Matlab">Matlab<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swfit/" title="Swfit">Swfit<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/File-Process/" title="File Process">File Process<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/note/" title="note">note<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/IoT/" title="IoT">IoT<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/selenium/" title="selenium">selenium<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
             
-            	<a href="https://oo1.win" target="_blank" title="炫猿">炫猿</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://www.aimoon.site/" target="_blank" title="我大哥">我大哥</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://onebigcabbage.github.io/" target="_blank" title="小菜哥">小菜哥</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, <br/>
-			World!</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/lixsh" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:xuanshanli@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="ixsim">ixsim</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
     }
-  });
-});
-</script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-  $('.hoverqrcode').hide();
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
 
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
 
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
 
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
 
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
 
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
 
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
 
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
 
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
 
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
 
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/Python/Python文件处理实战-1/" class="b-link-green">Python文件处理实战</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/iOS/SwiftDemo1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Swift Demo1 秒表">
+                        
+                        <span class="card-title">Swift Demo1 秒表</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">这是阅读项目30Days of Swift源码的仿写记录，该项目受到国外一个教程：Swift100天的启发。
+
+Demo 1 StopWatch第一个小demo是个秒表。功能简单就是点击Play计时。Pause暂停。Reset重置。
+载入设</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-31
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Demo/" target="_blank">
+                        <span class="chip bg-color">Demo</span>
+                    </a>
+                    
+                    <a href="/tags/Swift/" target="_blank">
+                        <span class="chip bg-color">Swift</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Website/网页空白处点击弹出文字/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="网页空白处点击弹出文字">
+                        
+                        <span class="card-title">网页空白处点击弹出文字</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">空白处点击鼠标，弹出文字的网页特效。
+
+代码如下：
+&lt;script type=&quot;text/javascript&quot;&gt;
+/* 鼠标特效 */
+var a_idx = 0;
+jQuery(document).rea</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Website/" class="post-category" target="_blank">
+                                    Website
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/" target="_blank">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#问题分析"><span class="post-toc-text">问题分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原文件头部"><span class="post-toc-text">原文件头部</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目标文件头部"><span class="post-toc-text">目标文件头部</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#处理思路"><span class="post-toc-text">处理思路</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实战"><span class="post-toc-text">实战</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#了解Python文件处理命令"><span class="post-toc-text">了解Python文件处理命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单文件处理代码"><span class="post-toc-text">单文件处理代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串的替换函数replace有一个坑"><span class="post-toc-text">字符串的替换函数replace有一个坑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行结果"><span class="post-toc-text">运行结果</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#批量处理整个文件夹"><span class="post-toc-text">批量处理整个文件夹</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#‘utf-8’-codec-can’t-decode-byte-0x-in-position-问题"><span class="post-toc-text">‘utf-8’ codec can’t decode byte 0x  in position  问题</span></a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            }
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
 
 
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
 
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
 </html>

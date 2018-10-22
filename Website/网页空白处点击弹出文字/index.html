@@ -1,109 +1,348 @@
-
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="网页空白处点击弹出文字, 炫杉">
+    <meta name="description" content="空白处点击鼠标，弹出文字的网页特效。
+
+代码如下：
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+/* 鼠标特效 */
+var a_idx = 0;
+jQuery(document).rea">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>网页空白处点击弹出文字 | 炫杉</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="ixsim">
-    
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    
-    <meta name="description" content="空白处点击鼠标，弹出文字的网页特效。">
-<meta name="keywords" content="js">
-<meta property="og:type" content="article">
-<meta property="og:title" content="网页空白处点击弹出文字">
-<meta property="og:url" content="https://ixsim.github.io/Website/网页空白处点击弹出文字/index.html">
-<meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="空白处点击鼠标，弹出文字的网页特效。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-29T03:35:09.995Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网页空白处点击弹出文字">
-<meta name="twitter:description" content="空白处点击鼠标，弹出文字的网页特效。">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="炫杉" title="炫杉"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="炫杉">炫杉</a></h1>
-				<h2 class="blog-motto">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:ixsim.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
 </div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/Website/网页空白处点击弹出文字/" title="网页空白处点击弹出文字" itemprop="url">网页空白处点击弹出文字</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="ixsim" target="_blank" itemprop="author">ixsim</a>
-		
-  <p class="article-time">
-    <time datetime="2018-03-23T06:05:37.000Z" itemprop="datePublished"> 发表于 2018-03-23</time>
-    
-  </p>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			
-		
-		</div>
-		
-		<p>空白处点击鼠标，弹出文字的网页特效。</p>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        网页空白处点击弹出文字
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
+
+    #artDetail h2 {
+        line-height: 3rem;
+    }
+
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
+
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
+
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/js/" target="_blank">
+                    <span class="chip bg-color">js</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Website/" class="post-category" target="_blank">
+                        Website
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-03-23
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>空白处点击鼠标，弹出文字的网页特效。</p>
 <a id="more"></a>
 <p>代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">/* 鼠标特效 */</span></span><br><span class="line"><span class="keyword">var</span> a_idx = <span class="number">0</span>;</span><br><span class="line">jQuery(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"body"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"富强"</span>, <span class="string">"民主"</span>, <span class="string">"文明"</span>, <span class="string">"和谐"</span>, <span class="string">"自由"</span>, <span class="string">"平等"</span>, <span class="string">"公正"</span> ,<span class="string">"法治"</span>, <span class="string">"爱国"</span>, <span class="string">"敬业"</span>, <span class="string">"诚信"</span>, <span class="string">"友善"</span>);</span><br><span class="line">        <span class="keyword">var</span> $i = $(<span class="string">"&lt;span/&gt;"</span>).text(a[a_idx]);</span><br><span class="line">        a_idx = (a_idx + <span class="number">1</span>) % a.length;</span><br><span class="line">        <span class="keyword">var</span> x = e.pageX,</span><br><span class="line">        y = e.pageY;</span><br><span class="line">        $i.css(&#123;</span><br><span class="line">            <span class="string">"z-index"</span>: <span class="number">999999999999999999999999999999999999999999999999999999999999999999999</span>,</span><br><span class="line">            <span class="string">"top"</span>: y - <span class="number">20</span>,</span><br><span class="line">            <span class="string">"left"</span>: x,</span><br><span class="line">            <span class="string">"position"</span>: <span class="string">"absolute"</span>,</span><br><span class="line">            <span class="string">"font-weight"</span>: <span class="string">"bold"</span>,</span><br><span class="line">            <span class="string">"color"</span>: <span class="string">"#ff6651"</span></span><br><span class="line">        &#125;);</span><br><span class="line">        $(<span class="string">"body"</span>).append($i);</span><br><span class="line">        $i.animate(&#123;</span><br><span class="line">            <span class="string">"top"</span>: y - <span class="number">180</span>,</span><br><span class="line">            <span class="string">"opacity"</span>: <span class="number">0</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="number">1500</span>,</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            $i.remove();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+/* 鼠标特效 */
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $(&quot;body&quot;).click(function(e) {
+        var a = new Array(&quot;富强&quot;, &quot;民主&quot;, &quot;文明&quot;, &quot;和谐&quot;, &quot;自由&quot;, &quot;平等&quot;, &quot;公正&quot; ,&quot;法治&quot;, &quot;爱国&quot;, &quot;敬业&quot;, &quot;诚信&quot;, &quot;友善&quot;);
+        var $i = $(&quot;&lt;span/&gt;&quot;).text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            &quot;z-index&quot;: 999999999999999999999999999999999999999999999999999999999999999999999,
+            &quot;top&quot;: y - 20,
+            &quot;left&quot;: x,
+            &quot;position&quot;: &quot;absolute&quot;,
+            &quot;font-weight&quot;: &quot;bold&quot;,
+            &quot;color&quot;: &quot;#ff6651&quot;
+        });
+        $(&quot;body&quot;).append($i);
+        $i.animate({
+            &quot;top&quot;: y - 180,
+            &quot;opacity&quot;: 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+});
+&lt;/script&gt;
+</code></pre>
 <script type="text/javascript"> /* 鼠标特效 */ 
 
 var a_idx = 0; 
@@ -114,490 +353,426 @@ $("body").click(function(e) {
 
  var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善"); var $i = $("<span/>").text(a[a_idx]); a_idx = (a_idx + 1) % a.length; var x = e.pageX, y = e.pageY; 
 
-i.css({ "z-index": 999999999999999999999999999999999999999999999999999999999999999999999, "top": y - 20, "left": x, "position": "absolute", "font-weight": "bold", "color": "#ff6651" }); ("body").append($i); $i.animate({ "top": y - 180, "opacity": 0 }, 1500, function() { $i.remove(); }); }); }); </script>  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
+i.css({ "z-index": 999999999999999999999999999999999999999999999999999999999999999999999, "top": y - 20, "left": x, "position": "absolute", "font-weight": "bold", "color": "#ff6651" }); ("body").append($i); $i.animate({ "top": y - 180, "opacity": 0 }, 1500, function() { $i.remove(); }); }); }); </script>
+            </div>
+            <hr/>
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Website/">Website</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/js/">js</a>
-  </div>
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://ixsim.github.io/Website/网页空白处点击弹出文字/" data-title="网页空白处点击弹出文字 | 炫杉" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/Python/Python文件处理实战-1/" title="Python文件处理实战">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Python文件处理实战</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/Python/《Python数据分析》学习记录/"  title="《Python数据分析》学习记录">
- <strong>下一篇：</strong><br/> 
- <span>《Python数据分析》学习记录
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- 
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>5</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Blockchain/" title="Blockchain">Blockchain<sup>1</sup></a></li>
-		  
-		
-		  
-		
-		  
-		
-		  
-			<li><a href="/categories/Others/" title="Others">Others<sup>8</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>9</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/WebRTC/" title="WebRTC">WebRTC<sup>6</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Website/" title="Website">Website<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS/" title="iOS">iOS<sup>10</sup></a></li>
-		  
-		
-		</ul>
-</div>
-
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/Note/" title="Note">Note<sup>11</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Python/" title="Python">Python<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Demo/" title="Demo">Demo<sup>7</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/LeetCode/" title="LeetCode">LeetCode<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tips/" title="tips">tips<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tutorial/" title="tutorial">tutorial<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/js/" title="js">js<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Spider/" title="Spider">Spider<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/C/" title="C++">C++<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Data-Analysis/" title="Data Analysis">Data Analysis<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Matlab/" title="Matlab">Matlab<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swfit/" title="Swfit">Swfit<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/File-Process/" title="File Process">File Process<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/note/" title="note">note<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/IoT/" title="IoT">IoT<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/selenium/" title="selenium">selenium<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
             
-            	<a href="https://oo1.win" target="_blank" title="炫猿">炫猿</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://www.aimoon.site/" target="_blank" title="我大哥">我大哥</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://onebigcabbage.github.io/" target="_blank" title="小菜哥">小菜哥</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, <br/>
-			World!</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/lixsh" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:xuanshanli@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="ixsim">ixsim</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
     }
-  });
-});
-</script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-  $('.hoverqrcode').hide();
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
 
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
 
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
 
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
 
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
 
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
 
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
 
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
 
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
 
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
 
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/Website/网页空白处点击弹出文字/" class="b-link-green">网页空白处点击弹出文字</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/Python/Python文件处理实战-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Python文件处理实战">
+                        
+                        <span class="card-title">Python文件处理实战</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。
+刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。
+
+问题分析原文件头部&gt; Title
+&gt; Date
+&gt; Tags
+
+目标文</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Demo/" target="_blank">
+                        <span class="chip bg-color">Demo</span>
+                    </a>
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/File-Process/" target="_blank">
+                        <span class="chip bg-color">File Process</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Python/《Python数据分析》学习记录/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="《Python数据分析》学习记录">
+                        
+                        <span class="card-title">《Python数据分析》学习记录</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">这是阅读《Python for Data Analysis》的读书笔记。
+
+第一章 准备工作不用准备了。🙂🙂🙂要啥有啥。
+第二章 引言list 手动统计from collections improt defaultdict
+def g</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/note/" target="_blank">
+                        <span class="chip bg-color">note</span>
+                    </a>
+                    
+                    <a href="/tags/Data-Analysis/" target="_blank">
+                        <span class="chip bg-color">Data Analysis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            }
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
 
 
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
 
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
 </html>

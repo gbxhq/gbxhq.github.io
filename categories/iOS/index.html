@@ -1,379 +1,840 @@
-
-  <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  
-    <title>分类 : iOS | 炫杉</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="ixsim">
     
 
-    
-    <meta property="og:type" content="website">
-<meta property="og:title" content="炫杉">
-<meta property="og:url" content="https://ixsim.github.io/categories/iOS/index.html">
-<meta property="og:site_name" content="炫杉">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="炫杉">
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="分类: iOS, 炫杉">
+    <meta name="description" content="分类: iOS | 炫杉">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>分类: iOS | 炫杉</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 </head>
 
-    <body>
-      <header>
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
         
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="炫杉" title="炫杉"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="炫杉">炫杉</a></h1>
-				<h2 class="blog-motto">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:ixsim.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-      </header>
-      <div id="container">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
 
-<div class="archive-title" >
-  <h2 class="category-icon">iOS</h2>
-  
-</div>
-<div id="main" class="archive-part clearfix">
-  <div id="archive-page">
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/iOS/ofo仿写记录/" title="ofo仿写记录" itemprop="url">
-  
-
-    <time datetime="2018-05-16T11:34:53.000Z" itemprop="datePublished">2018-05-16</time>
-
-
-    <h1 itemprop="name">ofo仿写记录</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/iOS/UIDevice学习/" title="UIDevice学习" itemprop="url">
-  
-
-    <time datetime="2018-04-16T10:43:23.000Z" itemprop="datePublished">2018-04-16</time>
-
-
-    <h1 itemprop="name">UIDevice学习</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/iOS/小波iOS11中级篇笔记/" title="小波iOS11中级篇笔记" itemprop="url">
-  
-
-    <time datetime="2018-04-07T04:53:54.000Z" itemprop="datePublished">2018-04-07</time>
-
-
-    <h1 itemprop="name">小波iOS11中级篇笔记</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/iOS/iOS布局问题/" title="iOS布局问题入门" itemprop="url">
-  
-
-    <time datetime="2018-04-01T01:26:15.000Z" itemprop="datePublished">2018-04-01</time>
-
-
-    <h1 itemprop="name">iOS布局问题入门</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/iOS/SwiftDemo1/" title="Swift Demo1 秒表" itemprop="url">
-  
-
-    <time datetime="2018-03-31T07:17:10.000Z" itemprop="datePublished">2018-03-31</time>
-
-
-    <h1 itemprop="name">Swift Demo1 秒表</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/iOS/<懒猫>记录/" title="iOS《笨猫快乐学编程》学习笔记" itemprop="url">
-  
-
-    <time datetime="2017-12-31T16:00:00.000Z" itemprop="datePublished">2018-01-01</time>
-
-
-    <h1 itemprop="name">iOS《笨猫快乐学编程》学习笔记</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/iOS/UIViewHelper.swift/" title="iOS 圆角、阴影通用配置" itemprop="url">
-  
-
-    <time datetime="2017-12-31T16:00:00.000Z" itemprop="datePublished">2018-01-01</time>
-
-
-    <h1 itemprop="name">iOS 圆角、阴影通用配置</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/iOS/小波iOS11初级篇笔记/" title="小波iOS11初级篇笔记" itemprop="url">
-  
-
-    <time datetime="2017-12-31T16:00:00.000Z" itemprop="datePublished">2018-01-01</time>
-
-
-    <h1 itemprop="name">小波iOS11初级篇笔记</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/iOS/算法笔记/" title="iOS算法笔记" itemprop="url">
-  
-
-    <time datetime="2017-12-31T16:00:00.000Z" itemprop="datePublished">2018-01-01</time>
-
-
-    <h1 itemprop="name">iOS算法笔记</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/iOS/语法问题/" title="Swift语法笔记" itemprop="url">
-  
-
-    <time datetime="2017-12-31T16:00:00.000Z" itemprop="datePublished">2018-01-01</time>
-
-
-    <h1 itemprop="name">Swift语法笔记</h1>
-
-  </a>
-</section>
-
-
-  </div>
-</div>
-
-      </div>
-      <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, <br/>
-			World!</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/lixsh" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:xuanshanli@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="ixsim">ixsim</a>
-		
-		
-		</p>
-</div>
-</footer>
-      <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+    <ul class="menu-list mobile-menu-list">
         
-    }
-  });
-});
-</script>
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
 
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
 
+            </div>
+        </div>
 
+        
+    </nav>
+</header>
 
+<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                <div class="brand">
+                    <div class="title center-align">
+                    
+                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+                    
+                    </div>
 
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
+                    <div class="description center-align">
+                    
+                        This is your root _config.yml 'description' value.
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
 
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+// Dynamically switch banner pictures every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
 
+<main class="content">
+
+    
+
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">文章分类</div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/Others/" title="Others: 10">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">Others
+                        <span class="tag-length">10</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Algorithm/" title="Algorithm: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">Algorithm
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/C/" title="C++: 0">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">C++
+                        <span class="tag-length">0</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/iOS/" title="iOS: 10">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #E8F8F5;">iOS
+                        <span class="tag-length">10</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/WebRTC/" title="WebRTC: 6">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #FEF9E7;">WebRTC
+                        <span class="tag-length">6</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Blockchain/" title="Blockchain: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">Blockchain
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Python/" title="Python: 8">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">Python
+                        <span class="tag-length">8</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Website/" title="Website: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D7BDE2;">Website
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/iOS/ofo仿写记录/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="ofo仿写记录">
+                            
+                            <span class="card-title">ofo仿写记录</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">ofo不解释，教程同样来自小波。
+
+小知识点
+解包 .car 文件：https://github.com/insidegui/AssetCa</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Swift/" target="_blank">
+                            <span class="chip bg-color">Swift</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/iOS/UIDevice学习/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="UIDevice学习">
+                            
+                            <span class="card-title">UIDevice学习</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">iOS的UIDevice可以方便获取设备的硬件和系统的一些状态信息。写这篇文章是因为选修了《移动安全与测评》这门课。小作业让写一个APP获取</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Swift/" target="_blank">
+                            <span class="chip bg-color">Swift</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/iOS/小波iOS11中级篇笔记/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="小波iOS11中级篇笔记">
+                            
+                            <span class="card-title">小波iOS11中级篇笔记</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。
+
+小知识点
+&quot;&quot;&quot;三引号对&quot;&quot;&qu</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Note/" target="_blank">
+                            <span class="chip bg-color">Note</span>
+                        </a>
+                        
+                        <a href="/tags/Swfit/" target="_blank">
+                            <span class="chip bg-color">Swfit</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/iOS/iOS布局问题/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="iOS布局问题入门">
+                            
+                            <span class="card-title">iOS布局问题入门</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">昨天重拾iOS发现，怎么加Constraints等设计Layout的问题全忘了。赶紧复习一下。
+
+Alignment 居中这两个√解决
+Au</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Swift/" target="_blank">
+                            <span class="chip bg-color">Swift</span>
+                        </a>
+                        
+                        <a href="/tags/Design/" target="_blank">
+                            <span class="chip bg-color">Design</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/iOS/SwiftDemo1/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Swift Demo1 秒表">
+                            
+                            <span class="card-title">Swift Demo1 秒表</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">这是阅读项目30Days of Swift源码的仿写记录，该项目受到国外一个教程：Swift100天的启发。
+
+Demo 1 StopWat</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-31
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Demo/" target="_blank">
+                            <span class="chip bg-color">Demo</span>
+                        </a>
+                        
+                        <a href="/tags/Swift/" target="_blank">
+                            <span class="chip bg-color">Swift</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/iOS/语法问题/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Swift语法笔记">
+                            
+                            <span class="card-title">Swift语法笔记</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Note/" target="_blank">
+                            <span class="chip bg-color">Note</span>
+                        </a>
+                        
+                        <a href="/tags/Swift/" target="_blank">
+                            <span class="chip bg-color">Swift</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/iOS/算法笔记/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="iOS算法笔记">
+                            
+                            <span class="card-title">iOS算法笔记</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">尾递归：防止内存爆炸
+只返回函数本身。
+量放在参数中。Ex:
+
+fun func(_ n :Int, _ total :Int = 0) -</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Note/" target="_blank">
+                            <span class="chip bg-color">Note</span>
+                        </a>
+                        
+                        <a href="/tags/Swift/" target="_blank">
+                            <span class="chip bg-color">Swift</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/iOS/小波iOS11初级篇笔记/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="小波iOS11初级篇笔记">
+                            
+                            <span class="card-title">小波iOS11初级篇笔记</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了
+
+小知识点
+IB</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Note/" target="_blank">
+                            <span class="chip bg-color">Note</span>
+                        </a>
+                        
+                        <a href="/tags/Swift/" target="_blank">
+                            <span class="chip bg-color">Swift</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/iOS/UIViewHelper.swift/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="iOS 圆角、阴影通用配置">
+                            
+                            <span class="card-title">iOS 圆角、阴影通用配置</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。
+import UIKit
+//圆角
+extension UI</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Note/" target="_blank">
+                            <span class="chip bg-color">Note</span>
+                        </a>
+                        
+                        <a href="/tags/Swift/" target="_blank">
+                            <span class="chip bg-color">Swift</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/iOS/<懒猫>记录/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="iOS《笨猫快乐学编程》学习笔记">
+                            
+                            <span class="card-title">iOS《笨猫快乐学编程》学习笔记</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">这是我找到的国内第一份Swift4.0教程，发布在知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcod</div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Note/" target="_blank">
+                            <span class="chip bg-color">Note</span>
+                        </a>
+                        
+                        <a href="/tags/Swift/" target="_blank">
+                            <span class="chip bg-color">Swift</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
+</main>
 
 
-<!-- Analytics End -->
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
 
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+<div class="progress-bar"></div>
 
 
-<!-- MathJax End -->
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-<!-- Tiny_search Begin -->
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
-<!-- Tiny_search End -->
 
-    </body>
-   </html>
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

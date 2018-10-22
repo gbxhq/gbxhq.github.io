@@ -1,113 +1,344 @@
-
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="服务器跑selenium监控课余量选课, 炫杉">
+    <meta name="description" content="紫玉说课没选上，我就想写个脚本挂着看有没有退呗~
+
+初探经过同学的推荐使用了selenium。做自动化测试很好啊，解决chekbox分分钟。开始啦~
+上来就遇到问题了。要把geckodriver这个东西放到环境变量里。最后选择手动配置路径：">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>服务器跑selenium监控课余量选课 | 炫杉</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="ixsim">
-    
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    
-    <meta name="description" content="紫玉说课没选上，我就想写个脚本挂着看有没有退呗~">
-<meta name="keywords" content="Demo,Python,Spider,selenium">
-<meta property="og:type" content="article">
-<meta property="og:title" content="服务器跑selenium监控课余量选课">
-<meta property="og:url" content="https://ixsim.github.io/Python/监控课余量选课/index.html">
-<meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="紫玉说课没选上，我就想写个脚本挂着看有没有退呗~">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-22T14:29:52.452Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="服务器跑selenium监控课余量选课">
-<meta name="twitter:description" content="紫玉说课没选上，我就想写个脚本挂着看有没有退呗~">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="炫杉" title="炫杉"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="炫杉">炫杉</a></h1>
-				<h2 class="blog-motto">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:ixsim.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
 </div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/Python/监控课余量选课/" title="服务器跑selenium监控课余量选课" itemprop="url">服务器跑selenium监控课余量选课</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="ixsim" target="_blank" itemprop="author">ixsim</a>
-		
-  <p class="article-time">
-    <time datetime="2018-05-22T05:51:49.000Z" itemprop="datePublished"> 发表于 2018-05-22</time>
-    
-  </p>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#初探"><span class="toc-number">1.</span> <span class="toc-text">初探</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点"><span class="toc-number">2.</span> <span class="toc-text">知识点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实战本地跑"><span class="toc-number">3.</span> <span class="toc-text">实战本地跑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码："><span class="toc-number">3.1.</span> <span class="toc-text">代码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码历史："><span class="toc-number">3.2.</span> <span class="toc-text">代码历史：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器跑"><span class="toc-number">4.</span> <span class="toc-text">服务器跑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装chrome"><span class="toc-number">4.1.</span> <span class="toc-text">安装chrome</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装chromedrive"><span class="toc-number">4.2.</span> <span class="toc-text">安装chromedrive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Xvfb"><span class="toc-number">4.3.</span> <span class="toc-text">安装Xvfb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装selenium、pyvirtualdisplay"><span class="toc-number">4.4.</span> <span class="toc-text">安装selenium、pyvirtualdisplay</span></a></li></ol></li></ol>
-		
-		</div>
-		
-		<p>紫玉说课没选上，我就想写个脚本挂着看有没有退呗~</p>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        服务器跑selenium监控课余量选课
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
+
+    #artDetail h2 {
+        line-height: 3rem;
+    }
+
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
+
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
+
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Demo/" target="_blank">
+                    <span class="chip bg-color">Demo</span>
+                </a>
+                
+                <a href="/tags/Python/" target="_blank">
+                    <span class="chip bg-color">Python</span>
+                </a>
+                
+                <a href="/tags/Spider/" target="_blank">
+                    <span class="chip bg-color">Spider</span>
+                </a>
+                
+                <a href="/tags/selenium/" target="_blank">
+                    <span class="chip bg-color">selenium</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Python/" class="post-category" target="_blank">
+                        Python
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-05-22
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>紫玉说课没选上，我就想写个脚本挂着看有没有退呗~</p>
 <a id="more"></a>
 <h1 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h1><p>经过同学的推荐使用了selenium。做自动化测试很好啊，解决chekbox分分钟。开始啦~</p>
 <p>上来就遇到问题了。要把<code>geckodriver</code>这个东西放到环境变量里。<br>最后选择手动配置路径：<br><code>dr = webdriver.Firefox(executable_path = &#39;/Users/lixs/anaconda3/geckodriver&#39;)</code><br>虽然麻烦点，但是着急往下写。我们继续~</p>
 <p>先试试用Cookie登录</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">driver.get(<span class="string">'http://jwxk.ucas.ac.cn/courseManage/selectCourse?s=473bcdb8-8d5d-40af-9087-5071b63ff7a8'</span>)</span><br><span class="line"><span class="comment">#将用户名密码写入浏览器cookie中</span></span><br><span class="line">driver.add_cookie(&#123;<span class="string">'name'</span>:<span class="string">'username'</span>,<span class="string">'value'</span>:<span class="string">'chinalixs@qq.com'</span>&#125;)</span><br><span class="line">driver.add_cookie(&#123;<span class="string">'name'</span>:<span class="string">'pwd'</span>,<span class="string">'value'</span>:<span class="string">'Jwsyb9503'</span>&#125;)</span><br><span class="line"><span class="comment">#再次访问网站，将会自动登录</span></span><br><span class="line">driver.get(<span class="string">'http://jwxk.ucas.ac.cn/courseManage/'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="Python">driver.get(&#39;http://jwxk.ucas.ac.cn/courseManage/selectCourse?s=473bcdb8-8d5d-40af-9087-5071b63ff7a8&#39;)
+#将用户名密码写入浏览器cookie中
+driver.add_cookie({&#39;name&#39;:&#39;username&#39;,&#39;value&#39;:&#39;chinalixs@qq.com&#39;})
+driver.add_cookie({&#39;name&#39;:&#39;pwd&#39;,&#39;value&#39;:&#39;Jwsyb9503&#39;})
+#再次访问网站，将会自动登录
+driver.get(&#39;http://jwxk.ucas.ac.cn/courseManage/&#39;)
+</code></pre>
 <p>不行，提示会话过期。先不用Cookie了以后再回来研究~自动填表吧~</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># login</span></span><br><span class="line">input = driver.find_element_by_name(<span class="string">'userName'</span>)</span><br><span class="line">input.send_keys(<span class="string">'NAME'</span>)</span><br><span class="line">input = driver.find_element_by_name(<span class="string">'pwd'</span>)</span><br><span class="line">input.send_keys(<span class="string">'123456'</span>)</span><br><span class="line"><span class="comment">#点击登录</span></span><br><span class="line">sb = driver.find_element_by_name(<span class="string">'sb'</span>).click()</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># login
+input = driver.find_element_by_name(&#39;userName&#39;)
+input.send_keys(&#39;NAME&#39;)
+input = driver.find_element_by_name(&#39;pwd&#39;)
+input.send_keys(&#39;123456&#39;)
+#点击登录
+sb = driver.find_element_by_name(&#39;sb&#39;).click()
+</code></pre>
 <p>然后选课找课都是一个模子的。只能说这个selenium很给力~</p>
 <hr>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ul>
@@ -117,14 +348,78 @@
 </li>
 <li>处理弹窗：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">al = driver.switch_to_alert()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">al.accept()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">al = driver.switch_to_alert()
+time.sleep(1)
+al.accept()
+</code></pre>
 <ul>
 <li>判断是否选上了<code>driver.find_element_by_xpath(&#39;//input[@value=&quot;65A7F68B98BB6FB9&quot;]&#39;).is_selected()</code></li>
 </ul>
 <hr>
 <h1 id="实战本地跑"><a href="#实战本地跑" class="headerlink" title="实战本地跑"></a>实战本地跑</h1><p>截止到目前还是没选上的，因为没人退课啊。不过学到了selenium这个包。</p>
 <p>具体思路就是监测那门课的 chekbox 前面的 √ 是否打上了，打不上就刷新，因为有了课余量那个 √ 是可以打上的，然后就一直刷新。<br>之前也是程序跑个20次左右就会报错，可能是请求太多了。然后刚好上次学到了 try/except ，哎呦不错哦。</p>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">driver = webdriver.Firefox(executable_path = <span class="string">'/Users/lixs/anaconda3/geckodriver'</span>)</span><br><span class="line">driver.get(<span class="string">'http://sep.ucas.ac.cn'</span>)</span><br><span class="line"><span class="comment"># login</span></span><br><span class="line">input = driver.find_element_by_name(<span class="string">'userName'</span>)</span><br><span class="line">input.send_keys(<span class="string">'chinalixs@qq.com'</span>)</span><br><span class="line">input = driver.find_element_by_name(<span class="string">'pwd'</span>)</span><br><span class="line">input.send_keys(<span class="string">'Jwsyb9503'</span>)</span><br><span class="line">sb = driver.find_element_by_name(<span class="string">'sb'</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开选课系统</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">driver = webdriver.Firefox(executable_path = <span class="string">'/Users/lixs/anaconda3/geckodriver'</span>)</span><br><span class="line">driver.get(<span class="string">'http://sep.ucas.ac.cn'</span>)</span><br><span class="line"><span class="comment"># login</span></span><br><span class="line">input = driver.find_element_by_name(<span class="string">'userName'</span>)</span><br><span class="line">input.send_keys(<span class="string">'chinalixs@qq.com'</span>)</span><br><span class="line">input = driver.find_element_by_name(<span class="string">'pwd'</span>)</span><br><span class="line">input.send_keys(<span class="string">'Jwsyb9503'</span>)</span><br><span class="line">sb = driver.find_element_by_name(<span class="string">'sb'</span>).click()</span><br><span class="line"><span class="comment"># 打开选课系统</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//a[@href="/portal/site/226/821"]'</span>).click()</span><br><span class="line"><span class="comment"># 点击选课</span></span><br><span class="line">driver.get(<span class="string">'http://jwxk.ucas.ac.cn/courseManage/main'</span>)</span><br><span class="line"><span class="comment">#选学院</span></span><br><span class="line">driver.find_element_by_id(<span class="string">'id_913'</span>).click()</span><br><span class="line">driver.find_element_by_xpath(<span class="string">'//form[@id="regfrm2"]//button[@name="sb"]'</span>).click()</span><br><span class="line"><span class="comment">#选课</span></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xuanke</span><span class="params">(i)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">100</span>==<span class="number">0</span>:</span><br><span class="line">    <span class="comment">#每当i跑100次就返回一下防止内存爆炸</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        driver.find_element_by_xpath(<span class="string">'//input[@value="65A7F68B98BB6FB9"]'</span>).click()</span><br><span class="line">        <span class="keyword">if</span> driver.find_element_by_xpath(<span class="string">'//input[@value="65A7F68B98BB6FB9"]'</span>).is_selected():</span><br><span class="line">            print(<span class="string">'选上啦！！！'</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(i,<span class="string">'次没选上继续'</span>)</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            <span class="comment">#刷新一下</span></span><br><span class="line">            driver.refresh()</span><br><span class="line">            al = driver.switch_to_alert()</span><br><span class="line">            al.accept()</span><br><span class="line">            xuanke(i)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'---------------ERROR---------------------'</span>)</span><br><span class="line">        xuanke(i)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    xuanke(i)</span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line">sb = driver.find_element_by_xpath(<span class="string">'//button[@type="submit"]'</span>).click()</span><br><span class="line"><span class="comment">#弹出一个提示，选确定</span></span><br><span class="line">sb = driver.find_element_by_xpath(<span class="string">'//button[@value="ok"]'</span>).click()</span><br><span class="line">print(<span class="string">'OVER'</span>)</span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><pre><code class="Python">from selenium import webdriver
+import time
+
+driver = webdriver.Firefox(executable_path = &#39;/Users/lixs/anaconda3/geckodriver&#39;)
+driver.get(&#39;http://sep.ucas.ac.cn&#39;)
+# login
+input = driver.find_element_by_name(&#39;userName&#39;)
+input.send_keys(&#39;chinalixs@qq.com&#39;)
+input = driver.find_element_by_name(&#39;pwd&#39;)
+input.send_keys(&#39;Jwsyb9503&#39;)
+sb = driver.find_element_by_name(&#39;sb&#39;).click()
+
+# 打开选课系统
+from selenium import webdriver
+import time
+driver = webdriver.Firefox(executable_path = &#39;/Users/lixs/anaconda3/geckodriver&#39;)
+driver.get(&#39;http://sep.ucas.ac.cn&#39;)
+# login
+input = driver.find_element_by_name(&#39;userName&#39;)
+input.send_keys(&#39;chinalixs@qq.com&#39;)
+input = driver.find_element_by_name(&#39;pwd&#39;)
+input.send_keys(&#39;Jwsyb9503&#39;)
+sb = driver.find_element_by_name(&#39;sb&#39;).click()
+# 打开选课系统
+driver.find_element_by_xpath(&#39;//a[@href=&quot;/portal/site/226/821&quot;]&#39;).click()
+# 点击选课
+driver.get(&#39;http://jwxk.ucas.ac.cn/courseManage/main&#39;)
+#选学院
+driver.find_element_by_id(&#39;id_913&#39;).click()
+driver.find_element_by_xpath(&#39;//form[@id=&quot;regfrm2&quot;]//button[@name=&quot;sb&quot;]&#39;).click()
+#选课
+i = 1
+def xuanke(i):
+    if i%100==0:
+    #每当i跑100次就返回一下防止内存爆炸
+        return
+    try:
+        driver.find_element_by_xpath(&#39;//input[@value=&quot;65A7F68B98BB6FB9&quot;]&#39;).click()
+        if driver.find_element_by_xpath(&#39;//input[@value=&quot;65A7F68B98BB6FB9&quot;]&#39;).is_selected():
+            print(&#39;选上啦！！！&#39;)
+            return
+        else:
+            print(i,&#39;次没选上继续&#39;)
+            i += 1
+            #刷新一下
+            driver.refresh()
+            al = driver.switch_to_alert()
+            al.accept()
+            xuanke(i)
+
+    except:
+        print(&#39;---------------ERROR---------------------&#39;)
+        xuanke(i)
+for a in range(10000):
+    xuanke(i)
+#提交
+sb = driver.find_element_by_xpath(&#39;//button[@type=&quot;submit&quot;]&#39;).click()
+#弹出一个提示，选确定
+sb = driver.find_element_by_xpath(&#39;//button[@value=&quot;ok&quot;]&#39;).click()
+print(&#39;OVER&#39;)
+driver.close()
+</code></pre>
 <h2 id="代码历史："><a href="#代码历史：" class="headerlink" title="代码历史："></a>代码历史：</h2><ul>
 <li><strong>1.0版本</strong> 开始选课函数是 xuanke()<br>后来我想引入一个统计变量看跑了多少次。就在函数外设了个变量。结果很低级的错误就出现了，函数定义怎么能改全局变量i呢。真的天真</li>
 <li><strong>2.0版本</strong> xuanke(i) 传入i。<br>统计可以了，新问题也就出现了。老版的 xuanke(i) 里每跑2k次左右，就会内存爆炸，于是</li>
@@ -134,509 +429,458 @@
 <p>刚好看到这篇文章：《<a href="https://www.cnblogs.com/bestruggle/p/8080983.html" target="_blank" rel="noopener">liunx centos7无GUI服务器跑Selenium部署说明》</a></p>
 <h2 id="安装chrome"><a href="#安装chrome" class="headerlink" title="安装chrome"></a>安装chrome</h2><ol>
 <li><p>添加chrome的repo源</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> vi /etc/yum.repos.d/google.repo</span><br><span class="line">[google]name=Google-x86_64baseurl=http://dl.google.com/linux/rpm/stable/x86_64enabled=1gpgcheck=0gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装<br><code>yum update</code> , 然后<code>yum install google-chrome-stable</code></p>
-</li>
+<pre><code>  vi /etc/yum.repos.d/google.repo
+ [google]name=Google-x86_64baseurl=http://dl.google.com/linux/rpm/stable/x86_64enabled=1gpgcheck=0gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
+</code></pre></li>
+<li>安装<br><code>yum update</code> , 然后<code>yum install google-chrome-stable</code></li>
 </ol>
 <p><strong>注意</strong>：google-chrome一定一定不要用root用户去运行</p>
 <h2 id="安装chromedrive"><a href="#安装chromedrive" class="headerlink" title="安装chromedrive"></a>安装chromedrive</h2><p>从<a href="https://sites.google.com/a/chromium.org/chromedriver/home" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/home</a> 下载 chromedriver</p>
 <p>配置在PATH路径或者在脚本中指定路径  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wget -N http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip unzip chromedriver_linux64.zip</span><br><span class="line"></span><br><span class="line">chmod +x chromedriver</span><br><span class="line"></span><br><span class="line">sudo mv -f chromedriver /usr/local/share/chromedriver</span><br><span class="line"></span><br><span class="line">sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver</span><br><span class="line"></span><br><span class="line">sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver</span><br></pre></td></tr></table></figure>
-<h2 id="安装Xvfb"><a href="#安装Xvfb" class="headerlink" title="安装Xvfb"></a>安装Xvfb</h2><p>无GUI时，Xvfb为虚拟GUI</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br><span class="line"></span><br><span class="line">yum install Xvfb</span><br><span class="line"></span><br><span class="line">yum -install libXfont</span><br><span class="line"></span><br><span class="line">yum install xorg-x11-fonts*</span><br></pre></td></tr></table></figure>
+<pre><code>wget -N http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip unzip chromedriver_linux64.zip
+
+chmod +x chromedriver
+
+sudo mv -f chromedriver /usr/local/share/chromedriver
+
+sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+
+sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+</code></pre><h2 id="安装Xvfb"><a href="#安装Xvfb" class="headerlink" title="安装Xvfb"></a>安装Xvfb</h2><p>无GUI时，Xvfb为虚拟GUI</p>
+<pre><code class="shell">yum update
+
+yum install Xvfb
+
+yum -install libXfont
+
+yum install xorg-x11-fonts*
+</code></pre>
 <h2 id="安装selenium、pyvirtualdisplay"><a href="#安装selenium、pyvirtualdisplay" class="headerlink" title="安装selenium、pyvirtualdisplay"></a>安装selenium、pyvirtualdisplay</h2><p>pip install selenium</p>
 <p>pip install pyvirtualdisplay</p>
 <p>5.写个小demo测试下效果</p>
 <p> vim test.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> pyvirtualdisplay <span class="keyword">import</span> Display</span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line">display = Display(visible=<span class="number">0</span>, size=(<span class="number">800</span>,<span class="number">600</span>))</span><br><span class="line">display.start()</span><br><span class="line">driver = webdriver.Chrome(<span class="string">"./chromedriver"</span>)</span><br><span class="line">driver.get(<span class="string">"http://www.baidu.com"</span>)</span><br><span class="line"><span class="keyword">print</span> driver.page_source</span><br><span class="line"></span><br><span class="line">driver.quit()</span><br><span class="line">display.stop()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">from selenium import webdriver
+from pyvirtualdisplay import Display
+　　
+
+display = Display(visible=0, size=(800,600))
+display.start()
+driver = webdriver.Chrome(&quot;./chromedriver&quot;)
+driver.get(&quot;http://www.baidu.com&quot;)
+print driver.page_source
+
+driver.quit()
+display.stop()
+</code></pre>
 <blockquote>
 <p>python test.py</p>
 </blockquote>
-  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Python/">Python</a>
-</div>
+            </div>
+            <hr/>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Demo/">Demo</a><a href="/tags/Python/">Python</a><a href="/tags/Spider/">Spider</a><a href="/tags/selenium/">selenium</a>
-  </div>
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://ixsim.github.io/Python/监控课余量选课/" data-title="服务器跑selenium监控课余量选课 | 炫杉" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/Others/《移动安全与测评》Report/" title="《移动安全与测评》Report">
-  <strong>上一篇：</strong><br/>
-  <span>
-  《移动安全与测评》Report</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/Python/爬一个520礼物给紫玉/"  title="爬一个520礼物给紫玉">
- <strong>下一篇：</strong><br/> 
- <span>爬一个520礼物给紫玉
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#初探"><span class="toc-number">1.</span> <span class="toc-text">初探</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点"><span class="toc-number">2.</span> <span class="toc-text">知识点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实战本地跑"><span class="toc-number">3.</span> <span class="toc-text">实战本地跑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码："><span class="toc-number">3.1.</span> <span class="toc-text">代码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码历史："><span class="toc-number">3.2.</span> <span class="toc-text">代码历史：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器跑"><span class="toc-number">4.</span> <span class="toc-text">服务器跑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装chrome"><span class="toc-number">4.1.</span> <span class="toc-text">安装chrome</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装chromedrive"><span class="toc-number">4.2.</span> <span class="toc-text">安装chromedrive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Xvfb"><span class="toc-number">4.3.</span> <span class="toc-text">安装Xvfb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装selenium、pyvirtualdisplay"><span class="toc-number">4.4.</span> <span class="toc-text">安装selenium、pyvirtualdisplay</span></a></li></ol></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>5</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Blockchain/" title="Blockchain">Blockchain<sup>1</sup></a></li>
-		  
-		
-		  
-		
-		  
-		
-		  
-			<li><a href="/categories/Others/" title="Others">Others<sup>8</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>9</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/WebRTC/" title="WebRTC">WebRTC<sup>6</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Website/" title="Website">Website<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS/" title="iOS">iOS<sup>10</sup></a></li>
-		  
-		
-		</ul>
-</div>
-
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/Note/" title="Note">Note<sup>11</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Python/" title="Python">Python<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Demo/" title="Demo">Demo<sup>7</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/LeetCode/" title="LeetCode">LeetCode<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tips/" title="tips">tips<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tutorial/" title="tutorial">tutorial<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/js/" title="js">js<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Spider/" title="Spider">Spider<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/C/" title="C++">C++<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Data-Analysis/" title="Data Analysis">Data Analysis<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Matlab/" title="Matlab">Matlab<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swfit/" title="Swfit">Swfit<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/File-Process/" title="File Process">File Process<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/note/" title="note">note<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/IoT/" title="IoT">IoT<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/selenium/" title="selenium">selenium<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
             
-            	<a href="https://oo1.win" target="_blank" title="炫猿">炫猿</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://www.aimoon.site/" target="_blank" title="我大哥">我大哥</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://onebigcabbage.github.io/" target="_blank" title="小菜哥">小菜哥</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, <br/>
-			World!</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/lixsh" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:xuanshanli@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="ixsim">ixsim</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
     }
-  });
-});
-</script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-  $('.hoverqrcode').hide();
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
 
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
 
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
 
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
 
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
 
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
 
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
 
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
 
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
 
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
 
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/Python/监控课余量选课/" class="b-link-green">服务器跑selenium监控课余量选课</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/Others/《移动安全与测评》Report/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="《移动安全与测评》Report">
+                        
+                        <span class="card-title">《移动安全与测评》Report</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">只想双击666~
+
+《移动安全与测评》报告
+很喜欢移动开发，然后选了移动安全与测评这门课。课上学到很多移动安全的知识、思想。由于我对安卓开发没经验，也不是学安全专业的，对那个渗透测试的作业只能望而却步了。自己学了点iOS开发的皮毛，所以这篇</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/iOS/" target="_blank">
+                        <span class="chip bg-color">iOS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Python/爬一个520礼物给紫玉/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="爬一个520礼物给紫玉">
+                        
+                        <span class="card-title">爬一个520礼物给紫玉</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">520送点啥呢。有Python不慌~哈哈我们来试着找一辆5月20号13点14的列车吧~
+
+从分析到实践初探百度了下列车时刻表，有个ip138，就爬它啦🤭。先读一下第一页的内容：这网站太老了。竟然不是UTF-8编码的。解码：使用urlope</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Demo/" target="_blank">
+                        <span class="chip bg-color">Demo</span>
+                    </a>
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/Spider/" target="_blank">
+                        <span class="chip bg-color">Spider</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#初探"><span class="post-toc-text">初探</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#知识点"><span class="post-toc-text">知识点</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实战本地跑"><span class="post-toc-text">实战本地跑</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码："><span class="post-toc-text">代码：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码历史："><span class="post-toc-text">代码历史：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#服务器跑"><span class="post-toc-text">服务器跑</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装chrome"><span class="post-toc-text">安装chrome</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装chromedrive"><span class="post-toc-text">安装chromedrive</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Xvfb"><span class="post-toc-text">安装Xvfb</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装selenium、pyvirtualdisplay"><span class="post-toc-text">安装selenium、pyvirtualdisplay</span></a></li></ol></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            }
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
 
 
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
 
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
 </html>

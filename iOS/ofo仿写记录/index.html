@@ -1,108 +1,313 @@
-
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="ofo仿写记录, 炫杉">
+    <meta name="description" content="ofo不解释，教程同样来自小波。
+
+小知识点
+解包 .car 文件：https://github.com/insidegui/AssetCatalogTinkerer仿写必备咯
+很多时候Constrain不好加，可以先拖到合适的地方。比如拖">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>ofo仿写记录 | 炫杉</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="ixsim">
-    
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    
-    <meta name="description" content="ofo不解释，教程同样来自小波。">
-<meta name="keywords" content="Swift">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ofo仿写记录">
-<meta property="og:url" content="https://ixsim.github.io/iOS/ofo仿写记录/index.html">
-<meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="ofo不解释，教程同样来自小波。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p66eruxmw.bkt.clouddn.com/15264706713494.jpg">
-<meta property="og:updated_time" content="2018-09-12T03:16:45.285Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ofo仿写记录">
-<meta name="twitter:description" content="ofo不解释，教程同样来自小波。">
-<meta name="twitter:image" content="http://p66eruxmw.bkt.clouddn.com/15264706713494.jpg">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="炫杉" title="炫杉"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="炫杉">炫杉</a></h1>
-				<h2 class="blog-motto">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:ixsim.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
 </div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/iOS/ofo仿写记录/" title="ofo仿写记录" itemprop="url">ofo仿写记录</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="ixsim" target="_blank" itemprop="author">ixsim</a>
-		
-  <p class="article-time">
-    <time datetime="2018-05-16T11:34:53.000Z" itemprop="datePublished"> 发表于 2018-05-16</time>
-    
-  </p>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#小知识点"><span class="toc-number">1.</span> <span class="toc-text">小知识点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#加载网页"><span class="toc-number">2.</span> <span class="toc-text">加载网页</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#WebView"><span class="toc-number">2.1.</span> <span class="toc-text">WebView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebKit"><span class="toc-number">2.2.</span> <span class="toc-text">WebKit</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#侧边栏"><span class="toc-number">3.</span> <span class="toc-text">侧边栏</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第三方库-初探"><span class="toc-number">3.1.</span> <span class="toc-text">第三方库 初探</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装SWRevealViewController"><span class="toc-number">3.2.</span> <span class="toc-text">安装SWRevealViewController</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-SWRevealViewController"><span class="toc-number">3.3.</span> <span class="toc-text">使用 SWRevealViewController</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#地图定位"><span class="toc-number">4.</span> <span class="toc-text">地图定位</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GPX文件制作"><span class="toc-number">4.1.</span> <span class="toc-text">GPX文件制作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POI"><span class="toc-number">4.2.</span> <span class="toc-text">POI</span></a></li></ol></li></ol>
-		
-		</div>
-		
-		<p>ofo不解释，教程同样来自小波。</p>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        ofo仿写记录
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
+
+    #artDetail h2 {
+        line-height: 3rem;
+    }
+
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
+
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
+
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Swift/" target="_blank">
+                    <span class="chip bg-color">Swift</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/iOS/" class="post-category" target="_blank">
+                        iOS
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-05-16
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>ofo不解释，教程同样来自小波。</p>
 <a id="more"></a>
 <h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ul>
 <li>解包 .car 文件：<br><a href="https://github.com/insidegui/AssetCatalogTinkerer" target="_blank" rel="noopener">https://github.com/insidegui/AssetCatalogTinkerer</a><br>仿写必备咯</li>
@@ -116,11 +321,27 @@
 </ul>
 <h1 id="加载网页"><a href="#加载网页" class="headerlink" title="加载网页"></a>加载网页</h1><h2 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h2><p>网页自适应选项在这：<br><img src="http://p66eruxmw.bkt.clouddn.com/15264706713494.jpg" alt=""></p>
 <p>写法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> url = <span class="type">URL</span>(string: <span class="string">"http://m.ofo.so/active.html"</span>)!</span><br><span class="line">        </span><br><span class="line"><span class="keyword">let</span> requset = <span class="type">URLRequest</span>(url: url)</span><br><span class="line">        </span><br><span class="line">webView.loadRequest(requset)</span><br></pre></td></tr></table></figure>
-<h2 id="WebKit"><a href="#WebKit" class="headerlink" title="WebKit"></a>WebKit</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> WebKit</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> webView: <span class="type">WKWebView</span>!</span><br><span class="line">webView = <span class="type">WKWebView</span>(frame: <span class="keyword">self</span>.view.frame) <span class="comment">//调大小</span></span><br><span class="line">view.addSubview(webView) <span class="comment">//加到视图里</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">let</span> url = <span class="type">URL</span>(string: <span class="string">"http://m.ofo.so/active.html"</span>)!</span><br><span class="line"><span class="keyword">let</span> requset = <span class="type">URLRequest</span>(url: url)</span><br><span class="line">    </span><br><span class="line">webView.load(requset)</span><br></pre></td></tr></table></figure>
+<pre><code class="Swift">let url = URL(string: &quot;http://m.ofo.so/active.html&quot;)!
+
+let requset = URLRequest(url: url)
+
+webView.loadRequest(requset)
+</code></pre>
+<h2 id="WebKit"><a href="#WebKit" class="headerlink" title="WebKit"></a>WebKit</h2><pre><code class="Swift">import WebKit
+
+var webView: WKWebView!
+webView = WKWebView(frame: self.view.frame) //调大小
+view.addSubview(webView) //加到视图里
+
+let url = URL(string: &quot;http://m.ofo.so/active.html&quot;)!
+let requset = URLRequest(url: url)
+
+webView.load(requset)
+</code></pre>
 <h1 id="侧边栏"><a href="#侧边栏" class="headerlink" title="侧边栏"></a>侧边栏</h1><h2 id="第三方库-初探"><a href="#第三方库-初探" class="headerlink" title="第三方库 初探"></a>第三方库 初探</h2><p><a href="https://cocoapods.org" target="_blank" rel="noopener">https://cocoapods.org</a></p>
 <p>装 cocoapods:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install cocoapods</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">sudo gem install cocoapods
+</code></pre>
 <h2 id="安装SWRevealViewController"><a href="#安装SWRevealViewController" class="headerlink" title="安装SWRevealViewController"></a>安装SWRevealViewController</h2><p>在podfile加入<br><code>pod &#39;SWRevealViewController&#39;,2.3</code><br>Terminal运行：<br><code>pod install</code></p>
 <ul>
 <li>由于SWRevealViewController是OC写的，要做一个桥接：<br>新建一个OC文件，自动生成一个桥接.h文件。删除OC文件即可。</li>
@@ -133,502 +354,435 @@
 <li>两个场景的路径设置Segue的id，前面的叫sw_front，后面（划出来）的叫sw_rear</li>
 <li>写代码</li>
 </ol>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> revealVC = revealViewController() &#123;</span><br><span class="line">    </span><br><span class="line">    revealVC.rearViewRevealWidth = <span class="number">300</span> <span class="comment">//设宽度</span></span><br><span class="line">    </span><br><span class="line">    navigationItem.leftBarButtonItem?.target = revealVC</span><br><span class="line">    navigationItem.leftBarButtonItem?.action = #selector(<span class="type">SWRevealViewController</span>.revealToggle(<span class="number">_</span>:))<span class="comment">//这句是OC语法   `#selecot`是OC的一个方法</span></span><br><span class="line">    view.addGestureRecognizer(revealVC.panGestureRecognizer())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="swift">if let revealVC = revealViewController() {
+
+    revealVC.rearViewRevealWidth = 300 //设宽度
+
+    navigationItem.leftBarButtonItem?.target = revealVC
+    navigationItem.leftBarButtonItem?.action = #selector(SWRevealViewController.revealToggle(_:))//这句是OC语法   `#selecot`是OC的一个方法
+    view.addGestureRecognizer(revealVC.panGestureRecognizer())
+}
+</code></pre>
 <p>在滑动菜单里点击按钮转场：<br>右键拖到场景里，选 r-v-c push 即可<br>再放上刚刚的代码（记得在场景里Embed in个导航）</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> revealVC = revealViewController() &#123;</span><br><span class="line">    </span><br><span class="line">    revealVC.rearViewRevealWidth = <span class="number">300</span> <span class="comment">//设宽度</span></span><br><span class="line">    </span><br><span class="line">    navigationItem.leftBarButtonItem?.target = revealVC</span><br><span class="line">    navigationItem.leftBarButtonItem?.action = #selector(<span class="type">SWRevealViewController</span>.revealToggle(<span class="number">_</span>:))<span class="comment">//这句是OC语法   `#selecot`是OC的一个方法</span></span><br><span class="line">    view.addGestureRecognizer(revealVC.panGestureRecognizer())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="swift">if let revealVC = revealViewController() {
+
+    revealVC.rearViewRevealWidth = 300 //设宽度
+
+    navigationItem.leftBarButtonItem?.target = revealVC
+    navigationItem.leftBarButtonItem?.action = #selector(SWRevealViewController.revealToggle(_:))//这句是OC语法   `#selecot`是OC的一个方法
+    view.addGestureRecognizer(revealVC.panGestureRecognizer())
+}
+</code></pre>
 <h1 id="地图定位"><a href="#地图定位" class="headerlink" title="地图定位"></a>地图定位</h1><p>安装包和引用头文件都在文档里。</p>
 <p>引入mapView，先声明一个mapView变量：<code>var mapView: MAMapView!</code><br>然后再viewDidload()里添加View：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mapView = <span class="type">MAMapView</span>(frame: view.bounds)<span class="comment">//占满全屏</span></span><br><span class="line">mapView.delegate = <span class="keyword">self</span> <span class="comment">//地图代理，以方便重写方法.     </span></span><br><span class="line">view.addSubview(mapView)</span><br><span class="line">view.bringSubview(toFront: panelView)</span><br></pre></td></tr></table></figure>
+<pre><code class="swift">mapView = MAMapView(frame: view.bounds)//占满全屏
+mapView.delegate = self //地图代理，以方便重写方法.     
+view.addSubview(mapView)
+view.bringSubview(toFront: panelView)
+</code></pre>
 <p>加了代理要改这里：<br><code>class ViewController: UIViewController,MAMapViewDelegate{}</code>加一个继承</p>
 <p>加Key加HTTPs啥的都在文档里了。比如这些放在<code>AppDelegate.swift</code>的<code>didFininshedLaunching()</code>中：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AMapServices</span>.shared().enableHTTPS = <span class="literal">true</span></span><br><span class="line"><span class="type">AMapServices</span>.shared().apiKey = <span class="string">"YOUR KEY"</span></span><br></pre></td></tr></table></figure>
+<pre><code class="swift">AMapServices.shared().enableHTTPS = true
+AMapServices.shared().apiKey = &quot;YOUR KEY&quot;
+</code></pre>
 <h2 id="GPX文件制作"><a href="#GPX文件制作" class="headerlink" title="GPX文件制作"></a>GPX文件制作</h2><p><a href="http://mygeoposition.com" target="_blank" rel="noopener">http://mygeoposition.com</a></p>
 <p>Note：调用Google地图，需富强上网。</p>
 <p>PS：经纬度数据可能不准确。在<a href="http://mygeoposition.com获取了GPX文件后可以再到http://lbs.amap.com/console/show/picker" target="_blank" rel="noopener">http://mygeoposition.com获取了GPX文件后可以再到http://lbs.amap.com/console/show/picker</a> 查到对应的经纬度修改下。</p>
-<h2 id="POI"><a href="#POI" class="headerlink" title="POI"></a>POI</h2>  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
+<h2 id="POI"><a href="#POI" class="headerlink" title="POI"></a>POI</h2>
+            </div>
+            <hr/>
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/iOS/">iOS</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Swift/">Swift</a>
-  </div>
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://ixsim.github.io/iOS/ofo仿写记录/" data-title="ofo仿写记录 | 炫杉" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/Python/爬一个520礼物给紫玉/" title="爬一个520礼物给紫玉">
-  <strong>上一篇：</strong><br/>
-  <span>
-  爬一个520礼物给紫玉</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/Blockchain/EOS初探/"  title="EOS初探">
- <strong>下一篇：</strong><br/> 
- <span>EOS初探
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#小知识点"><span class="toc-number">1.</span> <span class="toc-text">小知识点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#加载网页"><span class="toc-number">2.</span> <span class="toc-text">加载网页</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#WebView"><span class="toc-number">2.1.</span> <span class="toc-text">WebView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebKit"><span class="toc-number">2.2.</span> <span class="toc-text">WebKit</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#侧边栏"><span class="toc-number">3.</span> <span class="toc-text">侧边栏</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第三方库-初探"><span class="toc-number">3.1.</span> <span class="toc-text">第三方库 初探</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装SWRevealViewController"><span class="toc-number">3.2.</span> <span class="toc-text">安装SWRevealViewController</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-SWRevealViewController"><span class="toc-number">3.3.</span> <span class="toc-text">使用 SWRevealViewController</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#地图定位"><span class="toc-number">4.</span> <span class="toc-text">地图定位</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GPX文件制作"><span class="toc-number">4.1.</span> <span class="toc-text">GPX文件制作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POI"><span class="toc-number">4.2.</span> <span class="toc-text">POI</span></a></li></ol></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>5</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Blockchain/" title="Blockchain">Blockchain<sup>1</sup></a></li>
-		  
-		
-		  
-		
-		  
-		
-		  
-			<li><a href="/categories/Others/" title="Others">Others<sup>8</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>9</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/WebRTC/" title="WebRTC">WebRTC<sup>6</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Website/" title="Website">Website<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS/" title="iOS">iOS<sup>10</sup></a></li>
-		  
-		
-		</ul>
-</div>
-
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/Note/" title="Note">Note<sup>11</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Python/" title="Python">Python<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Demo/" title="Demo">Demo<sup>7</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/LeetCode/" title="LeetCode">LeetCode<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tips/" title="tips">tips<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tutorial/" title="tutorial">tutorial<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/js/" title="js">js<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Spider/" title="Spider">Spider<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/C/" title="C++">C++<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Data-Analysis/" title="Data Analysis">Data Analysis<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Matlab/" title="Matlab">Matlab<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swfit/" title="Swfit">Swfit<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/File-Process/" title="File Process">File Process<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/note/" title="note">note<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/IoT/" title="IoT">IoT<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/selenium/" title="selenium">selenium<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
             
-            	<a href="https://oo1.win" target="_blank" title="炫猿">炫猿</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://www.aimoon.site/" target="_blank" title="我大哥">我大哥</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://onebigcabbage.github.io/" target="_blank" title="小菜哥">小菜哥</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, <br/>
-			World!</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/lixsh" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:xuanshanli@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="ixsim">ixsim</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
     }
-  });
-});
-</script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-  $('.hoverqrcode').hide();
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
 
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
 
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
 
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
 
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
 
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
 
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
 
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
 
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
 
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
 
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/iOS/ofo仿写记录/" class="b-link-green">ofo仿写记录</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/Python/爬一个520礼物给紫玉/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="爬一个520礼物给紫玉">
+                        
+                        <span class="card-title">爬一个520礼物给紫玉</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">520送点啥呢。有Python不慌~哈哈我们来试着找一辆5月20号13点14的列车吧~
+
+从分析到实践初探百度了下列车时刻表，有个ip138，就爬它啦🤭。先读一下第一页的内容：这网站太老了。竟然不是UTF-8编码的。解码：使用urlope</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Demo/" target="_blank">
+                        <span class="chip bg-color">Demo</span>
+                    </a>
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/Spider/" target="_blank">
+                        <span class="chip bg-color">Spider</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Blockchain/EOS初探/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="EOS初探">
+                        
+                        <span class="card-title">EOS初探</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">EOS这几天就像疯了。两周前我￥35入的（当时价格在0.0008BTC），大约两天后在59左右不到60（0.0011BTC）就出了，当时还觉得很高兴。。。五一出去和紫玉玩了一天回来，今天看120(0.0010)了。再涨买都不买不起了，今天开</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Blockchain/" class="post-category" target="_blank">
+                                    Blockchain
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#小知识点"><span class="post-toc-text">小知识点</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#加载网页"><span class="post-toc-text">加载网页</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WebView"><span class="post-toc-text">WebView</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WebKit"><span class="post-toc-text">WebKit</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#侧边栏"><span class="post-toc-text">侧边栏</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第三方库-初探"><span class="post-toc-text">第三方库 初探</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装SWRevealViewController"><span class="post-toc-text">安装SWRevealViewController</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-SWRevealViewController"><span class="post-toc-text">使用 SWRevealViewController</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#地图定位"><span class="post-toc-text">地图定位</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GPX文件制作"><span class="post-toc-text">GPX文件制作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#POI"><span class="post-toc-text">POI</span></a></li></ol></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            }
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
 
 
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
 
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
 </html>

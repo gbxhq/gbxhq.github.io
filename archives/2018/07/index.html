@@ -1,279 +1,492 @@
-
-  <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="归档: 2018/7, 炫杉">
+    <meta name="description" content="归档: 2018/7 | 炫杉">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>归档: 2018/7 | 炫杉</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="ixsim">
-    
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    
-    <meta property="og:type" content="website">
-<meta property="og:title" content="炫杉">
-<meta property="og:url" content="https://ixsim.github.io/archives/2018/07/index.html">
-<meta property="og:site_name" content="炫杉">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="炫杉">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 </head>
 
-    <body>
-      <header>
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
         
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="炫杉" title="炫杉"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="炫杉">炫杉</a></h1>
-				<h2 class="blog-motto">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:ixsim.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-      </header>
-      <div id="container">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
 
-<div class="archive-title" >
-  <h2 class="archive-icon">2018/7</h2>
-  
-  <div class="archiveslist archive-float clearfix">
-   <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">2018 年 10 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">2018 年 09 月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">2018 年 08 月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">2018 年 07 月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">2018 年 06 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">2018 年 05 月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">2018 年 04 月</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">2018 年 03 月</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">2018 年 01 月</a><span class="archive-list-count">6</span></li></ul>
- </div>
-  
-</div>
-<div id="main" class="archive-part clearfix">
-  <div id="archive-page">
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/Others/技术知识点/" title="小知识点「技术」" itemprop="url">
-  
-
-    <time datetime="2018-07-25T13:04:09.000Z" itemprop="datePublished">2018-07-25</time>
-
-
-    <h1 itemprop="name">小知识点「技术」</h1>
-
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/Others/理论知识点/" title="小知识点「理论」" itemprop="url">
-  
-
-    <time datetime="2018-07-03T05:23:45.000Z" itemprop="datePublished">2018-07-03</time>
-
-
-    <h1 itemprop="name">小知识点「理论」</h1>
-
-  </a>
-</section>
-
-
-  </div>
-</div>
-
-      </div>
-      <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, <br/>
-			World!</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/lixsh" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:xuanshanli@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="ixsim">ixsim</a>
-		
-		
-		</p>
-</div>
-</footer>
-      <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+    <ul class="menu-list mobile-menu-list">
         
-    }
-  });
-});
-</script>
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
 
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
 
+            </div>
+        </div>
 
+        
+    </nav>
+</header>
 
+<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                <div class="brand">
+                    <div class="title center-align">
+                    
+                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+                    
+                    </div>
 
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
+                    <div class="description center-align">
+                    
+                        This is your root _config.yml 'description' value.
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
 
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+// Dynamically switch banner pictures every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
 
+<main class="content">
+
+    
+    <div class="container archive-calendar">
+    <div class="card">
+        <div id="post-calendar" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
+<script type="text/javascript">
+    let myChart = echarts.init(document.getElementById('post-calendar'));
+
+    
+
+    let option = {
+        title: {
+            top: 0,
+            text: '文章日历',
+            left: 'center',
+            textStyle: {
+                color: '#3C4858'
+            }
+        },
+        tooltip: {
+            padding: 10,
+            backgroundColor: '#555',
+            borderColor: '#777',
+            borderWidth: 1,
+            formatter: function (obj) {
+                var value = obj.value;
+                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
+            }
+        },
+        visualMap: {
+            show: true,
+            showLabel: true,
+            categories: [0, 1, 2, 3, 4],
+            calculable: true,
+            inRange: {
+                symbol: 'rect',
+                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
+            },
+            itemWidth: 12,
+            itemHeight: 12,
+            orient: 'horizontal',
+            left: 'center',
+            bottom: 0
+        },
+        calendar: [{
+            left: 'center',
+            range: ["2017-10-22", "2018-10-22"],
+            cellSize: [13, 13],
+            splitLine: {
+                show: false
+            },
+            itemStyle: {
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            yearLabel: {
+                show: false
+            },
+            monthLabel: {
+                nameMap: 'cn',
+                fontSize: 11
+            },
+            dayLabel: {
+                formatter: '{start}  1st',
+                nameMap: 'cn',
+                fontSize: 11
+            }
+        }],
+        series: [{
+            type: 'heatmap',
+            coordinateSystem: 'calendar',
+            calendarIndex: 0,
+            data: [["2017-10-22", 0], ["2017-10-23", 0], ["2017-10-24", 0], ["2017-10-25", 0], ["2017-10-26", 0], ["2017-10-27", 0], ["2017-10-28", 0], ["2017-10-29", 0], ["2017-10-30", 0], ["2017-10-31", 0], ["2017-11-01", 0], ["2017-11-02", 0], ["2017-11-03", 0], ["2017-11-04", 0], ["2017-11-05", 0], ["2017-11-06", 0], ["2017-11-07", 0], ["2017-11-08", 0], ["2017-11-09", 0], ["2017-11-10", 0], ["2017-11-11", 0], ["2017-11-12", 0], ["2017-11-13", 0], ["2017-11-14", 0], ["2017-11-15", 0], ["2017-11-16", 0], ["2017-11-17", 0], ["2017-11-18", 0], ["2017-11-19", 0], ["2017-11-20", 0], ["2017-11-21", 0], ["2017-11-22", 0], ["2017-11-23", 0], ["2017-11-24", 0], ["2017-11-25", 0], ["2017-11-26", 0], ["2017-11-27", 0], ["2017-11-28", 0], ["2017-11-29", 0], ["2017-11-30", 0], ["2017-12-01", 0], ["2017-12-02", 0], ["2017-12-03", 0], ["2017-12-04", 0], ["2017-12-05", 0], ["2017-12-06", 0], ["2017-12-07", 0], ["2017-12-08", 0], ["2017-12-09", 0], ["2017-12-10", 0], ["2017-12-11", 0], ["2017-12-12", 0], ["2017-12-13", 0], ["2017-12-14", 0], ["2017-12-15", 0], ["2017-12-16", 0], ["2017-12-17", 0], ["2017-12-18", 0], ["2017-12-19", 0], ["2017-12-20", 0], ["2017-12-21", 0], ["2017-12-22", 0], ["2017-12-23", 0], ["2017-12-24", 0], ["2017-12-25", 0], ["2017-12-26", 0], ["2017-12-27", 0], ["2017-12-28", 0], ["2017-12-29", 0], ["2017-12-30", 0], ["2017-12-31", 0], ["2018-01-01", 6], ["2018-01-02", 0], ["2018-01-03", 0], ["2018-01-04", 0], ["2018-01-05", 0], ["2018-01-06", 0], ["2018-01-07", 0], ["2018-01-08", 0], ["2018-01-09", 0], ["2018-01-10", 0], ["2018-01-11", 0], ["2018-01-12", 0], ["2018-01-13", 0], ["2018-01-14", 0], ["2018-01-15", 0], ["2018-01-16", 0], ["2018-01-17", 0], ["2018-01-18", 0], ["2018-01-19", 0], ["2018-01-20", 0], ["2018-01-21", 0], ["2018-01-22", 0], ["2018-01-23", 0], ["2018-01-24", 0], ["2018-01-25", 0], ["2018-01-26", 0], ["2018-01-27", 0], ["2018-01-28", 0], ["2018-01-29", 0], ["2018-01-30", 0], ["2018-01-31", 0], ["2018-02-01", 0], ["2018-02-02", 0], ["2018-02-03", 0], ["2018-02-04", 0], ["2018-02-05", 0], ["2018-02-06", 0], ["2018-02-07", 0], ["2018-02-08", 0], ["2018-02-09", 0], ["2018-02-10", 0], ["2018-02-11", 0], ["2018-02-12", 0], ["2018-02-13", 0], ["2018-02-14", 0], ["2018-02-15", 0], ["2018-02-16", 0], ["2018-02-17", 0], ["2018-02-18", 0], ["2018-02-19", 0], ["2018-02-20", 0], ["2018-02-21", 0], ["2018-02-22", 0], ["2018-02-23", 0], ["2018-02-24", 0], ["2018-02-25", 0], ["2018-02-26", 0], ["2018-02-27", 0], ["2018-02-28", 0], ["2018-03-01", 0], ["2018-03-02", 0], ["2018-03-03", 0], ["2018-03-04", 0], ["2018-03-05", 0], ["2018-03-06", 0], ["2018-03-07", 0], ["2018-03-08", 0], ["2018-03-09", 0], ["2018-03-10", 0], ["2018-03-11", 0], ["2018-03-12", 0], ["2018-03-13", 0], ["2018-03-14", 0], ["2018-03-15", 0], ["2018-03-16", 0], ["2018-03-17", 0], ["2018-03-18", 0], ["2018-03-19", 0], ["2018-03-20", 0], ["2018-03-21", 4], ["2018-03-22", 0], ["2018-03-23", 1], ["2018-03-24", 1], ["2018-03-25", 0], ["2018-03-26", 0], ["2018-03-27", 0], ["2018-03-28", 0], ["2018-03-29", 0], ["2018-03-30", 0], ["2018-03-31", 2], ["2018-04-01", 2], ["2018-04-02", 2], ["2018-04-03", 0], ["2018-04-04", 0], ["2018-04-05", 0], ["2018-04-06", 0], ["2018-04-07", 1], ["2018-04-08", 0], ["2018-04-09", 0], ["2018-04-10", 0], ["2018-04-11", 0], ["2018-04-12", 0], ["2018-04-13", 0], ["2018-04-14", 0], ["2018-04-15", 0], ["2018-04-16", 1], ["2018-04-17", 0], ["2018-04-18", 0], ["2018-04-19", 0], ["2018-04-20", 0], ["2018-04-21", 0], ["2018-04-22", 0], ["2018-04-23", 0], ["2018-04-24", 0], ["2018-04-25", 0], ["2018-04-26", 0], ["2018-04-27", 1], ["2018-04-28", 0], ["2018-04-29", 0], ["2018-04-30", 0], ["2018-05-01", 1], ["2018-05-02", 0], ["2018-05-03", 0], ["2018-05-04", 0], ["2018-05-05", 0], ["2018-05-06", 0], ["2018-05-07", 0], ["2018-05-08", 0], ["2018-05-09", 0], ["2018-05-10", 0], ["2018-05-11", 0], ["2018-05-12", 0], ["2018-05-13", 0], ["2018-05-14", 0], ["2018-05-15", 0], ["2018-05-16", 1], ["2018-05-17", 0], ["2018-05-18", 1], ["2018-05-19", 0], ["2018-05-20", 0], ["2018-05-21", 0], ["2018-05-22", 1], ["2018-05-23", 0], ["2018-05-24", 0], ["2018-05-25", 0], ["2018-05-26", 1], ["2018-05-27", 0], ["2018-05-28", 0], ["2018-05-29", 0], ["2018-05-30", 0], ["2018-05-31", 0], ["2018-06-01", 0], ["2018-06-02", 0], ["2018-06-03", 1], ["2018-06-04", 0], ["2018-06-05", 0], ["2018-06-06", 0], ["2018-06-07", 0], ["2018-06-08", 0], ["2018-06-09", 0], ["2018-06-10", 0], ["2018-06-11", 0], ["2018-06-12", 0], ["2018-06-13", 0], ["2018-06-14", 0], ["2018-06-15", 0], ["2018-06-16", 0], ["2018-06-17", 0], ["2018-06-18", 0], ["2018-06-19", 0], ["2018-06-20", 0], ["2018-06-21", 0], ["2018-06-22", 0], ["2018-06-23", 0], ["2018-06-24", 0], ["2018-06-25", 0], ["2018-06-26", 0], ["2018-06-27", 0], ["2018-06-28", 0], ["2018-06-29", 0], ["2018-06-30", 0], ["2018-07-01", 0], ["2018-07-02", 0], ["2018-07-03", 1], ["2018-07-04", 0], ["2018-07-05", 0], ["2018-07-06", 0], ["2018-07-07", 0], ["2018-07-08", 0], ["2018-07-09", 0], ["2018-07-10", 0], ["2018-07-11", 0], ["2018-07-12", 0], ["2018-07-13", 0], ["2018-07-14", 0], ["2018-07-15", 0], ["2018-07-16", 0], ["2018-07-17", 0], ["2018-07-18", 0], ["2018-07-19", 0], ["2018-07-20", 0], ["2018-07-21", 0], ["2018-07-22", 0], ["2018-07-23", 0], ["2018-07-24", 0], ["2018-07-25", 1], ["2018-07-26", 0], ["2018-07-27", 0], ["2018-07-28", 0], ["2018-07-29", 0], ["2018-07-30", 0], ["2018-07-31", 0], ["2018-08-01", 0], ["2018-08-02", 0], ["2018-08-03", 0], ["2018-08-04", 0], ["2018-08-05", 0], ["2018-08-06", 1], ["2018-08-07", 0], ["2018-08-08", 0], ["2018-08-09", 0], ["2018-08-10", 0], ["2018-08-11", 0], ["2018-08-12", 0], ["2018-08-13", 0], ["2018-08-14", 1], ["2018-08-15", 0], ["2018-08-16", 0], ["2018-08-17", 0], ["2018-08-18", 0], ["2018-08-19", 0], ["2018-08-20", 0], ["2018-08-21", 0], ["2018-08-22", 0], ["2018-08-23", 0], ["2018-08-24", 1], ["2018-08-25", 0], ["2018-08-26", 1], ["2018-08-27", 1], ["2018-08-28", 1], ["2018-08-29", 0], ["2018-08-30", 1], ["2018-08-31", 1], ["2018-09-01", 0], ["2018-09-02", 0], ["2018-09-03", 0], ["2018-09-04", 0], ["2018-09-05", 0], ["2018-09-06", 1], ["2018-09-07", 1], ["2018-09-08", 0], ["2018-09-09", 0], ["2018-09-10", 1], ["2018-09-11", 0], ["2018-09-12", 1], ["2018-09-13", 0], ["2018-09-14", 0], ["2018-09-15", 0], ["2018-09-16", 0], ["2018-09-17", 0], ["2018-09-18", 0], ["2018-09-19", 0], ["2018-09-20", 0], ["2018-09-21", 0], ["2018-09-22", 0], ["2018-09-23", 1], ["2018-09-24", 0], ["2018-09-25", 0], ["2018-09-26", 0], ["2018-09-27", 0], ["2018-09-28", 0], ["2018-09-29", 0], ["2018-09-30", 0], ["2018-10-01", 0], ["2018-10-02", 0], ["2018-10-03", 0], ["2018-10-04", 0], ["2018-10-05", 0], ["2018-10-06", 0], ["2018-10-07", 0], ["2018-10-08", 0], ["2018-10-09", 0], ["2018-10-10", 0], ["2018-10-11", 0], ["2018-10-12", 0], ["2018-10-13", 0], ["2018-10-14", 0], ["2018-10-15", 1], ["2018-10-16", 1], ["2018-10-17", 0], ["2018-10-18", 0], ["2018-10-19", 0], ["2018-10-20", 0], ["2018-10-21", 0], ["2018-10-22", 0]]
+        }]
+
+    };
+
+    myChart.setOption(option);
+</script>
+    
+
+    
+
+    <div id="cd-timeline" class="container">
+        
+        <div class="cd-timeline-block">
+
+            
+            
+            
+            <div class="cd-timeline-img year" data-aos="zoom-in-up">
+                <a href="/archives/2018">2018</a>
+            </div>
+            
+
+            
+            
+            
+            <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                <a href="/archives/2018/07">07</a>
+            </div>
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>25</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/Others/技术知识点/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="小知识点「技术」">
+                                
+                                <span class="card-title">小知识点「技术」</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary">
+Shell相关
+touch xxx.x 新建文件
+
+ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目录
+-C 按列列出文件
+
+清屏: </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-25
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/tips/"><span class="chip bg-color">tips</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>03</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/Others/理论知识点/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="小知识点「理论」">
+                                
+                                <span class="card-title">小知识点「理论」</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary">乱七八糟的东西。都是看博文啥的不懂现搜的~
+
+名词相关RESTfulhttp://www.cnblogs.com/wang-yaz/p/9237981.html</div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-03
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+    </div>
+
+</main>
 
 
-<!-- Analytics End -->
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
 
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+<div class="progress-bar"></div>
 
 
-<!-- MathJax End -->
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-<!-- Tiny_search Begin -->
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
-<!-- Tiny_search End -->
 
-    </body>
-   </html>
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

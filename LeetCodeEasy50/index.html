@@ -1,119 +1,370 @@
-
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="LeetCodeEasy50, 炫杉">
+    <meta name="description" content="知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]str.substr(pos,n)注意n是步长 [14]     int的范围、牛顿迭代法[69]      copy(1.begin,1.e">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>LeetCodeEasy50 | 炫杉</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="ixsim">
-    
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    
-    <meta name="description" content="知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]   str.substr(pos,n)注意n是步长 [14]  int的范围、牛顿迭代法[69]   copy(1.begin,1.end,2.begin)、rbegin\rend[88]    reverse()的理解[189]   位运算[136]  vt.erase()[283]">
-<meta name="keywords" content="LeetCode">
-<meta property="og:type" content="article">
-<meta property="og:title" content="LeetCodeEasy50">
-<meta property="og:url" content="https://ixsim.github.io/LeetCodeEasy50/index.html">
-<meta property="og:site_name" content="炫杉">
-<meta property="og:description" content="知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]   str.substr(pos,n)注意n是步长 [14]  int的范围、牛顿迭代法[69]   copy(1.begin,1.end,2.begin)、rbegin\rend[88]    reverse()的理解[189]   位运算[136]  vt.erase()[283]">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-11T13:37:13.040Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCodeEasy50">
-<meta name="twitter:description" content="知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]   str.substr(pos,n)注意n是步长 [14]  int的范围、牛顿迭代法[69]   copy(1.begin,1.end,2.begin)、rbegin\rend[88]    reverse()的理解[189]   位运算[136]  vt.erase()[283]">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="炫杉" title="炫杉"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="炫杉">炫杉</a></h1>
-				<h2 class="blog-motto">提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:ixsim.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
 </div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/LeetCodeEasy50/" title="LeetCodeEasy50" itemprop="url">LeetCodeEasy50</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="ixsim" target="_blank" itemprop="author">ixsim</a>
-		
-  <p class="article-time">
-    <time datetime="2018-09-23T06:33:54.000Z" itemprop="datePublished"> 发表于 2018-09-23</time>
-    
-  </p>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-两数之和"><span class="toc-number">1.</span> <span class="toc-text">#1.两数之和</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#朴素法"><span class="toc-number">1.1.</span> <span class="toc-text">朴素法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hash-O-nlogn"><span class="toc-number">1.2.</span> <span class="toc-text">Hash O(nlogn)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点："><span class="toc-number">1.3.</span> <span class="toc-text">知识点：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-反转整数"><span class="toc-number">2.</span> <span class="toc-text">#7.反转整数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正解"><span class="toc-number">2.1.</span> <span class="toc-text">正解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems"><span class="toc-number">2.2.</span> <span class="toc-text">Problems</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-回文数"><span class="toc-number">3.</span> <span class="toc-text">#9.回文数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解法"><span class="toc-number">3.1.</span> <span class="toc-text">解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-1"><span class="toc-number">3.2.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点"><span class="toc-number">3.3.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#std-ios-sync-with-stdio-false"><span class="toc-number">3.3.1.</span> <span class="toc-text">std::ios::sync_with_stdio(false)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cin-tie-NULL"><span class="toc-number">3.3.2.</span> <span class="toc-text">cin.tie(NULL)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-罗马数字转整数"><span class="toc-number">4.</span> <span class="toc-text">#13.罗马数字转整数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-最长公共前缀"><span class="toc-number">5.</span> <span class="toc-text">#14.最长公共前缀</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解"><span class="toc-number">5.1.</span> <span class="toc-text">解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-2"><span class="toc-number">5.2.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化解"><span class="toc-number">5.3.</span> <span class="toc-text">优化解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-有效的括号"><span class="toc-number">6.</span> <span class="toc-text">#20.有效的括号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-3"><span class="toc-number">6.1.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化解-1"><span class="toc-number">6.2.</span> <span class="toc-text">优化解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#26-删除排序数组中的重复项"><span class="toc-number">7.</span> <span class="toc-text">26. 删除排序数组中的重复项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#27-移除元素"><span class="toc-number">8.</span> <span class="toc-text">27. 移除元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#35-搜索插入位置"><span class="toc-number">9.</span> <span class="toc-text">35. 搜索插入位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#53-最大子序和"><span class="toc-number">10.</span> <span class="toc-text">53. 最大子序和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#66-加一"><span class="toc-number">11.</span> <span class="toc-text">66. 加一</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#69-x的平方根"><span class="toc-number">12.</span> <span class="toc-text">69 x的平方根</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#70爬楼梯"><span class="toc-number">13.</span> <span class="toc-text">70爬楼梯</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#88-合并两个有序数组"><span class="toc-number">14.</span> <span class="toc-text">88.合并两个有序数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#100-相同的树"><span class="toc-number">15.</span> <span class="toc-text">100.相同的树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#101-对称二叉树"><span class="toc-number">16.</span> <span class="toc-text">101.对称二叉树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#121买股票1"><span class="toc-number">17.</span> <span class="toc-text">121买股票1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#122买股票2"><span class="toc-number">18.</span> <span class="toc-text">122买股票2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#189旋转数组"><span class="toc-number">19.</span> <span class="toc-text">189旋转数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#136只出现一次的数字"><span class="toc-number">20.</span> <span class="toc-text">136只出现一次的数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#两个数组的交集-II"><span class="toc-number">21.</span> <span class="toc-text">两个数组的交集 II</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#283移动零"><span class="toc-number">22.</span> <span class="toc-text">283移动零</span></a></li></ol>
-		
-		</div>
-		
-		<p>知识点：<code>Hash、双指针</code>[1]     <code>int的范围</code>[7]     <code>stack、ascii</code>[20]  </p>
-<p><code>str.substr(pos,n)注意n是步长</code> [14]  <code>int的范围、牛顿迭代法</code>[69]   <code>copy(1.begin,1.end,2.begin)、rbegin\rend</code>[88]   </p>
-<p><code>reverse()的理解</code>[189]   <code>位运算</code>[136]  <code>vt.erase()</code>[283]</p>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        LeetCodeEasy50
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
+
+    #artDetail h2 {
+        line-height: 3rem;
+    }
+
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
+
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
+
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/LeetCode/" target="_blank">
+                    <span class="chip bg-color">LeetCode</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                        Algorithm
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-09-23
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>知识点：<code>Hash、双指针</code>[1]     <code>int的范围</code>[7]     <code>stack、ascii</code>[20]<br><code>str.substr(pos,n)注意n是步长</code> [14]     <code>int的范围、牛顿迭代法</code>[69]      <code>copy(1.begin,1.end,2.begin)、rbegin\rend</code>[88]      <code>摩尔投票算法</code>[169]   <code>reverse()的理解</code>[189]     <code>位运算</code>[136]   <code>string.erase()</code>[171]     <code>vt.erase()</code>[283]</p>
 <a id="more"></a>
-<h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="#1.两数之和"></a>#1.两数之和</h1><h2 id="朴素法"><a href="#朴素法" class="headerlink" title="朴素法"></a>朴素法</h2><p>我的第一道LeetCode。上来就暴力解。我还纳闷呢，怎么输出结果和答案都一样。就是过不了。</p>
+<h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h1><ul>
+<li>朴素法</li>
+</ul>
+<p>我的第一道LeetCode。上来就暴力解。我还纳闷呢，怎么输出结果和答案都一样。就是过不了。</p>
 <p>原来是，时间复杂度为O(N)。过不了的。</p>
-<h2 id="Hash-O-nlogn"><a href="#Hash-O-nlogn" class="headerlink" title="Hash O(nlogn)"></a>Hash O(nlogn)</h2><p>哈希表Hash[x]  下标x表示x在nums中的下标。</p>
+<ul>
+<li>Hash O(nlogn)</li>
+</ul>
+<p>哈希表Hash[x]  下标x表示x在nums中的下标。</p>
 <p><strong>注意“</strong> map底层使用平衡树一类的数据结构进行实现，插入和查询是O(logn)级别的。</p>
 <p>代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; Hash;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)<span class="comment">//建Hash</span></span><br><span class="line">        &#123;</span><br><span class="line">        	Hash[nums[i]]= i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans(<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">        	<span class="keyword">if</span> (Hash.find(target - nums[i])!=Hash.end()&amp;&amp;Hash[target-nums[i]]!=i)</span><br><span class="line">        	&#123;</span><br><span class="line">        		ans[<span class="number">0</span>] = i;</span><br><span class="line">        		ans[<span class="number">1</span>] = Hash[target-nums[i]];</span><br><span class="line">        		<span class="keyword">break</span>;</span><br><span class="line">        	&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre><code class="C++">class Solution {
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {
+        std::map&lt;int, int&gt; Hash;
+        for (int i = 0; i &lt; nums.size(); ++i)//建Hash
+        {
+            Hash[nums[i]]= i;
+        }
+        std::vector&lt;int&gt; ans(2);
+        for (int i = 0; i &lt; nums.size(); ++i)
+        {
+            if (Hash.find(target - nums[i])!=Hash.end()&amp;&amp;Hash[target-nums[i]]!=i)
+            {
+                ans[0] = i;
+                ans[1] = Hash[target-nums[i]];
+                break;
+            }
+        }
+        return ans;
+    }
+};
+</code></pre>
 <p>上面这个版本更好理解。</p>
 <p>然后看到这个版本更简洁。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> N = nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span> ,<span class="keyword">int</span>&gt; subMap;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = target - nums[i];</span><br><span class="line">            <span class="keyword">auto</span> it = subMap.find(temp);</span><br><span class="line">            <span class="keyword">if</span>(it != subMap.end())</span><br><span class="line">            &#123;</span><br><span class="line">                res.push_back(it-&gt;second);</span><br><span class="line">                 res.push_back(i);</span><br><span class="line">            &#125;</span><br><span class="line">            subMap[nums[i]] = i;<span class="comment">//i=0时肯定不会输出结果，这样建Hash和判断合二为一。</span></span><br><span class="line">        &#125;        </span><br><span class="line">        <span class="keyword">return</span> res;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p>为啥要和 <code>map.end()</code> 比较呢？</p>
+<pre><code class="C++">class Solution {
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {
+        int N = nums.size();
+        vector&lt;int&gt; res;
+        map&lt;int ,int&gt; subMap;
+        for(int i = 0;i&lt;N;i++)
+        {
+            int temp = target - nums[i];
+            auto it = subMap.find(temp);
+            if(it != subMap.end())
+            {
+                res.push_back(it-&gt;second);
+                 res.push_back(i);
+            }
+            subMap[nums[i]] = i;//i=0时肯定不会输出结果，这样建Hash和判断合二为一。
+        }        
+        return res;       
+    }
+};
+</code></pre>
+<ul>
+<li>知识点：</li>
+</ul>
+<p>为啥要和 <code>map.end()</code> 比较呢？</p>
 <blockquote>
 <p><strong>修改和查找数据</strong></p>
 <p> （1）修改Map[“sunquan”]=11111;</p>
@@ -124,8 +375,36 @@
 </blockquote>
 <p>初学map哈哈。</p>
 <p><a href="https://www.cnblogs.com/panweiwei/p/6657583.html" target="_blank" rel="noopener">https://www.cnblogs.com/panweiwei/p/6657583.html</a></p>
-<h1 id="7-反转整数"><a href="#7-反转整数" class="headerlink" title="#7.反转整数"></a>#7.反转整数</h1><h2 id="正解"><a href="#正解" class="headerlink" title="正解"></a>正解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x==<span class="number">-2147483648</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        	<span class="keyword">int</span> sign ;</span><br><span class="line">	x&gt;<span class="number">0</span>? sign=<span class="number">1</span>: (sign=<span class="number">-1</span>,x=-x);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		<span class="keyword">int</span> tmp = x;</span><br><span class="line">		x = x/<span class="number">10</span>;</span><br><span class="line">		ans = ans*<span class="number">10</span> + (tmp-x*<span class="number">10</span>);	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (ans &gt; INT_MAX)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ans*sign;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2><ol>
+<h1 id="7-反转整数"><a href="#7-反转整数" class="headerlink" title="7.反转整数"></a>7.反转整数</h1><ul>
+<li>正解</li>
+</ul>
+<pre><code class="c++">class Solution {
+public:
+    int reverse(int x) {
+        if(x==-2147483648)
+            return 0;
+            int sign ;
+    x&gt;0? sign=1: (sign=-1,x=-x);
+
+    long ans=0;
+
+    while(x){
+        int tmp = x;
+        x = x/10;
+        ans = ans*10 + (tmp-x*10);    
+    }
+
+    if (ans &gt; INT_MAX)
+        return 0;
+
+    return ans*sign;
+    }
+};
+</code></pre>
+<ul>
+<li>Problems</li>
+</ul>
+<ol>
 <li><p>第一次问题出在ans的类型上。没有存成<code>long</code>。</p>
 <p>输入是1534236469时，输出错误。</p>
 <p>Int 的范围是 -2^31 ~ 2^31-1，即-2147483648~2147483647</p>
@@ -136,8 +415,36 @@
 <p>这个数在我的第一步会被转成正的。而正int里最大是2147483647。存不下2147483648 。所以我直接在第一步判断 return 0了。并不是什么好方法。</p>
 </li>
 </ol>
-<h1 id="9-回文数"><a href="#9-回文数" class="headerlink" title="#9.回文数"></a>#9.回文数</h1><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> tmp = x;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">if</span> (x%<span class="number">10</span> == <span class="number">0</span>)</span><br><span class="line">	    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		y = y*<span class="number">10</span> + (x%<span class="number">10</span>);</span><br><span class="line">		x = x/<span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(y==tmp)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Problems-1"><a href="#Problems-1" class="headerlink" title="Problems"></a>Problems</h2><ol>
+<h1 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9.回文数"></a>9.回文数</h1><ul>
+<li>解法</li>
+</ul>
+<pre><code class="c++">class Solution {
+public:
+    bool isPalindrome(int x) {
+    int tmp = x;
+    if(x&lt;0)
+        return false;
+    if(x==0)
+        return true;
+    if (x%10 == 0)
+        return false;
+
+    int y=0;
+    while(x){
+        y = y*10 + (x%10);
+        x = x/10;
+    }
+    if(y==tmp)
+        return true;
+    else
+        return false;
+    }
+};
+</code></pre>
+<ul>
+<li>Problems</li>
+</ul>
+<ol>
 <li><p>开始忘了把x先存到tmp中。最后就直接判断<code>y==x</code> 结果每次都是返回false。</p>
 <p>很尴尬。x在while中肯定会被改成0啊。</p>
 </li>
@@ -145,31 +452,97 @@
 </li>
 </ol>
 <p>低级错误。见笑。</p>
-<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ul>
-<li><p>取消cin同步。取消cin与cout绑定。</p>
+<ul>
+<li>知识点  取消cin同步。取消cin与cout绑定。</li>
+</ul>
 <p>在这题和翻转数字那题的优化解里都看到这么一断：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//lambda 表达式，可以立即执行，在main函数之前执行，取消输入输出同步，较快输入输出速度</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span> ban_io_sync = []()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="literal">nullptr</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;();</span><br><span class="line"><span class="comment">//以后直接当模板用</span></span><br></pre></td></tr></table></figure>
-<h3 id="std-ios-sync-with-stdio-false"><a href="#std-ios-sync-with-stdio-false" class="headerlink" title="std::ios::sync_with_stdio(false)"></a><code>std::ios::sync_with_stdio(false)</code></h3><p>这句语句是用来<strong>取消cin的同步</strong>，什么叫同步呢？就是iostream的缓冲跟stdio的同步。如果你已经在头文件上用了using namespace std;那么就可以去掉前面的std::了。</p>
+<pre><code class="c++">//lambda 表达式，可以立即执行，在main函数之前执行，取消输入输出同步，较快输入输出速度
+static const auto ban_io_sync = []()
+{
+    std::ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    return 0;
+}();
+//以后直接当模板用
+</code></pre>
+<p> <strong><code>std::ios::sync_with_stdio(false)</code></strong></p>
+<p>这句语句是用来<strong>取消cin的同步</strong>，什么叫同步呢？就是iostream的缓冲跟stdio的同步。如果你已经在头文件上用了using namespace std;那么就可以去掉前面的std::了。</p>
 <p>取消后就cin就不能和scanf，sscanf, getchar, fgets之类同时用了，否则就可能会导致输出和预期的不一样。 </p>
 <p>取消同步的目的，是为了让cin不超时，另外<strong>cout的时候尽量少用endl，换用”\n”，也是防止超时的方法</strong>。<br>当然，<strong>尽量用scanf，printf就不用考虑这种因为缓冲的超时</strong>了。</p>
-<h3 id="cin-tie-NULL"><a href="#cin-tie-NULL" class="headerlink" title="cin.tie(NULL)"></a><code>cin.tie(NULL)</code></h3><p>取消cin与cout的绑定</p>
-</li>
-</ul>
+<p> <strong><code>cin.tie(NULL)</code></strong></p>
+<p>取消cin与cout的绑定</p>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">把上一段代码加到我的解法前面，运行时间直接从120ms到了64ms。</span><br></pre></td></tr></table></figure>
-<hr>
+<pre><code>把上一段代码加到我的解法前面，运行时间直接从120ms到了64ms。
+</code></pre><hr>
 <ul>
 <li><p>再看这个解法</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">auto</span> x = []() &#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stringstream</span> ss;</span><br><span class="line">		ss &lt;&lt; x;</span><br><span class="line">		<span class="built_in">string</span> str;</span><br><span class="line">		ss &gt;&gt; str;</span><br><span class="line">        <span class="built_in">string</span> strTmp = str;</span><br><span class="line">        reverse(str.begin(), str.end());</span><br><span class="line">		<span class="keyword">if</span> (strTmp == str)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre><code class="C++">static auto x = []() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    return 0;
+}();
+
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        stringstream ss;
+        ss &lt;&lt; x;
+        string str;
+        ss &gt;&gt; str;
+        string strTmp = str;
+        reverse(str.begin(), str.end());
+        if (strTmp == str)
+            return true;
+        return false;
+    }
+};
+</code></pre>
 <p>存成字符串。然后用了个reverse翻转。STL里面啥都有啊。</p>
 </li>
 </ul>
-<h1 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="#13.罗马数字转整数"></a>#13.罗马数字转整数</h1><ul>
+<h1 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="13.罗马数字转整数"></a>13.罗马数字转整数</h1><ul>
 <li>无聊的一题</li>
 </ul>
-<h1 id="14-最长公共前缀"><a href="#14-最长公共前缀" class="headerlink" title="#14.最长公共前缀"></a>#14.最长公共前缀</h1><h2 id="解"><a href="#解" class="headerlink" title="解"></a>解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">Prefix2</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span></span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(p &lt;= (a.size()<span class="number">-1</span>) &amp;&amp; p &lt;= (b.size()<span class="number">-1</span>) )&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[p] == b [p])&#123;</span><br><span class="line">                        ans += a[p];</span><br><span class="line">                        p++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">auto</span> iter1 = strs.begin();</span><br><span class="line">    <span class="keyword">while</span>(iter1 != (strs.end()<span class="number">-1</span>))&#123;</span><br><span class="line">        <span class="keyword">auto</span> iter2 = iter1 +<span class="number">1</span>;</span><br><span class="line">        ans = Prefix2(*iter1,*iter2);</span><br><span class="line">        <span class="keyword">if</span>(ans == <span class="string">""</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        iter1++;</span><br><span class="line">        *iter1 = ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="14-最长公共前缀"><a href="#14-最长公共前缀" class="headerlink" title="14.最长公共前缀"></a>14.最长公共前缀</h1><ul>
+<li>解</li>
+</ul>
+<pre><code class="c++">class Solution {
+public:
+    string Prefix2(string a,string b){
+        string ans = &quot;&quot;;
+        int p = 0;
+        while(p &lt;= (a.size()-1) &amp;&amp; p &lt;= (b.size()-1) ){
+                if(a[p] == b [p]){
+                        ans += a[p];
+                        p++;
+                }
+                else
+                        break;
+        }
+        return ans;
+}
+    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
+    string ans = &quot;&quot;;
+    if(strs.size()==0)
+        return ans;
+    if(strs.size()==1)
+        return strs[0];
+    auto iter1 = strs.begin();
+    while(iter1 != (strs.end()-1)){
+        auto iter2 = iter1 +1;
+        ans = Prefix2(*iter1,*iter2);
+        if(ans == &quot;&quot;)
+            break;
+        iter1++;
+        *iter1 = ans;
+    }
+    return ans;
+}
+};
+</code></pre>
 <p>我的解真是弱爆了。</p>
-<h2 id="Problems-2"><a href="#Problems-2" class="headerlink" title="Problems"></a>Problems</h2><ul>
+<p><strong>Problems</strong></p>
+<ul>
 <li><p>第一次报错</p>
 <blockquote>
 <p>“Runtime Error Message:reference binding to null pointer of type ‘struct value_type’</p>
@@ -183,7 +556,22 @@
 <li><p>我的解法效率极低。下面去看看大神们怎么解吧。</p>
 </li>
 </ul>
-<h2 id="优化解"><a href="#优化解" class="headerlink" title="优化解"></a>优化解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> vec_len=strs.size();</span><br><span class="line">        <span class="keyword">if</span>(vec_len==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">int</span> str_len=strs[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str_len;i++)</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;vec_len;j++)</span><br><span class="line">            <span class="keyword">if</span>(strs[j][i]!=strs[<span class="number">0</span>][i])</span><br><span class="line">                <span class="keyword">return</span> strs[<span class="number">0</span>].substr(<span class="number">0</span>,i);</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>优化解</p>
+<pre><code class="c++">class Solution {
+public:
+    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
+        int vec_len=strs.size();
+        if(vec_len==0)
+            return &quot;&quot;;
+        int str_len=strs[0].size();
+        for(int i=0;i&lt;str_len;i++)
+          for(int j=1;j&lt;vec_len;j++)
+            if(strs[j][i]!=strs[0][i])
+                return strs[0].substr(0,i);
+        return strs[0];
+    }
+};
+</code></pre>
 <p>知识点：</p>
 <ul>
 <li><code>str.substr(x,y)</code>就是取子串。</li>
@@ -195,7 +583,8 @@
 <p><code>while((strs[0])[i])</code></p>
 </li>
 </ul>
-<h1 id="20-有效的括号"><a href="#20-有效的括号" class="headerlink" title="#20.有效的括号"></a>#20.有效的括号</h1><h2 id="Problems-3"><a href="#Problems-3" class="headerlink" title="Problems"></a>Problems</h2><ul>
+<h1 id="20-有效的括号"><a href="#20-有效的括号" class="headerlink" title="20.有效的括号"></a>20.有效的括号</h1><p><strong>Problems</strong></p>
+<ul>
 <li><p><code>char</code>类型就用<strong>单引号</strong>啊！！！</p>
 <p>之前写 <code>s[i] == &quot;(&quot;</code>一直报错。我就是整不明白为啥报错。</p>
 <p><strong>单引号啊！！！</strong></p>
@@ -211,7 +600,9 @@
 <li><p>每次<code>return flase</code>之后都要记得<strong>break</strong>跳出循环啊</p>
 </li>
 <li><p><strong>vector中v[i]与v.at(i)的区别</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v[<span class="number">0</span>];    <span class="comment">// A</span></span><br><span class="line">v.at[<span class="number">0</span>];  <span class="comment">// B</span></span><br></pre></td></tr></table></figure>
+<pre><code class="c++">v[0];    // A
+v.at[0];  // B
+</code></pre>
 <p>如果v非空，A行和B行没有任何区别。</p>
 <p>如果<strong>v为空或者下标越界</strong>，B行会抛出std::out_of_range异常，A行的行为未定义。</p>
 <p>c++标准不要求vector::operator[]进行下标越界检查，原因是为了效率，总是强制下标越界检查会增加程序的性能开销。设计vector是用来代替内置数组的，所以效率问题也应该考虑。不过使用operator[]就要自己承担越界风险了。</p>
@@ -219,7 +610,33 @@
 </li>
 </ul>
 <p>我的解效率特别差。看一下人家的</p>
-<h2 id="优化解-1"><a href="#优化解-1" class="headerlink" title="优化解"></a>优化解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">       <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; sta;</span><br><span class="line">	<span class="keyword">int</span> length = s.length();</span><br><span class="line">	<span class="keyword">if</span> (length % <span class="number">2</span> == <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span> (s.empty()) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (sta.empty())</span><br><span class="line">		&#123;</span><br><span class="line">			sta.push(s.at(i)); </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(sta.top() == s.at(i) - <span class="number">2</span> || sta.top() == s.at(i) - <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			sta.pop();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			sta.push(s.at(i));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sta.empty() ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>优化解</strong></p>
+<pre><code class="c++">class Solution {
+public:
+    bool isValid(string s) {
+       stack&lt;char&gt; sta;
+    int length = s.length();
+    if (length % 2 == 1) return false;
+    if (s.empty()) return true;
+    for (int i = 0; i &lt; length; i++)
+    {
+        if (sta.empty())
+        {
+            sta.push(s.at(i)); 
+        }
+        else if(sta.top() == s.at(i) - 2 || sta.top() == s.at(i) - 1)
+        {
+            sta.pop();
+        }
+        else
+        {
+            sta.push(s.at(i));
+        }
+    }
+    return sta.empty() ? true : false;
+    }
+};
+</code></pre>
 <p>哎！简洁又效率。</p>
 <ul>
 <li><p>先判断了长度是奇数返回false.为空返回false.</p>
@@ -571,10 +988,22 @@
 <li>sb了。没看题是排好序的。而且遍历的时候是遍历你返回值n的前n个。</li>
 </ul>
 <h1 id="27-移除元素"><a href="#27-移除元素" class="headerlink" title="27. 移除元素"></a>27. 移除元素</h1><p>吸收了上一题的答案。直接超越100%：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;nums.size();i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums[i]!=val)<span class="comment">//只要不是val就存进来</span></span><br><span class="line">        nums[n++]=nums[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> n;</span><br></pre></td></tr></table></figure>
+<pre><code class="c++">int n = 0;
+for (int i = 0; i&lt;nums.size();i++){
+    if(nums[i]!=val)//只要不是val就存进来
+        nums[n++]=nums[i];
+}
+return n;
+</code></pre>
 <h1 id="35-搜索插入位置"><a href="#35-搜索插入位置" class="headerlink" title="35. 搜索插入位置"></a>35. 搜索插入位置</h1><p>PASS</p>
 <h1 id="53-最大子序和"><a href="#53-最大子序和" class="headerlink" title="53. 最大子序和"></a>53. 最大子序和</h1><p>暴力写出来了。人家怎么就想到这么写呢：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> res = INT_MIN, curSum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">    curSum = max(curSum + num, num);</span><br><span class="line">    res = max(res, curSum);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> res;</span><br></pre></td></tr></table></figure>
+<pre><code class="c++">int res = INT_MIN, curSum = 0;
+for (int num : nums) {
+    curSum = max(curSum + num, num);
+    res = max(res, curSum);
+}
+return res;
+</code></pre>
 <h1 id="66-加一"><a href="#66-加一" class="headerlink" title="66. 加一"></a>66. 加一</h1><p>水</p>
 <h1 id="69-x的平方根"><a href="#69-x的平方根" class="headerlink" title="69 x的平方根"></a>69 x的平方根</h1><ul>
 <li><p>int 的范围问题。本来用的int。结果人家给的输入。int平方之后就超过了范围了。以后要注意！</p>
@@ -582,21 +1011,74 @@
 <li><p>牛顿迭代法Mark。还可用用来接多次方程</p>
 </li>
 </ul>
-<h1 id="70爬楼梯"><a href="#70爬楼梯" class="headerlink" title="70爬楼梯"></a>70爬楼梯</h1><p>其实就是斐波那契这题。我用递归写的。<strong>但是！</strong>我的写法，在输入是40以后，就超时咯（我特判了过的）。学习一下这个写法：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> dp0, dp1, dp;</span><br><span class="line">    dp0 = dp1 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        dp = dp0 + dp1;</span><br><span class="line">        dp0 = dp1;</span><br><span class="line">        dp1 = dp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="70爬楼梯"><a href="#70爬楼梯" class="headerlink" title="70爬楼梯"></a>70爬楼梯</h1><p>其实就是斐波那契这题。我用递归写的。<strong>但是！</strong>我的写法，在输入是40以后，就超时咯（我特判了过的）。这么写不错：</p>
+<pre><code class="c++">int climbStairs(int n) {
+    if (n &lt; 2) return 1;
+    int dp0, dp1, dp;
+    dp0 = dp1 = 1;
+    for (int i = 2; i &lt;= n; i++) {
+        dp = dp0 + dp1;
+        dp0 = dp1;
+        dp1 = dp;
+    }
+    return dp;
+}
+</code></pre>
 <h1 id="88-合并两个有序数组"><a href="#88-合并两个有序数组" class="headerlink" title="88.合并两个有序数组"></a>88.合并两个有序数组</h1><p>🙂🙂🙂</p>
 <p>一晚上我没做出来这题</p>
 <ul>
 <li><p>结束void函数，直接<code>return;</code></p>
 </li>
 <li><p>看了提示。从后往前插入。写出来了。速度不行。看一下这个0ms的：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="keyword">int</span> m, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> b1 = nums1.rbegin() + n, b2 = nums2.rbegin();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> cur = nums1.rbegin(); b1 != nums1.rend(); ++cur)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b2 == nums2.rend())</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span> (*b2 &lt; *b1)</span><br><span class="line">            *cur = *b1++;</span><br><span class="line">        <span class="keyword">else</span> *cur = *b2++;</span><br><span class="line">    &#125;</span><br><span class="line">    copy(b2, nums2.rend(), nums1.rend() - (nums2.rend() - b2));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="c++">void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) {
+    auto b1 = nums1.rbegin() + n, b2 = nums2.rbegin();
+    for (auto cur = nums1.rbegin(); b1 != nums1.rend(); ++cur)
+    {
+        if (b2 == nums2.rend())
+            return;
+        if (*b2 &lt; *b1)
+            *cur = *b1++;
+        else *cur = *b2++;
+    }
+    copy(b2, nums2.rend(), nums1.rend() - (nums2.rend() - b2));
+}
+</code></pre>
 </li>
 </ul>
 <h1 id="100-相同的树"><a href="#100-相同的树" class="headerlink" title="100.相同的树"></a>100.相同的树</h1><p>先来看我之前写法：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isSameTree</span><span class="params">(TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p&amp;&amp;q)</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;val!=q-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(p&amp;&amp;!q)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(q&amp;&amp;!p)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(!p&amp;&amp;!q)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;left&amp;&amp;q-&gt;left) <span class="comment">//加上这个if条件是因为不然会因为p\q指向空指针报这个错：member access null pointer of type 'struct TreeNode'</span></span><br><span class="line">        isSameTree(p-&gt;left,q-&gt;left);</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;right&amp;&amp;q-&gt;right)</span><br><span class="line">        isSameTree(p-&gt;right,q-&gt;right);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="c++">bool isSameTree(TreeNode* p, TreeNode* q) {
+    if(p&amp;&amp;q)
+        if(p-&gt;val!=q-&gt;val)
+            return false;
+    if(p&amp;&amp;!q)
+        return false;
+    if(q&amp;&amp;!p)
+        return false;
+    if(!p&amp;&amp;!q)
+        return true;
+    if(p-&gt;left&amp;&amp;q-&gt;left) //加上这个if条件是因为不然会因为p\q指向空指针报这个错：member access null pointer of type &#39;struct TreeNode&#39;
+        isSameTree(p-&gt;left,q-&gt;left);
+    if(p-&gt;right&amp;&amp;q-&gt;right)
+        isSameTree(p-&gt;right,q-&gt;right);
+    return true;
+}
+</code></pre>
 <p>这写法过不了。师哥改：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isSameTree</span><span class="params">(TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p&amp;&amp;q)</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;val!=q-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(p&amp;&amp;!q)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(q&amp;&amp;!p)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(!p&amp;&amp;!q)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> isSameTree(p-&gt;left,q-&gt;left)</span><br><span class="line">        &amp;&amp;isSameTree(p-&gt;right,q-&gt;right)</span><br><span class="line">        &amp;&amp;p-&gt;val==q-&gt;val;</span><br><span class="line">&#125;<span class="comment">//直接返回两个结果&amp;&amp;起来不就解决了吗。这样有一边走到了false都会返回false</span></span><br></pre></td></tr></table></figure>
+<pre><code class="c++">bool isSameTree(TreeNode* p, TreeNode* q) {
+    if(p&amp;&amp;q)
+        if(p-&gt;val!=q-&gt;val)
+            return false;
+    if(p&amp;&amp;!q)
+        return false;
+    if(q&amp;&amp;!p)
+        return false;
+    if(!p&amp;&amp;!q)
+        return true;
+    return isSameTree(p-&gt;left,q-&gt;left)
+        &amp;&amp;isSameTree(p-&gt;right,q-&gt;right)
+        &amp;&amp;p-&gt;val==q-&gt;val;
+}//直接返回两个结果&amp;&amp;起来不就解决了吗。这样有一边走到了false都会返回false
+</code></pre>
 <h1 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101.对称二叉树"></a>101.对称二叉树</h1><ul>
 <li><p>开始写成了判断节点的两个孩子是否相同。完全整错了题。</p>
 </li>
@@ -606,10 +1088,31 @@
 </ul>
 </li>
 <li><p>正经的解法：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">bool</span> <span class="title">symmetric</span><span class="params">(TreeNode* left, TreeNode* right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!left &amp;&amp; !right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!left || !right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left-&gt;val == right-&gt;val &amp;&amp; symmetric(left-&gt;left, right-&gt;right) &amp;&amp; symmetric(left-&gt;right, right-&gt;left);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!root)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> symmetric(root-&gt;left, root-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="c++"> bool symmetric(TreeNode* left, TreeNode* right)
+{
+    if (!left &amp;&amp; !right)
+    {
+        return true;
+    }
+    if (!left || !right)
+    {
+        return false;
+    }
+    return left-&gt;val == right-&gt;val &amp;&amp; symmetric(left-&gt;left, right-&gt;right) &amp;&amp; symmetric(left-&gt;right, right-&gt;left);
+}
+bool isSymmetric(TreeNode* root) 
+{
+    if (!root)
+    {
+        return true;
+    }
+    return symmetric(root-&gt;left, root-&gt;right);
+}
+</code></pre>
 </li>
 </ul>
-<h1 id="121买股票1"><a href="#121买股票1" class="headerlink" title="121买股票1"></a>121买股票1</h1><p>比较简单。但我第一次用的O(n2)。显得很没水平。只要记录最小值和最大值就可以了。不需要两层循环遍历的。</p>
+<h1 id="04二叉树的最大深度"><a href="#04二叉树的最大深度" class="headerlink" title="04二叉树的最大深度"></a>04二叉树的最大深度</h1><p>必备</p>
+<h1 id="107二叉树的层次遍历-II"><a href="#107二叉树的层次遍历-II" class="headerlink" title="107二叉树的层次遍历 II"></a>107二叉树的层次遍历 II</h1><h1 id="121买股票1"><a href="#121买股票1" class="headerlink" title="121买股票1"></a>121买股票1</h1><p>比较简单。但我第一次用的O(n2)。显得很没水平。只要记录最小值和最大值就可以了。不需要两层循环遍历的。</p>
 <h1 id="122买股票2"><a href="#122买股票2" class="headerlink" title="122买股票2"></a>122买股票2</h1><p>有了上一题的启发。很快解决。（本来想半天）</p>
 <h1 id="189旋转数组"><a href="#189旋转数组" class="headerlink" title="189旋转数组"></a>189旋转数组</h1><ul>
 <li><p>开始想用一个临时数组存原来的数。然后根据需要copy。</p>
@@ -636,11 +1139,130 @@
 </ul>
 </li>
 </ul>
+<h1 id="151最小栈"><a href="#151最小栈" class="headerlink" title="151最小栈"></a>151最小栈</h1><ul>
+<li>可以用<code>*(vt.end()-1)</code>的方式取到vector的最后一个元素啊。</li>
+<li></li>
+</ul>
 <h1 id="两个数组的交集-II"><a href="#两个数组的交集-II" class="headerlink" title="两个数组的交集 II"></a>两个数组的交集 II</h1><p>关于map的遍历：</p>
 <ul>
 <li>如果输入的map下标不存在则会创建这个下标。</li>
 <li>map.find()是查的关键字</li>
 </ul>
+<h1 id="168-EXCELL表列名"><a href="#168-EXCELL表列名" class="headerlink" title="168 EXCELL表列名"></a>168 EXCELL表列名</h1><p>就是输入1输出A 输入28输出AB</p>
+<ul>
+<li><p>注意输入26时，余数为0。这种情况需要特判。</p>
+<p>输入26时。n的循环也会多走一圈。需要特判。不然输入26会输出ZA。</p>
+</li>
+<li><p>每轮循环结束是 <code>n = n/26</code> 还是<code>n = n-26</code> ?    请思考清楚</p>
+</li>
+</ul>
+<h1 id="171和168相对"><a href="#171和168相对" class="headerlink" title="171和168相对"></a>171和168相对</h1><p><code>string.erase(pos,len)</code>,从pos位置开始删除len个字符。len缺省则删除到末尾。返回string的一个引用。</p>
+<p>比如<code>str.erase(str.size()-5,5);</code> 删除了后5个字符。注意是.size()-5 。就是用下标来控制的。</p>
+<p>我个人更喜欢用<code>str = str.substr(pos1,pos2)</code>这种方式删除</p>
+<h1 id="169绝对众数"><a href="#169绝对众数" class="headerlink" title="169绝对众数"></a>169绝对众数</h1><ul>
+<li>用map做感觉是水题。</li>
+</ul>
+<p>但是在别人的解法里学到了摩尔投票算法：</p>
+<blockquote>
+<p>首先请考虑最基本的摩尔投票问题，找出一组数字序列中出现次数大于总数1/2的数字（并且假设这个数字一定存在）。显然这个数字只可能有一个。<strong>摩尔投票算法是基于这个事实：每次从序列里选择两个不相同的数字删除掉（或称为“抵消”），最后剩下一个数字或几个相同的数字，就是出现次数大于总数一半的那个</strong>。</p>
+</blockquote>
+<ul>
+<li>继续延伸：1/k众数</li>
+</ul>
+<p>Ex:k=3。求1/3众数。注：这样的数可能不存在</p>
+<pre><code class="C++">    #include &lt;iostream&gt;
+    #include &lt;cstdlib&gt;
+    #include &lt;vector&gt;
+    #include &lt;iterator&gt;
+    using namespace std;
+
+    void FindMode(const int *a, int size, vector&lt;int&gt;&amp; mode){
+    int m,n;//候选值
+    int cm = 0, cn = 0;//候选值m、n的个数
+    int i;
+    for(i=0; i&lt;size; i++){
+        if(cm == 0){
+            m = a[i];
+            cm = 1;
+        }else if(cn == 0){
+            n = a[i];
+            cn = 1;
+        }else if(m == a[i]){
+            cm++;
+        }else if(n == a[i]){
+            cn++;
+        }else{
+            cm--;
+            cn--;
+        }
+    }
+    //↑ 运行到此处时的m、n一定是众数，同时也是可能存在的1/3众数。
+
+    cm = cn = 0;//为确保一定存在（因为1/3众数可能不存在），一定要重新遍历统计出现次数
+    for(i=0; i&lt;size; i++){
+        if(m == a[i]){
+            cm++;
+        }else if(n == a[i]){
+            cn++;
+        }
+    }
+    if(cm &gt; size/3){
+        mode.push_back(m);
+//        cout&lt;&lt; m&lt;&lt;&quot; &quot;;
+    }
+    if(cn &gt; size/3){
+        mode.push_back(n);
+//        cout&lt;&lt; n&lt;&lt;&quot; &quot;;
+    }
+
+}
+
+void Print(vector&lt;int&gt; vector){
+    for(int i=0; i&lt;vector.size(); i++){
+        cout&lt;&lt; vector[i]&lt;&lt;&quot; &quot;;
+    }
+    cout&lt;&lt;endl;
+}
+
+int main()
+{
+    int a[] = {8,1,1,8,1,1,6,1,5,8,8};
+    vector&lt;int&gt; mode;
+    FindMode(a, sizeof(a)/sizeof(int),mode);
+    Print(mode);
+    return 0;
+}
+</code></pre>
+<h1 id="172阶乘后的零"><a href="#172阶乘后的零" class="headerlink" title="172阶乘后的零"></a>172阶乘后的零</h1><ul>
+<li><p>13的阶乘就已经超INT范围了。用了<code>long long</code>型之后，它给我输入了个30🙂🙂🙂</p>
+<p>思路有问题🙃</p>
+</li>
+<li><p>找到了规律。其实有几个零就是和因子里有几个5有关系。所以遇到 5、25、125、675~这种要处理，可是刁钻的问题出现了。测试用例给了一个1808548329。5的13次方是1220703125。我的算法可以给出答案。但是超时了。后面还有个过不了的用例2147483647。就是INT_MAX呗。超时了。我直接特判了这两个过的。</p>
+</li>
+<li><p>结果发现0ms的答案只有这么几行：</p>
+<pre><code class="c++">int trailingZeroes(int n) {
+    long long sum=0;
+    for(long long i=5;i&lt;=n;i=i*5)
+        sum=sum+n/i;
+    return sum;
+}
+</code></pre>
+</li>
+</ul>
+<p>这时候再回头看一下我自己写的【超时版】答案。其实不就是一个意思吗：</p>
+<pre><code class="c++">int ans = n/5; //先除以5
+for(int i=2;pow(5,i)&lt;=n;i++){ /*小于25的时候。
+里面每有一个25就++(这不就是m/pow(5,2)吗？
+我傻不拉几的在那用循环判断每次ans++)*/
+    int tmp = n;
+    while(tmp&gt;=pow(5,i)){
+        ans ++;
+        tmp -= pow(5,i);
+    }
+    cout&lt;&lt;i&lt;&lt;endl;
+}
+return ans;
+</code></pre>
 <h1 id="283移动零"><a href="#283移动零" class="headerlink" title="283移动零"></a>283移动零</h1><p>输入 0 1 0 3 2</p>
 <p>输出 1 3 2 0 0 </p>
 <ul>
@@ -650,490 +1272,402 @@
 </ul>
 </li>
 </ul>
-  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-</div>
+            </div>
+            <hr/>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/LeetCode/">LeetCode</a>
-  </div>
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://ixsim.github.io/LeetCodeEasy50/" data-title="LeetCodeEasy50 | 炫杉" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/LeetCode探索课/" title="LeetCode探索课">
-  <strong>上一篇：</strong><br/>
-  <span>
-  LeetCode探索课</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/Others/Heroku_ssh/"  title="Heroku搭建自己的ss服务器教程">
- <strong>下一篇：</strong><br/> 
- <span>Heroku搭建自己的ss服务器教程
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-
-
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-两数之和"><span class="toc-number">1.</span> <span class="toc-text">#1.两数之和</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#朴素法"><span class="toc-number">1.1.</span> <span class="toc-text">朴素法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hash-O-nlogn"><span class="toc-number">1.2.</span> <span class="toc-text">Hash O(nlogn)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点："><span class="toc-number">1.3.</span> <span class="toc-text">知识点：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-反转整数"><span class="toc-number">2.</span> <span class="toc-text">#7.反转整数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正解"><span class="toc-number">2.1.</span> <span class="toc-text">正解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems"><span class="toc-number">2.2.</span> <span class="toc-text">Problems</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-回文数"><span class="toc-number">3.</span> <span class="toc-text">#9.回文数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解法"><span class="toc-number">3.1.</span> <span class="toc-text">解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-1"><span class="toc-number">3.2.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点"><span class="toc-number">3.3.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#std-ios-sync-with-stdio-false"><span class="toc-number">3.3.1.</span> <span class="toc-text">std::ios::sync_with_stdio(false)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cin-tie-NULL"><span class="toc-number">3.3.2.</span> <span class="toc-text">cin.tie(NULL)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-罗马数字转整数"><span class="toc-number">4.</span> <span class="toc-text">#13.罗马数字转整数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-最长公共前缀"><span class="toc-number">5.</span> <span class="toc-text">#14.最长公共前缀</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解"><span class="toc-number">5.1.</span> <span class="toc-text">解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-2"><span class="toc-number">5.2.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化解"><span class="toc-number">5.3.</span> <span class="toc-text">优化解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-有效的括号"><span class="toc-number">6.</span> <span class="toc-text">#20.有效的括号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems-3"><span class="toc-number">6.1.</span> <span class="toc-text">Problems</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化解-1"><span class="toc-number">6.2.</span> <span class="toc-text">优化解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#26-删除排序数组中的重复项"><span class="toc-number">7.</span> <span class="toc-text">26. 删除排序数组中的重复项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#27-移除元素"><span class="toc-number">8.</span> <span class="toc-text">27. 移除元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#35-搜索插入位置"><span class="toc-number">9.</span> <span class="toc-text">35. 搜索插入位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#53-最大子序和"><span class="toc-number">10.</span> <span class="toc-text">53. 最大子序和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#66-加一"><span class="toc-number">11.</span> <span class="toc-text">66. 加一</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#69-x的平方根"><span class="toc-number">12.</span> <span class="toc-text">69 x的平方根</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#70爬楼梯"><span class="toc-number">13.</span> <span class="toc-text">70爬楼梯</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#88-合并两个有序数组"><span class="toc-number">14.</span> <span class="toc-text">88.合并两个有序数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#100-相同的树"><span class="toc-number">15.</span> <span class="toc-text">100.相同的树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#101-对称二叉树"><span class="toc-number">16.</span> <span class="toc-text">101.对称二叉树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#121买股票1"><span class="toc-number">17.</span> <span class="toc-text">121买股票1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#122买股票2"><span class="toc-number">18.</span> <span class="toc-text">122买股票2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#189旋转数组"><span class="toc-number">19.</span> <span class="toc-text">189旋转数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#136只出现一次的数字"><span class="toc-number">20.</span> <span class="toc-text">136只出现一次的数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#两个数组的交集-II"><span class="toc-number">21.</span> <span class="toc-text">两个数组的交集 II</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#283移动零"><span class="toc-number">22.</span> <span class="toc-text">283移动零</span></a></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>5</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Blockchain/" title="Blockchain">Blockchain<sup>1</sup></a></li>
-		  
-		
-		  
-		
-		  
-		
-		  
-			<li><a href="/categories/Others/" title="Others">Others<sup>8</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>9</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/WebRTC/" title="WebRTC">WebRTC<sup>6</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Website/" title="Website">Website<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/iOS/" title="iOS">iOS<sup>10</sup></a></li>
-		  
-		
-		</ul>
-</div>
-
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/Note/" title="Note">Note<sup>11</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swift/" title="Swift">Swift<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Python/" title="Python">Python<sup>9</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Demo/" title="Demo">Demo<sup>7</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/LeetCode/" title="LeetCode">LeetCode<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tips/" title="tips">tips<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tutorial/" title="tutorial">tutorial<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/js/" title="js">js<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Spider/" title="Spider">Spider<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/C/" title="C++">C++<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Data-Analysis/" title="Data Analysis">Data Analysis<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Matlab/" title="Matlab">Matlab<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Swfit/" title="Swfit">Swfit<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/File-Process/" title="File Process">File Process<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/note/" title="note">note<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/IoT/" title="IoT">IoT<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/selenium/" title="selenium">selenium<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
             
-            	<a href="https://oo1.win" target="_blank" title="炫猿">炫猿</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://www.aimoon.site/" target="_blank" title="我大哥">我大哥</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="https://onebigcabbage.github.io/" target="_blank" title="小菜哥">小菜哥</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello, <br/>
-			World!</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/lixsh" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<a href="mailto:xuanshanli@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="ixsim">ixsim</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
     }
-  });
-});
-</script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
 
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
-  $('.hoverqrcode').hide();
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
 
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
 
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
 
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
 
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
 
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
 
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
 
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
 
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
 
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
 
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/LeetCodeEasy50/" class="b-link-green">LeetCodeEasy50</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/Others/Homebrew的使用/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Homebrew的使用">
+                        
+                        <span class="card-title">Homebrew的使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Homebrew的使用命令记录 参考：https://www.jianshu.com/p/3016f1897e31和https://www.radyhuang.com/homebrew-cleanup-cache
+
+概念
+Mac的软件包管理</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Others/Heroku_ssh/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Heroku搭建自己的ss服务器教程">
+                        
+                        <span class="card-title">Heroku搭建自己的ss服务器教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Heroku是日本一家网站。为开发者提供了免费部署项目的服务器。虽然访问Heroku是被qiang的。但是用Heroku部署后的应用(saas/web app)其主机在美国和欧洲，且主机地址没有被qiang。利用这一点就可以免费搭建一个自己</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/tips/" target="_blank">
+                        <span class="chip bg-color">tips</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-两数之和"><span class="post-toc-text">1.两数之和</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-反转整数"><span class="post-toc-text">7.反转整数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9-回文数"><span class="post-toc-text">9.回文数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#13-罗马数字转整数"><span class="post-toc-text">13.罗马数字转整数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#14-最长公共前缀"><span class="post-toc-text">14.最长公共前缀</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#20-有效的括号"><span class="post-toc-text">20.有效的括号</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#26-删除排序数组中的重复项"><span class="post-toc-text">26. 删除排序数组中的重复项</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#27-移除元素"><span class="post-toc-text">27. 移除元素</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#35-搜索插入位置"><span class="post-toc-text">35. 搜索插入位置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#53-最大子序和"><span class="post-toc-text">53. 最大子序和</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#66-加一"><span class="post-toc-text">66. 加一</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#69-x的平方根"><span class="post-toc-text">69 x的平方根</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#70爬楼梯"><span class="post-toc-text">70爬楼梯</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#88-合并两个有序数组"><span class="post-toc-text">88.合并两个有序数组</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#100-相同的树"><span class="post-toc-text">100.相同的树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#101-对称二叉树"><span class="post-toc-text">101.对称二叉树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#04二叉树的最大深度"><span class="post-toc-text">04二叉树的最大深度</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#107二叉树的层次遍历-II"><span class="post-toc-text">107二叉树的层次遍历 II</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#121买股票1"><span class="post-toc-text">121买股票1</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#122买股票2"><span class="post-toc-text">122买股票2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#189旋转数组"><span class="post-toc-text">189旋转数组</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#136只出现一次的数字"><span class="post-toc-text">136只出现一次的数字</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#151最小栈"><span class="post-toc-text">151最小栈</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#两个数组的交集-II"><span class="post-toc-text">两个数组的交集 II</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#168-EXCELL表列名"><span class="post-toc-text">168 EXCELL表列名</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#171和168相对"><span class="post-toc-text">171和168相对</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#169绝对众数"><span class="post-toc-text">169绝对众数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#172阶乘后的零"><span class="post-toc-text">172阶乘后的零</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#283移动零"><span class="post-toc-text">283移动零</span></a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            }
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
 
 
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
 
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 
 
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
 </html>

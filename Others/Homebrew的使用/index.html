@@ -1,0 +1,800 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Homebrew的使用, 炫杉">
+    <meta name="description" content="Homebrew的使用命令记录 参考：https://www.jianshu.com/p/3016f1897e31和https://www.radyhuang.com/homebrew-cleanup-cache
+
+概念
+Mac的软件包管理">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Homebrew的使用 | 炫杉</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+</head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Homebrew的使用
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #artDetail h1,
+    #artDetail h2,
+    #artDetail h3,
+    #artDetail h4,
+    #artDetail h5,
+    #artDetail h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #artDetail h1 {
+        line-height: 3.3rem;
+    }
+
+    #artDetail h2 {
+        line-height: 3rem;
+    }
+
+    #artDetail h3 {
+        line-height: 2.5rem;
+    }
+
+    #artDetail h4 {
+        line-height: 2.2rem;
+    }
+
+    #artDetail h5 {
+        line-height: 1.9rem;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    .post-toc ol {
+        padding-left: 20px;
+    }
+
+    .post-toc a {
+        color: #34495e;
+        font-size: 0.96rem;
+    }
+
+    .post-toc a:hover {
+        color: #42b983;
+        text-decoration: underline;
+    }
+
+    .post-toc .active {
+        color: #42b983;
+        font-weight: 500;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Note/" target="_blank">
+                    <span class="chip bg-color">Note</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Others/" class="post-category" target="_blank">
+                        Others
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-10-15
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Homebrew的使用命令记录 参考：<a href="https://www.jianshu.com/p/3016f1897e31和https://www.radyhuang.com/homebrew-cleanup-cache" target="_blank" rel="noopener">https://www.jianshu.com/p/3016f1897e31和https://www.radyhuang.com/homebrew-cleanup-cache</a></p>
+<a id="more"></a>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ul>
+<li>Mac的软件包管理工具，类似于linux的<code>apt-get</code>，能在mac中方便地安装软件或者卸载软件。</li>
+</ul>
+<h1 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p>Homebrew依赖xcode和其Command Line Tools。</p>
+<ol>
+<li>在App Store中安装最新版本的xcode；</li>
+<li>执行<code>xcode-select --install</code>安装Command Line Tools。</li>
+</ol>
+</li>
+<li><p>把Homebrew安装到<code>/usr/local</code>。</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre></li>
+</ul>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;
+</code></pre><h2 id="重装"><a href="#重装" class="headerlink" title="重装"></a>重装</h2><ol>
+<li><p>备份<code>/usr/local/Cellar</code>。</p>
+</li>
+<li><p>删除Homebrew相关文件。</p>
+<pre><code>cd /usr/local
+sudo rm -rf Library .git .gitignore bin/brew README.md share/man/man1/brew
+sudo rm -rf Homebrew
+sudo rm -rf ~/Library/Caches/Homebrew
+</code></pre></li>
+<li><p>卸载Homebrew。</p>
+<pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;
+</code></pre></li>
+<li><p>安装Homebrew。</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre></li>
+<li><p>将第1步中的备份拷贝回<code>/usr/local/Cellar</code>。</p>
+</li>
+<li><p>更新Homebrew及其管理的各软件。</p>
+<pre><code>brew update
+brew upgrade
+brew cleanup
+</code></pre></li>
+<li><p><code>brew doctor</code>检测Homebrew潜在问题，并自行排错。如使用<code>brew link 软件名</code>将备份的软件重新symlink到Homebrew上。</p>
+</li>
+</ol>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><p><code>brew install 软件名</code>，如<code>brew install git</code>。</p>
+<h2 id="卸载软件"><a href="#卸载软件" class="headerlink" title="卸载软件"></a>卸载软件</h2><p><code>brew uninstall 软件名</code>，如<code>brew uninstall git</code>。</p>
+<h2 id="查找软件"><a href="#查找软件" class="headerlink" title="查找软件"></a>查找软件</h2><pre><code>brew search 查询内容
+</code></pre><ol>
+<li>普通查询，<code>brew search git</code></li>
+<li>正则查询，<code>brew search /gi*/</code></li>
+</ol>
+<h2 id="升级软件"><a href="#升级软件" class="headerlink" title="升级软件"></a>升级软件</h2><ul>
+<li><code>brew upgrade 软件名</code>：更新指定软件，如<code>brew update git</code>。</li>
+<li><code>brew upgrade</code>：更新所有软件。</li>
+</ul>
+<h2 id="清理软件"><a href="#清理软件" class="headerlink" title="清理软件"></a>清理软件</h2><ul>
+<li><code>brew cleanup -n</code>：查看哪些软件包要被清除。</li>
+<li><code>brew cleanup 软件名</code>：清除指定软件包的所有老版本。</li>
+<li><code>brew cleanup</code>：清除所有软件包的所有老版本。</li>
+</ul>
+<h2 id="关联软件"><a href="#关联软件" class="headerlink" title="关联软件"></a>关联软件</h2><ul>
+<li><p><code>brew prune</code>：清理无用的symlink，且清理与之相关的位于<code>/Applications</code>和<code>~/Applications</code>中的无用App链接。</p>
+</li>
+<li><p><code>brew link 软件名</code>：将指定软件的安装文件symlink到Homebrew上。</p>
+<blockquote>
+<p><code>brew install</code>安装的软件会自动执行link操作；<br>DIY安装的需要手动执行link操作；<br>加上<code>--overwrite</code>选项，会先删除旧的symlink，再进行新的link操作。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="信息查询"><a href="#信息查询" class="headerlink" title="信息查询"></a>信息查询</h2><ul>
+<li><code>brew -v</code>：查看Homebrew版本号。</li>
+<li><code>brew list</code>：列出已安装的软件。</li>
+<li><code>brew home</code>：用浏览器打开homebrew官网。</li>
+<li><code>brew info</code>：显示软件信息。</li>
+</ul>
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><ul>
+<li><code>brew update</code>：升级Homebrew自身。</li>
+<li><code>brew doctor</code>：检测系统中与Homebrew有关的潜在问题。</li>
+</ul>
+<h1 id="疑难杂症"><a href="#疑难杂症" class="headerlink" title="疑难杂症"></a>疑难杂症</h1><h2 id="清除-HOMEBREW-缓存"><a href="#清除-HOMEBREW-缓存" class="headerlink" title="清除 HOMEBREW 缓存"></a>清除 HOMEBREW 缓存</h2><p><code>brew cleanup</code> 命令会删除旧版 <code>cellar</code>，以及所有 <code>brew</code> 缓存。</p>
+<p>(<code>man brew</code>可以查看手册)</p>
+<h2 id="文件权限问题"><a href="#文件权限问题" class="headerlink" title="文件权限问题"></a>文件权限问题</h2><ul>
+<li><p><code>/usr/local</code>权限问题：</p>
+<ol>
+<li>打开Finder；</li>
+<li>前往文件夹<code>/usr</code>；</li>
+<li>右键文件夹local，点击显示简介；</li>
+<li>给当前用户添加对<code>/usr/local</code>的读写权限</li>
+</ol>
+</li>
+<li><p><code>/usr/local/share</code>权限问题：</p>
+<pre><code>sudo chown -R $(whoami) /usr/local/share/
+</code></pre></li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat1.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay1.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/Others/Homebrew的使用/" class="b-link-green">Homebrew的使用</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/SQL/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="SQL">
+                        
+                        <span class="card-title">SQL</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">noSql数据库满天飞的情况下，安下心来让SQL尘埃落定吧。（出来混总要还的😌）《SQL必知必会》读书笔记，Ben Forta著。
+
+了解SQLStructured Query Language 结构化查询语言
+基础语法
+|   表示 在</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SQL/" target="_blank">
+                        <span class="chip bg-color">SQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/LeetCodeEasy50/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="LeetCodeEasy50">
+                        
+                        <span class="card-title">LeetCodeEasy50</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]str.substr(pos,n)注意n是步长 [14]     int的范围、牛顿迭代法[69]      copy(1.begin,1.e</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/LeetCode/" target="_blank">
+                        <span class="chip bg-color">LeetCode</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <h4>目录</h4>
+            <div id="toc-content">
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概念"><span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装Homebrew"><span class="post-toc-text">安装Homebrew</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#卸载"><span class="post-toc-text">卸载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重装"><span class="post-toc-text">重装</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用"><span class="post-toc-text">使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装软件"><span class="post-toc-text">安装软件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#卸载软件"><span class="post-toc-text">卸载软件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查找软件"><span class="post-toc-text">查找软件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#升级软件"><span class="post-toc-text">升级软件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#清理软件"><span class="post-toc-text">清理软件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关联软件"><span class="post-toc-text">关联软件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#信息查询"><span class="post-toc-text">信息查询</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他操作"><span class="post-toc-text">其他操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#疑难杂症"><span class="post-toc-text">疑难杂症</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#清除-HOMEBREW-缓存"><span class="post-toc-text">清除 HOMEBREW 缓存</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件权限问题"><span class="post-toc-text">文件权限问题</span></a></li></ol></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        let tocLinks = $('#toc-content a');
+        let setTocLinkActive = function (jqObj) {
+            tocLinks.removeClass('active');
+            jqObj.addClass('active');
+        };
+
+        // 监听点击TOC目录.
+        tocLinks.on('click', function () {
+            setTocLinkActive($(this));
+        });
+
+        let titleTopArr = [];
+        $('#articleContent').find('h1, h2, h3, h4, h5, h6').each(function () {
+            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        });
+        let titleLen = titleTopArr.length;
+
+        /* 监听滚动条.*/
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+
+            /* add post toc fixed. */
+            if (scroll > 240) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+
+            /** 以下代码为动态设置TOC激活高亮的目录. */
+            if (titleLen === 0) {
+                return;
+            }
+
+            let firstTitleObj = titleTopArr[0];
+            if (firstTitleObj.top > scroll) {
+                return;
+            } else if (firstTitleObj.top === scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
+                return;
+            }
+
+            let lastTitleObj = titleTopArr[titleLen - 1];
+            if (lastTitleObj.top <= scroll) {
+                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
+                return;
+            }
+
+            for (let i = 0; i < titleLen; i++) {
+                if (titleTopArr[i].top > scroll) {
+                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
+                    break;
+                }
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
+        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input" autofocus="">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
