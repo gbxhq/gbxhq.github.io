@@ -235,23 +235,23 @@
     }
 
     #artDetail h1 {
-        line-height: 3.3rem;
+        line-height: 2rem;
     }
 
     #artDetail h2 {
-        line-height: 3rem;
+        line-height: 0rem;
     }
 
     #artDetail h3 {
-        line-height: 2.5rem;
+        line-height: 2rem;
     }
 
     #artDetail h4 {
-        line-height: 2.2rem;
+        line-height: 2rem;
     }
 
     #artDetail h5 {
-        line-height: 1.9rem;
+        line-height: 2rem;
     }
 
     .toc-fixed {
@@ -338,16 +338,16 @@ s[n] //n从0计
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></s></code></pre>
 </li>
 </ul>
-<h1 id="709-转换成小写字母"><a href="#709-转换成小写字母" class="headerlink" title="#709. 转换成小写字母"></a>#709. 转换成小写字母</h1><p><code>A~Z</code>的ascii码为<code>65~90</code>   小写字母对应+32</p>
-<h1 id="657-机器人能否返回原点"><a href="#657-机器人能否返回原点" class="headerlink" title="#657. 机器人能否返回原点"></a>#657. 机器人能否返回原点</h1><pre class="line-numbers language-c++"><code class="language-c++">bool judgeCircle(string moves) {
+<h1 id="709-转换成小写字母"><a href="#709-转换成小写字母" class="headerlink" title="709. 转换成小写字母"></a>709. 转换成小写字母</h1><p><code>A~Z</code>的ascii码为<code>65~90</code>   小写字母对应+32</p>
+<h1 id="657-机器人能否返回原点"><a href="#657-机器人能否返回原点" class="headerlink" title="657. 机器人能否返回原点"></a>657. 机器人能否返回原点</h1><pre class="line-numbers language-c++"><code class="language-c++">bool judgeCircle(string moves) {
     char tb[256]{0};
     for(auto ch : moves)
         ++tb[ch];
     return tb['R'] == tb['L'] && tb['U'] == tb['D'];
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="344-反转字符串"><a href="#344-反转字符串" class="headerlink" title="#344. 反转字符串"></a>#344. 反转字符串</h1><p>EASY</p>
-<h1 id="557-反转字符串中的单词III"><a href="#557-反转字符串中的单词III" class="headerlink" title="#557. 反转字符串中的单词III"></a>#557. 反转字符串中的单词III</h1><p>从句子里取单词的方法：</p>
+<h1 id="344-反转字符串"><a href="#344-反转字符串" class="headerlink" title="344. 反转字符串"></a>344. 反转字符串</h1><p>EASY</p>
+<h1 id="557-反转字符串中的单词III"><a href="#557-反转字符串中的单词III" class="headerlink" title="557. 反转字符串中的单词III"></a>557. 反转字符串中的单词III</h1><p>从句子里取单词的方法：</p>
 <pre class="line-numbers language-c++"><code class="language-c++">string reverseWords(string s) {
     istringstream is(s);
     string t = "";
@@ -361,15 +361,15 @@ s[n] //n从0计
     return res;
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="521-最长特殊序列I"><a href="#521-最长特殊序列I" class="headerlink" title="#521. 最长特殊序列I"></a>#521. 最长特殊序列I</h1><p>抠定义的题。直接返回最长的子串长度即可。</p>
-<h1 id="520-检测大写字母"><a href="#520-检测大写字母" class="headerlink" title="#520. 检测大写字母"></a>#520. 检测大写字母</h1><p>各种if分情况🙂</p>
-<h1 id="788-旋转数字"><a href="#788-旋转数字" class="headerlink" title="#788. 旋转数字"></a>#788. 旋转数字</h1><ul>
+<h1 id="521-最长特殊序列I"><a href="#521-最长特殊序列I" class="headerlink" title="521. 最长特殊序列I"></a>521. 最长特殊序列I</h1><p>抠定义的题。直接返回最长的子串长度即可。</p>
+<h1 id="520-检测大写字母"><a href="#520-检测大写字母" class="headerlink" title="520. 检测大写字母"></a>520. 检测大写字母</h1><p>各种if分情况🙂</p>
+<h1 id="788-旋转数字"><a href="#788-旋转数字" class="headerlink" title="788. 旋转数字"></a>788. 旋转数字</h1><ul>
 <li><p>int转string： <code>str = tostring(i);</code></p>
 </li>
 <li><p>最好不要一次写两次循环。能拆出函数来就写一个函数。</p>
 </li>
 </ul>
-<h1 id="824-山羊拉丁文"><a href="#824-山羊拉丁文" class="headerlink" title="#824. 山羊拉丁文"></a>#824. 山羊拉丁文</h1><ul>
+<h1 id="824-山羊拉丁文"><a href="#824-山羊拉丁文" class="headerlink" title="824. 山羊拉丁文"></a>824. 山羊拉丁文</h1><ul>
 <li><p>用istringsteam挨个读单词并处理。处理后加一个空格。</p>
 <p>注意，这样句子最后就会多一个空格。需要输出<code>ans.substr(0,ans.size()-1)</code></p>
 </li>
@@ -378,7 +378,7 @@ s[n] //n从0计
 oss<<word.substr(1)<<word[0]; <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span></word.substr(1)<<word[0];></code></pre>
 </li>
 </ul>
-<h1 id="606-根据二叉树创建字符串"><a href="#606-根据二叉树创建字符串" class="headerlink" title="#606. 根据二叉树创建字符串"></a>#606. 根据二叉树创建字符串</h1><pre class="line-numbers language-c++"><code class="language-c++">//唯一要注意的地方就是函数定义参数时ans前面加引用&
+<h1 id="606-根据二叉树创建字符串"><a href="#606-根据二叉树创建字符串" class="headerlink" title="606. 根据二叉树创建字符串"></a>606. 根据二叉树创建字符串</h1><pre class="line-numbers language-c++"><code class="language-c++">//唯一要注意的地方就是函数定义参数时ans前面加引用&
 void visit(TreeNode* t,string &ans){
     if (t == NULL)
         return;
@@ -402,8 +402,8 @@ string tree2str(TreeNode* t) {
     return ans;
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="38-报数"><a href="#38-报数" class="headerlink" title="#38. 报数"></a>#38. 报数</h1><p>水题不解释</p>
-<h1 id="696-计数二进制子串"><a href="#696-计数二进制子串" class="headerlink" title="#696. 计数二进制子串"></a>#696. 计数二进制子串</h1><ul>
+<h1 id="38-报数"><a href="#38-报数" class="headerlink" title="38. 报数"></a>38. 报数</h1><p>水题不解释</p>
+<h1 id="696-计数二进制子串"><a href="#696-计数二进制子串" class="headerlink" title="696. 计数二进制子串"></a>696. 计数二进制子串</h1><ul>
 <li><p>挨个取子串的解法过了85/90用例。败在一个超级长的的字符串上。也是，人家长度范围就是50000呢。咋整捏。</p>
 </li>
 <li><p>找到了规律。奇低的效率过了。</p>
@@ -419,24 +419,24 @@ string tree2str(TreeNode* t) {
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></n;++i)></code></pre>
 </li>
 </ul>
-<h1 id="893-特殊等价字符串组"><a href="#893-特殊等价字符串组" class="headerlink" title="#893. 特殊等价字符串组"></a>#893. 特殊等价字符串组</h1><p>不会🙂</p>
-<h1 id="551-学生出勤记录"><a href="#551-学生出勤记录" class="headerlink" title="#551. 学生出勤记录"></a>#551. 学生出勤记录</h1><p>水题</p>
-<h1 id="67-二进制求和"><a href="#67-二进制求和" class="headerlink" title="#67. 二进制求和"></a>#67. 二进制求和</h1><ul>
+<h1 id="893-特殊等价字符串组"><a href="#893-特殊等价字符串组" class="headerlink" title="893. 特殊等价字符串组"></a>893. 特殊等价字符串组</h1><p>不会🙂</p>
+<h1 id="551-学生出勤记录"><a href="#551-学生出勤记录" class="headerlink" title="551. 学生出勤记录"></a>551. 学生出勤记录</h1><p>水题</p>
+<h1 id="67-二进制求和"><a href="#67-二进制求和" class="headerlink" title="67. 二进制求和"></a>67. 二进制求和</h1><ul>
 <li>二进制转了int。发现人家给的二进制数太大了int存不下–》换long，存不下。–》long long，存不下—》unsigned long long，存下了，加和以后存不下。😂。—》此方法卒。</li>
 <li>纯字符判断的方法过了~没啥意思。</li>
 </ul>
-<h1 id="345-反转字符串中的元音字母"><a href="#345-反转字符串中的元音字母" class="headerlink" title="#345. 反转字符串中的元音字母"></a>#345. 反转字符串中的元音字母</h1><p>水题 </p>
+<h1 id="345-反转字符串中的元音字母"><a href="#345-反转字符串中的元音字母" class="headerlink" title="345. 反转字符串中的元音字母"></a>345. 反转字符串中的元音字母</h1><p>水题 </p>
 <ul>
 <li><p>学到知识点 : npos</p>
 <p>std::string::npos 常数值，等于size_t的最大值。通常用来做string<strong>不存在的位置</strong>的标记。</p>
 </li>
 </ul>
-<h1 id="541-反转字符串-II"><a href="#541-反转字符串-II" class="headerlink" title="#541. 反转字符串 II"></a>#541. 反转字符串 II</h1><p><code>#557</code>知道了有reverse()后。分分钟。</p>
+<h1 id="541-反转字符串-II"><a href="#541-反转字符串-II" class="headerlink" title="541. 反转字符串 II"></a>541. 反转字符串 II</h1><p><code>#557</code>知道了有reverse()后。分分钟。</p>
 <ul>
 <li>进阶：<code>reverse(s.begin(),s.begin()+i)</code> 可以用<strong>s.begin()+i</strong>这种方式定位</li>
 </ul>
-<h1 id="383-赎金信"><a href="#383-赎金信" class="headerlink" title="#383.赎金信"></a>#383.赎金信</h1><p>水。存数组OK</p>
-<h1 id="819-最常见的单词"><a href="#819-最常见的单词" class="headerlink" title="#819. 最常见的单词"></a>#819. 最常见的单词</h1><ul>
+<h1 id="383-赎金信"><a href="#383-赎金信" class="headerlink" title="383.赎金信"></a>383.赎金信</h1><p>水。存数组OK</p>
+<h1 id="819-最常见的单词"><a href="#819-最常见的单词" class="headerlink" title="819. 最常见的单词"></a>819. 最常见的单词</h1><ul>
 <li><p>vector中没有find方法。要利用algorithm这个头文件。</p>
 <pre class="line-numbers language-c++"><code class="language-c++">vector<string>::iterator it = find(vt.begin(),vt.end(),s);
 if(it != vt.end())
@@ -445,35 +445,35 @@ if(it != vt.end())
 <li><p>字符串转小写：<code>transform(s.begin(),s.end(),s.begin(),::towlower);</code></p>
 </li>
 </ul>
-<h1 id="28-实现strStr"><a href="#28-实现strStr" class="headerlink" title="#28. 实现strStr()"></a>#28. 实现strStr()</h1><ul>
+<h1 id="28-实现strStr"><a href="#28-实现strStr" class="headerlink" title="28. 实现strStr()"></a>28. 实现strStr()</h1><ul>
 <li>小写字母ascii码是大写的  <strong>+</strong>   32</li>
 </ul>
-<h1 id="125-验证回文串"><a href="#125-验证回文串" class="headerlink" title="#125. 验证回文串"></a>#125. 验证回文串</h1><p>水。</p>
-<h1 id="459-重复的子字符串"><a href="#459-重复的子字符串" class="headerlink" title="#459. 重复的子字符串"></a>#459. 重复的子字符串</h1><ul>
+<h1 id="125-验证回文串"><a href="#125-验证回文串" class="headerlink" title="125. 验证回文串"></a>125. 验证回文串</h1><p>水。</p>
+<h1 id="459-重复的子字符串"><a href="#459-重复的子字符串" class="headerlink" title="459. 重复的子字符串"></a>459. 重复的子字符串</h1><ul>
 <li>之前我取 tmp = s.substr(0,step) 取出来之后 每次让tmp加上自己来增加。没考虑到这样tmp这样是2的指数级增加。</li>
 <li>有continue的情况却忘了i— 进入了死循环</li>
 </ul>
-<h1 id="387-字符串中的第一个唯一字符"><a href="#387-字符串中的第一个唯一字符" class="headerlink" title="#387. 字符串中的第一个唯一字符"></a>#387. 字符串中的第一个唯一字符</h1><ul>
+<h1 id="387-字符串中的第一个唯一字符"><a href="#387-字符串中的第一个唯一字符" class="headerlink" title="387. 字符串中的第一个唯一字符"></a>387. 字符串中的第一个唯一字符</h1><ul>
 <li><p>初始化数组全为0：</p>
 <pre class="line-numbers language-c++"><code class="language-c++">int nums[26];
 memset(nums,0,len * sizeof(int));
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h1 id="443-压缩字符串"><a href="#443-压缩字符串" class="headerlink" title="#443. 压缩字符串"></a>#443. 压缩字符串</h1><p><strong>不会！</strong></p>
-<h1 id="58-最后一个单词的长度"><a href="#58-最后一个单词的长度" class="headerlink" title="#58.最后一个单词的长度"></a>#58.最后一个单词的长度</h1><p>4行就解决的问题不明白为啥通过这么低</p>
+<h1 id="443-压缩字符串"><a href="#443-压缩字符串" class="headerlink" title="443. 压缩字符串"></a>443. 压缩字符串</h1><p><strong>不会！</strong></p>
+<h1 id="58-最后一个单词的长度"><a href="#58-最后一个单词的长度" class="headerlink" title="58.最后一个单词的长度"></a>58.最后一个单词的长度</h1><p>4行就解决的问题不明白为啥通过这么低</p>
 <pre class="line-numbers language-c++"><code class="language-c++">istringstream is(s);
 string tmp;
 while(is>>tmp){}
 return tmp.size();
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="434-字符串中的单词数"><a href="#434-字符串中的单词数" class="headerlink" title="#434.字符串中的单词数"></a>#434.字符串中的单词数</h1><p>和上题一样水。</p>
-<h1 id="68-验证回文字符串-Ⅱ"><a href="#68-验证回文字符串-Ⅱ" class="headerlink" title="#68.验证回文字符串 Ⅱ"></a>#68.验证回文字符串 Ⅱ</h1><p>排除一个字符只让一个标记移动的时候。要判断清除。(不好形容)</p>
+<h1 id="434-字符串中的单词数"><a href="#434-字符串中的单词数" class="headerlink" title="434.字符串中的单词数"></a>434.字符串中的单词数</h1><p>和上题一样水。</p>
+<h1 id="68-验证回文字符串-Ⅱ"><a href="#68-验证回文字符串-Ⅱ" class="headerlink" title="68.验证回文字符串 Ⅱ"></a>68.验证回文字符串 Ⅱ</h1><p>排除一个字符只让一个标记移动的时候。要判断清除。(不好形容)</p>
 <p>比如字符串cuucu。s[0]≠s[4]…</p>
 <p>但是s[1]=s[4]..这时候如果让第一个标记右移，新字符串是uucu就错了。</p>
 <p>因为其实s[0]=s[3]..应该让第二个标记左移。得到新串cuuc。</p>
-<h1 id="686-重复叠加字符串匹配"><a href="#686-重复叠加字符串匹配" class="headerlink" title="#686. 重复叠加字符串匹配"></a>#686. 重复叠加字符串匹配</h1><p>折腾半天。过了。这题要二刷。样例太狗了哈哈。</p>
-<h1 id="859-亲密字符串"><a href="#859-亲密字符串" class="headerlink" title="#859. 亲密字符串"></a>#859. 亲密字符串</h1><ul>
+<h1 id="686-重复叠加字符串匹配"><a href="#686-重复叠加字符串匹配" class="headerlink" title="686. 重复叠加字符串匹配"></a>686. 重复叠加字符串匹配</h1><p>折腾半天。过了。这题要二刷。样例太狗了哈哈。</p>
+<h1 id="859-亲密字符串"><a href="#859-亲密字符串" class="headerlink" title="859. 亲密字符串"></a>859. 亲密字符串</h1><ul>
 <li>突然有个感悟就是。不要老是在判断过程中就 <code>return true ,false</code> 的。导致常常有的情况都没有return 的。最好是这样  <code>ans = 1; break;</code>、然后最后<code>return ans;</code>    稳</li>
 </ul>
 <hr>
@@ -637,7 +637,7 @@ subl ~/.bas</div>
         <div class="toc-widget">
             <h4>目录</h4>
             <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础部分"><span class="post-toc-text">基础部分</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#709-转换成小写字母"><span class="post-toc-text">#709. 转换成小写字母</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#657-机器人能否返回原点"><span class="post-toc-text">#657. 机器人能否返回原点</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#344-反转字符串"><span class="post-toc-text">#344. 反转字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#557-反转字符串中的单词III"><span class="post-toc-text">#557. 反转字符串中的单词III</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#521-最长特殊序列I"><span class="post-toc-text">#521. 最长特殊序列I</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#520-检测大写字母"><span class="post-toc-text">#520. 检测大写字母</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#788-旋转数字"><span class="post-toc-text">#788. 旋转数字</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#824-山羊拉丁文"><span class="post-toc-text">#824. 山羊拉丁文</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#606-根据二叉树创建字符串"><span class="post-toc-text">#606. 根据二叉树创建字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#38-报数"><span class="post-toc-text">#38. 报数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#696-计数二进制子串"><span class="post-toc-text">#696. 计数二进制子串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#893-特殊等价字符串组"><span class="post-toc-text">#893. 特殊等价字符串组</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#551-学生出勤记录"><span class="post-toc-text">#551. 学生出勤记录</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#67-二进制求和"><span class="post-toc-text">#67. 二进制求和</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#345-反转字符串中的元音字母"><span class="post-toc-text">#345. 反转字符串中的元音字母</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#541-反转字符串-II"><span class="post-toc-text">#541. 反转字符串 II</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#383-赎金信"><span class="post-toc-text">#383.赎金信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#819-最常见的单词"><span class="post-toc-text">#819. 最常见的单词</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#28-实现strStr"><span class="post-toc-text">#28. 实现strStr()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#125-验证回文串"><span class="post-toc-text">#125. 验证回文串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#459-重复的子字符串"><span class="post-toc-text">#459. 重复的子字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#387-字符串中的第一个唯一字符"><span class="post-toc-text">#387. 字符串中的第一个唯一字符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#443-压缩字符串"><span class="post-toc-text">#443. 压缩字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#58-最后一个单词的长度"><span class="post-toc-text">#58.最后一个单词的长度</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#434-字符串中的单词数"><span class="post-toc-text">#434.字符串中的单词数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#68-验证回文字符串-Ⅱ"><span class="post-toc-text">#68.验证回文字符串 Ⅱ</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#686-重复叠加字符串匹配"><span class="post-toc-text">#686. 重复叠加字符串匹配</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#859-亲密字符串"><span class="post-toc-text">#859. 亲密字符串</span></a></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础部分"><span class="post-toc-text">基础部分</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#709-转换成小写字母"><span class="post-toc-text">709. 转换成小写字母</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#657-机器人能否返回原点"><span class="post-toc-text">657. 机器人能否返回原点</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#344-反转字符串"><span class="post-toc-text">344. 反转字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#557-反转字符串中的单词III"><span class="post-toc-text">557. 反转字符串中的单词III</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#521-最长特殊序列I"><span class="post-toc-text">521. 最长特殊序列I</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#520-检测大写字母"><span class="post-toc-text">520. 检测大写字母</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#788-旋转数字"><span class="post-toc-text">788. 旋转数字</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#824-山羊拉丁文"><span class="post-toc-text">824. 山羊拉丁文</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#606-根据二叉树创建字符串"><span class="post-toc-text">606. 根据二叉树创建字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#38-报数"><span class="post-toc-text">38. 报数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#696-计数二进制子串"><span class="post-toc-text">696. 计数二进制子串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#893-特殊等价字符串组"><span class="post-toc-text">893. 特殊等价字符串组</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#551-学生出勤记录"><span class="post-toc-text">551. 学生出勤记录</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#67-二进制求和"><span class="post-toc-text">67. 二进制求和</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#345-反转字符串中的元音字母"><span class="post-toc-text">345. 反转字符串中的元音字母</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#541-反转字符串-II"><span class="post-toc-text">541. 反转字符串 II</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#383-赎金信"><span class="post-toc-text">383.赎金信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#819-最常见的单词"><span class="post-toc-text">819. 最常见的单词</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#28-实现strStr"><span class="post-toc-text">28. 实现strStr()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#125-验证回文串"><span class="post-toc-text">125. 验证回文串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#459-重复的子字符串"><span class="post-toc-text">459. 重复的子字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#387-字符串中的第一个唯一字符"><span class="post-toc-text">387. 字符串中的第一个唯一字符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#443-压缩字符串"><span class="post-toc-text">443. 压缩字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#58-最后一个单词的长度"><span class="post-toc-text">58.最后一个单词的长度</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#434-字符串中的单词数"><span class="post-toc-text">434.字符串中的单词数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#68-验证回文字符串-Ⅱ"><span class="post-toc-text">68.验证回文字符串 Ⅱ</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#686-重复叠加字符串匹配"><span class="post-toc-text">686. 重复叠加字符串匹配</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#859-亲密字符串"><span class="post-toc-text">859. 亲密字符串</span></a></li></ol>
             </div>
         </div>
     </div>
@@ -710,10 +710,9 @@ subl ~/.bas</div>
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 采用
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>的主题搭建.
-        </div>
+            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
+              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>
         <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
@@ -725,7 +724,7 @@ subl ~/.bas</div>
 </a>
 </div>
     </div>
-</footer>
+</div></footer>
 
 <div class="progress-bar"></div>
 
