@@ -161,12 +161,14 @@ mark {
 }
 
 .bg-color {
-    background-color: #3f54af !important; 
+    /* background-color: #3f54af !important;  */
     /* background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%); */
+    background-image: linear-gradient(to right, #bf305b 0%, #9d0f46 100%);
 }
 
 .text-color {
-    color: #0f9d58 !important;
+    /* color: #0f9d58 !important; */
+    color: #9d0f46 !important;
 }
 
 /*头部导航栏样式*/
