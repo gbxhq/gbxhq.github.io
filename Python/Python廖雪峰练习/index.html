@@ -188,9 +188,11 @@
     <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
+
 <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
+
 <a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
@@ -225,35 +227,44 @@
 <main class="post-container content">
 
     
-    <style>
-    #artDetail h1,
-    #artDetail h2,
-    #artDetail h3,
-    #artDetail h4,
-    #artDetail h5,
-    #artDetail h6 {
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
         padding-top: 76px;
         margin-top: -76px;
     }
 
-    #artDetail h1 {
-        line-height: 2rem;
+    #articleContent h1 {
+        line-height: 3.5rem;
     }
 
-    #artDetail h2 {
-        line-height: 0rem;
+    #articleContent h2 {
+        line-height: 3.2rem;
     }
 
-    #artDetail h3 {
-        line-height: 2rem;
+    #articleContent h3 {
+        line-height: 2.8rem;
     }
 
-    #artDetail h4 {
-        line-height: 2rem;
+    #articleContent h4 {
+        line-height: 2.5rem;
     }
 
-    #artDetail h5 {
-        line-height: 2rem;
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
     }
 
     .toc-fixed {
@@ -265,28 +276,44 @@
         padding-left: 20px;
     }
 
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
     .toc-widget ol {
         padding: 0;
         list-style: none;
     }
 
-    .post-toc ol {
-        padding-left: 20px;
+    #toc-content ol {
+        padding-left: 10px;
     }
 
-    .post-toc a {
-        color: #34495e;
-        font-size: 0.96rem;
+    #toc-content ol li {
+        padding-left: 10px;
     }
 
-    .post-toc a:hover {
+    #toc-content .toc-link:hover {
         color: #42b983;
+        font-weight: 700;
         text-decoration: underline;
     }
 
-    .post-toc .active {
+    #toc-content .toc-link::before {
+        background-color: #eaeaea;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
         color: #42b983;
-        font-weight: 500;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
     }
 </style>
 <div class="row">
@@ -529,27 +556,31 @@ def str2float(s):
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Python/Python初探/">
+                <a href="/Others/SQL/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Python初探">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="SQL">
                         
-                        <span class="card-title">Python初探</span>
+                        <span class="card-title">SQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是我刚开始学习Python时做的笔记，百度Python后先看到有廖雪峰的教程。就对着看了一遍。紧接着同学推荐了莫烦的教程，果然，这个教程上手更快。另外我认为Python作为一个脚本语言，很多东西是在学习的时候没法记忆的，勤查着点就够了。因</div>
+                    <div class="summary">noSql数据库满天飞的情况下，安下心来让SQL尘埃落定吧。（出来混总要还的😌）《SQL必知必会》读书笔记，Ben Forta著。
+
+了解SQLStructured Query Language 结构化查询语言
+基础语法
+|   表示 在</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-02-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
                                 </a>
                             
                             
@@ -559,8 +590,8 @@ def str2float(s):
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/SQL/" target="_blank">
+                        <span class="chip bg-color">SQL</span>
                     </a>
                     
                 </div>
@@ -574,70 +605,46 @@ def str2float(s):
     </div>
     <div class="col l3 hide-on-med-and-down">
         <div class="toc-widget">
-            <h4>目录</h4>
+            <div class="toc-title">目录</div>
             <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的参数"><span class="post-toc-text">函数的参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#递归函数"><span class="post-toc-text">递归函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#切片"><span class="post-toc-text">切片</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#迭代"><span class="post-toc-text">迭代</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表生成式"><span class="post-toc-text">列表生成式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生成器"><span class="post-toc-text">生成器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#map-reduce"><span class="post-toc-text">map/reduce</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#fliter"><span class="post-toc-text">fliter</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sort"><span class="post-toc-text">sort</span></a></li></ol>
+
             </div>
         </div>
     </div>
 </div>
 
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
-        let tocLinks = $('#toc-content a');
-        let setTocLinkActive = function (jqObj) {
-            tocLinks.removeClass('active');
-            jqObj.addClass('active');
-        };
-
-        // 监听点击TOC目录.
-        tocLinks.on('click', function () {
-            setTocLinkActive($(this));
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1,h2, h3, h4'
         });
 
-        let titleTopArr = [];
-        //更改find('h1, h2, h3, h4, h5, h6')
-        $('#articleContent').find('h1').each(function () {
-            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
         });
-        let titleLen = titleTopArr.length;
 
-        /* 监听滚动条.*/
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
         let $tocWidget = $('.toc-widget');
         $(window).scroll(function () {
             let scroll = $(window).scrollTop();
-
             /* add post toc fixed. */
-            if (scroll > 240) {
+            if (scroll > tocHeight) {
                 $tocWidget.addClass('toc-fixed');
             } else {
                 $tocWidget.removeClass('toc-fixed');
-            }
-
-            /** 以下代码为动态设置TOC激活高亮的目录. */
-            if (titleLen === 0) {
-                return;
-            }
-
-            let firstTitleObj = titleTopArr[0];
-            if (firstTitleObj.top > scroll) {
-                return;
-            } else if (firstTitleObj.top === scroll) {
-                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
-                return;
-            }
-
-            let lastTitleObj = titleTopArr[titleLen - 1];
-            if (lastTitleObj.top <= scroll) {
-                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
-                return;
-            }
-
-            for (let i = 0; i < titleLen; i++) {
-                if (titleTopArr[i].top > scroll) {
-                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
-                    break;
-                }
             }
         });
     });
@@ -651,19 +658,21 @@ def str2float(s):
         <div class="col s12 m8 l8 copy-right">
             &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
             <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
-              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>
+              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
         <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
+
 <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
+
 <a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
     </div>
-</div></footer>
+</footer>
 
 <div class="progress-bar"></div>
 

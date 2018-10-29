@@ -193,9 +193,11 @@ typedef struct ListNode
     <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
+
 <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
+
 <a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
@@ -230,35 +232,44 @@ typedef struct ListNode
 <main class="post-container content">
 
     
-    <style>
-    #artDetail h1,
-    #artDetail h2,
-    #artDetail h3,
-    #artDetail h4,
-    #artDetail h5,
-    #artDetail h6 {
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
         padding-top: 76px;
         margin-top: -76px;
     }
 
-    #artDetail h1 {
-        line-height: 2rem;
+    #articleContent h1 {
+        line-height: 3.5rem;
     }
 
-    #artDetail h2 {
-        line-height: 0rem;
+    #articleContent h2 {
+        line-height: 3.2rem;
     }
 
-    #artDetail h3 {
-        line-height: 2rem;
+    #articleContent h3 {
+        line-height: 2.8rem;
     }
 
-    #artDetail h4 {
-        line-height: 2rem;
+    #articleContent h4 {
+        line-height: 2.5rem;
     }
 
-    #artDetail h5 {
-        line-height: 2rem;
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
     }
 
     .toc-fixed {
@@ -270,28 +281,44 @@ typedef struct ListNode
         padding-left: 20px;
     }
 
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
     .toc-widget ol {
         padding: 0;
         list-style: none;
     }
 
-    .post-toc ol {
-        padding-left: 20px;
+    #toc-content ol {
+        padding-left: 10px;
     }
 
-    .post-toc a {
-        color: #34495e;
-        font-size: 0.96rem;
+    #toc-content ol li {
+        padding-left: 10px;
     }
 
-    .post-toc a:hover {
+    #toc-content .toc-link:hover {
         color: #42b983;
+        font-weight: 700;
         text-decoration: underline;
     }
 
-    .post-toc .active {
+    #toc-content .toc-link::before {
+        background-color: #eaeaea;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
         color: #42b983;
-        font-weight: 500;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
     }
 </style>
 <div class="row">
@@ -379,7 +406,7 @@ ListNode <span class="token operator">*</span><span class="token function">initL
     <span class="token function">showList</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="21-合并有序链表"><a href="#21-合并有序链表" class="headerlink" title="#21 合并有序链表"></a>#21 合并有序链表</h1><h2 id="解"><a href="#解" class="headerlink" title="解"></a>解</h2><p>不贴我的了。写的太烂了。新建了一个链表一个数一个数插进去的。</p>
+<h1 id="21-合并有序链表"><a href="#21-合并有序链表" class="headerlink" title="21 合并有序链表"></a>21 合并有序链表</h1><h2 id="解"><a href="#解" class="headerlink" title="解"></a>解</h2><p>不贴我的了。写的太烂了。新建了一个链表一个数一个数插进去的。</p>
 <p>贴一个同效率的。简洁好多。</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/**
  * Definition for singly-linked list.
@@ -464,12 +491,12 @@ ListNode <span class="token operator">*</span><span class="token function">initL
 <hr>
 <p>基本功啊。</p>
 <p>准备多做几个链表题来巩固一下了。</p>
-<h1 id="237-删除某个节点"><a href="#237-删除某个节点" class="headerlink" title="#237 删除某个节点"></a>#237 删除某个节点</h1><p>这个比较简单。操作指针就好了。</p>
+<h1 id="237-删除某个节点"><a href="#237-删除某个节点" class="headerlink" title="237 删除某个节点"></a>237 删除某个节点</h1><p>这个比较简单。操作指针就好了。</p>
 <p>注意此题简单的一个重要条件就是：</p>
 <p><strong>给点节点为非末尾节点</strong></p>
 <p>这样就不会有删除最后一个节点的情况。</p>
-<h1 id="876-链表的中间节点"><a href="#876-链表的中间节点" class="headerlink" title="#876 链表的中间节点"></a>#876 链表的中间节点</h1><p>简单。计数器判断。</p>
-<h1 id="206-反转链表"><a href="#206-反转链表" class="headerlink" title="#206 反转链表"></a>#206 反转链表</h1><p>我用递归做的。</p>
+<h1 id="876-链表的中间节点"><a href="#876-链表的中间节点" class="headerlink" title="876 链表的中间节点"></a>876 链表的中间节点</h1><p>简单。计数器判断。</p>
+<h1 id="206-反转链表"><a href="#206-反转链表" class="headerlink" title="206 反转链表"></a>206 反转链表</h1><p>我用递归做的。</p>
 <p>思路是，把第一个节点取出来。然后从第二个开始反转，反转的结果再接上第一个节点。</p>
 <h2 id="Problems-1"><a href="#Problems-1" class="headerlink" title="Problems"></a>Problems</h2><p>开始我取第一个节点是直接一个指针指向head。这样虽然取到了。但是这个节点的next不是NULL啊。而是2号到最后。</p>
 <p>后来用的方法是new一个新的空间。（相当于是取出来了第一个节点的<strong>值</strong>吧）</p>
@@ -516,10 +543,10 @@ head<span class="token operator">-</span><span class="token operator">></span>ne
 <p>返回的时候返回的就是<strong>已经反转完成的链表的头</strong>。别想别的。</p>
 <p>思考最后递归的倒数第二层是什么情况（比如这题就是还剩俩节点）。</p>
 </blockquote>
-<h1 id="83-删除重复元素"><a href="#83-删除重复元素" class="headerlink" title="#83 删除重复元素"></a>#83 删除重复元素</h1><ul>
+<h1 id="83-删除重复元素"><a href="#83-删除重复元素" class="headerlink" title="83 删除重复元素"></a>83 删除重复元素</h1><ul>
 <li>删除节点光把当前节点赋NULL是不行滴。</li>
 </ul>
-<h1 id="203-删除链表中的节点"><a href="#203-删除链表中的节点" class="headerlink" title="#203 删除链表中的节点"></a>#203 删除链表中的节点</h1><p>和237题不同的是这个题是给了值。237题给的是节点。</p>
+<h1 id="203-删除链表中的节点"><a href="#203-删除链表中的节点" class="headerlink" title="203 删除链表中的节点"></a>203 删除链表中的节点</h1><p>和237题不同的是这个题是给了值。237题给的是节点。</p>
 <p>感悟和上一个#83题查不多。就是想删除某个节点。只把 cur指针赋NULL是不行的。因为<strong>上一个节点的next 还指着 之前 cur的地址</strong>啊。cur是为空了，上一个节点的next不是空啊。</p>
 <p>因为觉得删最后一个节点的情况不好写。转递归法一气呵成哈哈。</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">ListNode<span class="token operator">*</span> <span class="token function">removeElements</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -574,7 +601,7 @@ phead<span class="token punctuation">.</span>next <span class="token operator">=
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="#234 回文链表"></a>#234 回文链表</h1><ul>
+<h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234 回文链表"></a>234 回文链表</h1><ul>
 <li><p>注意。长度为1的链表也是回文的。</p>
 </li>
 <li><p>我的方法比较笨。先跑一遍记录有多少个数。再遍历前半部分，把数存到栈里。再遍历后半部分。挨个出栈。</p>
@@ -615,12 +642,12 @@ phead<span class="token punctuation">.</span>next <span class="token operator">=
 <ul>
 <li>最后说一下排行第一的方法。人家没存到栈里。存到了向量里。然后直接用坐标定位来判断首尾是否一样。我真的是太定向思维了。看到是从中间往两侧判断就知道用栈。辣鸡~</li>
 </ul>
-<h1 id="141环形链表"><a href="#141环形链表" class="headerlink" title="#141环形链表"></a>#141环形链表</h1><blockquote>
+<h1 id="141环形链表"><a href="#141环形链表" class="headerlink" title="141环形链表"></a>141环形链表</h1><blockquote>
 <p> 知识点：如果有环，快慢指针一定会相遇。可用递归法证明。</p>
 </blockquote>
-<h1 id="160-相交链表"><a href="#160-相交链表" class="headerlink" title="#160 相交链表"></a>#160 相交链表</h1><p>我用了一个set保存A的每个地址。</p>
+<h1 id="160-相交链表"><a href="#160-相交链表" class="headerlink" title="160 相交链表"></a>160 相交链表</h1><p>我用了一个set保存A的每个地址。</p>
 <p>然后对着B进行set.find()。过。关闭输入输出同步之后效率从29升到87~哈哈。</p>
-<h1 id="707设计链表"><a href="#707设计链表" class="headerlink" title="#707设计链表"></a>#707设计链表</h1><p>不想做😛😛😛</p>
+<h1 id="707设计链表"><a href="#707设计链表" class="headerlink" title="707设计链表"></a>707设计链表</h1><p>不想做😛😛😛</p>
 <p>【链表+简单】刷完~</p>
 <p>下一站，【字符串】</p>
 
@@ -790,70 +817,46 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
     </div>
     <div class="col l3 hide-on-med-and-down">
         <div class="toc-widget">
-            <h4>目录</h4>
+            <div class="toc-title">目录</div>
             <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础部分"><span class="post-toc-text">基础部分</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#21-合并有序链表"><span class="post-toc-text">#21 合并有序链表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解"><span class="post-toc-text">解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Problems"><span class="post-toc-text">Problems</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#递归的解法"><span class="post-toc-text">递归的解法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#237-删除某个节点"><span class="post-toc-text">#237 删除某个节点</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#876-链表的中间节点"><span class="post-toc-text">#876 链表的中间节点</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#206-反转链表"><span class="post-toc-text">#206 反转链表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Problems-1"><span class="post-toc-text">Problems</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解-1"><span class="post-toc-text">解</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#83-删除重复元素"><span class="post-toc-text">#83 删除重复元素</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#203-删除链表中的节点"><span class="post-toc-text">#203 删除链表中的节点</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#234-回文链表"><span class="post-toc-text">#234 回文链表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快慢指针"><span class="post-toc-text">快慢指针</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#141环形链表"><span class="post-toc-text">#141环形链表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#160-相交链表"><span class="post-toc-text">#160 相交链表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#707设计链表"><span class="post-toc-text">#707设计链表</span></a></li></ol>
+
             </div>
         </div>
     </div>
 </div>
 
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
-        let tocLinks = $('#toc-content a');
-        let setTocLinkActive = function (jqObj) {
-            tocLinks.removeClass('active');
-            jqObj.addClass('active');
-        };
-
-        // 监听点击TOC目录.
-        tocLinks.on('click', function () {
-            setTocLinkActive($(this));
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1,h2, h3, h4'
         });
 
-        let titleTopArr = [];
-        //更改find('h1, h2, h3, h4, h5, h6')
-        $('#articleContent').find('h1').each(function () {
-            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
         });
-        let titleLen = titleTopArr.length;
 
-        /* 监听滚动条.*/
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
         let $tocWidget = $('.toc-widget');
         $(window).scroll(function () {
             let scroll = $(window).scrollTop();
-
             /* add post toc fixed. */
-            if (scroll > 240) {
+            if (scroll > tocHeight) {
                 $tocWidget.addClass('toc-fixed');
             } else {
                 $tocWidget.removeClass('toc-fixed');
-            }
-
-            /** 以下代码为动态设置TOC激活高亮的目录. */
-            if (titleLen === 0) {
-                return;
-            }
-
-            let firstTitleObj = titleTopArr[0];
-            if (firstTitleObj.top > scroll) {
-                return;
-            } else if (firstTitleObj.top === scroll) {
-                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
-                return;
-            }
-
-            let lastTitleObj = titleTopArr[titleLen - 1];
-            if (lastTitleObj.top <= scroll) {
-                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
-                return;
-            }
-
-            for (let i = 0; i < titleLen; i++) {
-                if (titleTopArr[i].top > scroll) {
-                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
-                    break;
-                }
             }
         });
     });
@@ -867,19 +870,21 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
         <div class="col s12 m8 l8 copy-right">
             &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
             <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
-              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>
+              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
         <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
+
 <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
+
 <a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
     </div>
-</div></footer>
+</footer>
 
 <div class="progress-bar"></div>
 

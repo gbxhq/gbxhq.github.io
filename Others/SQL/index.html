@@ -190,9 +190,11 @@
     <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
+
 <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
+
 <a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
@@ -227,35 +229,44 @@
 <main class="post-container content">
 
     
-    <style>
-    #artDetail h1,
-    #artDetail h2,
-    #artDetail h3,
-    #artDetail h4,
-    #artDetail h5,
-    #artDetail h6 {
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
         padding-top: 76px;
         margin-top: -76px;
     }
 
-    #artDetail h1 {
-        line-height: 2rem;
+    #articleContent h1 {
+        line-height: 3.5rem;
     }
 
-    #artDetail h2 {
-        line-height: 0rem;
+    #articleContent h2 {
+        line-height: 3.2rem;
     }
 
-    #artDetail h3 {
-        line-height: 2rem;
+    #articleContent h3 {
+        line-height: 2.8rem;
     }
 
-    #artDetail h4 {
-        line-height: 2rem;
+    #articleContent h4 {
+        line-height: 2.5rem;
     }
 
-    #artDetail h5 {
-        line-height: 2rem;
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
     }
 
     .toc-fixed {
@@ -267,28 +278,44 @@
         padding-left: 20px;
     }
 
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
     .toc-widget ol {
         padding: 0;
         list-style: none;
     }
 
-    .post-toc ol {
-        padding-left: 20px;
+    #toc-content ol {
+        padding-left: 10px;
     }
 
-    .post-toc a {
-        color: #34495e;
-        font-size: 0.96rem;
+    #toc-content ol li {
+        padding-left: 10px;
     }
 
-    .post-toc a:hover {
+    #toc-content .toc-link:hover {
         color: #42b983;
+        font-weight: 700;
         text-decoration: underline;
     }
 
-    .post-toc .active {
+    #toc-content .toc-link::before {
+        background-color: #eaeaea;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
         color: #42b983;
-        font-weight: 500;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
     }
 </style>
 <div class="row">
@@ -834,17 +861,19 @@ GROUP BY name;
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/Python/Python初探/">
+                <a href="/Python/Python廖雪峰练习/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Python初探">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Python廖雪峰练习">
                         
-                        <span class="card-title">Python初探</span>
+                        <span class="card-title">Python廖雪峰练习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是我刚开始学习Python时做的笔记，百度Python后先看到有廖雪峰的教程。就对着看了一遍。紧接着同学推荐了莫烦的教程，果然，这个教程上手更快。另外我认为Python作为一个脚本语言，很多东西是在学习的时候没法记忆的，勤查着点就够了。因</div>
+                    <div class="summary">这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！
+
+函数的参数def pr</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
@@ -932,70 +961,46 @@ extension UIView {
     </div>
     <div class="col l3 hide-on-med-and-down">
         <div class="toc-widget">
-            <h4>目录</h4>
+            <div class="toc-title">目录</div>
             <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#了解SQL"><span class="post-toc-text">了解SQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基础语法"><span class="post-toc-text">基础语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据类型"><span class="post-toc-text">数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串"><span class="post-toc-text">字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数值"><span class="post-toc-text">数值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#日期时间"><span class="post-toc-text">日期时间</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#检索数据"><span class="post-toc-text">检索数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#限制结果"><span class="post-toc-text">限制结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注释"><span class="post-toc-text">注释</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#排序检索数据"><span class="post-toc-text">排序检索数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#排序方向："><span class="post-toc-text">排序方向：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过滤数据"><span class="post-toc-text">过滤数据</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高级过滤"><span class="post-toc-text">高级过滤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组合WHERE子句"><span class="post-toc-text">组合WHERE子句</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AND和OR的顺序"><span class="post-toc-text">AND和OR的顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IN操作符"><span class="post-toc-text">IN操作符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NOT-操作符"><span class="post-toc-text">NOT 操作符</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通配符过滤"><span class="post-toc-text">通配符过滤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通配符技巧"><span class="post-toc-text">通配符技巧</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用别名"><span class="post-toc-text">使用别名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算数计算"><span class="post-toc-text">算数计算</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数"><span class="post-toc-text">函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇总数据"><span class="post-toc-text">汇总数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#聚集函数"><span class="post-toc-text">聚集函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DISTINCT去重"><span class="post-toc-text">DISTINCT去重</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分组"><span class="post-toc-text">分组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不用GROUP-BY"><span class="post-toc-text">不用GROUP BY</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GROUP-BY"><span class="post-toc-text">GROUP BY</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#过滤分组"><span class="post-toc-text">过滤分组</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#子查询"><span class="post-toc-text">子查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IN-SELECT"><span class="post-toc-text">IN(SELECT)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#作为计算字段"><span class="post-toc-text">作为计算字段</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#联结表"><span class="post-toc-text">联结表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#笛卡尔积"><span class="post-toc-text">笛卡尔积</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内联结-等值联结"><span class="post-toc-text">内联结 等值联结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高级联结"><span class="post-toc-text">高级联结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表的别名"><span class="post-toc-text">表的别名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自联结"><span class="post-toc-text">自联结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自然联结"><span class="post-toc-text">自然联结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#外联结"><span class="post-toc-text">外联结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组合查询"><span class="post-toc-text">组合查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重复的行"><span class="post-toc-text">重复的行</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插入数据"><span class="post-toc-text">插入数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入完整的行"><span class="post-toc-text">插入完整的行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入部分行"><span class="post-toc-text">插入部分行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入检索的数据"><span class="post-toc-text">插入检索的数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从一张表复制到另一张表"><span class="post-toc-text">从一张表复制到另一张表</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#删改"><span class="post-toc-text">删改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新数据"><span class="post-toc-text">更新数据</span></a></li></ol></li>
+
             </div>
         </div>
     </div>
 </div>
 
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
-        let tocLinks = $('#toc-content a');
-        let setTocLinkActive = function (jqObj) {
-            tocLinks.removeClass('active');
-            jqObj.addClass('active');
-        };
-
-        // 监听点击TOC目录.
-        tocLinks.on('click', function () {
-            setTocLinkActive($(this));
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1,h2, h3, h4'
         });
 
-        let titleTopArr = [];
-        //更改find('h1, h2, h3, h4, h5, h6')
-        $('#articleContent').find('h1').each(function () {
-            titleTopArr.push({'id': $(this).attr('id'), 'top': Math.round($(this).offset().top)});
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
         });
-        let titleLen = titleTopArr.length;
 
-        /* 监听滚动条.*/
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
         let $tocWidget = $('.toc-widget');
         $(window).scroll(function () {
             let scroll = $(window).scrollTop();
-
             /* add post toc fixed. */
-            if (scroll > 240) {
+            if (scroll > tocHeight) {
                 $tocWidget.addClass('toc-fixed');
             } else {
                 $tocWidget.removeClass('toc-fixed');
-            }
-
-            /** 以下代码为动态设置TOC激活高亮的目录. */
-            if (titleLen === 0) {
-                return;
-            }
-
-            let firstTitleObj = titleTopArr[0];
-            if (firstTitleObj.top > scroll) {
-                return;
-            } else if (firstTitleObj.top === scroll) {
-                setTocLinkActive($('#toc-content a[href="#' + firstTitleObj.id + '"]'));
-                return;
-            }
-
-            let lastTitleObj = titleTopArr[titleLen - 1];
-            if (lastTitleObj.top <= scroll) {
-                setTocLinkActive($('#toc-content a[href="#' + lastTitleObj.id + '"]'));
-                return;
-            }
-
-            for (let i = 0; i < titleLen; i++) {
-                if (titleTopArr[i].top > scroll) {
-                    setTocLinkActive($('#toc-content a[href="#' + titleTopArr[i - 1].id + '"]'));
-                    break;
-                }
             }
         });
     });
@@ -1009,19 +1014,21 @@ extension UIView {
         <div class="col s12 m8 l8 copy-right">
             &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
             <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
-              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>
+              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
         <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
     <i class="fa fa-github"></i>
 </a>
+
 <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
     <i class="fa fa-envelope-open"></i>
 </a>
+
 <a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
     <i class="fa fa-qq"></i>
 </a>
 </div>
     </div>
-</div></footer>
+</footer>
 
 <div class="progress-bar"></div>
 

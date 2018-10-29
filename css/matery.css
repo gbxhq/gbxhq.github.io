@@ -161,14 +161,11 @@ mark {
 }
 
 .bg-color {
-    /* background-color: #3f54af !important;  */
-    /* background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%); */
     background-image: linear-gradient(to right, #3f54af 0%, #f76363 100%);
 }
 
 .text-color {
-    /* color: #0f9d58 !important; */
-    color: #38d7ff !important;
+    color: #0f9d58 !important;
 }
 
 /*头部导航栏样式*/
@@ -358,11 +355,10 @@ header .go-back i {
 .post-cover {
     height: 18vh !important;
 }
-/* 更改了高度 height: 40vh !important; */
 
 .bg-cover:after {
-    -webkit-animation: rainbow 1s infinite;
-    animation: rainbow 1s infinite;
+    -webkit-animation: rainbow 60s infinite;
+    animation: rainbow 60s infinite;
 }
 
 .bg-cover:before, .bg-cover:after {
@@ -409,15 +405,14 @@ header .go-back i {
         background: -moz-linear-gradient(135deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
         background: -webkit-linear-gradient(135deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
     }
-    /* 备份颜色。第一个颜色不错
-    0%,
+    /* 0%,
     100% {
         background: rgba(156, 39, 176, 0.75);
         background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
-    } */
-    /* 16% {
+    }
+    16% {
         background: rgba(132, 13, 121, 0.75);
         background: linear-gradient(45deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
@@ -463,8 +458,8 @@ header .go-back i {
         background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
-    } */
-    /* 16% {
+    }
+    16% {
         background: rgba(132, 13, 121, 0.75);
         background: linear-gradient(45deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
