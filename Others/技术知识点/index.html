@@ -485,6 +485,9 @@ export PATH=$PATH:<path 1="">:<path 2="">:<path 3="">:------:<path n="">
 <h2 id="Mac终端下出现bogon的解决办法"><a href="#Mac终端下出现bogon的解决办法" class="headerlink" title="Mac终端下出现bogon的解决办法"></a>Mac终端下出现bogon的解决办法</h2><p><code>sudo scutil --set HostName your-hostname</code></p>
 <h2 id="Mac更改MAC地址（外接网卡）"><a href="#Mac更改MAC地址（外接网卡）" class="headerlink" title="Mac更改MAC地址（外接网卡）"></a>Mac更改MAC地址（外接网卡）</h2><p><code>sudo ifconfig en9 ether aa:bb:cc:dd:ee</code></p>
 <p>但是我外接了Type-C转网线的口，找到对应的也是en9，命令运行后，再用<code>ifconfig</code>看发现mac地址并没有更改成功。<br>在网上又搜了搜，原来需要<strong>装驱动</strong>。<br>这篇文章对这个问题写得相当明白了：<a href="https://blog.csdn.net/u014051620/article/details/75050934" target="_blank" rel="noopener">https://blog.csdn.net/u014051620/article/details/75050934</a></p>
+<h2 id="10-14以后Safari装扩展"><a href="#10-14以后Safari装扩展" class="headerlink" title="10.14以后Safari装扩展"></a>10.14以后Safari装扩展</h2><p>cd到有 <code>.safariextz</code>文件的目录。</p>
+<p>执行<code>xar -xf 拓展名.safariextz</code> 就可以解包</p>
+<p>然后添加扩展，运行即可。详细教程：<a href="https://sspai.com/post/47303" target="_blank" rel="noopener">https://sspai.com/post/47303</a></p>
 <h1 id="Sublime相关"><a href="#Sublime相关" class="headerlink" title="Sublime相关"></a>Sublime相关</h1><p>这几个问题怕是用过sublime的都解决过吧~记录一下防止下次碰到再百度了。</p>
 <!--more-->
 <h2 id="加入subl命令"><a href="#加入subl命令" class="headerlink" title="加入subl命令"></a>加入subl命令</h2><p><code>sudo ln -s &#39;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&#39; /usr/local/bin/subl&#39;</code></p>
