@@ -5,14 +5,17 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="LeetCodeMedium, 炫杉">
-    <meta name="description" content="
-2 两数之和easy
-3 无重复字符的最长子串
-不能判断到有重复字符就从0开始算啊。字符串的头尾不固定的。
-比如 avadc 虽然a在第三个位置出现了。但是不能重新计数。前面的v也可以算的。
+    <meta name="keywords" content="排序算法, 炫杉">
+    <meta name="description" content="完美排序思想：
 
-很快就解决了这个问题。就是 计数的变量cou">
+ifi位置比j位置小，二者交换。
+循环结束条件 i等于j
+三分数组，先递归前2/3。再递归2/3。再递归前2/3
+
+代码美观。效率低。
+代码下载
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>LeetCodeMedium | 炫杉</title>
+    <title>排序算法 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -212,13 +215,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        LeetCodeMedium
+                        排序算法
                     </div>
                 </div>
             </div>
@@ -329,8 +332,12 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/LeetCode/" target="_blank">
-                    <span class="chip bg-color">LeetCode</span>
+                <a href="/tags/Sort/" target="_blank">
+                    <span class="chip bg-color">Sort</span>
+                </a>
+                
+                <a href="/tags/C/" target="_blank">
+                    <span class="chip bg-color">C++</span>
                 </a>
                 
             </div>
@@ -348,48 +355,22 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-01
+                    <i class="fa fa-clock-o fa-fw"></i>2018-11-05
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <a id="more"></a>
-<h1 id="2-两数之和"><a href="#2-两数之和" class="headerlink" title="2 两数之和"></a>2 两数之和</h1><p>easy</p>
-<h1 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3 无重复字符的最长子串"></a>3 无重复字符的最长子串</h1><ul>
-<li><p>不能判断到有重复字符就从0开始算啊。字符串的头尾不固定的。</p>
-<p>比如 <code>avadc</code> 虽然a在第三个位置出现了。但是不能重新计数。前面的v也可以算的。</p>
+                <h1 id="完美排序"><a href="#完美排序" class="headerlink" title="完美排序"></a>完美排序</h1><p>思想：</p>
 <ul>
-<li>很快就解决了这个问题。就是 计数的变量count 找到重复字符后，不置为0，而是置为 两个相同字符的坐标差。这样就包含了后面的字符。</li>
-<li>新问题就是，从新计数的单词，之前的字母还在map中没清空。怎么办？<ul>
-<li>我设了一个开始坐标start，只有在map中且坐标大于这个start才算重复出现。</li>
+<li><code>if</code>i位置比j位置小，二者交换。</li>
+<li>循环结束条件 i等于j</li>
+<li>三分数组，先递归前2/3。再递归2/3。再递归前2/3</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>看下第一的答案：</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">int</span> subStringStart <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>subStringEnd <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> maxLength <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    string subString<span class="token punctuation">;</span>
-    size_t occPos<span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span>subStringEnd<span class="token punctuation">;</span>subStringEnd<span class="token operator">&lt;</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>subStringEnd<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//查找subStringStart位置之后是否有要插入的字符</span>
-        occPos <span class="token operator">=</span> subString<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>subStringEnd<span class="token punctuation">]</span><span class="token punctuation">,</span>subStringStart<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//如果subString中已有带插入字符，将子串中已有字符的位置(occPos)</span>
-        <span class="token comment" spellcheck="true">//的下一位置(occPos + 1)设置为无重复子串的开始位置,即向右移动滑窗</span>
-        <span class="token comment" spellcheck="true">//不断调整无重复子字符串的开始位置</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>occPos <span class="token operator">!=</span> string<span class="token operator">::</span>npos<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            subStringStart <span class="token operator">=</span> occPos <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> 
-        <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">//依次将s中的元素插入subString中，同时不断计算最长子字符串长度并更新</span>
-        subString<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>subStringEnd<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        maxLength <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>maxLength<span class="token punctuation">,</span> subStringEnd<span class="token operator">-</span>subStringStart<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> maxLength<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>代码美观。<br>效率低。</p>
+<p><a href="/Downloads/sort.cpp">代码下载</a></p>
+<a id="more"></a>
 
             </div>
             <hr>
@@ -411,7 +392,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/LeetCodeMedium/" class="b-link-green">LeetCodeMedium</a>
+                    <a href="/Algorithm/排序算法/" class="b-link-green">排序算法</a>
                 </p>
             </div>
         </div>
@@ -453,9 +434,9 @@
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/排序算法/">
+                <a href="/Algorithm/排序算法/">
                     <div class="card-image">
                         
                         
@@ -476,9 +457,9 @@ ifi位置比j位置小，二者交换。
 
 </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -491,6 +472,7 @@ ifi位置比j位置小，二者交换。
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -511,25 +493,22 @@ ifi位置比j位置小，二者交换。
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/APPRTC分析记录/">
+                <a href="/Algorithm/LeetCodeMedium/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="APPRTC分析记录">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="LeetCodeMedium">
                         
-                        <span class="card-title">APPRTC分析记录</span>
+                        <span class="card-title">LeetCodeMedium</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">  WebRTC iOS端官方Demo 看 APPRTC 源码的记录
-  
-AppRTCMobile根目录
-ARDAppClient+Internal.h
+                    <div class="summary">代码基本都在这里了：https://github.com/ixsim/OJ
 
-ARDAppClient.h
-ARDAppClient.m
-
-ARDAppEngi</div>
+2 两数之和easy
+3 无重复字符的最长子串
+不能判断到有重复字符就从0开始算啊。字符串的头尾不固定的。
+比如 avadc 虽然a在第三个位置出现了。但是不能重</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -538,8 +517,8 @@ ARDAppEngi</div>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/WebRTC/" class="post-category" target="_blank">
-                                    WebRTC
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
@@ -549,8 +528,8 @@ ARDAppEngi</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
+                    <a href="/tags/LeetCode/" target="_blank">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>

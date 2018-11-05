@@ -5,17 +5,16 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="排序算法, 炫杉">
-    <meta name="description" content="完美排序思想：
+    <meta name="keywords" content="APPRTC分析记录, 炫杉">
+    <meta name="description" content="  WebRTC iOS端官方Demo 看 APPRTC 源码的记录
+  
+AppRTCMobile根目录
+ARDAppClient+Internal.h
 
-ifi位置比j位置小，二者交换。
-循环结束条件 i等于j
-三分数组，先递归前2/3。再递归2/3。再递归前2/3
+ARDAppClient.h
+ARDAppClient.m
 
-代码美观。效率低。
-代码下载
-
-">
+ARDAppEngi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +22,7 @@ ifi位置比j位置小，二者交换。
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>排序算法 | 炫杉</title>
+    <title>APPRTC分析记录 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -215,13 +214,13 @@ ifi位置比j位置小，二者交换。
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        排序算法
+                        APPRTC分析记录
                     </div>
                 </div>
             </div>
@@ -332,12 +331,8 @@ ifi位置比j位置小，二者交换。
             
             <div class="article-tag">
                 
-                <a href="/tags/Sort/" target="_blank">
-                    <span class="chip bg-color">Sort</span>
-                </a>
-                
-                <a href="/tags/C/" target="_blank">
-                    <span class="chip bg-color">C++</span>
+                <a href="/tags/Note/" target="_blank">
+                    <span class="chip bg-color">Note</span>
                 </a>
                 
             </div>
@@ -347,30 +342,121 @@ ifi位置比j位置小，二者交换。
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/Algorithm/" class="post-category" target="_blank">
-                        Algorithm
+                    <a href="/categories/WebRTC/" class="post-category" target="_blank">
+                        WebRTC
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-05
+                    <i class="fa fa-clock-o fa-fw"></i>2018-11-01
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="完美排序"><a href="#完美排序" class="headerlink" title="完美排序"></a>完美排序</h1><p>思想：</p>
-<ul>
-<li><code>if</code>i位置比j位置小，二者交换。</li>
-<li>循环结束条件 i等于j</li>
-<li>三分数组，先递归前2/3。再递归2/3。再递归前2/3</li>
+                <p>  WebRTC iOS端官方Demo 看 APPRTC 源码的记录</p>
+  <a id="more"></a>
+<h1 id="AppRTCMobile根目录"><a href="#AppRTCMobile根目录" class="headerlink" title="AppRTCMobile根目录"></a>AppRTCMobile根目录</h1><ul>
+<li><p><code>ARDAppClient+Internal.h</code></p>
+</li>
+<li><p><code>ARDAppClient.h</code></p>
+<p><code>ARDAppClient.m</code></p>
+</li>
+<li><p><code>ARDAppEngineClient.h</code></p>
+<p><code>ARDAppEngineClient.m</code></p>
+</li>
+<li><p><code>ARDBitrateTracker.h</code></p>
+<p><code>ARDBitrateTracker.m</code></p>
+</li>
+<li><p><code>ARDCaptureController.h</code></p>
+<p><code>ARDCaptureController.m</code></p>
+</li>
+<li><p><code>ARDJoinResponse+ Internal.h</code></p>
+</li>
+<li><p><code>ARDJoinResponse.h</code></p>
+<p><code>ARDJoinResponse.m</code></p>
+</li>
+<li><p><code>ARDMessageResponse +Internal.h</code></p>
+</li>
+<li><p><code>ARDMessageResponse.h</code></p>
+<p><code>ARDMessageResponse.m</code></p>
+</li>
+<li><p><code>ARDRoomServerClient.h</code></p>
+</li>
+<li><p><code>ARDSettingsModel+Priva</code></p>
+</li>
+<li><p><code>ARDSettingsModel.h</code></p>
+<p><code>ARDSettingsModel.m</code></p>
+</li>
+<li><p><code>ARDSettingsStore.h</code></p>
+<p><code>ARDSettingsStore.m</code></p>
+</li>
+<li><p><code>ARDSignalingChannel.h</code></p>
+</li>
+<li><p><code>ARDSignalingMessage.h</code></p>
+<p><code>ARDSignalingMessage.m</code></p>
+</li>
+<li><p><code>ARDStatsBuilder.h</code></p>
+<p><code>ARDStatsBuilder.m</code></p>
+</li>
+<li><p><code>ARDTURNCIient+ Internal.h</code></p>
+</li>
+<li><p><code>ARDTURNClient.h</code></p>
+<p><code>-</code>ARDTURNClient.m<code></code></p>
+</li>
+<li><p><code>ARDWebSocketChannel.h</code></p>
+<p><code>ARDWebSocketChannel.m</code></p>
+</li>
+<li><p><code>RTClceCandidate+JSON.h</code></p>
+<p><code>RTClceCandidate+JSON.m</code></p>
+</li>
+<li><p><code>RTClceServer+JSON.h</code></p>
+<p><code>RTClceServer+JSON.m</code></p>
+</li>
+<li><p><code>RTCMediaConstraints+JSON.h</code></p>
+<p><code>RTCMediaConstraints+JSON.m</code></p>
+</li>
+<li><p><code>RTCSessionDescription+JSON.h</code></p>
+<p>RTCSessionDescription+JSONm</p>
+<h2 id="iOS文件夹"><a href="#iOS文件夹" class="headerlink" title="iOS文件夹"></a>iOS文件夹</h2></li>
+<li><p><code>ARDAppDelegate.h</code></p>
+<p><code>ARDAppDelegate.m</code></p>
+</li>
+<li><p><code>ARDFileCaptureController.</code></p>
+<p><code>ARDFileCaptureController.m</code></p>
+</li>
+<li><p><code>ARDMainView.h</code> 第一页面 配置房间号和各种参数</p>
+<p><code>ARDMainView.m</code></p>
+</li>
+<li><p><code>ARDMainViewController.</code></p>
+<p><code>ARDMainViewController.m</code></p>
+</li>
+<li><p><code>ARDSettingsViewControllerh</code>  App的设置 ⚙ </p>
+<p><code>ARDSettingsViewContrller.m</code></p>
+</li>
+<li><p><code>ARDStatsView.h</code>  通话状态的界面变化</p>
+<p><code>ARDStatsView.m</code></p>
+</li>
+<li><p><code>ARDVideoCallView.h</code>  视频通话界面的一些按钮布局</p>
+<p><code>ARDVideoCallView.m</code></p>
+</li>
+<li><p><code>ARDVideoCallViewController.h</code>  视频通话界面 视频画面相关的</p>
+<p><code>ARDVideoCallViewController.m</code></p>
+</li>
+<li><p><code>Info.plist</code></p>
+</li>
+<li><p><code>RTCVideoCodeclnfo+ HumanReadable.h</code></p>
+<p><code>RTCVideoCodeclnfo+ HumanReadable.m</code></p>
+</li>
+<li><p><code>UIlmage+ ARDUtilities.h</code></p>
+<p><code>UIlmage+ARDUtilities.m</code></p>
+</li>
+<li><p><code>main.m</code> </p>
+</li>
 </ul>
-<p>代码美观。<br>效率低。</p>
-<p><a href="/Downloads/sort.cpp">代码下载</a></p>
-<a id="more"></a>
 
             </div>
             <hr>
@@ -392,7 +478,7 @@ ifi位置比j位置小，二者交换。
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/排序算法/" class="b-link-green">排序算法</a>
+                    <a href="/WebRTC/APPRTC分析记录/" class="b-link-green">APPRTC分析记录</a>
                 </p>
             </div>
         </div>
@@ -434,66 +520,9 @@ ifi位置比j位置小，二者交换。
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">本篇</div>
+            <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/排序算法/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="排序算法">
-                        
-                        <span class="card-title">排序算法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">完美排序思想：
-
-ifi位置比j位置小，二者交换。
-循环结束条件 i等于j
-三分数组，先递归前2/3。再递归2/3。再递归前2/3
-
-代码美观。效率低。
-代码下载
-
-</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-05
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
-                                    Algorithm
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Sort/" target="_blank">
-                        <span class="chip bg-color">Sort</span>
-                    </a>
-                    
-                    <a href="/tags/C/" target="_blank">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/LeetCodeMedium/">
+                <a href="/Algorithm/LeetCodeMedium/">
                     <div class="card-image">
                         
                         
@@ -503,17 +532,16 @@ ifi位置比j位置小，二者交换。
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
+                    <div class="summary">代码基本都在这里了：https://github.com/ixsim/OJ
+
 2 两数之和easy
 3 无重复字符的最长子串
 不能判断到有重复字符就从0开始算啊。字符串的头尾不固定的。
-比如 avadc 虽然a在第三个位置出现了。但是不能重新计数。前面的v也可以算的。
-
-很快就解决了这个问题。就是 计数的变量cou</div>
+比如 avadc 虽然a在第三个位置出现了。但是不能重</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -531,6 +559,54 @@ ifi位置比j位置小，二者交换。
                     
                     <a href="/tags/LeetCode/" target="_blank">
                         <span class="chip bg-color">LeetCode</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Algorithm/剑指offer/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">《剑指Offer》读书笔记。感谢强哥给的书。希望明年的我也可以Offer满满~
+代码基本都在这里了：https://github.com/ixsim/OJ
+
+Problems
+ P25这个例子。先学好C++基础吧！
+ P28 C#和C++不</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
                     </a>
                     
                 </div>
