@@ -98,7 +98,7 @@ deploy:
   type: git
   repository:
     github: https://github.com/ixsim/ixsim.github.io,master
-    coding: https://git.coding.net/ixsim/ixsim.coding.me.git,master
+    coding: https://git.coding.net/ixsim/blog.git,master
 
 # Include/Exclude Files/Folders
 # include:
