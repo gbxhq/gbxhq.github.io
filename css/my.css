@@ -1,1 +1,22 @@
 /* Here is your custom css styles. */
+
+/* 文章背景虚化 */
+.post-cover:before, .post-cover:after{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    content: "";
+    background: inherit;
+    filter: blur(12px);
+}
+@-webkit-keyframes rainbow {
+   
+}
+
+@keyframes rainbow {
+   
+}
