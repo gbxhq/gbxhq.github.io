@@ -5,10 +5,15 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Python廖雪峰练习, 炫杉">
-    <meta name="description" content="这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！
+    <meta name="keywords" content="Hexo插本地图, 炫杉">
+    <meta name="description" content="收到七牛云的【测试域名过期通知】时，我不得不写下这篇文章了。
 
-函数的参数def pr">
+怎么让Hexo插入本地图时，本地预览和推送都能正常显示呢？
+
+
+图床方案七牛云啊。曾经多么好用。
+这里顺便安利一个 macOS 上开源的七牛图床工具
+https://githu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Python廖雪峰练习 | 炫杉</title>
+    <title>Hexo插本地图 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -208,13 +213,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Python廖雪峰练习
+                        Hexo插本地图
                     </div>
                 </div>
             </div>
@@ -325,8 +330,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/Python/" target="_blank">
-                    <span class="chip bg-color">Python</span>
+                <a href="/tags/Hexo/" target="_blank">
+                    <span class="chip bg-color">Hexo</span>
                 </a>
                 
             </div>
@@ -336,116 +341,53 @@
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/Python/" class="post-category" target="_blank">
-                        Python
+                    <a href="/categories/Website/" class="post-category" target="_blank">
+                        Website
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-03-21
+                    <i class="fa fa-clock-o fa-fw"></i>2018-11-08
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。<br>莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！</p>
+                <p>收到七牛云的【测试域名过期通知】时，我不得不写下这篇文章了。</p>
+<blockquote>
+<p>怎么让Hexo插入本地图时，本地预览和推送都能正常显示呢？</p>
+</blockquote>
 <a id="more"></a>
-<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><pre class="line-numbers language-Python"><code class="language-Python">def product(*number):    
-  if number == ():
-     raise TypeError 
-  a = 1
-  for x in number:
-      a = x*a
-  return a
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><pre class="line-numbers language-Python"><code class="language-Python">def move(n, a, b, c):
-    if n == 1:
-        print ( a , '-->' , c)
-    else:
-        move(n-1,a,c,b) #假设move函数没问题，A上前n-1个会被移动至B
-        move(1,a,b,c) #此时把最大的放到C
-        move(n-1,b,a,c)
-#move(4,'A','B','C')
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">trim</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> s <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> s
-    <span class="token keyword">while</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
-        s <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
-        <span class="token keyword">if</span> s <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token string">''</span>
-    <span class="token keyword">while</span> s<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
-        s <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-    <span class="token keyword">return</span> s
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><pre class="line-numbers language-Python"><code class="language-Python">def findMinAndMax(L):
-    if L == []:
-        return (None,None)
-    else:
-        a = L[0]
-        b = L[0]
-        for i in L:
-            if i < a:
-                a = i
-            if i > b:
-                b = i
-    return (a,b)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><pre class="line-numbers language-Python"><code class="language-Python">L1 = ['Hello', 'World', 18, 'Apple', None]
-L2 = [ x.lower() for x in L1 if isinstance(x,str) ]
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><pre class="line-numbers language-Python"><code class="language-Python">def triangles():
-    n = 2
-    a = [1,1]
-    b = [1]
-    yield [1]
-    yield [1,1]
-    while 1:
-        for i in range(1,n):
-            b.append(a[i] + a[i-1])
-        b.append(1)
-        n = n+1
-        a = b
-        b = [1]
-        yield a
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h2><pre class="line-numbers language-Python"><code class="language-Python">def normalize(name):
-    return name[0].upper() + name[1:].lower()
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-Python"><code class="language-Python">def cheng(x,y):
-    return x*y
-return reduce(cheng,L)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-Python"><code class="language-Python">from functools import reduce
-def str2float(s):
-    DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '.': 999}
-    def fn(x, y):
-        if y == 999:
-            return x
-        return x * 10 + y
-    def char2num(s):
-        return DIGITS[s]
-
-    n = s.index('.')
-
-    return reduce(fn, map(char2num, s))/(10**n)
-
-#跳过小数点：
-#我把 '.' 转换成 999 当遇到999 不做计算 return x 。像个傻子 🤪
-#正确方法：
-#s[:n]+s[n+1:] n是小数点位置。取 前n个和第n+1个开始往后的字符串即可。
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="fliter"><a href="#fliter" class="headerlink" title="fliter"></a>fliter</h2><p>跳过</p>
-<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><pre class="line-numbers language-Python"><code class="language-Python">def by_name(t):
-    return t[0]
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-Python"><code class="language-Python">def by_score(t):
-    return -t[1]
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>​</p>
+<h1 id="图床方案"><a href="#图床方案" class="headerlink" title="图床方案"></a>图床方案</h1><p>七牛云啊。曾经多么好用。</p>
+<p>这里顺便安利一个 macOS 上开源的七牛图床工具</p>
+<p><a href="https://github.com/chenxtdo/UPImageMacApp" target="_blank" rel="noopener">https://github.com/chenxtdo/UPImageMacApp</a></p>
+<ul>
+<li>侦听剪贴版</li>
+<li>点击上传（图片链接自动复制）链接可选Markdown格式</li>
+<li>自动上传</li>
+<li>上传记录（点击复制图片链接）</li>
+</ul>
+<p>就这几个简单的功能，足够在日常使用中完美利用图床了。</p>
+<hr>
+<p>可惜，七牛云终于开启了测试域名回收方案。（其实有备案域名的绑定一下继续用）</p>
+<p><img src="/Hexo插本地图/../../images/image-20181108092414796.png" alt="image-20181108092414796"></p>
+<p>那就彻底把他们放到Coding和GitHub上吧。</p>
+<h1 id="本地图片方案"><a href="#本地图片方案" class="headerlink" title="本地图片方案"></a>本地图片方案</h1><p>网上搜了下，用这个插件的比较多：</p>
+<p><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a></p>
+<p>然而让我不能接受的就是，</p>
+<p>用这个插件必须让 <code>post_asset_folder: true</code> in  <code>_config.yml</code></p>
+<p>这就会导致，每篇博客都带一个同名文件夹。</p>
+<p><strong>（特别适合每篇文章都会引入各种图片的人）</strong></p>
+<p>这怎么行🙂🙂🙂🙃🙃🙃😤😤😤</p>
+<p>我可是在本地也把文章按照分类分好文件夹的☺。</p>
+<p>我宁愿费事一点，或者 <em>牺牲 本地预览效果</em>  来让文件夹结构清晰。</p>
+<h1 id="轮子该造就得造"><a href="#轮子该造就得造" class="headerlink" title="轮子该造就得造"></a>轮子该造就得造</h1><p>综上，图床挂。hexo-asset-image插件个人并不喜欢。</p>
+<p>那咱就自己造。</p>
+<p>利用啥呢？就用GitHub呗。免费的东西最爱占便宜了。</p>
+<p>可我不会开发macOS的程序啊🙂</p>
 
             </div>
             <hr>
@@ -467,7 +409,7 @@ def str2float(s):
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Python/Python廖雪峰练习/" class="b-link-green">Python廖雪峰练习</a>
+                    <a href="/Hexo插本地图/" class="b-link-green">Hexo插本地图</a>
                 </p>
             </div>
         </div>
@@ -509,79 +451,29 @@ def str2float(s):
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/Python/《Python数据分析》学习记录/">
+                <a href="/Hexo插本地图/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="《Python数据分析》学习记录">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hexo插本地图">
                         
-                        <span class="card-title">《Python数据分析》学习记录</span>
+                        <span class="card-title">Hexo插本地图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是阅读《Python for Data Analysis》的读书笔记。
+                    <div class="summary">收到七牛云的【测试域名过期通知】时，我不得不写下这篇文章了。
 
-第一章 准备工作不用准备了。🙂🙂🙂要啥有啥。
-第二章 引言list 手动统计from collections improt defaultdict
-def g</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
-                    </a>
-                    
-                    <a href="/tags/Data-Analysis/" target="_blank">
-                        <span class="chip bg-color">Data Analysis</span>
-                    </a>
-                    
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/Website/Hexo01/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Hexo建站问题总结">
-                        
-                        <span class="card-title">Hexo建站问题总结</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。
-本托管在coding上，不过云里雾里，弄得还是不满意。
-今天决定换成Hexo。再托管在Git上。一节课的功夫，很顺利的就完成了。写个文章记录下。</div>
+怎么让Hexo插入本地图时，本地预览和推送都能正常显示呢？
+
+
+图床方案七牛云啊。曾经多么好用。
+这里顺便安利一个 macOS 上开源的七牛图床工具
+https://githu</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-08
                             </span>
                         <span class="publish-author">
                             
@@ -595,11 +487,68 @@ def g</div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/Hexo/" target="_blank">
                         <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Algorithm/排序算法/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="排序算法">
+                        
+                        <span class="card-title">排序算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">完美排序思想：
+
+ifi位置比j位置小，二者交换。
+循环结束条件 i等于j
+三分数组，先递归前2/3。再递归2/3。再递归前2/3
+
+代码美观。效率低。
+代码下载
+
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/" target="_blank">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/Sort/" target="_blank">
+                        <span class="chip bg-color">Sort</span>
                     </a>
                     
                 </div>

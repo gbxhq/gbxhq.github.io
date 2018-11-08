@@ -479,9 +479,19 @@ export PATH=$PATH:<path 1="">:<path 2="">:<path 3="">:------:<path n="">
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></path></path></path></path></code></pre>
 <h2 id="显示-隐藏文件"><a href="#显示-隐藏文件" class="headerlink" title="显示/隐藏文件"></a>显示/隐藏文件</h2><p>在Finder：<code>Command+Shift+.</code></p>
 <h2 id="app已损坏-打不开"><a href="#app已损坏-打不开" class="headerlink" title=".app已损坏 打不开"></a>.app已损坏 打不开</h2><p><code>sudo spctl --master-disable</code></p>
-<h2 id="打开macOS原生的NTFS"><a href="#打开macOS原生的NTFS" class="headerlink" title="打开macOS原生的NTFS"></a>打开macOS原生的NTFS</h2><blockquote>
-<p>note default<br>diskutil list</p>
-</blockquote>
+<h2 id="打开macOS原生的NTFS"><a href="#打开macOS原生的NTFS" class="headerlink" title="打开macOS原生的NTFS"></a>打开macOS原生的NTFS</h2><ul>
+<li><p><code>diskutil list</code> 找到你要写入的磁盘名</p>
+</li>
+<li><p><strong>开启读写NTFS：</strong></p>
+<p><code>sudo vim /etc/fstab</code></p>
+<p>在这个fstab文件里加入一句：</p>
+<p><strong><code>LABEL=你的磁盘名字 none ntfs rw,auto,nobrowse</code></strong></p>
+<p> <code>:wq</code>  保存退出</p>
+</li>
+<li><p>重新插入U盘  （此时桌面上看不到了）</p>
+<p> 在Finder里 ⌘+⇧+G 输入 <code>/Volumes</code> </p>
+</li>
+</ul>
 <h2 id="Mac终端下出现bogon的解决办法"><a href="#Mac终端下出现bogon的解决办法" class="headerlink" title="Mac终端下出现bogon的解决办法"></a>Mac终端下出现bogon的解决办法</h2><p><code>sudo scutil --set HostName your-hostname</code></p>
 <h2 id="Mac更改MAC地址（外接网卡）"><a href="#Mac更改MAC地址（外接网卡）" class="headerlink" title="Mac更改MAC地址（外接网卡）"></a>Mac更改MAC地址（外接网卡）</h2><p><code>sudo ifconfig en9 ether aa:bb:cc:dd:ee</code></p>
 <p>但是我外接了Type-C转网线的口，找到对应的也是en9，命令运行后，再用<code>ifconfig</code>看发现mac地址并没有更改成功。<br>在网上又搜了搜，原来需要<strong>装驱动</strong>。<br>这篇文章对这个问题写得相当明白了：<a href="https://blog.csdn.net/u014051620/article/details/75050934" target="_blank" rel="noopener">https://blog.csdn.net/u014051620/article/details/75050934</a></p>
