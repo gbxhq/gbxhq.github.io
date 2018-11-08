@@ -1,0 +1,766 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="UIDevice学习, 炫杉">
+    <meta name="description" content="iOS的UIDevice可以方便获取设备的硬件和系统的一些状态信息。写这篇文章是因为选修了《移动安全与测评》这门课。小作业让写一个APP获取系统和其他App的一些信息。在不越狱的iOS中我实在不知道怎么获取其他APP的信息，就借此机会了解下">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>UIDevice学习 | 炫杉</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        UIDevice学习
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Swift/" target="_blank">
+                    <span class="chip bg-color">Swift</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/iOS/" class="post-category" target="_blank">
+                        iOS
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-04-16
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>iOS的UIDevice可以方便获取设备的硬件和系统的一些状态信息。写这篇文章是因为选修了《移动安全与测评》这门课。小作业让写一个APP获取系统和其他App的一些信息。在不越狱的iOS中我实在不知道怎么获取其他APP的信息，就借此机会了解下UIDevice吧。</p>
+<a id="more"></a>
+<p>#准备</p>
+<p>先列一下准备做的东西~对照文档查一下。</p>
+<h2 id="系统设备信息"><a href="#系统设备信息" class="headerlink" title="系统设备信息"></a>系统设备信息</h2><p>根据UIDevice的文档。可以获取的信息有</p>
+<ul>
+<li>设备名称<ul>
+<li>用户给设备的命名</li>
+</ul>
+</li>
+<li>设备类型<ul>
+<li>iPhone、iPad、Apple watch、Apple TV等</li>
+</ul>
+</li>
+<li>系统名称<ul>
+<li>iOS、watchOS等</li>
+</ul>
+</li>
+<li>系统版本<ul>
+<li>版本号</li>
+</ul>
+</li>
+<li>UUID<ul>
+<li>每个设备的唯一标示</li>
+</ul>
+</li>
+<li>电池状态<ul>
+<li>是否充电、是否充满</li>
+</ul>
+</li>
+<li>电池情况<ul>
+<li>即电量信息</li>
+</ul>
+</li>
+<li>多任务环境监测<ul>
+<li>判断系统是否支持多任务</li>
+</ul>
+</li>
+</ul>
+<h2 id="传感器相关"><a href="#传感器相关" class="headerlink" title="传感器相关"></a>传感器相关</h2><ul>
+<li>距离感应</li>
+<li>设备方向</li>
+<li>加速器</li>
+<li>方位</li>
+</ul>
+<h2 id="行为侦听"><a href="#行为侦听" class="headerlink" title="行为侦听"></a>行为侦听</h2><ul>
+<li>剪贴板</li>
+<li>截图</li>
+</ul>
+<p>暂时就想到这么多，边做边想吧。</p>
+<h1 id="过程与分析"><a href="#过程与分析" class="headerlink" title="过程与分析"></a>过程与分析</h1><p>􏰞􏱔􏱾􏰻􏰼􏱕􏱖􏰭􏰮􏰦􏱿􏲀􏲁􏰨􏰩􏰪􏰓􏰡􏰫􏰛􏱀􏰹􏱰􏱪􏱬􏱭􏱙􏱚􏰞􏱔􏰹􏱝􏰜􏲂􏰹􏲃􏲄􏰜􏲅􏲆􏰡􏰞􏱔􏱾􏰻􏰼􏱕􏱖􏰭􏰮􏰦􏱿􏲀􏲁􏰨􏰩􏰪􏰓􏰡􏰫􏰛􏱀􏰹􏱰􏱪􏱬􏱭􏱙􏱚􏰞􏱔􏰹􏱝􏰜􏲂􏰹􏲃􏲄􏰜􏲅􏲆􏰡􏰞􏱔􏱾􏰻􏰼􏱕􏱖􏰭􏰮􏰦􏱿􏲀􏲁􏰨􏰩􏰪􏰓􏰡􏰫􏰛􏱀􏰹􏱰􏱪􏱬􏱭􏱙􏱚􏰞􏱔􏰹􏱝􏰜􏲂􏰹􏲃􏲄􏰜􏲅􏲆􏰡􏰞􏱔􏱾􏰻􏰼􏱕􏱖􏰭􏰮􏰦􏱿􏲀􏲁􏰨􏰩􏰪􏰓􏰡􏰫􏰛􏱀􏰹􏱰􏱪􏱬􏱭􏱙􏱚􏰞􏱔􏰹􏱝􏰜􏲂􏰹􏲃􏲄􏰜􏲅􏲆􏰡􏰞􏱔􏱾􏰻􏰼􏱕􏱖􏰭􏰮􏰦􏱿􏲀􏲁􏰨􏰩􏰪􏰓􏰡􏰫􏰛􏱀􏰹􏱰􏱪􏱬􏱭􏱙􏱚􏰞􏱔􏰹􏱝􏰜􏲂􏰹􏲃􏲄􏰜􏲅􏲆􏰡􏰞􏱔􏱾􏰻􏰼􏱕􏱖􏰭􏰮􏰦􏱿􏲀􏲁􏰨􏰩􏰪􏰓􏰡􏰫􏰛􏱀􏰹􏱰􏱪􏱬􏱭􏱙􏱚􏰞􏱔􏰹􏱝􏰜􏲂􏰹􏲃􏲄􏰜􏲅􏲆􏰡􏰞􏱔􏱾􏰻􏰼􏱕􏱖􏰭􏰮􏰦􏱿􏲀􏲁􏰨􏰩􏰪􏰓􏰡􏰫􏰛􏱀􏰹􏱰􏱪􏱬􏱭􏱙􏱚􏰞􏱔􏰹􏱝􏰜􏲂􏰹􏲃􏲄􏰜􏲅􏲆􏰡􏰞􏱔􏱾􏰻􏰼􏱕􏱖􏰭􏰮􏰦􏱿􏲀􏲁􏰨􏰩􏰪􏰓􏰡􏰫􏰛􏱀􏰹􏱰􏱪􏱬􏱭􏱙􏱚􏰞􏱔􏰹􏱝􏰜􏲂􏰹􏲃􏲄􏰜􏲅􏲆􏰡􏰻􏰼􏱕􏱖􏰭􏰮􏰦􏱿􏲀􏲁􏰨􏰩􏰪􏰓􏰡􏰫􏰛􏱀􏰹􏱰􏱪􏱬􏱭􏱙􏱚􏰞􏱔􏰹􏱝􏰜􏲂􏰹􏲃􏲄􏰜􏲅􏲆􏰻􏰼􏱕􏱖􏰭􏰮􏰦􏱿􏲀􏲁􏰨􏰩􏰪􏰓􏰡􏰫􏰛􏱀􏰹􏱰􏱪􏱬􏱭􏱙􏱚􏰞􏱔􏰹􏱝􏰜􏲂􏰹􏲃􏲄􏰜􏲅􏲆<br>对照文档很容易就拿到了这些数据。</p>
+<h2 id="系统设备信息-1"><a href="#系统设备信息-1" class="headerlink" title="系统设备信息"></a>系统设备信息</h2><pre class="line-numbers language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">//获取当前设备</span>
+<span class="token keyword">let</span> dev<span class="token punctuation">:</span><span class="token builtin">UIDevice</span> <span class="token operator">=</span> <span class="token builtin">UIDevice</span><span class="token punctuation">.</span>current
+<span class="token comment" spellcheck="true">//更新下这几个Label</span>
+    deviceNameLabel<span class="token punctuation">.</span>text <span class="token operator">=</span> dev<span class="token punctuation">.</span>name
+    deviceModelLabel<span class="token punctuation">.</span>text <span class="token operator">=</span> dev<span class="token punctuation">.</span>model
+    systemNameLabel<span class="token punctuation">.</span>text <span class="token operator">=</span> dev<span class="token punctuation">.</span>systemName
+    systemVersion<span class="token punctuation">.</span>text <span class="token operator">=</span> dev<span class="token punctuation">.</span>systemVersion
+<span class="token comment" spellcheck="true">//返回电池充电状态</span>
+    <span class="token keyword">func</span> <span class="token function">batteryState</span><span class="token punctuation">(</span>dev<span class="token punctuation">:</span><span class="token builtin">UIDevice</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+        dev<span class="token punctuation">.</span>isBatteryMonitoringEnabled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//设置电池是否被监视</span>
+        <span class="token keyword">var</span> state <span class="token operator">=</span> <span class="token string">""</span>
+        <span class="token comment" spellcheck="true">//判断当前电池状态</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>dev<span class="token punctuation">.</span>batteryState <span class="token operator">==</span> <span class="token builtin">UIDeviceBatteryState</span><span class="token punctuation">.</span>unknown<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            state <span class="token operator">=</span> <span class="token string">"未知状态"</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>dev<span class="token punctuation">.</span>batteryState <span class="token operator">==</span> <span class="token builtin">UIDeviceBatteryState</span><span class="token punctuation">.</span>unplugged<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            state <span class="token operator">=</span>  <span class="token string">"未充电"</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>dev<span class="token punctuation">.</span>batteryState <span class="token operator">==</span> <span class="token builtin">UIDeviceBatteryState</span><span class="token punctuation">.</span>charging<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            state <span class="token operator">=</span>  <span class="token string">"正在充电"</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>dev<span class="token punctuation">.</span>batteryState <span class="token operator">==</span> <span class="token builtin">UIDeviceBatteryState</span><span class="token punctuation">.</span>full<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            state <span class="token operator">=</span> <span class="token string">"正在充电，电量已满"</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> state
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 更新Label</span>
+    batteryStateLabel<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token function">batteryState</span><span class="token punctuation">(</span>dev<span class="token punctuation">:</span> dev<span class="token punctuation">)</span>
+    batteryLevel<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token function">String</span><span class="token punctuation">(</span>dev<span class="token punctuation">.</span>batteryLevel<span class="token punctuation">)</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>其中如果可以不停地收集用户的充电状态，可以试着分析用户的生活或工作的习惯。</p>
+</blockquote>
+<h2 id="传感器相关-1"><a href="#传感器相关-1" class="headerlink" title="传感器相关"></a>传感器相关</h2><pre class="line-numbers language-swift"><code class="language-swift"><span class="token comment" spellcheck="true">//返回红外状态</span>
+    <span class="token keyword">func</span> <span class="token function">proximityState</span><span class="token punctuation">(</span>dev<span class="token punctuation">:</span><span class="token builtin">UIDevice</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> state <span class="token operator">=</span> <span class="token string">""</span>
+        dev<span class="token punctuation">.</span>isProximityMonitoringEnabled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>dev<span class="token punctuation">.</span>proximityState <span class="token operator">==</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            state <span class="token operator">=</span> <span class="token string">"红外被遮挡"</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span><span class="token punctuation">{</span>
+            state <span class="token operator">=</span> <span class="token string">"红外未遮挡"</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> state
+    <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//返回设备方向</span>
+    <span class="token keyword">func</span> <span class="token function">oritentationState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> state <span class="token operator">=</span> <span class="token string">""</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span>dev<span class="token punctuation">.</span>orientation<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span>faceUp<span class="token punctuation">:</span>
+            state <span class="token operator">=</span> <span class="token string">"屏幕朝上平躺"</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span>faceDown<span class="token punctuation">:</span>
+            state <span class="token operator">=</span> <span class="token string">"屏幕朝下平躺"</span>
+        <span class="token comment" spellcheck="true">//倾斜？</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span>unknown<span class="token punctuation">:</span>
+            state <span class="token operator">=</span> <span class="token string">"未知方向"</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span>landscapeLeft<span class="token punctuation">:</span>
+            state <span class="token operator">=</span> <span class="token string">"屏幕向左横置"</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span>landscapeRight<span class="token punctuation">:</span>
+            state <span class="token operator">=</span> <span class="token string">"屏幕向右橫置"</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span>portrait<span class="token punctuation">:</span>
+            state <span class="token operator">=</span> <span class="token string">"屏幕直立"</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span>portraitUpsideDown<span class="token punctuation">:</span>
+            state <span class="token operator">=</span> <span class="token string">"屏幕直立，上下顛倒"</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span>
+            state <span class="token operator">=</span> <span class="token string">"无法辨识"</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> state
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>通过设备的距离感应和设备方向。可以分析出用户是不是把设备放在口袋里。当然，获取这些数据面临的最大的问题，是App在后台运行的问题，iOS系统特殊的机制让这些收集行为只能，投机取巧。本文后面会提到。</p>
+<h2 id="行为侦听-1"><a href="#行为侦听-1" class="headerlink" title="行为侦听"></a>行为侦听</h2><pre class="line-numbers language-swift"><code class="language-swift">
+<span class="token comment" spellcheck="true">//更改剪贴板的内容</span>
+ <span class="token builtin">UIPasteboard</span><span class="token punctuation">.</span>general<span class="token punctuation">.</span>string <span class="token operator">=</span> <span class="token string">"Hello,<span class="token interpolation"><span class="token delimiter variable">\(</span><span class="token builtin">UIDevice</span><span class="token punctuation">.</span>current<span class="token punctuation">.</span>name<span class="token delimiter variable">)</span></span>"</span>
+<span class="token comment" spellcheck="true">//获取剪贴板的内容</span>
+<span class="token keyword">let</span> paste <span class="token operator">=</span> <span class="token builtin">UIPasteboard</span><span class="token punctuation">.</span>general<span class="token punctuation">.</span>string
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>剪贴板的内容是可以随意获取的。而且可以随意更改。<br>可以静默地更改了用户的剪贴板后，配合支付宝的口令红包，或者淘宝的商品分享来推广商品。</p>
+<p>截图方便。一种方法是检测用户按下Home+Lock，这个方法系统提供了通知的接口，直接调用就可以获取。<br>但是在使用微信的时候我发现，微信经常在你刚刚截图后打开一个聊天对象的时候，询问你是否要发送那张图片。这应该是由于微信获取了相册的权限，然后通过最后一张照片的创建时间来判断的。本文不涉及这些权限不再分析。</p>
+<h2 id="获取其他APP信息"><a href="#获取其他APP信息" class="headerlink" title="获取其他APP信息"></a>获取其他APP信息</h2><p>在GitHub找到一个项目，介绍是可以获取到系统中正在运行中的App。<br>使用后没啥效果，查了查，从iOS9开始就关闭了这个权限。</p>
+<p>例外说一下，在开发iOS高版本的App时，你就要更新你的编译器Xcode。<br>比如<strong>iOS12要出了，你不更新你的XCode你就不能适配iOS12</strong>。你更新了xcode也就意味着很多漏洞从你开发者手里就被修复掉了。我认为这种开发的机制也是iOS这个系统更安全的一个很重要的原因吧！</p>
+<h2 id="后台运行问题"><a href="#后台运行问题" class="headerlink" title="后台运行问题"></a>后台运行问题</h2><p>前面提到了，iOS安全的地方不仅在于对于权限的严格把控。而且想做到【真】后台都很难。</p>
+<p>目前比较常用的可以实现“真后台”的方法:<br>1.VOIP 2.定位服务 3.后台下载 4.在后台循环播放无声音乐</p>
+<p>而且貌似在上架应用到时候，会专门检查这方面。所以方法也只是个策略而已。</p>
+<p>那么是否可以利用假后台来做一些事情呢。<br>假后台机制是：用户按Home之后，App转入后台进行运行，此时拥有180s后台时间（iOS7以后）或者600s（iOS6）运行时间可以处理后台操作</p>
+<p>应该是可以的。因为我手机上装了个QQ同步助手，这软件只有一个读通讯录的权限，我也从不打开它，但它常常发来<strong>云端通讯录已同步完成</strong>的通知。猜测是利用调用通知激活后台180s，再利用这180s肆意妄为。当然只是猜测。<br>由于实力有限在这方面没有过多测试。</p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/iOS/UIDevice学习/" class="b-link-green">UIDevice学习</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/Others/A-Brave-New-World/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="一个美好的新世界">
+                        
+                        <span class="card-title">一个美好的新世界</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">《A Brave New World》 
+
+When the winds of change blow, some people build walls and others build windmills.
+
+
+p1物联网正在改变一切。不</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/IoT/" target="_blank">
+                        <span class="chip bg-color">IoT</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/iOS/小波iOS11中级篇笔记/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="小波iOS11中级篇笔记">
+                        
+                        <span class="card-title">小波iOS11中级篇笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。
+
+小知识点
+&quot;&quot;&quot;三引号对&quot;&quot;&quot;可以保留复制来的文本换行
+图片显示方式：
+Scale to fill 拉伸 即拉到和框框一样的</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/Swfit/" target="_blank">
+                        <span class="chip bg-color">Swfit</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
+              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>

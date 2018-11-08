@@ -1,0 +1,726 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="爬虫入门笔记+实战爬福利吧图片, 炫杉">
+    <meta name="description" content="今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~
+
+Notes正则表达式import re
+ptn = r&amp;#39;正则表达式&amp;#39;
+
+re.compile()函数是什么？将正则表达式的字符串形式编译为Patter">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>爬虫入门笔记+实战爬福利吧图片 | 炫杉</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        爬虫入门笔记+实战爬福利吧图片
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Demo/" target="_blank">
+                    <span class="chip bg-color">Demo</span>
+                </a>
+                
+                <a href="/tags/Python/" target="_blank">
+                    <span class="chip bg-color">Python</span>
+                </a>
+                
+                <a href="/tags/Spider/" target="_blank">
+                    <span class="chip bg-color">Spider</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Python/" class="post-category" target="_blank">
+                        Python
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-04-02
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~</p>
+<a id="more"></a>
+<h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><pre><code>import re
+ptn = r&#39;正则表达式&#39;
+</code></pre><ul>
+<li><p><code>re.compile()</code>函数是什么？<br>将正则表达式的字符串形式编译为Pattern<strong>实例</strong></p>
+</li>
+<li><p>正则小抄图片 影响文章排版 放到最下面了。</p>
+</li>
+<li>Note：数量词用在 <code>字符</code>或 <code>()</code> 之后，就是说对整个 <code>()</code> 生效</li>
+</ul>
+<h2 id="urllib"><a href="#urllib" class="headerlink" title="urllib"></a>urllib</h2><h3 id="读网页"><a href="#读网页" class="headerlink" title="读网页"></a>读网页</h3><pre><code>from urllib.request import urlopen
+
+# utf-8解码
+html = urlopen(&quot;https://o--o.win&quot;).read().decode(&#39;utf-8&#39;)
+print(html)
+</code></pre><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><pre><code>from urllib.request import urlretrieve
+urlretrieve(IMAGE_URL, &#39;./img/image1.png&#39;)
+</code></pre><h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/index.html" target="_blank" rel="noopener">官方文档</a></p>
+<p>这才是正餐？<br>Ex：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token keyword">from</span> urllib<span class="token punctuation">.</span>request <span class="token keyword">import</span> urlopen
+<span class="token keyword">import</span> re
+<span class="token keyword">import</span> random
+<span class="token comment" spellcheck="true">#import webbrowser</span>
+
+base_url <span class="token operator">=</span> <span class="token string">"https://baike.baidu.com"</span>
+his <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"/item/%e5%91%a8%e6%9d%b0%e4%bc%a6"</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#his = his.encode('uft-8')</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    url <span class="token operator">=</span> base_url <span class="token operator">+</span> his<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+    html <span class="token operator">=</span> urlopen<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">#webbrowser.open(url)</span>
+
+    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span>features<span class="token operator">=</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_text<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'\n后缀：'</span><span class="token punctuation">,</span>his<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#正则找到 属性href是/item/开头 的 a标签</span>
+    sub_urls <span class="token operator">=</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token string">"target"</span><span class="token punctuation">:</span><span class="token string">"_blank"</span><span class="token punctuation">,</span><span class="token string">"href"</span><span class="token punctuation">:</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">"/item/"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">#随机选取一个a标签中的href属性值，接到his后。</span>
+    his<span class="token punctuation">.</span>append<span class="token punctuation">(</span>random<span class="token punctuation">.</span>sample<span class="token punctuation">(</span>sub_urls<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">#sample(population, k)从list中随机抽k个元素，也就是说抽完的结果还是个list，因此先跟了个[0]。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>若想加入容错,最后一句改成:</p>
+<pre class="line-numbers language-Python"><code class="language-Python"> if len(sub_urls) != 0:
+        his.append(random.sample(sub_urls, 1)[0]['href'])
+    else:
+        # no valid sub link found
+        his.pop()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><p>强大的外部需求模块<br><a href="http://docs.python-requests.org/zh_CN/latest/" target="_blank" rel="noopener">官方文档</a></p>
+<h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><pre class="line-numbers language-Python"><code class="language-Python">import requests
+import webbrowser
+param = {"wd": "炫猿"}  # 搜索的信息
+r = requests.get('http://www.baidu.com/s', params=param)
+print(r.url)
+webbrowser.open(r.url)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h3><pre class="line-numbers language-python"><code class="language-python">data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'firstname'</span><span class="token punctuation">:</span> <span class="token string">'莫烦'</span><span class="token punctuation">,</span> <span class="token string">'lastname'</span><span class="token punctuation">:</span> <span class="token string">'周'</span><span class="token punctuation">}</span>
+r <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'http://pythonscraping.com/files/processing.php'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h3><pre class="line-numbers language-python"><code class="language-python">r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>IMAGE_URL<span class="token punctuation">)</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'./img/image2.png'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>r<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p> requests 能让你下一点, 保存一点, 而不是要全部下载完才能保存去另外的地方. 这就是一个 chunk 一个 chunk 的下载. 使用 r.iter_content(chunk_size) 来控制每个 chunk 的大小, 然后在文件中写入这个 chunk 大小的数据.</p>
+<pre><code>r = requests.get(IMAGE_URL, stream=True)    # stream loading
+
+with open(&#39;./img/image3.png&#39;, &#39;wb&#39;) as f:
+    for chunk in r.iter_content(chunk_size=32):
+        f.write(chunk)
+</code></pre><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p>这样基本可以入门了。<br>就来爬一下我每天都要上的福利网址福利吧吧。福利吧每天有个文章叫汇总。里面充满了MM。就拿这些MM练手了~<br>Demo1：</p>
+<pre><code>from bs4 import BeautifulSoup
+import requests
+
+base_URL = &quot;http://fuliba.net/20180&quot;
+for i in range(1,10):
+    URL = base_URL+str(i)+&quot;.html&quot;
+
+    print(&quot;第 %s 期&quot; % i)
+    html = requests.get(URL).text
+
+    soup = BeautifulSoup(html,features=&quot;lxml&quot;)
+
+    imgs = soup.find_all(&#39;img&#39;,{&quot;class&quot;:&quot;alignnone size-large&quot;})
+
+    for img in imgs:
+        url = img[&#39;src&#39;]
+        r = requests.get(url,stream=True)
+        #图片地址用 / 分割，再选最后一块作文件名
+        image_name = url.split(&#39;/&#39;)[-1]
+        with open(&#39;/Users/lixs/Pictures/%s&#39; % image_name, &#39;wb&#39;) as f:
+            for chunk in r.iter_content(chunk_size=128):
+                f.write(chunk)
+        print(&#39;Saved %s&#39; % image_name)
+</code></pre><p>运行结果：<br><img src="http://p66eruxmw.bkt.clouddn.com/15229998430539.jpg" alt=""><br>战果：<br><img src="http://p66eruxmw.bkt.clouddn.com/15229999645914.jpg" alt=""></p>
+<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><h2 id="TypeError-expected-string-or-bytes-like-object"><a href="#TypeError-expected-string-or-bytes-like-object" class="headerlink" title="TypeError: expected string or bytes-like object"></a>TypeError: expected string or bytes-like object</h2><p>对着网上教程，开门就遇到这个报错。<br>搜了下，原来是<br><code>re.findall(r&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;, html)</code><br>这种写法是Python2的。<br>在Python3中只需要改写成<br><code>res = re.findall(r&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;, str(html))</code></p>
+<h2 id="百度为什么要用Get而不用Post呢？"><a href="#百度为什么要用Get而不用Post呢？" class="headerlink" title="百度为什么要用Get而不用Post呢？"></a>百度为什么要用Get而不用Post呢？</h2><p>于是搜到这篇文章<br><a href="https://blog.csdn.net/yansong_8686/article/details/48638957" target="_blank" rel="noopener">为什么有了post那么多优点，还有还多网站用get，比如百度搜索</a></p>
+<h2 id="网址是中文的情况"><a href="#网址是中文的情况" class="headerlink" title="网址是中文的情况"></a>网址是中文的情况</h2><p><code>html = urlopen(&quot;https://baike.baidu.com/item/周杰伦/&quot;).read().decode(&#39;utf-8&#39;)</code><br>很明显虽然 <code>decode(&#39;utf-8&#39;)</code>可以解决<strong>网页</strong>内容是中文的问题，<br>可当<strong>网址</strong>是中文的时候，还是会报错<br><code>UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 10-12: ordinal not in range(128)</code></p>
+<blockquote>
+<p>当我在博客里写下上面这行字的时候，<br>我就突发奇想要再url字符串后decode()一下，<br>哈哈，去试试。<br>哈哈,不行。</p>
+</blockquote>
+<p>于是乎搜到这两篇文章：<br><a href="http://www.ruanyifeng.com/blog/2010/02/url_encoding.html" target="_blank" rel="noopener">关于URL编码</a><br><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">字符编码笔记：ASCII，Unicode 和 UTF-8</a><br><strong>最终解决方案：</strong><br><a href="http://tool.chinaz.com/Tools/Unicode.aspx" target="_blank" rel="noopener">在线Unicode编码转换</a></p>
+<p>后来发现如果直接用Requests，不会有这种问题。</p>
+<h1 id="正则表达式小抄"><a href="#正则表达式小抄" class="headerlink" title="正则表达式小抄"></a>正则表达式小抄</h1><p><img src="http://p66eruxmw.bkt.clouddn.com/15226337908654.jpg" alt="正则表达式小抄"></p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/Python/爬虫入门笔记/" class="b-link-green">爬虫入门笔记+实战爬福利吧图片</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/iOS/SwiftDemo2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Swift Demo2 查天气">
+                        
+                        <span class="card-title">Swift Demo2 查天气</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">通过API查天气。
+
+载入界面简单，三个Label（地址、温度、描述）一个Btn。
+先把Btn写出来。弹出Alert，附带一个文本输入框，把输入框的值传给通过Api获取天气数据的函数。代码如下：
+@IBAction func setCity</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            ixsim
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Website/Hexo渲染时设置例外/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hexo渲染时设置例外">
+                        
+                        <span class="card-title">Hexo渲染时设置例外</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">由于网络书签同步总是不方便，我把常用的网址做成了一个导航站炫猿 这个站是纯HTML配合Bootstrap写的，所以没有任何后台。但当我把它整个拖到Hexo里时，Hexo就把它“毁了”。So,有了这篇文章。
+
+目前使用的方法：在HTML文件前</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Website/" class="post-category" target="_blank">
+                                    Website
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/" target="_blank">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
+              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
