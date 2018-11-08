@@ -5,7 +5,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo插本地图, 炫杉">
+    <meta name="keywords" content="Hexo插本地图不借助插件和图床, 炫杉">
     <meta name="description" content="收到七牛云的【测试域名过期通知】时，我不得不写下这篇文章了。
 
 怎么让Hexo插入本地图时，本地预览和推送都能正常显示呢？
@@ -21,7 +21,7 @@ https://githu">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hexo插本地图 | 炫杉</title>
+    <title>Hexo插本地图不借助插件和图床 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -213,13 +213,13 @@ https://githu">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hexo插本地图
+                        Hexo插本地图不借助插件和图床
                     </div>
                 </div>
             </div>
@@ -349,7 +349,7 @@ https://githu">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-08
+                    <i class="fa fa-clock-o fa-fw"></i>2018-08-08
                 </span>
             </div>
         </div>
@@ -373,8 +373,7 @@ https://githu">
 <p>就这几个简单的功能，足够在日常使用中完美利用图床了。</p>
 <hr>
 <p>可惜，七牛云终于开启了测试域名回收方案。（其实有备案域名的绑定一下继续用）</p>
-<p><img src="/Hexo插本地图/../../images/image-20181108092414796.png" alt="image-20181108092414796"></p>
-<p>那就彻底把他们放到Coding和GitHub上吧。</p>
+<p><img src="../../images/image-20181108092414796.png" alt="image-20181108092414796"></p>
 <h1 id="本地图片方案"><a href="#本地图片方案" class="headerlink" title="本地图片方案"></a>本地图片方案</h1><p>网上搜了下，用这个插件的比较多：</p>
 <p><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a></p>
 <p>然而让我不能接受的就是，</p>
@@ -382,12 +381,34 @@ https://githu">
 <p>这就会导致，每篇博客都带一个同名文件夹。</p>
 <p><strong>（特别适合每篇文章都会引入各种图片的人）</strong></p>
 <p>这怎么行🙂🙂🙂🙃🙃🙃😤😤😤</p>
-<p>我可是在本地也把文章按照分类分好文件夹的☺。</p>
-<p>我宁愿费事一点，或者 <em>牺牲 本地预览效果</em>  来让文件夹结构清晰。</p>
-<h1 id="轮子该造就得造"><a href="#轮子该造就得造" class="headerlink" title="轮子该造就得造"></a>轮子该造就得造</h1><p>综上，图床挂。hexo-asset-image插件个人并不喜欢。</p>
-<p>那咱就自己造。</p>
-<p>利用啥呢？就用GitHub呗。免费的东西最爱占便宜了。</p>
-<p>可我不会开发macOS的程序啊🙂</p>
+<p>我可是在本地也<em><u>把文章按照分类分好存在对应文件夹</u></em>的☺。</p>
+<p>我宁愿费事一点，或者 <em><u>牺牲 本地预览效果</u></em>  来让文件夹结构清晰。</p>
+<p>没想到的是，我这个<strong><u><em>牺牲 本地预览效果</em></u></strong> ，配合上我<em><u><strong>把文章按照分类分好存在对应文件夹</strong></u></em>，竟然就实现了，本地可预览，上传也没问题。</p>
+<h1 id="最终方案"><a href="#最终方案" class="headerlink" title="最终方案"></a>最终方案</h1><p>刚刚说了，我的每个文章都会按照分类存放在一个个的文件夹里，就像这样：</p>
+<p><img src="../../images/image-20181108104754938.png" alt="image-20181108104754938"></p>
+<p>而这时候Typora这么设置</p>
+<p><img src="../../images/image-20181108103011357.png" alt="image-20181108103011357"></p>
+<hr>
+<p><strong>重点来了</strong></p>
+<hr>
+<ul>
+<li><p>Typora设置好</p>
+</li>
+<li><p><code>hexo new</code> 一个新文章，</p>
+<p>此时文章是在 <code>_post</code> 根目录下的，</p>
+<p>我们把它放到对应分类的文件夹里。比如我放在了<code>_post/分类1</code> 里</p>
+</li>
+<li><p>复制图片, 然后直接在Typora粘贴，就会自动生成下面这种格式的路径<br> <img src="../../images/image-20181108105325807.png" alt="image-20181108105325807"></p>
+<blockquote>
+<p>正是由于我们的文章在<code>_post/分类1</code> 这个子目录下，</p>
+<p>自动生成的相对路径变成了<code>../../</code>    就是往<strong>后退了两级</strong></p>
+<p>而<code>hexo g</code>生成的静态页面，对应的images文件夹也是往<strong>后退两级</strong></p>
+</blockquote>
+</li>
+<li><p>大功告成。</p>
+</li>
+</ul>
+<p>Typroa本地可预览，生成静态html，图片正常显示</p>
 
             </div>
             <hr>
@@ -409,7 +430,7 @@ https://githu">
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Hexo插本地图/" class="b-link-green">Hexo插本地图</a>
+                    <a href="/Website/Hexo插本地图/" class="b-link-green">Hexo插本地图不借助插件和图床</a>
                 </p>
             </div>
         </div>
@@ -451,30 +472,36 @@ https://githu">
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">本篇</div>
+            <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/Hexo插本地图/">
+                <a href="/Website/HelloJs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hexo插本地图">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="HelloJs">
                         
-                        <span class="card-title">Hexo插本地图</span>
+                        <span class="card-title">HelloJs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">收到七牛云的【测试域名过期通知】时，我不得不写下这篇文章了。
+                    <div class="summary">高铁上没事干，入门一波Js。
 
-怎么让Hexo插入本地图时，本地预览和推送都能正常显示呢？
+Tips
+分号；可选
+标识符以字母、下划线和美元符号开始
+大小写敏感
 
+GrammarVarvar a = 10 声明变量
+docunment.write(a) 输出
+赋值为null可清除变量
 
-图床方案七牛云啊。曾经多么好用。
-这里顺便安利一个 macOS 上开源的七牛图床工具
-https://githu</div>
+点击运算
+
+</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -487,12 +514,15 @@ https://githu</div>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/js/" target="_blank">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>
@@ -504,36 +534,30 @@ https://githu</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Algorithm/排序算法/">
+                <a href="/Python/Python学习遇到的坑/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="排序算法">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Problems in studying Python">
                         
-                        <span class="card-title">排序算法</span>
+                        <span class="card-title">Problems in studying Python</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">完美排序思想：
+                    <div class="summary">一些杂碎问题不至于写一篇文章了。放在这收集吧。
 
-ifi位置比j位置小，二者交换。
-循环结束条件 i等于j
-三分数组，先递归前2/3。再递归2/3。再递归前2/3
-
-代码美观。效率低。
-代码下载
-
-</div>
+Spyder使用IPython Console弹出绘图窗口的设置方法matplotlib 画图show()不显示图
+Spyder设置（Cmd + ，）–&gt;IPython Console</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-05
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
-                                    Algorithm
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
                                 </a>
                             
                             
@@ -543,12 +567,8 @@ ifi位置比j位置小，二者交换。
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/" target="_blank">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/Sort/" target="_blank">
-                        <span class="chip bg-color">Sort</span>
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
