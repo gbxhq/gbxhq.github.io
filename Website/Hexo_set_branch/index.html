@@ -5,14 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="网页空白处点击弹出文字, 炫杉">
-    <meta name="description" content="空白处点击鼠标，弹出文字的网页特效。
+    <meta name="keywords" content="Hexo建分支上次源文件到仓库, 炫杉">
+    <meta name="description" content="为了方便在两台电脑同时对博客更新，采用了创建分支的方法。将源文件上传。
 
-代码如下：
-&amp;lt;script type=&#34;text/javascript&#34;&gt;
-/* 鼠标特效 */
-var a_idx = 0;
-jQuery(document).ready(function($">
+创建仓库、分支在博客的Hexo根目录下，正常的建仓库， 并和你要上传的仓库进行关联。
+但是我们既然要建分支了，就是要【Push到存放静态网页的仓库】。
+关键的语句其实">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +18,7 @@ jQuery(document).ready(function($">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>网页空白处点击弹出文字 | 炫杉</title>
+    <title>Hexo建分支上次源文件到仓库 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -212,13 +210,13 @@ jQuery(document).ready(function($">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        网页空白处点击弹出文字
+                        Hexo建分支上次源文件到仓库
                     </div>
                 </div>
             </div>
@@ -329,8 +327,12 @@ jQuery(document).ready(function($">
             
             <div class="article-tag">
                 
-                <a href="/tags/js/" target="_blank">
-                    <span class="chip bg-color">js</span>
+                <a href="/tags/Hexo/" target="_blank">
+                    <span class="chip bg-color">Hexo</span>
+                </a>
+                
+                <a href="/tags/git/" target="_blank">
+                    <span class="chip bg-color">git</span>
                 </a>
                 
             </div>
@@ -348,58 +350,50 @@ jQuery(document).ready(function($">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-03-23
+                    <i class="fa fa-clock-o fa-fw"></i>2018-11-09
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>空白处点击鼠标，弹出文字的网页特效。</p>
+                <p>为了方便在两台电脑同时对博客更新，采用了创建分支的方法。将源文件上传。</p>
 <a id="more"></a>
-<p>代码如下：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
-<span class="token comment" spellcheck="true">/* 鼠标特效 */</span>
-<span class="token keyword">var</span> a_idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token function">jQuery</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>$<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"body"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token string">"富强"</span><span class="token punctuation">,</span> <span class="token string">"民主"</span><span class="token punctuation">,</span> <span class="token string">"文明"</span><span class="token punctuation">,</span> <span class="token string">"和谐"</span><span class="token punctuation">,</span> <span class="token string">"自由"</span><span class="token punctuation">,</span> <span class="token string">"平等"</span><span class="token punctuation">,</span> <span class="token string">"公正"</span> <span class="token punctuation">,</span><span class="token string">"法治"</span><span class="token punctuation">,</span> <span class="token string">"爱国"</span><span class="token punctuation">,</span> <span class="token string">"敬业"</span><span class="token punctuation">,</span> <span class="token string">"诚信"</span><span class="token punctuation">,</span> <span class="token string">"友善"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> $i <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"&lt;span/>"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>a_idx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        a_idx <span class="token operator">=</span> <span class="token punctuation">(</span>a_idx <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> a<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-        <span class="token keyword">var</span> x <span class="token operator">=</span> e<span class="token punctuation">.</span>pageX<span class="token punctuation">,</span>
-        y <span class="token operator">=</span> e<span class="token punctuation">.</span>pageY<span class="token punctuation">;</span>
-        $i<span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-            <span class="token string">"z-index"</span><span class="token punctuation">:</span> <span class="token number">999999999999999999999999999999999999999999999999999999999999999999999</span><span class="token punctuation">,</span>
-            <span class="token string">"top"</span><span class="token punctuation">:</span> y <span class="token operator">-</span> <span class="token number">20</span><span class="token punctuation">,</span>
-            <span class="token string">"left"</span><span class="token punctuation">:</span> x<span class="token punctuation">,</span>
-            <span class="token string">"position"</span><span class="token punctuation">:</span> <span class="token string">"absolute"</span><span class="token punctuation">,</span>
-            <span class="token string">"font-weight"</span><span class="token punctuation">:</span> <span class="token string">"bold"</span><span class="token punctuation">,</span>
-            <span class="token string">"color"</span><span class="token punctuation">:</span> <span class="token string">"#ff6651"</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"body"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>$i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        $i<span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-            <span class="token string">"top"</span><span class="token punctuation">:</span> y <span class="token operator">-</span> <span class="token number">180</span><span class="token punctuation">,</span>
-            <span class="token string">"opacity"</span><span class="token punctuation">:</span> <span class="token number">0</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token number">1500</span><span class="token punctuation">,</span>
-        <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            $i<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<script type="text/javascript"> /* 鼠标特效 */ 
+<h1 id="创建仓库、分支"><a href="#创建仓库、分支" class="headerlink" title="创建仓库、分支"></a>创建仓库、分支</h1><p>在博客的Hexo根目录下，正常的建仓库， 并和你要上传的仓库进行关联。</p>
+<p>但是我们既然要建分支了，就是要【Push到存放静态网页的仓库】。</p>
+<p>关键的语句其实就是<code>git push origin master:dev-blog</code></p>
+<p>其中。<code>origin</code>是远你给远程仓库起的别名。 <code>master</code>代表本地的master分支，<code>dev-blog</code>代表远程仓库的dev-blog分支，</p>
+<blockquote>
+<p>如果我的仓库以前只用来存放静态网页，并没有这个dev-blog分支，执行了会怎么样？</p>
+<p>答：自动创建dev-blog分支。</p>
+</blockquote>
+<p>Ex,我的这一步就要这样：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">cd Documents/Blog #到博客的根目录下
+git init
+git remote add Coding https://xxxx.git #关联远程仓库，起个别名叫Coding
+git commit -m "推送到Coding测试"
+git push Coding master:dev-blog
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>OK，等着就好了。push完后，去你的远程仓库看，会发现，dev-blog分支已经建好了。</p>
+<p>以后每次<strong>想Push【源文件】</strong>，执行<code>git push 仓库名 master:dev-blog</code>就OK了。</p>
+<h1 id="更新静态页面"><a href="#更新静态页面" class="headerlink" title="更新静态页面"></a>更新静态页面</h1><p>Hexo的推送完全不受影响，和以前一样<code>hexo g -d</code>就OK。</p>
+<p>它要Push到的【仓库地址，分支名】完全取决于根目录下的<code>_config.yml</code>文件 的 deploy 配置。比如我的是这样的：</p>
+<p><img src="../../images/image-20181109090616204.png" alt="image-20181109090616204"></p>
+<p>就是说，执行 <code>hexo d</code>的时候，会把【静态页面】push到我设置的那两个仓库的master分支。而我们的源文件是上传到dev-blog分支的。</p>
+<h1 id="拉取源文件"><a href="#拉取源文件" class="headerlink" title="拉取源文件"></a>拉取源文件</h1><p>OK，现在源文件已经到仓库了。怎么在另一台电脑上Pull下来继续写博客呢？</p>
+<ol>
+<li>首先确保新电脑上安装好<code>git</code>  <code>node</code> <code>hexo</code></li>
+<li>执行<code>git clone -b dev-blog xxxx.git</code>    从原仓库把dev-blog分支克隆下来。</li>
+</ol>
+<p>这样源文件就已经在新电脑上了。cd到该目录执行：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">npm install hexo    // 安装hexo  安装完成hexo 不需要初始化hexo，否者hexo 配置参数会重置
+npm install    // 安装依赖库
+npm  install hexo-deployer-git  --save    // 安装部署相关配置
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>这样Hexo也可以用了。</p>
+<p>如果一台电脑要更新源文件，就使用第一步的<code>git push 仓库别名 master:dev-blog</code>语句进行Push。Push好了。<strong>记得另一台电脑使用<code>git pull 仓库别名 dev-blog</code>来更新源文件！！！</strong></p>
+<p><strong>参考</strong>：<a href="https://www.jianshu.com/p/55f11d8973f0" target="_blank" rel="noopener">https://www.jianshu.com/p/55f11d8973f0</a></p>
 
-var a_idx = 0; 
-
-jQuery(document).ready(function($) { 
-
-$("body").click(function(e) {
-
- var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善"); var $i = $("<span/>").text(a[a_idx]); a_idx = (a_idx + 1) % a.length; var x = e.pageX, y = e.pageY; 
-
-i.css({ "z-index": 999999999999999999999999999999999999999999999999999999999999999999999, "top": y - 20, "left": x, "position": "absolute", "font-weight": "bold", "color": "#ff6651" }); ("body").append($i); $i.animate({ "top": y - 180, "opacity": 0 }, 1500, function() { $i.remove(); }); }); }); </script>
             </div>
             <hr>
 
@@ -420,7 +414,7 @@ i.css({ "z-index": 9999999999999999999999999999999999999999999999999999999999999
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Website/网页空白处点击弹出文字/" class="b-link-green">网页空白处点击弹出文字</a>
+                    <a href="/Website/Hexo_set_branch/" class="b-link-green">Hexo建分支上次源文件到仓库</a>
                 </p>
             </div>
         </div>
@@ -462,56 +456,49 @@ i.css({ "z-index": 9999999999999999999999999999999999999999999999999999999999999
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/Python/Python文件处理实战-1/">
+                <a href="/Website/Hexo_set_branch/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Python文件处理实战">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo建分支上次源文件到仓库">
                         
-                        <span class="card-title">Python文件处理实战</span>
+                        <span class="card-title">Hexo建分支上次源文件到仓库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。
-刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。
+                    <div class="summary">为了方便在两台电脑同时对博客更新，采用了创建分支的方法。将源文件上传。
 
-问题分析原文件头部> Title
-> Date
-> Tags
-
-目标文件头部---
-ti</div>
+创建仓库、分支在博客的Hexo根目录下，正常的建仓库， 并和你要上传的仓库进行关联。
+但是我们既然要建分支了，就是要【Push到存放静态网页的仓库】。
+关键的语句其实</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/Website/" class="post-category" target="_blank">
+                                    Website
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Demo/" target="_blank">
-                        <span class="chip bg-color">Demo</span>
+                    <a href="/tags/Hexo/" target="_blank">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/File-Process/" target="_blank">
-                        <span class="chip bg-color">File Process</span>
+                    <a href="/tags/git/" target="_blank">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
@@ -523,31 +510,33 @@ ti</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Python/《Python数据分析》学习记录/">
+                <a href="/Website/HexoPic/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="《Python数据分析》学习记录">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo插本地图不借助插件和图床">
                         
-                        <span class="card-title">《Python数据分析》学习记录</span>
+                        <span class="card-title">Hexo插本地图不借助插件和图床</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是阅读《Python for Data Analysis》的读书笔记。
+                    <div class="summary">收到七牛云的【测试域名过期通知】时，我不得不写下这篇文章了。
 
-第一章 准备工作不用准备了。🙂🙂🙂要啥有啥。
-第二章 引言list 手动统计from collections improt defaultdict
-def g</div>
+怎么让Hexo插入本地图时，本地预览和推送都能正常显示呢？
+
+
+插件方案网上搜了下，用这个hexo-asset-image插件的比较多：
+然而让我不能接受的就是，用这个插件必须</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/Website/" class="post-category" target="_blank">
+                                    Website
                                 </a>
                             
                             
@@ -557,16 +546,8 @@ def g</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
-                    </a>
-                    
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/Data-Analysis/" target="_blank">
-                        <span class="chip bg-color">Data Analysis</span>
+                    <a href="/tags/Hexo/" target="_blank">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>

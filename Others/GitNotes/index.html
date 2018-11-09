@@ -5,12 +5,13 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo建分支上次源文件到仓库, 炫杉">
-    <meta name="description" content="为了方便在两台电脑同时对博客更新，采用了创建分支的方法。将源文件上传。
+    <meta name="keywords" content="Git笔记, 炫杉">
+    <meta name="description" content="Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。
 
-创建仓库、分支在博客的Hexo根目录下，正常的建仓库， 并和你要上传的仓库进行关联。
-但是我们既然要建分支了，就是要【Push到存放静态网页的仓库】。
-关键的语句其实">
+基本操作
+回滚版本
+git reset --hard HEAD^
+git res">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hexo建分支上次源文件到仓库 | 炫杉</title>
+    <title>Git笔记 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -210,13 +211,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hexo建分支上次源文件到仓库
+                        Git笔记
                     </div>
                 </div>
             </div>
@@ -327,12 +328,12 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/Hexo/" target="_blank">
-                    <span class="chip bg-color">Hexo</span>
+                <a href="/tags/Note/" target="_blank">
+                    <span class="chip bg-color">Note</span>
                 </a>
                 
-                <a href="/tags/git/" target="_blank">
-                    <span class="chip bg-color">git</span>
+                <a href="/tags/Git/" target="_blank">
+                    <span class="chip bg-color">Git</span>
                 </a>
                 
             </div>
@@ -342,57 +343,135 @@
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/Website/" class="post-category" target="_blank">
-                        Website
+                    <a href="/categories/Others/" class="post-category" target="_blank">
+                        Others
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-09
+                    <i class="fa fa-clock-o fa-fw"></i>2018-01-01
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>为了方便在两台电脑同时对博客更新，采用了创建分支的方法。将源文件上传。</p>
+                <p>Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。</p>
 <a id="more"></a>
-<h1 id="创建仓库、分支"><a href="#创建仓库、分支" class="headerlink" title="创建仓库、分支"></a>创建仓库、分支</h1><p>在博客的Hexo根目录下，正常的建仓库， 并和你要上传的仓库进行关联。</p>
-<p>但是我们既然要建分支了，就是要【Push到存放静态网页的仓库】。</p>
-<p>关键的语句其实就是<code>git push origin master:dev-blog</code></p>
-<p>其中。<code>origin</code>是远你给远程仓库起的别名。 <code>master</code>代表本地的master分支，<code>dev-blog</code>代表远程仓库的dev-blog分支，</p>
-<blockquote>
-<p>如果我的仓库以前只用来存放静态网页，并没有这个dev-blog分支，执行了会怎么样？</p>
-<p>答：自动创建dev-blog分支。</p>
-</blockquote>
-<p>Ex,我的这一步就要这样：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">cd Documents/Blog #到博客的根目录下
-git init
-git remote add Coding https://xxxx.git #关联远程仓库，起个别名叫Coding
-git commit -m "推送到Coding测试"
-git push Coding master:dev-blog
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><ul>
+<li><p>回滚版本</p>
+<pre class="line-numbers language-shell"><code class="language-shell">git reset --hard HEAD^
+git reset --hard HEAD^^
+git reset --hard HEAD~10
+git reset --hard SHA1串(而且不需要写全就能匹配，8位就够)
+#忘记了SHA1号怎么办？
+git log #查看提交历史，以便确定要回退到哪个版本
+git reflog #查看命令历史，以便确定要回到未来的哪个版本。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>回滚文件</p>
+<pre class="line-numbers language-shell"><code class="language-shell">git checkout --a.txt 
+#这样就撤销了对这个文件的修改。（注意一定要带--  不然就成了加分支）
+#如果修改后又git add .了呢？（文件已经在暂存区）
+git reset HEAD a.txt
+#git reset 命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用 HEAD 时，表示最新的版本。 运行了上一层命令，git status看一下状态，会发现，暂存区里已经回滚。 再执行 checkout --a.txt 就把文件回滚了
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>OK，等着就好了。push完后，去你的远程仓库看，会发现，dev-blog分支已经建好了。</p>
-<p>以后每次<strong>想Push【源文件】</strong>，执行<code>git push 仓库名 master:dev-blog</code>就OK了。</p>
-<h1 id="更新静态页面"><a href="#更新静态页面" class="headerlink" title="更新静态页面"></a>更新静态页面</h1><p>Hexo的推送完全不受影响，和以前一样<code>hexo g -d</code>就OK。</p>
-<p>它要Push到的【仓库地址，分支名】完全取决于根目录下的<code>_config.yml</code>文件 的 deploy 配置。比如我的是这样的：</p>
-<p><img src="../../images/image-20181109090616204.png" alt="image-20181109090616204"></p>
-<p>就是说，执行 <code>hexo d</code>的时候，会把【静态页面】push到我设置的那两个仓库的master分支。而我们的源文件是上传到dev-blog分支的。</p>
-<h1 id="拉取源文件"><a href="#拉取源文件" class="headerlink" title="拉取源文件"></a>拉取源文件</h1><p>OK，现在源文件已经到仓库了。怎么在另一台电脑上Pull下来继续写博客呢？</p>
-<ol>
-<li>首先确保新电脑上安装好<code>git</code>  <code>node</code> <code>hexo</code></li>
-<li>执行<code>git clone -b dev-blog xxxx.git</code>    从原仓库把dev-blog分支克隆下来。</li>
-</ol>
-<p>这样源文件就已经在新电脑上了。cd到该目录执行：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">npm install hexo    // 安装hexo  安装完成hexo 不需要初始化hexo，否者hexo 配置参数会重置
-npm install    // 安装依赖库
-npm  install hexo-deployer-git  --save    // 安装部署相关配置
+</li>
+<li><p>分支</p>
+</li>
+</ul>
+<pre class="line-numbers language-shell"><code class="language-shell">git checkout -b newBranch
+#-b表示创建并切换，相当于以下两条命令
+git branch newBranch
+git checkout newBranch
+git branch #查看分支
+#合并到master
+git checkout master
+git merge newBranch
+git branch -d newBranch #删除分支
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>普通的<code>git merge</code>合并使用fast forward的合并模式，就是把HEAD指针指到分支commit的最新指针上了。 使用命令<code>git merge --no-ff -m &quot;合并内容&quot; newBranchName</code>禁用了ff，合并的时候会创建一个commit。</p>
+</blockquote>
+<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><ul>
+<li>所有空行或#开头的行都会被忽略；</li>
+<li>可以使用标准的 glob 模式匹配；</li>
+<li>文件或目录前加 <code>/</code> 表示仓库根目录的对应文件；</li>
+<li>匹配模式最后跟反斜杠 <code>/</code> 说明要忽略的是目录；</li>
+<li>要特殊不忽略某个文件或目录，可以在模式前加上取反 <code>!</code> 。</li>
+</ul>
+<p>其中 glob 模式是指 shell 所使用的简化了的正则表达式。</p>
+<ul>
+<li>星号 <code>*</code> 匹配零个或多个任意字符；</li>
+<li><code>[abc]</code>匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）；- - 问号 <code>?</code> 只匹配一个任意字符；</li>
+<li>如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 <code>[0-9]</code> 表示匹配所有 0 到 9 的数字）。</li>
+</ul>
+<p>下面是一个 <code>.gitignore</code> 文件例子，注释上附录有说明：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">*.a                    # 所有以 '.a' 为后缀的文件都屏蔽掉
+# Office 缓存文件
+~'$'*.docx
+~'$'*.ppt
+~'$'*.pptx 
+~'$'*.xls
+
+tags                   # 仓库中所有名为 tags 的文件都屏蔽
+core.*                 # 仓库中所有以 'core.' 开头的文件都屏蔽
+
+tools/                # 屏蔽目录 tools
+log/*                  # 屏蔽目录 log 下的所有文件，但不屏蔽 log 目录本身
+
+/log.log               # 只屏蔽仓库根目录下的 log.log 文件，其他目录中的不屏蔽
+readme.md       # 屏蔽仓库中所有名为 readme.md 的文件
+!/readme.md     # 在上一条屏蔽规则的条件下，不屏蔽仓库根目录下的 readme.md 文件
+ 例子中的最后两条的顺序很重要，必须要先屏蔽所有的，然后才建立特殊不屏蔽的规则
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="Git-Pull冲突问题"><a href="#Git-Pull冲突问题" class="headerlink" title="Git Pull冲突问题"></a>Git Pull冲突问题</h1><ul>
+<li><p>方法1 <strong>git stash</strong></p>
+<pre class="line-numbers language-git"><code class="language-git">git stash 暂存本地修改
+git pull 从远程版本库拉取新的修改
+git stash pop 将暂存起来的修改合并到本地工作库，如果有冲突会有相应的提示，解决冲突并提交即可
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>这样Hexo也可以用了。</p>
-<p>如果一台电脑要更新源文件，就使用第一步的<code>git push 仓库别名 master:dev-blog</code>语句进行Push。Push好了。<strong>记得另一台电脑使用<code>git pull 仓库别名 dev-blog</code>来更新源文件！！！</strong></p>
-<p><strong>参考</strong>：<a href="https://www.jianshu.com/p/55f11d8973f0" target="_blank" rel="noopener">https://www.jianshu.com/p/55f11d8973f0</a></p>
+<p><strong>Note：</strong><br><code>git stash</code>一般用于你在某一分支工作做了一半(还不值得做一次提交或者压根还不想提交)时，你突然想切换到其他分支做一点儿别的事。这时，用<code>git stash</code>就再合适不过了。<br>stash的恢复方法：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">git stash list #查看stash
+# 恢复方法一
+git stash apply #恢复，stash内容并不删除，需要用
+git stash drop #来删除。
+# 上面两句相当于下面的方法二：
+git stash pop #恢复的同时把stash的内容也删了。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>方法2  Pull is not possible because you have unmerged files.<br>本地的push和merge会形成MERGE-HEAD(FETCH-HEAD), HEAD（PUSH-HEAD）这样的引用。HEAD代表本地最近成功push后形成的引用。MERGE-HEAD表示成功pull后形成的引用。可以通过MERGE-HEAD或者HEAD来实现类型与svn revet的效果。<br>解决：<br>1.将本地的冲突文件冲掉，不仅需要reset到MERGE-HEAD或者HEAD,还需要–hard。没有后面的hard，不会冲掉本地工作区。只会冲掉stage区。<br><code>git reset --hard FETCH_HEAD</code></p>
+</li>
+</ul>
+<p>2.<code>git pull</code>就会成功。</p>
+<h1 id="多个Git账号问题"><a href="#多个Git账号问题" class="headerlink" title="多个Git账号问题"></a>多个Git账号问题</h1><ul>
+<li><p>配置账号时</p>
+<pre class="line-numbers language-shell"><code class="language-shell">git config --global user.name "Your Name"
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>其中 –global 参数就是表示这台机器所有Git仓库都使用这个配置。</p>
+</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/fbbf6efb50ba" target="_blank" rel="noopener">https://www.jianshu.com/p/fbbf6efb50ba</a></p>
+<h1 id="悟"><a href="#悟" class="headerlink" title="悟"></a>悟</h1><blockquote>
+<p>一次我Clone 一个仓库后，往里加了一个abc文件，然后 <code>add .</code>  <code>commit</code>  。这时候我发现这个abc文件我搞错了。趁着还没<code>push</code> 我就删除了，然后放上正确的CBA文件又执行 <code>add .</code> <code>commit -m</code>。然后我<code>push</code>。</p>
+<p>竟然发现，git 还是会传刚刚删除的abc文件。（传上去再删掉，执行我刚刚的两次commit）</p>
+<p>我一看这样太慢了（那个文件很大）。</p>
+<p>就<code>reset</code>到了第一次clone的版本。这时候我本地查看文件，发现仓库里并不是最初clone下来的样子，还是最终的带有CBA文件的样子，只不过这时候我<code>add .</code>  <code>commit</code>  <code>push</code> 就一次性完成了。</p>
+</blockquote>
+<ul>
+<li><p><code>push</code>这个过程会按照你的<code>commit</code>顺序一步步来。并不是按最后一次<code>commit</code></p>
+</li>
+<li><p>github单文件最大只允许100Mb</p>
+</li>
+<li><p><code>reset</code>只清除了暂存区，如何真正恢复到想去的那个版本呢？</p>
+<p>ANSWER: 回滚了暂存区再用<code>checkout --文件名</code>回滚文件啊！</p>
+<pre class="line-numbers language-shell"><code class="language-shell">git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+</ul>
+<hr>
 
             </div>
             <hr>
@@ -414,7 +493,7 @@ npm  install hexo-deployer-git  --save    // 安装部署相关配置
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Website/Hexo建分支上次源文件到仓库/" class="b-link-green">Hexo建分支上次源文件到仓库</a>
+                    <a href="/Others/GitNotes/" class="b-link-green">Git笔记</a>
                 </p>
             </div>
         </div>
@@ -456,49 +535,48 @@ npm  install hexo-deployer-git  --save    // 安装部署相关配置
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">本篇</div>
+            <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/Website/Hexo建分支上次源文件到仓库/">
+                <a href="/iOS/语法问题/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo建分支上次源文件到仓库">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Swift语法笔记">
                         
-                        <span class="card-title">Hexo建分支上次源文件到仓库</span>
+                        <span class="card-title">Swift语法笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">为了方便在两台电脑同时对博客更新，采用了创建分支的方法。将源文件上传。
+                    <div class="summary">语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话设计模式》，有时间要再读一读了。
 
-创建仓库、分支在博客的Hexo根目录下，正常的建仓库， 并和你要上传的仓库进行关联。
-但是我们既然要建分支了，就是要【Push到存放静态网页的仓库】。
-关键的语句其实</div>
+
+Tuple 元组：定义变量的一个组合
+va</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-06
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Website/" class="post-category" target="_blank">
-                                    Website
+                            <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
                     </a>
                     
-                    <a href="/tags/git/" target="_blank">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/Swift/" target="_blank">
+                        <span class="chip bg-color">Swift</span>
                     </a>
                     
                 </div>
@@ -510,33 +588,29 @@ npm  install hexo-deployer-git  --save    // 安装部署相关配置
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Website/HexoPic/">
+                <a href="/iOS/<懒猫>记录/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo插本地图不借助插件和图床">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="iOS《笨猫快乐学编程》学习笔记">
                         
-                        <span class="card-title">Hexo插本地图不借助插件和图床</span>
+                        <span class="card-title">iOS《笨猫快乐学编程》学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">收到七牛云的【测试域名过期通知】时，我不得不写下这篇文章了。
-
-怎么让Hexo插入本地图时，本地预览和推送都能正常显示呢？
-
-
-插件方案网上搜了下，用这个hexo-asset-image插件的比较多：
-然而让我不能接受的就是，用这个插件必须</div>
+                    <div class="summary">这是我找到的国内第一份Swift4.0教程，发布在知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcode9版)。
+一份纯文字加图片的教程。但让我感到了快乐。
+下面是学习过程中记录的一些东西。尽管都是傻傻</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Website/" class="post-category" target="_blank">
-                                    Website
+                            <a href="/categories/iOS/" class="post-category" target="_blank">
+                                    iOS
                                 </a>
                             
                             
@@ -546,8 +620,12 @@ npm  install hexo-deployer-git  --save    // 安装部署相关配置
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/Swift/" target="_blank">
+                        <span class="chip bg-color">Swift</span>
                     </a>
                     
                 </div>

@@ -5,13 +5,17 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Git笔记, 炫杉">
-    <meta name="description" content="Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。
+    <meta name="keywords" content="小知识点「技术」, 炫杉">
+    <meta name="description" content="
+Shell相关
+touch xxx.x 新建文件
 
-基本操作
-回滚版本
-git reset --hard HEAD^
-git res">
+ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目录
+-C 按列列出文件
+
+清屏: edit菜单里找。Terminal:⌃+⌘+L iTerm:⌘+K
+
+删除文件：">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +23,7 @@ git res">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Git笔记 | 炫杉</title>
+    <title>小知识点「技术」 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -211,13 +215,13 @@ git res">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Git笔记
+                        小知识点「技术」
                     </div>
                 </div>
             </div>
@@ -328,12 +332,28 @@ git res">
             
             <div class="article-tag">
                 
-                <a href="/tags/Note/" target="_blank">
-                    <span class="chip bg-color">Note</span>
+                <a href="/tags/tips/" target="_blank">
+                    <span class="chip bg-color">tips</span>
                 </a>
                 
-                <a href="/tags/Git/" target="_blank">
-                    <span class="chip bg-color">Git</span>
+                <a href="/tags/Heroku/" target="_blank">
+                    <span class="chip bg-color">Heroku</span>
+                </a>
+                
+                <a href="/tags/Shell/" target="_blank">
+                    <span class="chip bg-color">Shell</span>
+                </a>
+                
+                <a href="/tags/iTerm2/" target="_blank">
+                    <span class="chip bg-color">iTerm2</span>
+                </a>
+                
+                <a href="/tags/Markdown/" target="_blank">
+                    <span class="chip bg-color">Markdown</span>
+                </a>
+                
+                <a href="/tags/Mac/" target="_blank">
+                    <span class="chip bg-color">Mac</span>
                 </a>
                 
             </div>
@@ -351,127 +371,171 @@ git res">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-01-01
+                    <i class="fa fa-clock-o fa-fw"></i>2018-07-25
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。</p>
-<a id="more"></a>
-<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><ul>
-<li><p>回滚版本</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git reset --hard HEAD^
-git reset --hard HEAD^^
-git reset --hard HEAD~10
-git reset --hard SHA1串(而且不需要写全就能匹配，8位就够)
-#忘记了SHA1号怎么办？
-git log #查看提交历史，以便确定要回退到哪个版本
-git reflog #查看命令历史，以便确定要回到未来的哪个版本。
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <a id="more"></a>
+<h1 id="Shell相关"><a href="#Shell相关" class="headerlink" title="Shell相关"></a>Shell相关</h1><ul>
+<li><p><code>touch xxx.x</code> 新建文件</p>
 </li>
-<li><p>回滚文件</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git checkout --a.txt 
-#这样就撤销了对这个文件的修改。（注意一定要带--  不然就成了加分支）
-#如果修改后又git add .了呢？（文件已经在暂存区）
-git reset HEAD a.txt
-#git reset 命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用 HEAD 时，表示最新的版本。 运行了上一层命令，git status看一下状态，会发现，暂存区里已经回滚。 再执行 checkout --a.txt 就把文件回滚了
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<li><p><code>ls -a</code>查看隐藏文件包括“.”和“..” <code>-A</code>不包括“.”和“..”目录</p>
+<p><code>-C</code> 按列列出文件</p>
 </li>
-<li><p>分支</p>
+<li><p>清屏: edit菜单里找。Terminal:<code>⌃+⌘+L</code> iTerm:<code>⌘+K</code></p>
+</li>
+<li><p>删除文件：<code>rm -f</code> -f后不会给任何提示。 -i是交互式删除</p>
+<p>删除文件夹 -r</p>
+</li>
+<li><p>查找</p>
 </li>
 </ul>
-<pre class="line-numbers language-shell"><code class="language-shell">git checkout -b newBranch
-#-b表示创建并切换，相当于以下两条命令
-git branch newBranch
-git checkout newBranch
-git branch #查看分支
-#合并到master
-git checkout master
-git merge newBranch
-git branch -d newBranch #删除分支
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="自动运行命令脚本"><a href="#自动运行命令脚本" class="headerlink" title="自动运行命令脚本"></a>自动运行命令脚本</h2><p>shell命令写在记事本存成 1.sh</p>
+<p>shell里运行<code>sh 1.sh</code>即可</p>
+<p>关于需要输入密码时的交互：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">ssh tester@192.168.139.218 << EOF #用 <<eof 分割。这里就是输密码的地方="" cd="" kurento="" kurento-tutorial-java="" kurento-group-call="" mvn="" exec:java="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></eof></code></pre>
+<h2 id="终端走代理"><a href="#终端走代理" class="headerlink" title="终端走代理"></a>终端走代理</h2><p>参考：<a href="https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">让终端走代理的几种方法</a></p>
+<h2 id="Finder和终端快速转"><a href="#Finder和终端快速转" class="headerlink" title="Finder和终端快速转"></a>Finder和终端快速转</h2><ul>
+<li>Finder到终端：拖窗口到终端界面</li>
+<li>终端到Finder：<code>open .</code></li>
+</ul>
+<h1 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h1><h2 id="添加alias"><a href="#添加alias" class="headerlink" title="添加alias"></a>添加alias</h2><p>在 <code>.zshrc</code>这个文件里配置</p>
+<p>注意例子：<code>alias blog=&quot;cd Documents/Hexo&quot;</code></p>
+<p>其中<code>blog=&quot;xxx&quot;</code>等号两边不允许有空格！不然alias会失效。</p>
+<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><p>参考文章：<a href="https://www.cnblogs.com/kenz520/p/8259432.html" target="_blank" rel="noopener">https://www.cnblogs.com/kenz520/p/8259432.html</a></p>
+<ul>
+<li><p>iTerm2 -&gt; Make iTerm2 Default Term</p>
+</li>
+<li><p>配色：<a href="http://ethanschoonover.com/solarized" target="_blank" rel="noopener">http://ethanschoonover.com/solarized</a></p>
+</li>
+<li><p>oh_my_zsh：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh</a></p>
+<p>装好后配置主题：</p>
+<ul>
+<li>修改<code>~/.zshrc</code>文件的ZSH_THEME=“”属性为”agnoster”</li>
+</ul>
+</li>
+<li><p>字体：</p>
+<p>克隆这个仓库到本地：<a href="https://github.com/powerline/fonts.git" target="_blank" rel="noopener">https://github.com/powerline/fonts.git</a></p>
+<p>运行里面的 <code>install.sh</code> 就装好了</p>
+</li>
+</ul>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><ul>
+<li><p>命令提示与补全</p>
+<ol>
+<li>克隆仓库到本地 ~/.oh-my-zsh/custom/plugins 路径下<br><code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></li>
+<li>用 vim 编辑 .zshrc 文件，找到插件设置命令，默认是 <code>plugins=(git)</code> ，我们把它修改为<code>plugins=(zsh-autosuggestions git)</code></li>
+</ol>
+<p>PS：当你重新打开终端时可能看不到变化，可能你的字体颜色太淡了，我们把其改亮一些：</p>
+<ol>
+<li><code>cd ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions</code></li>
+<li>用 vim 编辑 zsh-autosuggestions.zsh 文件，修改<code>ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=10&#39;</code></li>
+</ol>
+</li>
+<li><p>语法高亮效果</p>
+<ol>
+<li>使用homebrew包管理工具安装 zsh-syntax-highlighting 插件<br><code>brew install zsh-syntax-highlighting</code><br>如果电脑上还没有安装homebrew，请先安装homebrew<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></li>
+<li>配置.zshrc文件，插入一行<br><code>source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</code></li>
+<li>加载.zshrc配置<br><code>source ~/.zshrc</code></li>
+<li>重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到效果</li>
+</ol>
+</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li>iTerm2 默认使用bash改用zsh解决方法：<code>chsh -s /bin/zsh</code></li>
+<li>iTerm2 zsh切换回原来的dash：<code>chsh -s /bin/bash</code></li>
+<li>卸载<code>oh my zsh</code>，在命令行输入：<code>uninstall_oh_my_zsh</code></li>
+<li>路径前缀的XX@XX太长，缩短问题：<br>编辑<code>~/.oh-my-zsh/themes/agnoster.zsh-theme</code>主体文件，将里面的<code>build_prompt</code>下的<code>prompt_context</code>字段在前面加<code>#</code>注释掉即可</li>
+</ol>
+<h1 id="Markdown相关"><a href="#Markdown相关" class="headerlink" title="Markdown相关"></a>Markdown相关</h1><h2 id="Markdown-写上标下标"><a href="#Markdown-写上标下标" class="headerlink" title="Markdown 写上标下标"></a>Markdown 写上标下标</h2><ol>
+<li><p>HTML</p>
+<pre><code> &lt;!--利用HTML--&gt;
+ &lt;sub&gt;上标&lt;/sub&gt;
+ &lt;sup&gt;下标&lt;/sup&gt;
+</code></pre><p> 例如<br> <code>X&lt;sub&gt;1&lt;/sub&gt;</code> ==&gt; X<sub>1</sub><br> <code>Y&lt;sup&gt;2345&lt;/sup&gt;</code> ==&gt;Y<sup>2345</sup></p>
+</li>
+<li><p>MathJax<br>MathJax不仅可以打上下标，还可以打双标。</p>
 <blockquote>
-<p>普通的<code>git merge</code>合并使用fast forward的合并模式，就是把HEAD指针指到分支commit的最新指针上了。 使用命令<code>git merge --no-ff -m &quot;合并内容&quot; newBranchName</code>禁用了ff，合并的时候会创建一个commit。</p>
+<p>（1）两个符号$$中间是公式的内容<br>（2）^ 符号后接的字符为上标<br>（3）_ 符号后接的字符为下标<br>（4）如果同时有两个下标，则需要使用{}来将符号括起来 </p>
 </blockquote>
-<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><ul>
-<li>所有空行或#开头的行都会被忽略；</li>
-<li>可以使用标准的 glob 模式匹配；</li>
-<li>文件或目录前加 <code>/</code> 表示仓库根目录的对应文件；</li>
-<li>匹配模式最后跟反斜杠 <code>/</code> 说明要忽略的是目录；</li>
-<li>要特殊不忽略某个文件或目录，可以在模式前加上取反 <code>!</code> 。</li>
-</ul>
-<p>其中 glob 模式是指 shell 所使用的简化了的正则表达式。</p>
-<ul>
-<li>星号 <code>*</code> 匹配零个或多个任意字符；</li>
-<li><code>[abc]</code>匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）；- - 问号 <code>?</code> 只匹配一个任意字符；</li>
-<li>如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 <code>[0-9]</code> 表示匹配所有 0 到 9 的数字）。</li>
-</ul>
-<p>下面是一个 <code>.gitignore</code> 文件例子，注释上附录有说明：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">*.a                    # 所有以 '.a' 为后缀的文件都屏蔽掉
-# Office 缓存文件
-~'$'*.docx
-~'$'*.ppt
-~'$'*.pptx 
-~'$'*.xls
-
-tags                   # 仓库中所有名为 tags 的文件都屏蔽
-core.*                 # 仓库中所有以 'core.' 开头的文件都屏蔽
-
-tools/                # 屏蔽目录 tools
-log/*                  # 屏蔽目录 log 下的所有文件，但不屏蔽 log 目录本身
-
-/log.log               # 只屏蔽仓库根目录下的 log.log 文件，其他目录中的不屏蔽
-readme.md       # 屏蔽仓库中所有名为 readme.md 的文件
-!/readme.md     # 在上一条屏蔽规则的条件下，不屏蔽仓库根目录下的 readme.md 文件
- 例子中的最后两条的顺序很重要，必须要先屏蔽所有的，然后才建立特殊不屏蔽的规则
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="Git-Pull冲突问题"><a href="#Git-Pull冲突问题" class="headerlink" title="Git Pull冲突问题"></a>Git Pull冲突问题</h1><ul>
-<li><p>方法1 <strong>git stash</strong></p>
-<pre class="line-numbers language-git"><code class="language-git">git stash 暂存本地修改
-git pull 从远程版本库拉取新的修改
-git stash pop 将暂存起来的修改合并到本地工作库，如果有冲突会有相应的提示，解决冲突并提交即可
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>Note：</strong><br><code>git stash</code>一般用于你在某一分支工作做了一半(还不值得做一次提交或者压根还不想提交)时，你突然想切换到其他分支做一点儿别的事。这时，用<code>git stash</code>就再合适不过了。<br>stash的恢复方法：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git stash list #查看stash
-# 恢复方法一
-git stash apply #恢复，stash内容并不删除，需要用
-git stash drop #来删除。
-# 上面两句相当于下面的方法二：
-git stash pop #恢复的同时把stash的内容也删了。
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>方法2  Pull is not possible because you have unmerged files.<br>本地的push和merge会形成MERGE-HEAD(FETCH-HEAD), HEAD（PUSH-HEAD）这样的引用。HEAD代表本地最近成功push后形成的引用。MERGE-HEAD表示成功pull后形成的引用。可以通过MERGE-HEAD或者HEAD来实现类型与svn revet的效果。<br>解决：<br>1.将本地的冲突文件冲掉，不仅需要reset到MERGE-HEAD或者HEAD,还需要–hard。没有后面的hard，不会冲掉本地工作区。只会冲掉stage区。<br><code>git reset --hard FETCH_HEAD</code></p>
-</li>
+</ol>
+<p>如：<code>$x^p_{ij}$</code> ==&gt; $x^p_{ij}$</p>
+<h1 id="Mac相关"><a href="#Mac相关" class="headerlink" title="Mac相关"></a>Mac相关</h1><h2 id="环境变量问题"><a href="#环境变量问题" class="headerlink" title="环境变量问题"></a>环境变量问题</h2><ol>
+<li>在<code>.bash</code>的文件中加路径<ul>
+<li>zsh则是添加到 <code>.zshrc</code>中 </li>
 </ul>
-<p>2.<code>git pull</code>就会成功。</p>
-<h1 id="多个Git账号问题"><a href="#多个Git账号问题" class="headerlink" title="多个Git账号问题"></a>多个Git账号问题</h1><ul>
-<li><p>配置账号时</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git config --global user.name "Your Name"
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>其中 –global 参数就是表示这台机器所有Git仓库都使用这个配置。</p>
 </li>
-</ul>
-<p><a href="https://www.jianshu.com/p/fbbf6efb50ba" target="_blank" rel="noopener">https://www.jianshu.com/p/fbbf6efb50ba</a></p>
-<h1 id="悟"><a href="#悟" class="headerlink" title="悟"></a>悟</h1><blockquote>
-<p>一次我Clone 一个仓库后，往里加了一个abc文件，然后 <code>add .</code>  <code>commit</code>  。这时候我发现这个abc文件我搞错了。趁着还没<code>push</code> 我就删除了，然后放上正确的CBA文件又执行 <code>add .</code> <code>commit -m</code>。然后我<code>push</code>。</p>
-<p>竟然发现，git 还是会传刚刚删除的abc文件。（传上去再删掉，执行我刚刚的两次commit）</p>
-<p>我一看这样太慢了（那个文件很大）。</p>
-<p>就<code>reset</code>到了第一次clone的版本。这时候我本地查看文件，发现仓库里并不是最初clone下来的样子，还是最终的带有CBA文件的样子，只不过这时候我<code>add .</code>  <code>commit</code>  <code>push</code> 就一次性完成了。</p>
+<li>手动放快捷方式到<code>usr/bin</code>或<code>usr/local/bin</code>目录下</li>
+</ol>
+<blockquote>
+<p>延伸：Mac系统的bash环境变量，加载顺序为：<br>/etc/profile<br>/etc/paths<br>~/.bash_profile<br>~/.bash_login<br>~/.profile<br>~/.bashrc</p>
 </blockquote>
-<ul>
-<li><p><code>push</code>这个过程会按照你的<code>commit</code>顺序一步步来。并不是按最后一次<code>commit</code></p>
+<p>设置PATH的语法都为：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">#中间用冒号隔开
+export PATH=$PATH:<path 1="">:<path 2="">:<path 3="">:------:<path n="">
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></path></path></path></path></code></pre>
+<h2 id="显示-隐藏文件"><a href="#显示-隐藏文件" class="headerlink" title="显示/隐藏文件"></a>显示/隐藏文件</h2><p>在Finder：<code>Command+Shift+.</code></p>
+<h2 id="app已损坏-打不开"><a href="#app已损坏-打不开" class="headerlink" title=".app已损坏 打不开"></a>.app已损坏 打不开</h2><p><code>sudo spctl --master-disable</code></p>
+<h2 id="打开macOS原生的NTFS"><a href="#打开macOS原生的NTFS" class="headerlink" title="打开macOS原生的NTFS"></a>打开macOS原生的NTFS</h2><ul>
+<li><p><code>diskutil list</code> 找到你要写入的磁盘名</p>
 </li>
-<li><p>github单文件最大只允许100Mb</p>
+<li><p><strong>开启读写NTFS：</strong></p>
+<p><code>sudo vim /etc/fstab</code></p>
+<p>在这个fstab文件里加入一句：</p>
+<p><strong><code>LABEL=你的磁盘名字 none ntfs rw,auto,nobrowse</code></strong></p>
+<p> <code>:wq</code>  保存退出</p>
 </li>
-<li><p><code>reset</code>只清除了暂存区，如何真正恢复到想去的那个版本呢？</p>
-<p>ANSWER: 回滚了暂存区再用<code>checkout --文件名</code>回滚文件啊！</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li><p>重新插入U盘  （此时桌面上看不到了）</p>
+<p> 在Finder里 ⌘+⇧+G 输入 <code>/Volumes</code> </p>
 </li>
 </ul>
-<hr>
+<h2 id="Mac终端下出现bogon的解决办法"><a href="#Mac终端下出现bogon的解决办法" class="headerlink" title="Mac终端下出现bogon的解决办法"></a>Mac终端下出现bogon的解决办法</h2><p><code>sudo scutil --set HostName your-hostname</code></p>
+<h2 id="Mac更改MAC地址（外接网卡）"><a href="#Mac更改MAC地址（外接网卡）" class="headerlink" title="Mac更改MAC地址（外接网卡）"></a>Mac更改MAC地址（外接网卡）</h2><p><code>sudo ifconfig en9 ether aa:bb:cc:dd:ee</code></p>
+<p>但是我外接了Type-C转网线的口，找到对应的也是en9，命令运行后，再用<code>ifconfig</code>看发现mac地址并没有更改成功。<br>在网上又搜了搜，原来需要<strong>装驱动</strong>。<br>这篇文章对这个问题写得相当明白了：<a href="https://blog.csdn.net/u014051620/article/details/75050934" target="_blank" rel="noopener">https://blog.csdn.net/u014051620/article/details/75050934</a></p>
+<h2 id="10-14以后Safari装扩展"><a href="#10-14以后Safari装扩展" class="headerlink" title="10.14以后Safari装扩展"></a>10.14以后Safari装扩展</h2><p>cd到有 <code>.safariextz</code>文件的目录。</p>
+<p>执行<code>xar -xf 拓展名.safariextz</code> 就可以解包</p>
+<p>然后添加扩展，运行即可。详细教程：<a href="https://sspai.com/post/47303" target="_blank" rel="noopener">https://sspai.com/post/47303</a></p>
+<h1 id="Sublime相关"><a href="#Sublime相关" class="headerlink" title="Sublime相关"></a>Sublime相关</h1><p>这几个问题怕是用过sublime的都解决过吧~记录一下防止下次碰到再百度了。</p>
+<!--more-->
+<h2 id="加入subl命令"><a href="#加入subl命令" class="headerlink" title="加入subl命令"></a>加入subl命令</h2><p><code>sudo ln -s &#39;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&#39; /usr/local/bin/subl&#39;</code></p>
+<h2 id="Sublime3屏蔽更新"><a href="#Sublime3屏蔽更新" class="headerlink" title="Sublime3屏蔽更新"></a>Sublime3屏蔽更新</h2><p><code>&quot;update_check&quot;: false,</code></p>
+<!---more--->
+<ol>
+<li><p> Setting-User里添加<code>&quot;update_check&quot;: false,</code><br> <strong>一定要带，</strong><br> <strong>一定要带，</strong><br> <strong>一定要带，</strong></p>
+</li>
+<li><p> 再从网上找个能用的序列号：</p>
+</li>
+</ol>
+<p>—– BEGIN LICENSE —–<br>sgbteam<br>Single User License<br>EA7E-1153259<br>8891CBB9 F1513E4F 1A3405C1 A865D53F<br>115F202E 7B91AB2D 0D2A40ED 352B269B<br>76E84F0B CD69BFC7 59F2DFEF E267328F<br>215652A3 E88F9D8F 4C38E3BA 5B2DAAE4<br>969624E7 DC9CD4D5 717FB40C 1B9738CF<br>20B3C4F1 E917B5B3 87C38D9C ACCE7DD8<br>5F7EF854 86B9743C FADC04AA FB0DA5C0<br>F913BE58 42FEA319 F954EFDD AE881E0B<br>—— END LICENSE ——</p>
+<p>2017.7.1可用</p>
+<h2 id="中文乱码问题"><a href="#中文乱码问题" class="headerlink" title="中文乱码问题"></a>中文乱码问题</h2><p>安装<code>ConvertToUtf8</code>和<code>GBK</code>两个包</p>
+<h2 id="支持C-11"><a href="#支持C-11" class="headerlink" title="支持C++11"></a>支持C++11</h2><p>tools–&gt;new build sys</p>
+<p>输入：</p>
+<pre><code>{
+    &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &#39;${file}&#39; -std=c++11 -stdlib=libc++ -o &#39;${file_path}/${file_base_name}&#39;&quot;],
+    &quot;file_regex&quot;: &quot;^(..{FNXX==XXFN}*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,
+    &quot;working_dir&quot;: &quot;${file_path}&quot;,
+    &quot;selector&quot;: &quot;source.c, source.c++&quot;,
+    &quot;variants&quot;:
+    [
+        {
+        &quot;name&quot;: &quot;Run&quot;,
+        &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &#39;${file}&#39; -std=c++11 -stdlib=libc++ -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; open -a Terminal.app &#39;${file_path}/${file_base_name}&#39;&quot;]
+        }
+    ]
+}
+</code></pre><p>保存的时候注意后缀不要改，是<code>.sublime-build</code></p>
+<p>如果想调用iTerm2把里面的<code>Terminal.app</code>换成<code>iTerm.app</code>就行了。</p>
+<p>换成iTerm之后程序执行完iTerm会自己关闭窗口，需要在设置里修改一下默认配置文件：</p>
+<p><img src="http://p66eruxmw.bkt.clouddn.com/20180904153603023933676.png" alt="20180904153603023933676.png"></p>
+<h1 id="Heroku"><a href="#Heroku" class="headerlink" title="Heroku"></a>Heroku</h1><h2 id="连接PGSQL"><a href="#连接PGSQL" class="headerlink" title="连接PGSQL"></a>连接PGSQL</h2><p>想给紫玉搭一个Typecho的博客，结果得用pgsql的数据库。</p>
+<ol>
+<li>添加环境扩展：<a href="https://elements.heroku.com/addons/heroku-postgresql" target="_blank" rel="noopener">https://elements.heroku.com/addons/heroku-postgresql</a></li>
+<li>添加好后点Setting可以看到数据库名啥的，正常配置即可</li>
+</ol>
 
             </div>
             <hr>
@@ -493,7 +557,7 @@ git stash pop #恢复的同时把stash的内容也删了。
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Others/Git笔记/" class="b-link-green">Git笔记</a>
+                    <a href="/Others/UsefulTips/" class="b-link-green">小知识点「技术」</a>
                 </p>
             </div>
         </div>
@@ -537,29 +601,30 @@ git stash pop #恢复的同时把stash的内容也删了。
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/iOS/<懒猫>记录/">
+                <a href="/Python/Python学习遇到的坑/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="iOS《笨猫快乐学编程》学习笔记">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Problems in studying Python">
                         
-                        <span class="card-title">iOS《笨猫快乐学编程》学习笔记</span>
+                        <span class="card-title">Problems in studying Python</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是我找到的国内第一份Swift4.0教程，发布在知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcode9版)。
-一份纯文字加图片的教程。但让我感到了快乐。
-下面是学习过程中记录的一些东西。尽管都是傻傻</div>
+                    <div class="summary">一些杂碎问题不至于写一篇文章了。放在这收集吧。
+
+Spyder使用IPython Console弹出绘图窗口的设置方法matplotlib 画图show()不显示图
+Spyder设置（Cmd + ，）–&gt;IPython Console</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-06
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/iOS/" class="post-category" target="_blank">
-                                    iOS
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
                                 </a>
                             
                             
@@ -569,12 +634,8 @@ git stash pop #恢复的同时把stash的内容也删了。
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
-                    </a>
-                    
-                    <a href="/tags/Swift/" target="_blank">
-                        <span class="chip bg-color">Swift</span>
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -586,34 +647,30 @@ git stash pop #恢复的同时把stash的内容也删了。
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/iOS/算法笔记/">
+                <a href="/Others/UsefulKnowledge/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="iOS算法笔记">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="小知识点「理论」">
                         
-                        <span class="card-title">iOS算法笔记</span>
+                        <span class="card-title">小知识点「理论」</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">尾递归：防止内存爆炸
-只返回函数本身。
-量放在参数中。Ex:
+                    <div class="summary">乱七八糟的东西。都是看博文啥的不懂现搜的~
 
-fun func(_ n :Int, _ total :Int = 0) -> Int{
-    if (n == 1)
-        return total + 1
-  </div>
+名词相关RESTfulhttp://www.cnblogs.com/wang-yaz/p/9237981.html
+i18ni18n（其来源是英文单词 internationalization的</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/iOS/" class="post-category" target="_blank">
-                                    iOS
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
                                 </a>
                             
                             
@@ -625,10 +682,6 @@ fun func(_ n :Int, _ total :Int = 0) -> Int{
                     
                     <a href="/tags/Note/" target="_blank">
                         <span class="chip bg-color">Note</span>
-                    </a>
-                    
-                    <a href="/tags/Swift/" target="_blank">
-                        <span class="chip bg-color">Swift</span>
                     </a>
                     
                 </div>
