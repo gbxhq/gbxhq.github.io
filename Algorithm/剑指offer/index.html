@@ -542,6 +542,14 @@ if(node!=null){
 <h2 id="27-二叉树与双向链表"><a href="#27-二叉树与双向链表" class="headerlink" title="27 二叉树与双向链表"></a>27 二叉树与双向链表</h2><p>先中序遍历，存到栈里。</p>
 <p>然后再设置左右子树就很简单了。</p>
 <p>思路好想，关键是输入为null的特殊情况我一直没处理。导致过不了。</p>
+<h2 id="28-字符串的排列"><a href="#28-字符串的排列" class="headerlink" title="28 字符串的排列"></a>28 字符串的排列</h2><p>全排列嘛。我知道要用递归写。可是就是钻进了牛角尖。一时间想不出来递归的参数怎么设置。</p>
+<ul>
+<li>multiset是允许key相同的set</li>
+<li>输入的string 为<code>“”</code>时，要特判！</li>
+<li style="list-style: none"><input type="checkbox"> <strong>重要的问题</strong>   写递归的时候函数体是func(string str), 然后在函数里面把传进来的str一个临时的string变量tmp，然后改变 tmp 的值，并把 tmp 传给要递归的函数。</li>
+</ul>
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><h2 id="29-绝对众数"><a href="#29-绝对众数" class="headerlink" title="29 绝对众数"></a>29 绝对众数</h2><p>之前刷LeetCode知道有摩尔投票法了。做起来很轻松。</p>
+<p>当然这题不一样的就是，可能不存在。要输出0。所以我找到后，又遍历一次判断是不是真的大于 n/2 。</p>
 
             </div>
             <hr>
