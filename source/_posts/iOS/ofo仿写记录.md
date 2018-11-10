@@ -61,7 +61,7 @@ https://cocoapods.org
 
 装 cocoapods:
 
-```shell
+```bash
 sudo gem install cocoapods
 ```
 

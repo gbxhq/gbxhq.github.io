@@ -1,6 +1,6 @@
 ---
 title: Problems in Using VSCode
-date: 2018-09-07 09:14:07
+d```bashate: 2018-09-07 09:14:07
 categories: [Others]
 tags: tips
 ---
@@ -15,7 +15,7 @@ Sublime转战VS Code。因为Debug。
 
 先打开环境变量配置文件。目录是` ~/.bash_profile`。我用Sublime打开（玩不了vim）命令就是
 
-```shell
+```bash
 subl ~/.bash_profile //哈哈过河拆桥系列
 ```
 

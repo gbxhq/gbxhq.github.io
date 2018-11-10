@@ -34,7 +34,7 @@ shell里运行`sh 1.sh`即可
 
 关于需要输入密码时的交互：
 
-```shell
+```bash
 ssh tester@192.168.139.218 << EOF #用 <<EOF 分割。这里就是输密码的地方
 cd kurento/kurento-tutorial-java/kurento-group-call
 mvn exec:java
@@ -160,7 +160,7 @@ MathJax不仅可以打上下标，还可以打双标。
 
 设置PATH的语法都为：
 
-```shell
+```bash
 #中间用冒号隔开
 export PATH=$PATH:<PATH 1>:<PATH 2>:<PATH 3>:------:<PATH N>
 ```

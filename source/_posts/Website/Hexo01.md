@@ -1,5 +1,5 @@
 ---
-title: Hexo建站问题总结
+title: Hexo建站问题总结****
 date: 2018-03-21
 categories: Website
 tags: Hexo
@@ -31,7 +31,7 @@ tags: Hexo
 
 下载了Next主题。默认是没有开启分类的。查阅文档，找到了创建命令：
 
-```shell
+```bash
 hexo new page "categorie"
 ```
 

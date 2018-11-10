@@ -51,7 +51,7 @@ def get_count(sequence):
       
 - 搜索IPython命名空间
 
-  ```shell
+  ```bash
   np.*load*? #列出NumPy顶级命名空间中含有“load”的所有函数
   np.load
   np.loads

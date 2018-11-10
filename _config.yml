@@ -44,7 +44,9 @@ highlight:
   auto_detect: false
   tab_replace:
 
-#高亮插件
+#高亮插件 npm i -S hexo-prism-plugin
+#https://github.com/ele828/hexo-prism-plugin
+#https://prismjs.com/#languages-list
 prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
   theme: 'tomorrow'

@@ -158,8 +158,31 @@ brew search 查询内容
 更新缓存
 `gem sources -u `
 
-
 # npm
+
+## 基本操作
+
+全局安装的方式：`npm install -g 模块名称`
+
+## **利用npm删除包**
+
+删除模块其实很简单：
+
+### **删除全局模块**
+
+`npm uninstall -g <package>` 利用npm
+
+### **删除本地模块**
+
+`npm uninstall 模块`
+
+删除本地模块时你应该思考的问题：**是否将在package.json上的相应依赖信息也消除？**
+
+**npm uninstall 模块**：删除模块，但不删除模块留在package.json中的对应信息
+
+**npm uninstall 模块 --save** 删除模块，同时删除模块留在package.json中dependencies下的对应信息
+
+**npm uninstall 模块 --save-dev** 删除模块，同时删除模块留在package.json中devDependencies下的对应信息
 
 ## npm install提示没有package.json
 
@@ -167,7 +190,7 @@ brew search 查询内容
 
 首先，初始化项目，一路回车就行
 
-```shell
+```bash
 npm init -f
 ```
 
@@ -175,7 +198,7 @@ npm init -f
 
 接着安装依赖
 
-```shell
+```bash
 npm install formidable --save
 ```
 
@@ -192,3 +215,5 @@ npm install formidable --save
 Mac直接用`brew install` Linux用yum
 
 后来还不行。在 npm 前加了 `sudo`搞定了
+
+

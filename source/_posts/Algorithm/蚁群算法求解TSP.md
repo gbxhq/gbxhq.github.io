@@ -15,7 +15,7 @@ tags: [Matlab]
 
 先简单介绍下GDB这个东西，Mac下写C神器。没了解过的拿着下面两句就可以先起飞了。
 
-```shell
+```bash
 gcc hello.c -o hello  #这样就把hello.c编译成了hello的可执行文件
 ./ hello #这就输出了
 ```

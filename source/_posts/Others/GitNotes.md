@@ -1,4 +1,4 @@
----
+---```git
 title: Git笔记
 date: 2018-1-1
 categories: Others
@@ -13,7 +13,7 @@ Git肯定不是看一本书去一次学会的，而是先掌握了最基础的�
 
 - 回滚版本
 
-  ```shell
+  ```git
   git reset --hard HEAD^
   git reset --hard HEAD^^
   git reset --hard HEAD~10
@@ -25,7 +25,7 @@ Git肯定不是看一本书去一次学会的，而是先掌握了最基础的�
 
 - 回滚文件
 
-  ```shell
+  ```git
   git checkout --a.txt 
   #这样就撤销了对这个文件的修改。（注意一定要带--  不然就成了加分支）
   #如果修改后又git add .了呢？（文件已经在暂存区）
@@ -35,7 +35,7 @@ Git肯定不是看一本书去一次学会的，而是先掌握了最基础的�
 
 - 分支
 
-```shell
+```git
 git checkout -b newBranch
 #-b表示创建并切换，相当于以下两条命令
 git branch newBranch
@@ -65,7 +65,7 @@ git branch -d newBranch #删除分支
 
 下面是一个 `.gitignore` 文件例子，注释上附录有说明：
 
-```shell
+```git
 *.a                    # 所有以 '.a' 为后缀的文件都屏蔽掉
 # Office 缓存文件
 ~'$'*.docx
@@ -99,7 +99,7 @@ readme.md       # 屏蔽仓库中所有名为 readme.md 的文件
   `git stash`一般用于你在某一分支工作做了一半(还不值得做一次提交或者压根还不想提交)时，你突然想切换到其他分支做一点儿别的事。这时，用`git stash`就再合适不过了。
   stash的恢复方法：
   
-  ```shell
+  ```git
   git stash list #查看stash
   # 恢复方法一
   git stash apply #恢复，stash内容并不删除，需要用
@@ -121,7 +121,7 @@ readme.md       # 屏蔽仓库中所有名为 readme.md 的文件
 
 - 配置账号时
 
-  ```shell
+  ```git
   git config --global user.name "Your Name"
   ```
 
@@ -147,7 +147,7 @@ https://www.jianshu.com/p/fbbf6efb50ba
 
   ANSWER: 回滚了暂存区再用`checkout --文件名`回滚文件啊！
 
-  ```shell
+  ```git
   git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
   ```
 
