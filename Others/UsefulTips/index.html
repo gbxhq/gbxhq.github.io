@@ -396,7 +396,10 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
 <h2 id="自动运行命令脚本"><a href="#自动运行命令脚本" class="headerlink" title="自动运行命令脚本"></a>自动运行命令脚本</h2><p>shell命令写在记事本存成 1.sh</p>
 <p>shell里运行<code>sh 1.sh</code>即可</p>
 <p>关于需要输入密码时的交互：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">ssh tester@192.168.139.218 << EOF #用 <<eof 分割。这里就是输密码的地方="" cd="" kurento="" kurento-tutorial-java="" kurento-group-call="" mvn="" exec:java="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></eof></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ssh</span> tester@192.168.139.218 <span class="token operator">&lt;&lt;</span> EOF <span class="token comment" spellcheck="true">#用 &lt;&lt;EOF 分割。这里就是输密码的地方</span>
+<span class="token function">cd</span> kurento/kurento-tutorial-java/kurento-group-call
+mvn exec:java
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="终端走代理"><a href="#终端走代理" class="headerlink" title="终端走代理"></a>终端走代理</h2><p>参考：<a href="https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">让终端走代理的几种方法</a></p>
 <h2 id="Finder和终端快速转"><a href="#Finder和终端快速转" class="headerlink" title="Finder和终端快速转"></a>Finder和终端快速转</h2><ul>
 <li>Finder到终端：拖窗口到终端界面</li>
@@ -474,9 +477,9 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
 <p>延伸：Mac系统的bash环境变量，加载顺序为：<br>/etc/profile<br>/etc/paths<br>~/.bash_profile<br>~/.bash_login<br>~/.profile<br>~/.bashrc</p>
 </blockquote>
 <p>设置PATH的语法都为：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">#中间用冒号隔开
-export PATH=$PATH:<path 1="">:<path 2="">:<path 3="">:------:<path n="">
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></path></path></path></path></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#中间用冒号隔开</span>
+<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span>:<span class="token operator">&lt;</span>PATH 1<span class="token operator">></span>:<span class="token operator">&lt;</span>PATH 2<span class="token operator">></span>:<span class="token operator">&lt;</span>PATH 3<span class="token operator">></span>:------:<span class="token operator">&lt;</span>PATH N<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="显示-隐藏文件"><a href="#显示-隐藏文件" class="headerlink" title="显示/隐藏文件"></a>显示/隐藏文件</h2><p>在Finder：<code>Command+Shift+.</code></p>
 <h2 id="app已损坏-打不开"><a href="#app已损坏-打不开" class="headerlink" title=".app已损坏 打不开"></a>.app已损坏 打不开</h2><p><code>sudo spctl --master-disable</code></p>
 <h2 id="打开macOS原生的NTFS"><a href="#打开macOS原生的NTFS" class="headerlink" title="打开macOS原生的NTFS"></a>打开macOS原生的NTFS</h2><ul>

@@ -5,7 +5,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo建分支上次源文件到仓库, 炫杉">
+    <meta name="keywords" content="Hexo建分支Push源文件到仓库, 炫杉">
     <meta name="description" content="为了方便在两台电脑同时对博客更新，采用了创建分支的方法。将源文件上传。
 
 创建仓库、分支在博客的Hexo根目录下，正常的建仓库， 并和你要上传的仓库进行关联。
@@ -18,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hexo建分支上次源文件到仓库 | 炫杉</title>
+    <title>Hexo建分支Push源文件到仓库 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -210,13 +210,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hexo建分支上次源文件到仓库
+                        Hexo建分支Push源文件到仓库
                     </div>
                 </div>
             </div>
@@ -368,11 +368,11 @@
 <p>答：自动创建dev-blog分支。</p>
 </blockquote>
 <p>Ex,我的这一步就要这样：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">cd Documents/Blog #到博客的根目录下
-git init
-git remote add Coding https://xxxx.git #关联远程仓库，起个别名叫Coding
-git commit -m "推送到Coding测试"
-git push Coding master:dev-blog
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> Documents/Blog <span class="token comment" spellcheck="true">#到博客的根目录下</span>
+<span class="token function">git</span> init
+<span class="token function">git</span> remote add Coding https://xxxx.git <span class="token comment" spellcheck="true">#关联远程仓库，起个别名叫Coding</span>
+<span class="token function">git</span> commit -m <span class="token string">"推送到Coding测试"</span>
+<span class="token function">git</span> push Coding master:dev-blog
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>OK，等着就好了。push完后，去你的远程仓库看，会发现，dev-blog分支已经建好了。</p>
 <p>以后每次<strong>想Push【源文件】</strong>，执行<code>git push 仓库名 master:dev-blog</code>就OK了。</p>
@@ -386,9 +386,9 @@ git push Coding master:dev-blog
 <li>执行<code>git clone -b dev-blog xxxx.git</code>    从原仓库把dev-blog分支克隆下来。</li>
 </ol>
 <p>这样源文件就已经在新电脑上了。cd到该目录执行：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">npm install hexo    // 安装hexo  安装完成hexo 不需要初始化hexo，否者hexo 配置参数会重置
-npm install    // 安装依赖库
-npm  install hexo-deployer-git  --save    // 安装部署相关配置
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo    // 安装hexo  安装完成hexo 不需要初始化hexo，否者hexo 配置参数会重置
+<span class="token function">npm</span> <span class="token function">install</span>    // 安装依赖库
+<span class="token function">npm</span>  <span class="token function">install</span> hexo-deployer-git  --save    // 安装部署相关配置
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>这样Hexo也可以用了。</p>
 <p>如果一台电脑要更新源文件，就使用第一步的<code>git push 仓库别名 master:dev-blog</code>语句进行Push。Push好了。<strong>记得另一台电脑使用<code>git pull 仓库别名 dev-blog</code>来更新源文件！！！</strong></p>
@@ -414,7 +414,7 @@ npm  install hexo-deployer-git  --save    // 安装部署相关配置
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Website/Hexo_set_branch/" class="b-link-green">Hexo建分支上次源文件到仓库</a>
+                    <a href="/Website/Hexo_set_branch/" class="b-link-green">Hexo建分支Push源文件到仓库</a>
                 </p>
             </div>
         </div>
@@ -462,9 +462,9 @@ npm  install hexo-deployer-git  --save    // 安装部署相关配置
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo建分支上次源文件到仓库">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Hexo建分支Push源文件到仓库">
                         
-                        <span class="card-title">Hexo建分支上次源文件到仓库</span>
+                        <span class="card-title">Hexo建分支Push源文件到仓库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

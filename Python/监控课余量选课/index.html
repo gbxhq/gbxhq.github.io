@@ -5,11 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="服务器跑selenium监控课余量选课, 炫杉">
-    <meta name="description" content="紫玉说课没选上，我就想写个脚本挂着看有没有退呗~
-
-初探经过同学的推荐使用了selenium。做自动化测试很好啊，解决chekbox分分钟。开始啦~
-上来就遇到问题了。要把geckodriver这个东西放到环境变量里。最后选择手动配置路径：">
+    <meta name="keywords" content="炫杉">
+    <meta name="description" content="—`bashtitle: 服务器跑selenium监控课余量选课date: 2018-05-22 13:51:49categories: Python
+tags: [Spider,Demo,selenium,Python]紫玉说课没选上，我">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>服务器跑selenium监控课余量选课 | 炫杉</title>
+    <title>炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -209,13 +207,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        服务器跑selenium监控课余量选课
+                        
                     </div>
                 </div>
             </div>
@@ -324,36 +322,7 @@
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/Demo/" target="_blank">
-                    <span class="chip bg-color">Demo</span>
-                </a>
-                
-                <a href="/tags/Python/" target="_blank">
-                    <span class="chip bg-color">Python</span>
-                </a>
-                
-                <a href="/tags/Spider/" target="_blank">
-                    <span class="chip bg-color">Spider</span>
-                </a>
-                
-                <a href="/tags/selenium/" target="_blank">
-                    <span class="chip bg-color">selenium</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
-                
-                <span class="post-cate">
-                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                    
-                    <a href="/categories/Python/" class="post-category" target="_blank">
-                        Python
-                    </a>
-                    
-                </span>
                 
 
                 <span class="post-date">
@@ -364,7 +333,8 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>紫玉说课没选上，我就想写个脚本挂着看有没有退呗~</p>
+                <p>—<code>`</code>bash<br>title: 服务器跑selenium监控课余量选课<br>date: 2018-05-22 13:51:49<br>categories: Python</p>
+<h2 id="tags-Spider-Demo-selenium-Python"><a href="#tags-Spider-Demo-selenium-Python" class="headerlink" title="tags: [Spider,Demo,selenium,Python]"></a>tags: [Spider,Demo,selenium,Python]</h2><p>紫玉说课没选上，我就想写个脚本挂着看有没有退呗~</p>
 <a id="more"></a>
 <h1 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h1><p>经过同学的推荐使用了selenium。做自动化测试很好啊，解决chekbox分分钟。开始啦~</p>
 <p>上来就遇到问题了。要把<code>geckodriver</code>这个东西放到环境变量里。<br>最后选择手动配置路径：<br><code>dr = webdriver.Firefox(executable_path = &#39;/Users/lixs/anaconda3/geckodriver&#39;)</code><br>虽然麻烦点，但是着急往下写。我们继续~</p>
@@ -493,13 +463,13 @@ sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 
 sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
 </code></pre><h2 id="安装Xvfb"><a href="#安装Xvfb" class="headerlink" title="安装Xvfb"></a>安装Xvfb</h2><p>无GUI时，Xvfb为虚拟GUI</p>
-<pre class="line-numbers language-shell"><code class="language-shell">yum update
+<pre class="line-numbers language-bash"><code class="language-bash">yum update
 
-yum install Xvfb
+yum <span class="token function">install</span> Xvfb
 
 yum -install libXfont
 
-yum install xorg-x11-fonts*
+yum <span class="token function">install</span> xorg-x11-fonts*
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="安装selenium、pyvirtualdisplay"><a href="#安装selenium、pyvirtualdisplay" class="headerlink" title="安装selenium、pyvirtualdisplay"></a>安装selenium、pyvirtualdisplay</h2><p>pip install selenium</p>
 <p>pip install pyvirtualdisplay</p>
@@ -542,7 +512,7 @@ display<span class="token punctuation">.</span>stop<span class="token punctuatio
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Python/监控课余量选课/" class="b-link-green">服务器跑selenium监控课余量选课</a>
+                    <a href="/Python/监控课余量选课/" class="b-link-green"></a>
                 </p>
             </div>
         </div>

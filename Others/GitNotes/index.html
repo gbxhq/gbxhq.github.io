@@ -5,13 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Git笔记, 炫杉">
-    <meta name="description" content="Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。
-
-基本操作
-回滚版本
-git reset --hard HEAD^
-git res">
+    <meta name="keywords" content="炫杉">
+    <meta name="description" content="—`gittitle: Git笔记date: 2018-1-1categories: Others
+tags: [Git,Note]Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +15,7 @@ git res">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Git笔记 | 炫杉</title>
+    <title>炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -211,13 +207,13 @@ git res">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Git笔记
+                        
                     </div>
                 </div>
             </div>
@@ -326,68 +322,48 @@ git res">
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/Note/" target="_blank">
-                    <span class="chip bg-color">Note</span>
-                </a>
-                
-                <a href="/tags/Git/" target="_blank">
-                    <span class="chip bg-color">Git</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
-                
-                <span class="post-cate">
-                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                    
-                    <a href="/categories/Others/" class="post-category" target="_blank">
-                        Others
-                    </a>
-                    
-                </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-01-01
+                    <i class="fa fa-clock-o fa-fw"></i>2018-04-10
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。</p>
+                <p>—<code>`</code>git<br>title: Git笔记<br>date: 2018-1-1<br>categories: Others</p>
+<h2 id="tags-Git-Note"><a href="#tags-Git-Note" class="headerlink" title="tags: [Git,Note]"></a>tags: [Git,Note]</h2><p>Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。</p>
 <a id="more"></a>
 <h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><ul>
 <li><p>回滚版本</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git reset --hard HEAD^
+<pre class="line-numbers language-git"><code class="language-git">git reset --hard HEAD^
 git reset --hard HEAD^^
 git reset --hard HEAD~10
 git reset --hard SHA1串(而且不需要写全就能匹配，8位就够)
-#忘记了SHA1号怎么办？
+<span class="token comment" spellcheck="true">#忘记了SHA1号怎么办？</span>
 git log #查看提交历史，以便确定要回退到哪个版本
 git reflog #查看命令历史，以便确定要回到未来的哪个版本。
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>回滚文件</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git checkout --a.txt 
-#这样就撤销了对这个文件的修改。（注意一定要带--  不然就成了加分支）
-#如果修改后又git add .了呢？（文件已经在暂存区）
+<pre class="line-numbers language-git"><code class="language-git">git checkout --a.txt 
+<span class="token comment" spellcheck="true">#这样就撤销了对这个文件的修改。（注意一定要带--  不然就成了加分支）</span>
+<span class="token comment" spellcheck="true">#如果修改后又git add .了呢？（文件已经在暂存区）</span>
 git reset HEAD a.txt
-#git reset 命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用 HEAD 时，表示最新的版本。 运行了上一层命令，git status看一下状态，会发现，暂存区里已经回滚。 再执行 checkout --a.txt 就把文件回滚了
+<span class="token comment" spellcheck="true">#git reset 命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用 HEAD 时，表示最新的版本。 运行了上一层命令，git status看一下状态，会发现，暂存区里已经回滚。 再执行 checkout --a.txt 就把文件回滚了</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>分支</p>
 </li>
 </ul>
-<pre class="line-numbers language-shell"><code class="language-shell">git checkout -b newBranch
-#-b表示创建并切换，相当于以下两条命令
+<pre class="line-numbers language-git"><code class="language-git">git checkout -b newBranch
+<span class="token comment" spellcheck="true">#-b表示创建并切换，相当于以下两条命令</span>
 git branch newBranch
 git checkout newBranch
 git branch #查看分支
-#合并到master
+<span class="token comment" spellcheck="true">#合并到master</span>
 git checkout master
 git merge newBranch
 git branch -d newBranch #删除分支
@@ -409,15 +385,15 @@ git branch -d newBranch #删除分支
 <li>如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 <code>[0-9]</code> 表示匹配所有 0 到 9 的数字）。</li>
 </ul>
 <p>下面是一个 <code>.gitignore</code> 文件例子，注释上附录有说明：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">*.a                    # 所有以 '.a' 为后缀的文件都屏蔽掉
-# Office 缓存文件
-~'$'*.docx
-~'$'*.ppt
-~'$'*.pptx 
-~'$'*.xls
+<pre class="line-numbers language-git"><code class="language-git">*.a                    # 所有以 <span class="token string">'.a'</span> 为后缀的文件都屏蔽掉
+<span class="token comment" spellcheck="true"># Office 缓存文件</span>
+~<span class="token string">'$'</span>*.docx
+~<span class="token string">'$'</span>*.ppt
+~<span class="token string">'$'</span>*.pptx 
+~<span class="token string">'$'</span>*.xls
 
 tags                   # 仓库中所有名为 tags 的文件都屏蔽
-core.*                 # 仓库中所有以 'core.' 开头的文件都屏蔽
+core.*                 # 仓库中所有以 <span class="token string">'core.'</span> 开头的文件都屏蔽
 
 tools/                # 屏蔽目录 tools
 log/*                  # 屏蔽目录 log 下的所有文件，但不屏蔽 log 目录本身
@@ -434,11 +410,11 @@ git pull 从远程版本库拉取新的修改
 git stash pop 将暂存起来的修改合并到本地工作库，如果有冲突会有相应的提示，解决冲突并提交即可
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>Note：</strong><br><code>git stash</code>一般用于你在某一分支工作做了一半(还不值得做一次提交或者压根还不想提交)时，你突然想切换到其他分支做一点儿别的事。这时，用<code>git stash</code>就再合适不过了。<br>stash的恢复方法：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git stash list #查看stash
-# 恢复方法一
+<pre class="line-numbers language-git"><code class="language-git">git stash list #查看stash
+<span class="token comment" spellcheck="true"># 恢复方法一</span>
 git stash apply #恢复，stash内容并不删除，需要用
 git stash drop #来删除。
-# 上面两句相当于下面的方法二：
+<span class="token comment" spellcheck="true"># 上面两句相当于下面的方法二：</span>
 git stash pop #恢复的同时把stash的内容也删了。
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
@@ -448,7 +424,7 @@ git stash pop #恢复的同时把stash的内容也删了。
 <p>2.<code>git pull</code>就会成功。</p>
 <h1 id="多个Git账号问题"><a href="#多个Git账号问题" class="headerlink" title="多个Git账号问题"></a>多个Git账号问题</h1><ul>
 <li><p>配置账号时</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git config --global user.name "Your Name"
+<pre class="line-numbers language-git"><code class="language-git">git config --global user.name <span class="token string">"Your Name"</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>其中 –global 参数就是表示这台机器所有Git仓库都使用这个配置。</p>
 </li>
@@ -467,7 +443,7 @@ git stash pop #恢复的同时把stash的内容也删了。
 </li>
 <li><p><code>reset</code>只清除了暂存区，如何真正恢复到想去的那个版本呢？</p>
 <p>ANSWER: 回滚了暂存区再用<code>checkout --文件名</code>回滚文件啊！</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
+<pre class="line-numbers language-git"><code class="language-git">git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ul>
@@ -493,7 +469,7 @@ git stash pop #恢复的同时把stash的内容也删了。
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Others/GitNotes/" class="b-link-green">Git笔记</a>
+                    <a href="/Others/GitNotes/" class="b-link-green"></a>
                 </p>
             </div>
         </div>
@@ -537,24 +513,20 @@ git stash pop #恢复的同时把stash的内容也删了。
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/iOS/语法问题/">
+                <a href="/iOS/UIDevice学习/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Swift语法笔记">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="UIDevice学习">
                         
-                        <span class="card-title">Swift语法笔记</span>
+                        <span class="card-title">UIDevice学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话设计模式》，有时间要再读一读了。
-
-
-Tuple 元组：定义变量的一个组合
-va</div>
+                    <div class="summary">iOS的UIDevice可以方便获取设备的硬件和系统的一些状态信息。写这篇文章是因为选修了《移动安全与测评》这门课。小作业让写一个APP获取系统和其他App的一些信息。在不越狱的iOS中我实在不知道怎么获取其他APP的信息，就借此机会了解下</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-06
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-16
                         </span>
                         <span class="publish-author">
                             
@@ -571,10 +543,6 @@ va</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
-                    </a>
-                    
                     <a href="/tags/Swift/" target="_blank">
                         <span class="chip bg-color">Swift</span>
                     </a>
@@ -588,22 +556,25 @@ va</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/iOS/<懒猫>记录/">
+                <a href="/iOS/小波iOS11中级篇笔记/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="iOS《笨猫快乐学编程》学习笔记">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="小波iOS11中级篇笔记">
                         
-                        <span class="card-title">iOS《笨猫快乐学编程》学习笔记</span>
+                        <span class="card-title">小波iOS11中级篇笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是我找到的国内第一份Swift4.0教程，发布在知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcode9版)。
-一份纯文字加图片的教程。但让我感到了快乐。
-下面是学习过程中记录的一些东西。尽管都是傻傻</div>
+                    <div class="summary">中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。
+
+小知识点
+&quot;&quot;&quot;三引号对&quot;&quot;&quot;可以保留复制来的文本换行
+图片显示方式：
+Scale to fill 拉伸 即拉到和框框一样的</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-07
                             </span>
                         <span class="publish-author">
                             
@@ -624,8 +595,8 @@ va</div>
                         <span class="chip bg-color">Note</span>
                     </a>
                     
-                    <a href="/tags/Swift/" target="_blank">
-                        <span class="chip bg-color">Swift</span>
+                    <a href="/tags/Swfit/" target="_blank">
+                        <span class="chip bg-color">Swfit</span>
                     </a>
                     
                 </div>
