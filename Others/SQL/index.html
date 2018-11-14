@@ -799,10 +799,14 @@ GROUP BY name;
 <h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> Stu
 <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token string">'001'</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>DELETE删除的是【行】。一定要带上WHERE，不然就删了所有的行。</p>
+<p>DELETE删除的是【行】。<strong>一定要带上WHERE，不然就删了所有的行。</strong></p>
 <blockquote>
 <p>如果想删除所有行，请使用 TRUNCATE TABLE ,它完成相同的工作速度 更快。</p>
 </blockquote>
+<h1 id="操作表"><a href="#操作表" class="headerlink" title="操作表"></a>操作表</h1><h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Stu
+<span class="token punctuation">(</span>
+<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr>
@@ -868,17 +872,19 @@ GROUP BY name;
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/Python/Python初探/">
+                <a href="/Python/Python廖雪峰练习/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Python初探">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Python廖雪峰练习">
                         
-                        <span class="card-title">Python初探</span>
+                        <span class="card-title">Python廖雪峰练习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是我刚开始学习Python时做的笔记，百度Python后先看到有廖雪峰的教程。就对着看了一遍。紧接着同学推荐了莫烦的教程，果然，这个教程上手更快。另外我认为Python作为一个脚本语言，很多东西是在学习的时候没法记忆的，勤查着点就够了。因</div>
+                    <div class="summary">这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！
+
+函数的参数def pr</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
@@ -966,10 +972,11 @@ extension UIView {
     </div>
     <div class="col l3 hide-on-med-and-down">
         <div class="toc-widget">
-            <div class="toc-title">目录</div>
+            
             <div id="toc-content">
 
             </div>
+            
         </div>
     </div>
 </div>
