@@ -666,6 +666,17 @@ DELETE FROM Stu
 WHERE id = '001';
 ```
 
-DELETE删除的是【行】。一定要带上WHERE，不然就删了所有的行。
+DELETE删除的是【行】。**一定要带上WHERE，不然就删了所有的行。**
 
 > 如果想删除所有行，请使用 TRUNCATE TABLE ,它完成相同的工作速度 更快。
+
+# 操作表
+
+## 创建表
+
+```sql
+CREATE TABLE Stu
+(
+)
+```
+

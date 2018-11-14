@@ -1,10 +1,10 @@
 ---
 title: C++学习笔记
-categories: C++
-tags: [Note]
+categories: 
+tags: 
 ---
 
-
+语法的笔记。用到啥就复制点。仅供个人查阅~
 
 <!---more--->
 

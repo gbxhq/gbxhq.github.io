@@ -1,8 +1,8 @@
 ---
 title: HelloOC
 date: 2018-09-05 11:17:28
-categories: [iOS]
-tags: [Note,Obj-C]
+categories: 
+tags: 
 ---
 
 Hello?

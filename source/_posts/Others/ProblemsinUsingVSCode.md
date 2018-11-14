@@ -1,6 +1,6 @@
 ---
 title: Problems in Using VSCode
-d```bashate: 2018-09-07 09:14:07
+date: 2018-09-07 09:14:07
 categories: [Others]
 tags: tips
 ---

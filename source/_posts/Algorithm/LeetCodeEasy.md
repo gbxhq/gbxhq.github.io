@@ -2,7 +2,7 @@
 title: LeetCodeEasy
 date: 2018-09-23 14:33:54
 categories: Algorithm
-tags: [LeetCode]
+tags: [Cpp,LeetCode]
 ---
 
 知识点：`Hash、双指针`[1]     `int的范围`[7]     `stack、ascii`[20] 

@@ -2,7 +2,7 @@
 title: LeetCode 字符串+简单
 date: 2018-09-10 19:07:02
 categories: [Algorithm]
-tags: [C++,LeetCode]
+tags: [Cpp,LeetCode]
 ---
 
 知识点：`String`、  `reverse()`[557]、   `istringstream`[557] 、`memset`[387] 、`树`[606]、`to_string()`[788]、`npos`[345] 、`transform()`[819]、`strA.find(strB) != string:npos`[#686]
@@ -254,3 +254,4 @@ return tmp.size();
 ---
 
 字符串的Easy完结啦。下面按Easy题号刷满100再做计划！
+

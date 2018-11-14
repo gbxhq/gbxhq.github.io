@@ -2,7 +2,7 @@
 title: LeetCode 链表Esay题
 date: 2018-09-06 14:30:53
 categories: [Algorithm]
-tags: [C++,LeetCode]
+tags: [Cpp,LeetCode]
 ---
 
 知识点：`ListNode单链表`、 快慢指针
@@ -376,3 +376,4 @@ bool isPalindrome(ListNode* head) {
 【链表+简单】刷完~
 
 下一站，【字符串】
+

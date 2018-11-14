@@ -1,8 +1,8 @@
 ---
 title: Problems in Developing WebRTC iOS Demo
 date: 2018-09-03
-categories: WebRTC
-tags: [Demo,Note]
+categories: 
+tags: 
 ---
 
 用WebRTC实现iOS端的多方通话
@@ -127,3 +127,15 @@ tags: [Demo,Note]
 > 11.1 周四
 
 - 11月 新开始。希望今天一切顺利。
+
+> 11.12 周一
+
+- 思路清晰。配置了ICE Server 而今天的目的就是建SDP Offer
+- 配置ICE Server到数组里
+- 用iceServer 配置了 rtc Config
+- 用 factory 创建peerConnection（ 需要三个参数 config 和 constraint 和 delegate - 完工
+
+> 11.13 周二
+
+- 昨天没找到SDP创建回调函数，今天只能先跳过本地SDP
+- 搞了半天，原来昨天配ICE服务器就错了。全局的NSMutableArray要初始化了才能用addobj方法加成员~很尴尬。
