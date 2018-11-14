@@ -5,11 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="小知识点「理论」, 炫杉">
-    <meta name="description" content="乱七八糟的东西。都是看博文啥的不懂现搜的~
-
-名词相关RESTfulhttp://www.cnblogs.com/wang-yaz/p/9237981.html
-i18ni18n（其来源是英文单词 internationalization的">
+    <meta name="keywords" content="Heroku搭建自己的ss服务器教程, 炫杉">
+    <meta name="description" content="Heroku是日本一家网站。为开发者提供了免费部署项目的服务器。虽然访问Heroku是被qiang的。但是用Heroku部署后的应用(saas/web app)其主机在美国和欧洲，且主机地址没有被qiang。利用这一点就可以免费搭建一个自己">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +14,7 @@ i18ni18n（其来源是英文单词 internationalization的">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>小知识点「理论」 | 炫杉</title>
+    <title>Heroku搭建自己的ss服务器教程 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -209,13 +206,13 @@ i18ni18n（其来源是英文单词 internationalization的">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        小知识点「理论」
+                        Heroku搭建自己的ss服务器教程
                     </div>
                 </div>
             </div>
@@ -326,8 +323,16 @@ i18ni18n（其来源是英文单词 internationalization的">
             
             <div class="article-tag">
                 
-                <a href="/tags/Note/" target="_blank">
-                    <span class="chip bg-color">Note</span>
+                <a href="/tags/tips/" target="_blank">
+                    <span class="chip bg-color">tips</span>
+                </a>
+                
+                <a href="/tags/Heroku/" target="_blank">
+                    <span class="chip bg-color">Heroku</span>
+                </a>
+                
+                <a href="/tags/ss/" target="_blank">
+                    <span class="chip bg-color">ss</span>
                 </a>
                 
             </div>
@@ -345,40 +350,90 @@ i18ni18n（其来源是英文单词 internationalization的">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-07-03
+                    <i class="fa fa-clock-o fa-fw"></i>2018-09-12
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>乱七八糟的东西。都是看博文啥的不懂现搜的~</p>
+                <p>Heroku是日本一家网站。为开发者提供了免费部署项目的服务器。虽然访问<strong>Heroku是被qiang</strong>的。但是用Heroku部署后的应用(saas/web app)其主机在美国和欧洲，且主机地址没有被qiang。利用这一点就可以免费搭建一个自己的ss服务器。</p>
+<p>由于有GitHub上的开源项目，其搭建过程可以称之为傻瓜式。</p>
 <a id="more"></a>
-<h1 id="名词相关"><a href="#名词相关" class="headerlink" title="名词相关"></a>名词相关</h1><h2 id="RESTful"><a href="#RESTful" class="headerlink" title="RESTful"></a>RESTful</h2><p><a href="http://www.cnblogs.com/wang-yaz/p/9237981.html" target="_blank" rel="noopener">http://www.cnblogs.com/wang-yaz/p/9237981.html</a></p>
-<h2 id="i18n"><a href="#i18n" class="headerlink" title="i18n"></a>i18n</h2><p>i18n（其来源是英文单词 internationalization的首末字符i和n，18为中间的字符数）是“国际化”的简称。在资讯领域，国际化(i18n)指让产品（出版物，软件，硬件等）无需做大的改变就能够适应不同的语言和地区的需要。对程序来说，在不修改内部代码的情况下，能根据不同语言及地区显示相应的界面。 在全球化的时代，国际化尤为重要，因为产品的潜在用户可能来自世界的各个角落。通常与i18n相关的还有L10n（“本地化”的简称）。</p>
-<h2 id="GP-Generic-Programming"><a href="#GP-Generic-Programming" class="headerlink" title="GP(Generic Programming)"></a>GP(Generic Programming)</h2><p>泛型编程。Generic programming is a style of computer programming in which algorithms are written in terms of types to-be-specified-later that are then instantiated when needed for specific types provided as parameters.</p>
-<h2 id="SGI-STL"><a href="#SGI-STL" class="headerlink" title="SGI STL"></a>SGI STL</h2><p>先介绍下 <strong>GNU STL</strong></p>
+<h1 id="注册Heroku"><a href="#注册Heroku" class="headerlink" title="注册Heroku"></a>注册Heroku</h1><p>到这里注册： <a href="https://signup.heroku.com/" target="_blank" rel="noopener">https://signup.heroku.com/</a>   <del>[<em>需要富强上网</em>]</del></p>
 <blockquote>
-<p>这是GCC带的STL实现，包含在libstdc++这个库里面，写C++一旦用到库函数是基本会链接这个库。GNU STL是在SGI的STL基础上开发的，所以SGI STL我就不再单独列出了。</p>
-<p>— 简书看到的一段</p>
+<p>ps：建议用gmail邮箱注册。163啥的应该是注册不了滴</p>
 </blockquote>
-<p>其中 SGI 就是 Silicon Graphics Computer Systems, Inc. 一个公司。</p>
-<h2 id="GNU"><a href="#GNU" class="headerlink" title="GNU"></a>GNU</h2><p><a href="https://zh.wikipedia.org/wiki/GNU" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/GNU</a></p>
-<p><em>GNU</em>的开发始于1983年，它是自由的类Unix操作系统，这使得计算机用户拥有了分享和改进其所用软件的自由。</p>
-<h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><p><strong>可移植操作系统接口</strong>（英语：Portable Operating System Interface，缩写为<strong>POSIX</strong>）是<a href="https://zh.wikipedia.org/wiki/IEEE" target="_blank" rel="noopener">IEEE</a>为要在各种<a href="https://zh.wikipedia.org/wiki/UNIX" target="_blank" rel="noopener">UNIX</a><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">操作系统</a>上运行软件，而定义<a href="https://zh.wikipedia.org/wiki/API" target="_blank" rel="noopener">API</a>的一系列互相关联的标准的总称，其正式称呼为IEEE Std 1003，而国际标准名称为<a href="https://zh.wikipedia.org/wiki/ISO" target="_blank" rel="noopener">ISO</a>/<a href="https://zh.wikipedia.org/wiki/IEC" target="_blank" rel="noopener">IEC</a> 9945。此标准源于一个大约开始于1985年的项目。POSIX这个名称是由<a href="https://zh.wikipedia.org/wiki/%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7%E6%96%AF%E6%89%98%E6%9B%BC" target="_blank" rel="noopener">理查德·斯托曼</a>（RMS）应IEEE的要求而提议的一个易于记忆的名称。它基本上是Portable Operating System Interface（可移植操作系统接口）的缩写，而<strong>X</strong>则表明其对Unix API的传承。</p>
-<p><a href="https://zh.wikipedia.org/wiki/Linux" target="_blank" rel="noopener">Linux</a>基本上逐步实现了POSIX兼容，但并没有参加正式的POSIX认证。<a href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3#cite_note-1" target="_blank" rel="noopener">[1]</a></p>
-<p><a href="https://zh.wikipedia.org/wiki/%E5%BE%AE%E8%BD%AF" target="_blank" rel="noopener">微软</a>的<a href="https://zh.wikipedia.org/wiki/Windows_NT" target="_blank" rel="noopener">Windows NT</a>声称部分实现了POSIX标准。</p>
-<p>当前的POSIX主要分为四个部分<a href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3#cite_note-2" target="_blank" rel="noopener">[2]</a>：Base Definitions、System Interfaces、Shell and Utilities和Rationale。</p>
-<h2 id="VoIP-SIP"><a href="#VoIP-SIP" class="headerlink" title="VoIP  SIP"></a>VoIP  SIP</h2><p>Voice over Internet Protocol 和 Session Initiation Protocol</p>
-<h1 id="二进制包和源代码安装的差距"><a href="#二进制包和源代码安装的差距" class="headerlink" title="二进制包和源代码安装的差距"></a>二进制包和源代码安装的差距</h1><p>源代码方式和二进制包是软件包的两种形式。二进制包里面包括了已经经过编译，可以马上运行的程 序。你只需要下载和解包（安装）它们以后，就马上可以使用。源代码包里面包括了程序原始的程序代码，需要在你的计算机上进行编译以后才可以产生可以运行程 序,所以从源代码安装的时间会比较长。  </p>
-<p>source code 是程序員寫的碼， binary code 是機器跑的碼。</p>
-<p>source code 得經過 compile 才能成為 binary code。</p>
-<p>RPM 有分兩種：binary rpm 跟 source rpm。前者是編好的 binary，安裝就可用。  後者是還沒編好的 source ，需 rebuild 之後才能安裝。  </p>
-<p>rpm格式很好区分，二进制格式的包名字很长，都带有版本号、适应平台、适应的硬件类型等，而源码格式仅仅就是一个版本号的tar包。 </p>
-<p>mysql-5.0.45.tar.gz 是 源码包    </p>
-<p>像这样的 mysql-5.0.45-linux-x86_64-glibc23.tar.gz   是二进制包  </p>
-<p>如果你用过压缩工具就会明白，压缩包未必就是软件，它也可能是备份的许多图片，也可能是打包在一起的普通资料，要分辨它到底是什么最好的办法就是查看包里的文件清单，使用命令tar ztvf  <em> . 或者  tar ytvf  </em>.bz2   *</p>
-<p><em>源代码包里的文件往往会含有种种源代码文件，头文件</em>.h、c代码源文件<em>.c、C++代码源文件</em>.cc/*.cpp等；而二进制包里的文件则会有可执行文件（与软件同名的往往是主执行文件），标志是其所在路径含有名为bin的目录（仅有少数例外）</p>
+<p><del>这一步需要靠你自己了。什么蓝🙃灯赛🙂风我相信你可以的。</del></p>
+<p><del>如果你实在一点办法都没有。我给你俩<strong>在线代理</strong>的网站。速度可能慢点。</del> <del><a href="https://www.anyproxy.top" target="_blank" rel="noopener">https://www.anyproxy.top</a></del> <del><a href="https://www.anyproxy.cn" target="_blank" rel="noopener">https://www.anyproxy.cn</a></del><del>只能帮你到这了！</del>      </p>
+<p><strong>惊奇地发现，Heroku好像不被qiang了😃😃😃</strong></p>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>登录上你的Heroku之后，</p>
+<p><a href="https://heroku.com/deploy?template=https://github.com/onplus/shadowsocks-heroku/tree/re" target="_blank" rel="noopener">—–》》》点这里《《《—–</a></p>
+<p>进去之后改两个地方：</p>
+<ul>
+<li><strong>App name</strong><ul>
+<li>起个名字。是唯一标识的。会提示你可不可用。</li>
+</ul>
+</li>
+<li><strong>KEY</strong><ul>
+<li>设置一个密码。</li>
+</ul>
+</li>
+</ul>
+<p>这两个地方我们会在下一步用到。</p>
+<p>一切从简，其他地方不必修改。</p>
+<h1 id="启动本地客户端"><a href="#启动本地客户端" class="headerlink" title="启动本地客户端"></a>启动本地客户端</h1><ul>
+<li><p>下载：<a href="https://github.com/onplus/shadowsocks-heroku/releases" target="_blank" rel="noopener">https://github.com/onplus/shadowsocks-heroku/releases</a></p>
+<p>根据你是什么系统。下载对应的客户端压缩包。</p>
+</li>
+<li><p>解压后有个<code>config.json</code>文件：</p>
+<pre class="line-numbers language-json"><code class="language-json">  <span class="token punctuation">{</span>
+    <span class="token property">"server"</span><span class="token operator">:</span> <span class="token string">"你设置的AppName.herokuapp.com"</span><span class="token punctuation">,</span>
+    <span class="token property">"local_address"</span><span class="token operator">:</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"scheme"</span><span class="token operator">:</span> <span class="token string">"ws"</span><span class="token punctuation">,</span>
+    <span class="token property">"local_port"</span><span class="token operator">:</span> <span class="token string">"1080"</span><span class="token punctuation">,</span>
+    <span class="token property">"remote_port"</span><span class="token operator">:</span> <span class="token string">"80"</span><span class="token punctuation">,</span>
+    <span class="token property">"password"</span><span class="token operator">:</span> <span class="token string">"这里输入你设置的密码"</span><span class="token punctuation">,</span>
+    <span class="token property">"timeout"</span><span class="token operator">:</span> <span class="token number">600</span><span class="token punctuation">,</span>
+    <span class="token property">"method"</span><span class="token operator">:</span> <span class="token string">"aes-256-cfb"</span>
+  <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>启动</p>
+<ul>
+<li><p>Windows：</p>
+<p>直接打开start或ssh的exe文件都可以打开。区别是一个在后台运行了。一个是有黑框界面。</p>
+</li>
+<li><p>Mac/Linux:</p>
+<p>cd到该目录下，执行<code>./ss-h</code> 。你会看到一条server listening at {xxx}的提示。</p>
+<p><img src="http://p66eruxmw.bkt.clouddn.com/20180912153672940559052.png" alt="20180912153672940559052.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>这样本地客户端就启动了。</p>
+<h1 id="配置代理"><a href="#配置代理" class="headerlink" title="配置代理"></a>配置代理</h1><p>在Chrome浏览器安装Proxy SwitchyOmega插件</p>
+<h2 id="安装Proxy-SwitchyOmega"><a href="#安装Proxy-SwitchyOmega" class="headerlink" title="安装Proxy SwitchyOmega"></a>安装Proxy SwitchyOmega</h2><p><a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">chrome应用商店下载</a></p>
+<ul>
+<li><p>不能访问谷歌的到这里下载：</p>
+<p><a href="http://crx.2333.me/" target="_blank" rel="noopener">http://crx.2333.me/</a></p>
+<p>进去后输入id：padekgcemlokbadohgkifijomclgjgif</p>
+</li>
+</ul>
+<h2 id="配置Proxy-SwitchyOmega"><a href="#配置Proxy-SwitchyOmega" class="headerlink" title="配置Proxy SwitchyOmega"></a>配置Proxy SwitchyOmega</h2><p>如图。6步。</p>
+<p><img src="http://p66eruxmw.bkt.clouddn.com/20180912153673022932762.png" alt="20180912153673022932762.png"></p>
+<p>切换到proxy模式就可以Google了~</p>
+<p><img src="http://p66eruxmw.bkt.clouddn.com/2018091215367302988462.png" alt="2018091215367302988462.png"></p>
+<h2 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h2><p>proxy模式就是所有的网站都通过代理来访问。这样其实有点多余。</p>
+<p>下面我们通过添加规则，让插件去判断什么情况下启用代理。</p>
+<p>在插件的 auto switch里，添加规则列表网站：</p>
+<p><code>https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</code></p>
+<p>如图，记得点应用选项以保存。</p>
+<p><img src="http://p66eruxmw.bkt.clouddn.com/20180912153673062820324.png" alt="20180912153673062820324.png"></p>
+<p>这样你选择auto switch模式，插件就可以按照规则来判断是否使用代理。</p>
+<p>如果你想访问的 网站不在规则列表里。在上面的规则上自己添加一个条件就好啦~</p>
+<p>本篇教程结束。这种方法永久免费还不会被封。</p>
+<p>缺点就是只能在PC端使用。关于手机端的教程下次再写啦~</p>
 
             </div>
             <hr>
@@ -400,7 +455,7 @@ i18ni18n（其来源是英文单词 internationalization的">
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Others/UsefulKnowledge/" class="b-link-green">小知识点「理论」</a>
+                    <a href="/fun/Heroku_ssh/" class="b-link-green">Heroku搭建自己的ss服务器教程</a>
                 </p>
             </div>
         </div>
@@ -444,36 +499,27 @@ i18ni18n（其来源是英文单词 internationalization的">
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/Others/UsefulTips/">
+                <a href="/Algorithm/LeetCodeEasy/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="小知识点「技术」">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="LeetCodeEasy">
                         
-                        <span class="card-title">小知识点「技术」</span>
+                        <span class="card-title">LeetCodeEasy</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-Shell相关
-touch xxx.x 新建文件
-
-ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目录
--C 按列列出文件
-
-清屏: edit菜单里找。Terminal:⌃+⌘+L iTerm:⌘+K
-
-删除文件：</div>
+                    <div class="summary">知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]str.substr(pos,n)注意n是子串长 [14]     int的范围、牛顿迭代法[69]      copy(1.begin,1.</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-25
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-23
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
@@ -483,28 +529,12 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
                     </a>
                     
-                    <a href="/tags/Shell/" target="_blank">
-                        <span class="chip bg-color">Shell</span>
-                    </a>
-                    
-                    <a href="/tags/iTerm2/" target="_blank">
-                        <span class="chip bg-color">iTerm2</span>
-                    </a>
-                    
-                    <a href="/tags/Markdown/" target="_blank">
-                        <span class="chip bg-color">Markdown</span>
-                    </a>
-                    
-                    <a href="/tags/Mac/" target="_blank">
-                        <span class="chip bg-color">Mac</span>
-                    </a>
-                    
-                    <a href="/tags/Heroku/" target="_blank">
-                        <span class="chip bg-color">Heroku</span>
+                    <a href="/tags/LeetCode/" target="_blank">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
@@ -516,26 +546,20 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Algorithm/蚁群算法求解TSP/">
+                <a href="/Algorithm/String-easy/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="蚁群算法求解TSP-Matlab版">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="LeetCode 字符串+简单">
                         
-                        <span class="card-title">蚁群算法求解TSP-Matlab版</span>
+                        <span class="card-title">LeetCode 字符串+简单</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">蚁群算法的作业，本来想用C写的。感觉就是：
-
-是我实力不行。🙈MATLAB写这个确实好写。😌
-
-
-C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神器。没了解过的拿着下面两句就可以先起飞了。
-gcc hello.c -o hell</div>
+                    <div class="summary">知识点：String、  reverse()[557]、   istringstream[557] 、memset[387] 、树[606]、to_string()[788]、npos[345] 、transform()[819]、strA</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-06-03
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
                             </span>
                         <span class="publish-author">
                             
@@ -552,8 +576,12 @@ gcc hello.c -o hell</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Matlab/" target="_blank">
-                        <span class="chip bg-color">Matlab</span>
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
+                    </a>
+                    
+                    <a href="/tags/LeetCode/" target="_blank">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>

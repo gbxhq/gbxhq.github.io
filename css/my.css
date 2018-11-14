@@ -13,6 +13,12 @@
     background: inherit;
     filter: blur(12px);
 }
+
+/* 文章上放的高度 */
+.post-cover {
+    height: 18vh !important;
+}
+
 @-webkit-keyframes rainbow {
    
 }
@@ -20,3 +26,11 @@
 @keyframes rainbow {
    
 }
+
+/* 目录
+.toc-content{
+    max-height: 78vh;
+    overflow-y: scroll;
+    margin-right: -20px;
+    padding-right: 20px;
+} */
