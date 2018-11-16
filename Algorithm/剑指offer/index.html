@@ -554,18 +554,47 @@ if(node!=null){
 <p>当然这题不一样的就是，可能不存在。要输出0。所以我找到后，又遍历一次判断是不是真的大于 n/2 。效率还是O(N)的</p>
 </li>
 <li><p>看书的解法。快速排序。是时候去复习一下基本的排序了。撤。</p>
+<hr>
 </li>
-<li><p>我们有成熟的O(N)算法得到数组中任意第k大的数字</p>
+<li><p>我们有成熟的O(N)算法得到数组中任意第k大的数字–》partition()</p>
+</li>
+<li><p>刚刚用Partion解法做了一遍。</p>
+<p>感觉穿参数的时候有点绕啊，比如找第k大的，坐标是k-1。</p>
+<p>然后如果一趟快拍之后的坐标 i&lt;k，说明第k大在i后面，</p>
+<p>要传的参数就是 k-i-1;</p>
+<p><strong>综上，我感觉不如在数组前加一个数，放到0位置。这样第k大的数坐标就是k。其他的逻辑也清晰很多。具体是否能行我们在下一题里用一下试试</strong></p>
 </li>
 </ul>
 <h2 id="30-最小的前k个数"><a href="#30-最小的前k个数" class="headerlink" title="30 最小的前k个数"></a>30 最小的前k个数</h2><ul>
-<li>先用最low的冒泡AC过了。现在开始去查资料看高端解法~<ul>
+<li><p>先用最low的冒泡AC过了。现在开始去查资料看高端解法~</p>
+<ul>
 <li>我错了。我用的方法是比冒泡还low的，纯一个一个比较。</li>
 </ul>
 </li>
-<li>vector初始化要声明空间！</li>
+<li><p>vector初始化要声明空间！</p>
+<hr>
+</li>
+<li><p>用partition的写法试试~</p>
+</li>
+<li><p><strong>事实证明，在vector的0位置加一个垃圾数。然后整个代码写起来就特别清晰了，可以完全按照思路写出：</strong></p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span>k<span class="token punctuation">)</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>k<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">partition</span><span class="token punctuation">(</span>vt<span class="token punctuation">,</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>jj<span class="token punctuation">,</span>k<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span>
+    <span class="token function">partition</span><span class="token punctuation">(</span>vt<span class="token punctuation">,</span>ii<span class="token punctuation">,</span>i<span class="token number">-1</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>如果不在0位置加垃圾数。i就要和k-1做比较，而且k-i那里要写k-i-1</p>
+</blockquote>
+</li>
 </ul>
-
+<hr>
+<ul>
+<li>输入的k比n还大的时候，要返回空😂</li>
+<li style="list-style: none"><input type="checkbox"> 解法二没看哈~有空回来补</li>
+</ul>
+<h1 id="31"><a href="#31" class="headerlink" title="31"></a>31</h1>
             </div>
             <hr>
 

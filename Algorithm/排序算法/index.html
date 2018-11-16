@@ -11,7 +11,8 @@
 15种排序算法动态演示这个视频是在网上看到的。
 
 
-那我们就跟着视频来写出这15种排序算法吧。这15种排序分别是：1.简单选择排序 2.插入排序 3.快速排序 4.合并排序 5.堆排序 6.基数排序 7.最高有效位">
+那我们就跟着视频来写出这15种排序算法吧。这15种排序分别是：
+1.简单选择排序2.插入排序3.快速排序4.合并排序5.堆排序6.基数排序7.最高有效位排序8.内">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -367,7 +368,8 @@
 <h1 id="15种排序算法动态演示"><a href="#15种排序算法动态演示" class="headerlink" title="15种排序算法动态演示"></a>15种排序算法动态演示</h1><p>这个视频是在网上看到的。</p>
 <iframe frameborder="0" width="100%" height="500px" src="https://v.qq.com/txp/iframe/player.html?vid=t0396emm8oy" allowfullscreen="true"></iframe>
 
-<p>那我们就跟着视频来写出这15种排序算法吧。这15种排序分别是：1.简单选择排序 2.插入排序 3.快速排序 4.合并排序 5.堆排序 6.基数排序 7.最高有效位排序 8.内省排序 9.适应性归并排序 10.希尔排序（缩小增量，插入排序的改进版） 11.冒泡排序 12.鸡尾酒排序（定向冒泡，选择排序的一种） 13.地精排序（写法最简单的排序） 14.双调排序 15.Bogo排序（等量子计算时代唯一的算法，穷举法）</p>
+<p>那我们就跟着视频来写出这15种排序算法吧。这15种排序分别是：</p>
+<p><a href="#简单选择排序">1.简单选择排序</a><br><a href="#直接插入排序">2.插入排序</a><br><a href="#快速排序">3.快速排序</a><br><a href="#合并排序">4.合并排序</a><br><a href="#堆排序">5.堆排序</a><br><a href="#基数排序">6.基数排序</a><br><a href="#最高有效位排序">7.最高有效位排序</a><br><a href="#内省排序">8.内省排序</a><br><a href="#适应性归并排序">9.适应性归并排序</a><br><a href="#希尔排序">10.希尔排序（缩小增量，插入排序的改进版）</a><br><a href="#冒泡排序">11.冒泡排序</a><br><a href="#鸡尾酒排序">12.鸡尾酒排序（定向冒泡，选择排序的一种）</a><br><a href="#地精排序">13.地精排序（写法最简单的排序）</a><br><a href="#双调排序">14.双调排序</a><br><a href="#Bogo排序">15.Bogo排序（等量子计算时代唯一的算法，穷举法）</a></p>
 <h1 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h1><p>简单选择排序，每次找到一个最小的。放到前面。</p>
 <p>效率自然是 O(n2)</p>
 <h1 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h1><p>加哨兵的核心：</p>
@@ -410,7 +412,31 @@
 <p>所以要写成 <code>x&lt;=vt[j]</code>，或者不写。</p>
 </li>
 </ul>
-<h1 id="完美排序"><a href="#完美排序" class="headerlink" title="完美排序"></a>完美排序</h1><p>思想：</p>
+<h1 id="合并排序"><a href="#合并排序" class="headerlink" title="合并排序"></a>合并排序</h1><ul>
+<li>归并的拆分的递归思路特别好。要记住两个函数参数怎么设。</li>
+<li>需要占用空间啊（要有个临时数组去合并结果）。</li>
+</ul>
+<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><p><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/HeapSort.html</a></p>
+<h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p><a href="http://www.cs.usfca.edu/~galles/visualization/RadixSort.html" target="_blank" rel="noopener">http://www.cs.usfca.edu/~galles/visualization/RadixSort.html</a></p>
+<p>我完全按照算法的思想。把数一次次存到map里写出来的。</p>
+<p>貌似正规的写法不用这么「扯」。</p>
+<p>说下我的写法吧：</p>
+<ol>
+<li><p>按个位数当下标key，先全存到第一个map里</p>
+</li>
+<li><p>建立一个allMap，根据最高位数exp，往allMap里存map。</p>
+</li>
+<li><p>遍历上一层的map。因为上一层的map是按个位数排好序的。</p>
+<p>取出这个数。判断它的十位。存到这一层的map里。</p>
+</li>
+</ol>
+<ul>
+<li><p>map里如果value是存的vector，那不需要初始化就可以直接push_back的。</p>
+<p>比如，<code>map[1].push_back(99);</code> 这种写法是没错的。</p>
+</li>
+</ul>
+<h1 id="最高有效位排序"><a href="#最高有效位排序" class="headerlink" title="最高有效位排序"></a>最高有效位排序</h1><p>这和基数排序啥区别啊。就是从高位开始判断的基数排序？</p>
+<h1 id="内省排序"><a href="#内省排序" class="headerlink" title="内省排序"></a>内省排序</h1><h1 id="适应性归并排序"><a href="#适应性归并排序" class="headerlink" title="适应性归并排序"></a>适应性归并排序</h1><h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><h1 id="鸡尾酒排序"><a href="#鸡尾酒排序" class="headerlink" title="鸡尾酒排序"></a>鸡尾酒排序</h1><h1 id="地精排序"><a href="#地精排序" class="headerlink" title="地精排序"></a>地精排序</h1><h1 id="双调排序"><a href="#双调排序" class="headerlink" title="双调排序"></a>双调排序</h1><h1 id="Bogo排序"><a href="#Bogo排序" class="headerlink" title="Bogo排序"></a>Bogo排序</h1><h1 id="完美排序"><a href="#完美排序" class="headerlink" title="完美排序"></a>完美排序</h1><p>思想：</p>
 <ul>
 <li><code>if</code>i位置比j位置小，二者交换。</li>
 <li>循环结束条件 i等于j</li>
