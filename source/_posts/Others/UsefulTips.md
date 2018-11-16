@@ -1,11 +1,11 @@
 ---
-title: 小知识点「技术」
+title: UsefulTips
 date: 2018-07-25 21:04:09
 categories: Others
 tags: [tips,Shell,iTerm2,Markdown,Mac,Heroku]
 ---
 
-
+偏技术性的小姿势
 
 <!---more--->
 
