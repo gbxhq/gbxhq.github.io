@@ -1,7 +1,7 @@
 ---
 title: vimtutor中文版
 date: 2018-11-12 16:51:34
-categories: [Others]
+categories: [fun]
 tags: vim
 ---
 
@@ -15,4 +15,12 @@ vimturor是vim自带的教程。上次我坚持看了七八章之后，强迫自
 
 我这里也存个备份，[点击下载](/Downloads/vimtutor_cn.txt)
 
-ok~
+下下来用vim打开，对着学习真的很棒。
+
+---
+
+> PS:一天后，第108次放弃使用Vim。
+
+原因：
+
+>  MacBookPro Touchbar用户，谢谢。
