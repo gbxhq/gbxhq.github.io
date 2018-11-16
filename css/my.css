@@ -1,4 +1,21 @@
 /* Here is your custom css styles. */
+@font-face{
+    font-family: FZYanSongM;
+    src: url(/libs/FZYanSongM.ttf)
+}
+
+body {
+    font-family: FZYanSongM, sans-serif;
+}
+
+.title:hover {
+    text-shadow: rgba(51, 51, 51, 0.7) 10px 10px 10px;
+    -webkit-transition: text-shadow 1s ease;
+    -moz-transition: text-shadow 1s ease;
+    -o-transition: text-shadow 1s ease;
+    -ms-transition: text-shadow 1s ease;
+    transition: text-shadow 1s ease;
+  }
 
 /* 文章背景虚化 */
 .post-cover:before, .post-cover:after{
