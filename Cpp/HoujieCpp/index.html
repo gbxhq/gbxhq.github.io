@@ -8,15 +8,15 @@
     <meta name="keywords" content="侯捷C++笔记, 炫杉">
     <meta name="description" content="舍友给的侯捷的C++教学视频。谢谢琪琪。做个笔记。
 
-面向对象（上）2 头文件与类声明#ifndef __CLASSNAME__
-#define __CLASSNAME__
+面向对象（上）2 头文件与类声明#ifndef __COMPLEX__
+#define __COMPLEX__
 
     ...
 
 #endif
 
 3 构造函数
-inline函数">
+inline函数，在cl">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -344,8 +344,8 @@ inline函数">
             <div id="articleContent">
                 <p>舍友给的侯捷的C++教学视频。谢谢琪琪。做个笔记。</p>
 <a id="more"></a>
-<h1 id="面向对象（上）"><a href="#面向对象（上）" class="headerlink" title="面向对象（上）"></a>面向对象（上）</h1><h2 id="2-头文件与类声明"><a href="#2-头文件与类声明" class="headerlink" title="2 头文件与类声明"></a>2 头文件与类声明</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">ifndef</span> __CLASSNAME__</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> __CLASSNAME__</span>
+<h1 id="面向对象（上）"><a href="#面向对象（上）" class="headerlink" title="面向对象（上）"></a>面向对象（上）</h1><h2 id="2-头文件与类声明"><a href="#2-头文件与类声明" class="headerlink" title="2 头文件与类声明"></a>2 头文件与类声明</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">ifndef</span> __COMPLEX__</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> __COMPLEX__</span>
 
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 
@@ -361,8 +361,8 @@ inline函数">
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">complex</span><span class="token punctuation">{</span>
     <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">complex</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">double</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
-        <span class="token operator">:</span><span class="token function">re</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">im</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true">//初值列。一定要用。赋初值，速度更快。不这样就相当于没赋初值。</span>
-    <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+        <span class="token operator">:</span><span class="token function">re</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">im</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//初值列。一定要用。赋初值，速度更快。不这样就相当于没赋初值。</span>
+    <span class="token punctuation">{</span> <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//构造函数还需要干啥写在这里</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
@@ -399,8 +399,50 @@ inline函数">
 <li><img src="../../images/image-20181117190413526.png" alt="image-20181117190413526"></li>
 </ul>
 <p><img src="../../images/image-20181117190624493.png" alt="image-20181117190624493"></p>
-<p>使用者连串使用的时候， 返回值是引用就起到作用了。 c1加到c2上，并会让整个式子返回c2的引用。</p>
+<blockquote>
+<p> 返回值其实可以设成void，为啥设成reference呢？</p>
+</blockquote>
+<p>使用者连串使用的时候， 返回值是reference就起到作用了。 c1加到c2上，并会让整个式子返回c2的引用。</p>
 <p>怪不得一整条的式子也会有一个值，妙啊。</p>
+<ul>
+<li><p>返回的是一个object，<strong>绝对不能返回reference</strong></p>
+<p>上面返回 reference的例子是，两个数加完存到第一个数里。这次是两个东西加起来，却没有地方存。return了一个临时变量<img src="../../images/image-20181117194447742.png" alt="image-20181117194447742"></p>
+</li>
+<li><p>&lt;&lt; 这个操作符想重载只能写成全局函数。Example：</p>
+<p><img src="../../images/image-20181117200410373.png" alt="image-20181117200410373"></p>
+<blockquote>
+<p> 传的参数os可以加&amp;吗？ </p>
+</blockquote>
+<p>可以。能传&amp;尽量传&amp;。</p>
+<blockquote>
+<p>os为啥不加<code>const</code>？ os会改变吗？</p>
+</blockquote>
+<p>其实， &lt;&lt; 这个输出符号就是把右侧的东西丢到 os 里。所以os是不能加&amp;的！</p>
+<blockquote>
+<p>这个函数返回值为啥不写<code>viod</code>而写<code>ostream</code></p>
+</blockquote>
+<p>你想想你天天用 <code>cout &lt;&lt; A &lt;&lt; B</code> 啊！这样就可以连用操作符了啊</p>
+<blockquote>
+<p>返回值写 ostream 还是 ostream&amp;?</p>
+</blockquote>
+<p>优先考虑&amp;。看一下返回的是新object吗？</p>
+<p>返回os，不是新的。可以返回&amp;</p>
+<ul>
+<li>我天天用的cout其实是一个对象（ostream类型）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>总结一下一好的类设计：</p>
+<ul>
+<li>构造函数要会用 Init 的快速赋值方法</li>
+<li>函数返回加不加const<ul>
+<li style="list-style: none"><input type="checkbox"> 我对这一点还是理解不够深入。</li>
+</ul>
+</li>
+<li>参数、return尽可能地加const</li>
+<li>数据要放在private里</li>
+</ul>
 
             </div>
             <hr>
