@@ -352,9 +352,9 @@ inline函数，在cl">
 <span class="token macro property">#<span class="token directive keyword">endif</span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-构造函数"><a href="#3-构造函数" class="headerlink" title="3 构造函数"></a>3 构造函数</h2><ul>
-<li><p>inline函数，在class body内定义完成， <strong>比较快 比较好</strong>。但由于 你要写的函数太复杂，很难将她变成inline。而且就算你把函数写在了class里，是不是inline函数仍由编译器决定。</p>
+<li><p>inline函数，在class body内<strong>定义</strong>完成， <strong>比较快 比较好</strong>。但由于 你要写的函数太复杂，很难将她变成inline。而且就算你把函数写在了class里，是不是inline函数仍由编译器决定。</p>
 <ul>
-<li>在class body外的函数定义，可以用inline关键字，但也只是告诉编译器，你<strong>尽量</strong>把它变成inline</li>
+<li>在class body外的函数<strong>定义</strong>（仅在body内<strong>声明</strong>一下[这时候还不用加<code>inline</code>]），可以用<code>inline</code>关键字定义，但也只是告诉编译器，你<strong>尽量</strong>把它变成inline</li>
 </ul>
 </li>
 <li><p>构造函数</p>
@@ -389,22 +389,22 @@ inline函数，在cl">
 <ul>
 <li><p>朋友是打开封装的一个大门，取数据可以用函数（慢），也可以用朋友来直接拿。</p>
 </li>
-<li><p>同class的各个object互为友元—》这就可以解释为什么，类的成员函数可以直接取同class的对象的数据：<img src="../../images/image-20181117184210214.png" alt="image-20181117184210214"></p>
+<li><p><strong>同class的各个object互为友元</strong>—》这就可以解释为什么，类的成员函数可以直接取同class的对象的数据：<img src="../../images/image-20181117184210214.png" alt="image-20181117184210214"></p>
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="5-操作符重载、-临时对象"><a href="#5-操作符重载、-临时对象" class="headerlink" title="5 操作符重载、 临时对象"></a>5 操作符重载、 临时对象</h2><ul>
 <li>所有成员函数都有个隐含的this参数，编译器决定了它的位置</li>
-<li><img src="../../images/image-20181117190413526.png" alt="image-20181117190413526"></li>
-</ul>
-<p><img src="../../images/image-20181117190624493.png" alt="image-20181117190624493"></p>
+<li><p><img src="../../images/image-20181117190413526.png" alt="image-20181117190413526"></p>
+</li>
+<li><p><img src="../../images/image-20181117190624493.png" alt="image-20181117190624493"></p>
 <blockquote>
 <p> 返回值其实可以设成void，为啥设成reference呢？</p>
 </blockquote>
-<p>使用者连串使用的时候， 返回值是reference就起到作用了。 c1加到c2上，并会让整个式子返回c2的引用。</p>
+<p>使用者连串使用的时候， 返回值是reference就起到作用了。 c1加到c2上，        并会让整个式子返回c2的引用。</p>
 <p>怪不得一整条的式子也会有一个值，妙啊。</p>
-<ul>
+</li>
 <li><p>返回的是一个object，<strong>绝对不能返回reference</strong></p>
 <p>上面返回 reference的例子是，两个数加完存到第一个数里。这次是两个东西加起来，却没有地方存。return了一个临时变量<img src="../../images/image-20181117194447742.png" alt="image-20181117194447742"></p>
 </li>
@@ -433,15 +433,62 @@ inline函数，在cl">
 </li>
 </ul>
 <hr>
-<p>总结一下一好的类设计：</p>
+<h2 id="6-小节"><a href="#6-小节" class="headerlink" title="6 小节"></a>6 小节</h2><p>总结一下一好的类设计：</p>
 <ul>
 <li>构造函数要会用 Init 的快速赋值方法</li>
 <li>函数返回加不加const<ul>
 <li style="list-style: none"><input type="checkbox"> 我对这一点还是理解不够深入。</li>
+<li style="list-style: none"><input type="checkbox"> 这个函数不改变data 就要加const</li>
 </ul>
 </li>
-<li>参数、return尽可能地加const</li>
+<li>参数尽可能地加&amp;</li>
+<li>return尽可能地加&amp;<ul>
+<li>return的如果不是local object(不是这个函数创建的东西)，那就加&amp;</li>
+</ul>
+</li>
 <li>数据要放在private里</li>
+</ul>
+<hr>
+<p>告一段落。第6集是总结。可以重刷。</p>
+<p><strong>Problem：</strong></p>
+<ul>
+<li><p>[ ] 函数的参数又加const又加&amp;，并在函数里改这个参数的值。会报错？</p>
+<blockquote>
+<p>答：果然报错了。如果要改它的值就别加着加那的了啊孩子。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="7-Big-Three-拷贝构造-拷贝赋值-析构"><a href="#7-Big-Three-拷贝构造-拷贝赋值-析构" class="headerlink" title="7 Big Three 拷贝构造 拷贝赋值 析构"></a>7 Big Three 拷贝构造 拷贝赋值 析构</h2><ul>
+<li><p>class with pointer members 必須有 copy ctor 和 copy op=</p>
+<ul>
+<li><p>如果类C有指针。还用默认的拷贝赋值，就叫<strong>浅拷贝</strong>，这时候：</p>
+<p>a和b本来都有thier own指针 point to 一块地，这时候执行 aaa=bbb:</p>
+<ul>
+<li>bbb指向的那一块成为孤儿–》内存泄露</li>
+<li>bbb也指向了aaa指向的那块地，a、b会一条命</li>
+</ul>
+</li>
+<li><p>由上一条得出拷贝赋值的写法：</p>
+<p><code>inline ClassA&amp; ClassA::operator=(const ClassA&amp; bbb)</code>{</p>
+<ol>
+<li><p><strong><code>if (this == &amp;aaa)</code></strong></p>
+<p> ​    <strong><code>return *this</code></strong></p>
+</li>
+<li><p>bbb释放自己的指针</p>
+</li>
+<li><p>申请aaa一样大的区域</p>
+</li>
+<li><p>赋值</p>
+</li>
+<li><p><code>return *this;</code></p>
+</li>
+</ol>
+<p>}</p>
+<p>第0条特别重要。</p>
+</li>
+</ul>
+</li>
 </ul>
 
             </div>

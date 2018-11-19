@@ -594,18 +594,63 @@ if(node!=null){
 <li>输入的k比n还大的时候，要返回空😂</li>
 <li style="list-style: none"><input type="checkbox"> 解法二没看哈~有空回来补</li>
 </ul>
-<h1 id="31-最小连续子串"><a href="#31-最小连续子串" class="headerlink" title="31 最小连续子串"></a>31 最小连续子串</h1><ul>
+<h2 id="31-最小连续子串"><a href="#31-最小连续子串" class="headerlink" title="31 最小连续子串"></a>31 最小连续子串</h2><ul>
 <li><p>先用了暴力（其实可以优化</p>
 </li>
 <li><p>看书，又用了DP。</p>
 <hr>
 <p>代码写起来都挺容易的。</p>
-<h1 id="32-整数中1出现次数"><a href="#32-整数中1出现次数" class="headerlink" title="32 整数中1出现次数"></a>32 整数中1出现次数</h1></li>
-<li><p>暴力过了。</p>
-</li>
-<li><p>[ ] 明天去看书上怎么解的。</p>
 </li>
 </ul>
+<h2 id="32-整数中1出现次数"><a href="#32-整数中1出现次数" class="headerlink" title="32 整数中1出现次数"></a>32 整数中1出现次数</h2><ul>
+<li>暴力过了。</li>
+<li style="list-style: none"><input type="checkbox" checked> 明天去看书上怎么解的。</li>
+<li>书上解法看懵了，搜到这篇博客，不错<a href="https://blog.csdn.net/yi_afly/article/details/52012593" target="_blank" rel="noopener">https://blog.csdn.net/yi_afly/article/details/52012593</a></li>
+</ul>
+<h2 id="33-把数组排成最小的数"><a href="#33-把数组排成最小的数" class="headerlink" title="33 把数组排成最小的数"></a>33 把数组排成最小的数</h2><p>我自认为自己思路不错，把每个数字用<code>&#39;9&#39;+1</code>这个字符（就是<code>:</code>）补齐，这样每个数字就会变成这样的：</p>
+<p><code>3::</code>  <code>32:</code>  <code>321</code></p>
+<p>这时候再比较这3个string，自然是321最小了。因此先插入321。</p>
+<hr>
+<ul>
+<li>输出ans的时候。要删掉ans里的：。下面看一下string的erase方法：</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    std<span class="token operator">::</span>string s <span class="token operator">=</span> <span class="token string">"This is an example"</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> s <span class="token operator">&lt;&lt;</span> <span class="token string">'\n'</span><span class="token punctuation">;</span>
+
+    s<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Erase "This "</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> s <span class="token operator">&lt;&lt;</span> <span class="token string">'\n'</span><span class="token punctuation">;</span>
+
+    s<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>std<span class="token operator">::</span><span class="token function">find</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> s<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Erase ' '</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> s <span class="token operator">&lt;&lt;</span> <span class="token string">'\n'</span><span class="token punctuation">;</span>
+
+    s<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Trim from ' ' to the end of the string</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> s <span class="token operator">&lt;&lt;</span> <span class="token string">'\n'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>我就不明白最后两种用法。都是传入的一个迭代器。为啥一个是删除迭代器所指的字符，一个是删除迭代器后的所有字符呢？</p>
+<p>经测试，直接传一个迭代器进去。也是删除这个字符。</p>
+</blockquote>
+<p>答：string::find()函数返回的是postion。是一个Int坐标。</p>
+<p>​    而std::find()返回的是迭代器。</p>
+<hr>
+<p>提交到OJ发现。我的思路有问题啊。如果是用更大的字符来补齐。</p>
+<p>遇到这种情况： <code>3</code>和<code>34</code> 本来应该先插入3再插入34。</p>
+<p>但是我把3补齐成了<code>3：</code>  导致先插入的是34~</p>
+<p>行不通。</p>
+<hr>
+<p>写了个比较两个字符串大小的方法。AC了。方法就是，两个不一样长的字符串，把短的用其最后一位数补齐。</p>
+<p>比如 3和 342. 就把3 补齐成333.  333&lt;342 。插入333.</p>
+<p>可我这个方法，需要比较N<sup>2</sup>次。走起，看书。</p>
+<hr>
+<p>书上，比较两个字符串大小。原来只要两个字符串拼接一下（长度就一定一样了）。返回小的就可以了。</p>
+<ul>
+<li>书上方法固然更好，写起来也更轻松。然而我竟然发现我刚刚的用最后一位补齐的方法，时间和空间效率都比后来改的方法好啊~哈哈哈</li>
+</ul>
+<h2 id="34-丑数"><a href="#34-丑数" class="headerlink" title="34 丑数"></a>34 丑数</h2><p>看了书上的好方法来做的。嘻嘻。</p>
+<p>LeetCode上还有个超级丑数，明天去做一下看看。</p>
 
             </div>
             <hr>
