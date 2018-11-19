@@ -8,15 +8,13 @@
     <meta name="keywords" content="侯捷C++笔记, 炫杉">
     <meta name="description" content="舍友给的侯捷的C++教学视频。谢谢琪琪。做个笔记。
 
-面向对象（上）2 头文件与类声明#ifndef __COMPLEX__
+面向对象（上）2 头文件与类声明//比如这个是类Complex的头文件：
+#ifndef __COMPLEX__
 #define __COMPLEX__
 
     ...
 
-#endif
-
-3 构造函数
-inline函数，在cl">
+#endif">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -344,13 +342,16 @@ inline函数，在cl">
             <div id="articleContent">
                 <p>舍友给的侯捷的C++教学视频。谢谢琪琪。做个笔记。</p>
 <a id="more"></a>
-<h1 id="面向对象（上）"><a href="#面向对象（上）" class="headerlink" title="面向对象（上）"></a>面向对象（上）</h1><h2 id="2-头文件与类声明"><a href="#2-头文件与类声明" class="headerlink" title="2 头文件与类声明"></a>2 头文件与类声明</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">ifndef</span> __COMPLEX__</span>
+<h1 id="面向对象（上）"><a href="#面向对象（上）" class="headerlink" title="面向对象（上）"></a>面向对象（上）</h1><h2 id="2-头文件与类声明"><a href="#2-头文件与类声明" class="headerlink" title="2 头文件与类声明"></a>2 头文件与类声明</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//比如这个是类Complex的头文件：</span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> __COMPLEX__</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> __COMPLEX__</span>
 
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 
 <span class="token macro property">#<span class="token directive keyword">endif</span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我发现在Clion新建一个类会自动生成的：</p>
+<p><img src="../../images/image-20181119111214121.png" alt="image-20181119111214121">其中HOUJIE是我这个项目的名字~</p>
 <h2 id="3-构造函数"><a href="#3-构造函数" class="headerlink" title="3 构造函数"></a>3 构造函数</h2><ul>
 <li><p>inline函数，在class body内<strong>定义</strong>完成， <strong>比较快 比较好</strong>。但由于 你要写的函数太复杂，很难将她变成inline。而且就算你把函数写在了class里，是不是inline函数仍由编译器决定。</p>
 <ul>
