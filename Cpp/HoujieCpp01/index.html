@@ -5,8 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="侯捷C++笔记, 炫杉">
-    <meta name="description" content="舍友给的侯捷的C++教学视频。谢谢琪琪。做个笔记。
+    <meta name="keywords" content="C++学习笔记 面向对象（上）, 炫杉">
+    <meta name="description" content="舍友给的C++资料。谢谢琪琪。做个笔记。
 
 面向对象（上）2 头文件与类声明//比如这个是类Complex的头文件：
 #ifndef __COMPLEX__
@@ -14,7 +14,9 @@
 
     ...
 
-#endif">
+#endif
+
+我发现">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +24,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>侯捷C++笔记 | 炫杉</title>
+    <title>C++学习笔记 面向对象（上） | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -214,13 +216,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        侯捷C++笔记
+                        C++学习笔记 面向对象（上）
                     </div>
                 </div>
             </div>
@@ -329,7 +331,28 @@
     <div class="card">
         <div class="card-content article-info">
             
+            <div class="article-tag">
+                
+                <a href="/tags/Note/" target="_blank">
+                    <span class="chip bg-color">Note</span>
+                </a>
+                
+                <a href="/tags/cpp/" target="_blank">
+                    <span class="chip bg-color">cpp</span>
+                </a>
+                
+            </div>
+            
             <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/cpp/" class="post-category" target="_blank">
+                        cpp
+                    </a>
+                    
+                </span>
                 
 
                 <span class="post-date">
@@ -340,7 +363,7 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>舍友给的侯捷的C++教学视频。谢谢琪琪。做个笔记。</p>
+                <p>舍友给的C++资料。谢谢琪琪。做个笔记。</p>
 <a id="more"></a>
 <h1 id="面向对象（上）"><a href="#面向对象（上）" class="headerlink" title="面向对象（上）"></a>面向对象（上）</h1><h2 id="2-头文件与类声明"><a href="#2-头文件与类声明" class="headerlink" title="2 头文件与类声明"></a>2 头文件与类声明</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//比如这个是类Complex的头文件：</span>
 <span class="token macro property">#<span class="token directive keyword">ifndef</span> __COMPLEX__</span>
@@ -418,7 +441,7 @@
 <blockquote>
 <p>os为啥不加<code>const</code>？ os会改变吗？</p>
 </blockquote>
-<p>其实， &lt;&lt; 这个输出符号就是把右侧的东西丢到 os 里。所以os是不能加&amp;的！</p>
+<p>其实， <strong>&lt;&lt; 这个输出符号就是把右侧的东西丢到 os 里</strong>。所以os是不能加&amp;的！</p>
 <blockquote>
 <p>这个函数返回值为啥不写<code>viod</code>而写<code>ostream</code></p>
 </blockquote>
@@ -491,6 +514,85 @@
 </ul>
 </li>
 </ul>
+<p>最后看一下我自己写的就知道遇到的问题有多多了！</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> HOUJIE_MYSTRING_H</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> HOUJIE_MYSTRING_H</span>
+
+<span class="token keyword">class</span> <span class="token class-name">myString</span> <span class="token punctuation">{</span>
+    <span class="token function">myString</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> str <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">myString</span><span class="token punctuation">(</span><span class="token keyword">const</span> myString<span class="token operator">&amp;</span> oneString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">~</span><span class="token function">myString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//myString&amp; const operator=(const myString &amp;oneStr);//在body里声明就不用加myString::了</span>
+    myString<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> myString <span class="token operator">&amp;</span>oneStr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//不能加const 为啥？</span>
+
+<span class="token comment" spellcheck="true">//    ostream&amp;operator&lt;&lt;(const myString &amp;oneStr);❌千万记住"&lt;&lt;"的重载只能在函数外！</span>
+
+<span class="token comment" spellcheck="true">//    char* const getData(){ //const放函数名后</span>
+    <span class="token keyword">char</span><span class="token operator">*</span> <span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> m_Data<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这个方法是为了 一会儿重载 &lt;&lt; 能取到数据</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">char</span><span class="token operator">*</span> m_Data<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">inline</span> myString<span class="token operator">::</span><span class="token function">myString</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>str<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//这里参数不赋初值！不然会报错：redefinition of default argument</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        m_Data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token function">strlen</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">strcpy</span><span class="token punctuation">(</span>m_Data<span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span><span class="token punctuation">{</span>
+        m_Data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        m_Data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'\0'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">inline</span> myString<span class="token operator">::</span><span class="token operator">~</span><span class="token function">myString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">delete</span> m_Data<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">inline</span> myString<span class="token operator">::</span><span class="token function">myString</span><span class="token punctuation">(</span><span class="token keyword">const</span> myString <span class="token operator">&amp;</span>oneString<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    m_Data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token function">strlen</span><span class="token punctuation">(</span>oneString<span class="token punctuation">.</span>m_Data<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">strcpy</span><span class="token punctuation">(</span>m_Data<span class="token punctuation">,</span>oneString<span class="token punctuation">.</span>m_Data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">inline</span> myString<span class="token operator">&amp;</span> <span class="token keyword">const</span> myString<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> myString <span class="token operator">&amp;</span>oneStr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">//    if(this == oneStr)❌</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">==</span> <span class="token operator">&amp;</span>oneStr<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//this是一个指针！</span>
+<span class="token comment" spellcheck="true">//        return this;❌</span>
+        <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//    delete this.m_Data;</span>
+    <span class="token keyword">delete</span> m_Data<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>m_Data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token function">strlen</span><span class="token punctuation">(</span>oneStr<span class="token punctuation">.</span>m_Data<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//我使用.语法自动变成->语法。为什么？</span>
+    <span class="token function">strcpy</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>m_Data<span class="token punctuation">,</span>oneStr<span class="token punctuation">.</span>m_Data<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//其实this->全可以省略。只写m_Data就好</span>
+
+<span class="token comment" spellcheck="true">//    return this; ❌</span>
+    <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//是*this! 这也解释了为啥 this后要跟-> this是一个指针</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//inline ostream&amp; myString::operator&lt;&lt;(const myString &amp;oneStr) {❌ 1不用加类名，人家是根据参数类型来处理的</span>
+<span class="token comment" spellcheck="true">//2.不加inline  3.有一个ostream参数  4.记得要#include&lt;iostream.h></span>
+ostream<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span>ostream<span class="token operator">&amp;</span> os<span class="token punctuation">,</span> <span class="token keyword">const</span> myString <span class="token operator">&amp;</span>oneStr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> os <span class="token operator">&lt;&lt;</span><span class="token string">"我是一个string:"</span><span class="token operator">&lt;&lt;</span> oneStr<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment" spellcheck="true">//HOUJIE_MYSTRING_H</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>简简单单的一个类，里面就有这么多问题！</p>
+<ul>
+<li><p>函数声明的时候参数设了默认值。定义的时候就不用写了。</p>
+</li>
+<li><p>[ ] &lt;&lt; 为啥不能在body里重载来着？</p>
+</li>
+<li><p>[x] 重载= 为啥不加const?</p>
+<blockquote>
+<p> <code>myString&amp; operator=(const myString&amp; str)</code> 这个函数里其实有个隐含参数 this, 而 this 是要改变的。改变了数据就不能加const啦~</p>
+</blockquote>
+</li>
+</ul>
+<p>道阻且长！</p>
 
             </div>
             <hr>
@@ -512,7 +614,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Cpp/HoujieCpp/" class="b-link-green">侯捷C++笔记</a>
+                    <a href="/Cpp/HoujieCpp01/" class="b-link-green">C++学习笔记 面向对象（上）</a>
                 </p>
             </div>
         </div>
