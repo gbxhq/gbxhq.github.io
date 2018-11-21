@@ -323,12 +323,12 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/LeetCode/" target="_blank">
-                    <span class="chip bg-color">LeetCode</span>
-                </a>
-                
                 <a href="/tags/Cpp/" target="_blank">
                     <span class="chip bg-color">Cpp</span>
+                </a>
+                
+                <a href="/tags/LeetCode/" target="_blank">
+                    <span class="chip bg-color">LeetCode</span>
                 </a>
                 
             </div>
@@ -346,7 +346,7 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-09-23
+                    <i class="fa fa-clock-o fa-fw"></i>2018-09-01
                 </span>
             </div>
         </div>
@@ -462,6 +462,7 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="04二叉树的最大深度"><a href="#04二叉树的最大深度" class="headerlink" title="04二叉树的最大深度"></a>04二叉树的最大深度</h1><p>必备</p>
 <h1 id="5最长回文子串"><a href="#5最长回文子串" class="headerlink" title="5最长回文子串"></a>5最长回文子串</h1><p>没想到我的方法效率还不错。</p>
+<h1 id="6-Z字形变换"><a href="#6-Z字形变换" class="headerlink" title="6.Z字形变换"></a>6.Z字形变换</h1><p>水题。用一个flag记录存入的方向即可。详情看代码。</p>
 <h1 id="7-反转整数"><a href="#7-反转整数" class="headerlink" title="7.反转整数"></a>7.反转整数</h1><ul>
 <li>正解</li>
 </ul>
@@ -495,6 +496,9 @@
 <p>-2147483648会被转成正2147483648。而正int里最大是2147483647。存不下2147483648 。所以特判了。</p>
 </li>
 </ol>
+<h1 id="8-atoi"><a href="#8-atoi" class="headerlink" title="8.atoi"></a>8.atoi</h1><ul>
+<li>长度不一样的String比较会是什么规则？</li>
+</ul>
 <h1 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9.回文数"></a>9.回文数</h1><ul>
 <li>解法</li>
 </ul>
@@ -1315,32 +1319,32 @@ string tmp<span class="token punctuation">;</span>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/Others/PackageMananger/">
+                <a href="/Algorithm/LeetCode200/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="PackageMananger相关">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="LeetCode 101-200">
                         
-                        <span class="card-title">PackageMananger相关</span>
+                        <span class="card-title">LeetCode 101-200</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Homebrew,Ruby,CocoaPods,npm使用时遇到的的命令、更换源、出现的问题，简单记录
+                    <div class="summary">知识点：  摩尔投票算法[169]   reverse()的理解[189]     位运算[136]   string.erase()[171]     
 
-Homebrew概念
-Mac的软件包管理工具，类似于linux的apt-get，能在mac中方便地安装软件或者卸载软件。
+101.对称二叉树
+开始写成了判断节点的两个孩子是否相同。完全整错了题。
 
-安装Hom</div>
+用两个</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-06
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
@@ -1350,24 +1354,12 @@ Mac的软件包管理工具，类似于linux的apt-get，能在mac中方便地�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
                     </a>
                     
-                    <a href="/tags/Homebrew/" target="_blank">
-                        <span class="chip bg-color">Homebrew</span>
-                    </a>
-                    
-                    <a href="/tags/Ruby/" target="_blank">
-                        <span class="chip bg-color">Ruby</span>
-                    </a>
-                    
-                    <a href="/tags/CocoaPods/" target="_blank">
-                        <span class="chip bg-color">CocoaPods</span>
-                    </a>
-                    
-                    <a href="/tags/npm/" target="_blank">
-                        <span class="chip bg-color">npm</span>
+                    <a href="/tags/LeetCode/" target="_blank">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
@@ -1379,27 +1371,33 @@ Mac的软件包管理工具，类似于linux的apt-get，能在mac中方便地�
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/fun/Heroku_ssh/">
+                <a href="/WebRTC/WebRTC06入门教程03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Heroku搭建自己的ss服务器教程">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="WebRTC06入门教程03">
                         
-                        <span class="card-title">Heroku搭建自己的ss服务器教程</span>
+                        <span class="card-title">WebRTC06入门教程03</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Heroku是日本一家网站。为开发者提供了免费部署项目的服务器。虽然访问Heroku是被qiang的。但是用Heroku部署后的应用(saas/web app)其主机在美国和欧洲，且主机地址没有被qiang。利用这一点就可以免费搭建一个自己</div>
+                    <div class="summary">信令服务器分析
+
+Signaling信令和协商Signaling and Negotiation用户建立连接的过程以信令和协商为主。有下面几个步骤：
+
+为peer连接创建一个潜在候选项的list
+用户A或应用选择一个要连接的用户B
+信令层通</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-12
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-31
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                            <a href="/categories/WebRTC/" class="post-category" target="_blank">
+                                    WebRTC
                                 </a>
                             
                             
@@ -1409,16 +1407,12 @@ Mac的软件包管理工具，类似于linux的apt-get，能在mac中方便地�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
+                    <a href="/tags/Demo/" target="_blank">
+                        <span class="chip bg-color">Demo</span>
                     </a>
                     
-                    <a href="/tags/Heroku/" target="_blank">
-                        <span class="chip bg-color">Heroku</span>
-                    </a>
-                    
-                    <a href="/tags/ss/" target="_blank">
-                        <span class="chip bg-color">ss</span>
+                    <a href="/tags/tutorial/" target="_blank">
+                        <span class="chip bg-color">tutorial</span>
                     </a>
                     
                 </div>

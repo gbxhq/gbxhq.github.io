@@ -364,7 +364,7 @@
 <h1 id="从分析到实践"><a href="#从分析到实践" class="headerlink" title="从分析到实践"></a>从分析到实践</h1><h2 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h2><p>百度了下列车时刻表，有个ip138，就爬它啦🤭。先读一下第一页的内容：<br>这网站太老了。竟然不是UTF-8编码的。<br>解码：<br>使用urlopen：<br><code>html = urlopen(url).read().decode(&#39;GB2312&#39;)</code></p>
 <p>使用Requests：<br><code>r.encode(&#39;ISO-8859-1&#39;).decode(&#39;GB2312&#39;)</code></p>
 <p>OK，可以愉快地玩耍啦。</p>
-<h2 id="循环读全部列车数据"><a href="#循环读全部列车数据" class="headerlink" title="循环读全部列车数据"></a>循环读全部列车数据</h2><p>先从第一页入口读到每个省的数据，根据a标签的href属性很容易发现他们都是/train开头的，正则搞定：<br><code>province = soup.find_all(&#39;a&#39;,{&quot;href&quot;:re.compile(&quot;/train/&quot;)})</code><br><img src="http://p66eruxmw.bkt.clouddn.com/15266465313941.jpg" alt=""></p>
+<h2 id="循环读全部列车数据"><a href="#循环读全部列车数据" class="headerlink" title="循环读全部列车数据"></a>循环读全部列车数据</h2><p>先从第一页入口读到每个省的数据，根据a标签的href属性很容易发现他们都是/train开头的，正则搞定：<br><code>province = soup.find_all(&#39;a&#39;,{&quot;href&quot;:re.compile(&quot;/train/&quot;)})</code><br><img src="../../images/15266465313941.jpg" alt=""></p>
 <p>然后一个循环开始爬这个省的城市，这里的a标签都是以省份的拼音开头的，就是我们上一步的标签i[‘href’]：<br><code>city = soup.find_all(&#39;a&#39;,{&quot;href&quot;:re.compile(i[&#39;href&#39;])})</code><br>太多了不上图了。开始读每个城市的列车咯。</p>
 <p>由于时刻表被存在了<table>里，所以先用<tr>把每一行跟分开。<br>然后从tr里用正则找内容是 13:14 的td：<br><code>p=re.compile(r&#39;13:14&#39;)</code><br><code>if p.search(str(i)):</code></tr></table></p>
 <p>这时候发现，并不是所有的13:14都是发车的时间，根据表格内容，第4是发车的时间。我们就把筛出来的数据，split后再判断一下是不是第六列内容是 13:14 ，如果是再append到answer列表：</p>

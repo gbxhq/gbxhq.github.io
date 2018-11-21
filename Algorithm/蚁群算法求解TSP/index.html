@@ -6,13 +6,14 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="蚁群算法求解TSP-Matlab版, 炫杉">
-    <meta name="description" content="蚁群算法的作业，本来想用C写的。感觉就是：
+    <meta name="description" content="蚁群算法的作业，本来想用C++写的。研究了半天得出结论：
 
-是我实力不行。🙈MATLAB写这个确实好写。😌
+🙈MATLAB写这个确实好写。
+😌
 
 
 C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神器。没了解过的拿着下面两句就可以先起飞了。
-gcc hello.c -o hell">
+gcc hello.c -o hel">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -355,9 +356,10 @@ gcc hello.c -o hell">
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>蚁群算法的作业，本来想用C写的。感觉就是：</p>
+                <p>蚁群算法的作业，本来想用C++写的。研究了半天得出结论：</p>
 <blockquote>
-<p>是我实力不行。🙈<br>MATLAB写这个确实好写。😌</p>
+<p>🙈<br>MATLAB写这个确实好写。</p>
+<p>😌</p>
 </blockquote>
 <a id="more"></a>
 <h1 id="C菜🐦的挫败"><a href="#C菜🐦的挫败" class="headerlink" title="C菜🐦的挫败"></a>C菜🐦的挫败</h1><p>先简单介绍下GDB这个东西，Mac下写C神器。没了解过的拿着下面两句就可以先起飞了。</p>
@@ -368,17 +370,17 @@ gcc hello.c -o hell">
 <p>那么就MATLAB走起</p>
 <h1 id="MATLAB版-蚁群算法求解TSP"><a href="#MATLAB版-蚁群算法求解TSP" class="headerlink" title="MATLAB版-蚁群算法求解TSP"></a>MATLAB版-蚁群算法求解TSP</h1><p>算法主要过程：</p>
 <pre class="line-numbers language-Matlab"><code class="language-Matlab"> while NC<=nc_max %---="" start="" ---="" %="" 随机放置蚂蚁="" tabu="initTabu(n,m);" 蚂蚁跑完一圈="" 寻找路径="" [l_best,r_best,l,r]="findBestPath(Tabu,L_best,R_best,D,n,m,NC);" end1time="==" nc="NC+1;" 更新tau="" tau="updateTau(Tabu,Tau,L,Q,n,m,Rho);" 重置tabu="" end="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></=nc_max></code></pre>
-<h2 id="自定义参数下求解出的最优路径"><a href="#自定义参数下求解出的最优路径" class="headerlink" title="自定义参数下求解出的最优路径"></a>自定义参数下求解出的最优路径</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15284289629541.jpg" alt=""></p>
-<h1 id="参数影响"><a href="#参数影响" class="headerlink" title="参数影响"></a>参数影响</h1><h2 id="蚂蚁数m对性能的影响"><a href="#蚂蚁数m对性能的影响" class="headerlink" title="蚂蚁数m对性能的影响"></a>蚂蚁数m对性能的影响</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15284295238328.jpg" alt=""></p>
+<h2 id="自定义参数下求解出的最优路径"><a href="#自定义参数下求解出的最优路径" class="headerlink" title="自定义参数下求解出的最优路径"></a>自定义参数下求解出的最优路径</h2><p><img src="../../images/15284289629541.jpg" alt=""></p>
+<h1 id="参数影响"><a href="#参数影响" class="headerlink" title="参数影响"></a>参数影响</h1><h2 id="蚂蚁数m对性能的影响"><a href="#蚂蚁数m对性能的影响" class="headerlink" title="蚂蚁数m对性能的影响"></a>蚂蚁数m对性能的影响</h2><p><img src="../../images/15284295238328.jpg" alt=""></p>
 <blockquote>
 <p>从图上可以看出，蚂蚁数m越大算法收敛越快。</p>
 <p>蚂蚁数较少时，虽然开始几代没有找到最优解，但经过几次迭代还是收敛到了相同的结果。</p>
 </blockquote>
-<h2 id="信息素重要程度Alpha对性能的影响"><a href="#信息素重要程度Alpha对性能的影响" class="headerlink" title="信息素重要程度Alpha对性能的影响"></a>信息素重要程度Alpha对性能的影响</h2><p>Alpha分别取的是 [0,0.5,1,2,5]<br><img src="http://p66eruxmw.bkt.clouddn.com/15282602841547.jpg" alt=""></p>
+<h2 id="信息素重要程度Alpha对性能的影响"><a href="#信息素重要程度Alpha对性能的影响" class="headerlink" title="信息素重要程度Alpha对性能的影响"></a>信息素重要程度Alpha对性能的影响</h2><p>Alpha分别取的是 [0,0.5,1,2,5]<br><img src="../../images/15282602841547.jpg" alt=""></p>
 <blockquote>
 <p>从图上可以看出Alpha在1和2的时候性能最好。<br>当Alpha=0时，并没有得到最优解。此时是贪心算法。<br>当Alpha=5时，效果更差。信息素影响大导致算法过早收敛。<br>当Alpha=0.5时，需要经过较多的代数才能收敛。</p>
 </blockquote>
-<h2 id="启发因子重要程度Beta对性能的影响"><a href="#启发因子重要程度Beta对性能的影响" class="headerlink" title="启发因子重要程度Beta对性能的影响"></a>启发因子重要程度Beta对性能的影响</h2><p><img src="http://p66eruxmw.bkt.clouddn.com/15282645013553.jpg" alt=""></p>
+<h2 id="启发因子重要程度Beta对性能的影响"><a href="#启发因子重要程度Beta对性能的影响" class="headerlink" title="启发因子重要程度Beta对性能的影响"></a>启发因子重要程度Beta对性能的影响</h2><p><img src="../../images/15282645013553.jpg" alt=""></p>
 <blockquote>
 <p>如图所示，Beta=5时求得的最短路径最小同时收敛速度也最快。</p>
 <p>Beta为1时需要经过较多的代数才能收敛。</p>
