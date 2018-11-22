@@ -5,15 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="iOS算法笔记, 炫杉">
-    <meta name="description" content="尾递归：防止内存爆炸
-只返回函数本身。
-量放在参数中。Ex:
+    <meta name="keywords" content="SegmentTree 线段树, 炫杉">
+    <meta name="description" content="可用于：单点替换，区间最值。
 
-fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
-    if (n == 1)
-        return total + 1
-  ">
+用二分法的思想。建立完全二叉树–》叶节点是每个元素。
+父亲节点则是要保存的结果元素。比如求某个区间最小的数：
+
+绿色就是该区间的结果。所有的查询只需要建树完就搞定。
+看了下网上的一般都是开数组建树。pushu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +20,7 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>iOS算法笔记 | 炫杉</title>
+    <title>SegmentTree 线段树 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -213,13 +212,13 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        iOS算法笔记
+                        SegmentTree 线段树
                     </div>
                 </div>
             </div>
@@ -328,50 +327,33 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/Note/" target="_blank">
-                    <span class="chip bg-color">Note</span>
-                </a>
-                
-                <a href="/tags/Swift/" target="_blank">
-                    <span class="chip bg-color">Swift</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
                 
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/iOS/" class="post-category" target="_blank">
-                        iOS
+                    <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                        Algorithm
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-01-01
+                    <i class="fa fa-clock-o fa-fw"></i>2018-11-20
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="尾递归：防止内存爆炸"><a href="#尾递归：防止内存爆炸" class="headerlink" title="尾递归：防止内存爆炸"></a>尾递归：防止内存爆炸</h2><ul>
-<li>只返回函数本身。</li>
-<li>量放在参数中。<br>Ex:</li>
-</ul>
-<pre class="line-numbers language-swift"><code class="language-swift">fun <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token number">_</span> n <span class="token punctuation">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span> <span class="token number">_</span> total <span class="token punctuation">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Int</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> total <span class="token operator">+</span> <span class="token number">1</span>
-    <span class="token keyword">else</span>
-        <span class="token keyword">return</span> <span class="token keyword">func</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> total <span class="token operator">+</span> n<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>​</p>
+                <p>可用于：<strong>单点替换，区间最值</strong>。</p>
+<a id="more"></a>
+<p>用二分法的思想。建立完全二叉树–》叶节点是每个元素。</p>
+<p>父亲节点则是要保存的结果元素。比如求某个区间最小的数：</p>
+<p><img src="../../images/xianduansshu.jpg" alt="xianduansshu"></p>
+<p>绿色就是该区间的结果。所有的查询只需要建树完就搞定。</p>
+<p>看了下网上的一般都是开数组建树。pushup更新。下面看具体的代码分析</p>
 
             </div>
             <hr>
@@ -393,7 +375,7 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/iOS/算法笔记/" class="b-link-green">iOS算法笔记</a>
+                    <a href="/Algorithm/SegmentTree/" class="b-link-green">SegmentTree 线段树</a>
                 </p>
             </div>
         </div>
@@ -437,29 +419,30 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/iOS/<懒猫>记录/">
+                <a href="/Algorithm/LeetCode51-100/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="iOS《笨猫快乐学编程》学习笔记">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="LeetCode51-100">
                         
-                        <span class="card-title">iOS《笨猫快乐学编程》学习笔记</span>
+                        <span class="card-title">LeetCode51-100</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是我找到的国内第一份Swift4.0教程，发布在知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcode9版)。
-一份纯文字加图片的教程。但让我感到了快乐。
-下面是学习过程中记录的一些东西。尽管都是傻傻</div>
+                    <div class="summary">int的范围、牛顿迭代法[69]      copy(1.begin,1.end,2.begin)、rbegin\rend[88]
+
+51N皇后52N皇后 II53. 最大子序和暴力写出来了。人家怎么就想到这么写呢：
+int res = I</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-21
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/iOS/" class="post-category" target="_blank">
-                                    iOS
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
@@ -469,12 +452,8 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
-                    </a>
-                    
-                    <a href="/tags/Swift/" target="_blank">
-                        <span class="chip bg-color">Swift</span>
+                    <a href="/tags/LeetCode/" target="_blank">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
@@ -486,34 +465,31 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Others/Git/">
+                <a href="/Others/UsefulTips2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Git笔记">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="UsefulTips2">
                         
-                        <span class="card-title">Git笔记</span>
+                        <span class="card-title">UsefulTips2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。
+                    <div class="summary">日常使用的一些姿势~
 
-基本操作
-回滚版本
-git reset --hard HEAD^
-git res</div>
+
+原来PPT可以存成.ppsx 的格式，双击打开就直接播放（可与防止被改动
+
+
+</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            ixsim
                             
                         </span>
                     </div>
@@ -521,12 +497,8 @@ git res</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
-                    </a>
-                    
-                    <a href="/tags/Git/" target="_blank">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/tips/" target="_blank">
+                        <span class="chip bg-color">tips</span>
                     </a>
                     
                 </div>

@@ -5,7 +5,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="LeetCode 200-300, 炫杉">
+    <meta name="keywords" content="LeetCode 300题以后, 炫杉">
     <meta name="description" content="知识点：npos[345] 、memset[387] 、  reverse()[557]、   istringstream[557]、树[606]、to_string()[788]、transform()[819]、strA.find(st">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>LeetCode 200-300 | 炫杉</title>
+    <title>LeetCode 300题以后 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -206,13 +206,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        LeetCode 200-300
+                        LeetCode 300题以后
                     </div>
                 </div>
             </div>
@@ -353,159 +353,19 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>知识点：<code>npos</code>[345] 、<code>memset</code>[387] 、  <code>reverse()</code>[557]、   <code>istringstream</code>[557]、<code>树</code>[606]、<code>to_string()</code>[788]、<code>transform()</code>[819]、<code>strA.find(strB) != string:npos</code>[#686]</p>
+                <p>知识点：<code>npos</code>[345] 、<code>memset</code>[387] 、  <code>reverse()</code>[557]、   <code>istringstream</code>[557]、<code>树</code>[606]、<code>to_string()</code>[788]、<code>transform()</code>[819]、<code>strA.find(strB) != string:npos</code>[686]</p>
 <a id="more"></a>
-<h1 id="203-删除链表中的节点"><a href="#203-删除链表中的节点" class="headerlink" title="203 删除链表中的节点"></a>203 删除链表中的节点</h1><p>和237题不同的是这个题是给了值。237题给的是节点。</p>
-<p>感悟和上一个#83题查不多。就是想删除某个节点。只把 cur指针赋NULL是不行的。因为<strong>上一个节点的next 还指着 之前 cur的地址</strong>啊。cur是为空了，上一个节点的next不是空啊。</p>
-<p>因为觉得删最后一个节点的情况不好写。转递归法一气呵成哈哈。</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp">ListNode<span class="token operator">*</span> <span class="token function">removeElements</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">-</span><span class="token operator">></span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">-</span><span class="token operator">></span>val <span class="token operator">==</span> val<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span>
-            <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">-</span><span class="token operator">></span>val <span class="token operator">==</span> val<span class="token punctuation">)</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> <span class="token function">removeElements</span><span class="token punctuation">(</span>head<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">,</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span>
-            <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span>
-    <span class="token punctuation">{</span>
-        head<span class="token operator">-</span><span class="token operator">></span>next <span class="token operator">=</span> <span class="token function">removeElements</span><span class="token punctuation">(</span>head<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">,</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>当然效率一般。超越了96%。我再参考下别的。</p>
-<ul>
-<li><p>处理最后一个节点的方法。可以再声明一个指针p。一个指针往下移。p不移动。这样就可以定位倒数第二的节点。</p>
-</li>
-<li><p>下面这个解法很清晰了。</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-ListNode <span class="token function">phead</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-ListNode <span class="token operator">*</span>ptemp <span class="token operator">=</span> head<span class="token punctuation">;</span>
-ListNode <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>phead<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//phead是一个结构体。所以要指向它的地址。</span>
-<span class="token comment" spellcheck="true">//也可以在之前就声明ListNode* phead = new ListNode(9999);就不用取地址了。</span>
-phead<span class="token punctuation">.</span>next <span class="token operator">=</span> ptemp<span class="token punctuation">;</span>
-<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>ptemp<span class="token operator">-</span><span class="token operator">></span>val <span class="token operator">==</span> val<span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        p<span class="token operator">-</span><span class="token operator">></span>next <span class="token operator">=</span> ptemp<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
-        ptemp <span class="token operator">=</span> p<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span>
-    <span class="token punctuation">{</span>
-        p <span class="token operator">=</span> ptemp<span class="token punctuation">;</span>
-        ptemp <span class="token operator">=</span> ptemp<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>ptemp<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span>
-        <span class="token keyword">break</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">return</span> phead<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h1><ul>
+<li><p>string对象的操作</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">istringstram os
+os<span class="token operator">&lt;&lt;</span>s   <span class="token comment" spellcheck="true">//s写入到输出流os中。返回os</span>
+is<span class="token operator">>></span>s    <span class="token comment" spellcheck="true">//从输入流is读取字符串赋给s，返回is。</span>
+s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+s<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">//n从0计</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h1 id="233-数字1的次数"><a href="#233-数字1的次数" class="headerlink" title="233 数字1的次数"></a>233 数字1的次数</h1><p>剑指offer里刷到了。这题也是Hard？</p>
-<h1 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234 回文链表"></a>234 回文链表</h1><ul>
-<li>注意。长度为1的链表也是回文的。</li>
-<li>我的方法比较笨。先跑一遍记录有多少个数。再遍历前半部分，把数存到栈里。再遍历后半部分。挨个出栈。</li>
-<li>下面看一个知识点，</li>
-</ul>
-<h2 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h2><blockquote>
-<p>知识点：快指针走两步。慢指针走一步。快指针到链尾。慢指针到中间。</p>
-</blockquote>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    ListNode <span class="token operator">*</span>pre <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">,</span> <span class="token operator">*</span>cur <span class="token operator">=</span> head<span class="token punctuation">,</span> <span class="token operator">*</span>quick <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//下面这一段很巧妙。不仅找到了中间节点。还把链表的前半部分都倒置了存在pre里。</span>
-    <span class="token comment" spellcheck="true">//倒置的方法：</span>
-    <span class="token comment" spellcheck="true">//1.预存当前节点cur到tmp，</span>
-    <span class="token comment" spellcheck="true">//2.cur后移，保证下一步进行。但我们有tmp预存了cur。</span>
-    <span class="token comment" spellcheck="true">//3.tmp的next置为pre(初始的pre刚好是NULL)。</span>
-    <span class="token comment" spellcheck="true">//4.pre=tmp。这时候pre已经是倒置链表的头。</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>quick <span class="token operator">&amp;&amp;</span> quick<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        quick <span class="token operator">=</span> quick<span class="token operator">-</span><span class="token operator">></span>next<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
-        <span class="token keyword">auto</span> tmp <span class="token operator">=</span> cur<span class="token punctuation">;</span>
-        cur <span class="token operator">=</span> cur<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
-        tmp<span class="token operator">-</span><span class="token operator">></span>next <span class="token operator">=</span> pre<span class="token punctuation">;</span>
-        pre <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>quick <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span>
-        cur <span class="token operator">=</span> cur<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>cur<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>cur<span class="token operator">-</span><span class="token operator">></span>val <span class="token operator">!=</span> pre<span class="token operator">-</span><span class="token operator">></span>val<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            cur <span class="token operator">=</span> cur<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
-            pre <span class="token operator">=</span> pre<span class="token operator">-</span><span class="token operator">></span>next<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>最后说一下排行第一的方法。人家没存到栈里。存到了向量里。然后直接用坐标定位来判断首尾是否一样。我真的是太定向思维了。看到是从中间往两侧判断就知道用栈。辣鸡~</li>
-</ul>
-<h1 id="237-删除某个节点"><a href="#237-删除某个节点" class="headerlink" title="237 删除某个节点"></a>237 删除某个节点</h1><p>这个比较简单。操作指针就好了。</p>
-<p>注意此题简单的一个重要条件就是：</p>
-<p><strong>给点节点为非末尾节点</strong></p>
-<p>这样就不会有删除最后一个节点的情况。</p>
-<h1 id="263-丑数"><a href="#263-丑数" class="headerlink" title="263 丑数"></a>263 丑数</h1><ul>
-<li>没考虑输入0的情况</li>
-<li>加了 禁止 i/o 同步的代码后，时间从 8ms–&gt; 0ms</li>
-</ul>
-<h1 id="264-丑数2"><a href="#264-丑数2" class="headerlink" title="264 丑数2"></a>264 丑数2</h1><p>剑指Offer刷过了</p>
-<h1 id="313-超级丑数"><a href="#313-超级丑数" class="headerlink" title="313 超级丑数"></a>313 超级丑数</h1><p>按照丑数2的思维原封不动地写，AC了。虽然AC了。但是也太辣鸡了，执行了12s。第一名12ms。一百倍的效率差距，完美的解释了我能打100个。赶紧去看看人家怎么写的。</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">nthSuperUglyNumber</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> primes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    priority_queue<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span><span class="token punctuation">,</span> greater<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> <span class="token operator">></span> min_heap<span class="token punctuation">;</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">uglies</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//丑数集</span>
-    uglies<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//存入1</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">last_factor</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> k <span class="token operator">=</span> primes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//因子个数</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">idx</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//该因子要组成的数的坐标</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        min_heap<span class="token punctuation">.</span><span class="token function">emplace</span><span class="token punctuation">(</span>primes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">tie</span><span class="token punctuation">(</span>uglies<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> last_factor<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> min_heap<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        min_heap<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> j <span class="token operator">=</span> last_factor<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token operator">++</span>idx<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>last_factor<span class="token punctuation">[</span>idx<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">></span> j<span class="token punctuation">)</span> <span class="token operator">++</span>idx<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        min_heap<span class="token punctuation">.</span><span class="token function">emplace</span><span class="token punctuation">(</span>primes<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">*</span> uglies<span class="token punctuation">[</span>idx<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> uglies<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>好吧。暂时。。。。。。。。。。看不懂。我们先看第二名的答案吧。这个貌似没用啥我不知道的语法：</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">nthSuperUglyNumber</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> primes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> m <span class="token operator">=</span> primes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//因子个数</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">ugly</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>INT_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//丑数集合 用超大数来初始化的 不明觉厉</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">tmp</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">count</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> next <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ugly<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> next<span class="token punctuation">;</span>
-        next <span class="token operator">=</span> INT_MAX<span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//cout &lt;&lt; "j "  &lt;&lt; j &lt;&lt; " tmp " &lt;&lt; tmp[j] &lt;&lt; " ugly " &lt;&lt; ugly[i] &lt;&lt; " count " &lt;&lt; count[j] &lt;&lt; " next " &lt;&lt; next &lt;&lt; endl;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> ugly<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                tmp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> ugly<span class="token punctuation">[</span>count<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">*</span>primes<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                count<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            next <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>next<span class="token punctuation">,</span>tmp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> ugly<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="709-转换成小写字母"><a href="#709-转换成小写字母" class="headerlink" title="709. 转换成小写字母"></a>709. 转换成小写字母</h1><p><code>A~Z</code>的ascii码为<code>65~90</code>   小写字母对应+32</p>
 <h1 id="657-机器人能否返回原点"><a href="#657-机器人能否返回原点" class="headerlink" title="657. 机器人能否返回原点"></a>657. 机器人能否返回原点</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">judgeCircle</span><span class="token punctuation">(</span>string moves<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">char</span> tb<span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -600,6 +460,10 @@ string <span class="token function">tree2str</span><span class="token punctuatio
 </ul>
 <h1 id="893-特殊等价字符串组"><a href="#893-特殊等价字符串组" class="headerlink" title="893. 特殊等价字符串组"></a>893. 特殊等价字符串组</h1><p>不会🙂</p>
 <h1 id="551-学生出勤记录"><a href="#551-学生出勤记录" class="headerlink" title="551. 学生出勤记录"></a>551. 学生出勤记录</h1><p>水题</p>
+<h1 id="67-二进制求和"><a href="#67-二进制求和" class="headerlink" title="67. 二进制求和"></a>67. 二进制求和</h1><ul>
+<li>二进制转了int。发现人家给的二进制数太大了int存不下–》换long，存不下。–》long long，存不下—》unsigned long long，存下了，加和以后存不下。😂。—》此方法卒。</li>
+<li>纯字符判断的方法过了~没啥意思。</li>
+</ul>
 <h1 id="345-反转字符串中的元音字母"><a href="#345-反转字符串中的元音字母" class="headerlink" title="345. 反转字符串中的元音字母"></a>345. 反转字符串中的元音字母</h1><p>水题 </p>
 <ul>
 <li><p>学到知识点 : npos</p>
@@ -668,7 +532,7 @@ string <span class="token function">tree2str</span><span class="token punctuatio
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Algorithm/LeetCode300/" class="b-link-green">LeetCode 200-300</a>
+                    <a href="/Algorithm/LeetCode300plus/" class="b-link-green">LeetCode 300题以后</a>
                 </p>
             </div>
         </div>
@@ -712,21 +576,72 @@ string <span class="token function">tree2str</span><span class="token punctuatio
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/Algorithm/LeetCode300plus/">
+                <a href="/fun/Heroku_ssh/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="LeetCode 300题以后">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Heroku搭建自己的ss服务器教程">
                         
-                        <span class="card-title">LeetCode 300题以后</span>
+                        <span class="card-title">Heroku搭建自己的ss服务器教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Heroku是日本一家网站。为开发者提供了免费部署项目的服务器。虽然访问Heroku是被qiang的。但是用Heroku部署后的应用(saas/web app)其主机在美国和欧洲，且主机地址没有被qiang。利用这一点就可以免费搭建一个自己</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/tips/" target="_blank">
+                        <span class="chip bg-color">tips</span>
+                    </a>
+                    
+                    <a href="/tags/Heroku/" target="_blank">
+                        <span class="chip bg-color">Heroku</span>
+                    </a>
+                    
+                    <a href="/tags/ss/" target="_blank">
+                        <span class="chip bg-color">ss</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Algorithm/LeetCode300/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="LeetCode 200-300">
+                        
+                        <span class="card-title">LeetCode 200-300</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">知识点：npos[345] 、memset[387] 、  reverse()[557]、   istringstream[557]、树[606]、to_string()[788]、transform()[819]、strA.find(st</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -748,53 +663,6 @@ string <span class="token function">tree2str</span><span class="token punctuatio
                     
                     <a href="/tags/LeetCode/" target="_blank">
                         <span class="chip bg-color">LeetCode</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/Others/ProblemsinUsingVSCode/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Problems in Using VSCode">
-                        
-                        <span class="card-title">Problems in Using VSCode</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">Sublime转战VS Code。因为Debug。
-
-先加入环境变量从终端调起VS Code还是很常用的。
-先打开环境变量配置文件。目录是~/.bash_profile。我用Sublime打开（玩不了vim）命令就是
-subl ~/.bas</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
                     </a>
                     
                 </div>

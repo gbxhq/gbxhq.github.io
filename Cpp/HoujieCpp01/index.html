@@ -532,7 +532,7 @@
     <span class="token comment" spellcheck="true">//myString&amp; const operator=(const myString &amp;oneStr);//在body里声明就不用加myString::了</span>
     myString<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> myString <span class="token operator">&amp;</span>oneStr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//不能加const 为啥？</span>
 
-<span class="token comment" spellcheck="true">//    ostream&amp;operator&lt;&lt;(const myString &amp;oneStr);❌千万记住"&lt;&lt;"的重载只能在函数外！</span>
+<span class="token comment" spellcheck="true">//    ostream&amp;operator&lt;&lt;(const myString &amp;oneStr);❌记住"&lt;&lt;"的重载在函数外！</span>
 
 <span class="token comment" spellcheck="true">//    char* const getData(){ //const放函数名后</span>
     <span class="token keyword">char</span><span class="token operator">*</span> <span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
@@ -567,8 +567,8 @@
 <span class="token comment" spellcheck="true">//        return this;❌</span>
         <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">//    delete this.m_Data;</span>
-    <span class="token keyword">delete</span> m_Data<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//    delete this.m_Data;❌❌❌❌❌ 一定不要忘了[]</span>
+    <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> m_Data<span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>m_Data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token function">strlen</span><span class="token punctuation">(</span>oneStr<span class="token punctuation">.</span>m_Data<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//我使用.语法自动变成->语法。为什么？</span>
     <span class="token function">strcpy</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>m_Data<span class="token punctuation">,</span>oneStr<span class="token punctuation">.</span>m_Data<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//其实this->全可以省略。只写m_Data就好</span>
 
@@ -590,6 +590,7 @@ ostream<span class="token operator">&amp;</span> <span class="token keyword">ope
 <li><p>函数声明的时候参数设了默认值。定义的时候就不用写了。</p>
 </li>
 <li><p>[ ] &lt;&lt; 为啥不能在body里重载来着？</p>
+<p>答：先看对<code>+</code>重载，重载后就可以用<code>myString + myString</code>语法了。如果把<code>&lt;&lt;</code>重载成一个成员函数，就是说可以用<code>myString &lt;&lt; myString</code>这种操作了。而我们习惯的是cout在左边，要输出的内容在右边。所以不要把 &lt;&lt; 重载成成员函数。</p>
 </li>
 <li><p>[x] 重载= 为啥不加const?</p>
 <blockquote>
@@ -598,7 +599,15 @@ ostream<span class="token operator">&amp;</span> <span class="token keyword">ope
 </li>
 </ul>
 <p>道阻且长！</p>
-
+<h1 id="8-栈-堆-内存管理"><a href="#8-栈-堆-内存管理" class="headerlink" title="8 栈 堆 内存管理"></a>8 栈 堆 内存管理</h1><ul>
+<li><p>local object 在作用域中，存在Stack里。自动销毁</p>
+<p><code>static loacl object</code>不会销毁</p>
+</li>
+<li><p><code>new</code>的对象存在 heap 里。不会被销毁。需要手动<code>delete</code></p>
+</li>
+<li>这一课博大精深。复习请看视频！</li>
+</ul>
+<h1 id="9"><a href="#9" class="headerlink" title="9"></a>9</h1>
             </div>
             <hr>
 

@@ -5,15 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="iOS算法笔记, 炫杉">
-    <meta name="description" content="尾递归：防止内存爆炸
-只返回函数本身。
-量放在参数中。Ex:
-
-fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
-    if (n == 1)
-        return total + 1
-  ">
+    <meta name="keywords" content="MasterTheorem, 炫杉">
+    <meta name="description" content="Master Therem，大学的时候段老师说成是“主定理”，后来看其他地方会翻译成：主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的感觉，而且让没听过的人听到起码知道这是个定理名字。说“主定理”别人都不知道是哪三个字。
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +15,7 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>iOS算法笔记 | 炫杉</title>
+    <title>MasterTheorem | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -213,13 +207,13 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        iOS算法笔记
+                        MasterTheorem
                     </div>
                 </div>
             </div>
@@ -328,50 +322,179 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/Note/" target="_blank">
-                    <span class="chip bg-color">Note</span>
-                </a>
-                
-                <a href="/tags/Swift/" target="_blank">
-                    <span class="chip bg-color">Swift</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
                 
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/iOS/" class="post-category" target="_blank">
-                        iOS
+                    <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                        Algorithm
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-01-01
+                    <i class="fa fa-clock-o fa-fw"></i>2018-11-22
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="尾递归：防止内存爆炸"><a href="#尾递归：防止内存爆炸" class="headerlink" title="尾递归：防止内存爆炸"></a>尾递归：防止内存爆炸</h2><ul>
-<li>只返回函数本身。</li>
-<li>量放在参数中。<br>Ex:</li>
-</ul>
-<pre class="line-numbers language-swift"><code class="language-swift">fun <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token number">_</span> n <span class="token punctuation">:</span><span class="token builtin">Int</span><span class="token punctuation">,</span> <span class="token number">_</span> total <span class="token punctuation">:</span><span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Int</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> total <span class="token operator">+</span> <span class="token number">1</span>
-    <span class="token keyword">else</span>
-        <span class="token keyword">return</span> <span class="token keyword">func</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> total <span class="token operator">+</span> n<span class="token punctuation">)</span>
+                <p>Master Therem，大学的时候段老师说成是“主定理”，后来看其他地方会翻译成：主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的感觉，而且让没听过的人听到起码知道这是个定理名字。说“主定理”别人都不知道是哪三个字。</p>
+<p><a id="more"></a></p>
+<p>先简单看先O(<strong>lg(k)</strong>)~</p>
+<p>在二分查找、堆的操作中，一次操作就可以减少一半的工作量，一次循环就少一半，效率不就是 <strong>lg(k)</strong> 嘛。</p>
+<h1 id="递归的时间复杂度"><a href="#递归的时间复杂度" class="headerlink" title="递归的时间复杂度"></a>递归的时间复杂度</h1><p>问题在于，对于递归求解的时间复杂度分析。</p>
+<p>下面的内容转自 架构师之路公众号：</p>
+<h2 id="案例一：计算-1到n的和，时间复杂度分析。"><a href="#案例一：计算-1到n的和，时间复杂度分析。" class="headerlink" title="案例一：计算 1到n的和，时间复杂度分析。"></a><strong>案例一：计算 1到n的和，时间复杂度分析。</strong></h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> n<span class="token operator">+</span><span class="token function">sum</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>​</p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>如何来进行时间复杂度分析呢？</strong></p>
+<p>用f(n)来表示数据量为n时，算法的计算次数，很容易知道：</p>
+<ul>
+<li>当n=1时，sum函数只计算1次</li>
+</ul>
+<blockquote>
+<p><em>画外音：if (n==1) return 1;</em></p>
+</blockquote>
+<p>即：</p>
+<p><code>f(1)=1</code><strong>【式子A】</strong></p>
+<p>不难发现，当n不等于1时：</p>
+<ul>
+<li>f(n)的计算次数，等于f(n-1)的计算次数，再加1次计算</li>
+</ul>
+<blockquote>
+<p><em>画外音：return n+sum(n-1);</em></p>
+</blockquote>
+<p>即：</p>
+<p><code>f(n)=f(n-1)+1</code><strong>【式子B】</strong></p>
+<p>【式子B】不断的展开，再配合【式子A】：</p>
+<blockquote>
+<p><em>画外音：这一句话，是分析这个算法的关键。</em></p>
+</blockquote>
+<pre><code>f(n)    =f(n-1)+1
+
+f(n-1)    =f(n-2)+1
+
+…
+
+f(2)    =f(1)+1
+
+f(1)    =1
+</code></pre><p>上面共n个等式，左侧和右侧分别相加：</p>
+<p><code>f(n)+f(n-1)+…+f(2)+f(1)</code></p>
+<p>=</p>
+<p><code>[f(n-1)+1]+[f(n-2)+1]+…+[f(1)+1]+[1]</code></p>
+<p><strong>即得到</strong>：</p>
+<p>f(n)=n</p>
+<p>已经有那么点意思了哈，再来个复杂点的算法。</p>
+<h2 id="案例二：二分查找binary-search，时间复杂度分析。"><a href="#案例二：二分查找binary-search，时间复杂度分析。" class="headerlink" title="案例二：二分查找binary_search，时间复杂度分析。"></a><strong>案例二：二分查找binary_search，时间复杂度分析。</strong></h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">BS</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> <span class="token keyword">int</span> high<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+         <span class="token keyword">if</span> <span class="token punctuation">(</span>low<span class="token operator">></span>high<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+         mid <span class="token operator">=</span> <span class="token punctuation">(</span>low<span class="token operator">+</span>high<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+
+         <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
+
+         <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">></span> target<span class="token punctuation">)</span>
+
+                  <span class="token keyword">return</span> <span class="token function">BS</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> low<span class="token punctuation">,</span> mid<span class="token number">-1</span><span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token keyword">else</span>
+
+                  <span class="token keyword">return</span> <span class="token function">BS</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> high<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>二分查找，单纯从递归算法来分析，怎能知道其时间复杂度是O(lg(n))呢？</strong></p>
+<p>仍用f(n)来表示数据量为n时，算法的计算次数，很容易知道：</p>
+<ul>
+<li>当n=1时，bs函数只计算1次</li>
+</ul>
+<p><em>画外音：不用纠结是1次还是1.5次，还是2.7次，是一个常数次。</em></p>
+<p>即：</p>
+<p><code>f(1)=1</code><strong>【式子A】</strong></p>
+<p>在n很大时，二分会进行一次比较，然后进行左侧或者右侧的递归，以减少一半的数据量：</p>
+<ul>
+<li>f(n)的计算次数，等于f(n/2)的计算次数，再加1次计算</li>
+</ul>
+<p><em>画外音：计算arr[mid]&gt;target，再减少一半数据量迭代</em></p>
+<p>即：</p>
+<p><code>f(n)=f(n/2)+1</code><strong>【式子B】</strong></p>
+<p>【式子B】不断的展开，</p>
+<pre><code>f(n)=f(n/2)+1
+
+f(n/2)=f(n/4)+1
+
+f(n/4)=f(n/8)+1
+
+…
+
+f(n/2^(m-1))=f(n/2^m)+1
+</code></pre><p>上面共m个等式，左侧和右侧分别相加：</p>
+<p>f(n)+f(n/2)+…+f(n/2^(m-1))</p>
+<p>=</p>
+<p>[f(n/2)+1]+[f(n/4)+1]+…+[f(n/2^m)]+[1]</p>
+<p><strong>即得到</strong>：</p>
+<p><code>f(n)=f(n/2^m)+m</code></p>
+<p>再配合【式子A】：</p>
+<p><code>f(1)=1</code></p>
+<p>即，n/2^m=1时, f(n/2^m)=1, 此时m=lg(n), 这一步，这是分析这个算法的关键。</p>
+<p>将m=lg(n)带入，<strong>得到</strong>：</p>
+<p><code>f(n)=1+lg(n)</code></p>
+<p><strong>神奇不神奇？</strong></p>
+<p>最后，大boss，快速排序递归算法，时间复杂度的分析过程。</p>
+<p><strong>案例三：快速排序quick_sort，时间复杂度分析。</strong></p>
+<p>void quick_sort(int[]arr, int low, inthigh){</p>
+<p>​         if (low==high) return;</p>
+<p>​         int i = partition(arr, low, high);</p>
+<p>​         quick_sort(arr, low, i-1);</p>
+<p>​         quick_sort(arr, i+1, high);</p>
+<p>}</p>
+<p>仍用f(n)来表示数据量为n时，算法的计算次数，很容易知道：</p>
+<ul>
+<li>当n=1时，quick_sort函数只计算1次</li>
+</ul>
+<p>f(1)=1<strong>【式子A】</strong></p>
+<p>在n很大时：</p>
+<p>第一步，先做一次partition；</p>
+<p>第二步，左半区递归；</p>
+<p>第三步，右半区递归；</p>
+<p>即：</p>
+<p>f(n)=n+f(n/2)+f(n/2)=n+2*f(n/2)<strong>【式子B】</strong></p>
+<p><em>画外音：</em></p>
+<p><em>(1)partition本质是一个for，计算次数是n；</em></p>
+<p><em>(2)二分查找只需要递归一个半区，而快速排序左半区和右半区都要递归，这一点在**分治法<strong>与</strong>减治法**一章节已经详细讲述过；</em></p>
+<p>【式子B】不断的展开，</p>
+<p>f(n)=n+2*f(n/2)</p>
+<p>f(n/2)=n/2+2*f(n/4)</p>
+<p>f(n/4)=n/4+2*f(n/8)</p>
+<p>…</p>
+<p>f(n/2^(m-1))=n/2^(m-1)+2f(n/2^m)</p>
+<p>上面共m个等式，逐步带入，于是得到：</p>
+<p>f(n)    =n+2*f(n/2)</p>
+<p>​    =n+2<em>[n/2+2</em>f(n/4)]=2n+4*f(n/4)</p>
+<p>​    =2n+4<em>[n/4+2</em>f(n/8)]=3n+8f(n/8)</p>
+<p>​    =…</p>
+<p>​    =m<em>n+2^m</em>f(n/2^m)</p>
+<p>再配合【式子A】：</p>
+<p>f(1)=1</p>
+<p>即，n/2^m=1时, f(n/2^m)=1, 此时m=lg(n), 这一步，这是分析这个算法的关键。</p>
+<p>将m=lg(n)带入，<strong>得到：</strong></p>
+<p>f(n)=lg(n)<em>n+2^(lg(n))</em>f(1)=n*lg(n)+n</p>
+<p>故，快速排序的时间复杂度是n*lg(n)。</p>
+<p><strong>wacalei，有点意思哈！</strong></p>
+<p><em>画外音：额，估计83%的同学没有细究看，花5分钟细思上述过程，一定有收获。</em></p>
+<p><strong>总结</strong></p>
+<ul>
+<li><strong>for循环</strong>的时间复杂度往往是O(n)</li>
+<li><strong>树的高度</strong>的时间复杂度往往是O(lg(n))</li>
+<li><strong>二分查找</strong>的时间复杂度是O(lg(n))，<strong>快速排序</strong>的时间复杂度n*(lg(n))</li>
+</ul>
 
             </div>
             <hr>
@@ -393,7 +516,7 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/iOS/算法笔记/" class="b-link-green">iOS算法笔记</a>
+                    <a href="/MasterTheorem/" class="b-link-green">MasterTheorem</a>
                 </p>
             </div>
         </div>
@@ -435,49 +558,37 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/iOS/<懒猫>记录/">
+                <a href="/MasterTheorem/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="iOS《笨猫快乐学编程》学习笔记">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="MasterTheorem">
                         
-                        <span class="card-title">iOS《笨猫快乐学编程》学习笔记</span>
+                        <span class="card-title">MasterTheorem</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是我找到的国内第一份Swift4.0教程，发布在知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcode9版)。
-一份纯文字加图片的教程。但让我感到了快乐。
-下面是学习过程中记录的一些东西。尽管都是傻傻</div>
+                    <div class="summary">Master Therem，大学的时候段老师说成是“主定理”，后来看其他地方会翻译成：主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的感觉，而且让没听过的人听到起码知道这是个定理名字。说“主定理”别人都不知道是哪三个字。
+</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/iOS/" class="post-category" target="_blank">
-                                    iOS
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
-                    </a>
-                    
-                    <a href="/tags/Swift/" target="_blank">
-                        <span class="chip bg-color">Swift</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -486,32 +597,30 @@ fun func(_ n :Int, _ total :Int = 0) -&gt; Int{
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Others/Git/">
+                <a href="/Algorithm/LeetCode51-100/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Git笔记">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="LeetCode51-100">
                         
-                        <span class="card-title">Git笔记</span>
+                        <span class="card-title">LeetCode51-100</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是就有了这篇文章。
+                    <div class="summary">int的范围、牛顿迭代法[69]      copy(1.begin,1.end,2.begin)、rbegin\rend[88]
 
-基本操作
-回滚版本
-git reset --hard HEAD^
-git res</div>
+51N皇后52N皇后 II53. 最大子序和暴力写出来了。人家怎么就想到这么写呢：
+int res = I</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
@@ -521,12 +630,8 @@ git res</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
-                    </a>
-                    
-                    <a href="/tags/Git/" target="_blank">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/LeetCode/" target="_blank">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
