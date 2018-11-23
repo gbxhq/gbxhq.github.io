@@ -9,10 +9,10 @@
     <meta name="description" content="可用于：单点替换，区间最值。
 
 用二分法的思想。建立完全二叉树–》叶节点是每个元素。
-父亲节点则是要保存的结果元素。比如求某个区间最小的数：
+父亲节点则是要保存的结果元素。比如给出数组：[6,9,5,6,8,2,0]  求某个区间最大的数：
 
-绿色就是该区间的结果。所有的查询只需要建树完就搞定。
-看了下网上的一般都是开数组建树。pushu">
+所有的查询只需要建树完就搞定。
+由于是完全二叉树。可">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -350,10 +350,186 @@
                 <p>可用于：<strong>单点替换，区间最值</strong>。</p>
 <a id="more"></a>
 <p>用二分法的思想。建立完全二叉树–》叶节点是每个元素。</p>
-<p>父亲节点则是要保存的结果元素。比如求某个区间最小的数：</p>
-<p><img src="../../images/xianduansshu.jpg" alt="xianduansshu"></p>
-<p>绿色就是该区间的结果。所有的查询只需要建树完就搞定。</p>
-<p>看了下网上的一般都是开数组建树。pushup更新。下面看具体的代码分析</p>
+<p>父亲节点则是要保存的结果元素。比如给出数组：[6,9,5,6,8,2,0]  求某个区间最大的数：</p>
+<p><img src="../../images/image-20181123162104795.png" alt="image-20181123162104795"></p>
+<p>所有的查询只需要建树完就搞定。</p>
+<p>由于是完全二叉树。可以直接用数组做~</p>
+<p>假设我们现在要求给定区间的Max值。下面一步步分析过程。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//rt:root</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> lson rt&lt;&lt;1</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> rson rt&lt;&lt;1|1</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> m (l+2)>>1</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>解释：在数组中，第i节点的左孩子lson就是 ix2,有孩子rson就是 ix2+1</p>
+<h1 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h1><p>先介绍 pushUp 方法，在我们建树和更新的时候要用，</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">pushUp</span><span class="token punctuation">(</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>tree<span class="token punctuation">[</span>lson<span class="token punctuation">]</span><span class="token punctuation">,</span>tree<span class="token punctuation">[</span>rson<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>解释：传入root节点下标，通过它的左右孩子值，取二者最大的存入</p>
+<p>然后就是 建树的过程：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">,</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">==</span>r<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//是叶节点，存数</span>
+    <span class="token punctuation">{</span>
+        tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span> <span class="token operator">=</span> vt<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//从vt里读取数据存入tree中</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">build</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span>m<span class="token punctuation">,</span>lson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">build</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">,</span>rson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pushUp</span><span class="token punctuation">(</span>rt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>解释：如果是叶节点，从vt中取数存入。如果不是，分别递归地建左右子树。（建左右的子树的过程中一定可以把改存入的叶节点都存入），最后执行pushUp，根据我们的叶节点，就能层层Up把父节点的值存入了。</p>
+<p>比如我们的vt中存入：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> vt<span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token function">build</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>打印tree看一下：</p>
+<p><code>[1]:9 [2]:9 [3]:8 [4]:9 [5]:6 [6]:8 [7]:0 [8]:6 [9]:9 [10]:5 [11]:6 [12]:8 [13]:2</code></p>
+<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>我们先看单点更新的情况，只需要配合前面的pushUp，更新了叶节点之后，再层层Up把改更新的父节点也更新就好了：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">,</span><span class="token keyword">int</span> newVal<span class="token punctuation">,</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">,</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//单点更新，只需要一个坐标即可</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token constant">__func__</span><span class="token operator">&lt;&lt;</span>l<span class="token operator">&lt;&lt;</span><span class="token string">','</span><span class="token operator">&lt;&lt;</span>r<span class="token operator">&lt;&lt;</span><span class="token string">','</span><span class="token operator">&lt;&lt;</span>rt<span class="token operator">&lt;&lt;</span><span class="token string">'\n'</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">==</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token operator">=</span>newVal<span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>index<span class="token operator">&lt;=</span>m<span class="token punctuation">)</span>
+        <span class="token function">update</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span>newVal<span class="token punctuation">,</span>l<span class="token punctuation">,</span>m<span class="token punctuation">,</span>lson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token function">update</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span>newVal<span class="token punctuation">,</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">,</span>rson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pushUp</span><span class="token punctuation">(</span>rt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>解释：由于只更新index这一个点。我们看index和m的大小，判断继续更新左子树还是右子树。</p>
+<p>现在我们更新第6个点，把原来的0换成99：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//插入</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>输出结果：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">update1<span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span>
+update5<span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">3</span>
+update5<span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">6</span>
+update6<span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">13</span>
+<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">0</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">99</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">9</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">99</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">9</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">6</span> <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">99</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">0</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">6</span> <span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">9</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">5</span> <span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">6</span> <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">8</span> <span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">99</span> <span class="token punctuation">[</span><span class="token number">14</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">0</span> <span class="token punctuation">[</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token operator">:</span><span class="token number">0</span> 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><p>查询的过程，如果欲查询的区间刚好是二叉树从中间分开的区间，我们直接返回对应的坐标即可。</p>
+<p>需要处理的就是，欲查询区间分别在左右子树，不能一次性返回结果。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token keyword">int</span> L<span class="token punctuation">,</span><span class="token keyword">int</span> R<span class="token punctuation">,</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">,</span> <span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//[L,R]是要查询的区间</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token constant">__func__</span><span class="token operator">&lt;&lt;</span><span class="token string">" ["</span><span class="token operator">&lt;&lt;</span>L<span class="token operator">&lt;&lt;</span><span class="token string">','</span><span class="token operator">&lt;&lt;</span>R<span class="token operator">&lt;&lt;</span><span class="token string">"] ("</span><span class="token operator">&lt;&lt;</span>l<span class="token operator">&lt;&lt;</span><span class="token string">','</span><span class="token operator">&lt;&lt;</span>r<span class="token operator">&lt;&lt;</span><span class="token string">") "</span><span class="token operator">&lt;&lt;</span>rt<span class="token operator">&lt;&lt;</span><span class="token string">'\n'</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>L<span class="token operator">&lt;=</span>l<span class="token operator">&amp;&amp;</span>R<span class="token operator">>=</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果[L,R]里有(l,r)区间，直接返回对应的根节点</span>
+        <span class="token keyword">return</span> tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>L<span class="token operator">&lt;=</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span><span class="token function">query</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>R<span class="token punctuation">,</span>l<span class="token punctuation">,</span>m<span class="token punctuation">,</span>lson<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>R<span class="token operator">>=</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span><span class="token function">query</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>R<span class="token punctuation">,</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">,</span>rson<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>直接看代码可能有点迷，我们还是运行一下看：</p>
+<p>现在要查询刚刚那7个数中，第二个到第6个里的最大值。即区间[2,6]。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">cout <span class="token operator">&lt;&lt;</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>输出：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token number">1</span>
+query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token number">2</span>
+query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">4</span>
+query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">9</span>
+query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token number">5</span>
+query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token number">3</span>
+query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token number">6</span>
+<span class="token number">99</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>分析：查[2,6] ，</p>
+<ol>
+<li>跟[1,7]对比发现，1不在[2,6]</li>
+<li>跟[1,4]对比发现，1不在[2,6]</li>
+<li>跟[1,2]对比发现，1不在[2,6]</li>
+<li>跟[2,2]对比，[2,2]在[2,6]中，返回tree[9] 是9</li>
+<li>跟[2,2]对比，[3,4]在[2,6]中，返回tree[5] 是6</li>
+<li>跟[5,7]对比发现，7不在[2,6]</li>
+<li>跟[5,6]对比，[5,6]在[2,6]中，返回tree[6] 是99</li>
+</ol>
+<p>综上，9、6、99里返回了最大的99</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//线段树 求解区间最值问题</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token comment" spellcheck="true">//#include "../Vt.h"</span>
+<span class="token comment" spellcheck="true">//rt:root</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> lson rt&lt;&lt;1</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> rson rt&lt;&lt;1|1</span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> vt<span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">tree</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">pushUp</span><span class="token punctuation">(</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>tree<span class="token punctuation">[</span>lson<span class="token punctuation">]</span><span class="token punctuation">,</span>tree<span class="token punctuation">[</span>rson<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">,</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">==</span>r<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//是叶节点，存数</span>
+    <span class="token punctuation">{</span>
+        tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span> <span class="token operator">=</span> vt<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">build</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span>m<span class="token punctuation">,</span>lson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">build</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">,</span>rson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pushUp</span><span class="token punctuation">(</span>rt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">,</span><span class="token keyword">int</span> newVal<span class="token punctuation">,</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">,</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//单点更新，只需要一个坐标即可</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token constant">__func__</span><span class="token operator">&lt;&lt;</span>l<span class="token operator">&lt;&lt;</span><span class="token string">','</span><span class="token operator">&lt;&lt;</span>r<span class="token operator">&lt;&lt;</span><span class="token string">','</span><span class="token operator">&lt;&lt;</span>rt<span class="token operator">&lt;&lt;</span><span class="token string">'\n'</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">==</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token operator">=</span>newVal<span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>index<span class="token operator">&lt;=</span>m<span class="token punctuation">)</span>
+        <span class="token function">update</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span>newVal<span class="token punctuation">,</span>l<span class="token punctuation">,</span>m<span class="token punctuation">,</span>lson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token function">update</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span>newVal<span class="token punctuation">,</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">,</span>rson<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pushUp</span><span class="token punctuation">(</span>rt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token keyword">int</span> L<span class="token punctuation">,</span><span class="token keyword">int</span> R<span class="token punctuation">,</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">,</span> <span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//[L,R]是要查询的区间</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token constant">__func__</span><span class="token operator">&lt;&lt;</span><span class="token string">" ["</span><span class="token operator">&lt;&lt;</span>L<span class="token operator">&lt;&lt;</span><span class="token string">','</span><span class="token operator">&lt;&lt;</span>R<span class="token operator">&lt;&lt;</span><span class="token string">"] ("</span><span class="token operator">&lt;&lt;</span>l<span class="token operator">&lt;&lt;</span><span class="token string">','</span><span class="token operator">&lt;&lt;</span>r<span class="token operator">&lt;&lt;</span><span class="token string">") "</span><span class="token operator">&lt;&lt;</span>rt<span class="token operator">&lt;&lt;</span><span class="token string">'\n'</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>L<span class="token operator">&lt;=</span>l<span class="token operator">&amp;&amp;</span>R<span class="token operator">>=</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果[L,R]里有(l,r)区间，直接返回对应的根节点</span>
+        <span class="token keyword">return</span> tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>L<span class="token operator">&lt;=</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span><span class="token function">query</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>R<span class="token punctuation">,</span>l<span class="token punctuation">,</span>m<span class="token punctuation">,</span>lson<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>R<span class="token operator">>=</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span><span class="token function">query</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>R<span class="token punctuation">,</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">,</span>rson<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">build</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>vt<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment" spellcheck="true">//showVtwithIndex(tree);</span>
+
+    <span class="token function">update</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>vt<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//插入</span>
+    <span class="token comment" spellcheck="true">//showVtwithIndex(tree);</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="PushDown"><a href="#PushDown" class="headerlink" title="PushDown"></a>PushDown</h1><p>单点更新的情况比较简单。下面说pushDown。</p>
+<p>用于区间更新。 </p>
+<p>关键词：延迟加载、懒标记</p>
 
             </div>
             <hr>
