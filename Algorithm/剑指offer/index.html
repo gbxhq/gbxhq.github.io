@@ -672,7 +672,20 @@ if(node!=null){
 <li><p>学了下线段树，真的强大。需要去新开一篇博客写啦~</p>
 </li>
 </ul>
-
+<h1 id="37-链表的公共节点"><a href="#37-链表的公共节点" class="headerlink" title="37 链表的公共节点"></a>37 链表的公共节点</h1><ul>
+<li><p>[x] 这是为什么？</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">ListNode<span class="token operator">*</span> p1<span class="token operator">=</span>pHead1<span class="token punctuation">,</span>p2<span class="token operator">=</span>pHead2<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这样就会报错no viable conversion from 'ListNode *' to 'ListNode'</span>
+ListNode<span class="token operator">*</span> p1<span class="token operator">=</span>pHead1；
+ListNode<span class="token operator">*</span> p2<span class="token operator">=</span>pHead2；<span class="token comment" spellcheck="true">//这才可以</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>因为p2前要加<code>*</code> （不然的话其实Clion会有💡自动提示让你分开定义）</p>
+</li>
+<li><p>没判断可能不存在公共节点的问题。shit。题目这样说根本就是一定存在啊。坑爹~</p>
+</li>
+<li><p>又没判断传进两个空指针的情况</p>
+</li>
+</ul>
+<h1 id="38"><a href="#38" class="headerlink" title="38"></a>38</h1>
             </div>
             <hr>
 
