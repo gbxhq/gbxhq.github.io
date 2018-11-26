@@ -65,7 +65,7 @@ tag: [tag1,tag2,...]
 
 ## 插图问题
 
-![image-201803221954468](http://p66eruxmw.bkt.clouddn.com/image-201803221954468.png)
+![image-201803221954468](../../images/image-201803221954468-2721386.png)
 
 
 ## 插入媒体
@@ -112,11 +112,11 @@ src="//music.163.com/outchain/player?type=2&id=544918737&auto=1&height=66">
 根据Hexo的官方文档，只需要这么设置：
 
 > deploy:
-> 	type: git
-> 	message: [message]
-> 	repo:
-> 		github: <repository url>,[branch]
-> 		gitcafe: <repository url>,[branch] 
+> ​	type: git
+> ​	message: [message]
+> ​	repo:
+> ​		github: <repository url>,[branch]
+> ​		gitcafe: <repository url>,[branch] 
 
 Example:
 

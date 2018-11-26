@@ -1,11 +1,11 @@
 ---
-title: LeetCode 字符串+简单
+title: LeetCode 300题以后
 date: 2018-09-10 19:07:02
 categories: [Algorithm]
 tags: [Cpp,LeetCode]
 ---
 
-知识点：`String`、  `reverse()`[557]、   `istringstream`[557] 、`memset`[387] 、`树`[606]、`to_string()`[788]、`npos`[345] 、`transform()`[819]、`strA.find(strB) != string:npos`[#686]
+知识点：`npos`[345] 、`memset`[387] 、  `reverse()`[557]、   `istringstream`[557]、`树`[606]、`to_string()`[788]、`transform()`[819]、`strA.find(strB) != string:npos`[686]
 
 <!---more--->
 
@@ -116,9 +116,7 @@ string tree2str(TreeNode* t) {
 }
 ```
 
-# 38. 报数
 
-水题不解释
 
 # 696. 计数二进制子串
 
@@ -217,16 +215,6 @@ string tree2str(TreeNode* t) {
 
 **不会！**
 
-# 58.最后一个单词的长度
-
-4行就解决的问题不明白为啥通过这么低
-
-```cpp
-istringstream is(s);
-string tmp;
-while(is>>tmp){}
-return tmp.size();
-```
 # 434.字符串中的单词数
 
 和上题一样水。

@@ -1,6 +1,6 @@
 ---
 title: vimtutor中文版
-date: 2018-11-12 16:51:34
+date: 2018-1-1 16:51:34
 categories: [fun]
 tags: vim
 ---

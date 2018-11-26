@@ -1,12 +1,14 @@
 ---
-title: LeetCodeEasy
-date: 2018-09-23 14:33:54
+title: LeetCode 1-50题
+date: 2018-09-01 14:33:54
 categories: Algorithm
 tags: [Cpp,LeetCode]
 ---
 
 知识点：`Hash、双指针`[1]     `int的范围`[7]     `stack、ascii`[20] 
-`str.substr(pos,n)注意n是子串长` [14]     `int的范围、牛顿迭代法`[[69]](#69 x的平方根)      `copy(1.begin,1.end,2.begin)、rbegin\rend`[[88]](#88合并两个有序数组)      `摩尔投票算法`[169]   `reverse()的理解`[189]     `位运算`[136]   `string.erase()`[171]     `vt.erase()`[283]
+`str.substr(pos,n)注意n是子串长` [14]     
+
+代码基本都在这里了：https://github.com/ixsim/OJ
 
 <!---more--->
 
@@ -97,6 +99,56 @@ public:
 
 https://www.cnblogs.com/panweiwei/p/6657583.html
 
+# 2 两数之和
+
+easy
+
+# 3 无重复字符的最长子串
+
+- 不能判断到有重复字符就从0开始算啊。字符串的头尾不固定的。
+
+  比如 `avadc` 虽然a在第三个位置出现了。但是不能重新计数。前面的v也可以算的。
+
+  - 很快就解决了这个问题。就是 计数的变量count 找到重复字符后，不置为0，而是置为 两个相同字符的坐标差。这样就包含了后面的字符。
+  - 新问题就是，从新计数的单词，之前的字母还在map中没清空。怎么办？
+    - 我设了一个开始坐标start，只有在map中且坐标大于这个start才算重复出现。
+
+看下第一的答案：
+
+```cpp
+int lengthOfLongestSubstring(string s) {
+
+    int subStringStart = 0,subStringEnd = 0, maxLength = 0;
+    string subString;
+    size_t occPos;    	for(subStringEnd;subStringEnd<s.length();subStringEnd++){
+        //查找subStringStart位置之后是否有要插入的字符
+        occPos = subString.find(s[subStringEnd],subStringStart);
+        //如果subString中已有带插入字符，将子串中已有字符的位置(occPos)
+        //的下一位置(occPos + 1)设置为无重复子串的开始位置,即向右移动滑窗
+        //不断调整无重复子字符串的开始位置
+        if(occPos != string::npos){
+            subStringStart = occPos + 1; 
+        }
+        //依次将s中的元素插入subString中，同时不断计算最长子字符串长度并更新
+        subString.push_back(s[subStringEnd]);
+        maxLength = max(maxLength, subStringEnd-subStringStart+1);
+    }
+    return maxLength;
+}
+```
+
+# 04二叉树的最大深度
+
+必备
+
+# 5最长回文子串
+
+没想到我的方法效率还不错。
+
+# 6.Z字形变换
+
+水题。用一个flag记录存入的方向即可。详情看代码。
+
 # 7.反转整数
 
 - 正解
@@ -134,6 +186,22 @@ int reverse(int x) {
 2. 改了long之后。1032个用例就差一个过不了了。就是-2147483648。
 
    -2147483648会被转成正2147483648。而正int里最大是2147483647。存不下2147483648 。所以特判了。
+
+# 8.atoi
+
+- 在C++里，长度不一样的String比较会是什么规则？
+
+  - 直接输入： `cout << "abc"<"bbbb";`
+
+    这种情况注意了：比较的是两个const char*！实则比较的是他们的地址而已。真的相比较要用：`strcmp("abc","bbbb")`
+
+  - 比较的时候：
+
+    1. 先不管两个串的长度，一位一位的比下去。如果有一个串的相同位更大，立马返回结果。
+    2. 当一个串比完，还都一样的时候，长的更大。
+
+- 这题意思不大，就是把所有的情况都考虑到。反正我是没用到啥编程技巧。
+
 
 # 9.回文数
 
@@ -237,6 +305,12 @@ static const auto ban_io_sync = []()
 
   存成字符串。然后用了个reverse翻转。STL里面啥都有啊。
 
+# 10.正则表达式匹配
+
+# 11盛最多水的容器
+
+# 12整数转罗马数字
+
 # 13.罗马数字转整数
 
 - 无聊的一题
@@ -322,6 +396,14 @@ string longestCommonPrefix(vector<string>& strs) {
 - 相同的逻辑，解答里还有一个0ms的写法就是
 
   `while((strs[0])[i])`
+
+# 14最长公共前缀
+# 15三数之和
+# 16最接近的三数之和
+# 17电话号码的字母组合
+# 18四数之和
+
+# 19删除链表的倒数第N个节点
 
 # 20.有效的括号
 
@@ -437,6 +519,109 @@ public:
 | 30      | RS       | 62      | >        | 94      | ^        | 126     | `        |
 | 31      | US       | 63      | ?        | 95      | _        | 127     | DEL      |
 
+# 21 合并有序链表
+
+## 解
+
+不贴我的了。写的太烂了。新建了一个链表一个数一个数插进去的。
+
+贴一个同效率的。简洁好多。
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        ListNode* l0;
+        
+        ListNode* head=new ListNode(-1);
+        l0=head;
+        while(l1!=NULL&&l2!=NULL)
+        {
+            if(l1->val<=l2->val) 
+            {
+                l0->next=new ListNode(l1->val);
+                l1=l1->next;
+            }
+            else 
+            {
+                l0->next=new ListNode(l2->val);
+                l2=l2->next;
+            }
+            l0=l0->next;
+        }
+        l0->next = l1 ? l1 : l2;
+        return head->next;
+    }
+};
+```
+
+~ 知识点
+
+- 一个是建ListNode。声明节点的细节。`new struct`
+
+- 一个就是重要的技巧。别声明一个新指针为NULL。除非你开车很稳。
+
+  - 关于`NULL`和`nullptr`:
+
+    `NULL`其实是**int型的0**，为了**真正的空指针**，c++11推出`nullptr`
+
+- 可以先声明一个随意值的节点(比如-9999)，然后在这个节点后面处理就好了。最后return时返回这个节点的next就好了。
+
+## Problems
+
+- 输入是`[]和[0]`的时候不行。没考虑第一个链表就是空的情况。所以开头定义tmp就直接指向L1；
+
+- **重要！！！**
+
+  新声明一个**节点**`new struct`。和新声明一个**指针**`*p`不一样。
+
+  这个问题要想清楚！！！
+
+- 记得要先把头存起啦啊。不然你移来移去拿什么返回链表头。
+
+- 循环遍历所有节点最好用`while(list->next)`。这样指针刚好停在最后一个节点。
+
+## 递归的解法
+
+```cpp
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if(l1==NULL || l2==NULL) return (l1==NULL ? l2: l1);
+        if(l1->val<l2->val) 
+        {
+            l1->next=mergeTwoLists(l1->next, l2);
+            return l1;
+        }
+        else
+        {
+            l2->next=mergeTwoLists(l1,l2->next);
+            return l2;
+        }
+        
+    }//end function
+};
+```
+
+**合并**两个链表。就是判断完**头**元素后。**合并** <u>剩下的部分</u> 连接到 小的头里。
+
+结束条件：
+
+如果一个为Null（总是合并剩下的部分一定会遇到null）则返回另一个。
+
+# 22括号生成
+# 23合并K个排序链表
+# 24两两交换链表中的节点
+# 25k个一组翻转链表
+
 # 26. 删除排序数组中的重复项
 
 - 循环左移之后。记得这一轮就不要让标记位置走到下一个了。
@@ -456,342 +641,34 @@ for (int i = 0; i<nums.size();i++){
 return n;
 ```
 
+# 28实现strStr()
+# 29两数相除
+# 30与所有单词相关联的字串
+# 31下一个排列
+# 32最长有效括号
+# 33搜索旋转排序数组
+# 34在排序数组中查找元素的第一个和最后一个位置
+
 # 35. 搜索插入位置
 
 PASS
 
-# 53. 最大子序和
-
-暴力写出来了。人家怎么就想到这么写呢：
-
-```cpp
-int res = INT_MIN, curSum = 0;
-for (int num : nums) {
-    curSum = max(curSum + num, num);
-    res = max(res, curSum);
-}
-return res;
-```
-
-# 66. 加一
-
-水
-
-# 69 x的平方根
-
-- int 的范围问题。本来用的int。结果人家给的输入。int平方之后就超过了范围了。以后要注意！
-
-- 牛顿迭代法Mark。还可用用来解多次方程
-
-# 70爬楼梯
-
-其实就是斐波那契这题。我用递归写的。**但是！**我的写法，在输入是40以后，就超时咯（我特判了过的）。这么写不错：
-
-```cpp
-int climbStairs(int n) {
-    if (n < 2) return 1;
-    int dp0, dp1, dp;
-    dp0 = dp1 = 1;
-    for (int i = 2; i <= n; i++) {
-        dp = dp0 + dp1;
-        dp0 = dp1;
-        dp1 = dp;
-    }
-    return dp;
-}
-```
-
-# 88合并两个有序数组
-
-🙂🙂🙂
-
-一晚上我没做出来这题
-
-- 结束void函数，直接`return;`
-
-- 看了提示。从后往前插入。写出来了。速度不行。看一下这个0ms的：
-
-  ```cpp
-  void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-      auto b1 = nums1.rbegin() + n, b2 = nums2.rbegin();
-      for (auto cur = nums1.rbegin(); b1 != nums1.rend(); ++cur)
-      {
-          if (b2 == nums2.rend())
-              return;
-          if (*b2 < *b1)
-              *cur = *b1++;
-          else *cur = *b2++;
-      }
-      copy(b2, nums2.rend(), nums1.rend() - (nums2.rend() - b2));
-  }
-  ```
-
-# 100.相同的树
-
-先来看我之前写法：
-
-```cpp
-bool isSameTree(TreeNode* p, TreeNode* q) {
-    if(p&&q)
-        if(p->val!=q->val)
-            return false;
-    if(p&&!q)
-        return false;
-    if(q&&!p)
-        return false;
-    if(!p&&!q)
-        return true;
-    if(p->left&&q->left) //加上这个if条件是因为不然会因为p\q指向空指针报这个错：member access null pointer of type 'struct TreeNode'
-        isSameTree(p->left,q->left);
-    if(p->right&&q->right)
-        isSameTree(p->right,q->right);
-    return true;
-}
-```
-
-这写法过不了。师哥改：
-
-```cpp
-bool isSameTree(TreeNode* p, TreeNode* q) {
-    if(p&&q)
-        if(p->val!=q->val)
-            return false;
-    if(p&&!q)
-        return false;
-    if(q&&!p)
-        return false;
-    if(!p&&!q)
-        return true;
-    return isSameTree(p->left,q->left)
-        &&isSameTree(p->right,q->right)
-        &&p->val==q->val;
-}//直接返回两个结果&&起来不就解决了吗。这样有一边走到了false都会返回false
-```
-
-# 101.对称二叉树
-
-- 开始写成了判断节点的两个孩子是否相同。完全整错了题。
-
-- 用两个前序遍历把结果存到vector里。一个先遍历左孩子，一个先遍历右孩子。然后比较两个vt相同。
-
-  - Problem，空节点的时候，不会存入vector，导致一些情况判错。解决方法：空节点存入-9999
-
-- 正经的解法：
-
-  ```cpp
-   bool symmetric(TreeNode* left, TreeNode* right)
-  {
-      if (!left && !right)
-      {
-          return true;
-      }
-      if (!left || !right)
-      {
-          return false;
-      }
-      return left->val == right->val && symmetric(left->left, right->right) && symmetric(left->right, right->left);
-  }
-  bool isSymmetric(TreeNode* root) 
-  {
-      if (!root)
-      {
-          return true;
-      }
-      return symmetric(root->left, root->right);
-  }
-  ```
-  
-# 04二叉树的最大深度
-
-必备
-
-# 107二叉树的层次遍历 II
-
-# 121/122 买股票1 买股票2
-
-- 121：比较简单。但我第一次用的O(n2)。显得很没水平。只要记录最小值和最大值就可以了。不需要两层循环遍历的。
-
-- 122：有了上一题的启发。很快解决。（本来想半天）
-
-# 189旋转数组
-
-- 开始想用一个临时数组存原来的数。然后根据需要copy。
-
-  结果发现人家让空间复杂度O(1)原地完成。
-
-- 想到了多次Reverse的方法。这个思路还是很清晰的。以下两点需要注意：
-
-  - 如vt的内容是 1 2 3 4 5 6 7
-
-    `reverse(vt.begin(),vt.begin()+3)`执行后，反转的就是前三个数。变成：
-
-    321  4567
-
-    虽然vt.begin()+3已经指向了4这个元素。
-
-    这也可以解释为什么` reverse(vt.begin(),vt.end())`在end()指向空的时候，为什么可以翻转整个vector。
-
-  - 输入的位移量大于数组长度的情况要考虑到，取余即可。（怕的是想不到）
-
-
-# 136只出现一次的数字
-
-高端操作：位运算
-
-- 延伸阅读：https://blog.csdn.net/bitboss/article/details/51594037
-  - 进阶1： **一个数组中，只有一个数字出现了一次，其他数字都出现了三次，找出这个出现了一次的数字；**
-  - 进阶2：**<百度面试题>：在一个数组中，其他元素都是成对出现，只有两个数字只出现了一次，找出这两个数；**
-
-# 151最小栈
-
-- 可以用`*(vt.end()-1)`的方式取到vector的最后一个元素啊。
-- 
-
-# 两个数组的交集 II
-
-关于map的遍历：
-
-- 如果输入的map下标不存在则会创建这个下标。
-- map.find()是查的关键字
-
-# 168 EXCELL表列名
-
-就是输入1输出A 输入28输出AB
-
-- 注意输入26时，余数为0。这种情况需要特判。
-
-  输入26时。n的循环也会多走一圈。需要特判。不然输入26会输出ZA。
-
-- 每轮循环结束是 `n = n/26` 还是` n = n-26` ?    请思考清楚
-
-# 171和168相对
-
-`string.erase(pos,len)`,从pos位置开始删除len个字符。len缺省则删除到末尾。返回string的一个引用。
-
-比如`str.erase(str.size()-5,5);` 删除了后5个字符。注意是.size()-5 。就是用下标来控制的。
-
-我个人更喜欢用` str = str.substr(pos1,pos2)`这种方式删除
-
-# 169绝对众数
-
-- 用map做感觉是水题。
-
-但是在别人的解法里学到了摩尔投票算法：
-
-> 首先请考虑最基本的摩尔投票问题，找出一组数字序列中出现次数大于总数1/2的数字（并且假设这个数字一定存在）。显然这个数字只可能有一个。**摩尔投票算法是基于这个事实：每次从序列里选择两个不相同的数字删除掉（或称为“抵消”），最后剩下一个数字或几个相同的数字，就是出现次数大于总数一半的那个**。
-
-- 继续延伸：1/k众数
-
-Ex:k=3。求1/3众数。注：这样的数可能不存在
-
-```cpp
-    #include <iostream>
-    #include <cstdlib>
-    #include <vector>
-    #include <iterator>
-    using namespace std;
-
-    void FindMode(const int *a, int size, vector<int>& mode){
-    int m,n;//候选值
-    int cm = 0, cn = 0;//候选值m、n的个数
-    int i;
-    for(i=0; i<size; i++){
-        if(cm == 0){
-            m = a[i];
-            cm = 1;
-        }else if(cn == 0){
-            n = a[i];
-            cn = 1;
-        }else if(m == a[i]){
-            cm++;
-        }else if(n == a[i]){
-            cn++;
-        }else{
-            cm--;
-            cn--;
-        }
-    }
-    //↑ 运行到此处时的m、n一定是众数，同时也是可能存在的1/3众数。
-    
-    cm = cn = 0;//为确保一定存在（因为1/3众数可能不存在），一定要重新遍历统计出现次数
-    for(i=0; i<size; i++){
-        if(m == a[i]){
-            cm++;
-        }else if(n == a[i]){
-            cn++;
-        }
-    }
-    if(cm > size/3){
-        mode.push_back(m);
-//        cout<< m<<" ";
-    }
-    if(cn > size/3){
-        mode.push_back(n);
-//        cout<< n<<" ";
-    }
-    
-}
-
-void Print(vector<int> vector){
-    for(int i=0; i<vector.size(); i++){
-        cout<< vector[i]<<" ";
-    }
-    cout<<endl;
-}
-
-int main()
-{
-    int a[] = {8,1,1,8,1,1,6,1,5,8,8};
-    vector<int> mode;
-    FindMode(a, sizeof(a)/sizeof(int),mode);
-    Print(mode);
-    return 0;
-}
-```
-
-# 172阶乘后的零
-
-- 13的阶乘就已经超INT范围了。用了`long long`型之后，它给我输入了个30🙂🙂🙂
-
-  思路有问题🙃
-
-- 找到了规律。其实有几个零就是和因子里有几个5有关系。所以遇到 5、25、125、675~这种要处理，可是刁钻的问题出现了。测试用例给了一个1808548329。5的13次方是1220703125。我的算法可以给出答案。但是超时了。后面还有个过不了的用例2147483647。就是INT_MAX呗。超时了。我直接特判了这两个过的。
-
-- 结果发现0ms的答案只有这么几行：
-
-  ```cpp
-  int trailingZeroes(int n) {
-      long long sum=0;
-      for(long long i=5;i<=n;i=i*5)
-          sum=sum+n/i;
-      return sum;
-  }
-  ```
-
-这时候再回头看一下我自己写的【超时版】答案。其实不就是一个意思吗：
-
-```cpp
-int ans = n/5; //先除以5
-for(int i=2;pow(5,i)<=n;i++){ /*小于25的时候。
-里面每有一个25就++(这不就是m/pow(5,2)吗？
-我傻不拉几的在那用循环判断每次ans++)*/
-    int tmp = n;
-    while(tmp>=pow(5,i)){
-        ans ++;
-        tmp -= pow(5,i);
-    }
-    cout<<i<<endl;
-}
-return ans;
-```
-
-# 283移动零
-
-输入 0 1 0 3 2
-
-输出 1 3 2 0 0 
-
-- 注意，用迭代器it控制，vt.erase(it) 时，删除了it指向的元素，且it会指向下一个it。
-- 出现的问题：
-  - 开始我只用迭代器来控制遍历，当迭代器为end时终止遍历，没考虑到，我会不停地在vector尾部push_back(0)，这样遍历永远都不会结束。
-
+# 36有效的数独
+# 37解数独
+
+# 38. 报数
+
+水题不解释
+
+# 39组合总和
+# 40组合总和 II
+# 41缺失的第一个正数
+# 42接雨水
+# 43字符串相乘
+# 44通配符匹配
+# 45跳跃游戏 II
+# 46全排列
+# 47全排列 II
+# 48旋转图像
+# 49字母异位词分组
+# 50Pow(x, n)

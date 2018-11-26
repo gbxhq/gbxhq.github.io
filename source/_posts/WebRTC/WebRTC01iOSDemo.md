@@ -27,12 +27,12 @@ tags: [Note]
 > 王老师：Google开发这个的时候并不是用的Xcode，用了跨平台的东西生成，所以很多地方和默认配置都不同。
 
 结果下午王老师来调了这里直接就好了。
-![](http://p66eruxmw.bkt.clouddn.com/15350928074365.jpg)
+![](../../images/15350928074365.jpg)
 
-  
+
  只要把Product Bundle identifier随便改一个名就行了。
  然后在General里选上我的开发者账号就可以生成新的id了。
- 
+
  - Depot_tools
 
 新的问题来临。毕竟源码是王老师用的。很多东西都要重新配置。

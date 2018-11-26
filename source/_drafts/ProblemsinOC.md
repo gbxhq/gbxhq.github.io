@@ -45,7 +45,7 @@ WebRTC这个项目。我真的对OC一脸懵逼。所以遇到什么白痴的问
   1. 将 import 语句剪切到 *.m 文件中去。
   2. 在 *.h 文件中使用 @class 预声明。
 
-- [ ] iOS之property里的copy、strong区别
+- [x] iOS之property里的copy、strong区别
 
   https://www.jianshu.com/p/bb3d0c62f5c9
 
@@ -53,7 +53,7 @@ WebRTC这个项目。我真的对OC一脸懵逼。所以遇到什么白痴的问
 
   `rtcConfig.iceServers = [NSArray arrayWithArray:ICEServers];` 一定要用` .` 语法 。`[ ]`是get 。
 
-- [ ] 全局NSMutableArray对象不能addObject局部对象
+- [x] 全局NSMutableArray对象不能addObject局部对象
 
   原来全局数组没有初始化：self.xxx = [NSMutableArray array];//初始化
 

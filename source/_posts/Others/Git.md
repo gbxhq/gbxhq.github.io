@@ -1,4 +1,4 @@
----```git
+---
 title: Git笔记
 date: 2018-1-1
 categories: Others

@@ -48,7 +48,7 @@ def get_count(sequence):
 
   - 如果对象是一个函数或实例方法。其docstring会被显示
   - ?? 还将显示出该对象的源码
-      
+    
 - 搜索IPython命名空间
 
   ```bash
@@ -60,12 +60,12 @@ def get_count(sequence):
   ```
   
 ### %run
-  
+
 ```Python
 %run filename.py #运行这个文件
 ```
 文件在一个空的命名空间中运行。此后该文件定义的全部变量就可以在IPython Shell中访问了。
-    
+​    
 **Note**
 访问 Interactive 命名空间的变量：
 `%run -i`
@@ -80,7 +80,7 @@ def get_count(sequence):
 ### 键盘快捷键
 我是个没有快捷键会死星人。
 记几个常用的吧：
-    
+​    
 | Ctrl+ | 说明 |
 | --: | :-: |
 | A | 光标至行首 |
@@ -193,7 +193,8 @@ ufuns(元素级数组方法)
 分别返回一个表示“哪些元素是有穷的(非inf,feiNaN)”或“哪些元素是无穷的”的布尔型数组
 `cos、cosh、sin、Sinh、tan、tanh`
 普通型和双曲型三角函数
-![](http://p66eruxmw.bkt.clouddn.com/15221187685515.jpg)
+![](../../images/15221187685515.jpg)
+
 ### 将条件逻辑表述为数组运算
 `np.where`
 
@@ -323,7 +324,7 @@ arch['b'] #可单独访问
 
 
 创建方法
-![](http://p66eruxmw.bkt.clouddn.com/15223741416892.jpg)
+![](../../images/15223741416892.jpg)
 P123表待插入
 ### 索引对象
 - Index对象是**不可修改**的

@@ -56,6 +56,17 @@ tags:
 
 # String
 
+- string对象的操作
+
+  ```cpp
+  istringstream os
+  os<<s   //s写入到输出流os中。返回os
+  is>>s	//从输入流is读取字符串赋给s，返回is。
+  s.empty()
+  s.size()
+  s[n] //n从0计
+  ```
+
 ## npos
 
 在MSDN中有如下说明：
