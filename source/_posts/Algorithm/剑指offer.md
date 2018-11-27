@@ -13,8 +13,6 @@ tags: Note
 
 # Problems
 
-<details>  <summary>点击时的区域标题</summary>  <p> - 测试 测试测试</p>  <p> 测试二 测试三 。。。。。 .</p></details>
-
 
 - [ ] P25这个例子。先学好C++基础吧！
 - [ ] P28 C#和C++不一样那一段。在堆上分配内存和在栈上分配内存有什么不同。
@@ -590,7 +588,7 @@ void FindNumsAppearOnce(vector<int> data,int* num1,int *num2) {
 }
 ```
 
-## 41
+## 41和为S的连续序列
 
 - Clion真强啊。我的代码本来这样：
 
@@ -604,3 +602,7 @@ void FindNumsAppearOnce(vector<int> data,int* num1,int *num2) {
 
   最好改成了`return (x & 1) == 0;`
 
+- 开始没考虑输入1的情况。但是我自己分奇数偶数做的，牛客AC了。
+
+- 牛客的测试用例绝对不全。LeetCode过不了85这个用例。
+- 
