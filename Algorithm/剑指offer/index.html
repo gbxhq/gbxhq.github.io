@@ -364,8 +364,16 @@ Problems
 <li style="list-style: none"><input type="checkbox"> 红黑树    据说和30题有关</li>
 <li style="list-style: none"><input type="checkbox"> P75 斐波那契的公式法</li>
 <li style="list-style: none"><input type="checkbox"> P82 位运算相关的题目和笔记是薄弱环节</li>
-<li style="list-style: none"><input type="checkbox"> <a href="#11 数值的整数次方">11 数值的整数次方</a> 高效法重刷</li>
+<li style="list-style: none"><input type="checkbox"> <a href="#11 数值的整数次方">11 数值的整数次方</a> 高效法重刷标记</li>
 <li style="list-style: none"><input type="checkbox"> <a href="#12 打印1到n位最大数">12</a> 递归法重刷</li>
+<li style="list-style: none"><input type="checkbox"> 15 重刷</li>
+<li style="list-style: none"><input type="checkbox"> 17 递归重刷</li>
+<li style="list-style: none"><input type="checkbox"> 18 重刷</li>
+<li style="list-style: none"><input type="checkbox"> 26 重刷</li>
+<li style="list-style: none"><input type="checkbox"> 30题 解法二回看</li>
+<li style="list-style: none"><input type="checkbox"> 35相关题目回看</li>
+<li style="list-style: none"><input type="checkbox"> <strong>36 逆序对</strong> 不解释</li>
+<li style="list-style: none"><input type="checkbox"> 40 重刷</li>
 <li style="list-style: none"><input type="checkbox"> </li>
 </ul>
 <h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><ul>
@@ -374,8 +382,9 @@ Problems
 <li>由于精度原因不能用等号判断两个小数是否相等。如果两个小数差的绝对值很小，就可以认为他们相等</li>
 <li>我们有成熟的O(N)算法得到数组中任意第k大的数字</li>
 <li>采用值传递，形参到实参会产生一次复制操作</li>
+<li>题目描述一棵树–&gt; 是不是二叉树 –&gt; 是不是排序树</li>
 </ul>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h2 id="3搜索二维数组"><a href="#3搜索二维数组" class="headerlink" title="3搜索二维数组"></a>3搜索二维数组</h2><ul>
+<h1 id="第二章-基础知识"><a href="#第二章-基础知识" class="headerlink" title="第二章 基础知识"></a>第二章 基础知识</h1><h2 id="3搜索二维数组"><a href="#3搜索二维数组" class="headerlink" title="3搜索二维数组"></a>3搜索二维数组</h2><ul>
 <li><p>牛客的没AC。先LeetCode上找了74搜索二维矩阵，这个稍微简单点，用一个二分查找就可以。然后240题搜索二维矩阵II就是一样的了。</p>
 </li>
 <li><p>看书知道了要删减的思路后。就从右上角开始。先排除的列，又排除的行。然后继续用<strong>最笨的方法去查找</strong>（其实也是一步步排除行和列的过程）。没有考虑到：</p>
@@ -411,7 +420,7 @@ if(node!=null){
 <li><p>位运算效率远高于乘除。尽可能得用位运算代替乘除。</p>
 </li>
 </ul>
-<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="11-数值的整数次方"><a href="#11-数值的整数次方" class="headerlink" title="11 数值的整数次方"></a>11 数值的整数次方</h2><p>马马虎虎地过了，看了书后发现，我并没有考虑底数是特殊值的情况。（只分了指数的情况）</p>
+<h1 id="第三章-高质量代码"><a href="#第三章-高质量代码" class="headerlink" title="第三章 高质量代码"></a>第三章 高质量代码</h1><h2 id="11-数值的整数次方"><a href="#11-数值的整数次方" class="headerlink" title="11 数值的整数次方"></a>11 数值的整数次方</h2><p>马马虎虎地过了，看了书后发现，我并没有考虑底数是特殊值的情况。（只分了指数的情况）</p>
 <p>其实底数也有特殊情况。就是底数为0的时候，指数为负要抛出异常。</p>
 <p>Note：</p>
 <ul>
@@ -487,7 +496,7 @@ if(node!=null){
     return0<span class="token punctuation">;</span> 
 <span class="token punctuation">}</span> 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><h2 id="19-二叉树的镜像"><a href="#19-二叉树的镜像" class="headerlink" title="19 二叉树的镜像"></a>19 二叉树的镜像</h2><p>easy 秒过</p>
+<h1 id="第四章-解决思路"><a href="#第四章-解决思路" class="headerlink" title="第四章 解决思路"></a>第四章 解决思路</h1><h2 id="19-二叉树的镜像"><a href="#19-二叉树的镜像" class="headerlink" title="19 二叉树的镜像"></a>19 二叉树的镜像</h2><p>easy 秒过</p>
 <h2 id="20-顺时针打印"><a href="#20-顺时针打印" class="headerlink" title="20 顺时针打印"></a>20 顺时针打印</h2><p>思路清晰。一次撸过。下次看看自己怎么写的就好啦。</p>
 <p>不要二刷。</p>
 <h2 id="21最小栈"><a href="#21最小栈" class="headerlink" title="21最小栈"></a>21最小栈</h2><p>easy不多说</p>
@@ -658,7 +667,8 @@ if(node!=null){
 </li>
 <li style="list-style: none"><input type="checkbox"> 相关题目记得回看</li>
 </ul>
-<h2 id="36-数组中的逆序对"><a href="#36-数组中的逆序对" class="headerlink" title="36 数组中的逆序对"></a>36 数组中的逆序对</h2><ul>
+<h2 id="36-数组中的逆序对"><a href="#36-数组中的逆序对" class="headerlink" title="36 数组中的逆序对"></a>36 数组中的逆序对</h2><p><strong>本书中遇到的第一道难题。MARK</strong></p>
+<ul>
 <li>拿到题先思考：逆序对我记着是组成原理的时候学的来~干啥用来着？</li>
 <li>为什么要模1000000007？</li>
 </ul>
@@ -672,7 +682,7 @@ if(node!=null){
 <li><p>学了下线段树，真的强大。需要去新开一篇博客写啦~</p>
 </li>
 </ul>
-<h1 id="37-链表的公共节点"><a href="#37-链表的公共节点" class="headerlink" title="37 链表的公共节点"></a>37 链表的公共节点</h1><ul>
+<h2 id="37-链表的公共节点"><a href="#37-链表的公共节点" class="headerlink" title="37 链表的公共节点"></a>37 链表的公共节点</h2><ul>
 <li><p>[x] 这是为什么？</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">ListNode<span class="token operator">*</span> p1<span class="token operator">=</span>pHead1<span class="token punctuation">,</span>p2<span class="token operator">=</span>pHead2<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这样就会报错no viable conversion from 'ListNode *' to 'ListNode'</span>
 ListNode<span class="token operator">*</span> p1<span class="token operator">=</span>pHead1；
@@ -684,8 +694,99 @@ ListNode<span class="token operator">*</span> p2<span class="token operator">=</
 </li>
 <li><p>又没判断传进两个空指针的情况</p>
 </li>
+<li><p>我虽然AC了。但是我是用【环】的特性做的，就是两个链表有公共节点，那么两个指针一直往下遍历，一定能相遇。我自以为我的方法很好，其实，效率弱爆了。LeetCode试了下排倒数。380ms多。而在牛客4ms。说明啥？说明牛客不准？不，再一次说明牛客的测试用例，考虑到的情况少，用例个数少，虽然算法辣鸡但是一样很快就跑完了。以后不要信牛客。</p>
+</li>
+<li><p>[ ] 重刷标记。（这题还是按书上的，统计出两个链表的长度，再根据小的开始同时遍历效率高。）</p>
+</li>
 </ul>
-<h1 id="38"><a href="#38" class="headerlink" title="38"></a>38</h1>
+<h1 id="第六章-各项能力"><a href="#第六章-各项能力" class="headerlink" title="第六章 各项能力"></a>第六章 各项能力</h1><h2 id="38-排序数组中出现的次数"><a href="#38-排序数组中出现的次数" class="headerlink" title="38 排序数组中出现的次数"></a>38 排序数组中出现的次数</h2><p>二分查找 easy</p>
+<h2 id="39-二叉树深度"><a href="#39-二叉树深度" class="headerlink" title="39 二叉树深度"></a>39 二叉树深度</h2><p>递归写 easy 但写法其实很有技巧。对比一下便知：</p>
+<p>我的Answer</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">TreeDepth</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> rt<span class="token punctuation">,</span><span class="token keyword">int</span> depth<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>max<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>rt<span class="token punctuation">)</span>
+        depth<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span><span class="token comment" spellcheck="true">//防止rt为空还继续往下走。走到rt->left肯定出事</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>depth<span class="token operator">></span>max<span class="token punctuation">)</span>
+        max <span class="token operator">=</span> depth<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>rt<span class="token operator">-</span><span class="token operator">></span>left<span class="token punctuation">)</span>
+        <span class="token function">TreeDepth</span><span class="token punctuation">(</span>rt<span class="token operator">-</span><span class="token operator">></span>left<span class="token punctuation">,</span>depth<span class="token punctuation">,</span>max<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>rt<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">)</span>
+        <span class="token function">TreeDepth</span><span class="token punctuation">(</span>rt<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">,</span>depth<span class="token punctuation">,</span>max<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">TreeDepth</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> pRoot<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ans <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">TreeDepth</span><span class="token punctuation">(</span>pRoot<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我用了一个辅助函数来写入max的值。但其实，看我之前在LeetCode的提交答案：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> leftDepth <span class="token operator">=</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token operator">-</span><span class="token operator">></span>left<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rightDepth <span class="token operator">=</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> std<span class="token operator">::</span><span class="token function">max</span><span class="token punctuation">(</span>leftDepth<span class="token punctuation">,</span>rightDepth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>不光没借助辅助函数来写入。还清晰明了，层层递归完成。虽然两种写法，思路一样，就是递归来统计完成（提交后效率也完全一样）<strong>但是</strong>， 其实是 思想出了问题。下面的写法能看出”分治“的思想。就是，<strong>分别查找左右子树的最大深度</strong>，并返回。而上面的写法，只是单纯的递归遍历思路。</p>
+<h2 id="39-2判断平衡二叉树"><a href="#39-2判断平衡二叉树" class="headerlink" title="39-2判断平衡二叉树"></a>39-2判断平衡二叉树</h2><ul>
+<li><p>判断左右深度。延续上题。</p>
+<p>看书：我直接延续上题的方法，有缺陷。</p>
+</li>
+<li><p>改进：就是在遍历的同时随时进行判断当前的节点平衡不。如果不平衡就提前返回False。</p>
+<blockquote>
+<p>就是说，直接判断左右深度的方法，辣鸡就辣鸡在，他是从上往下的遍历。不能在第一时间发现不平衡的情况，需要<strong>遍历到最下面那层不平衡的层</strong>才知道返回false。而改进就是改成了后序遍历~ Over</p>
+</blockquote>
+<p>写了一下发现，逻辑上还有细节主要注意。</p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 重刷标记</li>
+</ul>
+</li>
+</ul>
+<h2 id="40只出现一次的数字"><a href="#40只出现一次的数字" class="headerlink" title="40只出现一次的数字"></a>40只出现一次的数字</h2><p>位运算啊~相当弱的环节。要好好总结。</p>
+<blockquote>
+<p>做了这题，位运算有了点理解</p>
+</blockquote>
+<h3 id="需要特别注意的！"><a href="#需要特别注意的！" class="headerlink" title="需要特别注意的！"></a><strong>需要特别注意的！</strong></h3><p><strong>在写 &amp; | ^这种位运算的运算式的时候，一定要加括号！因为它们的优先级很低。不加括号运算顺序会完全和你想的不一样🙃</strong></p>
+<p>本题的主要过程都记录在了代码注释里：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">FindNumsAppearOnce</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> data<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">*</span> num1<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">*</span>num2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> all<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token operator">:</span>data<span class="token punctuation">)</span>
+        all <span class="token operator">^</span><span class="token operator">=</span> x<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//all是全部异或的结果</span>
+    <span class="token comment" spellcheck="true">//找到x第一个是1的位（这个位就是 num1和num2 在此位不同所致</span>
+    <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>all<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">// &amp;1 就是只保留这个数的最后一位</span>
+        all <span class="token operator">=</span> all<span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
+        i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token operator">:</span>data<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token operator">>></span>i<span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token operator">*</span>num1 <span class="token operator">^</span><span class="token operator">=</span> x<span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            <span class="token operator">*</span>num2 <span class="token operator">^</span><span class="token operator">=</span> x<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="41和为S的连续序列"><a href="#41和为S的连续序列" class="headerlink" title="41和为S的连续序列"></a>41和为S的连续序列</h2><ul>
+<li><p>Clion真强啊。我的代码本来这样：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>提示，1，可以简化。2，<code>x==0</code>最好写 <code>0 == x</code>  3，if(a==b)return true; 建议改成 if(!=)return false; 为啥？</p>
+<p>最好改成了<code>return (x &amp; 1) == 0;</code></p>
+</li>
+<li><p>开始没考虑输入1的情况。但是我自己分奇数偶数做的，牛客AC了。</p>
+</li>
+<li><p>牛客的测试用例绝对不全。LeetCode过不了85这个用例。</p>
+</li>
+<li></li>
+</ul>
+
             </div>
             <hr>
 
