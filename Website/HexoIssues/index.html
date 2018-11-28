@@ -5,10 +5,16 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Python廖雪峰练习, 炫杉">
-    <meta name="description" content="这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！
+    <meta name="keywords" content="Hexo使用问题总结, 炫杉">
+    <meta name="description" content="汇总一下Hexo遇到的问题，以及以后出现问题都会更新到这里
 
-函数的参数def pr">
+独立贴
+插图问题
+
+在Git仓库设置一个分支推送源码，主分支负责展示
+
+有时候想传一个静态的HTML页面直接放在Source文件夹，不想被Hexo g的时候渲染，怎么办呢？
+He">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +22,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Python廖雪峰练习 | 炫杉</title>
+    <title>Hexo使用问题总结 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -208,13 +214,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Python廖雪峰练习
+                        Hexo使用问题总结
                     </div>
                 </div>
             </div>
@@ -325,8 +331,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/Python/" target="_blank">
-                    <span class="chip bg-color">Python</span>
+                <a href="/tags/Hexo/" target="_blank">
+                    <span class="chip bg-color">Hexo</span>
                 </a>
                 
             </div>
@@ -336,116 +342,35 @@
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/Python/" class="post-category" target="_blank">
-                        Python
+                    <a href="/categories/Website/" class="post-category" target="_blank">
+                        Website
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-03-21
+                    <i class="fa fa-clock-o fa-fw"></i>2018-11-28
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。<br>莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！</p>
+                <p>汇总一下Hexo遇到的问题，以及以后出现问题都会更新到这里</p>
 <a id="more"></a>
-<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><pre class="line-numbers language-Python"><code class="language-Python">def product(*number):    
-  if number == ():
-     raise TypeError 
-  a = 1
-  for x in number:
-      a = x*a
-  return a
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><pre class="line-numbers language-Python"><code class="language-Python">def move(n, a, b, c):
-    if n == 1:
-        print ( a , '-->' , c)
-    else:
-        move(n-1,a,c,b) #假设move函数没问题，A上前n-1个会被移动至B
-        move(1,a,b,c) #此时把最大的放到C
-        move(n-1,b,a,c)
-#move(4,'A','B','C')
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">trim</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> s <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> s
-    <span class="token keyword">while</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
-        s <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
-        <span class="token keyword">if</span> s <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token string">''</span>
-    <span class="token keyword">while</span> s<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
-        s <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-    <span class="token keyword">return</span> s
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><pre class="line-numbers language-Python"><code class="language-Python">def findMinAndMax(L):
-    if L == []:
-        return (None,None)
-    else:
-        a = L[0]
-        b = L[0]
-        for i in L:
-            if i < a:
-                a = i
-            if i > b:
-                b = i
-    return (a,b)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><pre class="line-numbers language-Python"><code class="language-Python">L1 = ['Hello', 'World', 18, 'Apple', None]
-L2 = [ x.lower() for x in L1 if isinstance(x,str) ]
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><pre class="line-numbers language-Python"><code class="language-Python">def triangles():
-    n = 2
-    a = [1,1]
-    b = [1]
-    yield [1]
-    yield [1,1]
-    while 1:
-        for i in range(1,n):
-            b.append(a[i] + a[i-1])
-        b.append(1)
-        n = n+1
-        a = b
-        b = [1]
-        yield a
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h2><pre class="line-numbers language-Python"><code class="language-Python">def normalize(name):
-    return name[0].upper() + name[1:].lower()
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-Python"><code class="language-Python">def cheng(x,y):
-    return x*y
-return reduce(cheng,L)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-Python"><code class="language-Python">from functools import reduce
-def str2float(s):
-    DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '.': 999}
-    def fn(x, y):
-        if y == 999:
-            return x
-        return x * 10 + y
-    def char2num(s):
-        return DIGITS[s]
-
-    n = s.index('.')
-
-    return reduce(fn, map(char2num, s))/(10**n)
-
-#跳过小数点：
-#我把 '.' 转换成 999 当遇到999 不做计算 return x 。像个傻子 🤪
-#正确方法：
-#s[:n]+s[n+1:] n是小数点位置。取 前n个和第n+1个开始往后的字符串即可。
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="fliter"><a href="#fliter" class="headerlink" title="fliter"></a>fliter</h2><p>跳过</p>
-<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><pre class="line-numbers language-Python"><code class="language-Python">def by_name(t):
-    return t[0]
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-Python"><code class="language-Python">def by_score(t):
-    return -t[1]
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>​</p>
+<h1 id="独立贴"><a href="#独立贴" class="headerlink" title="独立贴"></a>独立贴</h1><ul>
+<li><p><a href="./HexoPic">插图问题</a></p>
+</li>
+<li><p><a href="./Hexo_set_branch">在Git仓库设置一个分支推送源码，主分支负责展示</a></p>
+</li>
+<li><p>有时候想传一个静态的HTML页面直接放在Source文件夹，不想被<code>Hexo g</code>的时候渲染，怎么办呢？</p>
+<p><a href="./Hexo_seet_extral">Hexo渲染设置例外</a></p>
+</li>
+<li><p><a href="./Hexo01#同时部署到github和coding">Hexo同时推送到多个仓库</a></p>
+</li>
+</ul>
+<h1 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h1><h2 id="node-1532-DEP0061-DeprecationWarning-fs-SyncWriteStream-is-deprecated"><a href="#node-1532-DEP0061-DeprecationWarning-fs-SyncWriteStream-is-deprecated" class="headerlink" title="(node:1532) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated."></a><code>(node:1532) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.</code></h2><p>解决，<code>/你的Hexo根目录/node_modules/hexo-admin/node_modules/hexo-fs/lib/fs.js</code>这个文件，打开，<br>718行:<code>exports.SyncWriteStream = fs.SyncWriteStream;</code> //注释掉 。<br>完工</p>
 
             </div>
             <hr>
@@ -467,7 +392,7 @@ def str2float(s):
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Python/Python廖雪峰练习/" class="b-link-green">Python廖雪峰练习</a>
+                    <a href="/Website/HexoIssues/" class="b-link-green">Hexo使用问题总结</a>
                 </p>
             </div>
         </div>
@@ -509,40 +434,49 @@ def str2float(s):
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/Python/Python初探/">
+                <a href="/Website/HexoIssues/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Python初探">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Hexo使用问题总结">
                         
-                        <span class="card-title">Python初探</span>
+                        <span class="card-title">Hexo使用问题总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是我刚开始学习Python时做的笔记，百度Python后先看到有廖雪峰的教程。就对着看了一遍。紧接着同学推荐了莫烦的教程，果然，这个教程上手更快。另外我认为Python作为一个脚本语言，很多东西是在学习的时候没法记忆的，勤查着点就够了。因</div>
+                    <div class="summary">汇总一下Hexo遇到的问题，以及以后出现问题都会更新到这里
+
+独立贴
+插图问题
+
+在Git仓库设置一个分支推送源码，主分支负责展示
+
+有时候想传一个静态的HTML页面直接放在Source文件夹，不想被Hexo g的时候渲染，怎么办呢？
+He</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/Website/" class="post-category" target="_blank">
+                                    Website
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/Hexo/" target="_blank">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>
@@ -554,44 +488,33 @@ def str2float(s):
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Others/SQL/">
+                <a href="/MasterTheorem/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="SQL">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="MasterTheorem">
                         
-                        <span class="card-title">SQL</span>
+                        <span class="card-title">MasterTheorem</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">noSql数据库满天飞的情况下，安下心来让SQL尘埃落定吧。（出来混总要还的😌）《SQL必知必会》读书笔记，Ben Forta著。
-
-了解SQLStructured Query Language 结构化查询语言
-基础语法
-|   表示 在</div>
+                    <div class="summary">Master Therem，大学的时候段老师说成是“主定理”，后来看其他地方会翻译成：主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的感觉，而且让没听过的人听到起码知道这是个定理名字。说“主定理”别人都不知道是哪三个字。
+</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-02-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/SQL/" target="_blank">
-                        <span class="chip bg-color">SQL</span>
-                    </a>
-                    
                 </div>
                 
             </div>

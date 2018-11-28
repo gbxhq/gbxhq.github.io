@@ -6,7 +6,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="LeetCode 200-300, 炫杉">
-    <meta name="description" content="知识点：npos[345] 、memset[387] 、  reverse()[557]、   istringstream[557]、树[606]、to_string()[788]、transform()[819]、strA.find(st">
+    <meta name="description" content="知识点：npos[345] 、memset[387] 、  reverse()557、   istringstream557、树[606]、to_string()[788]、transform()[819]、strA.find(strB) ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -353,8 +353,12 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>知识点：<code>npos</code>[345] 、<code>memset</code>[387] 、  <code>reverse()</code>[557]、   <code>istringstream</code>[557]、<code>树</code>[606]、<code>to_string()</code>[788]、<code>transform()</code>[819]、<code>strA.find(strB) != string:npos</code>[#686]</p>
+                <p>知识点：<code>npos</code>[345] 、<code>memset</code>[387] 、  <code>reverse()</code><a href="#557反转字符串中的单词III">557</a>、   <code>istringstream</code><a href="#557反转字符串中的单词III">557</a>、<code>树</code>[606]、<code>to_string()</code>[788]、<code>transform()</code>[819]、<code>strA.find(strB) != string:npos</code>[#686]</p>
 <a id="more"></a>
+<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><ul>
+<li style="list-style: none"><input type="checkbox"> 超级丑数的两个答案看懂</li>
+<li style="list-style: none"><input type="checkbox"> </li>
+</ul>
 <h1 id="203-删除链表中的节点"><a href="#203-删除链表中的节点" class="headerlink" title="203 删除链表中的节点"></a>203 删除链表中的节点</h1><p>和237题不同的是这个题是给了值。237题给的是节点。</p>
 <p>感悟和上一个#83题查不多。就是想删除某个节点。只把 cur指针赋NULL是不行的。因为<strong>上一个节点的next 还指着 之前 cur的地址</strong>啊。cur是为空了，上一个节点的next不是空啊。</p>
 <p>因为觉得删最后一个节点的情况不好写。转递归法一气呵成哈哈。</p>
@@ -454,12 +458,12 @@ phead<span class="token punctuation">.</span>next <span class="token operator">=
 <p>注意此题简单的一个重要条件就是：</p>
 <p><strong>给点节点为非末尾节点</strong></p>
 <p>这样就不会有删除最后一个节点的情况。</p>
-<h1 id="263-丑数"><a href="#263-丑数" class="headerlink" title="263 丑数"></a>263 丑数</h1><ul>
+<h1 id="263丑数"><a href="#263丑数" class="headerlink" title="263丑数"></a>263丑数</h1><ul>
 <li>没考虑输入0的情况</li>
 <li>加了 禁止 i/o 同步的代码后，时间从 8ms–&gt; 0ms</li>
 </ul>
-<h1 id="264-丑数2"><a href="#264-丑数2" class="headerlink" title="264 丑数2"></a>264 丑数2</h1><p>剑指Offer刷过了</p>
-<h1 id="313-超级丑数"><a href="#313-超级丑数" class="headerlink" title="313 超级丑数"></a>313 超级丑数</h1><p>按照丑数2的思维原封不动地写，AC了。虽然AC了。但是也太辣鸡了，执行了12s。第一名12ms。一百倍的效率差距，完美的解释了我能打100个。赶紧去看看人家怎么写的。</p>
+<h1 id="264丑数2"><a href="#264丑数2" class="headerlink" title="264丑数2"></a>264丑数2</h1><p>剑指Offer刷过了</p>
+<h1 id="313超级丑数"><a href="#313超级丑数" class="headerlink" title="313超级丑数"></a>313超级丑数</h1><p>按照丑数2的思维原封不动地写，AC了。虽然AC了。但是也太辣鸡了，执行了12s。第一名12ms。一百倍的效率差距，完美的解释了我能打100个。赶紧去看看人家怎么写的。</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">nthSuperUglyNumber</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> primes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     priority_queue<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span><span class="token punctuation">,</span> greater<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> <span class="token operator">></span> min_heap<span class="token punctuation">;</span>
     vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">uglies</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//丑数集</span>
@@ -506,16 +510,16 @@ phead<span class="token punctuation">.</span>next <span class="token operator">=
     <span class="token keyword">return</span> ugly<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="709-转换成小写字母"><a href="#709-转换成小写字母" class="headerlink" title="709. 转换成小写字母"></a>709. 转换成小写字母</h1><p><code>A~Z</code>的ascii码为<code>65~90</code>   小写字母对应+32</p>
-<h1 id="657-机器人能否返回原点"><a href="#657-机器人能否返回原点" class="headerlink" title="657. 机器人能否返回原点"></a>657. 机器人能否返回原点</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">judgeCircle</span><span class="token punctuation">(</span>string moves<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h1 id="709转换成小写字母"><a href="#709转换成小写字母" class="headerlink" title="709转换成小写字母"></a>709转换成小写字母</h1><p><code>A~Z</code>的ascii码为<code>65~90</code>   小写字母对应+32</p>
+<h1 id="657机器人能否返回原点"><a href="#657机器人能否返回原点" class="headerlink" title="657机器人能否返回原点"></a>657机器人能否返回原点</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">judgeCircle</span><span class="token punctuation">(</span>string moves<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">char</span> tb<span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> ch <span class="token operator">:</span> moves<span class="token punctuation">)</span>
         <span class="token operator">++</span>tb<span class="token punctuation">[</span>ch<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> tb<span class="token punctuation">[</span><span class="token string">'R'</span><span class="token punctuation">]</span> <span class="token operator">==</span> tb<span class="token punctuation">[</span><span class="token string">'L'</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> tb<span class="token punctuation">[</span><span class="token string">'U'</span><span class="token punctuation">]</span> <span class="token operator">==</span> tb<span class="token punctuation">[</span><span class="token string">'D'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="344-反转字符串"><a href="#344-反转字符串" class="headerlink" title="344. 反转字符串"></a>344. 反转字符串</h1><p>EASY</p>
-<h1 id="557-反转字符串中的单词III"><a href="#557-反转字符串中的单词III" class="headerlink" title="557. 反转字符串中的单词III"></a>557. 反转字符串中的单词III</h1><p>从句子里取单词的方法：</p>
+<h1 id="344反转字符串"><a href="#344反转字符串" class="headerlink" title="344反转字符串"></a>344反转字符串</h1><p>EASY</p>
+<h1 id="557反转字符串中的单词III"><a href="#557反转字符串中的单词III" class="headerlink" title="557反转字符串中的单词III"></a>557反转字符串中的单词III</h1><p>从句子里取单词的方法：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">string <span class="token function">reverseWords</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     istringstream <span class="token function">is</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
     string t <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
@@ -529,9 +533,9 @@ phead<span class="token punctuation">.</span>next <span class="token operator">=
     <span class="token keyword">return</span> res<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="521-最长特殊序列I"><a href="#521-最长特殊序列I" class="headerlink" title="521. 最长特殊序列I"></a>521. 最长特殊序列I</h1><p>抠定义的题。直接返回最长的子串长度即可。</p>
-<h1 id="520-检测大写字母"><a href="#520-检测大写字母" class="headerlink" title="520. 检测大写字母"></a>520. 检测大写字母</h1><p>各种if分情况🙂</p>
-<h1 id="788-旋转数字"><a href="#788-旋转数字" class="headerlink" title="788. 旋转数字"></a>788. 旋转数字</h1><ul>
+<h1 id="521最长特殊序列I"><a href="#521最长特殊序列I" class="headerlink" title="521最长特殊序列I"></a>521最长特殊序列I</h1><p>抠定义的题。直接返回最长的子串长度即可。</p>
+<h1 id="520检测大写字母"><a href="#520检测大写字母" class="headerlink" title="520检测大写字母"></a>520检测大写字母</h1><p>各种if分情况🙂</p>
+<h1 id="788旋转数字"><a href="#788旋转数字" class="headerlink" title="788旋转数字"></a>788旋转数字</h1><ul>
 <li><p>int转string： <code>str = tostring(i);</code></p>
 </li>
 <li><p>最好不要一次写两次循环。能拆出函数来就写一个函数。</p>
@@ -712,57 +716,6 @@ string <span class="token function">tree2str</span><span class="token punctuatio
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/fun/Heroku_ssh/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Heroku搭建自己的ss服务器教程">
-                        
-                        <span class="card-title">Heroku搭建自己的ss服务器教程</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">Heroku是日本一家网站。为开发者提供了免费部署项目的服务器。虽然访问Heroku是被qiang的。但是用Heroku部署后的应用(saas/web app)其主机在美国和欧洲，且主机地址没有被qiang。利用这一点就可以免费搭建一个自己</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-12
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
-                    </a>
-                    
-                    <a href="/tags/Heroku/" target="_blank">
-                        <span class="chip bg-color">Heroku</span>
-                    </a>
-                    
-                    <a href="/tags/ss/" target="_blank">
-                        <span class="chip bg-color">ss</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
                 <a href="/Algorithm/LeetCode300plus/">
                     <div class="card-image">
                         
@@ -775,9 +728,9 @@ string <span class="token function">tree2str</span><span class="token punctuatio
                 <div class="card-content article-content">
                     <div class="summary">知识点：npos[345] 、memset[387] 、  reverse()[557]、   istringstream[557]、树[606]、to_string()[788]、transform()[819]、strA.find(st</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -799,6 +752,53 @@ string <span class="token function">tree2str</span><span class="token punctuatio
                     
                     <a href="/tags/LeetCode/" target="_blank">
                         <span class="chip bg-color">LeetCode</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Others/ProblemsinUsingVSCode/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Problems in Using VSCode">
+                        
+                        <span class="card-title">Problems in Using VSCode</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Sublime转战VS Code。因为Debug。
+
+先加入环境变量从终端调起VS Code还是很常用的。
+先打开环境变量配置文件。目录是~/.bash_profile。我用Sublime打开（玩不了vim）命令就是
+subl ~/.bas</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Others/" class="post-category" target="_blank">
+                                    Others
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/tips/" target="_blank">
+                        <span class="chip bg-color">tips</span>
                     </a>
                     
                 </div>

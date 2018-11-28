@@ -620,11 +620,14 @@ ostream<span class="token operator">&amp;</span> <span class="token keyword">ope
 </li>
 </ul>
 <h1 id="11"><a href="#11" class="headerlink" title="11"></a>11</h1><ul>
-<li><p>♦Composition：复合 </p>
+<li><p>♦Composition：复合 ,has-a</p>
 </li>
 <li><p>♢Delegation：委托 </p>
-<p>pImpI：编译防火墙。右边的代码（代理）怎么改都不影响左边。</p>
+<p>pImpl(pooint to Implementation)：编译防火墙。右边的代码（代理）怎么改都不影响左边。</p>
+<blockquote>
+<p>延伸：reference counting 共享特性。</p>
 <p>copy on write: ABC共享一个东西。A想改一下，就给A一个副本让A去改。BC继续共享。</p>
+</blockquote>
 </li>
 <li><p>▷Inheritance：继承</p>
 <p>与复合一样，构造的时候先构造别人，再构造自己（容器）的。  析构的时候先析构外层的自己，再析构里面的。因为自己是包着继承（复合）类的全部内容。</p>

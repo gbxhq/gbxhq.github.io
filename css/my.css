@@ -8,6 +8,7 @@
     font-family: FZYanSongM, sans-serif;
 } */
 
+/* 标题鼠标经过效果 */
 .title:hover {
     text-shadow: rgba(51, 51, 51, 0.7) 10px 10px 10px;
     -webkit-transition: text-shadow 1s ease;
@@ -36,6 +37,7 @@
     height: 18vh !important;
 }
 
+/* 原主题彩虹样式 */
 @-webkit-keyframes rainbow {
    
 }
@@ -51,3 +53,30 @@
     margin-right: -20px;
     padding-right: 20px;
 } */
+
+/* 下面是瞎折腾区域 */
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07) !important;
+}
+.card .card-image img {
+    border-radius: 5px 5px 0 0;
+}
+
+.bg-color {
+    background-image: linear-gradient(to right, #3f54af 0%, #f76363 100%);
+}
+
+.text-color {
+    color: #2886d3 !important;
+}
+
+.progress-bar {
+    height: 4px;
+    position: fixed;
+    bottom: 0;
+    z-index: 300;
+    background: linear-gradient(to right, #76adff 0%, #c42bc4 100%);
+    opacity: 0.8;
+}

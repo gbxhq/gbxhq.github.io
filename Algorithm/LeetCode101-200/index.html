@@ -540,9 +540,10 @@
 <ul>
 <li><p>如vt的内容是 1 2 3 4 5 6 7</p>
 <p><code>reverse(vt.begin(),vt.begin()+3)</code>执行后，反转的就是前三个数。变成：</p>
-<p>321  4567</p>
-<p>虽然vt.begin()+3已经指向了4这个元素。</p>
+<p><code>321  4567</code></p>
+<p>虽然<code>vt.begin()+3</code>已经指向了<code>4</code>这个元素。</p>
 <p>这也可以解释为什么<code>reverse(vt.begin(),vt.end())</code>在end()指向空的时候，为什么可以翻转整个vector。</p>
+<p>–&gt;四个字：<strong>左闭右开！</strong></p>
 </li>
 <li><p>输入的位移量大于数组长度的情况要考虑到，取余即可。（怕的是想不到）</p>
 </li>
