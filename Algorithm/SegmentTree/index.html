@@ -5,14 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="SegmentTree 线段树, 炫杉">
-    <meta name="description" content="可用于：单点替换，区间最值。
+    <meta name="keywords" content="SegmentTree 线段树基础版, 炫杉">
+    <meta name="description" content="线段树基础版关键词：单点替换，区间最值。
 
 用二分法的思想。建立完全二叉树–》叶节点是每个元素。
 父亲节点则是要保存的结果元素。比如给出数组：[6,9,5,6,8,2,0]  求某个区间最大的数：
 
 所有的查询只需要建树完就搞定。
-由于是完全二叉树。可">
+由于是完">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>SegmentTree 线段树 | 炫杉</title>
+    <title>SegmentTree 线段树基础版 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -212,13 +212,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        SegmentTree 线段树
+                        SegmentTree 线段树基础版
                     </div>
                 </div>
             </div>
@@ -347,7 +347,7 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>可用于：<strong>单点替换，区间最值</strong>。</p>
+                <p>线段树基础版关键词：<strong>单点替换，区间最值</strong>。</p>
 <a id="more"></a>
 <p>用二分法的思想。建立完全二叉树–》叶节点是每个元素。</p>
 <p>父亲节点则是要保存的结果元素。比如给出数组：[6,9,5,6,8,2,0]  求某个区间最大的数：</p>
@@ -355,10 +355,10 @@
 <p>所有的查询只需要建树完就搞定。</p>
 <p>由于是完全二叉树。可以直接用数组做~</p>
 <p>假设我们现在要求给定区间的Max值。下面一步步分析过程。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//rt:root</span>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//rt:root的意思</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> lson rt&lt;&lt;1</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> rson rt&lt;&lt;1|1</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> m (l+2)>>1</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> m (l+r)>>1</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>解释：在数组中，第i节点的左孩子lson就是 ix2,有孩子rson就是 ix2+1</p>
 <h1 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h1><p>先介绍 pushUp 方法，在我们建树和更新的时候要用，</p>
@@ -369,11 +369,11 @@
 <p>解释：传入root节点下标，通过它的左右孩子值，取二者最大的存入</p>
 <p>然后就是 建树的过程：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">,</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">==</span>r<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//是叶节点，存数</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">==</span>r<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//是叶节点，存数并返回(叶节点不必执行pushUp)</span>
     <span class="token punctuation">{</span>
         tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span> <span class="token operator">=</span> vt<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//从vt里读取数据存入tree中</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//不是叶节点就走下面的过程</span>
     <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token function">build</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span>m<span class="token punctuation">,</span>lson<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">build</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">,</span>rson<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -385,7 +385,7 @@
 <pre class="line-numbers language-cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> vt<span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token function">build</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>打印tree看一下：</p>
+<p>打印tree看一下：<img src="../../images/image-20181123162104795.png" alt="image-20181123162104795"></p>
 <p><code>[1]:9 [2]:9 [3]:8 [4]:9 [5]:6 [6]:8 [7]:0 [8]:6 [9]:9 [10]:5 [11]:6 [12]:8 [13]:2</code></p>
 <h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>我们先看单点更新的情况，只需要配合前面的pushUp，更新了叶节点之后，再层层Up把改更新的父节点也更新就好了：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">,</span><span class="token keyword">int</span> newVal<span class="token punctuation">,</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">,</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//单点更新，只需要一个坐标即可</span>
@@ -403,7 +403,7 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>解释：由于只更新index这一个点。我们看index和m的大小，判断继续更新左子树还是右子树。</p>
-<p>现在我们更新第6个点，把原来的0换成99：</p>
+<p>现在我们更新第6个点，把原来的2换成99：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token function">update</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">99</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//插入</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>输出结果：</p>
@@ -439,13 +439,13 @@ update6<span class="token punctuation">,</span><span class="token number">6</spa
 <pre class="line-numbers language-cpp"><code class="language-cpp">query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token number">1</span>
 query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token number">2</span>
 query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">4</span>
-query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">9</span>
-query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token number">5</span>
+query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">9</span> <span class="token comment" spellcheck="true">//tree[9]=9 Max=9</span>
+query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token number">5</span> <span class="token comment" spellcheck="true">//tree[5]=6 Max=9</span>
 query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token number">3</span>
-query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token number">6</span>
+query <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span> <span class="token number">6</span>    <span class="token comment" spellcheck="true">//tree[6]=99 Max=99</span>
 <span class="token number">99</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>分析：查[2,6] ，</p>
+<p>分析：查[2,6]里的Max，</p>
 <ol>
 <li>跟[1,7]对比发现，1不在[2,6]</li>
 <li>跟[1,4]对比发现，1不在[2,6]</li>
@@ -455,8 +455,8 @@ query <span class="token punctuation">[</span><span class="token number">2</span
 <li>跟[5,7]对比发现，7不在[2,6]</li>
 <li>跟[5,6]对比，[5,6]在[2,6]中，返回tree[6] 是99</li>
 </ol>
-<p>综上，9、6、99里返回了最大的99</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//线段树 求解区间最值问题</span>
+<p>综上，把区间[2,6]拆成了（2）（3,4）（5,6）三个区间，从9、6、99里返回了最大的99</p>
+<h1 id="基础版代码（仅单点更新）"><a href="#基础版代码（仅单点更新）" class="headerlink" title="基础版代码（仅单点更新）"></a>基础版代码（仅单点更新）</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//线段树 求解区间最值问题</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
 <span class="token comment" spellcheck="true">//#include "../Vt.h"</span>
@@ -527,9 +527,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="PushDown"><a href="#PushDown" class="headerlink" title="PushDown"></a>PushDown</h1><p>单点更新的情况比较简单。下面说pushDown。</p>
-<p>用于区间更新。 </p>
-<p>关键词：延迟加载、懒标记</p>
+<p>关于区间更新、延迟加载。请看 <a href="../SegmentTree2">线段树完全版</a></p>
 
             </div>
             <hr>
@@ -551,7 +549,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Algorithm/SegmentTree/" class="b-link-green">SegmentTree 线段树</a>
+                    <a href="/Algorithm/SegmentTree/" class="b-link-green">SegmentTree 线段树基础版</a>
                 </p>
             </div>
         </div>
@@ -641,41 +639,38 @@ int res = I</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Others/UsefulTips2/">
+                <a href="/Algorithm/SegmentTree2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="UsefulTips2">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="SegmentTree-Complete 线段树完全版">
                         
-                        <span class="card-title">UsefulTips2</span>
+                        <span class="card-title">SegmentTree-Complete 线段树完全版</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">日常使用的一些姿势~
+                    <div class="summary">线段树完全版关键词：延迟加载、懒标记Lazy Tag
 
-
-原来PPT可以存成.ppsx 的格式，双击打开就直接播放（可与防止被改动
-
-Markdown折叠效果  就类似这样：Click to expand  这里不能插入Markdown了其实就是用HTML的&lt;det</div>
+单点更新的情况比较简单。请看 线段树基础版
+下面说说区间更新的情况。
+场景是这样的，还是刚刚的数，求区间的和。
+准备工作//rt:root
+#define lson rt&lt;&lt</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-20
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            ixsim
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
-                    </a>
-                    
                 </div>
                 
             </div>
