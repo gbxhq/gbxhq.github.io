@@ -1,7 +1,7 @@
 ---
 title: EOS初探
 date: 2018-05-01 09:55:09
-categories: Blockchain
+categories: fun
 tags: Blockchain
 ---
 

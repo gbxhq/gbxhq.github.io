@@ -264,13 +264,13 @@ ostream& operator<<(ostream& os, const myString &oneStr) {
   `static loacl object`不会销毁
 
 - `new`的对象存在 heap 里。不会被销毁。需要手动`delete`
-- 这一课博大精深。复习请看视频！
+- **这一课博大精深。复习请看视频！**
 
-# 9 
+# 9 复习课
 
-复习课
 
-# 10 
+
+# 10 Static
 
 - static
 
@@ -285,15 +285,17 @@ ostream& operator<<(ostream& os, const myString &oneStr) {
   }
   ```
 
-# 11
+# 11复合委托继承
 
-- ♦Composition：复合 
+- ♦Composition：复合 ,has-a
 
 - ♢Delegation：委托 
 
-  pImpI：编译防火墙。右边的代码（代理）怎么改都不影响左边。
+  pImpl(pooint to Implementation)：编译防火墙。右边的代码（代理）怎么改都不影响左边。
 
-  copy on write: ABC共享一个东西。A想改一下，就给A一个副本让A去改。BC继续共享。
+  > 延伸：reference counting 共享特性。
+  >
+  > copy on write: ABC共享一个东西。A想改一下，就给A一个副本让A去改。BC继续共享。
 
 - ▷Inheritance：继承
 
@@ -304,4 +306,15 @@ ostream& operator<<(ostream& os, const myString &oneStr) {
 # 12 虚函数
 
 - UML图里斜体表示抽象
-- [ ] 继承和复合同时用，构造和析构的顺序是怎么样的呢？
+
+- [x] 继承和复合同时用，构造和析构的顺序是怎么样的呢？手写测试
+
+
+
+  ```cpp
+  B has an A. A构造 B构造 B析构 A析构 
+  C is an A. A构造 C构造 C析构 A析构 
+  D is an A,having a Z A构造 Z构造 D构造 D析构 Z析构 A析构 
+  ```
+
+  可以看出，D继承A，里面复合一个Z的时候。先构造A，再构造Z，最后构造D自己。析构完全相反。

@@ -2,7 +2,7 @@
 title: LeetCode51-100
 date: 2018-11-21 10:13:23
 categories: Algorithm
-tags: LeetCode
+tags: [LeetCode,Cpp]
 ---
 
 `int的范围、牛顿迭代法`[[69]](#69x 的平方根)      `copy(1.begin,1.end,2.begin)、rbegin\rend`[[88]](#88合并两个有序数组)

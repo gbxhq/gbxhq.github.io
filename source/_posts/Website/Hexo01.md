@@ -1,5 +1,5 @@
 ---
-title: Hexo建站问题总结****
+title: Hexo建站问题总结
 date: 2018-03-21
 categories: Website
 tags: Hexo
@@ -13,8 +13,6 @@ tags: Hexo
 
 <!--more-->
 
-[TOC]
-
 今天博客就算是搭建完成了。
 
 # 搭建
@@ -23,7 +21,7 @@ tags: Hexo
 
 参考[官方文档](https://hexo.io/docs/)，安装还是顺利的。
 ## 主题
-知乎搜到这个[Next主题](http://theme-next.iissnan.com)。
+[Next主题](http://theme-next.iissnan.com)。Hexo半壁江山了快😂😂😂
 
 # Problems
 
@@ -82,7 +80,7 @@ src="//music.163.com/outchain/player?type=2&id=544918737&auto=1&height=66">
 
 看来Hexo是支持`iframe`的
 
-
+> 支持嵌入HTML
 
 ## 自定义域名
 
