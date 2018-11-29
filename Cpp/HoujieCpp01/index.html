@@ -605,10 +605,9 @@ ostream<span class="token operator">&amp;</span> <span class="token keyword">ope
 </li>
 <li><p><code>new</code>的对象存在 heap 里。不会被销毁。需要手动<code>delete</code></p>
 </li>
-<li>这一课博大精深。复习请看视频！</li>
+<li><strong>这一课博大精深。复习请看视频！</strong></li>
 </ul>
-<h1 id="9"><a href="#9" class="headerlink" title="9"></a>9</h1><p>复习课</p>
-<h1 id="10"><a href="#10" class="headerlink" title="10"></a>10</h1><ul>
+<h1 id="9-复习课"><a href="#9-复习课" class="headerlink" title="9 复习课"></a>9 复习课</h1><h1 id="10-Static"><a href="#10-Static" class="headerlink" title="10 Static"></a>10 Static</h1><ul>
 <li><p>static</p>
 <p>static函数只能调static属性。</p>
 <p>单例模式可以借助这个实现：</p>
@@ -619,7 +618,7 @@ ostream<span class="token operator">&amp;</span> <span class="token keyword">ope
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h1 id="11"><a href="#11" class="headerlink" title="11"></a>11</h1><ul>
+<h1 id="11复合委托继承"><a href="#11复合委托继承" class="headerlink" title="11复合委托继承"></a>11复合委托继承</h1><ul>
 <li><p>♦Composition：复合 ,has-a</p>
 </li>
 <li><p>♢Delegation：委托 </p>
@@ -635,9 +634,16 @@ ostream<span class="token operator">&amp;</span> <span class="token keyword">ope
 </li>
 </ul>
 <h1 id="12-虚函数"><a href="#12-虚函数" class="headerlink" title="12 虚函数"></a>12 虚函数</h1><ul>
-<li>UML图里斜体表示抽象</li>
-<li style="list-style: none"><input type="checkbox"> 继承和复合同时用，构造和析构的顺序是怎么样的呢？</li>
+<li><p>UML图里斜体表示抽象</p>
+</li>
+<li><p>[x] 继承和复合同时用，构造和析构的顺序是怎么样的呢？手写测试</p>
+</li>
 </ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp">  B has an A<span class="token punctuation">.</span> A构造 B构造 B析构 A析构 
+  C is an A<span class="token punctuation">.</span> A构造 C构造 C析构 A析构 
+  D is an A<span class="token punctuation">,</span>having a Z A构造 Z构造 D构造 D析构 Z析构 A析构 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>  可以看出，D继承A，里面复合一个Z的时候。先构造A，再构造Z，最后构造D自己。析构完全相反。</p>
 
             </div>
             <hr>

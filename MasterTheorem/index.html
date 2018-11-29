@@ -6,8 +6,10 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="MasterTheorem, 炫杉">
-    <meta name="description" content="Master Therem，大学的时候段老师说成是“主定理”，后来看其他地方会翻译成：主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的感觉，而且让没听过的人听到起码知道这是个定理名字。说“主定理”别人都不知道是哪三个字。
-">
+    <meta name="description" content="Master Therem，翻译成：主定理、主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的。
+
+一般情况下先简单看先O(lg(k))，
+在二分查找、堆的操作中，一次操作就可以减少一半的工作量，一次循环就少一半，效率不就是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -342,13 +344,14 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Master Therem，大学的时候段老师说成是“主定理”，后来看其他地方会翻译成：主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的感觉，而且让没听过的人听到起码知道这是个定理名字。说“主定理”别人都不知道是哪三个字。</p>
+                <p>Master Therem，翻译成：主定理、主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的。</p>
 <p><a id="more"></a></p>
-<p>先简单看先O(<strong>lg(k)</strong>)~</p>
+<h1 id="一般情况下"><a href="#一般情况下" class="headerlink" title="一般情况下"></a>一般情况下</h1><p>先简单看先O(<strong>lg(k)</strong>)，</p>
 <p>在二分查找、堆的操作中，一次操作就可以减少一半的工作量，一次循环就少一半，效率不就是 <strong>lg(k)</strong> 嘛。</p>
 <h1 id="递归的时间复杂度"><a href="#递归的时间复杂度" class="headerlink" title="递归的时间复杂度"></a>递归的时间复杂度</h1><p>问题在于，对于递归求解的时间复杂度分析。</p>
-<p>下面的内容转自 架构师之路公众号：</p>
-<h2 id="案例一：计算-1到n的和，时间复杂度分析。"><a href="#案例一：计算-1到n的和，时间复杂度分析。" class="headerlink" title="案例一：计算 1到n的和，时间复杂度分析。"></a><strong>案例一：计算 1到n的和，时间复杂度分析。</strong></h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<p>下面的内容转自 架构师之路公众号</p>
+<h2 id="案例一：计算-1到n的和"><a href="#案例一：计算-1到n的和" class="headerlink" title="案例一：计算 1到n的和"></a><strong>案例一：计算 1到n的和</strong></h2><p><strong>时间复杂度分析。</strong></p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> n<span class="token operator">+</span><span class="token function">sum</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -392,7 +395,8 @@ f(1)    =1
 <p><strong>即得到</strong>：</p>
 <p>f(n)=n</p>
 <p>已经有那么点意思了哈，再来个复杂点的算法。</p>
-<h2 id="案例二：二分查找binary-search，时间复杂度分析。"><a href="#案例二：二分查找binary-search，时间复杂度分析。" class="headerlink" title="案例二：二分查找binary_search，时间复杂度分析。"></a><strong>案例二：二分查找binary_search，时间复杂度分析。</strong></h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">BS</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> <span class="token keyword">int</span> high<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<h2 id="案例二：二分查找binary-search，"><a href="#案例二：二分查找binary-search，" class="headerlink" title="案例二：二分查找binary_search，"></a><strong>案例二：二分查找binary_search，</strong></h2><p><strong>时间复杂度分析。</strong></p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">BS</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> <span class="token keyword">int</span> high<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
 
          <span class="token keyword">if</span> <span class="token punctuation">(</span>low<span class="token operator">></span>high<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 
@@ -415,25 +419,25 @@ f(1)    =1
 <ul>
 <li>当n=1时，bs函数只计算1次</li>
 </ul>
+<blockquote>
 <p><em>画外音：不用纠结是1次还是1.5次，还是2.7次，是一个常数次。</em></p>
+</blockquote>
 <p>即：</p>
 <p><code>f(1)=1</code><strong>【式子A】</strong></p>
 <p>在n很大时，二分会进行一次比较，然后进行左侧或者右侧的递归，以减少一半的数据量：</p>
 <ul>
 <li>f(n)的计算次数，等于f(n/2)的计算次数，再加1次计算</li>
 </ul>
+<blockquote>
 <p><em>画外音：计算arr[mid]&gt;target，再减少一半数据量迭代</em></p>
+</blockquote>
 <p>即：</p>
 <p><code>f(n)=f(n/2)+1</code><strong>【式子B】</strong></p>
 <p>【式子B】不断的展开，</p>
-<pre><code>f(n)=f(n/2)+1
-
-f(n/2)=f(n/4)+1
-
-f(n/4)=f(n/8)+1
-
+<pre><code>f(n)    =f(n/2)+1
+f(n/2)    =f(n/4)+1
+f(n/4)    =f(n/8)+1
 …
-
 f(n/2^(m-1))=f(n/2^m)+1
 </code></pre><p>上面共m个等式，左侧和右侧分别相加：</p>
 <p>f(n)+f(n/2)+…+f(n/2^(m-1))</p>
@@ -443,39 +447,42 @@ f(n/2^(m-1))=f(n/2^m)+1
 <p><code>f(n)=f(n/2^m)+m</code></p>
 <p>再配合【式子A】：</p>
 <p><code>f(1)=1</code></p>
-<p>即，n/2^m=1时, f(n/2^m)=1, 此时m=lg(n), 这一步，这是分析这个算法的关键。</p>
+<p>即，n/2^m=1时, f(n/2^m)=1, 此时m=lg(n), 这一步，这是分析这个算法的关键。 </p>
 <p>将m=lg(n)带入，<strong>得到</strong>：</p>
-<p><code>f(n)=1+lg(n)</code></p>
+<p><code>f(n)=1+lg(n)</code> </p>
 <p><strong>神奇不神奇？</strong></p>
 <p>最后，大boss，快速排序递归算法，时间复杂度的分析过程。</p>
-<p><strong>案例三：快速排序quick_sort，时间复杂度分析。</strong></p>
-<p>void quick_sort(int[]arr, int low, inthigh){</p>
-<p>​         if (low==high) return;</p>
-<p>​         int i = partition(arr, low, high);</p>
-<p>​         quick_sort(arr, low, i-1);</p>
-<p>​         quick_sort(arr, i+1, high);</p>
-<p>}</p>
+<h2 id="案例三：快速排序quick-sort"><a href="#案例三：快速排序quick-sort" class="headerlink" title="案例三：快速排序quick_sort"></a><strong>案例三：快速排序quick_sort</strong></h2><p><strong>时间复杂度分析。</strong></p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">quick_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> inthigh<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>low<span class="token operator">==</span>high<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token function">partition</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> low<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">quick_sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> low<span class="token punctuation">,</span> i<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">quick_sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>仍用f(n)来表示数据量为n时，算法的计算次数，很容易知道：</p>
 <ul>
 <li>当n=1时，quick_sort函数只计算1次</li>
 </ul>
-<p>f(1)=1<strong>【式子A】</strong></p>
+<p><code>f(1)=1</code><strong>【式子A】</strong></p>
 <p>在n很大时：</p>
 <p>第一步，先做一次partition；</p>
 <p>第二步，左半区递归；</p>
 <p>第三步，右半区递归；</p>
 <p>即：</p>
 <p>f(n)=n+f(n/2)+f(n/2)=n+2*f(n/2)<strong>【式子B】</strong></p>
+<blockquote>
 <p><em>画外音：</em></p>
-<p><em>(1)partition本质是一个for，计算次数是n；</em></p>
-<p><em>(2)二分查找只需要递归一个半区，而快速排序左半区和右半区都要递归，这一点在**分治法<strong>与</strong>减治法**一章节已经详细讲述过；</em></p>
+<p>(1)partition本质是一个for，计算次数是n；</p>
+<p><em>(2)二分查找只需要递归一个半区，而快速排序左半区和右半区都要递归，这一点在<strong>分治法</strong>与<strong>减治法</strong>一章节已经详细讲述过；</em></p>
+</blockquote>
 <p>【式子B】不断的展开，</p>
-<p>f(n)=n+2*f(n/2)</p>
-<p>f(n/2)=n/2+2*f(n/4)</p>
-<p>f(n/4)=n/4+2*f(n/8)</p>
-<p>…</p>
-<p>f(n/2^(m-1))=n/2^(m-1)+2f(n/2^m)</p>
-<p>上面共m个等式，逐步带入，于是得到：</p>
+<pre><code>f(n)    =n+2*f(n/2)
+f(n/2)    =n/2+2*f(n/4)
+f(n/4)    =n/4+2*f(n/8)
+…
+f(n/2^(m-1))=n/2^(m-1)+2f(n/2^m) 
+</code></pre><p>上面共m个等式，逐步带入，于是得到：</p>
 <p>f(n)    =n+2*f(n/2)</p>
 <p>​    =n+2<em>[n/2+2</em>f(n/4)]=2n+4*f(n/4)</p>
 <p>​    =2n+4<em>[n/4+2</em>f(n/8)]=3n+8f(n/8)</p>
@@ -488,7 +495,9 @@ f(n/2^(m-1))=f(n/2^m)+1
 <p>f(n)=lg(n)<em>n+2^(lg(n))</em>f(1)=n*lg(n)+n</p>
 <p>故，快速排序的时间复杂度是n*lg(n)。</p>
 <p><strong>wacalei，有点意思哈！</strong></p>
+<blockquote>
 <p><em>画外音：额，估计83%的同学没有细究看，花5分钟细思上述过程，一定有收获。</em></p>
+</blockquote>
 <p><strong>总结</strong></p>
 <ul>
 <li><strong>for循环</strong>的时间复杂度往往是O(n)</li>
