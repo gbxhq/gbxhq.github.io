@@ -219,6 +219,10 @@ Problems
             
             <div class="article-tag">
                 
+                <a href="/tags/Cpp/" target="_blank">
+                    <span class="chip bg-color">Cpp</span>
+                </a>
+                
                 <a href="/tags/Note/" target="_blank">
                     <span class="chip bg-color">Note</span>
                 </a>
@@ -561,7 +565,7 @@ if(node!=null){
 <h2 id="36-数组中的逆序对"><a href="#36-数组中的逆序对" class="headerlink" title="36 数组中的逆序对"></a>36 数组中的逆序对</h2><p><strong>本书中遇到的第一道难题。MARK</strong></p>
 <ul>
 <li>拿到题先思考：逆序对我记着是组成原理的时候学的来~干啥用来着？</li>
-<li>为什么要模1000000007？</li>
+<li style="list-style: none"><input type="checkbox"> 为什么要模1000000007？</li>
 </ul>
 <hr>
 <ul>
@@ -571,6 +575,8 @@ if(node!=null){
 <p>知识点：<strong>线段树、离散化、动态开点</strong></p>
 </li>
 <li><p>学了下线段树，真的强大。需要去新开一篇博客写啦~</p>
+</li>
+<li><p>归并法做，过50%. 看来过不了10^5</p>
 </li>
 </ul>
 <h2 id="37-链表的公共节点"><a href="#37-链表的公共节点" class="headerlink" title="37 链表的公共节点"></a>37 链表的公共节点</h2><ul>
@@ -694,7 +700,7 @@ ListNode<span class="token operator">*</span> p2<span class="token operator">=</
 <li><p>恶心这道题</p>
 </li>
 </ul>
-<h1 id="43n个骰子的点数"><a href="#43n个骰子的点数" class="headerlink" title="43n个骰子的点数"></a>43n个骰子的点数</h1><p>牛客没这题？</p>
+<h2 id="43n个骰子的点数"><a href="#43n个骰子的点数" class="headerlink" title="43n个骰子的点数"></a>43n个骰子的点数</h2><p>牛客没这题？</p>
 <h2 id="44扑克牌顺子"><a href="#44扑克牌顺子" class="headerlink" title="44扑克牌顺子"></a>44扑克牌顺子</h2><ul>
 <li>我是不是傻子。竟然想直接遍历一次然后判断是不是顺子。</li>
 <li>轻松AC</li>
@@ -703,7 +709,33 @@ ListNode<span class="token operator">*</span> p2<span class="token operator">=</
 <li>自己模拟遍历过的。效率差</li>
 <li style="list-style: none"><input type="checkbox"> 记得刷书</li>
 </ul>
-<h2 id="46"><a href="#46" class="headerlink" title="46"></a>46</h2>
+<h2 id="46特殊法求1-n的和"><a href="#46特殊法求1-n的和" class="headerlink" title="46特殊法求1-n的和"></a>46特殊法求1-n的和</h2><p>自己是绞尽脑汁也没想出来，看书了。</p>
+<ul>
+<li>用方法1、2刷了一遍</li>
+<li style="list-style: none"><input type="checkbox"> 下次再刷，完全不看书，方法1、2自己还能想出来吗？</li>
+<li style="list-style: none"><input type="checkbox"> 记得回头还要用方法3、4刷一遍</li>
+</ul>
+<h2 id="47不用-做加法"><a href="#47不用-做加法" class="headerlink" title="47不用+-*/做加法"></a>47不用+-*/做加法</h2><p>看了书上的方法，AC了。这里要注意：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">int</span> num1<span class="token punctuation">,</span> <span class="token keyword">int</span> num2<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> num1<span class="token operator">^</span>num2<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//第一步异或</span>
+    <span class="token keyword">int</span> b <span class="token operator">=</span> num1<span class="token operator">&amp;</span>num2<span class="token punctuation">;</span>
+    b <span class="token operator">=</span> b <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//第二步进位</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>b<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> a<span class="token operator">^</span>b<span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">return</span> <span class="token function">Add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//不加return 连结果都会错。为什么呢？</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>就是第9行，如果不加 return 。结果就不对。这是为什么呢？</p>
+<h2 id="48字符串转数字"><a href="#48字符串转数字" class="headerlink" title="48字符串转数字"></a>48字符串转数字</h2><p>没啥意思。</p>
+<h2 id="49数组中的重复数字"><a href="#49数组中的重复数字" class="headerlink" title="49数组中的重复数字"></a>49数组中的重复数字</h2><p>过的有点简单啊~有空看书上咋说的吧。继续下一题了。</p>
+<h2 id="50构建乘积数组"><a href="#50构建乘积数组" class="headerlink" title="50构建乘积数组"></a>50构建乘积数组</h2><p>用线段树做，还挺容易的。不过看这题通过率这么高，应该不用这么复杂。所以记得去看书上怎么做。</p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 刷书</li>
+</ul>
+
             </div>
             <hr>
 
