@@ -5,16 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo使用问题总结, 炫杉">
-    <meta name="description" content="汇总一下Hexo遇到的问题，以及以后出现问题都会更新到这里
-
-独立贴
-插图问题
-
-在Git仓库设置一个分支推送源码，主分支负责展示
-
-有时候想传一个静态的HTML页面直接放在Source文件夹，不想被Hexo g的时候渲染，怎么办呢？
-He">
+    <meta name="keywords" content="C++学习笔记, 炫杉">
+    <meta name="description" content="
+conversion function 转换函数class Fraction{
+public:
+    Fraction(int num,int den=1)
+        : m_mumerator(num),m_denominato">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +18,7 @@ He">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hexo使用问题总结 | 炫杉</title>
+    <title>C++学习笔记 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -196,13 +192,13 @@ He">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hexo使用问题总结
+                        C++学习笔记
                     </div>
                 </div>
             </div>
@@ -222,8 +218,12 @@ He">
             
             <div class="article-tag">
                 
-                <a href="/tags/Hexo/" target="_blank">
-                    <span class="chip bg-color">Hexo</span>
+                <a href="/tags/cpp/" target="_blank">
+                    <span class="chip bg-color">cpp</span>
+                </a>
+                
+                <a href="/tags/Note/" target="_blank">
+                    <span class="chip bg-color">Note</span>
                 </a>
                 
             </div>
@@ -233,35 +233,35 @@ He">
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/Website/" class="post-category" target="_blank">
-                        Website
+                    <a href="/categories/cpp/" class="post-category" target="_blank">
+                        cpp
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-28
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-06
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>汇总一下Hexo遇到的问题，以及以后出现问题都会更新到这里</p>
-<a id="more"></a>
-<h1 id="独立贴"><a href="#独立贴" class="headerlink" title="独立贴"></a>独立贴</h1><ul>
-<li><p><a href="../HexoPic">插图问题</a></p>
-</li>
-<li><p><a href="../Hexo_set_branch">在Git仓库设置一个分支推送源码，主分支负责展示</a></p>
-</li>
-<li><p>有时候想传一个静态的HTML页面直接放在Source文件夹，不想被<code>Hexo g</code>的时候渲染，怎么办呢？</p>
-<p><a href="../Hexo_set_extral">Hexo渲染设置例外</a></p>
-</li>
-<li><p><a href="../Hexo01/#toc-heading-11">Hexo同时推送到多个仓库</a></p>
-</li>
-</ul>
-<h1 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h1><h2 id="node-1532-DEP0061-DeprecationWarning-fs-SyncWriteStream-is-deprecated"><a href="#node-1532-DEP0061-DeprecationWarning-fs-SyncWriteStream-is-deprecated" class="headerlink" title="(node:1532) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated."></a><code>(node:1532) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.</code></h2><p>解决，<code>/你的Hexo根目录/node_modules/hexo-admin/node_modules/hexo-fs/lib/fs.js</code>这个文件，打开，<br>718行:<code>exports.SyncWriteStream = fs.SyncWriteStream;</code> //注释掉 。<br>完工</p>
+                <a id="more"></a>
+<h1 id="conversion-function-转换函数"><a href="#conversion-function-转换函数" class="headerlink" title="conversion function 转换函数"></a>conversion function 转换函数</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Fraction</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Fraction</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span><span class="token keyword">int</span> den<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token operator">:</span> <span class="token function">m_mumerator</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">m_denominator</span><span class="token punctuation">(</span>den<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+    <span class="token keyword">operator</span> <span class="token keyword">double</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>m_numerator<span class="token operator">/</span><span class="token punctuation">,</span>_denominator<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> m_numerator<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> m_denominator<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>operator double()</code>注意： 1，不需要写返回类型（本来就是返回double，写了还可能写错） 2，加const（一定不会改数据，也不需要参数）</p>
 
             </div>
             <hr>
@@ -283,7 +283,7 @@ He">
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Website/HexoIssues/" class="b-link-green">Hexo使用问题总结</a>
+                    <a href="/Houjiecpp02/" class="b-link-green">C++学习笔记</a>
                 </p>
             </div>
         </div>
@@ -325,7 +325,7 @@ He">
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
                 <a href="/Houjiecpp02/">
                     <div class="card-image">
@@ -343,9 +343,9 @@ public:
     Fraction(int num,int den=1)
         : m_mumerator(num),m_denominato</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -358,6 +358,7 @@ public:
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -378,35 +379,48 @@ public:
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Algorithm/MasterTheorem/">
+                <a href="/Website/HexoIssues/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="MasterTheorem">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Hexo使用问题总结">
                         
-                        <span class="card-title">MasterTheorem</span>
+                        <span class="card-title">Hexo使用问题总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Master Therem，翻译成：主定理、主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的。
-
-一般情况下先简单看先O(lg(k))，
-在二分查找、堆的操作中，一次操作就可以减少一半的工作量，一次循环就少一半，效率不就是</div>
+                    <div class="summary">汇总一下Hexo遇到的问题，以及以后出现问题都会更新到这里
+
+独立贴
+插图问题
+
+在Git仓库设置一个分支推送源码，主分支负责展示
+
+有时候想传一个静态的HTML页面直接放在Source文件夹，不想被Hexo g的时候渲染，怎么办呢？
+He</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
-                                    Algorithm
+                            <a href="/categories/Website/" class="post-category" target="_blank">
+                                    Website
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/" target="_blank">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
                 </div>
                 
             </div>
