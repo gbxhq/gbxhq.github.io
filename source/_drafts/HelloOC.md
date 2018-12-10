@@ -202,3 +202,199 @@ NSDictionary*aImmutableDictionary= [[NSDictionary alloc]initWithObjects:[NSArray
 - A会执行B的代理方法
 - B会用代理方法给A通知
 
+# 成员变量的封装
+
+二、OC中成员变量的命名规范以及注意事项
+
+1、命名规范--.成员变量都以下划线“_”开头
+
+　　1）为了跟get方法的名称区分开
+
+　　2）一看到下划线开头的变量，肯定是成员变量
+
+2、注意事项--以后的成员变量最好不要写@public，因为@public修饰的成员变量可以被别人乱改
+
+```objective-c
+/*
+成员变量的命名规范
+*/
+
+#import <Foundation/Foundation.h>
+
+// 声明
+@interface Person : NSObject
+{
+    // 成员变量都以下划线 _ 开头
+    // 1.可以跟get方法的名称区分开
+    // 2.一看到下划线开头的变量，肯定是成员变量
+    int _age;
+}
+
+- (void) setAge:(int)newAge;
+
+- (int) age;
+
+@end
+
+// 实现
+@implementation Person
+
+- (void) setAge:(int)newAge
+{
+    _age = newAge;
+}
+
+- (int) age
+{
+    return _age;
+}
+
+@end
+
+int main()
+{
+    Person *p = [Person new];
+    [p setAge:20];
+    
+    int age2 = [p age];
+    
+    NSLog(@"年龄是%i", age2);
+    
+    return 0;
+}
+```
+
+# 类方法和对象方法
+
+先说一下，类里的才叫方法。外面的那叫函数。
+
+一、OC中的对象方法
+
+　　1.**以减号“-”开头**
+
+　　2.只能让对象调用，没有对象，这个方法根本不可能被执行
+
+　　3.对象方法能访问实例变量（也就是成员变量）
+
+二、OC中的类方法
+
+　　1.**以加号“+”开头**
+
+　　2.只能用类名调用，对象不能调用
+
+　　3.类方法中不能访问实例变量（也就是成员变量）
+
+　　4.适用场合：当不需要访问成员变量的时候，尽量用类方法
+
+**值得注意的是类方法和对象方法可以同名，但是慎用啊！**
+
+# 类的description方法
+
+```objective-c
+#import <Foundation/Foundation.h>
+
+// Person的声明
+@interface Person : NSObject
+{
+    int _age;
+}
+
+- (void) setAge:(int)age;
+- (int) age;
+
+@end
+
+// Person的实现
+@implementation Person
+
+- (void) setAge:(int)age
+{
+    _age = age;
+}
+
+- (int) age
+{
+    return _age;
+}
+
+//重写父类-description方法，利用NSString类的类方法stringWithFormat方法拼接字符串
+//使得重写的-description方法返回自己想要的内容
+- (NSString *) description
+{
+    return [NSString stringWithFormat:@"age=%d", _age];
+}
+
+@end
+
+
+int main()
+{
+    Person *p = [Person new];
+    [p setAge:29];
+    
+    // 输出所有的OC对象都用%@
+    // 默认情况下对象的输出信息：<Person: 0x7fedc9c09720>
+    // 类名 + 对象的内存地址
+    
+    // 给指针变量p所指向的对象发送一条-description消息
+    // 会调用对象的-description方法，并且把-description方法返回的OC字符串输出到屏幕上
+    NSLog(@"Person对象：%@", p);
+    /*
+    // 指针变量p的地址
+    NSLog(@"指针变量p的地址：%p", &p);
+    // 对象的地址
+    NSLog(@"这个Person对象的地址：%p", p);
+     */
+    return 0;
+}
+```
+
+
+
+##  @property
+
+还记得我们之前定义属性的时候，在{...}中进行定义，而且定义完之后还有可能需要实现get/set方法，这里我们直接使用@property关键字进行定义：
+
+@property NSString *userName;
+这样定义完之后，我们就可以使用这个属性了：
+这样定义的方式之后，这个属性就会自动有set/get方法了
+
+
+第一步生成_userName属性
+
+第二步为_userName属性自动生成set/get方法
+
+这样定义是不是比以前方便多了
+
+下面再来看一下他还有三个值可以设置：
+
+```objc
+@property(atomic,retain,readwrite) Dog *dog;
+```
+
+
+1、第一个位置的值：
+
+`atomic`:线程保护的，默认
+
+`nonatomic`:线程不保护的
+
+2、第二个位置的值：
+
+`assign`:直接赋值，默认
+
+`retain`:保留对象,内部会自动调用retain方法，引用计数+1
+
+`copy`:拷贝对象
+
+3、第三个位置的值：
+
+`readwrite`:生成get/set方法，默认
+
+`readonly`:只生成get方法
+
+因为我们使用@property定义属性之后，如果我们想修改这个属性的名称(不想让它是_开头的)，就可以使用@synthesize关键字来对属性名称进行修改
+
+```objc
+@synthesize userName = $userName;
+```

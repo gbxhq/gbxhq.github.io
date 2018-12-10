@@ -11,11 +11,8 @@ tags: [tips]
 
 - 原来PPT可以存成`.ppsx` 的格式，双击打开就直接播放（可与防止被改动
 
-# Markdown
 
-
-
-## 折叠效果
+# Markdown折叠效果
 
 <details>
   <summary>就类似这样：Click to expand</summary>
@@ -30,3 +27,8 @@ tags: [tips]
 </details>
 ```
 
+# 卸载Adobe Creative Cloud:
+
+官方卸载工具：
+
+https://helpx.adobe.com/cn/creative-cloud/help/uninstall-creative-cloud-desktop-app.html

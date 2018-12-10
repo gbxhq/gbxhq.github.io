@@ -28,7 +28,9 @@ Ex,我的这一步就要这样：
 ```bash
 cd Documents/Blog #到博客的根目录下
 git init
+# 这时候记得更新 .gitignore 文件！
 git remote add Coding https://xxxx.git #关联远程仓库，起个别名叫Coding
+git add .
 git commit -m "推送到Coding测试"
 git push Coding master:dev-blog
 ```
@@ -37,7 +39,19 @@ OK，等着就好了。push完后，去你的远程仓库看，会发现，dev-b
 
 以后每次**想Push【源文件】**，执行`git push 仓库名 master:dev-blog`就OK了。
 
+# .gitignore
 
+这么写就可以了：
+
+```
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/   #一定要加上这个。这个是npm自动安装的库。不需要推送。
+public/
+.deploy*/
+```
 
 # 更新静态页面
 

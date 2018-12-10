@@ -2,6 +2,7 @@
 title: SegmentTree 线段树基础版
 date: 2018-11-20 14:17:33
 categories: Algorithm
+top: true
 tags: 
 ---
 

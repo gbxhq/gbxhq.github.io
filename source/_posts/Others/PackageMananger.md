@@ -208,6 +208,9 @@ npm install formidable --save
 
 `npm config set registry https://registry.npm.taobao.org`
 
+不想用他们的，再设置回原来的就可以了：
+`npm config set registry https://registry.npmjs.org`
+
 ## npm安装全局模块没有权限
 
 提示：npm WARN checkPermissions Missing write access to xxx
