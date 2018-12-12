@@ -5,11 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Problems in studying Python, 炫杉">
-    <meta name="description" content="一些杂碎问题不至于写一篇文章了。放在这收集吧。
+    <meta name="keywords" content="Deferences between Stack and Heap, 炫杉">
+    <meta name="description" content="参考文章：https://www.cnblogs.com/ChenZhongzhou/p/5685537.html https://blog.csdn.net/yangyong0717/article/details/78001609
 
-Spyder使用IPython Console弹出绘图窗口的设置方法matplotlib 画图show()不显示图
-Spyder设置（Cmd + ，）–&amp;gt;IPython Console">
+概">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +16,7 @@ Spyder设置（Cmd + ，）–&amp;gt;IPython Console">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Problems in studying Python | 炫杉</title>
+    <title>Deferences between Stack and Heap | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -191,13 +190,13 @@ Spyder设置（Cmd + ，）–&amp;gt;IPython Console">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Problems in studying Python
+                        Deferences between Stack and Heap
                     </div>
                 </div>
             </div>
@@ -217,8 +216,8 @@ Spyder设置（Cmd + ，）–&amp;gt;IPython Console">
             
             <div class="article-tag">
                 
-                <a href="/tags/Python/" target="_blank">
-                    <span class="chip bg-color">Python</span>
+                <a href="/tags/Note/" target="_blank">
+                    <span class="chip bg-color">Note</span>
                 </a>
                 
             </div>
@@ -228,27 +227,45 @@ Spyder设置（Cmd + ，）–&amp;gt;IPython Console">
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/Python/" class="post-category" target="_blank">
-                        Python
+                    <a href="/categories/Basic/" class="post-category" target="_blank">
+                        Basic
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-08-06
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-09
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>一些杂碎问题不至于写一篇文章了。放在这收集吧。</p>
+                <p>参考文章：<a href="https://www.cnblogs.com/ChenZhongzhou/p/5685537.html" target="_blank" rel="noopener">https://www.cnblogs.com/ChenZhongzhou/p/5685537.html</a> <a href="https://blog.csdn.net/yangyong0717/article/details/78001609" target="_blank" rel="noopener">https://blog.csdn.net/yangyong0717/article/details/78001609</a></p>
 <a id="more"></a>
-<h1 id="Spyder使用IPython-Console弹出绘图窗口的设置方法"><a href="#Spyder使用IPython-Console弹出绘图窗口的设置方法" class="headerlink" title="Spyder使用IPython Console弹出绘图窗口的设置方法"></a>Spyder使用IPython Console弹出绘图窗口的设置方法</h1><h1 id="matplotlib-画图show-不显示图"><a href="#matplotlib-画图show-不显示图" class="headerlink" title="matplotlib 画图show()不显示图"></a>matplotlib 画图show()不显示图</h1><ol>
-<li><code>Spyder设置（Cmd + ，）</code>–&gt;<code>IPython Console</code>–&gt;<code>Graphics</code>–&gt;<code>Backend 改成 QT5</code><br><img src="http://p66eruxmw.bkt.clouddn.com/15335471016933.jpg" alt=""></li>
-<li>更改完设置后要新开一个IPython Console才会生效。</li>
-</ol>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="数据结构中-与本文无关"><a href="#数据结构中-与本文无关" class="headerlink" title="数据结构中(与本文无关)"></a>数据结构中(与本文无关)</h2><blockquote>
+<p>栈：是一种<strong>连续</strong>储存的数据结构，具有<strong>先进后出</strong>的性质。通常的操作有入栈（圧栈）、出栈和栈顶元素。想要读取栈中的某个元素，就要将其之前的所有元素出栈才能完成。类比现实中的箱子一样。</p>
+<p>堆：是一种<strong>非连续</strong>的树形储存数据结构，每个节点有一个值，整棵树是<strong>经过排序</strong>的。特点是根结点的值最小（或最大），且根结点的两个子树也是一个堆。常用来实现优先队列，存取随意。</p>
+</blockquote>
+<h2 id="内存中"><a href="#内存中" class="headerlink" title="内存中"></a>内存中</h2><ul>
+<li><p><strong>栈区(stack)</strong>   </p>
+<p>1 由<strong>编译器</strong>自动分配释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</p>
+<p>2 由程序<strong>自动</strong>向操作系统申请分配以及回收，速度快，使用方便，但程序员无法控制。若分配失败，则提示栈溢出错误。注意，const局部变量也储存在栈区内，栈区向地址减小的方向增长。</p>
+</li>
+<li><p><strong>堆区(heap)</strong>   </p>
+<p>1 一般由程序员分配释放，若程序员不释放，程序结束时可能由OS回收。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。  </p>
+<p>2 程序员向操作系统申请一块内存，当系统收到程序的申请时，会遍历一个记录空闲内存地址的链表，寻找第一个空间大于所申请空间的堆结点，然后将该结点从空闲结点链表中删除，并将该结点的空间分配给程序。分配的速度较慢，地址不连续，容易碎片化。此外，由程序员申请，同时也必须由程序员负责销毁，否则则导致<strong>内存泄露</strong>。</p>
+</li>
+<li><p><strong>全局区（静态区）(static)</strong> 全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的另一块区域。   </p>
+<p>程序结束后由系统释放。  </p>
+</li>
+<li><p><strong>文字常量区</strong>   常量字符串就是放在这里的。   程序结束后由系统释放  </p>
+</li>
+<li><p><strong>程序代码区</strong>   存放函数体的二进制代码。  </p>
+</li>
+</ul>
+<p><img src="../../images/928019-20160719170222107-1820485296.png" alt="img"></p>
 
             </div>
             <hr>
@@ -270,7 +287,7 @@ Spyder设置（Cmd + ，）–&amp;gt;IPython Console">
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Python/Python学习遇到的坑/" class="b-link-green">Problems in studying Python</a>
+                    <a href="/Basic/DeferencesbetweenStackandHeap/" class="b-link-green">Deferences between Stack and Heap</a>
                 </p>
             </div>
         </div>
@@ -312,57 +329,43 @@ Spyder设置（Cmd + ，）–&amp;gt;IPython Console">
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/Website/HelloJs/">
+                <a href="/Basic/DeferencesbetweenStackandHeap/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="HelloJs">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Deferences between Stack and Heap">
                         
-                        <span class="card-title">HelloJs</span>
+                        <span class="card-title">Deferences between Stack and Heap</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">高铁上没事干，入门一波Js。
+                    <div class="summary">参考文章：https://www.cnblogs.com/ChenZhongzhou/p/5685537.html https://blog.csdn.net/yangyong0717/article/details/78001609
 
-Tips
-分号；可选
-标识符以字母、下划线和美元符号开始
-大小写敏感
-
-GrammarVarvar a = 10 声明变量
-docunment.write(a) 输出
-赋值为null可清除变量
-
-点击运算
-
-</div>
+概</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Website/" class="post-category" target="_blank">
-                                    Website
+                            <a href="/categories/Basic/" class="post-category" target="_blank">
+                                    Basic
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/Note/" target="_blank">
                         <span class="chip bg-color">Note</span>
-                    </a>
-                    
-                    <a href="/tags/js/" target="_blank">
-                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>
@@ -374,35 +377,31 @@ docunment.write(a) 输出
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Others/UsefulTips/">
+                <a href="/Cpp/Houjiecpp02/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="UsefulTips">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="C++学习笔记">
                         
-                        <span class="card-title">UsefulTips</span>
+                        <span class="card-title">C++学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">偏技术性的小姿势
-
-Shell相关
-touch xxx.x 新建文件
-
-ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目录
--C 按列列出文件
-
-清屏: edit菜单里找。Terminal:⌃+⌘+L iTerm:⌘</div>
+                    <div class="summary">
+conversion function 转换函数class Fraction{
+public:
+    Fraction(int num,int den=1)
+        : m_mumerator(num),m_denominato</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-25
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                            <a href="/categories/cpp/" class="post-category" target="_blank">
+                                    cpp
                                 </a>
                             
                             
@@ -412,28 +411,12 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/tips/" target="_blank">
-                        <span class="chip bg-color">tips</span>
+                    <a href="/tags/cpp/" target="_blank">
+                        <span class="chip bg-color">cpp</span>
                     </a>
                     
-                    <a href="/tags/Heroku/" target="_blank">
-                        <span class="chip bg-color">Heroku</span>
-                    </a>
-                    
-                    <a href="/tags/Shell/" target="_blank">
-                        <span class="chip bg-color">Shell</span>
-                    </a>
-                    
-                    <a href="/tags/iTerm2/" target="_blank">
-                        <span class="chip bg-color">iTerm2</span>
-                    </a>
-                    
-                    <a href="/tags/Markdown/" target="_blank">
-                        <span class="chip bg-color">Markdown</span>
-                    </a>
-                    
-                    <a href="/tags/Mac/" target="_blank">
-                        <span class="chip bg-color">Mac</span>
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
                     </a>
                     
                 </div>

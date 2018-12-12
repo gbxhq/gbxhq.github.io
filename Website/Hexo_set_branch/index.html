@@ -261,13 +261,23 @@
 <p>Ex,我的这一步就要这样：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> Documents/Blog <span class="token comment" spellcheck="true">#到博客的根目录下</span>
 <span class="token function">git</span> init
+<span class="token comment" spellcheck="true"># 这时候记得更新 .gitignore 文件！</span>
 <span class="token function">git</span> remote add Coding https://xxxx.git <span class="token comment" spellcheck="true">#关联远程仓库，起个别名叫Coding</span>
+<span class="token function">git</span> add <span class="token keyword">.</span>
 <span class="token function">git</span> commit -m <span class="token string">"推送到Coding测试"</span>
 <span class="token function">git</span> push Coding master:dev-blog
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>OK，等着就好了。push完后，去你的远程仓库看，会发现，dev-blog分支已经建好了。</p>
 <p>以后每次<strong>想Push【源文件】</strong>，执行<code>git push 仓库名 master:dev-blog</code>就OK了。</p>
-<h1 id="更新静态页面"><a href="#更新静态页面" class="headerlink" title="更新静态页面"></a>更新静态页面</h1><p>Hexo的推送完全不受影响，和以前一样<code>hexo g -d</code>就OK。</p>
+<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><p>这么写就可以了：</p>
+<pre><code>.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/   #一定要加上这个。这个是npm自动安装的库。不需要推送。
+public/
+.deploy*/
+</code></pre><h1 id="更新静态页面"><a href="#更新静态页面" class="headerlink" title="更新静态页面"></a>更新静态页面</h1><p>Hexo的推送完全不受影响，和以前一样<code>hexo g -d</code>就OK。</p>
 <p>它要Push到的【仓库地址，分支名】完全取决于根目录下的<code>_config.yml</code>文件 的 deploy 配置。比如我的是这样的：</p>
 <p><img src="../../images/image-20181109090616204.png" alt="image-20181109090616204"></p>
 <p>就是说，执行 <code>hexo d</code>的时候，会把【静态页面】push到我设置的那两个仓库的master分支。而我们的源文件是上传到dev-blog分支的。</p>
