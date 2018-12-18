@@ -281,7 +281,7 @@ K出列:    {0···k-1 ,        k+1(m%n)···n-1}    //n-1个人
 </blockquote>
 <p>这一步的分析告诉我们，<strong>如果</strong>我们求出 <strong>F(n-1)这个问题的解是 x</strong>，<strong>那 (x+k+1)%n 就是 F(n) 的解</strong>。</p>
 <p>写成公式就是：</p>
-<p>F(n) =[ F(n-1)+k+1 ]%n</p>
+<p><strong>F(n) =[ F(n-1)+k+1 ]%n</strong></p>
 <p><strong>综上可知</strong></p>
 <p>我们每轮都能得到一个结果x。用x可以推出它在上一轮的结果。</p>
 <p>最后一轮F(1)的结果一定是0，</p>
@@ -290,19 +290,19 @@ K出列:    {0···k-1 ,        k+1(m%n)···n-1}    //n-1个人
 <p>但是<strong>这个 0 ，是F(1)这个问题里的0!</strong></p>
 <p><strong>它是上一层的几号？</strong>我们要一步步推回去才知道！</p>
 </blockquote>
-<p>一层层反推上去，是不是就能最终得到，F(1) 里那个 0 ，对应的 是 F(n) 里的几号？这个结果不就是答案吗？</p>
+<p>一层层反推上去，是不是就能最终得到，<strong>F(1) 里那个 0 ，对应的 是 F(n) 里的几号？</strong>这个结果不就是答案吗？</p>
 <p><strong>看懵了？</strong></p>
 <p>有同学可能会说，反正最后一次F(0)结果肯定是 0 。那我一层层推回去得到 F(n)，岂不是这个问题的结果只和 n 有关？</p>
 <p>看看 由 F(n-1) 推出 F(n) 的公式！ </p>
-<p>F(n) =[ F(n-1)+k+1 ]%n</p>
+<p><strong>F(n) =[ F(n-1)+k+1 ]%n</strong></p>
 <p>这里面，是只有 n 这一个变量吗？ 还有k啊！ k是什么？ 看⚠️重点标记⚠️ 啊。</p>
-<p>k+1 就是 m%n !!!</p>
+<p><strong>k+1 就是 m%n !!!</strong></p>
 <p>所以推导公式其实就是</p>
-<p>F(n) =[ F(n-1)+ m%n ]%n  ==化简==&gt;  F(n) =[ F(n-1)+ m ]%n </p>
+<p><strong>F(n) =[ F(n-1)+ m%n ]%n</strong>  ==化简==&gt;  <strong>F(n) =[ F(n-1)+ m ]%n</strong> </p>
 <p>所以这道题其实就是求函数</p>
-<p>​        F(n) =[ F(n-1)+ m ]%n ,n&gt;1</p>
+<p>​            F(n) =[ F(n-1)+ m ]%n ,n&gt;1</p>
 <p>F(n)=</p>
-<p>​        0, n=1</p>
+<p>​            0, n=1</p>
 <p>对着这公式代码写起来就太容易了吧？</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span><span class="token keyword">int</span> m<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>
