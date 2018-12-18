@@ -218,12 +218,12 @@ public:
             
             <div class="article-tag">
                 
-                <a href="/tags/cpp/" target="_blank">
-                    <span class="chip bg-color">cpp</span>
-                </a>
-                
                 <a href="/tags/Note/" target="_blank">
                     <span class="chip bg-color">Note</span>
+                </a>
+                
+                <a href="/tags/cpp/" target="_blank">
+                    <span class="chip bg-color">cpp</span>
                 </a>
                 
             </div>
@@ -262,6 +262,60 @@ public:
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>operator double()</code>注意： 1，不需要写返回类型（本来就是返回double，写了还可能写错） 2，加const（一定不会改数据，也不需要参数）</p>
+<h1 id="non-explicit-one-argument-constructor"><a href="#non-explicit-one-argument-constructor" class="headerlink" title="non-explicit one argument constructor"></a>non-explicit one argument constructor</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Fraction</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Fraction</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span><span class="token keyword">int</span> den<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token operator">:</span> <span class="token function">m_mumerator</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">m_denominator</span><span class="token punctuation">(</span>den<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+    Fraction <span class="token keyword">operator</span><span class="token operator">+</span><span class="token punctuation">(</span><span class="token keyword">const</span> Fraction <span class="token operator">&amp;</span> f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">Fraction</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> m_numerator<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> m_denominator<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp">Fraction <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Fraction d <span class="token operator">=</span> f<span class="token operator">+</span><span class="token number">4</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>4会调构造函数，变成 Fraction类型。两个Fraction可以执行 + 操作。</p>
+<p>但是，如果这时候再加上上一节的 conversion 函数，</p>
+<p> f+4 .f可以变成double；4可以变成Fraction 。两条路都能走。编译器就不知道怎么相加了。</p>
+<p>这时候怎么让编译器明确选哪条路呢？</p>
+<h2 id="explicit"><a href="#explicit" class="headerlink" title="explicit"></a>explicit</h2><p>构造函数写成</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">explicit</span> <span class="token function">Fraction</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span><span class="token keyword">int</span> den<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token function">m_mumerator</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">m_denominator</span><span class="token punctuation">(</span>den<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p> 这个关键字告诉编译器。不要私自用这个构造函数。只有我主动用才能构造。</p>
+<p> 标准库里用到的转换函数：</p>
+<p><img src="../../images/image-20181213201520146-4703320.png" alt="image-20181213201520146"></p>
+<h1 id="pointer-like-classes"><a href="#pointer-like-classes" class="headerlink" title="pointer-like classes"></a>pointer-like classes</h1><p><strong>智能指针</strong><img src="../../images/image-20181213203709979-4704630.png" alt="image-20181213203709979">看圆圈里的，<code>-&gt;</code>这个符号比较特殊。 返回的结果会一直调用下去。所以 重载后的<code>-&gt;</code>解引用返回了 px后，自动又出现一个 <code>-&gt;</code>往下指向<code>method()</code></p>
+<p><strong>迭代器</strong></p>
+<p><img src="../../images/image-20181213205148560-4705508.png" alt="image-20181213205148560"></p>
+<p>这里不太懂。</p>
+<h1 id="function-like-classes"><a href="#function-like-classes" class="headerlink" title="function-like classes"></a>function-like classes</h1><p>重载了 <code>（）</code>的类。</p>
+<h1 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">namespace</span> jj01
+<span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+jjo1<span class="token operator">::</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p> 类模板使用的时候要指明类型。</p>
+<p>函数模板不需要。 因为编译器可以做“实参推导”，根据你传进的参数，推出要调用什么类型。</p>
+<blockquote>
+<p> 模板函数都是半编译。最开始的时候编译能过，但是传入参数后，能不能编译不一定了。</p>
+</blockquote>
+<p>EX：<code>&lt;T&gt; bool isbigger(T a,T b){ return a&gt;b}</code> 模板这么写没问题。但是传进来两个石头。class石头如果重载了 <code>&gt;</code> 就能编译过。不然就不行了。</p>
+<h2 id="member-Template"><a href="#member-Template" class="headerlink" title="member Template"></a>member Template</h2><p><img src="../../images/image-20181213211637206-4706997.png" alt="image-20181213211637206"></p>
+<p>在外层的T确定之后，里面的U也可以变化。</p>
+<p>第9集。Mark。</p>
+<h1 id="specialization-特化"><a href="#specialization-特化" class="headerlink" title="specialization 特化"></a>specialization 特化</h1><p> <img src="../../images/image-20181213212717859-4707637.png" alt="image-20181213212717859"></p>
+<h2 id="偏特化"><a href="#偏特化" class="headerlink" title="偏特化"></a>偏特化</h2><p><strong>个数上的偏</strong><img src="../../images/image-20181213212909049-4707749.png" alt="image-20181213212909049"></p>
+<p>泛化的T。如果可以为1个位的东西。特化一下，就可以省空间。</p>
+<p><strong>范围上的偏</strong></p>
+<p><img src="../../images/image-20181213213314743-4707994.png" alt="image-20181213213314743"></p>
+<p>就是繁化过的东西再泛化一次。这个东西就有两个泛化的版本。</p>
+<p>注意区分这个和第一个完全的特化。</p>
+<h1 id="template-template-parameter-模板模板参数"><a href="#template-template-parameter-模板模板参数" class="headerlink" title="template template parameter 模板模板参数"></a>template template parameter 模板模板参数</h1><p><img src="../../images/image-20181213213835919-4708315.png" alt="image-20181213213835919"></p>
 
             </div>
             <hr>

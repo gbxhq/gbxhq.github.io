@@ -792,8 +792,55 @@ ListNode<span class="token operator">*</span> p2<span class="token operator">=</
 <p>马上刷完牛客的剑指Offer了。体验感真的差。刷完赶紧回LeetCode。</p>
 <h2 id="63二叉搜索树的kTh"><a href="#63二叉搜索树的kTh" class="headerlink" title="63二叉搜索树的kTh"></a>63二叉搜索树的kTh</h2><p>翻书不小心看到“中序遍历”几个字。这题就。。。水过去了~</p>
 <blockquote>
-<p>后悔看到</p>
+<p>后悔看到 555</p>
 </blockquote>
+<h2 id="64数据流的中位数"><a href="#64数据流的中位数" class="headerlink" title="64数据流的中位数"></a>64数据流的中位数</h2><p>就用了最普通的二分查找做的。（而且我二分查找写得好不好还不确定）</p>
+<p><strong>Note：</strong></p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">double</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//输入，5，6</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//这么写返回的还是Int，输出5</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//这么写才行。输出5.5 </span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 看书咋说的</li>
+</ul>
+<h2 id="65滑动窗口"><a href="#65滑动窗口" class="headerlink" title="65滑动窗口"></a>65滑动窗口</h2><p>题目类型写着：栈、队列。。。</p>
+<p>我还能说什么呢？？？都提示成这样了。我真的不该多看一眼啊！</p>
+<h2 id="66矩阵中的路径"><a href="#66矩阵中的路径" class="headerlink" title="66矩阵中的路径"></a>66矩阵中的路径</h2><p>没看书就自己做出来了。😝。</p>
+<p>注意几个地方：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">0</span><span class="token operator">||</span>j<span class="token operator">&lt;</span><span class="token number">0</span><span class="token operator">||</span>i<span class="token operator">>=</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>vt<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">||</span>j<span class="token operator">>=</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>vt<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//这里如果不加(int) clion不报错。 </span>
+<span class="token comment" spellcheck="true">//牛客报：warning: comparison of integers of different signs: 'int' and 'size_type'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">hasPath</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">char</span> <span class="token operator">></span> <span class="token operator">></span> vt<span class="token punctuation">,</span><span class="token keyword">char</span><span class="token operator">*</span> str<span class="token punctuation">,</span><span class="token keyword">int</span> i<span class="token punctuation">,</span><span class="token keyword">int</span> j<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">*</span>str<span class="token operator">==</span><span class="token string">'\0'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">0</span><span class="token operator">||</span>j<span class="token operator">&lt;</span><span class="token number">0</span><span class="token operator">||</span>i<span class="token operator">>=</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>vt<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">||</span>j<span class="token operator">>=</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>vt<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>vt<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token operator">*</span>str<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>vt<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">*</span>str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        vt<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'\0'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//让这一格子失效</span>
+        <span class="token comment" spellcheck="true">//往4个方向遍历</span>
+        <span class="token keyword">return</span> <span class="token function">hasPath</span><span class="token punctuation">(</span>vt<span class="token punctuation">,</span>str<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>i<span class="token punctuation">,</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token function">hasPath</span><span class="token punctuation">(</span>vt<span class="token punctuation">,</span>str<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>i<span class="token punctuation">,</span>j<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token function">hasPath</span><span class="token punctuation">(</span>vt<span class="token punctuation">,</span>str<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">||</span><span class="token function">hasPath</span><span class="token punctuation">(</span>vt<span class="token punctuation">,</span>str<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>i<span class="token number">-1</span><span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//看13行。本来我没写 return false. clion不报错</span>
+<span class="token comment" spellcheck="true">//牛客报，没有返回值。确实，如果不写上那么一句，就有”危险“</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">*</span>str<span class="token operator">==</span><span class="token operator">*</span>matrix<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span> <span class="token operator">></span> tmp2<span class="token punctuation">;</span>
+    tmp2<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//横坐标存入</span>
+    tmp2<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//纵坐标存入</span>
+    xy<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>tmp2<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//(x,y)存入</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//这里。我本来把tmp2声明到了外层。</span>
+<span class="token comment" spellcheck="true">//导致如果这一层里能找到两个匹配坐标。4个数字就会都存到 tmp2 里。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 我并没有用回溯。就是四个方向全递归的。记得看书上做法~</li>
+</ul>
 
             </div>
             <hr>
@@ -899,12 +946,12 @@ ListNode<span class="token operator">*</span> p2<span class="token operator">=</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/cpp/" target="_blank">
-                        <span class="chip bg-color">cpp</span>
-                    </a>
-                    
                     <a href="/tags/Note/" target="_blank">
                         <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/cpp/" target="_blank">
+                        <span class="chip bg-color">cpp</span>
                     </a>
                     
                 </div>
