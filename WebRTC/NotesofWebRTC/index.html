@@ -5,8 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: Basic, 炫杉">
-    <meta name="description" content="分类: Basic | 炫杉">
+    <meta name="keywords" content="Notes of WebRTC, 炫杉">
+    <meta name="description" content="
+
+
+netEQ是webRTC中音频技术方面的两大核心技术之一（另一核心技术是音频的前后处理，包括AEC、ANS、AGC等，俗称3A算法）
+netEQ有两大模块，MCU（micro control unit, 微控制单元）和DSP（digi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>分类: Basic | 炫杉</title>
+    <title>Notes of WebRTC | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -186,174 +190,222 @@
     </nav>
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+            <div class="col s12 m12 l12">
                 <div class="brand">
-                    <div class="title center-align">
-                    
-                        炫杉Blog
-                    
-                    </div>
-
-                    <div class="description center-align">
-                    
-                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
-                    
+                    <div class="description center-align post-title">
+                        Notes of WebRTC
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Note/" target="_blank">
+                    <span class="chip bg-color">Note</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/WebRTC/" class="post-category" target="_blank">
+                        WebRTC
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-23
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <a id="more"></a>
+<p><img src="https://raw.githubusercontent.com/chinalixs/Pic/master/WebRTC%E6%A1%86%E6%9E%B6.png?token=AR5AloQ_13rmoA6YeFPrfm94QXQRay1Hks5cR91LwA%3D%3D" alt=""></p>
+<ul>
+<li><p>netEQ是webRTC中音频技术方面的两大核心技术之一（另一核心技术是音频的前后处理，包括AEC、ANS、AGC等，俗称3A算法）</p>
+<p>netEQ有两大模块，<strong>MCU（micro control unit, 微控制单元）和DSP（digital signal processing, 信号处理单元）</strong> MCU负责控制从网络收到的语音包在jitter  buffer里的插入和提取，同时控制DSP模块用哪种算法处理解码后的PCM数据，DSP负责解码以及解码后的PCM信号处理，主要PCM信号处理算法有加速、减速、丢包补偿、融合等），MCU模块在CP （communication processor, 通讯处理器）上做，两个模块之间通过消息交互。</p>
+</li>
+</ul>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/WebRTC/NotesofWebRTC/" class="b-link-green">Notes of WebRTC</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/Note/吴恩达机器学习/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="吴恩达机器学习">
+                        
+                        <span class="card-title">吴恩达机器学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">笔记。
+
+绪论1 Welcome2 DefinitionDefinition：A computer program is said to *learn frome experience E with respect to some task</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Note/" class="post-category" target="_blank">
+                                    Note
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/Mechine-learning/" target="_blank">
+                        <span class="chip bg-color">Mechine learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/Note/TCP-IP/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="TCP/IP">
+                        
+                        <span class="card-title">TCP/IP</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">《TCP/IP详解 卷1：协议》读书笔记。图片来自本书在即时通许网的电子版：http://www.52im.net/topic-tcpipvol1.html
+
+第一章 概述1.3 分层
+1.7 分用
+第二章 链路层图1.3可看出，链路层三个</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Note/" class="post-category" target="_blank">
+                                    Note
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
             </div>
         </div>
         
     </div>
+</article>
 </div>
-
-<script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
-</script>
-
-<main class="content">
-
     
 
-<div id="category-cloud" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">文章分类</div>
-            <div class="tag-chips">
-                
-                
-                
-                <a href="/categories/cpp/" title="cpp: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F9EBEA;">cpp
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Others/" title="Others: 11">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F5EEF8;">Others
-                        <span class="tag-length">11</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Python/" title="Python: 8">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #D5F5E3;">Python
-                        <span class="tag-length">8</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Basic/" title="Basic: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active " style="background-color: #E8F8F5;">Basic
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Algorithm/" title="Algorithm: 12">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #FEF9E7;">Algorithm
-                        <span class="tag-length">12</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/WebRTC/" title="WebRTC: 7">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F8F9F9;">WebRTC
-                        <span class="tag-length">7</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/fun/" title="fun: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #82E0AA;">fun
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Website/" title="Website: 7">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #D7BDE2;">Website
-                        <span class="tag-length">7</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/iOS/" title="iOS: 10">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #A3E4D7;">iOS
-                        <span class="tag-length">10</span>
-                    </span>
-                </a>
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/Basic/DeferencesbetweenStackandHeap/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Deferences between Stack and Heap">
-                            
-                            <span class="card-title">Deferences between Stack and Heap</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary">参考文章：https://www.cnblogs.com/ChenZhongzhou/p/5685537.html https://blog</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Basic/" class="post-category" target="_blank">
-                                    Basic
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Note/" target="_blank">
-                            <span class="chip bg-color">Note</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    </article>
 </main>
-
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

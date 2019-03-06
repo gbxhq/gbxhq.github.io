@@ -249,6 +249,16 @@ Markdown折叠效果  就类似这样：Click to expand  这里不能插入Markd
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="卸载Adobe-Creative-Cloud"><a href="#卸载Adobe-Creative-Cloud" class="headerlink" title="卸载Adobe Creative Cloud:"></a>卸载Adobe Creative Cloud:</h1><p>官方卸载工具：</p>
 <p><a href="https://helpx.adobe.com/cn/creative-cloud/help/uninstall-creative-cloud-desktop-app.html" target="_blank" rel="noopener">https://helpx.adobe.com/cn/creative-cloud/help/uninstall-creative-cloud-desktop-app.html</a></p>
+<h1 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h1><h2 id="去掉编号前的·"><a href="#去掉编号前的·" class="headerlink" title="去掉编号前的·"></a>去掉编号前的·</h2><p>修改【样式】-【段落】-这两个勾去掉就好了。<img src="../../images/image-20190221201012482.png" alt="image-20190221201012482"></p>
+<h1 id="Mac打开SSH服务"><a href="#Mac打开SSH服务" class="headerlink" title="Mac打开SSH服务"></a>Mac打开SSH服务</h1><p>mac本身安装了ssh服务，默认情况下不会开机自启</p>
+<p>启动sshd服务：</p>
+<p><code>sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist</code></p>
+<p>停止sshd服务：<br><code>sudo launchctl unload -w /System/Library/LaunchDaemons/ssh.plist</code></p>
+<hr>
+<p>查看是否启动：<br><code>sudo launchctl list | grep ssh</code></p>
+<p>如果看到下面的输出表示成功启动了：</p>
+<p><code>0 com.openssh.sshd</code></p>
+<hr>
 
             </div>
             <hr>

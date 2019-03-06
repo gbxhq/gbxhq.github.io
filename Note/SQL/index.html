@@ -229,8 +229,8 @@
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/Others/" class="post-category" target="_blank">
-                        Others
+                    <a href="/categories/Note/" class="post-category" target="_blank">
+                        Note
                     </a>
                     
                 </span>
@@ -696,8 +696,158 @@ GROUP BY name;
 </blockquote>
 <h1 id="操作表"><a href="#操作表" class="headerlink" title="操作表"></a>操作表</h1><h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Stu
 <span class="token punctuation">(</span>
-<span class="token punctuation">)</span>
+    id    CHAR<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>    <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    name    <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">254</span><span class="token punctuation">)</span>    <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+    avgGrade    <span class="token keyword">DECIMAL</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>    <span class="token operator">NOT</span> <span class="token boolean">NULL</span>    <span class="token keyword">DEFAULT</span> <span class="token number">0</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a href="#附录D">附录D</a>展示了常见的数据类型</p>
+<p>上述代码在MySQL上<code>varchar</code>必须替换为<code>text</code></p>
+<p>不指定<code>NOT NULL</code>， 则可以为空（<code>NULL</code>)</p>
+<p>默认值(<code>DEFAULT</code>)比Null更好用，常用于日期和时间戳，如在MySQL上获取时间：<code>CURRENT_DATE()</code></p>
+<h2 id="更新表"><a href="#更新表" class="headerlink" title="更新表"></a>更新表</h2><p>应在设计表的时候考虑未来可能的需求</p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> Stu
+<span class="token keyword">ADD</span> phone CHAR<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">DROP</span> <span class="token keyword">COLUMN</span> avrGrade<span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>增删了一列</p>
+<blockquote>
+<p>ALTER表前要备份。如果增加了，也许无法删除。如果删除了，也许无法恢复</p>
+</blockquote>
+<h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> Stu
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>删除表没有确认也不能撤销。</p>
+<p>如果该表是某个关系的组成成分，DBMS将阻止这条语句。这能防止意外删除。</p>
+<h2 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h2><p>根据DBMS有所不同</p>
+<h1 id="使用视图"><a href="#使用视图" class="headerlink" title="使用视图"></a>使用视图</h1><h1 id="常见的数据类型"><a href="#常见的数据类型" class="headerlink" title="常见的数据类型"></a>常见的数据类型</h1><h4 id="附录D"><a href="#附录D" class="headerlink" title="附录D"></a>附录D</h4><h2 id="1-字符串"><a href="#1-字符串" class="headerlink" title="1.字符串"></a>1.字符串</h2><p>Q：定长和变长区别</p>
+<p>A: 性能。处理定长比处理变长快得多；许多DBMS不允许变长列进行索引</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR</td>
+<td>1~255的定长字符串 <strong>长度必须在创建时规定</strong></td>
+</tr>
+<tr>
+<td>NCHAR</td>
+<td>CHAR的特殊形式  用来支持多字节或Unicode字符（此类型的不同实现变化很大）</td>
+</tr>
+<tr>
+<td>TEXT<br>（也称为LONG、MEMO或VARCHAR）</td>
+<td>变长文本</td>
+</tr>
+<tr>
+<td>NVARCHAR</td>
+<td>TEXT的特殊形式  用来支持多字节或Unicode字符（此类型的不同实现变化很大）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Notice：字符串的值 必须在 单引号内</p>
+<p>Note: 「不是数值的数字」要保存成字符串，如邮编01234如果保存成数值是1234，丢失一位。应作为字符串保存。</p>
+</blockquote>
+<h2 id="2-数值"><a href="#2-数值" class="headerlink" title="2.数值"></a>2.数值</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BIT</td>
+<td>0/1</td>
+</tr>
+<tr>
+<td>DECIMAL</td>
+<td>定点或精度可变的浮点数</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>浮点数</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>4字节整数 -2147483648~2147483647</td>
+</tr>
+<tr>
+<td>REAL</td>
+<td>4字节浮点数</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2字节整数 -32768~32767</td>
+</tr>
+<tr>
+<td>TINYINT</td>
+<td>1字节整数 0~255</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>多数DBMS支持 MONEY或CURRENCY，更适合存储货币的，有特定范围的DECIMAL</p>
+</blockquote>
+<h2 id="3-日期和时间"><a href="#3-日期和时间" class="headerlink" title="3.日期和时间"></a>3.日期和时间</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DATE</td>
+<td>日期</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>时间</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>日期时间</td>
+</tr>
+<tr>
+<td>SMALLDATETIME</td>
+<td>日期时间，精确到分（无秒、毫秒）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>NOTE: 不同的DBMS格式要参考具体文档</p>
+</blockquote>
+<h2 id="4-二进制"><a href="#4-二进制" class="headerlink" title="4.二进制"></a>4.二进制</h2><p>包含任何数据（图、多媒体、文档） 最不具兼容性</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BINARY</td>
+<td>定长二进制 255B~8000B</td>
+</tr>
+<tr>
+<td>VARBINARY</td>
+<td>变长二进制 255B~8000B</td>
+</tr>
+<tr>
+<td>RAW</td>
+<td>定长二进制 最长255B</td>
+</tr>
+<tr>
+<td>LONG RAW</td>
+<td>变长二进制 最长2GB</td>
+</tr>
+</tbody>
+</table>
 
             </div>
             <hr>
@@ -719,7 +869,7 @@ GROUP BY name;
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Others/SQL/" class="b-link-green">SQL</a>
+                    <a href="/Note/SQL/" class="b-link-green">SQL</a>
                 </p>
             </div>
         </div>

@@ -5,10 +5,13 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Deferences between Stack and Heap, 炫杉">
-    <meta name="description" content="参考文章：https://www.cnblogs.com/ChenZhongzhou/p/5685537.html https://blog.csdn.net/yangyong0717/article/details/78001609
+    <meta name="keywords" content="大数据学习笔记, 炫杉">
+    <meta name="description" content="淦哥给的大数据视频。对着学一学~
 
-概">
+01 Linux基础走🐎观🌹地看了一遍。这东西还是用到啥查啥吧。
+值得注意的几点有，Vim命令，Shell编程。
+课件我传在这里了.
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Deferences between Stack and Heap | 炫杉</title>
+    <title>大数据学习笔记 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -190,13 +193,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Deferences between Stack and Heap
+                        大数据学习笔记
                     </div>
                 </div>
             </div>
@@ -214,58 +217,22 @@
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/Note/" target="_blank">
-                    <span class="chip bg-color">Note</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
-                
-                <span class="post-cate">
-                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                    
-                    <a href="/categories/Basic/" class="post-category" target="_blank">
-                        Basic
-                    </a>
-                    
-                </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-12-09
+                    <i class="fa fa-clock-o fa-fw"></i>2019-03-06
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>参考文章：<a href="https://www.cnblogs.com/ChenZhongzhou/p/5685537.html" target="_blank" rel="noopener">https://www.cnblogs.com/ChenZhongzhou/p/5685537.html</a> <a href="https://blog.csdn.net/yangyong0717/article/details/78001609" target="_blank" rel="noopener">https://blog.csdn.net/yangyong0717/article/details/78001609</a></p>
+                <p>淦哥给的大数据视频。对着学一学~</p>
 <a id="more"></a>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="数据结构中-与本文无关"><a href="#数据结构中-与本文无关" class="headerlink" title="数据结构中(与本文无关)"></a>数据结构中(与本文无关)</h2><blockquote>
-<p>栈：是一种<strong>连续</strong>储存的数据结构，具有<strong>先进后出</strong>的性质。通常的操作有入栈（圧栈）、出栈和栈顶元素。想要读取栈中的某个元素，就要将其之前的所有元素出栈才能完成。类比现实中的箱子一样。</p>
-<p>堆：是一种<strong>非连续</strong>的树形储存数据结构，每个节点有一个值，整棵树是<strong>经过排序</strong>的。特点是根结点的值最小（或最大），且根结点的两个子树也是一个堆。常用来实现优先队列，存取随意。</p>
-</blockquote>
-<h2 id="内存中"><a href="#内存中" class="headerlink" title="内存中"></a>内存中</h2><ul>
-<li><p><strong>栈区(stack)</strong>   </p>
-<p>1 由<strong>编译器</strong>自动分配释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</p>
-<p>2 由程序<strong>自动</strong>向操作系统申请分配以及回收，速度快，使用方便，但程序员无法控制。若分配失败，则提示栈溢出错误。注意，const局部变量也储存在栈区内，栈区向地址减小的方向增长。</p>
-</li>
-<li><p><strong>堆区(heap)</strong>   </p>
-<p>1 一般由程序员分配释放，若程序员不释放，程序结束时可能由OS回收。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。  </p>
-<p>2 程序员向操作系统申请一块内存，当系统收到程序的申请时，会遍历一个记录空闲内存地址的链表，寻找第一个空间大于所申请空间的堆结点，然后将该结点从空闲结点链表中删除，并将该结点的空间分配给程序。分配的速度较慢，地址不连续，容易碎片化。此外，由程序员申请，同时也必须由程序员负责销毁，否则则导致<strong>内存泄露</strong>。</p>
-</li>
-<li><p><strong>全局区（静态区）(static)</strong> 全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的另一块区域。   </p>
-<p>程序结束后由系统释放。  </p>
-</li>
-<li><p><strong>文字常量区</strong>   常量字符串就是放在这里的。   程序结束后由系统释放  </p>
-</li>
-<li><p><strong>程序代码区</strong>   存放函数体的二进制代码。  </p>
-</li>
-</ul>
-<p><img src="../../images/928019-20160719170222107-1820485296.png" alt="img"></p>
+<h1 id="01-Linux基础"><a href="#01-Linux基础" class="headerlink" title="01 Linux基础"></a>01 Linux基础</h1><p>走🐎观🌹地看了一遍。这东西还是用到啥查啥吧。</p>
+<p>值得注意的几点有，Vim命令，Shell编程。</p>
+<p>课件我传在<a href="/Downloads/Linux基础.pdf">这里</a>了.</p>
 
             </div>
             <hr>
@@ -287,7 +254,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="https://o--o.win" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Basic/DeferencesbetweenStackandHeap/" class="b-link-green">Deferences between Stack and Heap</a>
+                    <a href="/大数据学习笔记/" class="b-link-green">大数据学习笔记</a>
                 </p>
             </div>
         </div>
@@ -329,49 +296,37 @@
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/Algorithm/josephus/">
+                <a href="/大数据学习笔记/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="约瑟夫环的公式推导">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="大数据学习笔记">
                         
-                        <span class="card-title">约瑟夫环的公式推导</span>
+                        <span class="card-title">大数据学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">关于约瑟夫环问题的公式解法的推导，我看了很多文章，其中推理过程各有千秋，所以写一写自己的推导过程。
+                    <div class="summary">淦哥给的大数据视频。对着学一学~
 
-问题描述
-输入： n 和 m
-
-n个人围成一圈，编号  0~n-1； 
-计数器从 0~m-1 计数，每到第 m个（计数器到m-1) ，这个</div>
+01 Linux基础走🐎观🌹地看了一遍。这东西还是用到啥查啥吧。
+值得注意的几点有，Vim命令，Shell编程。
+课件我传在这里了.
+</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-06
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
-                                    Algorithm
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            ixsim
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Algorithm/" target="_blank">
-                        <span class="chip bg-color">Algorithm</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -380,31 +335,29 @@ n个人围成一圈，编号  0~n-1；
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/Cpp/Houjiecpp02/">
+                <a href="/Note/吴恩达机器学习/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="C++学习笔记">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="吴恩达机器学习">
                         
-                        <span class="card-title">C++学习笔记</span>
+                        <span class="card-title">吴恩达机器学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-conversion function 转换函数class Fraction{
-public:
-    Fraction(int num,int den=1)
-        : m_mumerator(num),m_denominato</div>
+                    <div class="summary">笔记。
+
+绪论1 Welcome2 DefinitionDefinition：A computer program is said to *learn frome experience E with respect to some task</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-06
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/cpp/" class="post-category" target="_blank">
-                                    cpp
+                            <a href="/categories/Note/" class="post-category" target="_blank">
+                                    Note
                                 </a>
                             
                             
@@ -414,12 +367,12 @@ public:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/cpp/" target="_blank">
-                        <span class="chip bg-color">cpp</span>
-                    </a>
-                    
                     <a href="/tags/Note/" target="_blank">
                         <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/Mechine-learning/" target="_blank">
+                        <span class="chip bg-color">Mechine learning</span>
                     </a>
                     
                 </div>

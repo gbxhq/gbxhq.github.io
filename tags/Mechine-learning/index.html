@@ -1,0 +1,634 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="标签: Mechine learning, 炫杉">
+    <meta name="description" content="标签: Mechine learning | 炫杉">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>标签: Mechine learning | 炫杉</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+                <div class="brand">
+                    <div class="title center-align">
+                    
+                        炫杉Blog
+                    
+                    </div>
+
+                    <div class="description center-align">
+                    
+                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+// Dynamically switch banner pictures every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
+
+<main class="content">
+
+    
+
+<div id="tags" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">文章标签</div>
+            <div class="tag-chips">
+                
+                
+                <a href="/tags/cpp/" title="cpp: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="cpp" style="background-color: #F9EBEA;">cpp
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Note/" title="Note: 22">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Note" style="background-color: #F5EEF8;">Note
+                        <span class="tag-length">22</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/js/" title="js: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="js" style="background-color: #D5F5E3;">js
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Python/" title="Python: 8">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Python" style="background-color: #E8F8F5;">Python
+                        <span class="tag-length">8</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Spider/" title="Spider: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Spider" style="background-color: #FEF9E7;">Spider
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Demo/" title="Demo: 7">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Demo" style="background-color: #F8F9F9;">Demo
+                        <span class="tag-length">7</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/File-Process/" title="File Process: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="File Process" style="background-color: #82E0AA;">File Process
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/selenium/" title="selenium: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="selenium" style="background-color: #D7BDE2;">selenium
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/tips/" title="tips: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="tips" style="background-color: #A3E4D7;">tips
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Homebrew/" title="Homebrew: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Homebrew" style="background-color: #85C1E9;">Homebrew
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Ruby/" title="Ruby: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Ruby" style="background-color: #F8C471;">Ruby
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/CocoaPods/" title="CocoaPods: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="CocoaPods" style="background-color: #F9E79F;">CocoaPods
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/npm/" title="npm: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="npm" style="background-color: #F9EBEA;">npm
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Git/" title="Git: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Git" style="background-color: #F9E79F;">Git
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Mac/" title="Mac: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Mac" style="background-color: #F9EBEA;">Mac
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Shell/" title="Shell: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Shell" style="background-color: #82E0AA;">Shell
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/iTerm2/" title="iTerm2: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="iTerm2" style="background-color: #85C1E9;">iTerm2
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Markdown/" title="Markdown: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Markdown" style="background-color: #F8F9F9;">Markdown
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Heroku/" title="Heroku: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Heroku" style="background-color: #82E0AA;">Heroku
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Cpp/" title="Cpp: 7">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Cpp" style="background-color: #D7BDE2;">Cpp
+                        <span class="tag-length">7</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/LeetCode/" title="LeetCode: 5">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="LeetCode" style="background-color: #F9EBEA;">LeetCode
+                        <span class="tag-length">5</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Algorithm/" title="Algorithm: 5">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Algorithm" style="background-color: #D7BDE2;">Algorithm
+                        <span class="tag-length">5</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Sort/" title="Sort: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Sort" style="background-color: #FEF9E7;">Sort
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Matlab/" title="Matlab: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Matlab" style="background-color: #85C1E9;">Matlab
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Blockchain/" title="Blockchain: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Blockchain" style="background-color: #FFF;">Blockchain
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/vim/" title="vim: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="vim" style="background-color: #85C1E9;">vim
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Hexo/" title="Hexo: 5">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Hexo" style="background-color: #E8F8F5;">Hexo
+                        <span class="tag-length">5</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/ss/" title="ss: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="ss" style="background-color: #F5EEF8;">ss
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/git/" title="git: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="git" style="background-color: #F8F9F9;">git
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Swift/" title="Swift: 9">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Swift" style="background-color: #85C1E9;">Swift
+                        <span class="tag-length">9</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Swfit/" title="Swfit: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Swfit" style="background-color: #F5EEF8;">Swfit
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Design/" title="Design: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Design" style="background-color: #85C1E9;">Design
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Mechine-learning/" title="Mechine learning: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active " data-tagname="Mechine learning" style="background-color: #F8F9F9;">Mechine learning
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/tutorial/" title="tutorial: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="tutorial" style="background-color: #D7BDE2;">tutorial
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Data-Analysis/" title="Data Analysis: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="Data Analysis" style="background-color: #D7BDE2;">Data Analysis
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/R/" title="R: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="R" style="background-color: #FEF9E7;">R
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/SQL/" title="SQL: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="SQL" style="background-color: #A3E4D7;">SQL
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/IoT/" title="IoT: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " data-tagname="IoT" style="background-color: #D7BDE2;">IoT
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+
+        <article>
+            <div class="row tags-posts">
+                
+                
+                <div class="article tag-post col s12 m6 l4" data-tags="Note, Mechine learning" data-aos="fade-up">
+                    <div class="card">
+                        <a href="/Note/吴恩达机器学习/">
+                            <div class="card-image tag-image">
+                                
+                                
+                                <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="吴恩达机器学习">
+                                
+                                <span class="card-title">吴恩达机器学习</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-24
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Note/" class="post-category" target="_blank">
+                                    Note
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </article>
+    </div>
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
+              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
