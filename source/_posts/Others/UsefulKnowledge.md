@@ -17,7 +17,7 @@ http://www.cnblogs.com/wang-yaz/p/9237981.html
 
 ## i18n
 
-i18n（其来源是英文单词 internationalization的首末字符i和n，18为中间的字符数）是“国际化”的简称。在资讯领域，国际化(i18n)指让产品（出版物，软件，硬件等）无需做大的改变就能够适应不同的语言和地区的需要。对程序来说，在不修改内部代码的情况下，能根据不同语言及地区显示相应的界面。 在全球化的时代，国际化尤为重要，因为产品的潜在用户可能来自世界的各个角落。通常与i18n相关的还有L10n（“本地化”的简称）。
+i18n（其来源是英文单词 **i**<u>nternationalizatio</u>**n**的首末字符**i**和**n**，<u>18</u>为中间的字符数）是“国际化”的简称。通常与i18n相关的还有**L10n**（“**本地化”的简称**）。
 
 ## GP(Generic Programming)
 
@@ -51,7 +51,15 @@ https://zh.wikipedia.org/wiki/GNU
 
 ## VoIP  SIP
 
-Voice over Internet Protocol 和 Session Initiation Protocol
+Voice over Internet Protocol 和 Session Initiation
+
+## W3C
+
+World Wide WebConsortium 万维网联盟
+
+## IETF
+
+Intenet Engineering Task Force 互联网工程任务组
 
 # 二进制包和源代码安装的差距
 

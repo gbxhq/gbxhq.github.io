@@ -191,6 +191,10 @@ NSDictionary*aImmutableDictionary= [[NSDictionary alloc]initWithObjects:[NSArray
 @"firstObject",nil] forKeys:[ NSArray arrayWithObjects:@"aKey"]];
 ```
 
+这文章不错
+
+https://www.cnblogs.com/lucan727/p/3883666.html
+
 # Delegates
 
 ## EX.
@@ -398,3 +402,94 @@ int main()
 ```objc
 @synthesize userName = $userName;
 ```
+
+# [Objective-C中NSString与int和float的相互转换](https://www.cnblogs.com/davidgu/p/5304981.html)
+
+```objective-c
+NSString *tempA = @"123";
+
+NSString *tempB = @"456";
+
+ 
+
+1，字符串拼接
+
+ NSString *newString = [NSString stringWithFormat:@"%@%@",tempA,tempB];
+
+ 
+
+2，字符转int
+
+int intString = [newString intValue];
+
+ 
+
+3，int转字符
+
+NSString *stringInt = [NSString stringWithFormat:@"%d",intString];
+
+ 
+
+4，字符转float
+
+ float floatString = [newString floatValue];
+
+ 
+
+5，float转字符
+
+NSString *stringFloat = [NSString stringWithFormat:@"%f",intString];
+
+ 
+
+四舍五入问题
+
+ 
+
+-(NSString *)notRounding:(float)price afterPoint:(int)position{
+
+    NSDecimalNumberHandler* roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundDown scale:position raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
+
+    NSDecimalNumber *ouncesDecimal;
+
+    NSDecimalNumber *roundedOunces;
+
+    
+
+    ouncesDecimal = [[NSDecimalNumber alloc] initWithFloat:price];
+
+    roundedOunces = [ouncesDecimal decimalNumberByRoundingAccordingToBehavior:roundingBehavior];
+
+    [ouncesDecimal release];
+
+    return [NSString stringWithFormat:@"%@",roundedOunces];
+
+}
+
+介绍一下参数：
+
+price:需要处理的数字，
+
+position：保留小数点第几位，
+
+然后调用
+
+ 
+
+    float s =0.126;
+
+    NSString *sb = [self notRounding:s afterPoint:2];
+
+    NSLog(@"sb = %@",sb);
+
+输出结果为：sb = 0.12
+
+ 
+
+接下来介绍NSDecimalNumberHandler初始化时的关键参数：decimalNumberHandlerWithRoundingMode：NSRoundDown，
+
+NSRoundDown代表的就是 只舍不入。
+
+scale的参数position代表保留小数点后几位。
+```
+

@@ -86,7 +86,7 @@ Heroku是日本一家网站。为开发者提供了免费部署项目的服务�
 
 - 不能访问谷歌的到这里下载：
 
-  http://crx.2333.me/
+  https://extfans.com/
 
   进去后输入id：padekgcemlokbadohgkifijomclgjgif
 

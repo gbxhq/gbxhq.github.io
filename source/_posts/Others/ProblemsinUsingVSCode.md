@@ -5,7 +5,7 @@ categories: [Others]
 tags: tips
 ---
 
-Sublime转战VS Code。因为Debug。
+Sublime转战VS Code。因为VS Code还能Debug一下。
 
 <!---more--->
 

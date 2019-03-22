@@ -3,7 +3,7 @@ title: SegmentTree-Complete 线段树完全版
 date: 2018-11-20 14:17:35
 categories: Algorithm
 top: true
-tags: 
+tags: Algorithm
 ---
 
 线段树完全版关键词：**延迟加载、懒标记Lazy Tag**

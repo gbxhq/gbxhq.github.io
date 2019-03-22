@@ -8,6 +8,14 @@ tags:
 
 <!---more--->
 
+# Problems
+
+- 报错：`type does not provide a call operator`
+
+  解决：给报错那句的变量换个名字吧。冲突了~
+
+- [ ] 初始化一个map，我还没往里存东西。它的end()是什么值？
+
 - `cin`怎么结束输入
 
   Mac下是`ctrl + D` Win 下是 `ctrl + Z`
@@ -20,14 +28,14 @@ tags:
 
 - 默认构造函数
 
-  ```c++
+  ```cpp
   vector<int> vt(10); //10个0
   vector<int> vt(10,1); //10个1
   ```
 
 - 数组地址初始化
 
-  ```c++
+  ```cpp
   int a[3] = {1,2,3};
   vector<int> vt(a,a+3);
   ```
@@ -43,7 +51,7 @@ tags:
 
 - 迭代器
 
-  ```c++
+  ```cpp
   ST tmp;
   vector<ST>:: iterator iter;
   for(iter = vt.begin();iter != vt.end();iter++){
@@ -99,32 +107,74 @@ int main()
 
 可见他们是相等的，也就是说npos表示size_t的最大值
 
-# 字符串数组
+# Char* 字符串数组
 
 参考：https://www.cnblogs.com/kungfupanda/archive/2012/06/15/2456931.html
 
 我就抄点我用到的     定义与初始化
 
-```c++
+```cpp
 char str[ ]={"I am happy"}; //可以省略花括号，如下所示
 char str[ ]="I am happy";
 ```
 
 注意：上述这种字符数组的整体赋值只能在字符数组**初始化**时使用，不能用于字符数组的**赋值**。但是字符串指针就可以这么赋值：
 
-```c++
+```cpp
 char *a;
 a = "I love China."
 ```
 
 输出方式
 
-```c++
+```cpp
 char str[] = "http://c.biancheng.net";
 printf("%s\n", str);  //通过变量输出
 puts(str);  //通过变量输出
 cout << str ; //C++可以这样
 ```
+
+## Note！关于声明时赋值
+
+c++ 里面 如果你写
+
+```cpp
+char *af ="bbbb";
+```
+
+会报错` Conversion from string literal to 'char *' is deprecated`  
+
+这是什么原因呢，书上是这么写的：
+
+c++从c语言继承下来的一种通用结构是c风格字符串，char 字符串字面值就是这中类型的实例，而字符串字面值的类型是const char 类型的数组，是以空字符null结束的字符数组。
+
+    char ca1[] = "hello";//正确 包换null
+    char ca2[] = {'h','e','l','l','o'};//不含null
+    char ca3[] = {'h','e','l','l','o','\0'};//包含null
+
+代码可以看出，ca1和ca3是属于c风格字符串。
+现在回到问题中，那么正确的写法是什么呢？
+
+```cpp
+char af[] = "hello";
+char const *af = "hello";
+```
+
+以上两种方式都是正确的，而为什么要加上const，因为char字符串字面值是不允许修改的，原因如下：
+
+```cpp
+char const *ak ="ffff";
+ak = "hello";
+```
+
+ok，编译正确，这里并木有修改 * ak的值，而是把ak重新指向了“hello”
+
+```cpp
+char const *ak ="ffff";
+*ak = "h";
+```
+
+编译有错误“Read-only variable is  not assignable”
 
 # Map
 

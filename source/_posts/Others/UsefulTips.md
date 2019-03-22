@@ -1,4 +1,5 @@
 ---
+
 title: UsefulTips
 date: 2018-07-25 21:04:09
 categories: Others
@@ -203,6 +204,14 @@ export PATH=$PATH:<PATH 1>:<PATH 2>:<PATH 3>:------:<PATH N>
 但是我外接了Type-C转网线的口，找到对应的也是en9，命令运行后，再用`ifconfig`看发现mac地址并没有更改成功。
 在网上又搜了搜，原来需要**装驱动**。
 这篇文章对这个问题写得相当明白了：https://blog.csdn.net/u014051620/article/details/75050934
+
+##  配置网络：无效的服务器地址 BasicIPv6ValidationError
+
+```
+networksetup -listallnetworkservices //列出所有网络服务信息;
+networksetup -setv6off "Ethernet 2"  //停止对应网卡的ipV6服务;
+networksetup -setmanual "Ethernet 2" 10.10.22.222 255.255.255.0 10.10.22.1 //手动设置
+```
 
 ## 10.14以后Safari装扩展
 

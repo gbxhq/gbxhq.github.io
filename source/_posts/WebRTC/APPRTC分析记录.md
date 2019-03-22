@@ -67,7 +67,7 @@
 
   - `ARDTURNClient.h`
 
-  `- `ARDTURNClient.m``
+  - `ARDTURNClient.m`
 
   - `ARDWebSocketChannel.h`
 
@@ -87,7 +87,7 @@
 
   - `RTCSessionDescription+JSON.h`
 
-    RTCSessionDescription+JSONm
+    `RTCSessionDescription+JSONm`
 
   ## iOS文件夹
 
@@ -135,3 +135,6 @@
 
   - `main.m` 
 
+# 库
+
+- RTCEAGLVideoView.h 小视频窗口

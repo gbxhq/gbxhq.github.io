@@ -2,7 +2,7 @@
 title: MasterTheorem
 date: 2018-11-22 10:41:05
 categories: Algorithm
-tags: 
+tags: Algorithm
 ---
 
 Master Therem，翻译成：主定理、主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的。

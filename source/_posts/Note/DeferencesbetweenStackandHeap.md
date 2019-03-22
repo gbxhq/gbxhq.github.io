@@ -1,7 +1,7 @@
 ---
 title: Deferences between Stack and Heap
 date: 2018-12-09 14:18:22
-categories: Basic
+categories: Note
 tags: Note
 ---
 
