@@ -1,0 +1,564 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="吴恩达机器学习, 炫杉">
+    <meta name="description" content="笔记。
+
+绪论1 Welcome2 DefinitionDefinition：A computer program is said to *learn frome experience E with respect to some task">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>吴恩达机器学习 | 炫杉</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">炫杉</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        吴恩达机器学习
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Note/" target="_blank">
+                    <span class="chip bg-color">Note</span>
+                </a>
+                
+                <a href="/tags/Mechine-learning/" target="_blank">
+                    <span class="chip bg-color">Mechine learning</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/MLDL/" class="post-category" target="_blank">
+                        MLDL
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-24
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>笔记。</p>
+<a id="more"></a>
+<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><h2 id="1-Welcome"><a href="#1-Welcome" class="headerlink" title="1 Welcome"></a>1 Welcome</h2><h2 id="2-Definition"><a href="#2-Definition" class="headerlink" title="2 Definition"></a>2 Definition</h2><p>Definition：A computer program is said to *learn frome experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
+<ul>
+<li>Supervised learning</li>
+<li>Unsupervised learning</li>
+</ul>
+<h2 id="3-Supervised-learning"><a href="#3-Supervised-learning" class="headerlink" title="3 Supervised learning"></a>3 Supervised learning</h2><p>监督学习</p>
+<p>Regression(回归): Predict continuous valued output 目标是一个连续值输出</p>
+<p>分类：目标离散</p>
+<h2 id="4-Unsupervised-learning"><a href="#4-Unsupervised-learning" class="headerlink" title="4 Unsupervised learning"></a>4 Unsupervised learning</h2><p>无监督学习。</p>
+<p>事先不知道答案。聚类。</p>
+<h1 id="Univariate-linear-regression-Linear-regression-with-one-variable"><a href="#Univariate-linear-regression-Linear-regression-with-one-variable" class="headerlink" title="Univariate linear regression(Linear regression with one variable)"></a>Univariate linear regression(Linear regression with one variable)</h1><p> 单变量线性回归</p>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><p>代价函数 J()</p>
+<h2 id="7-8-9-Cost-Function-代价函数"><a href="#7-8-9-Cost-Function-代价函数" class="headerlink" title="7 8 9 Cost Function 代价函数"></a>7 8 9 Cost Function 代价函数</h2><h2 id="10-11Gradient-descent"><a href="#10-11Gradient-descent" class="headerlink" title="10 11Gradient descent"></a>10 11Gradient descent</h2><p>可以将代价函数最小化的梯度下降法。</p>
+<ul>
+<li><p>随意设置起始点，假设你站在一座山上，环顾四周，看最快的下山路径是往哪，走一步，再继续看往哪走。直到走到局部最优。</p>
+</li>
+<li><p>起点不同，局部最优不同</p>
+</li>
+</ul>
+<p>α决定迈步子的大小，大则梯度下降迅速。</p>
+<h2 id="12-Gradient-descent-for-linear-regression"><a href="#12-Gradient-descent-for-linear-regression" class="headerlink" title="12 Gradient descent for linear regression"></a>12 Gradient descent for linear regression</h2><p>#线代 </p>
+<h2 id="14-19-线代"><a href="#14-19-线代" class="headerlink" title="14~19 线代"></a>14~19 线代</h2><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="20-27"><a href="#20-27" class="headerlink" title="20~27"></a>20~27</h2><p>环境安装</p>
+<h1 id="多变量线性回归"><a href="#多变量线性回归" class="headerlink" title="多变量线性回归"></a>多变量线性回归</h1><h2 id="28-多特性"><a href="#28-多特性" class="headerlink" title="28 多特性"></a>28 多特性</h2><h2 id="29-多元梯度下降"><a href="#29-多元梯度下降" class="headerlink" title="29 多元梯度下降"></a>29 多元梯度下降</h2><p><a href="http://mobile.yangkeduo.com/coup" target="_blank" rel="noopener">http://mobile.yangkeduo.com/coup</a> … 06573083_JmqeZYhLWB<a href="http://mobile.yangkeduo.com/coup" target="_blank" rel="noopener">http://mobile.yangkeduo.com/coup</a> … 06573083_JmqeZYhLWB</p>
+<h2 id="30-技巧：特征缩放"><a href="#30-技巧：特征缩放" class="headerlink" title="30 技巧：特征缩放"></a>30 技巧：特征缩放</h2><p>参数的规模不同导致几个θ产生椭圆等高线。这样寻找局部最优的方法变得缓慢。</p>
+<p>特征缩放，把房子的面积➗100. 让几个特征规模相似。 产生圆形特征图</p>
+<p>特征缩放不需要太精确，只是为了让收敛所需的迭代次数减少。</p>
+<h2 id="31-学习率α"><a href="#31-学习率α" class="headerlink" title="31 学习率α"></a>31 学习率α</h2><p>代价函数随迭代次数++反而越来越大，说明学习率该设的小一点。</p>
+<p>太小：收敛的太慢</p>
+<p>太大：可能无法收敛（错过最优）</p>
+<h2 id="32-多项式回归"><a href="#32-多项式回归" class="headerlink" title="32 多项式回归"></a>32 多项式回归</h2><h2 id="33-正规方程"><a href="#33-正规方程" class="headerlink" title="33 正规方程"></a>33 正规方程</h2><p>给了一个公式直接能求出 θ 这个向量的值，就是一个个系数。</p>
+<p>5分41秒</p>
+<p><code>pinv(X&#39;*X)*X&#39;*y</code></p>
+<ul>
+<li>比较梯度下降法和正规方程m个example，n个特性：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Gradient Descent</th>
+<th>Normal Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>需选择α</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>需要迭代</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>But</td>
+<td></td>
+</tr>
+<tr>
+<td>n很大还是能很好工作</td>
+<td>O(N3)<br>如果n是1000级别，还能用。再大就不行了</td>
+</tr>
+</tbody>
+</table>
+<h2 id="34-正规方程的矩阵不可逆情况"><a href="#34-正规方程的矩阵不可逆情况" class="headerlink" title="34 正规方程的矩阵不可逆情况"></a>34 正规方程的矩阵不可逆情况</h2><p>不可逆矩阵X，在Octave里输入</p>
+<pre class="line-numbers language-octave"><code class="language-octave">pinv(X'*X)*X'*y
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>也是可以得到正确答案的。</p>
+<hr>
+<p>造成X不可逆的情况，可能是特征Xm和Xn有线性关系。可以去掉一些特征。</p>
+<h1 id="Octave-Matlab教程"><a href="#Octave-Matlab教程" class="headerlink" title="Octave/Matlab教程"></a>Octave/Matlab教程</h1><p>向量化</p>
+<h1 id="Logistic-回归"><a href="#Logistic-回归" class="headerlink" title="Logistic 回归"></a>Logistic 回归</h1><h2 id="46"><a href="#46" class="headerlink" title="46"></a>46</h2><p>虽然名字里有回归，但这是一个分类算法。</p>
+<p>这一节仅介绍引入。</p>
+<h2 id="50"><a href="#50" class="headerlink" title="50"></a>50</h2><p>代价函数。</p>
+<p>求解θ同样可以用梯度下降法，并用特征算法来加快收敛速度。</p>
+<h2 id="51-高级优化"><a href="#51-高级优化" class="headerlink" title="51 高级优化"></a>51 高级优化</h2><p>Conjugate gradient</p>
+<p>BFGS </p>
+<p>L-BFGS</p>
+<p>超出本课范畴</p>
+<p>在复杂、大规模的数据里使用这些算法</p>
+<h2 id="52-多元化"><a href="#52-多元化" class="headerlink" title="52 多元化"></a>52 多元化</h2><p>两两地进行分割。</p>
+<p>最后再分别带入分类器根据可能性选择。</p>
+<h1 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h1><h2 id="55过拟合问题"><a href="#55过拟合问题" class="headerlink" title="55过拟合问题"></a>55过拟合问题</h2><p>underfitting 欠拟合 高度差</p>
+<p>overfitting 过拟合  高方差：项太多了  为了完全地去模仿拟合训练集，导致参数很多，模型变差了 –&gt;</p>
+<ul>
+<li>舍弃一些变量。</li>
+<li>正则化</li>
+</ul>
+<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><p>解决特征n特别大的情况。如一幅图的像素点全是特征。</p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="https://o--o.win" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/MLDL/吴恩达机器学习/" class="b-link-green">吴恩达机器学习</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/MLDL/机器学习实战笔记/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="机器学习实战笔记">
+                        
+                        <span class="card-title">机器学习实战笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">学习资料来源：
+
+B站视频：
+
+博客：https://blog.csdn.net/c406495762
+
+
+
+KNN不需要训练。找最近的k个点。
+k=1就是找最近的一个。
+点与点间距离选择  欧氏距离。
+​    还有很多测距方法。要都了解</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MLDL/" class="post-category" target="_blank">
+                                    MLDL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/Mechine-learning/" target="_blank">
+                        <span class="chip bg-color">Mechine learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/WebRTC/NotesofWebRTC/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Notes of WebRTC">
+                        
+                        <span class="card-title">Notes of WebRTC</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+
+
+netEQ是webRTC中音频技术方面的两大核心技术之一（另一核心技术是音频的前后处理，包括AEC、ANS、AGC等，俗称3A算法）
+netEQ有两大模块，MCU（micro control unit, 微控制单元）和DSP（digi</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/WebRTC/" class="post-category" target="_blank">
+                                    WebRTC
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    
+
+</main>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
+              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
+        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+
+<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+
+<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+</body>
+</html>
