@@ -1,14 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
-    
+
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="分类: WebRTC, 炫杉">
     <meta name="description" content="分类: WebRTC | 炫杉">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
@@ -18,34 +17,37 @@
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-</head>
 
 <body>
 
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">炫杉</span>
-                    </a>
-                </div>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
     <li class="hide-on-med-and-down">
@@ -53,7 +55,7 @@
             
             <i class="fa fa-home"></i>
             
-            <span>Index</span>
+            <span>首页</span>
         </a>
     </li>
     
@@ -62,7 +64,7 @@
             
             <i class="fa fa-tags"></i>
             
-            <span>Tags</span>
+            <span>标签</span>
         </a>
     </li>
     
@@ -71,7 +73,7 @@
             
             <i class="fa fa-bookmark"></i>
             
-            <span>Categories</span>
+            <span>分类</span>
         </a>
     </li>
     
@@ -80,7 +82,7 @@
             
             <i class="fa fa-user-circle-o"></i>
             
-            <span>About</span>
+            <span>关于</span>
         </a>
     </li>
     
@@ -94,14 +96,13 @@
     </li>
     
     <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
         </a>
     </li>
-
 </ul>
 
-<div class="side-nav" id="mobile-nav">
+<div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
@@ -115,6 +116,8 @@
         </div>
     </div>
 
+    
+
     <ul class="menu-list mobile-menu-list">
         
         <li>
@@ -122,7 +125,7 @@
                 
                 <i class="fa fa-fw fa-home"></i>
                 
-                Index
+                首页
             </a>
         </li>
         
@@ -131,7 +134,7 @@
                 
                 <i class="fa fa-fw fa-tags"></i>
                 
-                Tags
+                标签
             </a>
         </li>
         
@@ -140,7 +143,7 @@
                 
                 <i class="fa fa-fw fa-bookmark"></i>
                 
-                Categories
+                分类
             </a>
         </li>
         
@@ -149,7 +152,7 @@
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
-                About
+                关于
             </a>
         </li>
         
@@ -164,55 +167,40 @@
         
         
     </ul>
-
-    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-</div>
 </div>
 
-            </div>
         </div>
 
         
     </nav>
+
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+<div class="bg-cover pd-header about-cover">
     <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                    
-                        炫杉Blog
-                    
-                    </div>
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    炫杉Blog
+                
+            </div>
 
-                    <div class="description center-align">
-                    
-                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
-                    
-                    </div>
-                </div>
+            <div class="description center-align">
+                
+                    提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+                
             </div>
         </div>
-        
     </div>
 </div>
-
 <script>
-// Dynamically switch banner pictures every day.
+// 每天切换 banner 图.  Switch banner image every day.
 $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
+    </div>
+</div>
 
 <main class="content">
 
@@ -221,23 +209,25 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
-            <div class="tag-title center-align">文章分类</div>
+            <div class="tag-title center-align">
+                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;文章分类
+            </div>
             <div class="tag-chips">
                 
                 
                 
-                <a href="/categories/Algorithm/" title="Algorithm: 12">
+                <a href="/categories/cpp/" title="cpp: 2">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F9EBEA;">Algorithm
-                        <span class="tag-length">12</span>
+                             chip-default " style="background-color: #F9EBEA;">cpp
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/cpp/" title="cpp: 2">
+                <a href="/categories/Algorithm/" title="Algorithm: 12">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F5EEF8;">cpp
-                        <span class="tag-length">2</span>
+                             chip-default " style="background-color: #F5EEF8;">Algorithm
+                        <span class="tag-length">12</span>
                     </span>
                 </a>
                 
@@ -250,9 +240,17 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
+                <a href="/categories/Python/" title="Python: 8">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " style="background-color: #E8F8F5;">Python
+                        <span class="tag-length">8</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/Network/" title="Network: 2">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #E8F8F5;">Network
+                             chip-default " style="background-color: #FEF9E7;">Network
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -260,7 +258,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 <a href="/categories/Note/" title="Note: 6">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #FEF9E7;">Note
+                             chip-default " style="background-color: #F8F9F9;">Note
                         <span class="tag-length">6</span>
                     </span>
                 </a>
@@ -268,24 +266,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 <a href="/categories/PhD/" title="PhD: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F8F9F9;">PhD
+                             chip-default " style="background-color: #82E0AA;">PhD
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Others/" title="Others: 8">
+                <a href="/categories/Log/" title="Log: 9">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #82E0AA;">Others
-                        <span class="tag-length">8</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Python/" title="Python: 8">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #D7BDE2;">Python
-                        <span class="tag-length">8</span>
+                             chip-default " style="background-color: #D7BDE2;">Log
+                        <span class="tag-length">9</span>
                     </span>
                 </a>
                 
@@ -314,9 +304,17 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
+                <a href="/categories/Others/" title="Others: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " style="background-color: #F9E79F;">Others
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/iOS/" title="iOS: 10">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F9E79F;">iOS
+                             chip-default " style="background-color: #85C1E9;">iOS
                         <span class="tag-length">10</span>
                     </span>
                 </a>
@@ -332,7 +330,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     <article id="articles" class="container articles">
         <div class="row tags-posts">
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/WebRTC/NotesofWebRTC/">
                         <div class="card-image tag-image">
@@ -345,10 +343,14 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     </a>
                     <div class="card-content article-content">
                         <div class="summary">
+                            
+                                
 
 
 netEQ是webRTC中音频技术方面的两大核心技术之一（另一核心技术是音频的前后处理，包括AEC、ANS、AGC等，俗称3A算法）
-</div>
+
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-23
@@ -378,7 +380,7 @@ netEQ是webRTC中音频技术方面的两大核心技术之一（另一核心技
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/WebRTC/APPRTC分析记录/">
                         <div class="card-image tag-image">
@@ -390,10 +392,14 @@ netEQ是webRTC中音频技术方面的两大核心技术之一（另一核心技
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">  WebRTC iOS端官方Demo 看 APPRTC 源码的记录
+                        <div class="summary">
+                            
+                                  WebRTC iOS端官方Demo 看 APPRTC 源码的记录
   
 AppRTCMobile根目录
-ARDAppClient+Int</div>
+ARDAppClient+Int
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
@@ -423,7 +429,7 @@ ARDAppClient+Int</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/WebRTC/WebRTC06入门教程03/">
                         <div class="card-image tag-image">
@@ -435,9 +441,13 @@ ARDAppClient+Int</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">信令服务器分析
+                        <div class="summary">
+                            
+                                信令服务器分析
 
-Signaling信令和协商Signaling and Negotiation用户建立连接的过程以信令和协商为主。有下面几</div>
+Signaling信令和协商Signaling and Negotiation用户建立连接的过程以信令和协商为主。有下面几
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-31
@@ -471,7 +481,7 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/WebRTC/WebRTC05入门教程02/">
                         <div class="card-image tag-image">
@@ -483,9 +493,13 @@ Signaling信令和协商Signaling and Negotiation用户建立连接的过程以�
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">p2p的核心RTCPeerConnection APIs的介绍
+                        <div class="summary">
+                            
+                                p2p的核心RTCPeerConnection APIs的介绍
 
-RTCPeerConnection APIs简单样例：var pc = R</div>
+RTCPeerConnection APIs简单样例：var pc = R
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-30
@@ -519,7 +533,7 @@ RTCPeerConnection APIs简单样例：var pc = R</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/WebRTC/WebRTC04Kurento流程分析/">
                         <div class="card-image tag-image">
@@ -532,7 +546,11 @@ RTCPeerConnection APIs简单样例：var pc = R</div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary">
-今天的学习可以说是以失败告终了吧。也就知道了用js动态调试。大体看懂了participant.js和conference.js。但最大头的</div>
+                            
+                                
+今天的学习可以说是以失败告终了吧。也就知道了用js动态调试。大体看懂了participant.js和conference.js。但最大头的
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-28
@@ -562,7 +580,7 @@ RTCPeerConnection APIs简单样例：var pc = R</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/WebRTC/WebRTC03入门教程01/">
                         <div class="card-image tag-image">
@@ -574,9 +592,13 @@ RTCPeerConnection APIs简单样例：var pc = R</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">WebRTC教程
+                        <div class="summary">
+                            
+                                WebRTC教程
 
-HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实现音频、视频连接。这个教程中，我们会解释如何用WebR</div>
+HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实现音频、视频连接。这个教程中，我们会解释如何用WebR
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-27
@@ -606,7 +628,7 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/WebRTC/WebRTC02查资料/">
                         <div class="card-image tag-image">
@@ -618,7 +640,11 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">本来第一站是要查资料先了解下知识点的。但是王老师直接就给了我iOS的源码，这样又了Demo对着，了解更好了。不多说了。最近的任务就是多看We</div>
+                        <div class="summary">
+                            
+                                本来第一站是要查资料先了解下知识点的。但是王老师直接就给了我iOS的源码，这样又了Demo对着，了解更好了。不多说了。最近的任务就是多看We
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-26
@@ -648,7 +674,7 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/WebRTC/WebRTC01iOSDemo/">
                         <div class="card-image tag-image">
@@ -660,9 +686,13 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">为我的WebRTC第一站做个记录吧。先了解下应用层的东西。
+                        <div class="summary">
+                            
+                                为我的WebRTC第一站做个记录吧。先了解下应用层的东西。
 
-我发现，我这些学习笔记一点都不技术，跟我的流水账日记差不多～哈哈。管不了这么多</div>
+我发现，我这些学习笔记一点都不技术，跟我的流水账日记差不多～哈哈。管不了这么多
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-24
@@ -700,20 +730,43 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
-              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
+            
 
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
     </div>
 </footer>
@@ -725,8 +778,8 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -734,7 +787,9 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
 
 <script src="/js/search.js"></script>
 <script type="text/javascript">
+$(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
 </script>
 <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
@@ -744,11 +799,22 @@ HomeWebRTC（网页实时通讯）技术可以很容易地让人们在网页实�
 </div>
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/materialize/materialize.min.js"></script>
 <script src="/libs/masonry/masonry.pkgd.min.js"></script>
 <script src="/libs/aos/aos.js"></script>
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
 </body>
 </html>

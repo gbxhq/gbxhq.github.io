@@ -1,14 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
-    
+
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="归档: 2018/10, 炫杉">
     <meta name="description" content="归档: 2018/10 | 炫杉">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
@@ -18,34 +17,37 @@
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-</head>
 
 <body>
 
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">炫杉</span>
-                    </a>
-                </div>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
     <li class="hide-on-med-and-down">
@@ -53,7 +55,7 @@
             
             <i class="fa fa-home"></i>
             
-            <span>Index</span>
+            <span>首页</span>
         </a>
     </li>
     
@@ -62,7 +64,7 @@
             
             <i class="fa fa-tags"></i>
             
-            <span>Tags</span>
+            <span>标签</span>
         </a>
     </li>
     
@@ -71,7 +73,7 @@
             
             <i class="fa fa-bookmark"></i>
             
-            <span>Categories</span>
+            <span>分类</span>
         </a>
     </li>
     
@@ -80,7 +82,7 @@
             
             <i class="fa fa-user-circle-o"></i>
             
-            <span>About</span>
+            <span>关于</span>
         </a>
     </li>
     
@@ -94,14 +96,13 @@
     </li>
     
     <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
         </a>
     </li>
-
 </ul>
 
-<div class="side-nav" id="mobile-nav">
+<div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
@@ -115,6 +116,8 @@
         </div>
     </div>
 
+    
+
     <ul class="menu-list mobile-menu-list">
         
         <li>
@@ -122,7 +125,7 @@
                 
                 <i class="fa fa-fw fa-home"></i>
                 
-                Index
+                首页
             </a>
         </li>
         
@@ -131,7 +134,7 @@
                 
                 <i class="fa fa-fw fa-tags"></i>
                 
-                Tags
+                标签
             </a>
         </li>
         
@@ -140,7 +143,7 @@
                 
                 <i class="fa fa-fw fa-bookmark"></i>
                 
-                Categories
+                分类
             </a>
         </li>
         
@@ -149,7 +152,7 @@
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
-                About
+                关于
             </a>
         </li>
         
@@ -164,55 +167,40 @@
         
         
     </ul>
-
-    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-</div>
 </div>
 
-            </div>
         </div>
 
         
     </nav>
+
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+<div class="bg-cover pd-header about-cover">
     <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                    
-                        炫杉Blog
-                    
-                    </div>
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    炫杉Blog
+                
+            </div>
 
-                    <div class="description center-align">
-                    
-                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
-                    
-                    </div>
-                </div>
+            <div class="description center-align">
+                
+                    提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+                
             </div>
         </div>
-        
     </div>
 </div>
-
 <script>
-// Dynamically switch banner pictures every day.
+// 每天切换 banner 图.  Switch banner image every day.
 $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
+    </div>
+</div>
 
 <main class="content">
 
@@ -265,7 +253,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         },
         calendar: [{
             left: 'center',
-            range: ["2018-03-22", "2019-03-22"],
+            range: ["2018-03-28", "2019-03-28"],
             cellSize: [13, 13],
             splitLine: {
                 show: false
@@ -291,7 +279,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             type: 'heatmap',
             coordinateSystem: 'calendar',
             calendarIndex: 0,
-            data: [["2018-03-22", 0], ["2018-03-23", 1], ["2018-03-24", 1], ["2018-03-25", 0], ["2018-03-26", 0], ["2018-03-27", 0], ["2018-03-28", 0], ["2018-03-29", 0], ["2018-03-30", 0], ["2018-03-31", 2], ["2018-04-01", 2], ["2018-04-02", 2], ["2018-04-03", 0], ["2018-04-04", 0], ["2018-04-05", 0], ["2018-04-06", 0], ["2018-04-07", 1], ["2018-04-08", 0], ["2018-04-09", 0], ["2018-04-10", 0], ["2018-04-11", 0], ["2018-04-12", 0], ["2018-04-13", 0], ["2018-04-14", 0], ["2018-04-15", 0], ["2018-04-16", 1], ["2018-04-17", 0], ["2018-04-18", 0], ["2018-04-19", 0], ["2018-04-20", 0], ["2018-04-21", 0], ["2018-04-22", 0], ["2018-04-23", 0], ["2018-04-24", 0], ["2018-04-25", 0], ["2018-04-26", 0], ["2018-04-27", 1], ["2018-04-28", 0], ["2018-04-29", 0], ["2018-04-30", 0], ["2018-05-01", 1], ["2018-05-02", 0], ["2018-05-03", 0], ["2018-05-04", 0], ["2018-05-05", 0], ["2018-05-06", 0], ["2018-05-07", 0], ["2018-05-08", 0], ["2018-05-09", 0], ["2018-05-10", 0], ["2018-05-11", 0], ["2018-05-12", 0], ["2018-05-13", 0], ["2018-05-14", 0], ["2018-05-15", 0], ["2018-05-16", 1], ["2018-05-17", 0], ["2018-05-18", 1], ["2018-05-19", 0], ["2018-05-20", 0], ["2018-05-21", 0], ["2018-05-22", 1], ["2018-05-23", 0], ["2018-05-24", 0], ["2018-05-25", 0], ["2018-05-26", 1], ["2018-05-27", 0], ["2018-05-28", 0], ["2018-05-29", 0], ["2018-05-30", 0], ["2018-05-31", 0], ["2018-06-01", 0], ["2018-06-02", 0], ["2018-06-03", 1], ["2018-06-04", 0], ["2018-06-05", 0], ["2018-06-06", 0], ["2018-06-07", 0], ["2018-06-08", 0], ["2018-06-09", 0], ["2018-06-10", 0], ["2018-06-11", 0], ["2018-06-12", 0], ["2018-06-13", 0], ["2018-06-14", 0], ["2018-06-15", 0], ["2018-06-16", 0], ["2018-06-17", 0], ["2018-06-18", 0], ["2018-06-19", 0], ["2018-06-20", 0], ["2018-06-21", 0], ["2018-06-22", 0], ["2018-06-23", 0], ["2018-06-24", 0], ["2018-06-25", 0], ["2018-06-26", 0], ["2018-06-27", 0], ["2018-06-28", 0], ["2018-06-29", 0], ["2018-06-30", 0], ["2018-07-01", 0], ["2018-07-02", 0], ["2018-07-03", 1], ["2018-07-04", 0], ["2018-07-05", 0], ["2018-07-06", 0], ["2018-07-07", 0], ["2018-07-08", 0], ["2018-07-09", 0], ["2018-07-10", 0], ["2018-07-11", 0], ["2018-07-12", 0], ["2018-07-13", 0], ["2018-07-14", 0], ["2018-07-15", 0], ["2018-07-16", 0], ["2018-07-17", 0], ["2018-07-18", 0], ["2018-07-19", 0], ["2018-07-20", 0], ["2018-07-21", 0], ["2018-07-22", 0], ["2018-07-23", 0], ["2018-07-24", 0], ["2018-07-25", 1], ["2018-07-26", 0], ["2018-07-27", 0], ["2018-07-28", 0], ["2018-07-29", 0], ["2018-07-30", 0], ["2018-07-31", 0], ["2018-08-01", 0], ["2018-08-02", 0], ["2018-08-03", 0], ["2018-08-04", 0], ["2018-08-05", 0], ["2018-08-06", 1], ["2018-08-07", 0], ["2018-08-08", 0], ["2018-08-09", 0], ["2018-08-10", 0], ["2018-08-11", 0], ["2018-08-12", 0], ["2018-08-13", 0], ["2018-08-14", 1], ["2018-08-15", 0], ["2018-08-16", 0], ["2018-08-17", 0], ["2018-08-18", 0], ["2018-08-19", 0], ["2018-08-20", 0], ["2018-08-21", 0], ["2018-08-22", 0], ["2018-08-23", 0], ["2018-08-24", 1], ["2018-08-25", 0], ["2018-08-26", 1], ["2018-08-27", 1], ["2018-08-28", 1], ["2018-08-29", 0], ["2018-08-30", 1], ["2018-08-31", 1], ["2018-09-01", 1], ["2018-09-02", 0], ["2018-09-03", 0], ["2018-09-04", 0], ["2018-09-05", 0], ["2018-09-06", 1], ["2018-09-07", 1], ["2018-09-08", 0], ["2018-09-09", 0], ["2018-09-10", 2], ["2018-09-11", 0], ["2018-09-12", 1], ["2018-09-13", 0], ["2018-09-14", 0], ["2018-09-15", 0], ["2018-09-16", 0], ["2018-09-17", 0], ["2018-09-18", 0], ["2018-09-19", 0], ["2018-09-20", 0], ["2018-09-21", 0], ["2018-09-22", 0], ["2018-09-23", 0], ["2018-09-24", 0], ["2018-09-25", 0], ["2018-09-26", 0], ["2018-09-27", 0], ["2018-09-28", 0], ["2018-09-29", 0], ["2018-09-30", 0], ["2018-10-01", 0], ["2018-10-02", 0], ["2018-10-03", 0], ["2018-10-04", 0], ["2018-10-05", 0], ["2018-10-06", 0], ["2018-10-07", 0], ["2018-10-08", 0], ["2018-10-09", 0], ["2018-10-10", 0], ["2018-10-11", 0], ["2018-10-12", 0], ["2018-10-13", 0], ["2018-10-14", 0], ["2018-10-15", 1], ["2018-10-16", 0], ["2018-10-17", 0], ["2018-10-18", 0], ["2018-10-19", 1], ["2018-10-20", 0], ["2018-10-21", 0], ["2018-10-22", 0], ["2018-10-23", 0], ["2018-10-24", 0], ["2018-10-25", 0], ["2018-10-26", 0], ["2018-10-27", 0], ["2018-10-28", 0], ["2018-10-29", 0], ["2018-10-30", 1], ["2018-10-31", 0], ["2018-11-01", 1], ["2018-11-02", 0], ["2018-11-03", 0], ["2018-11-04", 0], ["2018-11-05", 1], ["2018-11-06", 0], ["2018-11-07", 0], ["2018-11-08", 1], ["2018-11-09", 1], ["2018-11-10", 0], ["2018-11-11", 0], ["2018-11-12", 0], ["2018-11-13", 0], ["2018-11-14", 0], ["2018-11-15", 2], ["2018-11-16", 0], ["2018-11-17", 0], ["2018-11-18", 0], ["2018-11-19", 0], ["2018-11-20", 2], ["2018-11-21", 1], ["2018-11-22", 1], ["2018-11-23", 0], ["2018-11-24", 0], ["2018-11-25", 0], ["2018-11-26", 0], ["2018-11-27", 0], ["2018-11-28", 1], ["2018-11-29", 0], ["2018-11-30", 0], ["2018-12-01", 0], ["2018-12-02", 0], ["2018-12-03", 0], ["2018-12-04", 0], ["2018-12-05", 0], ["2018-12-06", 1], ["2018-12-07", 0], ["2018-12-08", 0], ["2018-12-09", 1], ["2018-12-10", 0], ["2018-12-11", 0], ["2018-12-12", 0], ["2018-12-13", 0], ["2018-12-14", 0], ["2018-12-15", 0], ["2018-12-16", 0], ["2018-12-17", 0], ["2018-12-18", 1], ["2018-12-19", 0], ["2018-12-20", 1], ["2018-12-21", 0], ["2018-12-22", 0], ["2018-12-23", 0], ["2018-12-24", 0], ["2018-12-25", 0], ["2018-12-26", 0], ["2018-12-27", 0], ["2018-12-28", 0], ["2018-12-29", 0], ["2018-12-30", 0], ["2018-12-31", 0], ["2019-01-01", 0], ["2019-01-02", 0], ["2019-01-03", 0], ["2019-01-04", 1], ["2019-01-05", 0], ["2019-01-06", 0], ["2019-01-07", 0], ["2019-01-08", 0], ["2019-01-09", 0], ["2019-01-10", 0], ["2019-01-11", 0], ["2019-01-12", 0], ["2019-01-13", 0], ["2019-01-14", 1], ["2019-01-15", 0], ["2019-01-16", 0], ["2019-01-17", 0], ["2019-01-18", 0], ["2019-01-19", 0], ["2019-01-20", 0], ["2019-01-21", 0], ["2019-01-22", 0], ["2019-01-23", 1], ["2019-01-24", 1], ["2019-01-25", 0], ["2019-01-26", 0], ["2019-01-27", 0], ["2019-01-28", 0], ["2019-01-29", 0], ["2019-01-30", 0], ["2019-01-31", 0], ["2019-02-01", 0], ["2019-02-02", 0], ["2019-02-03", 0], ["2019-02-04", 0], ["2019-02-05", 0], ["2019-02-06", 0], ["2019-02-07", 0], ["2019-02-08", 0], ["2019-02-09", 0], ["2019-02-10", 0], ["2019-02-11", 0], ["2019-02-12", 0], ["2019-02-13", 0], ["2019-02-14", 0], ["2019-02-15", 0], ["2019-02-16", 0], ["2019-02-17", 0], ["2019-02-18", 0], ["2019-02-19", 0], ["2019-02-20", 0], ["2019-02-21", 0], ["2019-02-22", 0], ["2019-02-23", 0], ["2019-02-24", 0], ["2019-02-25", 0], ["2019-02-26", 0], ["2019-02-27", 0], ["2019-02-28", 0], ["2019-03-01", 0], ["2019-03-02", 0], ["2019-03-03", 0], ["2019-03-04", 0], ["2019-03-05", 0], ["2019-03-06", 0], ["2019-03-07", 0], ["2019-03-08", 0], ["2019-03-09", 0], ["2019-03-10", 0], ["2019-03-11", 1], ["2019-03-12", 1], ["2019-03-13", 0], ["2019-03-14", 1], ["2019-03-15", 0], ["2019-03-16", 0], ["2019-03-17", 0], ["2019-03-18", 0], ["2019-03-19", 0], ["2019-03-20", 1], ["2019-03-21", 0], ["2019-03-22", 0]]
+            data: [["2018-03-28", 0], ["2018-03-29", 0], ["2018-03-30", 0], ["2018-03-31", 2], ["2018-04-01", 2], ["2018-04-02", 2], ["2018-04-03", 0], ["2018-04-04", 0], ["2018-04-05", 0], ["2018-04-06", 0], ["2018-04-07", 1], ["2018-04-08", 0], ["2018-04-09", 0], ["2018-04-10", 0], ["2018-04-11", 0], ["2018-04-12", 0], ["2018-04-13", 0], ["2018-04-14", 0], ["2018-04-15", 0], ["2018-04-16", 1], ["2018-04-17", 0], ["2018-04-18", 0], ["2018-04-19", 0], ["2018-04-20", 0], ["2018-04-21", 0], ["2018-04-22", 0], ["2018-04-23", 0], ["2018-04-24", 0], ["2018-04-25", 0], ["2018-04-26", 0], ["2018-04-27", 1], ["2018-04-28", 0], ["2018-04-29", 0], ["2018-04-30", 0], ["2018-05-01", 1], ["2018-05-02", 0], ["2018-05-03", 0], ["2018-05-04", 0], ["2018-05-05", 0], ["2018-05-06", 0], ["2018-05-07", 0], ["2018-05-08", 0], ["2018-05-09", 0], ["2018-05-10", 0], ["2018-05-11", 0], ["2018-05-12", 0], ["2018-05-13", 0], ["2018-05-14", 0], ["2018-05-15", 0], ["2018-05-16", 1], ["2018-05-17", 0], ["2018-05-18", 1], ["2018-05-19", 0], ["2018-05-20", 0], ["2018-05-21", 0], ["2018-05-22", 1], ["2018-05-23", 0], ["2018-05-24", 0], ["2018-05-25", 0], ["2018-05-26", 1], ["2018-05-27", 0], ["2018-05-28", 0], ["2018-05-29", 0], ["2018-05-30", 0], ["2018-05-31", 0], ["2018-06-01", 0], ["2018-06-02", 0], ["2018-06-03", 1], ["2018-06-04", 0], ["2018-06-05", 0], ["2018-06-06", 0], ["2018-06-07", 0], ["2018-06-08", 0], ["2018-06-09", 0], ["2018-06-10", 0], ["2018-06-11", 0], ["2018-06-12", 0], ["2018-06-13", 0], ["2018-06-14", 0], ["2018-06-15", 0], ["2018-06-16", 0], ["2018-06-17", 0], ["2018-06-18", 0], ["2018-06-19", 0], ["2018-06-20", 0], ["2018-06-21", 0], ["2018-06-22", 0], ["2018-06-23", 0], ["2018-06-24", 0], ["2018-06-25", 0], ["2018-06-26", 0], ["2018-06-27", 0], ["2018-06-28", 0], ["2018-06-29", 0], ["2018-06-30", 0], ["2018-07-01", 0], ["2018-07-02", 0], ["2018-07-03", 1], ["2018-07-04", 0], ["2018-07-05", 0], ["2018-07-06", 0], ["2018-07-07", 0], ["2018-07-08", 0], ["2018-07-09", 0], ["2018-07-10", 0], ["2018-07-11", 0], ["2018-07-12", 0], ["2018-07-13", 0], ["2018-07-14", 0], ["2018-07-15", 0], ["2018-07-16", 0], ["2018-07-17", 0], ["2018-07-18", 0], ["2018-07-19", 0], ["2018-07-20", 0], ["2018-07-21", 0], ["2018-07-22", 0], ["2018-07-23", 0], ["2018-07-24", 0], ["2018-07-25", 1], ["2018-07-26", 0], ["2018-07-27", 0], ["2018-07-28", 0], ["2018-07-29", 0], ["2018-07-30", 0], ["2018-07-31", 0], ["2018-08-01", 0], ["2018-08-02", 0], ["2018-08-03", 0], ["2018-08-04", 0], ["2018-08-05", 0], ["2018-08-06", 1], ["2018-08-07", 0], ["2018-08-08", 0], ["2018-08-09", 0], ["2018-08-10", 0], ["2018-08-11", 0], ["2018-08-12", 0], ["2018-08-13", 0], ["2018-08-14", 1], ["2018-08-15", 0], ["2018-08-16", 0], ["2018-08-17", 0], ["2018-08-18", 0], ["2018-08-19", 0], ["2018-08-20", 0], ["2018-08-21", 0], ["2018-08-22", 0], ["2018-08-23", 0], ["2018-08-24", 1], ["2018-08-25", 0], ["2018-08-26", 1], ["2018-08-27", 1], ["2018-08-28", 1], ["2018-08-29", 0], ["2018-08-30", 1], ["2018-08-31", 1], ["2018-09-01", 1], ["2018-09-02", 0], ["2018-09-03", 0], ["2018-09-04", 0], ["2018-09-05", 0], ["2018-09-06", 1], ["2018-09-07", 1], ["2018-09-08", 0], ["2018-09-09", 0], ["2018-09-10", 2], ["2018-09-11", 0], ["2018-09-12", 1], ["2018-09-13", 0], ["2018-09-14", 0], ["2018-09-15", 0], ["2018-09-16", 0], ["2018-09-17", 0], ["2018-09-18", 0], ["2018-09-19", 0], ["2018-09-20", 0], ["2018-09-21", 0], ["2018-09-22", 0], ["2018-09-23", 0], ["2018-09-24", 0], ["2018-09-25", 0], ["2018-09-26", 0], ["2018-09-27", 0], ["2018-09-28", 0], ["2018-09-29", 0], ["2018-09-30", 0], ["2018-10-01", 0], ["2018-10-02", 0], ["2018-10-03", 0], ["2018-10-04", 0], ["2018-10-05", 0], ["2018-10-06", 0], ["2018-10-07", 0], ["2018-10-08", 0], ["2018-10-09", 0], ["2018-10-10", 0], ["2018-10-11", 0], ["2018-10-12", 0], ["2018-10-13", 0], ["2018-10-14", 0], ["2018-10-15", 1], ["2018-10-16", 0], ["2018-10-17", 0], ["2018-10-18", 0], ["2018-10-19", 1], ["2018-10-20", 0], ["2018-10-21", 0], ["2018-10-22", 0], ["2018-10-23", 0], ["2018-10-24", 0], ["2018-10-25", 0], ["2018-10-26", 0], ["2018-10-27", 0], ["2018-10-28", 0], ["2018-10-29", 0], ["2018-10-30", 1], ["2018-10-31", 0], ["2018-11-01", 1], ["2018-11-02", 0], ["2018-11-03", 0], ["2018-11-04", 0], ["2018-11-05", 1], ["2018-11-06", 0], ["2018-11-07", 0], ["2018-11-08", 1], ["2018-11-09", 1], ["2018-11-10", 0], ["2018-11-11", 0], ["2018-11-12", 0], ["2018-11-13", 0], ["2018-11-14", 0], ["2018-11-15", 2], ["2018-11-16", 0], ["2018-11-17", 0], ["2018-11-18", 0], ["2018-11-19", 0], ["2018-11-20", 2], ["2018-11-21", 1], ["2018-11-22", 1], ["2018-11-23", 0], ["2018-11-24", 0], ["2018-11-25", 0], ["2018-11-26", 0], ["2018-11-27", 0], ["2018-11-28", 1], ["2018-11-29", 0], ["2018-11-30", 0], ["2018-12-01", 0], ["2018-12-02", 0], ["2018-12-03", 0], ["2018-12-04", 0], ["2018-12-05", 0], ["2018-12-06", 1], ["2018-12-07", 0], ["2018-12-08", 0], ["2018-12-09", 1], ["2018-12-10", 0], ["2018-12-11", 0], ["2018-12-12", 0], ["2018-12-13", 0], ["2018-12-14", 0], ["2018-12-15", 0], ["2018-12-16", 0], ["2018-12-17", 0], ["2018-12-18", 1], ["2018-12-19", 0], ["2018-12-20", 1], ["2018-12-21", 0], ["2018-12-22", 0], ["2018-12-23", 0], ["2018-12-24", 0], ["2018-12-25", 0], ["2018-12-26", 0], ["2018-12-27", 0], ["2018-12-28", 0], ["2018-12-29", 0], ["2018-12-30", 0], ["2018-12-31", 0], ["2019-01-01", 0], ["2019-01-02", 0], ["2019-01-03", 0], ["2019-01-04", 1], ["2019-01-05", 0], ["2019-01-06", 0], ["2019-01-07", 0], ["2019-01-08", 0], ["2019-01-09", 0], ["2019-01-10", 0], ["2019-01-11", 0], ["2019-01-12", 0], ["2019-01-13", 0], ["2019-01-14", 1], ["2019-01-15", 0], ["2019-01-16", 0], ["2019-01-17", 0], ["2019-01-18", 0], ["2019-01-19", 0], ["2019-01-20", 0], ["2019-01-21", 0], ["2019-01-22", 0], ["2019-01-23", 1], ["2019-01-24", 1], ["2019-01-25", 0], ["2019-01-26", 0], ["2019-01-27", 0], ["2019-01-28", 0], ["2019-01-29", 0], ["2019-01-30", 0], ["2019-01-31", 0], ["2019-02-01", 0], ["2019-02-02", 0], ["2019-02-03", 0], ["2019-02-04", 0], ["2019-02-05", 0], ["2019-02-06", 0], ["2019-02-07", 0], ["2019-02-08", 0], ["2019-02-09", 0], ["2019-02-10", 0], ["2019-02-11", 0], ["2019-02-12", 0], ["2019-02-13", 0], ["2019-02-14", 0], ["2019-02-15", 0], ["2019-02-16", 0], ["2019-02-17", 0], ["2019-02-18", 0], ["2019-02-19", 0], ["2019-02-20", 0], ["2019-02-21", 0], ["2019-02-22", 0], ["2019-02-23", 0], ["2019-02-24", 0], ["2019-02-25", 0], ["2019-02-26", 0], ["2019-02-27", 0], ["2019-02-28", 0], ["2019-03-01", 0], ["2019-03-02", 0], ["2019-03-03", 0], ["2019-03-04", 0], ["2019-03-05", 0], ["2019-03-06", 0], ["2019-03-07", 0], ["2019-03-08", 0], ["2019-03-09", 0], ["2019-03-10", 0], ["2019-03-11", 1], ["2019-03-12", 1], ["2019-03-13", 0], ["2019-03-14", 1], ["2019-03-15", 0], ["2019-03-16", 0], ["2019-03-17", 0], ["2019-03-18", 0], ["2019-03-19", 0], ["2019-03-20", 1], ["2019-03-21", 0], ["2019-03-22", 0], ["2019-03-23", 0], ["2019-03-24", 0], ["2019-03-25", 0], ["2019-03-26", 1], ["2019-03-27", 0], ["2019-03-28", 0]]
         }]
 
     };
@@ -327,50 +315,45 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <span>30</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Cpp/HoujieCpp01/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="C++学习笔记 面向对象（上）">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>C++学习笔记 面向对象（上）</span> -->
+                                
+                                <span class="card-title">C++学习笔记 面向对象（上）</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">舍友给的C++资料。谢谢琪琪。做个笔记。
+                            <div class="summary">
+                                
+                                    舍友给的C++资料。谢谢琪琪。做个笔记。
 
 1 简介2 头文件与类声明//比如这个是类Complex的头文件：
 #ifndef __COMPLEX__
-#def</div> -->
+#def
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Cpp/HoujieCpp01/">C++学习笔记 面向对象（上）</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/cpp/"><span class="chip bg-color">cpp</span></a>
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/cpp/" class="post-category" target="_blank">
                                     cpp
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/cpp/"><span class="chip bg-color">cpp</span></a>
@@ -378,7 +361,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -397,57 +380,52 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <span>19</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Algorithm/剑指offer/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="剑指offer">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>剑指offer</span> -->
+                                
+                                <span class="card-title">剑指offer</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">《剑指Offer》读书笔记。感谢强哥给的书。希望明年的我也可以Offer满满~
+                            <div class="summary">
+                                
+                                    《剑指Offer》读书笔记。感谢强哥给的书。希望明年的我也可以Offer满满~
 代码基本都在这里了：https://github.com/ixsim/OJ
 
-P</div> -->
+P
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Algorithm/剑指offer/">剑指offer</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-19
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Algorithm/" class="post-category" target="_blank">
                                     Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
-                            
-                            <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
                             
+                            <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
+                            
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -466,55 +444,44 @@ P</div> -->
                 <span>15</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/Others/PackageMananger/">
+                        <a href="/Log/PackageMananger/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="PackageMananger相关">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>PackageMananger相关</span> -->
+                                
+                                <span class="card-title">PackageMananger相关</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">Homebrew,Ruby,CocoaPods,npm使用时遇到的的命令、更换源、出现的问题，简单记录
+                            <div class="summary">
+                                
+                                    Homebrew,Ruby,CocoaPods,npm使用时遇到的的命令、更换源、出现的问题，简单记录
 
 Homebrew概念
-Mac的软件包管理工具，类似于l</div> -->
+Mac的软件包管理工具，类似于l
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Others/PackageMananger/">PackageMananger相关</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Homebrew/"><span class="chip bg-color">Homebrew</span></a>
-                                        
-                                        <a href="/tags/Ruby/"><span class="chip bg-color">Ruby</span></a>
-                                        
-                                        <a href="/tags/CocoaPods/"><span class="chip bg-color">CocoaPods</span></a>
-                                        
-                                        <a href="/tags/npm/"><span class="chip bg-color">npm</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
-                                    <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                                    <a href="/categories/Log/" class="post-category" target="_blank">
+                                    Log
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -528,7 +495,7 @@ Mac的软件包管理工具，类似于l</div> -->
                             <a href="/tags/npm/"><span class="chip bg-color">npm</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -542,20 +509,43 @@ Mac的软件包管理工具，类似于l</div> -->
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
-              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
+            
 
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
     </div>
 </footer>
@@ -567,8 +557,8 @@ Mac的软件包管理工具，类似于l</div> -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -576,7 +566,9 @@ Mac的软件包管理工具，类似于l</div> -->
 
 <script src="/js/search.js"></script>
 <script type="text/javascript">
+$(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
 </script>
 <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
@@ -586,11 +578,22 @@ Mac的软件包管理工具，类似于l</div> -->
 </div>
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/materialize/materialize.min.js"></script>
 <script src="/libs/masonry/masonry.pkgd.min.js"></script>
 <script src="/libs/aos/aos.js"></script>
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
 </body>
 </html>

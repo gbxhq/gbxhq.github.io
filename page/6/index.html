@@ -1,14 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
-    
+
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="炫杉">
     <meta name="description" content="炫杉">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
@@ -18,34 +17,37 @@
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-</head>
 
 <body>
 
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">炫杉</span>
-                    </a>
-                </div>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
     <li class="hide-on-med-and-down">
@@ -53,7 +55,7 @@
             
             <i class="fa fa-home"></i>
             
-            <span>Index</span>
+            <span>首页</span>
         </a>
     </li>
     
@@ -62,7 +64,7 @@
             
             <i class="fa fa-tags"></i>
             
-            <span>Tags</span>
+            <span>标签</span>
         </a>
     </li>
     
@@ -71,7 +73,7 @@
             
             <i class="fa fa-bookmark"></i>
             
-            <span>Categories</span>
+            <span>分类</span>
         </a>
     </li>
     
@@ -80,7 +82,7 @@
             
             <i class="fa fa-user-circle-o"></i>
             
-            <span>About</span>
+            <span>关于</span>
         </a>
     </li>
     
@@ -94,14 +96,13 @@
     </li>
     
     <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
         </a>
     </li>
-
 </ul>
 
-<div class="side-nav" id="mobile-nav">
+<div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
@@ -115,6 +116,8 @@
         </div>
     </div>
 
+    
+
     <ul class="menu-list mobile-menu-list">
         
         <li>
@@ -122,7 +125,7 @@
                 
                 <i class="fa fa-fw fa-home"></i>
                 
-                Index
+                首页
             </a>
         </li>
         
@@ -131,7 +134,7 @@
                 
                 <i class="fa fa-fw fa-tags"></i>
                 
-                Tags
+                标签
             </a>
         </li>
         
@@ -140,7 +143,7 @@
                 
                 <i class="fa fa-fw fa-bookmark"></i>
                 
-                Categories
+                分类
             </a>
         </li>
         
@@ -149,7 +152,7 @@
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
-                About
+                关于
             </a>
         </li>
         
@@ -164,78 +167,46 @@
         
         
     </ul>
-
-    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-</div>
 </div>
 
-            </div>
         </div>
 
         
     </nav>
+
 </header>
 
-<style type="text/css">
-    /* don't remove. */
-    .index-cover {
-        height: 100vh;
-    }
-</style>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+    <div class="bg-cover pd-header about-cover">
     <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                    
-                        炫杉Blog
-                    
-                    </div>
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    炫杉Blog
+                
+            </div>
 
-                    <div class="description center-align">
-                    
-                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
-                    
-                    </div>
-                </div>
+            <div class="description center-align">
+                
+                    提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+                
             </div>
         </div>
-        
+    </div>
+</div>
+<script>
+// 每天切换 banner 图.  Switch banner image every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
     </div>
 </div>
 
-<script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
-</script>
 
 <main class="content">
 
     
-    <div class="container notice">
-        <div class="card">
-            <div class="card-content">
-                <i class="fa fa-volume-up fa-lg fa-fw text-color"></i>UCASer硕 2020应届 chinalixs@qq.com
-            </div>
-        </div>
-    </div>
-    
-
-    <div id="recommend-sections">
-    
-    </div>
 
     
 
@@ -243,7 +214,65 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     <article id="articles" class="container articles">
         <div class="row article-row">
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/Python/《Python数据分析》学习记录/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="《Python数据分析》学习记录">
+                            
+                            <span class="card-title">《Python数据分析》学习记录</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                这是阅读《Python for Data Analysis》的读书笔记。
+
+第一章 准备工作不用准备了。🙂🙂🙂要啥有啥。
+第二章 引言
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Note/" target="_blank">
+                            <span class="chip bg-color">Note</span>
+                        </a>
+                        
+                        <a href="/tags/Python/" target="_blank">
+                            <span class="chip bg-color">Python</span>
+                        </a>
+                        
+                        <a href="/tags/Data-Analysis/" target="_blank">
+                            <span class="chip bg-color">Data Analysis</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Python/Python廖雪峰练习/">
                         <div class="card-image">
@@ -256,7 +285,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初</div>
+                        <div class="summary">
+                            
+                                这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
@@ -286,7 +319,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Python/Python初探/">
                         <div class="card-image">
@@ -299,7 +332,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">这是我刚开始学习Python时做的笔记，百度Python后先看到有廖雪峰的教程。就对着看了一遍。紧接着同学推荐了莫烦的教程，果然，这个教程上</div>
+                        <div class="summary">
+                            
+                                这是我刚开始学习Python时做的笔记，百度Python后先看到有廖雪峰的教程。就对着看了一遍。紧接着同学推荐了莫烦的教程，果然，这个教程上
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
@@ -329,7 +366,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Website/Hexo01/">
                         <div class="card-image">
@@ -342,8 +379,12 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。
-本托管在coding上，不过云里雾里，弄得还</div>
+                        <div class="summary">
+                            
+                                昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。
+本托管在coding上，不过云里雾里，弄得还
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
@@ -373,7 +414,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Note/SQL/">
                         <div class="card-image">
@@ -386,9 +427,13 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">noSql数据库满天飞的情况下，安下心来让SQL尘埃落定吧。（出来混总要还的😌）《SQL必知必会》读书笔记，Ben Forta著。
+                        <div class="summary">
+                            
+                                noSql数据库满天飞的情况下，安下心来让SQL尘埃落定吧。（出来混总要还的😌）《SQL必知必会》读书笔记，Ben Forta著。
 
-了解</div>
+了解
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-02-16
@@ -418,7 +463,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/iOS/UIViewHelper.swift/">
                         <div class="card-image">
@@ -431,10 +476,14 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。
+                        <div class="summary">
+                            
+                                这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。
 import UIKit
 //圆角
-extension UI</div>
+extension UI
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-09
@@ -468,7 +517,7 @@ extension UI</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/iOS/小波iOS11初级篇笔记/">
                         <div class="card-image">
@@ -481,10 +530,14 @@ extension UI</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了
+                        <div class="summary">
+                            
+                                这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了
 
 小知识点
-IB</div>
+IB
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-08
@@ -518,7 +571,7 @@ IB</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/iOS/语法问题/">
                         <div class="card-image">
@@ -531,7 +584,11 @@ IB</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。</div>
+                        <div class="summary">
+                            
+                                语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-06
@@ -565,7 +622,7 @@ IB</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/fun/vimtutor_cn/">
                         <div class="card-image">
@@ -578,8 +635,12 @@ IB</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">vimturor是vim自带的教程。上次我坚持看了七八章之后，强迫自己用了一天的vim。嗯🙂🙂🙂第二天我就用回了vs code。
-今天</div>
+                        <div class="summary">
+                            
+                                vimturor是vim自带的教程。上次我坚持看了七八章之后，强迫自己用了一天的vim。嗯🙂🙂🙂第二天我就用回了vs code。
+今天
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -609,7 +670,7 @@ IB</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/fun/魔性注释代码/">
                         <div class="card-image">
@@ -622,12 +683,16 @@ IB</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">网上看到这个。纯属娱乐的注释代码~
+                        <div class="summary">
+                            
+                                网上看到这个。纯属娱乐的注释代码~
 
 其实可以用这个工具把任何图片转成符号文本：
 点击下载
 /***
- *               ii</div>
+ *               ii
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -649,71 +714,24 @@ IB</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/Others/Git/">
+                    <a href="/iOS/<懒猫>记录/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Git笔记">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="iOS《笨猫快乐学编程》学习笔记">
                             
-                            <span class="card-title">Git笔记</span>
+                            <span class="card-title">iOS《笨猫快乐学编程》学习笔记</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">Git肯定不是看一本书去一次学会的，而是先掌握了最基础的命令后，在一次次地遇到各种要应对的情况时去查文档解决。解决了问题当然要记一下咯，于是</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
-                                </a>
-                                
-                                
-                            </span>
+                        <div class="summary">
+                            
+                                这是我找到的国内第一份Swift4.0教程，发布在知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcod
+                            
                         </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Note/" target="_blank">
-                            <span class="chip bg-color">Note</span>
-                        </a>
-                        
-                        <a href="/tags/Git/" target="_blank">
-                            <span class="chip bg-color">Git</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l3" data-aos="flip-up">
-                <div class="card">
-                    <a href="/iOS/算法笔记/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="iOS算法笔记">
-                            
-                            <span class="card-title">iOS算法笔记</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">尾递归：防止内存爆炸
-只返回函数本身。
-量放在参数中。Ex:
-
-fun func(_ n :Int, _ total :Int = 0) -</div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -747,20 +765,28 @@ fun func(_ n :Int, _ total :Int = 0) -</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/iOS/<懒猫>记录/">
+                    <a href="/iOS/算法笔记/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="iOS《笨猫快乐学编程》学习笔记">
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="iOS算法笔记">
                             
-                            <span class="card-title">iOS《笨猫快乐学编程》学习笔记</span>
+                            <span class="card-title">iOS算法笔记</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">这是我找到的国内第一份Swift4.0教程，发布在知乎专栏-让不懂编程的人爱上iPhone开发(2017秋iOS11+Swift4+Xcod</div>
+                        <div class="summary">
+                            
+                                尾递归：防止内存爆炸
+只返回函数本身。
+量放在参数中。Ex:
+
+fun func(_ n :Int, _ total :Int = 0) -
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
@@ -799,142 +825,6 @@ fun func(_ n :Int, _ total :Int = 0) -</div>
 
 </main>
 
-<!-- 加载动画 -->
-+
-<style>
-    #loading{
-        background-color: rgba(71, 71, 71, 0.95);
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        z-index: 999999;
-        margin-top: 0px;
-        top: 0px;
-    }
-    #loading-center{
-        width: 100%;
-        height: 100%;
-        position: relative;
-        }
-    #loading-center-absolute {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        height: 200px;
-        width: 200px;
-        margin-top: -100px;
-        margin-left: -100px;
-        -ms-transform: rotate(-135deg); 
-           -webkit-transform: rotate(-135deg); 
-        transform: rotate(-135deg);
-    
-    }
-    .object{
-    
-        -moz-border-radius: 50% 50% 50% 50%;
-        -webkit-border-radius: 50% 50% 50% 50%;
-        border-radius: 50% 50% 50% 50%;
-        position: absolute;
-        border-top: 5px solid #FFF;
-        border-bottom: 5px solid transparent;
-        border-left:  5px solid #FFF;
-        border-right: 5px solid transparent;
-        
-        -webkit-animation: animate 2s infinite;
-        animation: animate 2s infinite;	
-    
-        }
-    
-    
-    #object_one{
-        left: 75px;
-        top: 75px;
-        width: 50px;
-        height: 50px;
-        }
-                                
-    #object_two{
-        left: 65px;
-        top: 65px;
-        width: 70px;
-        height: 70px;
-        -webkit-animation-delay: 0.2s;
-        animation-delay: 0.2s;
-        }
-            
-    #object_three{
-        left: 55px;
-        top: 55px;
-        width: 90px;
-        height: 90px;
-        -webkit-animation-delay: 0.4s;
-        animation-delay: 0.4s;
-        }
-    #object_four{
-        left: 45px;
-        top: 45px;
-        width: 110px;
-        height: 110px;
-        -webkit-animation-delay: 0.6s;
-        animation-delay: 0.6s;
-        
-        }	
-    
-    @-webkit-keyframes animate {
-     
-    
-    50% {
-    
-        -ms-transform: rotate(360deg) scale(0.8); 
-           -webkit-transform: rotate(360deg) scale(0.8); 
-        transform: rotate(360deg) scale(0.8); 
-      }
-          
-      
-    }
-    
-    @keyframes animate {
-        
-    50% {
-    
-        -ms-transform: rotate(360deg) scale(0.8); 
-           -webkit-transform: rotate(360deg) scale(0.8); 
-        transform: rotate(360deg) scale(0.8); 
-      }	
-        
-    }
-    
-    
-    /* Loaded */
-    .loaded {
-        opacity: 0;
-        visibility: hidden;
-        transition: all .3s linear;
-    }
-    
-</style>
-
-<script type="text/javascript">
-    $(window).load(function(){
-        setTimeout( function () {
-            $('#loading').addClass('loaded');
-        },200) 
-       
-    }); 
-</script>
-
-<div id="loading">
-    <div id="loading-center">
-        <div id="loading-center-absolute">
-            <div class="object" id="object_four"></div>
-            <div class="object" id="object_three"></div>
-            <div class="object" id="object_two"></div>
-            <div class="object" id="object_one"></div>
-        </div>
-    </div>
-</div>
-
-
 
 <div class="container paging">
     <div class="row">
@@ -946,11 +836,11 @@ fun func(_ n :Int, _ total :Int = 0) -</div>
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">6 / 6</div>
+            <div class="center-align b-text-gray">6 / 7</div>
         </div>
         <div class="col s6 m4 l4">
             
-            <a class="right btn-floating btn-large disabled">
+            <a href="/page/7/" class="right btn-floating btn-large waves-effect waves-light bg-color">
                 <i class="fa fa-angle-right"></i>
             </a>
             
@@ -963,20 +853,43 @@ fun func(_ n :Int, _ total :Int = 0) -</div>
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
-              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
+            
 
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
     </div>
 </footer>
@@ -988,8 +901,8 @@ fun func(_ n :Int, _ total :Int = 0) -</div>
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -997,7 +910,9 @@ fun func(_ n :Int, _ total :Int = 0) -</div>
 
 <script src="/js/search.js"></script>
 <script type="text/javascript">
+$(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
 </script>
 <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
@@ -1007,11 +922,22 @@ fun func(_ n :Int, _ total :Int = 0) -</div>
 </div>
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/materialize/materialize.min.js"></script>
 <script src="/libs/masonry/masonry.pkgd.min.js"></script>
 <script src="/libs/aos/aos.js"></script>
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
 </body>
 </html>

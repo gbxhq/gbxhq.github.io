@@ -1,14 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
-    
+
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="归档, 炫杉">
     <meta name="description" content="归档 | 炫杉">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
@@ -18,34 +17,37 @@
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-</head>
 
 <body>
 
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">炫杉</span>
-                    </a>
-                </div>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
     <li class="hide-on-med-and-down">
@@ -53,7 +55,7 @@
             
             <i class="fa fa-home"></i>
             
-            <span>Index</span>
+            <span>首页</span>
         </a>
     </li>
     
@@ -62,7 +64,7 @@
             
             <i class="fa fa-tags"></i>
             
-            <span>Tags</span>
+            <span>标签</span>
         </a>
     </li>
     
@@ -71,7 +73,7 @@
             
             <i class="fa fa-bookmark"></i>
             
-            <span>Categories</span>
+            <span>分类</span>
         </a>
     </li>
     
@@ -80,7 +82,7 @@
             
             <i class="fa fa-user-circle-o"></i>
             
-            <span>About</span>
+            <span>关于</span>
         </a>
     </li>
     
@@ -94,14 +96,13 @@
     </li>
     
     <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
         </a>
     </li>
-
 </ul>
 
-<div class="side-nav" id="mobile-nav">
+<div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
@@ -115,6 +116,8 @@
         </div>
     </div>
 
+    
+
     <ul class="menu-list mobile-menu-list">
         
         <li>
@@ -122,7 +125,7 @@
                 
                 <i class="fa fa-fw fa-home"></i>
                 
-                Index
+                首页
             </a>
         </li>
         
@@ -131,7 +134,7 @@
                 
                 <i class="fa fa-fw fa-tags"></i>
                 
-                Tags
+                标签
             </a>
         </li>
         
@@ -140,7 +143,7 @@
                 
                 <i class="fa fa-fw fa-bookmark"></i>
                 
-                Categories
+                分类
             </a>
         </li>
         
@@ -149,7 +152,7 @@
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
-                About
+                关于
             </a>
         </li>
         
@@ -164,55 +167,40 @@
         
         
     </ul>
-
-    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-</div>
 </div>
 
-            </div>
         </div>
 
         
     </nav>
+
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+<div class="bg-cover pd-header about-cover">
     <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                    
-                        炫杉Blog
-                    
-                    </div>
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    炫杉Blog
+                
+            </div>
 
-                    <div class="description center-align">
-                    
-                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
-                    
-                    </div>
-                </div>
+            <div class="description center-align">
+                
+                    提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+                
             </div>
         </div>
-        
     </div>
 </div>
-
 <script>
-// Dynamically switch banner pictures every day.
+// 每天切换 banner 图.  Switch banner image every day.
 $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
+    </div>
+</div>
 
 <main class="content">
 
@@ -265,7 +253,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         },
         calendar: [{
             left: 'center',
-            range: ["2018-03-22", "2019-03-22"],
+            range: ["2018-03-28", "2019-03-28"],
             cellSize: [13, 13],
             splitLine: {
                 show: false
@@ -291,7 +279,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             type: 'heatmap',
             coordinateSystem: 'calendar',
             calendarIndex: 0,
-            data: [["2018-03-22", 0], ["2018-03-23", 1], ["2018-03-24", 1], ["2018-03-25", 0], ["2018-03-26", 0], ["2018-03-27", 0], ["2018-03-28", 0], ["2018-03-29", 0], ["2018-03-30", 0], ["2018-03-31", 2], ["2018-04-01", 2], ["2018-04-02", 2], ["2018-04-03", 0], ["2018-04-04", 0], ["2018-04-05", 0], ["2018-04-06", 0], ["2018-04-07", 1], ["2018-04-08", 0], ["2018-04-09", 0], ["2018-04-10", 0], ["2018-04-11", 0], ["2018-04-12", 0], ["2018-04-13", 0], ["2018-04-14", 0], ["2018-04-15", 0], ["2018-04-16", 1], ["2018-04-17", 0], ["2018-04-18", 0], ["2018-04-19", 0], ["2018-04-20", 0], ["2018-04-21", 0], ["2018-04-22", 0], ["2018-04-23", 0], ["2018-04-24", 0], ["2018-04-25", 0], ["2018-04-26", 0], ["2018-04-27", 1], ["2018-04-28", 0], ["2018-04-29", 0], ["2018-04-30", 0], ["2018-05-01", 1], ["2018-05-02", 0], ["2018-05-03", 0], ["2018-05-04", 0], ["2018-05-05", 0], ["2018-05-06", 0], ["2018-05-07", 0], ["2018-05-08", 0], ["2018-05-09", 0], ["2018-05-10", 0], ["2018-05-11", 0], ["2018-05-12", 0], ["2018-05-13", 0], ["2018-05-14", 0], ["2018-05-15", 0], ["2018-05-16", 1], ["2018-05-17", 0], ["2018-05-18", 1], ["2018-05-19", 0], ["2018-05-20", 0], ["2018-05-21", 0], ["2018-05-22", 1], ["2018-05-23", 0], ["2018-05-24", 0], ["2018-05-25", 0], ["2018-05-26", 1], ["2018-05-27", 0], ["2018-05-28", 0], ["2018-05-29", 0], ["2018-05-30", 0], ["2018-05-31", 0], ["2018-06-01", 0], ["2018-06-02", 0], ["2018-06-03", 1], ["2018-06-04", 0], ["2018-06-05", 0], ["2018-06-06", 0], ["2018-06-07", 0], ["2018-06-08", 0], ["2018-06-09", 0], ["2018-06-10", 0], ["2018-06-11", 0], ["2018-06-12", 0], ["2018-06-13", 0], ["2018-06-14", 0], ["2018-06-15", 0], ["2018-06-16", 0], ["2018-06-17", 0], ["2018-06-18", 0], ["2018-06-19", 0], ["2018-06-20", 0], ["2018-06-21", 0], ["2018-06-22", 0], ["2018-06-23", 0], ["2018-06-24", 0], ["2018-06-25", 0], ["2018-06-26", 0], ["2018-06-27", 0], ["2018-06-28", 0], ["2018-06-29", 0], ["2018-06-30", 0], ["2018-07-01", 0], ["2018-07-02", 0], ["2018-07-03", 1], ["2018-07-04", 0], ["2018-07-05", 0], ["2018-07-06", 0], ["2018-07-07", 0], ["2018-07-08", 0], ["2018-07-09", 0], ["2018-07-10", 0], ["2018-07-11", 0], ["2018-07-12", 0], ["2018-07-13", 0], ["2018-07-14", 0], ["2018-07-15", 0], ["2018-07-16", 0], ["2018-07-17", 0], ["2018-07-18", 0], ["2018-07-19", 0], ["2018-07-20", 0], ["2018-07-21", 0], ["2018-07-22", 0], ["2018-07-23", 0], ["2018-07-24", 0], ["2018-07-25", 1], ["2018-07-26", 0], ["2018-07-27", 0], ["2018-07-28", 0], ["2018-07-29", 0], ["2018-07-30", 0], ["2018-07-31", 0], ["2018-08-01", 0], ["2018-08-02", 0], ["2018-08-03", 0], ["2018-08-04", 0], ["2018-08-05", 0], ["2018-08-06", 1], ["2018-08-07", 0], ["2018-08-08", 0], ["2018-08-09", 0], ["2018-08-10", 0], ["2018-08-11", 0], ["2018-08-12", 0], ["2018-08-13", 0], ["2018-08-14", 1], ["2018-08-15", 0], ["2018-08-16", 0], ["2018-08-17", 0], ["2018-08-18", 0], ["2018-08-19", 0], ["2018-08-20", 0], ["2018-08-21", 0], ["2018-08-22", 0], ["2018-08-23", 0], ["2018-08-24", 1], ["2018-08-25", 0], ["2018-08-26", 1], ["2018-08-27", 1], ["2018-08-28", 1], ["2018-08-29", 0], ["2018-08-30", 1], ["2018-08-31", 1], ["2018-09-01", 1], ["2018-09-02", 0], ["2018-09-03", 0], ["2018-09-04", 0], ["2018-09-05", 0], ["2018-09-06", 1], ["2018-09-07", 1], ["2018-09-08", 0], ["2018-09-09", 0], ["2018-09-10", 2], ["2018-09-11", 0], ["2018-09-12", 1], ["2018-09-13", 0], ["2018-09-14", 0], ["2018-09-15", 0], ["2018-09-16", 0], ["2018-09-17", 0], ["2018-09-18", 0], ["2018-09-19", 0], ["2018-09-20", 0], ["2018-09-21", 0], ["2018-09-22", 0], ["2018-09-23", 0], ["2018-09-24", 0], ["2018-09-25", 0], ["2018-09-26", 0], ["2018-09-27", 0], ["2018-09-28", 0], ["2018-09-29", 0], ["2018-09-30", 0], ["2018-10-01", 0], ["2018-10-02", 0], ["2018-10-03", 0], ["2018-10-04", 0], ["2018-10-05", 0], ["2018-10-06", 0], ["2018-10-07", 0], ["2018-10-08", 0], ["2018-10-09", 0], ["2018-10-10", 0], ["2018-10-11", 0], ["2018-10-12", 0], ["2018-10-13", 0], ["2018-10-14", 0], ["2018-10-15", 1], ["2018-10-16", 0], ["2018-10-17", 0], ["2018-10-18", 0], ["2018-10-19", 1], ["2018-10-20", 0], ["2018-10-21", 0], ["2018-10-22", 0], ["2018-10-23", 0], ["2018-10-24", 0], ["2018-10-25", 0], ["2018-10-26", 0], ["2018-10-27", 0], ["2018-10-28", 0], ["2018-10-29", 0], ["2018-10-30", 1], ["2018-10-31", 0], ["2018-11-01", 1], ["2018-11-02", 0], ["2018-11-03", 0], ["2018-11-04", 0], ["2018-11-05", 1], ["2018-11-06", 0], ["2018-11-07", 0], ["2018-11-08", 1], ["2018-11-09", 1], ["2018-11-10", 0], ["2018-11-11", 0], ["2018-11-12", 0], ["2018-11-13", 0], ["2018-11-14", 0], ["2018-11-15", 2], ["2018-11-16", 0], ["2018-11-17", 0], ["2018-11-18", 0], ["2018-11-19", 0], ["2018-11-20", 2], ["2018-11-21", 1], ["2018-11-22", 1], ["2018-11-23", 0], ["2018-11-24", 0], ["2018-11-25", 0], ["2018-11-26", 0], ["2018-11-27", 0], ["2018-11-28", 1], ["2018-11-29", 0], ["2018-11-30", 0], ["2018-12-01", 0], ["2018-12-02", 0], ["2018-12-03", 0], ["2018-12-04", 0], ["2018-12-05", 0], ["2018-12-06", 1], ["2018-12-07", 0], ["2018-12-08", 0], ["2018-12-09", 1], ["2018-12-10", 0], ["2018-12-11", 0], ["2018-12-12", 0], ["2018-12-13", 0], ["2018-12-14", 0], ["2018-12-15", 0], ["2018-12-16", 0], ["2018-12-17", 0], ["2018-12-18", 1], ["2018-12-19", 0], ["2018-12-20", 1], ["2018-12-21", 0], ["2018-12-22", 0], ["2018-12-23", 0], ["2018-12-24", 0], ["2018-12-25", 0], ["2018-12-26", 0], ["2018-12-27", 0], ["2018-12-28", 0], ["2018-12-29", 0], ["2018-12-30", 0], ["2018-12-31", 0], ["2019-01-01", 0], ["2019-01-02", 0], ["2019-01-03", 0], ["2019-01-04", 1], ["2019-01-05", 0], ["2019-01-06", 0], ["2019-01-07", 0], ["2019-01-08", 0], ["2019-01-09", 0], ["2019-01-10", 0], ["2019-01-11", 0], ["2019-01-12", 0], ["2019-01-13", 0], ["2019-01-14", 1], ["2019-01-15", 0], ["2019-01-16", 0], ["2019-01-17", 0], ["2019-01-18", 0], ["2019-01-19", 0], ["2019-01-20", 0], ["2019-01-21", 0], ["2019-01-22", 0], ["2019-01-23", 1], ["2019-01-24", 1], ["2019-01-25", 0], ["2019-01-26", 0], ["2019-01-27", 0], ["2019-01-28", 0], ["2019-01-29", 0], ["2019-01-30", 0], ["2019-01-31", 0], ["2019-02-01", 0], ["2019-02-02", 0], ["2019-02-03", 0], ["2019-02-04", 0], ["2019-02-05", 0], ["2019-02-06", 0], ["2019-02-07", 0], ["2019-02-08", 0], ["2019-02-09", 0], ["2019-02-10", 0], ["2019-02-11", 0], ["2019-02-12", 0], ["2019-02-13", 0], ["2019-02-14", 0], ["2019-02-15", 0], ["2019-02-16", 0], ["2019-02-17", 0], ["2019-02-18", 0], ["2019-02-19", 0], ["2019-02-20", 0], ["2019-02-21", 0], ["2019-02-22", 0], ["2019-02-23", 0], ["2019-02-24", 0], ["2019-02-25", 0], ["2019-02-26", 0], ["2019-02-27", 0], ["2019-02-28", 0], ["2019-03-01", 0], ["2019-03-02", 0], ["2019-03-03", 0], ["2019-03-04", 0], ["2019-03-05", 0], ["2019-03-06", 0], ["2019-03-07", 0], ["2019-03-08", 0], ["2019-03-09", 0], ["2019-03-10", 0], ["2019-03-11", 1], ["2019-03-12", 1], ["2019-03-13", 0], ["2019-03-14", 1], ["2019-03-15", 0], ["2019-03-16", 0], ["2019-03-17", 0], ["2019-03-18", 0], ["2019-03-19", 0], ["2019-03-20", 1], ["2019-03-21", 0], ["2019-03-22", 0]]
+            data: [["2018-03-28", 0], ["2018-03-29", 0], ["2018-03-30", 0], ["2018-03-31", 2], ["2018-04-01", 2], ["2018-04-02", 2], ["2018-04-03", 0], ["2018-04-04", 0], ["2018-04-05", 0], ["2018-04-06", 0], ["2018-04-07", 1], ["2018-04-08", 0], ["2018-04-09", 0], ["2018-04-10", 0], ["2018-04-11", 0], ["2018-04-12", 0], ["2018-04-13", 0], ["2018-04-14", 0], ["2018-04-15", 0], ["2018-04-16", 1], ["2018-04-17", 0], ["2018-04-18", 0], ["2018-04-19", 0], ["2018-04-20", 0], ["2018-04-21", 0], ["2018-04-22", 0], ["2018-04-23", 0], ["2018-04-24", 0], ["2018-04-25", 0], ["2018-04-26", 0], ["2018-04-27", 1], ["2018-04-28", 0], ["2018-04-29", 0], ["2018-04-30", 0], ["2018-05-01", 1], ["2018-05-02", 0], ["2018-05-03", 0], ["2018-05-04", 0], ["2018-05-05", 0], ["2018-05-06", 0], ["2018-05-07", 0], ["2018-05-08", 0], ["2018-05-09", 0], ["2018-05-10", 0], ["2018-05-11", 0], ["2018-05-12", 0], ["2018-05-13", 0], ["2018-05-14", 0], ["2018-05-15", 0], ["2018-05-16", 1], ["2018-05-17", 0], ["2018-05-18", 1], ["2018-05-19", 0], ["2018-05-20", 0], ["2018-05-21", 0], ["2018-05-22", 1], ["2018-05-23", 0], ["2018-05-24", 0], ["2018-05-25", 0], ["2018-05-26", 1], ["2018-05-27", 0], ["2018-05-28", 0], ["2018-05-29", 0], ["2018-05-30", 0], ["2018-05-31", 0], ["2018-06-01", 0], ["2018-06-02", 0], ["2018-06-03", 1], ["2018-06-04", 0], ["2018-06-05", 0], ["2018-06-06", 0], ["2018-06-07", 0], ["2018-06-08", 0], ["2018-06-09", 0], ["2018-06-10", 0], ["2018-06-11", 0], ["2018-06-12", 0], ["2018-06-13", 0], ["2018-06-14", 0], ["2018-06-15", 0], ["2018-06-16", 0], ["2018-06-17", 0], ["2018-06-18", 0], ["2018-06-19", 0], ["2018-06-20", 0], ["2018-06-21", 0], ["2018-06-22", 0], ["2018-06-23", 0], ["2018-06-24", 0], ["2018-06-25", 0], ["2018-06-26", 0], ["2018-06-27", 0], ["2018-06-28", 0], ["2018-06-29", 0], ["2018-06-30", 0], ["2018-07-01", 0], ["2018-07-02", 0], ["2018-07-03", 1], ["2018-07-04", 0], ["2018-07-05", 0], ["2018-07-06", 0], ["2018-07-07", 0], ["2018-07-08", 0], ["2018-07-09", 0], ["2018-07-10", 0], ["2018-07-11", 0], ["2018-07-12", 0], ["2018-07-13", 0], ["2018-07-14", 0], ["2018-07-15", 0], ["2018-07-16", 0], ["2018-07-17", 0], ["2018-07-18", 0], ["2018-07-19", 0], ["2018-07-20", 0], ["2018-07-21", 0], ["2018-07-22", 0], ["2018-07-23", 0], ["2018-07-24", 0], ["2018-07-25", 1], ["2018-07-26", 0], ["2018-07-27", 0], ["2018-07-28", 0], ["2018-07-29", 0], ["2018-07-30", 0], ["2018-07-31", 0], ["2018-08-01", 0], ["2018-08-02", 0], ["2018-08-03", 0], ["2018-08-04", 0], ["2018-08-05", 0], ["2018-08-06", 1], ["2018-08-07", 0], ["2018-08-08", 0], ["2018-08-09", 0], ["2018-08-10", 0], ["2018-08-11", 0], ["2018-08-12", 0], ["2018-08-13", 0], ["2018-08-14", 1], ["2018-08-15", 0], ["2018-08-16", 0], ["2018-08-17", 0], ["2018-08-18", 0], ["2018-08-19", 0], ["2018-08-20", 0], ["2018-08-21", 0], ["2018-08-22", 0], ["2018-08-23", 0], ["2018-08-24", 1], ["2018-08-25", 0], ["2018-08-26", 1], ["2018-08-27", 1], ["2018-08-28", 1], ["2018-08-29", 0], ["2018-08-30", 1], ["2018-08-31", 1], ["2018-09-01", 1], ["2018-09-02", 0], ["2018-09-03", 0], ["2018-09-04", 0], ["2018-09-05", 0], ["2018-09-06", 1], ["2018-09-07", 1], ["2018-09-08", 0], ["2018-09-09", 0], ["2018-09-10", 2], ["2018-09-11", 0], ["2018-09-12", 1], ["2018-09-13", 0], ["2018-09-14", 0], ["2018-09-15", 0], ["2018-09-16", 0], ["2018-09-17", 0], ["2018-09-18", 0], ["2018-09-19", 0], ["2018-09-20", 0], ["2018-09-21", 0], ["2018-09-22", 0], ["2018-09-23", 0], ["2018-09-24", 0], ["2018-09-25", 0], ["2018-09-26", 0], ["2018-09-27", 0], ["2018-09-28", 0], ["2018-09-29", 0], ["2018-09-30", 0], ["2018-10-01", 0], ["2018-10-02", 0], ["2018-10-03", 0], ["2018-10-04", 0], ["2018-10-05", 0], ["2018-10-06", 0], ["2018-10-07", 0], ["2018-10-08", 0], ["2018-10-09", 0], ["2018-10-10", 0], ["2018-10-11", 0], ["2018-10-12", 0], ["2018-10-13", 0], ["2018-10-14", 0], ["2018-10-15", 1], ["2018-10-16", 0], ["2018-10-17", 0], ["2018-10-18", 0], ["2018-10-19", 1], ["2018-10-20", 0], ["2018-10-21", 0], ["2018-10-22", 0], ["2018-10-23", 0], ["2018-10-24", 0], ["2018-10-25", 0], ["2018-10-26", 0], ["2018-10-27", 0], ["2018-10-28", 0], ["2018-10-29", 0], ["2018-10-30", 1], ["2018-10-31", 0], ["2018-11-01", 1], ["2018-11-02", 0], ["2018-11-03", 0], ["2018-11-04", 0], ["2018-11-05", 1], ["2018-11-06", 0], ["2018-11-07", 0], ["2018-11-08", 1], ["2018-11-09", 1], ["2018-11-10", 0], ["2018-11-11", 0], ["2018-11-12", 0], ["2018-11-13", 0], ["2018-11-14", 0], ["2018-11-15", 2], ["2018-11-16", 0], ["2018-11-17", 0], ["2018-11-18", 0], ["2018-11-19", 0], ["2018-11-20", 2], ["2018-11-21", 1], ["2018-11-22", 1], ["2018-11-23", 0], ["2018-11-24", 0], ["2018-11-25", 0], ["2018-11-26", 0], ["2018-11-27", 0], ["2018-11-28", 1], ["2018-11-29", 0], ["2018-11-30", 0], ["2018-12-01", 0], ["2018-12-02", 0], ["2018-12-03", 0], ["2018-12-04", 0], ["2018-12-05", 0], ["2018-12-06", 1], ["2018-12-07", 0], ["2018-12-08", 0], ["2018-12-09", 1], ["2018-12-10", 0], ["2018-12-11", 0], ["2018-12-12", 0], ["2018-12-13", 0], ["2018-12-14", 0], ["2018-12-15", 0], ["2018-12-16", 0], ["2018-12-17", 0], ["2018-12-18", 1], ["2018-12-19", 0], ["2018-12-20", 1], ["2018-12-21", 0], ["2018-12-22", 0], ["2018-12-23", 0], ["2018-12-24", 0], ["2018-12-25", 0], ["2018-12-26", 0], ["2018-12-27", 0], ["2018-12-28", 0], ["2018-12-29", 0], ["2018-12-30", 0], ["2018-12-31", 0], ["2019-01-01", 0], ["2019-01-02", 0], ["2019-01-03", 0], ["2019-01-04", 1], ["2019-01-05", 0], ["2019-01-06", 0], ["2019-01-07", 0], ["2019-01-08", 0], ["2019-01-09", 0], ["2019-01-10", 0], ["2019-01-11", 0], ["2019-01-12", 0], ["2019-01-13", 0], ["2019-01-14", 1], ["2019-01-15", 0], ["2019-01-16", 0], ["2019-01-17", 0], ["2019-01-18", 0], ["2019-01-19", 0], ["2019-01-20", 0], ["2019-01-21", 0], ["2019-01-22", 0], ["2019-01-23", 1], ["2019-01-24", 1], ["2019-01-25", 0], ["2019-01-26", 0], ["2019-01-27", 0], ["2019-01-28", 0], ["2019-01-29", 0], ["2019-01-30", 0], ["2019-01-31", 0], ["2019-02-01", 0], ["2019-02-02", 0], ["2019-02-03", 0], ["2019-02-04", 0], ["2019-02-05", 0], ["2019-02-06", 0], ["2019-02-07", 0], ["2019-02-08", 0], ["2019-02-09", 0], ["2019-02-10", 0], ["2019-02-11", 0], ["2019-02-12", 0], ["2019-02-13", 0], ["2019-02-14", 0], ["2019-02-15", 0], ["2019-02-16", 0], ["2019-02-17", 0], ["2019-02-18", 0], ["2019-02-19", 0], ["2019-02-20", 0], ["2019-02-21", 0], ["2019-02-22", 0], ["2019-02-23", 0], ["2019-02-24", 0], ["2019-02-25", 0], ["2019-02-26", 0], ["2019-02-27", 0], ["2019-02-28", 0], ["2019-03-01", 0], ["2019-03-02", 0], ["2019-03-03", 0], ["2019-03-04", 0], ["2019-03-05", 0], ["2019-03-06", 0], ["2019-03-07", 0], ["2019-03-08", 0], ["2019-03-09", 0], ["2019-03-10", 0], ["2019-03-11", 1], ["2019-03-12", 1], ["2019-03-13", 0], ["2019-03-14", 1], ["2019-03-15", 0], ["2019-03-16", 0], ["2019-03-17", 0], ["2019-03-18", 0], ["2019-03-19", 0], ["2019-03-20", 1], ["2019-03-21", 0], ["2019-03-22", 0], ["2019-03-23", 0], ["2019-03-24", 0], ["2019-03-25", 0], ["2019-03-26", 1], ["2019-03-27", 0], ["2019-03-28", 0]]
         }]
 
     };
@@ -324,55 +312,111 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
             <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>20</span>
+                <span>26</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/Note/NS3/">
+                        <a href="/Log/Ubuntu记录/">
                             <div class="card-image">
-                                <!-- 
                                 
-                                <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="NS3学习笔记">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>NS3学习笔记</span> -->
+                                
+                                <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Ubuntu记录">
+                                
+                                <span class="card-title">Ubuntu记录</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">要做网络仿真，老师让我搞一搞这个NS3（Network Simulator version 3）。
-
-初探参考这篇文章。整个过程很清楚了。https://www</div> -->
+                            <div class="summary">
+                                
+                                    太多框架都是Linux跑起来更好了。给台式机装了个Ubuntu，用Macbook sh登进去操作。这样一来纯命令行操作和服务器一样了。Ubuntu的那些dpkg
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Note/NS3/">NS3学习笔记</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-26
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/NS3/"><span class="chip bg-color">NS3</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Log/" class="post-category" target="_blank">
+                                    Log
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/Linux/"><span class="chip bg-color">Linux</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>20</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6 overflow-policy">
+                    <div class="card">
+                        <a href="/Note/NS3/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="NS3学习笔记">
+                                
+                                <span class="card-title">NS3学习笔记</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary">
+                                
+                                    要做网络仿真，老师让我搞一搞这个NS3（Network Simulator version 3）。
+
+初探参考这篇文章。整个过程很清楚了。https://www
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-20
+                                </span>
+                                <span class="publish-author">
+                                    
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Network/" class="post-category" target="_blank">
                                     Network
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/NS3/"><span class="chip bg-color">NS3</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -391,52 +435,49 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <span>14</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Note/软考笔记/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="软考笔记">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>软考笔记</span> -->
+                                
+                                <span class="card-title">软考笔记</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">
+                            <div class="summary">
+                                
+                                    
 预测今年选择5G是一个重点，会考的可能性80%，1G的传输速度，最大传输距离2KM。这两个数值要记住。
-</div> -->
+
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Note/软考笔记/">软考笔记</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-14
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/软考信管/"><span class="chip bg-color">软考信管</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Note/" class="post-category" target="_blank">
                                     Note
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/软考信管/"><span class="chip bg-color">软考信管</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -455,49 +496,42 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <span>12</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Note/多路径的两篇文章笔记/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="多路径的两篇文章笔记">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>多路径的两篇文章笔记</span> -->
+                                
+                                <span class="card-title">多路径的两篇文章笔记</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">https://doi.org/10.1051/matecconf/201925205018
-The simulation study on the multi</div> -->
+                            <div class="summary">
+                                
+                                    https://doi.org/10.1051/matecconf/201925205018
+The simulation study on the multi
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Note/多路径的两篇文章笔记/">多路径的两篇文章笔记</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-12
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Paper/"><span class="chip bg-color">Paper</span></a>
-                                        
-                                        <a href="/tags/MultiPath/"><span class="chip bg-color">MultiPath</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/PhD/" class="post-category" target="_blank">
                                     PhD
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -507,7 +541,7 @@ The simulation study on the multi</div> -->
                             <a href="/tags/MultiPath/"><span class="chip bg-color">MultiPath</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -526,19 +560,21 @@ The simulation study on the multi</div> -->
                 <span>11</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/MLDL/机器学习实战笔记/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="机器学习实战笔记">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>机器学习实战笔记</span> -->
+                                
+                                <span class="card-title">机器学习实战笔记</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">学习资料来源：
+                            <div class="summary">
+                                
+                                    学习资料来源：
 
 B站视频：
 
@@ -547,34 +583,27 @@ B站视频：
 
 
 KNN不需要训练。找最近的k个点。
-k=1就是找最</div> -->
+k=1就是找最
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/MLDL/机器学习实战笔记/">机器学习实战笔记</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-11
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Mechine-learning/"><span class="chip bg-color">Mechine learning</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/MLDL/" class="post-category" target="_blank">
                                     MLDL
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -582,7 +611,7 @@ k=1就是找最</div> -->
                             <a href="/tags/Mechine-learning/"><span class="chip bg-color">Mechine learning</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -606,48 +635,43 @@ k=1就是找最</div> -->
                 <span>24</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/MLDL/吴恩达机器学习/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="吴恩达机器学习">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>吴恩达机器学习</span> -->
+                                
+                                <span class="card-title">吴恩达机器学习</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">笔记。
+                            <div class="summary">
+                                
+                                    笔记。
 
-绪论1 Welcome2 DefinitionDefinition：A computer program is said to *learn from</div> -->
+绪论1 Welcome2 DefinitionDefinition：A computer program is said to *learn from
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/MLDL/吴恩达机器学习/">吴恩达机器学习</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-24
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Mechine-learning/"><span class="chip bg-color">Mechine learning</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/MLDL/" class="post-category" target="_blank">
                                     MLDL
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -655,7 +679,7 @@ k=1就是找最</div> -->
                             <a href="/tags/Mechine-learning/"><span class="chip bg-color">Mechine learning</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -674,54 +698,51 @@ k=1就是找最</div> -->
                 <span>23</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/WebRTC/NotesofWebRTC/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Notes of WebRTC">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Notes of WebRTC</span> -->
+                                
+                                <span class="card-title">Notes of WebRTC</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">
+                            <div class="summary">
+                                
+                                    
 
 
 netEQ是webRTC中音频技术方面的两大核心技术之一（另一核心技术是音频的前后处理，包括AEC、ANS、AGC等，俗称3A算法）
-netEQ有两大模块</div> -->
+netEQ有两大模块
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/WebRTC/NotesofWebRTC/">Notes of WebRTC</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-23
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/WebRTC/" class="post-category" target="_blank">
                                     WebRTC
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -740,40 +761,43 @@ netEQ有两大模块</div> -->
                 <span>14</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Note/TCP-IP/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="《TCP/IP详解 卷1：协议》笔记">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>《TCP/IP详解 卷1：协议》笔记</span> -->
+                                
+                                <span class="card-title">《TCP/IP详解 卷1：协议》笔记</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">《TCP/IP详解 卷1：协议》读书笔记。图片来自本书在即时通许网的电子版：http://www.52im.net/topic-tcpipvol1.html
+                            <div class="summary">
+                                
+                                    《TCP/IP详解 卷1：协议》读书笔记。图片来自本书在即时通许网的电子版：http://www.52im.net/topic-tcpipvol1.html
 
-</div> -->
+
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Note/TCP-IP/">《TCP/IP详解 卷1：协议》笔记</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-14
                                 </span>
-                                
-                                <!-- <span class="publish-author">
-                                     
+                                <span class="publish-author">
+                                    
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Network/" class="post-category" target="_blank">
                                     Network
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!--  -->
+                        
                     </div>
                 </div>
             </article>
@@ -792,53 +816,50 @@ netEQ有两大模块</div> -->
                 <span>04</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Note/ToBeanArchitect/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="To Be an Architect">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>To Be an Architect</span> -->
+                                
+                                <span class="card-title">To Be an Architect</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">公众号“架构师之路”的阅读笔记。特别喜欢58沈剑的文章风格，每次看都受益匪浅！故记录在博客中。
+                            <div class="summary">
+                                
+                                    公众号“架构师之路”的阅读笔记。特别喜欢58沈剑的文章风格，每次看都受益匪浅！故记录在博客中。
 
 不在线，好友发给我的微信消息，会不会丢？总结
-“离线消息”的玩</div> -->
+“离线消息”的玩
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Note/ToBeanArchitect/">To Be an Architect</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-04
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Note/" class="post-category" target="_blank">
                                     Note
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -867,55 +888,52 @@ netEQ有两大模块</div> -->
                 <span>20</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/Others/newMac/">
+                        <a href="/Log/newMac/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="一款新Mac需要配置的地方">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>一款新Mac需要配置的地方</span> -->
+                                
+                                <span class="card-title">一款新Mac需要配置的地方</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">拿到一款崭新的Mac（或是重装了系统），
+                            <div class="summary">
+                                
+                                    拿到一款崭新的Mac（或是重装了系统），
 有一些配置调好可以更方便使用。特此记录，以便以后查阅。
 只是我的个人建议。
 
 系统偏好设置触控板
-第一步就是设置轻怕，</div> -->
+第一步就是设置轻怕，
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Others/newMac/">一款新Mac需要配置的地方</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-20
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Mac/"><span class="chip bg-color">Mac</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
-                                    <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                                    <a href="/categories/Log/" class="post-category" target="_blank">
+                                    Log
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Mac/"><span class="chip bg-color">Mac</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -934,55 +952,52 @@ netEQ有两大模块</div> -->
                 <span>18</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Algorithm/josephus/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="约瑟夫环的公式推导">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>约瑟夫环的公式推导</span> -->
+                                
+                                <span class="card-title">约瑟夫环的公式推导</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">关于约瑟夫环问题的公式解法的推导，我看了很多文章，其中推理过程各有千秋，所以写一写自己的推导过程。
+                            <div class="summary">
+                                
+                                    关于约瑟夫环问题的公式解法的推导，我看了很多文章，其中推理过程各有千秋，所以写一写自己的推导过程。
 
 问题描述
 输入： n 和 m
 
-n个人围成一圈，编号  0</div> -->
+n个人围成一圈，编号  0
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Algorithm/josephus/">约瑟夫环的公式推导</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-18
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Algorithm/"><span class="chip bg-color">Algorithm</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Algorithm/" class="post-category" target="_blank">
                                     Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Algorithm/"><span class="chip bg-color">Algorithm</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1001,50 +1016,47 @@ n个人围成一圈，编号  0</div> -->
                 <span>09</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Note/DeferencesbetweenStackandHeap/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Deferences between Stack and Heap">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Deferences between Stack and Heap</span> -->
+                                
+                                <span class="card-title">Deferences between Stack and Heap</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">参考文章：https://www.cnblogs.com/ChenZhongzhou/p/5685537.html https://blog.csdn.net/</div> -->
+                            <div class="summary">
+                                
+                                    参考文章：https://www.cnblogs.com/ChenZhongzhou/p/5685537.html https://blog.csdn.net/
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Note/DeferencesbetweenStackandHeap/">Deferences between Stack and Heap</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-09
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Note/" class="post-category" target="_blank">
                                     Note
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1063,49 +1075,44 @@ n个人围成一圈，编号  0</div> -->
                 <span>06</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Cpp/Houjiecpp02/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="C++学习笔记">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>C++学习笔记</span> -->
+                                
+                                <span class="card-title">C++学习笔记</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">
+                            <div class="summary">
+                                
+                                    
 conversion function 转换函数class Fraction{
 public:
-    Fraction(int num,int den=1)</div> -->
+    Fraction(int num,int den=1)
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Cpp/Houjiecpp02/">C++学习笔记</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-06
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/cpp/"><span class="chip bg-color">cpp</span></a>
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/cpp/" class="post-category" target="_blank">
                                     cpp
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/cpp/"><span class="chip bg-color">cpp</span></a>
@@ -1113,7 +1120,7 @@ public:
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1137,57 +1144,54 @@ public:
                 <span>28</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Website/HexoIssues/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Hexo使用问题总结">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Hexo使用问题总结</span> -->
+                                
+                                <span class="card-title">Hexo使用问题总结</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">汇总一下Hexo遇到的问题，以及以后出现问题都会更新到这里
+                            <div class="summary">
+                                
+                                    汇总一下Hexo遇到的问题，以及以后出现问题都会更新到这里
 
 独立贴
 插图问题
 
 在Git仓库设置一个分支推送源码，主分支负责展示
 
-有时候想传一个静态的HTM</div> -->
+有时候想传一个静态的HTM
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Website/HexoIssues/">Hexo使用问题总结</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Website/" class="post-category" target="_blank">
                                     Website
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1206,53 +1210,50 @@ public:
                 <span>22</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Algorithm/MasterTheorem/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="MasterTheorem">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>MasterTheorem</span> -->
+                                
+                                <span class="card-title">MasterTheorem</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">Master Therem，翻译成：主定理、主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的。
+                            <div class="summary">
+                                
+                                    Master Therem，翻译成：主定理、主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的。
 
 一般情况下先简单看先O(lg(k))，
-在二</div> -->
+在二
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Algorithm/MasterTheorem/">MasterTheorem</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-22
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Algorithm/"><span class="chip bg-color">Algorithm</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Algorithm/" class="post-category" target="_blank">
                                     Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Algorithm/"><span class="chip bg-color">Algorithm</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1271,56 +1272,51 @@ public:
                 <span>21</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Algorithm/LeetCode51-100/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="LeetCode51-100">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>LeetCode51-100</span> -->
+                                
+                                <span class="card-title">LeetCode51-100</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">int的范围、牛顿迭代法[69]      copy(1.begin,1.end,2.begin)、rbegin\rend[88]
+                            <div class="summary">
+                                
+                                    int的范围、牛顿迭代法[69]      copy(1.begin,1.end,2.begin)、rbegin\rend[88]
 
-51N皇后52N皇后 II</div> -->
+51N皇后52N皇后 II
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Algorithm/LeetCode51-100/">LeetCode51-100</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-21
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/LeetCode/"><span class="chip bg-color">LeetCode</span></a>
-                                        
-                                        <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Algorithm/" class="post-category" target="_blank">
                                     Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
-                            
-                            <a href="/tags/LeetCode/"><span class="chip bg-color">LeetCode</span></a>
                             
                             <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
                             
+                            <a href="/tags/LeetCode/"><span class="chip bg-color">LeetCode</span></a>
+                            
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1339,54 +1335,51 @@ public:
                 <span>20</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Algorithm/SegmentTree2/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="SegmentTree-Complete 线段树完全版">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>SegmentTree-Complete 线段树完全版</span> -->
+                                
+                                <span class="card-title">SegmentTree-Complete 线段树完全版</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">线段树完全版关键词：延迟加载、懒标记Lazy Tag
+                            <div class="summary">
+                                
+                                    线段树完全版关键词：延迟加载、懒标记Lazy Tag
 
 单点更新的情况比较简单。请看 线段树基础版
 下面说说区间更新的情况。
-场景是这样的，还是刚刚的数，求区间</div> -->
+场景是这样的，还是刚刚的数，求区间
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Algorithm/SegmentTree2/">SegmentTree-Complete 线段树完全版</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-20
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Algorithm/"><span class="chip bg-color">Algorithm</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Algorithm/" class="post-category" target="_blank">
                                     Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Algorithm/"><span class="chip bg-color">Algorithm</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1405,53 +1398,50 @@ public:
                 <span>20</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Algorithm/SegmentTree/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="SegmentTree 线段树基础版">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>SegmentTree 线段树基础版</span> -->
+                                
+                                <span class="card-title">SegmentTree 线段树基础版</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">线段树基础版关键词：单点替换，区间最值。
+                            <div class="summary">
+                                
+                                    线段树基础版关键词：单点替换，区间最值。
 
 用二分法的思想。建立完全二叉树–》叶节点是每个元素。
-父亲节点则是要保存的结果元素。比如给出数组：[6,9,5,6,</div> -->
+父亲节点则是要保存的结果元素。比如给出数组：[6,9,5,6,
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Algorithm/SegmentTree/">SegmentTree 线段树基础版</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-20
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Algorithm/"><span class="chip bg-color">Algorithm</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Algorithm/" class="post-category" target="_blank">
                                     Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Algorithm/"><span class="chip bg-color">Algorithm</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1470,51 +1460,52 @@ public:
                 <span>15</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/Others/UsefulTips2/">
+                        <a href="/Log/UsefulTips2/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="UsefulTips2">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>UsefulTips2</span> -->
+                                
+                                <span class="card-title">UsefulTips2</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">日常使用的一些姿势~
+                            <div class="summary">
+                                
+                                    日常使用的一些姿势~
 
 
 原来PPT可以存成.ppsx 的格式，双击打开就直接播放（可与防止被改动
 
-Markdown折叠效果  就类似这样：Click to </div> -->
+Markdown折叠效果  就类似这样：Click to 
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Others/UsefulTips2/">UsefulTips2</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-15
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/tips/"><span class="chip bg-color">tips</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
-                                    <i class="fa fa-user fa-fw"></i>
-                                    ixsim
-                                     
-                                </span> -->
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Log/" class="post-category" target="_blank">
+                                    Log
+                                    </a>
+                                    
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/tips/"><span class="chip bg-color">tips</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1533,38 +1524,41 @@ Markdown折叠效果  就类似这样：Click to </div> -->
                 <span>15</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Cpp/入一波QT/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="入一波QT">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>入一波QT</span> -->
+                                
+                                <span class="card-title">入一波QT</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">项目啊~
+                            <div class="summary">
+                                
+                                    项目啊~
 
 下载。mac端，开始在官网那个下载页面下的在线安装版，结果它提示我，需要code5的支持，不能安装。
 8102年了亲我都装了xcode10了啊亲~
-</div> -->
+
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Cpp/入一波QT/">入一波QT</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-15
                                 </span>
-                                
-                                <!-- <span class="publish-author">
-                                     
+                                <span class="publish-author">
+                                    
                                     <i class="fa fa-user fa-fw"></i>
                                     ixsim
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!--  -->
+                        
                     </div>
                 </div>
             </article>
@@ -1583,49 +1577,44 @@ Markdown折叠效果  就类似这样：Click to </div> -->
                 <span>09</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Website/Hexo_set_branch/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Hexo建分支Push源文件到仓库">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Hexo建分支Push源文件到仓库</span> -->
+                                
+                                <span class="card-title">Hexo建分支Push源文件到仓库</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">为了方便在两台电脑同时对博客更新，采用了创建分支的方法。将源文件上传。
+                            <div class="summary">
+                                
+                                    为了方便在两台电脑同时对博客更新，采用了创建分支的方法。将源文件上传。
 
 创建仓库、分支在博客的Hexo根目录下，正常的建仓库， 并和你要上传的仓库进行关联。
-</div> -->
+
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Website/Hexo_set_branch/">Hexo建分支Push源文件到仓库</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-09
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a>
-                                        
-                                        <a href="/tags/git/"><span class="chip bg-color">git</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Website/" class="post-category" target="_blank">
                                     Website
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a>
@@ -1633,7 +1622,7 @@ Markdown折叠效果  就类似这样：Click to </div> -->
                             <a href="/tags/git/"><span class="chip bg-color">git</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1652,55 +1641,52 @@ Markdown折叠效果  就类似这样：Click to </div> -->
                 <span>08</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Website/HexoPic/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo插本地图不借助插件和图床">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Hexo插本地图不借助插件和图床</span> -->
+                                
+                                <span class="card-title">Hexo插本地图不借助插件和图床</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">收到七牛云的【测试域名过期通知】时，我不得不写下这篇文章了。
+                            <div class="summary">
+                                
+                                    收到七牛云的【测试域名过期通知】时，我不得不写下这篇文章了。
 
 怎么让Hexo插入本地图时，本地预览和推送都能正常显示呢？
 
 
-插件方案网上搜了下，用这个hex</div> -->
+插件方案网上搜了下，用这个hex
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Website/HexoPic/">Hexo插本地图不借助插件和图床</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-08
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Website/" class="post-category" target="_blank">
                                     Website
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1719,54 +1705,47 @@ Markdown折叠效果  就类似这样：Click to </div> -->
                 <span>05</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Algorithm/排序算法/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="排序算法">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>排序算法</span> -->
+                                
+                                <span class="card-title">排序算法</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">该和排序算法做个了结了
+                            <div class="summary">
+                                
+                                    该和排序算法做个了结了
 
 15种排序算法动态演示这个视频是在网上看到的。
 
 
 那我们就跟着视频来写出这15种排序算法吧。这15种排序分别是：
-1.简单选择排序2</div> -->
+1.简单选择排序2
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Algorithm/排序算法/">排序算法</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-05
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
-                                        
-                                        <a href="/tags/Algorithm/"><span class="chip bg-color">Algorithm</span></a>
-                                        
-                                        <a href="/tags/Sort/"><span class="chip bg-color">Sort</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Algorithm/" class="post-category" target="_blank">
                                     Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
@@ -1776,7 +1755,7 @@ Markdown折叠效果  就类似这样：Click to </div> -->
                             <a href="/tags/Sort/"><span class="chip bg-color">Sort</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1795,55 +1774,52 @@ Markdown折叠效果  就类似这样：Click to </div> -->
                 <span>01</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/WebRTC/APPRTC分析记录/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="APPRTC分析记录">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>APPRTC分析记录</span> -->
+                                
+                                <span class="card-title">APPRTC分析记录</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">  WebRTC iOS端官方Demo 看 APPRTC 源码的记录
+                            <div class="summary">
+                                
+                                      WebRTC iOS端官方Demo 看 APPRTC 源码的记录
   
 AppRTCMobile根目录
 ARDAppClient+Internal.h
 
-A</div> -->
+A
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/WebRTC/APPRTC分析记录/">APPRTC分析记录</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/WebRTC/" class="post-category" target="_blank">
                                     WebRTC
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1867,50 +1843,45 @@ A</div> -->
                 <span>30</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Cpp/HoujieCpp01/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="C++学习笔记 面向对象（上）">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>C++学习笔记 面向对象（上）</span> -->
+                                
+                                <span class="card-title">C++学习笔记 面向对象（上）</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">舍友给的C++资料。谢谢琪琪。做个笔记。
+                            <div class="summary">
+                                
+                                    舍友给的C++资料。谢谢琪琪。做个笔记。
 
 1 简介2 头文件与类声明//比如这个是类Complex的头文件：
 #ifndef __COMPLEX__
-#def</div> -->
+#def
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Cpp/HoujieCpp01/">C++学习笔记 面向对象（上）</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-30
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/cpp/"><span class="chip bg-color">cpp</span></a>
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/cpp/" class="post-category" target="_blank">
                                     cpp
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/cpp/"><span class="chip bg-color">cpp</span></a>
@@ -1918,7 +1889,7 @@ A</div> -->
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1937,57 +1908,52 @@ A</div> -->
                 <span>19</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Algorithm/剑指offer/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="剑指offer">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>剑指offer</span> -->
+                                
+                                <span class="card-title">剑指offer</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">《剑指Offer》读书笔记。感谢强哥给的书。希望明年的我也可以Offer满满~
+                            <div class="summary">
+                                
+                                    《剑指Offer》读书笔记。感谢强哥给的书。希望明年的我也可以Offer满满~
 代码基本都在这里了：https://github.com/ixsim/OJ
 
-P</div> -->
+P
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Algorithm/剑指offer/">剑指offer</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-19
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Algorithm/" class="post-category" target="_blank">
                                     Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
-                            
-                            <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
                             
+                            <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
+                            
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2006,55 +1972,44 @@ P</div> -->
                 <span>15</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/Others/PackageMananger/">
+                        <a href="/Log/PackageMananger/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="PackageMananger相关">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>PackageMananger相关</span> -->
+                                
+                                <span class="card-title">PackageMananger相关</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">Homebrew,Ruby,CocoaPods,npm使用时遇到的的命令、更换源、出现的问题，简单记录
+                            <div class="summary">
+                                
+                                    Homebrew,Ruby,CocoaPods,npm使用时遇到的的命令、更换源、出现的问题，简单记录
 
 Homebrew概念
-Mac的软件包管理工具，类似于l</div> -->
+Mac的软件包管理工具，类似于l
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Others/PackageMananger/">PackageMananger相关</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-15
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Homebrew/"><span class="chip bg-color">Homebrew</span></a>
-                                        
-                                        <a href="/tags/Ruby/"><span class="chip bg-color">Ruby</span></a>
-                                        
-                                        <a href="/tags/CocoaPods/"><span class="chip bg-color">CocoaPods</span></a>
-                                        
-                                        <a href="/tags/npm/"><span class="chip bg-color">npm</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
-                                    <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                                    <a href="/categories/Log/" class="post-category" target="_blank">
+                                    Log
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -2068,7 +2023,7 @@ Mac的软件包管理工具，类似于l</div> -->
                             <a href="/tags/npm/"><span class="chip bg-color">npm</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2092,48 +2047,41 @@ Mac的软件包管理工具，类似于l</div> -->
                 <span>12</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/fun/Heroku_ssh/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Heroku搭建自己的ss服务器教程">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Heroku搭建自己的ss服务器教程</span> -->
+                                
+                                <span class="card-title">Heroku搭建自己的ss服务器教程</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">Heroku是日本一家网站。为开发者提供了免费部署项目的服务器。虽然访问Heroku是被qiang的。但是用Heroku部署后的应用(saas/web app)</div> -->
+                            <div class="summary">
+                                
+                                    Heroku是日本一家网站。为开发者提供了免费部署项目的服务器。虽然访问Heroku是被qiang的。但是用Heroku部署后的应用(saas/web app)
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/fun/Heroku_ssh/">Heroku搭建自己的ss服务器教程</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-12
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/tips/"><span class="chip bg-color">tips</span></a>
-                                        
-                                        <a href="/tags/Heroku/"><span class="chip bg-color">Heroku</span></a>
-                                        
-                                        <a href="/tags/ss/"><span class="chip bg-color">ss</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Others/" class="post-category" target="_blank">
                                     Others
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/tips/"><span class="chip bg-color">tips</span></a>
@@ -2143,7 +2091,7 @@ Mac的软件包管理工具，类似于l</div> -->
                             <a href="/tags/ss/"><span class="chip bg-color">ss</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2162,120 +2110,49 @@ Mac的软件包管理工具，类似于l</div> -->
                 <span>10</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/Algorithm/LeetCode200-300/">
-                            <div class="card-image">
-                                <!-- 
-                                
-                                <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="LeetCode 200-300">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>LeetCode 200-300</span> -->
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <!-- <div class="summary">知识点：npos[345] 、memset[387] 、  reverse()557、   istringstream557、树[606]、to_string(</div> -->
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <a href="/Algorithm/LeetCode200-300/">LeetCode 200-300</a>
-                                </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/LeetCode/"><span class="chip bg-color">LeetCode</span></a>
-                                        
-                                        <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
-                                        
-                                    </span>
-                                    
-                                <!-- <span class="publish-author">
-                                     
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Algorithm/" class="post-category" target="_blank">
-                                    Algorithm
-                                    </a>
-                                    
-                                     
-                                </span> -->
-                            </div>
-                        </div>
-
-                        <!-- 
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/LeetCode/"><span class="chip bg-color">LeetCode</span></a>
-                            
-                            <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
-                            
-                        </div>
-                         -->
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>10</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Algorithm/LeetCode300plus/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="LeetCode 300题以后">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>LeetCode 300题以后</span> -->
+                                
+                                <span class="card-title">LeetCode 300题以后</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">知识点：npos[345] 、memset[387] 、  reverse()[557]、   istringstream[557]、树[606]、to_str</div> -->
+                            <div class="summary">
+                                
+                                    知识点：npos[345] 、memset[387] 、  reverse()[557]、   istringstream[557]、树[606]、to_str
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Algorithm/LeetCode300plus/">LeetCode 300题以后</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/LeetCode/"><span class="chip bg-color">LeetCode</span></a>
-                                        
-                                        <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Algorithm/" class="post-category" target="_blank">
                                     Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
-                            
-                            <a href="/tags/LeetCode/"><span class="chip bg-color">LeetCode</span></a>
                             
                             <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
                             
+                            <a href="/tags/LeetCode/"><span class="chip bg-color">LeetCode</span></a>
+                            
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2291,56 +2168,52 @@ Mac的软件包管理工具，类似于l</div> -->
 
             
             <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>07</span>
+                <span>10</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/Others/ProblemsinUsingVSCode/">
+                        <a href="/Algorithm/LeetCode200-300/">
                             <div class="card-image">
-                                <!-- 
                                 
-                                <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Problems in Using VSCode">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Problems in Using VSCode</span> -->
+                                
+                                <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="LeetCode 200-300">
+                                
+                                <span class="card-title">LeetCode 200-300</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">Sublime转战VS Code。因为VS Code还能Debug一下。
-
-先加入环境变量从终端调起VS Code还是很常用的。
-先打开环境变量配置文件。目录是</div> -->
+                            <div class="summary">
+                                
+                                    知识点：npos[345] 、memset[387] 、  reverse()557、   istringstream557、树[606]、to_string(
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Others/ProblemsinUsingVSCode/">Problems in Using VSCode</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/tips/"><span class="chip bg-color">tips</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
-                                    <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                                    <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
-                            <a href="/tags/tips/"><span class="chip bg-color">tips</span></a>
+                            <a href="/tags/Cpp/"><span class="chip bg-color">Cpp</span></a>
+                            
+                            <a href="/tags/LeetCode/"><span class="chip bg-color">LeetCode</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2377,20 +2250,43 @@ Mac的软件包管理工具，类似于l</div> -->
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
-              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
+            
 
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
     </div>
 </footer>
@@ -2402,8 +2298,8 @@ Mac的软件包管理工具，类似于l</div> -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -2411,7 +2307,9 @@ Mac的软件包管理工具，类似于l</div> -->
 
 <script src="/js/search.js"></script>
 <script type="text/javascript">
+$(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
 </script>
 <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
@@ -2421,11 +2319,22 @@ Mac的软件包管理工具，类似于l</div> -->
 </div>
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/materialize/materialize.min.js"></script>
 <script src="/libs/masonry/masonry.pkgd.min.js"></script>
 <script src="/libs/aos/aos.js"></script>
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
 </body>
 </html>

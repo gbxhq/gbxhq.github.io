@@ -1,14 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
-    
+
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="分类: Algorithm, 炫杉">
     <meta name="description" content="分类: Algorithm | 炫杉">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
@@ -18,34 +17,37 @@
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-</head>
 
 <body>
 
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">炫杉</span>
-                    </a>
-                </div>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
     <li class="hide-on-med-and-down">
@@ -53,7 +55,7 @@
             
             <i class="fa fa-home"></i>
             
-            <span>Index</span>
+            <span>首页</span>
         </a>
     </li>
     
@@ -62,7 +64,7 @@
             
             <i class="fa fa-tags"></i>
             
-            <span>Tags</span>
+            <span>标签</span>
         </a>
     </li>
     
@@ -71,7 +73,7 @@
             
             <i class="fa fa-bookmark"></i>
             
-            <span>Categories</span>
+            <span>分类</span>
         </a>
     </li>
     
@@ -80,7 +82,7 @@
             
             <i class="fa fa-user-circle-o"></i>
             
-            <span>About</span>
+            <span>关于</span>
         </a>
     </li>
     
@@ -94,14 +96,13 @@
     </li>
     
     <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
         </a>
     </li>
-
 </ul>
 
-<div class="side-nav" id="mobile-nav">
+<div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
@@ -115,6 +116,8 @@
         </div>
     </div>
 
+    
+
     <ul class="menu-list mobile-menu-list">
         
         <li>
@@ -122,7 +125,7 @@
                 
                 <i class="fa fa-fw fa-home"></i>
                 
-                Index
+                首页
             </a>
         </li>
         
@@ -131,7 +134,7 @@
                 
                 <i class="fa fa-fw fa-tags"></i>
                 
-                Tags
+                标签
             </a>
         </li>
         
@@ -140,7 +143,7 @@
                 
                 <i class="fa fa-fw fa-bookmark"></i>
                 
-                Categories
+                分类
             </a>
         </li>
         
@@ -149,7 +152,7 @@
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
-                About
+                关于
             </a>
         </li>
         
@@ -164,55 +167,40 @@
         
         
     </ul>
-
-    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-</div>
 </div>
 
-            </div>
         </div>
 
         
     </nav>
+
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+<div class="bg-cover pd-header about-cover">
     <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                    
-                        炫杉Blog
-                    
-                    </div>
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    炫杉Blog
+                
+            </div>
 
-                    <div class="description center-align">
-                    
-                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
-                    
-                    </div>
-                </div>
+            <div class="description center-align">
+                
+                    提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+                
             </div>
         </div>
-        
     </div>
 </div>
-
 <script>
-// Dynamically switch banner pictures every day.
+// 每天切换 banner 图.  Switch banner image every day.
 $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
+    </div>
+</div>
 
 <main class="content">
 
@@ -221,23 +209,25 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
-            <div class="tag-title center-align">文章分类</div>
+            <div class="tag-title center-align">
+                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;文章分类
+            </div>
             <div class="tag-chips">
                 
                 
                 
-                <a href="/categories/Algorithm/" title="Algorithm: 12">
+                <a href="/categories/cpp/" title="cpp: 2">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active " style="background-color: #F9EBEA;">Algorithm
-                        <span class="tag-length">12</span>
+                             chip-default " style="background-color: #F9EBEA;">cpp
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/cpp/" title="cpp: 2">
+                <a href="/categories/Algorithm/" title="Algorithm: 12">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F5EEF8;">cpp
-                        <span class="tag-length">2</span>
+                             chip-active " style="background-color: #F5EEF8;">Algorithm
+                        <span class="tag-length">12</span>
                     </span>
                 </a>
                 
@@ -250,9 +240,17 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
+                <a href="/categories/Python/" title="Python: 8">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " style="background-color: #E8F8F5;">Python
+                        <span class="tag-length">8</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/Network/" title="Network: 2">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #E8F8F5;">Network
+                             chip-default " style="background-color: #FEF9E7;">Network
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -260,7 +258,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 <a href="/categories/Note/" title="Note: 6">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #FEF9E7;">Note
+                             chip-default " style="background-color: #F8F9F9;">Note
                         <span class="tag-length">6</span>
                     </span>
                 </a>
@@ -268,24 +266,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 
                 <a href="/categories/PhD/" title="PhD: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F8F9F9;">PhD
+                             chip-default " style="background-color: #82E0AA;">PhD
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Others/" title="Others: 8">
+                <a href="/categories/Log/" title="Log: 9">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #82E0AA;">Others
-                        <span class="tag-length">8</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Python/" title="Python: 8">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #D7BDE2;">Python
-                        <span class="tag-length">8</span>
+                             chip-default " style="background-color: #D7BDE2;">Log
+                        <span class="tag-length">9</span>
                     </span>
                 </a>
                 
@@ -314,9 +304,17 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
+                <a href="/categories/Others/" title="Others: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default " style="background-color: #F9E79F;">Others
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/iOS/" title="iOS: 10">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " style="background-color: #F9E79F;">iOS
+                             chip-default " style="background-color: #85C1E9;">iOS
                         <span class="tag-length">10</span>
                     </span>
                 </a>
@@ -332,7 +330,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     <article id="articles" class="container articles">
         <div class="row tags-posts">
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/josephus/">
                         <div class="card-image tag-image">
@@ -344,12 +342,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">关于约瑟夫环问题的公式解法的推导，我看了很多文章，其中推理过程各有千秋，所以写一写自己的推导过程。
+                        <div class="summary">
+                            
+                                关于约瑟夫环问题的公式解法的推导，我看了很多文章，其中推理过程各有千秋，所以写一写自己的推导过程。
 
 问题描述
 输入： n 和 m
 
-n个人</div>
+n个人
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-18
@@ -379,7 +381,7 @@ n个人</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/MasterTheorem/">
                         <div class="card-image tag-image">
@@ -391,9 +393,13 @@ n个人</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">Master Therem，翻译成：主定理、主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的。
+                        <div class="summary">
+                            
+                                Master Therem，翻译成：主定理、主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的。
 
-一般情况下先简单看先O(</div>
+一般情况下先简单看先O(
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-22
@@ -423,7 +429,7 @@ n个人</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/LeetCode51-100/">
                         <div class="card-image tag-image">
@@ -435,9 +441,13 @@ n个人</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">int的范围、牛顿迭代法[69]      copy(1.begin,1.end,2.begin)、rbegin\rend[88]
+                        <div class="summary">
+                            
+                                int的范围、牛顿迭代法[69]      copy(1.begin,1.end,2.begin)、rbegin\rend[88]
 
-51N</div>
+51N
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-21
@@ -458,12 +468,12 @@ n个人</div>
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/LeetCode/" target="_blank">
-                            <span class="chip bg-color">LeetCode</span>
-                        </a>
-                        
                         <a href="/tags/Cpp/" target="_blank">
                             <span class="chip bg-color">Cpp</span>
+                        </a>
+                        
+                        <a href="/tags/LeetCode/" target="_blank">
+                            <span class="chip bg-color">LeetCode</span>
                         </a>
                         
                     </div>
@@ -471,7 +481,7 @@ n个人</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/SegmentTree2/">
                         <div class="card-image tag-image">
@@ -483,11 +493,15 @@ n个人</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">线段树完全版关键词：延迟加载、懒标记Lazy Tag
+                        <div class="summary">
+                            
+                                线段树完全版关键词：延迟加载、懒标记Lazy Tag
 
 单点更新的情况比较简单。请看 线段树基础版
 下面说说区间更新的情况。
-场景是这样的，</div>
+场景是这样的，
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-20
@@ -517,7 +531,7 @@ n个人</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/SegmentTree/">
                         <div class="card-image tag-image">
@@ -529,10 +543,14 @@ n个人</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">线段树基础版关键词：单点替换，区间最值。
+                        <div class="summary">
+                            
+                                线段树基础版关键词：单点替换，区间最值。
 
 用二分法的思想。建立完全二叉树–》叶节点是每个元素。
-父亲节点则是要保存的结果元素。比如给出数组</div>
+父亲节点则是要保存的结果元素。比如给出数组
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-20
@@ -562,7 +580,7 @@ n个人</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/排序算法/">
                         <div class="card-image tag-image">
@@ -574,12 +592,16 @@ n个人</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">该和排序算法做个了结了
+                        <div class="summary">
+                            
+                                该和排序算法做个了结了
 
 15种排序算法动态演示这个视频是在网上看到的。
 
 
-那我们就跟着视频来写出这15种排序算法吧。这15种排序分别是：</div>
+那我们就跟着视频来写出这15种排序算法吧。这15种排序分别是：
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-05
@@ -617,7 +639,7 @@ n个人</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/剑指offer/">
                         <div class="card-image tag-image">
@@ -629,8 +651,12 @@ n个人</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">《剑指Offer》读书笔记。感谢强哥给的书。希望明年的我也可以Offer满满~
-代码基本都在这里了：https://github.com/i</div>
+                        <div class="summary">
+                            
+                                《剑指Offer》读书笔记。感谢强哥给的书。希望明年的我也可以Offer满满~
+代码基本都在这里了：https://github.com/i
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-19
@@ -651,56 +677,10 @@ n个人</div>
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Cpp/" target="_blank">
-                            <span class="chip bg-color">Cpp</span>
-                        </a>
-                        
                         <a href="/tags/Note/" target="_blank">
                             <span class="chip bg-color">Note</span>
                         </a>
                         
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/Algorithm/LeetCode300plus/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="LeetCode 300题以后">
-                            
-                            <span class="card-title">LeetCode 300题以后</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary">知识点：npos[345] 、memset[387] 、  reverse()[557]、   istringstream[557]、树[6</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Algorithm/" class="post-category" target="_blank">
-                                    Algorithm
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/LeetCode/" target="_blank">
-                            <span class="chip bg-color">LeetCode</span>
-                        </a>
-                        
                         <a href="/tags/Cpp/" target="_blank">
                             <span class="chip bg-color">Cpp</span>
                         </a>
@@ -710,7 +690,7 @@ n个人</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/LeetCode200-300/">
                         <div class="card-image tag-image">
@@ -722,7 +702,11 @@ n个人</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">知识点：npos[345] 、memset[387] 、  reverse()557、   istringstream557、树[606]、</div>
+                        <div class="summary">
+                            
+                                知识点：npos[345] 、memset[387] 、  reverse()557、   istringstream557、树[606]、
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
@@ -743,12 +727,12 @@ n个人</div>
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/LeetCode/" target="_blank">
-                            <span class="chip bg-color">LeetCode</span>
-                        </a>
-                        
                         <a href="/tags/Cpp/" target="_blank">
                             <span class="chip bg-color">Cpp</span>
+                        </a>
+                        
+                        <a href="/tags/LeetCode/" target="_blank">
+                            <span class="chip bg-color">LeetCode</span>
                         </a>
                         
                     </div>
@@ -756,7 +740,57 @@ n个人</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/Algorithm/LeetCode300plus/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="LeetCode 300题以后">
+                            
+                            <span class="card-title">LeetCode 300题以后</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                知识点：npos[345] 、memset[387] 、  reverse()[557]、   istringstream[557]、树[6
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Cpp/" target="_blank">
+                            <span class="chip bg-color">Cpp</span>
+                        </a>
+                        
+                        <a href="/tags/LeetCode/" target="_blank">
+                            <span class="chip bg-color">LeetCode</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/LeetCode101-200/">
                         <div class="card-image tag-image">
@@ -768,7 +802,11 @@ n个人</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">知识点：  摩尔投票算法[169]   reverse()的理解[189]     位运算136   string.erase()[171]</div>
+                        <div class="summary">
+                            
+                                知识点：  摩尔投票算法[169]   reverse()的理解[189]     位运算136   string.erase()[171]
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-06
@@ -789,12 +827,12 @@ n个人</div>
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/LeetCode/" target="_blank">
-                            <span class="chip bg-color">LeetCode</span>
-                        </a>
-                        
                         <a href="/tags/Cpp/" target="_blank">
                             <span class="chip bg-color">Cpp</span>
+                        </a>
+                        
+                        <a href="/tags/LeetCode/" target="_blank">
+                            <span class="chip bg-color">LeetCode</span>
                         </a>
                         
                     </div>
@@ -802,7 +840,7 @@ n个人</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/LeetCode1-50/">
                         <div class="card-image tag-image">
@@ -814,7 +852,11 @@ n个人</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]str.substr(pos,n)注意n是</div>
+                        <div class="summary">
+                            
+                                知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]str.substr(pos,n)注意n是
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-01
@@ -835,12 +877,12 @@ n个人</div>
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/LeetCode/" target="_blank">
-                            <span class="chip bg-color">LeetCode</span>
-                        </a>
-                        
                         <a href="/tags/Cpp/" target="_blank">
                             <span class="chip bg-color">Cpp</span>
+                        </a>
+                        
+                        <a href="/tags/LeetCode/" target="_blank">
+                            <span class="chip bg-color">LeetCode</span>
                         </a>
                         
                     </div>
@@ -848,7 +890,7 @@ n个人</div>
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Algorithm/蚁群算法求解TSP/">
                         <div class="card-image tag-image">
@@ -860,13 +902,17 @@ n个人</div>
                         </div>
                     </a>
                     <div class="card-content article-content">
-                        <div class="summary">蚁群算法的作业，本来想用C++写的。研究了半天得出结论：
+                        <div class="summary">
+                            
+                                蚁群算法的作业，本来想用C++写的。研究了半天得出结论：
 
 🙈MATLAB写这个确实好写。
 😌
 
 
-C菜🐦的挫败先简单介绍下GDB这个</div>
+C菜🐦的挫败先简单介绍下GDB这个
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-06-03
@@ -904,20 +950,43 @@ C菜🐦的挫败先简单介绍下GDB这个</div>
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
-              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
+            
 
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
     </div>
 </footer>
@@ -929,8 +998,8 @@ C菜🐦的挫败先简单介绍下GDB这个</div>
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -938,7 +1007,9 @@ C菜🐦的挫败先简单介绍下GDB这个</div>
 
 <script src="/js/search.js"></script>
 <script type="text/javascript">
+$(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
 </script>
 <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
@@ -948,11 +1019,22 @@ C菜🐦的挫败先简单介绍下GDB这个</div>
 </div>
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/materialize/materialize.min.js"></script>
 <script src="/libs/masonry/masonry.pkgd.min.js"></script>
 <script src="/libs/aos/aos.js"></script>
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
 </body>
 </html>

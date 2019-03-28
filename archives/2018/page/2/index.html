@@ -1,14 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
-    
+
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="归档: 2018, 炫杉">
     <meta name="description" content="归档: 2018 | 炫杉">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
@@ -18,34 +17,37 @@
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-</head>
 
 <body>
 
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">炫杉</span>
-                    </a>
-                </div>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
     <li class="hide-on-med-and-down">
@@ -53,7 +55,7 @@
             
             <i class="fa fa-home"></i>
             
-            <span>Index</span>
+            <span>首页</span>
         </a>
     </li>
     
@@ -62,7 +64,7 @@
             
             <i class="fa fa-tags"></i>
             
-            <span>Tags</span>
+            <span>标签</span>
         </a>
     </li>
     
@@ -71,7 +73,7 @@
             
             <i class="fa fa-bookmark"></i>
             
-            <span>Categories</span>
+            <span>分类</span>
         </a>
     </li>
     
@@ -80,7 +82,7 @@
             
             <i class="fa fa-user-circle-o"></i>
             
-            <span>About</span>
+            <span>关于</span>
         </a>
     </li>
     
@@ -94,14 +96,13 @@
     </li>
     
     <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
         </a>
     </li>
-
 </ul>
 
-<div class="side-nav" id="mobile-nav">
+<div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
@@ -115,6 +116,8 @@
         </div>
     </div>
 
+    
+
     <ul class="menu-list mobile-menu-list">
         
         <li>
@@ -122,7 +125,7 @@
                 
                 <i class="fa fa-fw fa-home"></i>
                 
-                Index
+                首页
             </a>
         </li>
         
@@ -131,7 +134,7 @@
                 
                 <i class="fa fa-fw fa-tags"></i>
                 
-                Tags
+                标签
             </a>
         </li>
         
@@ -140,7 +143,7 @@
                 
                 <i class="fa fa-fw fa-bookmark"></i>
                 
-                Categories
+                分类
             </a>
         </li>
         
@@ -149,7 +152,7 @@
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
-                About
+                关于
             </a>
         </li>
         
@@ -164,55 +167,40 @@
         
         
     </ul>
-
-    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-</div>
 </div>
 
-            </div>
         </div>
 
         
     </nav>
+
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+<div class="bg-cover pd-header about-cover">
     <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                    
-                        炫杉Blog
-                    
-                    </div>
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    炫杉Blog
+                
+            </div>
 
-                    <div class="description center-align">
-                    
-                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
-                    
-                    </div>
-                </div>
+            <div class="description center-align">
+                
+                    提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+                
             </div>
         </div>
-        
     </div>
 </div>
-
 <script>
-// Dynamically switch banner pictures every day.
+// 每天切换 banner 图.  Switch banner image every day.
 $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
 </script>
+    </div>
+</div>
 
 <main class="content">
 
@@ -265,7 +253,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         },
         calendar: [{
             left: 'center',
-            range: ["2018-03-22", "2019-03-22"],
+            range: ["2018-03-28", "2019-03-28"],
             cellSize: [13, 13],
             splitLine: {
                 show: false
@@ -291,7 +279,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             type: 'heatmap',
             coordinateSystem: 'calendar',
             calendarIndex: 0,
-            data: [["2018-03-22", 0], ["2018-03-23", 1], ["2018-03-24", 1], ["2018-03-25", 0], ["2018-03-26", 0], ["2018-03-27", 0], ["2018-03-28", 0], ["2018-03-29", 0], ["2018-03-30", 0], ["2018-03-31", 2], ["2018-04-01", 2], ["2018-04-02", 2], ["2018-04-03", 0], ["2018-04-04", 0], ["2018-04-05", 0], ["2018-04-06", 0], ["2018-04-07", 1], ["2018-04-08", 0], ["2018-04-09", 0], ["2018-04-10", 0], ["2018-04-11", 0], ["2018-04-12", 0], ["2018-04-13", 0], ["2018-04-14", 0], ["2018-04-15", 0], ["2018-04-16", 1], ["2018-04-17", 0], ["2018-04-18", 0], ["2018-04-19", 0], ["2018-04-20", 0], ["2018-04-21", 0], ["2018-04-22", 0], ["2018-04-23", 0], ["2018-04-24", 0], ["2018-04-25", 0], ["2018-04-26", 0], ["2018-04-27", 1], ["2018-04-28", 0], ["2018-04-29", 0], ["2018-04-30", 0], ["2018-05-01", 1], ["2018-05-02", 0], ["2018-05-03", 0], ["2018-05-04", 0], ["2018-05-05", 0], ["2018-05-06", 0], ["2018-05-07", 0], ["2018-05-08", 0], ["2018-05-09", 0], ["2018-05-10", 0], ["2018-05-11", 0], ["2018-05-12", 0], ["2018-05-13", 0], ["2018-05-14", 0], ["2018-05-15", 0], ["2018-05-16", 1], ["2018-05-17", 0], ["2018-05-18", 1], ["2018-05-19", 0], ["2018-05-20", 0], ["2018-05-21", 0], ["2018-05-22", 1], ["2018-05-23", 0], ["2018-05-24", 0], ["2018-05-25", 0], ["2018-05-26", 1], ["2018-05-27", 0], ["2018-05-28", 0], ["2018-05-29", 0], ["2018-05-30", 0], ["2018-05-31", 0], ["2018-06-01", 0], ["2018-06-02", 0], ["2018-06-03", 1], ["2018-06-04", 0], ["2018-06-05", 0], ["2018-06-06", 0], ["2018-06-07", 0], ["2018-06-08", 0], ["2018-06-09", 0], ["2018-06-10", 0], ["2018-06-11", 0], ["2018-06-12", 0], ["2018-06-13", 0], ["2018-06-14", 0], ["2018-06-15", 0], ["2018-06-16", 0], ["2018-06-17", 0], ["2018-06-18", 0], ["2018-06-19", 0], ["2018-06-20", 0], ["2018-06-21", 0], ["2018-06-22", 0], ["2018-06-23", 0], ["2018-06-24", 0], ["2018-06-25", 0], ["2018-06-26", 0], ["2018-06-27", 0], ["2018-06-28", 0], ["2018-06-29", 0], ["2018-06-30", 0], ["2018-07-01", 0], ["2018-07-02", 0], ["2018-07-03", 1], ["2018-07-04", 0], ["2018-07-05", 0], ["2018-07-06", 0], ["2018-07-07", 0], ["2018-07-08", 0], ["2018-07-09", 0], ["2018-07-10", 0], ["2018-07-11", 0], ["2018-07-12", 0], ["2018-07-13", 0], ["2018-07-14", 0], ["2018-07-15", 0], ["2018-07-16", 0], ["2018-07-17", 0], ["2018-07-18", 0], ["2018-07-19", 0], ["2018-07-20", 0], ["2018-07-21", 0], ["2018-07-22", 0], ["2018-07-23", 0], ["2018-07-24", 0], ["2018-07-25", 1], ["2018-07-26", 0], ["2018-07-27", 0], ["2018-07-28", 0], ["2018-07-29", 0], ["2018-07-30", 0], ["2018-07-31", 0], ["2018-08-01", 0], ["2018-08-02", 0], ["2018-08-03", 0], ["2018-08-04", 0], ["2018-08-05", 0], ["2018-08-06", 1], ["2018-08-07", 0], ["2018-08-08", 0], ["2018-08-09", 0], ["2018-08-10", 0], ["2018-08-11", 0], ["2018-08-12", 0], ["2018-08-13", 0], ["2018-08-14", 1], ["2018-08-15", 0], ["2018-08-16", 0], ["2018-08-17", 0], ["2018-08-18", 0], ["2018-08-19", 0], ["2018-08-20", 0], ["2018-08-21", 0], ["2018-08-22", 0], ["2018-08-23", 0], ["2018-08-24", 1], ["2018-08-25", 0], ["2018-08-26", 1], ["2018-08-27", 1], ["2018-08-28", 1], ["2018-08-29", 0], ["2018-08-30", 1], ["2018-08-31", 1], ["2018-09-01", 1], ["2018-09-02", 0], ["2018-09-03", 0], ["2018-09-04", 0], ["2018-09-05", 0], ["2018-09-06", 1], ["2018-09-07", 1], ["2018-09-08", 0], ["2018-09-09", 0], ["2018-09-10", 2], ["2018-09-11", 0], ["2018-09-12", 1], ["2018-09-13", 0], ["2018-09-14", 0], ["2018-09-15", 0], ["2018-09-16", 0], ["2018-09-17", 0], ["2018-09-18", 0], ["2018-09-19", 0], ["2018-09-20", 0], ["2018-09-21", 0], ["2018-09-22", 0], ["2018-09-23", 0], ["2018-09-24", 0], ["2018-09-25", 0], ["2018-09-26", 0], ["2018-09-27", 0], ["2018-09-28", 0], ["2018-09-29", 0], ["2018-09-30", 0], ["2018-10-01", 0], ["2018-10-02", 0], ["2018-10-03", 0], ["2018-10-04", 0], ["2018-10-05", 0], ["2018-10-06", 0], ["2018-10-07", 0], ["2018-10-08", 0], ["2018-10-09", 0], ["2018-10-10", 0], ["2018-10-11", 0], ["2018-10-12", 0], ["2018-10-13", 0], ["2018-10-14", 0], ["2018-10-15", 1], ["2018-10-16", 0], ["2018-10-17", 0], ["2018-10-18", 0], ["2018-10-19", 1], ["2018-10-20", 0], ["2018-10-21", 0], ["2018-10-22", 0], ["2018-10-23", 0], ["2018-10-24", 0], ["2018-10-25", 0], ["2018-10-26", 0], ["2018-10-27", 0], ["2018-10-28", 0], ["2018-10-29", 0], ["2018-10-30", 1], ["2018-10-31", 0], ["2018-11-01", 1], ["2018-11-02", 0], ["2018-11-03", 0], ["2018-11-04", 0], ["2018-11-05", 1], ["2018-11-06", 0], ["2018-11-07", 0], ["2018-11-08", 1], ["2018-11-09", 1], ["2018-11-10", 0], ["2018-11-11", 0], ["2018-11-12", 0], ["2018-11-13", 0], ["2018-11-14", 0], ["2018-11-15", 2], ["2018-11-16", 0], ["2018-11-17", 0], ["2018-11-18", 0], ["2018-11-19", 0], ["2018-11-20", 2], ["2018-11-21", 1], ["2018-11-22", 1], ["2018-11-23", 0], ["2018-11-24", 0], ["2018-11-25", 0], ["2018-11-26", 0], ["2018-11-27", 0], ["2018-11-28", 1], ["2018-11-29", 0], ["2018-11-30", 0], ["2018-12-01", 0], ["2018-12-02", 0], ["2018-12-03", 0], ["2018-12-04", 0], ["2018-12-05", 0], ["2018-12-06", 1], ["2018-12-07", 0], ["2018-12-08", 0], ["2018-12-09", 1], ["2018-12-10", 0], ["2018-12-11", 0], ["2018-12-12", 0], ["2018-12-13", 0], ["2018-12-14", 0], ["2018-12-15", 0], ["2018-12-16", 0], ["2018-12-17", 0], ["2018-12-18", 1], ["2018-12-19", 0], ["2018-12-20", 1], ["2018-12-21", 0], ["2018-12-22", 0], ["2018-12-23", 0], ["2018-12-24", 0], ["2018-12-25", 0], ["2018-12-26", 0], ["2018-12-27", 0], ["2018-12-28", 0], ["2018-12-29", 0], ["2018-12-30", 0], ["2018-12-31", 0], ["2019-01-01", 0], ["2019-01-02", 0], ["2019-01-03", 0], ["2019-01-04", 1], ["2019-01-05", 0], ["2019-01-06", 0], ["2019-01-07", 0], ["2019-01-08", 0], ["2019-01-09", 0], ["2019-01-10", 0], ["2019-01-11", 0], ["2019-01-12", 0], ["2019-01-13", 0], ["2019-01-14", 1], ["2019-01-15", 0], ["2019-01-16", 0], ["2019-01-17", 0], ["2019-01-18", 0], ["2019-01-19", 0], ["2019-01-20", 0], ["2019-01-21", 0], ["2019-01-22", 0], ["2019-01-23", 1], ["2019-01-24", 1], ["2019-01-25", 0], ["2019-01-26", 0], ["2019-01-27", 0], ["2019-01-28", 0], ["2019-01-29", 0], ["2019-01-30", 0], ["2019-01-31", 0], ["2019-02-01", 0], ["2019-02-02", 0], ["2019-02-03", 0], ["2019-02-04", 0], ["2019-02-05", 0], ["2019-02-06", 0], ["2019-02-07", 0], ["2019-02-08", 0], ["2019-02-09", 0], ["2019-02-10", 0], ["2019-02-11", 0], ["2019-02-12", 0], ["2019-02-13", 0], ["2019-02-14", 0], ["2019-02-15", 0], ["2019-02-16", 0], ["2019-02-17", 0], ["2019-02-18", 0], ["2019-02-19", 0], ["2019-02-20", 0], ["2019-02-21", 0], ["2019-02-22", 0], ["2019-02-23", 0], ["2019-02-24", 0], ["2019-02-25", 0], ["2019-02-26", 0], ["2019-02-27", 0], ["2019-02-28", 0], ["2019-03-01", 0], ["2019-03-02", 0], ["2019-03-03", 0], ["2019-03-04", 0], ["2019-03-05", 0], ["2019-03-06", 0], ["2019-03-07", 0], ["2019-03-08", 0], ["2019-03-09", 0], ["2019-03-10", 0], ["2019-03-11", 1], ["2019-03-12", 1], ["2019-03-13", 0], ["2019-03-14", 1], ["2019-03-15", 0], ["2019-03-16", 0], ["2019-03-17", 0], ["2019-03-18", 0], ["2019-03-19", 0], ["2019-03-20", 1], ["2019-03-21", 0], ["2019-03-22", 0]]
+            data: [["2018-03-28", 0], ["2018-03-29", 0], ["2018-03-30", 0], ["2018-03-31", 2], ["2018-04-01", 2], ["2018-04-02", 2], ["2018-04-03", 0], ["2018-04-04", 0], ["2018-04-05", 0], ["2018-04-06", 0], ["2018-04-07", 1], ["2018-04-08", 0], ["2018-04-09", 0], ["2018-04-10", 0], ["2018-04-11", 0], ["2018-04-12", 0], ["2018-04-13", 0], ["2018-04-14", 0], ["2018-04-15", 0], ["2018-04-16", 1], ["2018-04-17", 0], ["2018-04-18", 0], ["2018-04-19", 0], ["2018-04-20", 0], ["2018-04-21", 0], ["2018-04-22", 0], ["2018-04-23", 0], ["2018-04-24", 0], ["2018-04-25", 0], ["2018-04-26", 0], ["2018-04-27", 1], ["2018-04-28", 0], ["2018-04-29", 0], ["2018-04-30", 0], ["2018-05-01", 1], ["2018-05-02", 0], ["2018-05-03", 0], ["2018-05-04", 0], ["2018-05-05", 0], ["2018-05-06", 0], ["2018-05-07", 0], ["2018-05-08", 0], ["2018-05-09", 0], ["2018-05-10", 0], ["2018-05-11", 0], ["2018-05-12", 0], ["2018-05-13", 0], ["2018-05-14", 0], ["2018-05-15", 0], ["2018-05-16", 1], ["2018-05-17", 0], ["2018-05-18", 1], ["2018-05-19", 0], ["2018-05-20", 0], ["2018-05-21", 0], ["2018-05-22", 1], ["2018-05-23", 0], ["2018-05-24", 0], ["2018-05-25", 0], ["2018-05-26", 1], ["2018-05-27", 0], ["2018-05-28", 0], ["2018-05-29", 0], ["2018-05-30", 0], ["2018-05-31", 0], ["2018-06-01", 0], ["2018-06-02", 0], ["2018-06-03", 1], ["2018-06-04", 0], ["2018-06-05", 0], ["2018-06-06", 0], ["2018-06-07", 0], ["2018-06-08", 0], ["2018-06-09", 0], ["2018-06-10", 0], ["2018-06-11", 0], ["2018-06-12", 0], ["2018-06-13", 0], ["2018-06-14", 0], ["2018-06-15", 0], ["2018-06-16", 0], ["2018-06-17", 0], ["2018-06-18", 0], ["2018-06-19", 0], ["2018-06-20", 0], ["2018-06-21", 0], ["2018-06-22", 0], ["2018-06-23", 0], ["2018-06-24", 0], ["2018-06-25", 0], ["2018-06-26", 0], ["2018-06-27", 0], ["2018-06-28", 0], ["2018-06-29", 0], ["2018-06-30", 0], ["2018-07-01", 0], ["2018-07-02", 0], ["2018-07-03", 1], ["2018-07-04", 0], ["2018-07-05", 0], ["2018-07-06", 0], ["2018-07-07", 0], ["2018-07-08", 0], ["2018-07-09", 0], ["2018-07-10", 0], ["2018-07-11", 0], ["2018-07-12", 0], ["2018-07-13", 0], ["2018-07-14", 0], ["2018-07-15", 0], ["2018-07-16", 0], ["2018-07-17", 0], ["2018-07-18", 0], ["2018-07-19", 0], ["2018-07-20", 0], ["2018-07-21", 0], ["2018-07-22", 0], ["2018-07-23", 0], ["2018-07-24", 0], ["2018-07-25", 1], ["2018-07-26", 0], ["2018-07-27", 0], ["2018-07-28", 0], ["2018-07-29", 0], ["2018-07-30", 0], ["2018-07-31", 0], ["2018-08-01", 0], ["2018-08-02", 0], ["2018-08-03", 0], ["2018-08-04", 0], ["2018-08-05", 0], ["2018-08-06", 1], ["2018-08-07", 0], ["2018-08-08", 0], ["2018-08-09", 0], ["2018-08-10", 0], ["2018-08-11", 0], ["2018-08-12", 0], ["2018-08-13", 0], ["2018-08-14", 1], ["2018-08-15", 0], ["2018-08-16", 0], ["2018-08-17", 0], ["2018-08-18", 0], ["2018-08-19", 0], ["2018-08-20", 0], ["2018-08-21", 0], ["2018-08-22", 0], ["2018-08-23", 0], ["2018-08-24", 1], ["2018-08-25", 0], ["2018-08-26", 1], ["2018-08-27", 1], ["2018-08-28", 1], ["2018-08-29", 0], ["2018-08-30", 1], ["2018-08-31", 1], ["2018-09-01", 1], ["2018-09-02", 0], ["2018-09-03", 0], ["2018-09-04", 0], ["2018-09-05", 0], ["2018-09-06", 1], ["2018-09-07", 1], ["2018-09-08", 0], ["2018-09-09", 0], ["2018-09-10", 2], ["2018-09-11", 0], ["2018-09-12", 1], ["2018-09-13", 0], ["2018-09-14", 0], ["2018-09-15", 0], ["2018-09-16", 0], ["2018-09-17", 0], ["2018-09-18", 0], ["2018-09-19", 0], ["2018-09-20", 0], ["2018-09-21", 0], ["2018-09-22", 0], ["2018-09-23", 0], ["2018-09-24", 0], ["2018-09-25", 0], ["2018-09-26", 0], ["2018-09-27", 0], ["2018-09-28", 0], ["2018-09-29", 0], ["2018-09-30", 0], ["2018-10-01", 0], ["2018-10-02", 0], ["2018-10-03", 0], ["2018-10-04", 0], ["2018-10-05", 0], ["2018-10-06", 0], ["2018-10-07", 0], ["2018-10-08", 0], ["2018-10-09", 0], ["2018-10-10", 0], ["2018-10-11", 0], ["2018-10-12", 0], ["2018-10-13", 0], ["2018-10-14", 0], ["2018-10-15", 1], ["2018-10-16", 0], ["2018-10-17", 0], ["2018-10-18", 0], ["2018-10-19", 1], ["2018-10-20", 0], ["2018-10-21", 0], ["2018-10-22", 0], ["2018-10-23", 0], ["2018-10-24", 0], ["2018-10-25", 0], ["2018-10-26", 0], ["2018-10-27", 0], ["2018-10-28", 0], ["2018-10-29", 0], ["2018-10-30", 1], ["2018-10-31", 0], ["2018-11-01", 1], ["2018-11-02", 0], ["2018-11-03", 0], ["2018-11-04", 0], ["2018-11-05", 1], ["2018-11-06", 0], ["2018-11-07", 0], ["2018-11-08", 1], ["2018-11-09", 1], ["2018-11-10", 0], ["2018-11-11", 0], ["2018-11-12", 0], ["2018-11-13", 0], ["2018-11-14", 0], ["2018-11-15", 2], ["2018-11-16", 0], ["2018-11-17", 0], ["2018-11-18", 0], ["2018-11-19", 0], ["2018-11-20", 2], ["2018-11-21", 1], ["2018-11-22", 1], ["2018-11-23", 0], ["2018-11-24", 0], ["2018-11-25", 0], ["2018-11-26", 0], ["2018-11-27", 0], ["2018-11-28", 1], ["2018-11-29", 0], ["2018-11-30", 0], ["2018-12-01", 0], ["2018-12-02", 0], ["2018-12-03", 0], ["2018-12-04", 0], ["2018-12-05", 0], ["2018-12-06", 1], ["2018-12-07", 0], ["2018-12-08", 0], ["2018-12-09", 1], ["2018-12-10", 0], ["2018-12-11", 0], ["2018-12-12", 0], ["2018-12-13", 0], ["2018-12-14", 0], ["2018-12-15", 0], ["2018-12-16", 0], ["2018-12-17", 0], ["2018-12-18", 1], ["2018-12-19", 0], ["2018-12-20", 1], ["2018-12-21", 0], ["2018-12-22", 0], ["2018-12-23", 0], ["2018-12-24", 0], ["2018-12-25", 0], ["2018-12-26", 0], ["2018-12-27", 0], ["2018-12-28", 0], ["2018-12-29", 0], ["2018-12-30", 0], ["2018-12-31", 0], ["2019-01-01", 0], ["2019-01-02", 0], ["2019-01-03", 0], ["2019-01-04", 1], ["2019-01-05", 0], ["2019-01-06", 0], ["2019-01-07", 0], ["2019-01-08", 0], ["2019-01-09", 0], ["2019-01-10", 0], ["2019-01-11", 0], ["2019-01-12", 0], ["2019-01-13", 0], ["2019-01-14", 1], ["2019-01-15", 0], ["2019-01-16", 0], ["2019-01-17", 0], ["2019-01-18", 0], ["2019-01-19", 0], ["2019-01-20", 0], ["2019-01-21", 0], ["2019-01-22", 0], ["2019-01-23", 1], ["2019-01-24", 1], ["2019-01-25", 0], ["2019-01-26", 0], ["2019-01-27", 0], ["2019-01-28", 0], ["2019-01-29", 0], ["2019-01-30", 0], ["2019-01-31", 0], ["2019-02-01", 0], ["2019-02-02", 0], ["2019-02-03", 0], ["2019-02-04", 0], ["2019-02-05", 0], ["2019-02-06", 0], ["2019-02-07", 0], ["2019-02-08", 0], ["2019-02-09", 0], ["2019-02-10", 0], ["2019-02-11", 0], ["2019-02-12", 0], ["2019-02-13", 0], ["2019-02-14", 0], ["2019-02-15", 0], ["2019-02-16", 0], ["2019-02-17", 0], ["2019-02-18", 0], ["2019-02-19", 0], ["2019-02-20", 0], ["2019-02-21", 0], ["2019-02-22", 0], ["2019-02-23", 0], ["2019-02-24", 0], ["2019-02-25", 0], ["2019-02-26", 0], ["2019-02-27", 0], ["2019-02-28", 0], ["2019-03-01", 0], ["2019-03-02", 0], ["2019-03-03", 0], ["2019-03-04", 0], ["2019-03-05", 0], ["2019-03-06", 0], ["2019-03-07", 0], ["2019-03-08", 0], ["2019-03-09", 0], ["2019-03-10", 0], ["2019-03-11", 1], ["2019-03-12", 1], ["2019-03-13", 0], ["2019-03-14", 1], ["2019-03-15", 0], ["2019-03-16", 0], ["2019-03-17", 0], ["2019-03-18", 0], ["2019-03-19", 0], ["2019-03-20", 1], ["2019-03-21", 0], ["2019-03-22", 0], ["2019-03-23", 0], ["2019-03-24", 0], ["2019-03-25", 0], ["2019-03-26", 1], ["2019-03-27", 0], ["2019-03-28", 0]]
         }]
 
     };
@@ -327,19 +315,21 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <span>14</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Website/HelloJs/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="HelloJs">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>HelloJs</span> -->
+                                
+                                <span class="card-title">HelloJs</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">高铁上没事干，入门一波Js。
+                            <div class="summary">
+                                
+                                    高铁上没事干，入门一波Js。
 
 Tips
 分号；可选
@@ -347,34 +337,27 @@ Tips
 大小写敏感
 
 GrammarVarvar a = 10 声明变量
-do</div> -->
+do
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Website/HelloJs/">HelloJs</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-14
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/js/"><span class="chip bg-color">js</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Website/" class="post-category" target="_blank">
                                     Website
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -382,7 +365,7 @@ do</div> -->
                             <a href="/tags/js/"><span class="chip bg-color">js</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -401,52 +384,49 @@ do</div> -->
                 <span>06</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Python/Python学习遇到的坑/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Problems in studying Python">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Problems in studying Python</span> -->
+                                
+                                <span class="card-title">Problems in studying Python</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">一些杂碎问题不至于写一篇文章了。放在这收集吧。
+                            <div class="summary">
+                                
+                                    一些杂碎问题不至于写一篇文章了。放在这收集吧。
 
-Spyder使用IPython Console弹出绘图窗口的设置方法matplotlib 画图show()不显</div> -->
+Spyder使用IPython Console弹出绘图窗口的设置方法matplotlib 画图show()不显
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Python/Python学习遇到的坑/">Problems in studying Python</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-06
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Python/" class="post-category" target="_blank">
                                     Python
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -470,65 +450,50 @@ Spyder使用IPython Console弹出绘图窗口的设置方法matplotlib 画图sho
                 <span>25</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/Others/UsefulTips/">
+                        <a href="/Log/UsefulTips/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="UsefulTips">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>UsefulTips</span> -->
+                                
+                                <span class="card-title">UsefulTips</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">偏技术性的小姿势
+                            <div class="summary">
+                                
+                                    偏技术性的小姿势
 
 Shell相关
 touch xxx.x 新建文件
 
 ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目录
--C 按列列</div> -->
+-C 按列列
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Others/UsefulTips/">UsefulTips</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-25
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/tips/"><span class="chip bg-color">tips</span></a>
-                                        
-                                        <a href="/tags/Mac/"><span class="chip bg-color">Mac</span></a>
-                                        
-                                        <a href="/tags/Shell/"><span class="chip bg-color">Shell</span></a>
-                                        
-                                        <a href="/tags/iTerm2/"><span class="chip bg-color">iTerm2</span></a>
-                                        
-                                        <a href="/tags/Markdown/"><span class="chip bg-color">Markdown</span></a>
-                                        
-                                        <a href="/tags/Heroku/"><span class="chip bg-color">Heroku</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
-                                    <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                                    <a href="/categories/Log/" class="post-category" target="_blank">
+                                    Log
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/tips/"><span class="chip bg-color">tips</span></a>
-                            
-                            <a href="/tags/Mac/"><span class="chip bg-color">Mac</span></a>
                             
                             <a href="/tags/Shell/"><span class="chip bg-color">Shell</span></a>
                             
@@ -536,10 +501,12 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
                             
                             <a href="/tags/Markdown/"><span class="chip bg-color">Markdown</span></a>
                             
+                            <a href="/tags/Mac/"><span class="chip bg-color">Mac</span></a>
+                            
                             <a href="/tags/Heroku/"><span class="chip bg-color">Heroku</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -558,52 +525,49 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
                 <span>03</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/Others/UsefulKnowledge/">
+                        <a href="/Log/UsefulKnowledge/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="小知识点「理论」">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>小知识点「理论」</span> -->
+                                
+                                <span class="card-title">小知识点「理论」</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">乱七八糟的东西。都是看博文啥的不懂现搜的~
+                            <div class="summary">
+                                
+                                    乱七八糟的东西。都是看博文啥的不懂现搜的~
 
-名词相关RESTfulhttp://www.cnblogs.com/wang-yaz/p/9237981.html</div> -->
+名词相关RESTfulhttp://www.cnblogs.com/wang-yaz/p/9237981.html
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Others/UsefulKnowledge/">小知识点「理论」</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-03
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
-                                    <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                                    <a href="/categories/Log/" class="post-category" target="_blank">
+                                    Log
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -627,56 +591,53 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
                 <span>03</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Algorithm/蚁群算法求解TSP/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="蚁群算法求解TSP-Matlab版">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>蚁群算法求解TSP-Matlab版</span> -->
+                                
+                                <span class="card-title">蚁群算法求解TSP-Matlab版</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">蚁群算法的作业，本来想用C++写的。研究了半天得出结论：
+                            <div class="summary">
+                                
+                                    蚁群算法的作业，本来想用C++写的。研究了半天得出结论：
 
 🙈MATLAB写这个确实好写。
 😌
 
 
-C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神</div> -->
+C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Algorithm/蚁群算法求解TSP/">蚁群算法求解TSP-Matlab版</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-06-03
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Matlab/"><span class="chip bg-color">Matlab</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Algorithm/" class="post-category" target="_blank">
                                     Algorithm
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Matlab/"><span class="chip bg-color">Matlab</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -700,40 +661,43 @@ C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神</div> -->
                 <span>26</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
-                        <a href="/Others/SecurityClassHomework/">
+                        <a href="/Log/SecurityClassHomework/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="《移动安全与测评》Report">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>《移动安全与测评》Report</span> -->
+                                
+                                <span class="card-title">《移动安全与测评》Report</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">
+                            <div class="summary">
+                                
+                                    
 《移动安全与测评》报告
-很喜欢移动开发，然后选了移动安全与测评这门课。课上学到很多移动安全的知识、思想。由于我对安卓开发没经验，也不是学安全专业的，对那个渗透</div> -->
+很喜欢移动开发，然后选了移动安全与测评这门课。课上学到很多移动安全的知识、思想。由于我对安卓开发没经验，也不是学安全专业的，对那个渗透
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Others/SecurityClassHomework/">《移动安全与测评》Report</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-26
                                 </span>
-                                
-                                <!-- <span class="publish-author">
-                                     
+                                <span class="publish-author">
+                                    
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
-                                    <a href="/categories/Others/" class="post-category" target="_blank">
-                                    Others
+                                    <a href="/categories/Log/" class="post-category" target="_blank">
+                                    Log
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!--  -->
+                        
                     </div>
                 </div>
             </article>
@@ -752,53 +716,44 @@ C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神</div> -->
                 <span>22</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Python/监控课余量选课/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="服务器跑selenium监控课余量选课">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>服务器跑selenium监控课余量选课</span> -->
+                                
+                                <span class="card-title">服务器跑selenium监控课余量选课</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">紫玉说课没选上，我就想写个脚本挂着看有没有退呗~
+                            <div class="summary">
+                                
+                                    紫玉说课没选上，我就想写个脚本挂着看有没有退呗~
 
 初探经过同学的推荐使用了selenium。做自动化测试很好啊，解决chekbox分分钟。开始啦~
-上来就遇到</div> -->
+上来就遇到
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Python/监控课余量选课/">服务器跑selenium监控课余量选课</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-22
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
-                                        
-                                        <a href="/tags/Demo/"><span class="chip bg-color">Demo</span></a>
-                                        
-                                        <a href="/tags/Spider/"><span class="chip bg-color">Spider</span></a>
-                                        
-                                        <a href="/tags/selenium/"><span class="chip bg-color">selenium</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Python/" class="post-category" target="_blank">
                                     Python
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
@@ -810,7 +765,7 @@ C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神</div> -->
                             <a href="/tags/selenium/"><span class="chip bg-color">selenium</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -829,50 +784,43 @@ C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神</div> -->
                 <span>18</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Python/爬一个520礼物给紫玉/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="爬一个520礼物给紫玉">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>爬一个520礼物给紫玉</span> -->
+                                
+                                <span class="card-title">爬一个520礼物给紫玉</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">520送点啥呢。有Python不慌~哈哈我们来试着找一辆5月20号13点14的列车吧~
+                            <div class="summary">
+                                
+                                    520送点啥呢。有Python不慌~哈哈我们来试着找一辆5月20号13点14的列车吧~
 
-从分析到实践初探百度了下列车时刻表，有个ip138，就爬它啦🤭。先读</div> -->
+从分析到实践初探百度了下列车时刻表，有个ip138，就爬它啦🤭。先读
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Python/爬一个520礼物给紫玉/">爬一个520礼物给紫玉</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-18
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
-                                        
-                                        <a href="/tags/Demo/"><span class="chip bg-color">Demo</span></a>
-                                        
-                                        <a href="/tags/Spider/"><span class="chip bg-color">Spider</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Python/" class="post-category" target="_blank">
                                     Python
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
@@ -882,7 +830,7 @@ C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神</div> -->
                             <a href="/tags/Spider/"><span class="chip bg-color">Spider</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -901,53 +849,50 @@ C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神</div> -->
                 <span>16</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/iOS/ofo仿写记录/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="ofo仿写记录">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>ofo仿写记录</span> -->
+                                
+                                <span class="card-title">ofo仿写记录</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">ofo不解释，教程同样来自小波。
+                            <div class="summary">
+                                
+                                    ofo不解释，教程同样来自小波。
 
 小知识点
-解包 .car 文件：https://github.com/insidegui/AssetCatalogTinke</div> -->
+解包 .car 文件：https://github.com/insidegui/AssetCatalogTinke
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/iOS/ofo仿写记录/">ofo仿写记录</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-16
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/iOS/" class="post-category" target="_blank">
                                     iOS
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -966,50 +911,47 @@ C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神</div> -->
                 <span>01</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/fun/helloEOS/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="EOS初探">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>EOS初探</span> -->
+                                
+                                <span class="card-title">EOS初探</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">EOS这几天就像疯了。两周前我￥35入的（当时价格在0.0008BTC），大约两天后在59左右不到60（0.0011BTC）就出了，当时还觉得很高兴。。。五一出</div> -->
+                            <div class="summary">
+                                
+                                    EOS这几天就像疯了。两周前我￥35入的（当时价格在0.0008BTC），大约两天后在59左右不到60（0.0011BTC）就出了，当时还觉得很高兴。。。五一出
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/fun/helloEOS/">EOS初探</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-01
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Blockchain/"><span class="chip bg-color">Blockchain</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/fun/" class="post-category" target="_blank">
                                     fun
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Blockchain/"><span class="chip bg-color">Blockchain</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1033,52 +975,49 @@ C菜🐦的挫败先简单介绍下GDB这个东西，Mac下写C神</div> -->
                 <span>27</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Note/A-Brave-New-World/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="一个美好的新世界">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>一个美好的新世界</span> -->
+                                
+                                <span class="card-title">一个美好的新世界</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">《A Brave New World》 
+                            <div class="summary">
+                                
+                                    《A Brave New World》 
 
-When the winds of change blow, some people build walls and</div> -->
+When the winds of change blow, some people build walls and
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Note/A-Brave-New-World/">一个美好的新世界</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-27
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/IoT/"><span class="chip bg-color">IoT</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Note/" class="post-category" target="_blank">
                                     Note
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/IoT/"><span class="chip bg-color">IoT</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1097,50 +1036,47 @@ When the winds of change blow, some people build walls and</div> -->
                 <span>16</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/iOS/UIDevice学习/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="UIDevice学习">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>UIDevice学习</span> -->
+                                
+                                <span class="card-title">UIDevice学习</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">iOS的UIDevice可以方便获取设备的硬件和系统的一些状态信息。写这篇文章是因为选修了《移动安全与测评》这门课。小作业让写一个APP获取系统和其他App的一</div> -->
+                            <div class="summary">
+                                
+                                    iOS的UIDevice可以方便获取设备的硬件和系统的一些状态信息。写这篇文章是因为选修了《移动安全与测评》这门课。小作业让写一个APP获取系统和其他App的一
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/iOS/UIDevice学习/">UIDevice学习</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-16
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/iOS/" class="post-category" target="_blank">
                                     iOS
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1159,49 +1095,44 @@ When the winds of change blow, some people build walls and</div> -->
                 <span>07</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/iOS/小波iOS11中级篇笔记/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="小波iOS11中级篇笔记">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>小波iOS11中级篇笔记</span> -->
+                                
+                                <span class="card-title">小波iOS11中级篇笔记</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。
+                            <div class="summary">
+                                
+                                    中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。
 
 小知识点
-&quot;&quot;&quot;三引号对&quot;&quot;&quot;可以保留复制来</div> -->
+&quot;&quot;&quot;三引号对&quot;&quot;&quot;可以保留复制来
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/iOS/小波iOS11中级篇笔记/">小波iOS11中级篇笔记</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-07
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Swfit/"><span class="chip bg-color">Swfit</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/iOS/" class="post-category" target="_blank">
                                     iOS
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -1209,7 +1140,7 @@ When the winds of change blow, some people build walls and</div> -->
                             <a href="/tags/Swfit/"><span class="chip bg-color">Swfit</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1228,37 +1159,40 @@ When the winds of change blow, some people build walls and</div> -->
                 <span>02</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/iOS/SwiftDemo2/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Swift Demo2 查天气">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Swift Demo2 查天气</span> -->
+                                
+                                <span class="card-title">Swift Demo2 查天气</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">通过API查天气。
+                            <div class="summary">
+                                
+                                    通过API查天气。
 
 载入界面简单，三个Label（地址、温度、描述）一个Btn。
-先把Btn写出来。弹出Alert，附带一个文本输入框，把输入框的值传给通过A</div> -->
+先把Btn写出来。弹出Alert，附带一个文本输入框，把输入框的值传给通过A
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/iOS/SwiftDemo2/">Swift Demo2 查天气</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-02
                                 </span>
-                                
-                                <!-- <span class="publish-author">
-                                     
+                                <span class="publish-author">
+                                    
                                     <i class="fa fa-user fa-fw"></i>
                                     ixsim
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!--  -->
+                        
                     </div>
                 </div>
             </article>
@@ -1277,52 +1211,45 @@ When the winds of change blow, some people build walls and</div> -->
                 <span>02</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Python/爬虫入门笔记/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="爬虫入门笔记+实战爬福利吧图片">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>爬虫入门笔记+实战爬福利吧图片</span> -->
+                                
+                                <span class="card-title">爬虫入门笔记+实战爬福利吧图片</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~
+                            <div class="summary">
+                                
+                                    今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~
 
 Notes正则表达式import re
 ptn = r&#39;正则表达式&#39;
-</div> -->
+
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Python/爬虫入门笔记/">爬虫入门笔记+实战爬福利吧图片</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-02
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
-                                        
-                                        <a href="/tags/Demo/"><span class="chip bg-color">Demo</span></a>
-                                        
-                                        <a href="/tags/Spider/"><span class="chip bg-color">Spider</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Python/" class="post-category" target="_blank">
                                     Python
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
@@ -1332,7 +1259,7 @@ ptn = r&#39;正则表达式&#39;
                             <a href="/tags/Spider/"><span class="chip bg-color">Spider</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1351,50 +1278,47 @@ ptn = r&#39;正则表达式&#39;
                 <span>01</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Website/Hexo_set_extral/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hexo渲染时设置例外">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Hexo渲染时设置例外</span> -->
+                                
+                                <span class="card-title">Hexo渲染时设置例外</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">由于网络书签同步总是不方便，我把常用的网址做成了一个导航站炫猿 这个站是纯HTML配合Bootstrap写的，所以没有任何后台。但当我把它整个拖到Hexo里时，</div> -->
+                            <div class="summary">
+                                
+                                    由于网络书签同步总是不方便，我把常用的网址做成了一个导航站炫猿 这个站是纯HTML配合Bootstrap写的，所以没有任何后台。但当我把它整个拖到Hexo里时，
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Website/Hexo_set_extral/">Hexo渲染时设置例外</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-01
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Website/" class="post-category" target="_blank">
                                     Website
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1413,49 +1337,44 @@ ptn = r&#39;正则表达式&#39;
                 <span>01</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/iOS/iOS布局问题/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="iOS布局问题入门">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>iOS布局问题入门</span> -->
+                                
+                                <span class="card-title">iOS布局问题入门</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">昨天重拾iOS发现，怎么加Constraints等设计Layout的问题全忘了。赶紧复习一下。
+                            <div class="summary">
+                                
+                                    昨天重拾iOS发现，怎么加Constraints等设计Layout的问题全忘了。赶紧复习一下。
 
 Alignment 居中这两个√解决
-AutoLayout 自</div> -->
+AutoLayout 自
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/iOS/iOS布局问题/">iOS布局问题入门</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-01
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
-                                        
-                                        <a href="/tags/Design/"><span class="chip bg-color">Design</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/iOS/" class="post-category" target="_blank">
                                     iOS
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
@@ -1463,7 +1382,7 @@ AutoLayout 自</div> -->
                             <a href="/tags/Design/"><span class="chip bg-color">Design</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1487,54 +1406,47 @@ AutoLayout 自</div> -->
                 <span>31</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Note/R学习记录/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="R常用命令">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>R常用命令</span> -->
+                                
+                                <span class="card-title">R常用命令</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">R语言常用命令记录
+                            <div class="summary">
+                                
+                                    R语言常用命令记录
 
 
 ?&#39;mean&#39;可以看介绍
 apropos(&quot;mea&quot;)搜包含mea字符的方法
 
-运算符数学运算：+，</div> -->
+运算符数学运算：+，
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Note/R学习记录/">R常用命令</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-31
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Data-Analysis/"><span class="chip bg-color">Data Analysis</span></a>
-                                        
-                                        <a href="/tags/R/"><span class="chip bg-color">R</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Note/" class="post-category" target="_blank">
                                     Note
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -1544,7 +1456,7 @@ apropos(&quot;mea&quot;)搜包含mea字符的方法
                             <a href="/tags/R/"><span class="chip bg-color">R</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1563,48 +1475,43 @@ apropos(&quot;mea&quot;)搜包含mea字符的方法
                 <span>31</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/iOS/SwiftDemo1/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Swift Demo1 秒表">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Swift Demo1 秒表</span> -->
+                                
+                                <span class="card-title">Swift Demo1 秒表</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">这是阅读项目30Days of Swift源码的仿写记录，该项目受到国外一个教程：Swift100天的启发。
+                            <div class="summary">
+                                
+                                    这是阅读项目30Days of Swift源码的仿写记录，该项目受到国外一个教程：Swift100天的启发。
 
-Demo 1 StopWatch第一个小demo</div> -->
+Demo 1 StopWatch第一个小demo
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/iOS/SwiftDemo1/">Swift Demo1 秒表</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-31
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Demo/"><span class="chip bg-color">Demo</span></a>
-                                        
-                                        <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/iOS/" class="post-category" target="_blank">
                                     iOS
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Demo/"><span class="chip bg-color">Demo</span></a>
@@ -1612,7 +1519,7 @@ Demo 1 StopWatch第一个小demo</div> -->
                             <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1631,51 +1538,44 @@ Demo 1 StopWatch第一个小demo</div> -->
                 <span>24</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Python/Python文件处理实战-1/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Python文件处理实战">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Python文件处理实战</span> -->
+                                
+                                <span class="card-title">Python文件处理实战</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。
+                            <div class="summary">
+                                
+                                    刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。
 刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，开始吧。
 
-问题分析</div> -->
+问题分析
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Python/Python文件处理实战-1/">Python文件处理实战</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-24
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
-                                        
-                                        <a href="/tags/Demo/"><span class="chip bg-color">Demo</span></a>
-                                        
-                                        <a href="/tags/File-Process/"><span class="chip bg-color">File Process</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Python/" class="post-category" target="_blank">
                                     Python
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
@@ -1685,7 +1585,7 @@ Demo 1 StopWatch第一个小demo</div> -->
                             <a href="/tags/File-Process/"><span class="chip bg-color">File Process</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1704,54 +1604,51 @@ Demo 1 StopWatch第一个小demo</div> -->
                 <span>23</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Website/someJscodes/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="JS特效整理">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>JS特效整理</span> -->
+                                
+                                <span class="card-title">JS特效整理</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">建站的过程中，收集下比较好用的js代码~
+                            <div class="summary">
+                                
+                                    建站的过程中，收集下比较好用的js代码~
 
 空白处点击鼠标弹出文字代码：
 &lt;script type="text/javascript">
-/* 鼠标特效 </div> -->
+/* 鼠标特效 
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Website/someJscodes/">JS特效整理</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-23
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/js/"><span class="chip bg-color">js</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Website/" class="post-category" target="_blank">
                                     Website
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/js/"><span class="chip bg-color">js</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1770,51 +1667,44 @@ Demo 1 StopWatch第一个小demo</div> -->
                 <span>21</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Python/《Python数据分析》学习记录/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="《Python数据分析》学习记录">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>《Python数据分析》学习记录</span> -->
+                                
+                                <span class="card-title">《Python数据分析》学习记录</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">这是阅读《Python for Data Analysis》的读书笔记。
+                            <div class="summary">
+                                
+                                    这是阅读《Python for Data Analysis》的读书笔记。
 
 第一章 准备工作不用准备了。🙂🙂🙂要啥有啥。
-第二章 引言list 手动统计f</div> -->
+第二章 引言list 手动统计f
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Python/《Python数据分析》学习记录/">《Python数据分析》学习记录</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
-                                        
-                                        <a href="/tags/Data-Analysis/"><span class="chip bg-color">Data Analysis</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Python/" class="post-category" target="_blank">
                                     Python
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -1824,7 +1714,7 @@ Demo 1 StopWatch第一个小demo</div> -->
                             <a href="/tags/Data-Analysis/"><span class="chip bg-color">Data Analysis</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1843,50 +1733,47 @@ Demo 1 StopWatch第一个小demo</div> -->
                 <span>21</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Python/Python廖雪峰练习/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Python廖雪峰练习">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Python廖雪峰练习</span> -->
+                                
+                                <span class="card-title">Python廖雪峰练习</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对</div> -->
+                            <div class="summary">
+                                
+                                    这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Python/Python廖雪峰练习/">Python廖雪峰练习</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Python/" class="post-category" target="_blank">
                                     Python
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1905,50 +1792,47 @@ Demo 1 StopWatch第一个小demo</div> -->
                 <span>21</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Python/Python初探/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Python初探">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Python初探</span> -->
+                                
+                                <span class="card-title">Python初探</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">这是我刚开始学习Python时做的笔记，百度Python后先看到有廖雪峰的教程。就对着看了一遍。紧接着同学推荐了莫烦的教程，果然，这个教程上手更快。另外我认为P</div> -->
+                            <div class="summary">
+                                
+                                    这是我刚开始学习Python时做的笔记，百度Python后先看到有廖雪峰的教程。就对着看了一遍。紧接着同学推荐了莫烦的教程，果然，这个教程上手更快。另外我认为P
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Python/Python初探/">Python初探</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Python/" class="post-category" target="_blank">
                                     Python
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -1967,52 +1851,49 @@ Demo 1 StopWatch第一个小demo</div> -->
                 <span>21</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Website/Hexo01/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Hexo建站问题总结">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Hexo建站问题总结</span> -->
+                                
+                                <span class="card-title">Hexo建站问题总结</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。
+                            <div class="summary">
+                                
+                                    昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。
 本托管在coding上，不过云里雾里，弄得还是不满意。
-今天决定</div> -->
+今天决定
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Website/Hexo01/">Hexo建站问题总结</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Website/" class="post-category" target="_blank">
                                     Website
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Hexo/"><span class="chip bg-color">Hexo</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2036,52 +1917,49 @@ Demo 1 StopWatch第一个小demo</div> -->
                 <span>16</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/Note/SQL/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="SQL手册笔记">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>SQL手册笔记</span> -->
+                                
+                                <span class="card-title">SQL手册笔记</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">noSql数据库满天飞的情况下，安下心来让SQL尘埃落定吧。（出来混总要还的😌）《SQL必知必会》读书笔记，Ben Forta著。
+                            <div class="summary">
+                                
+                                    noSql数据库满天飞的情况下，安下心来让SQL尘埃落定吧。（出来混总要还的😌）《SQL必知必会》读书笔记，Ben Forta著。
 
-了解SQLStructu</div> -->
+了解SQLStructu
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/Note/SQL/">SQL手册笔记</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-02-16
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/SQL/"><span class="chip bg-color">SQL</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/Note/" class="post-category" target="_blank">
                                     Note
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/SQL/"><span class="chip bg-color">SQL</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2105,51 +1983,46 @@ Demo 1 StopWatch第一个小demo</div> -->
                 <span>09</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/iOS/UIViewHelper.swift/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="iOS 圆角、阴影通用配置">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>iOS 圆角、阴影通用配置</span> -->
+                                
+                                <span class="card-title">iOS 圆角、阴影通用配置</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。
+                            <div class="summary">
+                                
+                                    这是在小波老师的课上学到的一劳永逸地给控件添加圆角、阴影效果的代码。保存备用。
 import UIKit
 //圆角
 extension UIView {
 
-  </div> -->
+  
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/iOS/UIViewHelper.swift/">iOS 圆角、阴影通用配置</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-09
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/iOS/" class="post-category" target="_blank">
                                     iOS
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -2157,7 +2030,7 @@ extension UIView {
                             <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2176,49 +2049,44 @@ extension UIView {
                 <span>08</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/iOS/小波iOS11初级篇笔记/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="小波iOS11初级篇笔记">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>小波iOS11初级篇笔记</span> -->
+                                
+                                <span class="card-title">小波iOS11初级篇笔记</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了
+                            <div class="summary">
+                                
+                                    这份Swift4.0的教程来自小波说雨燕 是能搜到的第一份Swift 4.0开发中文教程我要是英语好早去听YouTube了
 
 小知识点
-IB : Interfa</div> -->
+IB : Interfa
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/iOS/小波iOS11初级篇笔记/">小波iOS11初级篇笔记</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-08
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/iOS/" class="post-category" target="_blank">
                                     iOS
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -2226,7 +2094,7 @@ IB : Interfa</div> -->
                             <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2245,46 +2113,41 @@ IB : Interfa</div> -->
                 <span>06</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/iOS/语法问题/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Swift语法笔记">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>Swift语法笔记</span> -->
+                                
+                                <span class="card-title">Swift语法笔记</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话</div> -->
+                            <div class="summary">
+                                
+                                    语法学习记录。学习Swift的语法，大概就是 面向过程 –》面向对象 –》 面向协议 的过程。另外学习过程中，越来越感觉到设计模式的重要性。想起之前读过的《大话
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/iOS/语法问题/">Swift语法笔记</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-06
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
-                                        
-                                        <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/iOS/" class="post-category" target="_blank">
                                     iOS
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/Note/"><span class="chip bg-color">Note</span></a>
@@ -2292,7 +2155,7 @@ IB : Interfa</div> -->
                             <a href="/tags/Swift/"><span class="chip bg-color">Swift</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2311,51 +2174,48 @@ IB : Interfa</div> -->
                 <span>01</span>
             </div>
             <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
+                <div class="article col s12 m6 overflow-policy">
                     <div class="card">
                         <a href="/fun/vimtutor_cn/">
                             <div class="card-image">
-                                <!-- 
+                                
                                 
                                 <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="vimtutor中文版">
-                                 -->
-                                <!-- <span class="card-title" font-color=black>vimtutor中文版</span> -->
+                                
+                                <span class="card-title">vimtutor中文版</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <!-- <div class="summary">vimturor是vim自带的教程。上次我坚持看了七八章之后，强迫自己用了一天的vim。嗯🙂🙂🙂第二天我就用回了vs code。
-今天找到这个这个中文版的</div> -->
+                            <div class="summary">
+                                
+                                    vimturor是vim自带的教程。上次我坚持看了七八章之后，强迫自己用了一天的vim。嗯🙂🙂🙂第二天我就用回了vs code。
+今天找到这个这个中文版的
+                                
+                            </div>
                             <div class="publish-info">
                                 <span class="publish-date">
-                                    <a href="/fun/vimtutor_cn/">vimtutor中文版</a>
+                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-01
                                 </span>
-                                
-                                    <span class=" article-tags">
-                                        
-                                        <a href="/tags/vim/"><span class="chip bg-color">vim</span></a>
-                                        
-                                    </span>
+                                <span class="publish-author">
                                     
-                                <!-- <span class="publish-author">
-                                     
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                                     
                                     <a href="/categories/fun/" class="post-category" target="_blank">
                                     fun
                                     </a>
                                     
-                                     
-                                </span> -->
+                                    
+                                </span>
                             </div>
                         </div>
 
-                        <!-- 
+                        
                         <div class="card-action article-tags">
                             
                             <a href="/tags/vim/"><span class="chip bg-color">vim</span></a>
                             
                         </div>
-                         -->
+                        
                     </div>
                 </div>
             </article>
@@ -2392,20 +2252,43 @@ IB : Interfa</div> -->
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
-              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
+            
 
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
     </div>
 </footer>
@@ -2417,8 +2300,8 @@ IB : Interfa</div> -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -2426,7 +2309,9 @@ IB : Interfa</div> -->
 
 <script src="/js/search.js"></script>
 <script type="text/javascript">
+$(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
 </script>
 <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
@@ -2436,11 +2321,22 @@ IB : Interfa</div> -->
 </div>
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/materialize/materialize.min.js"></script>
 <script src="/libs/masonry/masonry.pkgd.min.js"></script>
 <script src="/libs/aos/aos.js"></script>
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
 </body>
 </html>

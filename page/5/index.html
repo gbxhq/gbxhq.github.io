@@ -1,14 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
-    
+
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="炫杉">
     <meta name="description" content="炫杉">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
@@ -18,34 +17,37 @@
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
-</head>
 
 <body>
 
 <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">炫杉</span>
-                    </a>
-                </div>
-                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
 <ul class="right">
     
     <li class="hide-on-med-and-down">
@@ -53,7 +55,7 @@
             
             <i class="fa fa-home"></i>
             
-            <span>Index</span>
+            <span>首页</span>
         </a>
     </li>
     
@@ -62,7 +64,7 @@
             
             <i class="fa fa-tags"></i>
             
-            <span>Tags</span>
+            <span>标签</span>
         </a>
     </li>
     
@@ -71,7 +73,7 @@
             
             <i class="fa fa-bookmark"></i>
             
-            <span>Categories</span>
+            <span>分类</span>
         </a>
     </li>
     
@@ -80,7 +82,7 @@
             
             <i class="fa fa-user-circle-o"></i>
             
-            <span>About</span>
+            <span>关于</span>
         </a>
     </li>
     
@@ -94,14 +96,13 @@
     </li>
     
     <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
         </a>
     </li>
-
 </ul>
 
-<div class="side-nav" id="mobile-nav">
+<div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
@@ -115,6 +116,8 @@
         </div>
     </div>
 
+    
+
     <ul class="menu-list mobile-menu-list">
         
         <li>
@@ -122,7 +125,7 @@
                 
                 <i class="fa fa-fw fa-home"></i>
                 
-                Index
+                首页
             </a>
         </li>
         
@@ -131,7 +134,7 @@
                 
                 <i class="fa fa-fw fa-tags"></i>
                 
-                Tags
+                标签
             </a>
         </li>
         
@@ -140,7 +143,7 @@
                 
                 <i class="fa fa-fw fa-bookmark"></i>
                 
-                Categories
+                分类
             </a>
         </li>
         
@@ -149,7 +152,7 @@
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
-                About
+                关于
             </a>
         </li>
         
@@ -164,78 +167,46 @@
         
         
     </ul>
-
-    <div class="social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-</div>
 </div>
 
-            </div>
         </div>
 
         
     </nav>
+
 </header>
 
-<style type="text/css">
-    /* don't remove. */
-    .index-cover {
-        height: 100vh;
-    }
-</style>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+    <div class="bg-cover pd-header about-cover">
     <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                    
-                        炫杉Blog
-                    
-                    </div>
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    炫杉Blog
+                
+            </div>
 
-                    <div class="description center-align">
-                    
-                        提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
-                    
-                    </div>
-                </div>
+            <div class="description center-align">
+                
+                    提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+                
             </div>
         </div>
-        
+    </div>
+</div>
+<script>
+// 每天切换 banner 图.  Switch banner image every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
     </div>
 </div>
 
-<script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
-</script>
 
 <main class="content">
 
     
-    <div class="container notice">
-        <div class="card">
-            <div class="card-content">
-                <i class="fa fa-volume-up fa-lg fa-fw text-color"></i>UCASer硕 2020应届 chinalixs@qq.com
-            </div>
-        </div>
-    </div>
-    
-
-    <div id="recommend-sections">
-    
-    </div>
 
     
 
@@ -243,7 +214,54 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     <article id="articles" class="container articles">
         <div class="row article-row">
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/fun/helloEOS/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="EOS初探">
+                            
+                            <span class="card-title">EOS初探</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                EOS这几天就像疯了。两周前我￥35入的（当时价格在0.0008BTC），大约两天后在59左右不到60（0.0011BTC）就出了，当时还觉
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/fun/" class="post-category" target="_blank">
+                                    fun
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Blockchain/" target="_blank">
+                            <span class="chip bg-color">Blockchain</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Note/A-Brave-New-World/">
                         <div class="card-image">
@@ -256,9 +274,13 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">《A Brave New World》 
+                        <div class="summary">
+                            
+                                《A Brave New World》 
 
-When the winds of change blow, some people build</div>
+When the winds of change blow, some people build
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-27
@@ -288,7 +310,7 @@ When the winds of change blow, some people build</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/iOS/UIDevice学习/">
                         <div class="card-image">
@@ -301,7 +323,11 @@ When the winds of change blow, some people build</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">iOS的UIDevice可以方便获取设备的硬件和系统的一些状态信息。写这篇文章是因为选修了《移动安全与测评》这门课。小作业让写一个APP获取</div>
+                        <div class="summary">
+                            
+                                iOS的UIDevice可以方便获取设备的硬件和系统的一些状态信息。写这篇文章是因为选修了《移动安全与测评》这门课。小作业让写一个APP获取
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-16
@@ -331,7 +357,7 @@ When the winds of change blow, some people build</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/iOS/小波iOS11中级篇笔记/">
                         <div class="card-image">
@@ -344,10 +370,14 @@ When the winds of change blow, some people build</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。
+                        <div class="summary">
+                            
+                                中级篇啦🤣开心点咯。虽然最近有点低落，就当发泄了。
 
 小知识点
-&quot;&quot;&quot;三引号对&quot;&quot;&qu</div>
+&quot;&quot;&quot;三引号对&quot;&quot;&qu
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-07
@@ -381,7 +411,7 @@ When the winds of change blow, some people build</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/iOS/SwiftDemo2/">
                         <div class="card-image">
@@ -394,10 +424,14 @@ When the winds of change blow, some people build</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">通过API查天气。
+                        <div class="summary">
+                            
+                                通过API查天气。
 
 载入界面简单，三个Label（地址、温度、描述）一个Btn。
-先把Btn写出来。弹出Alert，附带一个文本输入框，把</div>
+先把Btn写出来。弹出Alert，附带一个文本输入框，把
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-02
@@ -415,7 +449,7 @@ When the winds of change blow, some people build</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Python/爬虫入门笔记/">
                         <div class="card-image">
@@ -428,10 +462,14 @@ When the winds of change blow, some people build</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~
+                        <div class="summary">
+                            
+                                今天开始学爬虫。爬个啥呢还没想好。🤭我的Python已经饥渴难耐了~
 
 Notes正则表达式import re
-ptn = r&#39;正</div>
+ptn = r&#39;正
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-02
@@ -469,7 +507,7 @@ ptn = r&#39;正</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Website/Hexo_set_extral/">
                         <div class="card-image">
@@ -482,7 +520,11 @@ ptn = r&#39;正</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">由于网络书签同步总是不方便，我把常用的网址做成了一个导航站炫猿 这个站是纯HTML配合Bootstrap写的，所以没有任何后台。但当我把它整</div>
+                        <div class="summary">
+                            
+                                由于网络书签同步总是不方便，我把常用的网址做成了一个导航站炫猿 这个站是纯HTML配合Bootstrap写的，所以没有任何后台。但当我把它整
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-01
@@ -512,7 +554,7 @@ ptn = r&#39;正</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/iOS/iOS布局问题/">
                         <div class="card-image">
@@ -525,10 +567,14 @@ ptn = r&#39;正</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">昨天重拾iOS发现，怎么加Constraints等设计Layout的问题全忘了。赶紧复习一下。
+                        <div class="summary">
+                            
+                                昨天重拾iOS发现，怎么加Constraints等设计Layout的问题全忘了。赶紧复习一下。
 
 Alignment 居中这两个√解决
-Au</div>
+Au
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-01
@@ -562,7 +608,7 @@ Au</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Note/R学习记录/">
                         <div class="card-image">
@@ -575,13 +621,17 @@ Au</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">R语言常用命令记录
+                        <div class="summary">
+                            
+                                R语言常用命令记录
 
 
 ?&#39;mean&#39;可以看介绍
 apropos(&quot;mea&quot;)搜包含mea字符的方法
 
-</div>
+
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-31
@@ -619,7 +669,7 @@ apropos(&quot;mea&quot;)搜包含mea字符的方法
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/iOS/SwiftDemo1/">
                         <div class="card-image">
@@ -632,9 +682,13 @@ apropos(&quot;mea&quot;)搜包含mea字符的方法
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">这是阅读项目30Days of Swift源码的仿写记录，该项目受到国外一个教程：Swift100天的启发。
+                        <div class="summary">
+                            
+                                这是阅读项目30Days of Swift源码的仿写记录，该项目受到国外一个教程：Swift100天的启发。
 
-Demo 1 StopWat</div>
+Demo 1 StopWat
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-31
@@ -668,7 +722,7 @@ Demo 1 StopWat</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Python/Python文件处理实战-1/">
                         <div class="card-image">
@@ -681,8 +735,12 @@ Demo 1 StopWat</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。
-刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，</div>
+                        <div class="summary">
+                            
+                                刚刚开始写Hexo的博客。头部yaml的格式和我之前写日记的格式小有区别。
+刚好在学Python，查查文档应该可以批量搞定这问题。话不多说，
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-24
@@ -720,7 +778,7 @@ Demo 1 StopWat</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
                     <a href="/Website/someJscodes/">
                         <div class="card-image">
@@ -733,10 +791,14 @@ Demo 1 StopWat</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">建站的过程中，收集下比较好用的js代码~
+                        <div class="summary">
+                            
+                                建站的过程中，收集下比较好用的js代码~
 
 空白处点击鼠标弹出文字代码：
-&lt;script type="text/javascript"</div>
+&lt;script type="text/javascript"
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-23
@@ -766,200 +828,10 @@ Demo 1 StopWat</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l3" data-aos="flip-up">
-                <div class="card">
-                    <a href="/Python/《Python数据分析》学习记录/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="《Python数据分析》学习记录">
-                            
-                            <span class="card-title">《Python数据分析》学习记录</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">这是阅读《Python for Data Analysis》的读书笔记。
-
-第一章 准备工作不用准备了。🙂🙂🙂要啥有啥。
-第二章 引言</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Note/" target="_blank">
-                            <span class="chip bg-color">Note</span>
-                        </a>
-                        
-                        <a href="/tags/Python/" target="_blank">
-                            <span class="chip bg-color">Python</span>
-                        </a>
-                        
-                        <a href="/tags/Data-Analysis/" target="_blank">
-                            <span class="chip bg-color">Data Analysis</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
 </main>
-
-<!-- 加载动画 -->
-+
-<style>
-    #loading{
-        background-color: rgba(71, 71, 71, 0.95);
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        z-index: 999999;
-        margin-top: 0px;
-        top: 0px;
-    }
-    #loading-center{
-        width: 100%;
-        height: 100%;
-        position: relative;
-        }
-    #loading-center-absolute {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        height: 200px;
-        width: 200px;
-        margin-top: -100px;
-        margin-left: -100px;
-        -ms-transform: rotate(-135deg); 
-           -webkit-transform: rotate(-135deg); 
-        transform: rotate(-135deg);
-    
-    }
-    .object{
-    
-        -moz-border-radius: 50% 50% 50% 50%;
-        -webkit-border-radius: 50% 50% 50% 50%;
-        border-radius: 50% 50% 50% 50%;
-        position: absolute;
-        border-top: 5px solid #FFF;
-        border-bottom: 5px solid transparent;
-        border-left:  5px solid #FFF;
-        border-right: 5px solid transparent;
-        
-        -webkit-animation: animate 2s infinite;
-        animation: animate 2s infinite;	
-    
-        }
-    
-    
-    #object_one{
-        left: 75px;
-        top: 75px;
-        width: 50px;
-        height: 50px;
-        }
-                                
-    #object_two{
-        left: 65px;
-        top: 65px;
-        width: 70px;
-        height: 70px;
-        -webkit-animation-delay: 0.2s;
-        animation-delay: 0.2s;
-        }
-            
-    #object_three{
-        left: 55px;
-        top: 55px;
-        width: 90px;
-        height: 90px;
-        -webkit-animation-delay: 0.4s;
-        animation-delay: 0.4s;
-        }
-    #object_four{
-        left: 45px;
-        top: 45px;
-        width: 110px;
-        height: 110px;
-        -webkit-animation-delay: 0.6s;
-        animation-delay: 0.6s;
-        
-        }	
-    
-    @-webkit-keyframes animate {
-     
-    
-    50% {
-    
-        -ms-transform: rotate(360deg) scale(0.8); 
-           -webkit-transform: rotate(360deg) scale(0.8); 
-        transform: rotate(360deg) scale(0.8); 
-      }
-          
-      
-    }
-    
-    @keyframes animate {
-        
-    50% {
-    
-        -ms-transform: rotate(360deg) scale(0.8); 
-           -webkit-transform: rotate(360deg) scale(0.8); 
-        transform: rotate(360deg) scale(0.8); 
-      }	
-        
-    }
-    
-    
-    /* Loaded */
-    .loaded {
-        opacity: 0;
-        visibility: hidden;
-        transition: all .3s linear;
-    }
-    
-</style>
-
-<script type="text/javascript">
-    $(window).load(function(){
-        setTimeout( function () {
-            $('#loading').addClass('loaded');
-        },200) 
-       
-    }); 
-</script>
-
-<div id="loading">
-    <div id="loading-center">
-        <div id="loading-center-absolute">
-            <div class="object" id="object_four"></div>
-            <div class="object" id="object_three"></div>
-            <div class="object" id="object_two"></div>
-            <div class="object" id="object_one"></div>
-        </div>
-    </div>
-</div>
-
 
 
 <div class="container paging">
@@ -972,7 +844,7 @@ Demo 1 StopWat</div>
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">5 / 6</div>
+            <div class="center-align b-text-gray">5 / 7</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -989,20 +861,43 @@ Demo 1 StopWat</div>
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy;<a href="https://o--o.win" target="_blank">炫杉2018</a> 
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动
-              主题 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">matery</a>        </div>
-        <div class="col s12 m4 l4 social-link"><a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
-<a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件:chinalixs@qq.com" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
+            
 
-<a href="http://wpa.qq.com/msgrd?v=3&uin=6956820&site=qq&menu=yes" class="tooltipped" data-tooltip="QQ: 6956820" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
 </div>
     </div>
 </footer>
@@ -1014,8 +909,8 @@ Demo 1 StopWat</div>
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -1023,7 +918,9 @@ Demo 1 StopWat</div>
 
 <script src="/js/search.js"></script>
 <script type="text/javascript">
+$(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
 </script>
 <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
@@ -1033,11 +930,22 @@ Demo 1 StopWat</div>
 </div>
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/materialize/materialize.min.js"></script>
 <script src="/libs/masonry/masonry.pkgd.min.js"></script>
 <script src="/libs/aos/aos.js"></script>
 <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
 <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
 <script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
 </body>
 </html>
