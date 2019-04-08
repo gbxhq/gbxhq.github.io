@@ -389,6 +389,14 @@ sudo apt-get install openmpi* -y
 <p>后从书中得知，编译源码时，build.py这个文件使用一次就不能再用了。想更改编译的配置只能用waf了</p>
 </blockquote>
 </li>
+<li><p>关键代码Mark：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">./waf clean
+
+./waf -d debug --enable-examples --enable-tests configure
+
+./waf --run hello-simulator
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <p>对着博客搭好之后，往下懵逼了。不知道该干啥了。</p>
 <hr>
@@ -459,7 +467,24 @@ pointToPoint.EnableAsciiAll (ascii.CreatreFileSteam ("myfirst.tr"));
 <p><code>pointToPoint.EnablePcapAll (myfirst);</code></p>
 </li>
 </ul>
-<h2 id="3-4-Demo"><a href="#3-4-Demo" class="headerlink" title="3.4 Demo"></a>3.4 Demo</h2>
+<h2 id="3-4-Demo"><a href="#3-4-Demo" class="headerlink" title="3.4 Demo"></a>3.4 Demo</h2><p>解读了example里的second.cc</p>
+<h1 id="4-统计结果分析"><a href="#4-统计结果分析" class="headerlink" title="4 统计结果分析"></a>4 统计结果分析</h1><h3 id="4-1-1-PyViz"><a href="#4-1-1-PyViz" class="headerlink" title="4.1.1 PyViz"></a>4.1.1 PyViz</h3><p>如果visualizer模块没有编译，需在<a href="http://code.nsnam.org/gjc/ns-3.9-pyviz/下载pyviz软件包，解压后放在/NS3_install/ns-allinone-3.28/ns-3.28/目录下，再需重新编译如下命令：" target="_blank" rel="noopener">http://code.nsnam.org/gjc/ns-3.9-pyviz/下载pyviz软件包，解压后放在/NS3_install/ns-allinone-3.28/ns-3.28/目录下，再需重新编译如下命令：</a></p>
+<p>$ ./waf clean</p>
+<p>$ ./waf –build-profile=optimized–enable-examples –enable-tests configure</p>
+<p>该编译阶段需要花一段时间。。。。待到编译完成进入第4步。</p>
+<p>参考文章：<a href="https://blog.csdn.net/xiao_sheng_jun/article/details/79837984" target="_blank" rel="noopener">https://blog.csdn.net/xiao_sheng_jun/article/details/79837984</a> </p>
+<p><strong>最后，没弄成这个。 —vis不好使</strong></p>
+<h3 id="4-1-2-NetAnim"><a href="#4-1-2-NetAnim" class="headerlink" title="4.1.2 NetAnim"></a>4.1.2 NetAnim</h3><p>关于对NetAnim的编译书上不详细。</p>
+<p>先装QT： <code>apt-get install qt4-dev-tools</code> </p>
+<p>cd到netanim的文件夹执行：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">sudo make clean
+sudo qmake NetAnim.pro
+sudo make
+ls
+#看见NetAnim就成功了
+sudo ./NetAnim #打开仿真界面
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr>
 

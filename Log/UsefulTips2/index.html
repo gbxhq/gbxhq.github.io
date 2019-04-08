@@ -368,6 +368,14 @@ Markdown折叠效果  就类似这样：Click to expand  这里不能插入Markd
 <h1 id="Mac改hosts"><a href="#Mac改hosts" class="headerlink" title="Mac改hosts"></a>Mac改hosts</h1><p>Finder前往:</p>
 <p>/private/etc/hosts</p>
 <p>把hosts文件先复制出来。改完替换回去。</p>
+<h1 id="Mac下制作macOS安装盘"><a href="#Mac下制作macOS安装盘" class="headerlink" title="Mac下制作macOS安装盘"></a>Mac下制作macOS安装盘</h1><ul>
+<li><p>先用磁盘工具抹掉U盘。格式选日志式，方案选GUID分区图。</p>
+</li>
+<li><p><code>sudo Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/Mojave Install\ macOS\ Mojave.app --nointeraction</code></p>
+<p>其中两次出现的<code>Install\ macOS\ Mojave.app</code>是解压dmg包出来一个.app安装程序。</p>
+<p><code>--volume /Volumes/Mojave</code>这个就是你的Volumes名。</p>
+</li>
+</ul>
 
             </div>
             <hr>

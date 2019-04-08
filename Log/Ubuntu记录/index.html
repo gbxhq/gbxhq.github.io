@@ -345,7 +345,24 @@ Linux
 <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><ul>
 <li>切换到root <code>sudo su</code></li>
 <li>退出：ctrl+D或<code>exit</code>或 <code>logout</code></li>
+<li><code>cp</code> 复制文件夹记得 <code>-r</code> 递归地复制</li>
 </ul>
+<h2 id="安装SFTP"><a href="#安装SFTP" class="headerlink" title="安装SFTP"></a>安装SFTP</h2><p>1.安装sftp服务</p>
+<p><code>sudo apt-get install openssh-server</code></p>
+<p>2.修改配置文件</p>
+<p><code>sudo vim /etc/ssh/sshd_config</code></p>
+<pre><code>##下面这行注释掉
+#Subsystem sftp /usr/libexec/openssh/sftp-server
+##后面加入
+Subsystem sftp internal-sftp
+
+找到PermitRootLogin no一行，改为PermitRootLogin yes   让root用户可以登录SFTP
+</code></pre><p>3.重启sshd服务</p>
+<p><code>service ssh restart</code></p>
+<h2 id="apt-get-install-E-无法定位软件包问题"><a href="#apt-get-install-E-无法定位软件包问题" class="headerlink" title="apt-get install E: 无法定位软件包问题"></a>apt-get install E: 无法定位软件包问题</h2><p>在etc/ap的sources.list 添加镜像源</p>
+<p><code>deb http://archive.ubuntu.com/ubuntu/ trusty main universe restricted multiverse</code></p>
+<p>然后<code>sudo apt-get update</code> </p>
+<p>接着安装就可以了</p>
 <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><p>进入mysql</p>
 <p><code>mysql -u 用户名 root -p</code> 然后会让你输密码</p>
 <p>不知道用户名密码：</p>
@@ -353,6 +370,24 @@ Linux
 <p>MySQL目录、默认的数据文件存储目录为/var/lib/mysql。</p>
 <h1 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h1><p>vim都学了无数次了。但图形界面下我无法拒绝VS Code。这回不得不用vim的时候，还是把该记的记一记吧。</p>
 <p>重新拿起来这分曾经的<a href="../fun/vimtutor_cn">教程</a></p>
+<ul>
+<li><p><code>:q!</code> 不保存退出</p>
+</li>
+<li><p><code>x</code> 删除</p>
+</li>
+<li><code>$</code> <code>0</code> <code>^</code> 定位到行尾、首</li>
+<li><code>w</code> <code>e</code> 下一个单词首/尾</li>
+<li><code>G</code> <code>gg</code> <code>Ctrl+g</code> 文件末行/首行 定位信息</li>
+<li><code>u</code> <code>U</code> <code>Ctrl+R</code> 恢复/恢复整行 撤销恢复</li>
+<li><code>p</code> 粘贴</li>
+<li><code>r</code> 代替</li>
+<li><code>c/d</code>+<code>数字</code>+<code>对象</code>  更改/删除</li>
+<li><code>/</code> <code>?</code> n/N  搜索   CTRL-O 使你返回到以前的位置，CTRL-I 回到以后的位置</li>
+<li><code>%</code>  放在括号上可以匹配括号</li>
+<li>:s/a/b  替换   type   :#,#s/old/new/g    其中，#,#是要更改的行号的范围<pre><code> Type   :%s/old/new/g      更改全文件中的所有事件。
+ Type   :%s/old/new/gc      更改全文件中的所有事件,并给出替换与否的提示。  
+</code></pre></li>
+</ul>
 
             </div>
             <hr>
@@ -545,45 +580,52 @@ Linux
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/Log/Ubuntu记录/">
+                <a href="/Latex/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Ubuntu记录">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Latex">
                         
-                        <span class="card-title">Ubuntu记录</span>
+                        <span class="card-title">Latex</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">太多框架都是Linux跑起来更好了。给台式机装了个Ubuntu，用Macbook sh登进去操作。这样一来纯命令行操作和服务器一样了。Ubuntu的那些dpkg tar 的常用命令都得好好记一下了。
+                    <div class="summary">
+初见\documentclass{article}
 
-Linux
-切换到root sudo </div>
+\usepackage{ctex} %支持中文
+
+\begin{document}
+
+你好， \LaTeX.
+
+\end{document}
+
+编译：xelatex test.tex
+</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-26
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-01
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Log/" class="post-category" target="_blank">
-                                    Log
+                            <a href="/categories/Note/" class="post-category" target="_blank">
+                                    Note
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/" target="_blank">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/Latex/" target="_blank">
+                        <span class="chip bg-color">Latex</span>
                     </a>
                     
                 </div>
