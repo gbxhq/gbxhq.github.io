@@ -4,13 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="UsefulTips2, 炫杉">
-    <meta name="description" content="日常使用的一些姿势~
+    <meta name="keywords" content="Mac Useful Tips, 炫杉">
+    <meta name="description" content="Mac使用的一些姿势~
 
-
-原来PPT可以存成.ppsx 的格式，双击打开就直接播放（可与防止被改动
-
-Markdown折叠效果  就类似这样：Click to expand  这里不能插入Markdown了其实就是用HTML的&amp;lt;det">
+Mac打开SSH服务mac本身安装了ssh服务，默认情况下不会开机自启
+启动sshd服务：
+sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plis">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@ Markdown折叠效果  就类似这样：Click to expand  这里不能插入Markd
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>UsefulTips2 | 炫杉</title>
+    <title>Mac Useful Tips | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -185,13 +184,13 @@ Markdown折叠效果  就类似这样：Click to expand  这里不能插入Markd
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        UsefulTips2
+                        Mac Useful Tips
                     </div>
                 </div>
             </div>
@@ -342,20 +341,8 @@ Markdown折叠效果  就类似这样：Click to expand  这里不能插入Markd
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>日常使用的一些姿势~</p>
+                <p>Mac使用的一些姿势~</p>
 <a id="more"></a>
-<ul>
-<li>原来PPT可以存成<code>.ppsx</code> 的格式，双击打开就直接播放（可与防止被改动</li>
-</ul>
-<h1 id="Markdown折叠效果"><a href="#Markdown折叠效果" class="headerlink" title="Markdown折叠效果"></a>Markdown折叠效果</h1><p><details><br>  <summary>就类似这样：Click to expand</summary><br>  这里不能插入Markdown了<br></details><br>其实就是用HTML的<code>&lt;details&gt;</code>标签：</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>details</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">></span></span>Click to expand<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">></span></span>
-  whatever
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>details</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="卸载Adobe-Creative-Cloud"><a href="#卸载Adobe-Creative-Cloud" class="headerlink" title="卸载Adobe Creative Cloud:"></a>卸载Adobe Creative Cloud:</h1><p>官方卸载工具：</p>
-<p><a href="https://helpx.adobe.com/cn/creative-cloud/help/uninstall-creative-cloud-desktop-app.html" target="_blank" rel="noopener">https://helpx.adobe.com/cn/creative-cloud/help/uninstall-creative-cloud-desktop-app.html</a></p>
-<h1 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h1><h2 id="去掉编号前的·"><a href="#去掉编号前的·" class="headerlink" title="去掉编号前的·"></a>去掉编号前的·</h2><p>修改【样式】-【段落】-这两个勾去掉就好了。<img src="../../images/image-20190221201012482.png" alt="image-20190221201012482"></p>
 <h1 id="Mac打开SSH服务"><a href="#Mac打开SSH服务" class="headerlink" title="Mac打开SSH服务"></a>Mac打开SSH服务</h1><p>mac本身安装了ssh服务，默认情况下不会开机自启</p>
 <p>启动sshd服务：</p>
 <p><code>sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist</code></p>
@@ -376,6 +363,51 @@ Markdown折叠效果  就类似这样：Click to expand  这里不能插入Markd
 <p><code>--volume /Volumes/Mojave</code>这个就是你的Volumes名。</p>
 </li>
 </ul>
+<h1 id="mac-os-10-14-取消4位数密码限制"><a href="#mac-os-10-14-取消4位数密码限制" class="headerlink" title="mac os 10.14 取消4位数密码限制"></a>mac os 10.14 取消4位数密码限制</h1><p>打开终端输入：</p>
+<p><code>pwpolicy -clearaccountpolicies</code></p>
+<p>然后passwd 可以更改密码。</p>
+<pre><code># 环境变量问题
+</code></pre><ol>
+<li>在<code>.bash</code>的文件中加路径<ul>
+<li>zsh则是添加到 <code>.zshrc</code>中 </li>
+</ul>
+</li>
+<li>手动放快捷方式到<code>usr/bin</code>或<code>usr/local/bin</code>目录下</li>
+</ol>
+<blockquote>
+<p>延伸：Mac系统的bash环境变量，加载顺序为：<br>/etc/profile<br>/etc/paths<br>~/.bash_profile<br>~/.bash_login<br>~/.profile<br>~/.bashrc</p>
+</blockquote>
+<p>设置PATH的语法都为：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#中间用冒号隔开</span>
+<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span>:<span class="token operator">&lt;</span>PATH 1<span class="token operator">></span>:<span class="token operator">&lt;</span>PATH 2<span class="token operator">></span>:<span class="token operator">&lt;</span>PATH 3<span class="token operator">></span>:------:<span class="token operator">&lt;</span>PATH N<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="显示-隐藏文件"><a href="#显示-隐藏文件" class="headerlink" title="显示/隐藏文件"></a>显示/隐藏文件</h1><p>在Finder：<code>Command+Shift+.</code></p>
+<h1 id="app已损坏-打不开"><a href="#app已损坏-打不开" class="headerlink" title=".app已损坏 打不开"></a>.app已损坏 打不开</h1><p><code>sudo spctl --master-disable</code></p>
+<h1 id="打开macOS原生的NTFS"><a href="#打开macOS原生的NTFS" class="headerlink" title="打开macOS原生的NTFS"></a>打开macOS原生的NTFS</h1><blockquote>
+<p>PS:这方法不咋好使。老老实实用Tuxera Disk Mananger吧</p>
+</blockquote>
+<ul>
+<li><p><code>diskutil list</code> 找到你要写入的磁盘名</p>
+</li>
+<li><p><strong>开启读写NTFS：</strong></p>
+<p><code>sudo vim /etc/fstab</code></p>
+<p>在这个fstab文件里加入一句：</p>
+<p><strong><code>LABEL=你的磁盘名字 none ntfs rw,auto,nobrowse</code></strong></p>
+<p> <code>:wq</code>  保存退出</p>
+</li>
+<li><p>重新插入U盘  （此时桌面上看不到了）</p>
+<p>在Finder里 ⌘+⇧+G 输入 <code>/Volumes</code> </p>
+</li>
+</ul>
+<h1 id="Mac终端下出现bogon的解决办法"><a href="#Mac终端下出现bogon的解决办法" class="headerlink" title="Mac终端下出现bogon的解决办法"></a>Mac终端下出现bogon的解决办法</h1><p><code>sudo scutil --set HostName your-hostname</code></p>
+<h1 id="Mac更改MAC地址（外接网卡）"><a href="#Mac更改MAC地址（外接网卡）" class="headerlink" title="Mac更改MAC地址（外接网卡）"></a>Mac更改MAC地址（外接网卡）</h1><p><code>sudo ifconfig en9 ether aa:bb:cc:dd:ee</code></p>
+<p>但是我外接了Type-C转网线的口，找到对应的也是en9，命令运行后，再用<code>ifconfig</code>看发现mac地址并没有更改成功。<br>在网上又搜了搜，原来需要<strong>装驱动</strong>。<br>这篇文章对这个问题写得相当明白了：<a href="https://blog.csdn.net/u014051620/article/details/75050934" target="_blank" rel="noopener">https://blog.csdn.net/u014051620/article/details/75050934</a></p>
+<h1 id="配置网络：无效的服务器地址-BasicIPv6ValidationError"><a href="#配置网络：无效的服务器地址-BasicIPv6ValidationError" class="headerlink" title="配置网络：无效的服务器地址 BasicIPv6ValidationError"></a>配置网络：无效的服务器地址 BasicIPv6ValidationError</h1><pre><code>networksetup -listallnetworkservices //列出所有网络服务信息;
+networksetup -setv6off &quot;Ethernet 2&quot;  //停止对应网卡的ipV6服务;
+networksetup -setmanual &quot;Ethernet 2&quot; 10.10.22.222 255.255.255.0 10.10.22.1 //手动设置
+</code></pre><h1 id="10-14以后Safari装扩展"><a href="#10-14以后Safari装扩展" class="headerlink" title="10.14以后Safari装扩展"></a>10.14以后Safari装扩展</h1><p>cd到有 <code>.safariextz</code>文件的目录。</p>
+<p>执行<code>xar -xf 拓展名.safariextz</code> 就可以解包</p>
+<p>然后添加扩展，运行即可。详细教程：<a href="https://sspai.com/post/47303" target="_blank" rel="noopener">https://sspai.com/post/47303</a></p>
 
             </div>
             <hr>
@@ -523,7 +555,7 @@ Markdown折叠效果  就类似这样：Click to expand  这里不能插入Markd
                     </span>
                     <a href="https://ixs.im" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Log/UsefulTips2/" class="b-link-green">UsefulTips2</a>
+                    <a href="/Log/MacTips/" class="b-link-green">Mac Useful Tips</a>
                 </p>
             </div>
         </div>

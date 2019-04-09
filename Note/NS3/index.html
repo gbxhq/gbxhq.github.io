@@ -7,8 +7,8 @@
     <meta name="keywords" content="NS3学习笔记, 炫杉">
     <meta name="description" content="要做网络仿真，老师让我搞一搞这个NS3（Network Simulator version 3）。
 
-初探参考这篇文章。整个过程很清楚了。https://www.jianshu.com/p/85ed25003e30
-我主要做简要的记录以便自">
+Problems
+[ ] https://www.nsnam.org/docs/release/3.29/doxygen/index.ht">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -342,6 +342,19 @@
             <div id="articleContent">
                 <p>要做网络仿真，老师让我搞一搞这个NS3（Network Simulator version 3）。</p>
 <a id="more"></a>
+<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><ul>
+<li><p>[ ] <a href="https://www.nsnam.org/docs/release/3.29/doxygen/index.html" target="_blank" rel="noopener">https://www.nsnam.org/docs/release/3.29/doxygen/index.html</a> doxygen编译报错<code>waf configure did not detect doxygen in the system -&gt; cannot build api docs</code></p>
+<p>需要做两个工作：</p>
+<p>(1)安装doxygen:</p>
+<pre><code>sudo apt-get install doxygen
+</code></pre><p>(2)重新配置waf，这个步骤参见谷歌的ns3论坛 </p>
+<pre><code>./waf configure --enable-examples --enable-tests
+</code></pre></li>
+<li><p>[ ] PyViz不会弄</p>
+</li>
+<li><p>[ ] </p>
+</li>
+</ul>
 <h1 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h1><p>参考这篇文章。整个过程很清楚了。<a href="https://www.jianshu.com/p/85ed25003e30" target="_blank" rel="noopener">https://www.jianshu.com/p/85ed25003e30</a></p>
 <p>我主要做简要的记录以便自己以后查看。</p>
 <p>环境：Ubuntu 18</p>
@@ -484,6 +497,28 @@ ls
 #看见NetAnim就成功了
 sudo ./NetAnim #打开仿真界面
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用方法：</p>
+<ul>
+<li><p>头文件：<code>#include &quot;ns3/netanim-module.h&quot;</code></p>
+</li>
+<li><p>添加代码：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">AnimationInterface anim ("animation.xml"); //生成animation.xml文件
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>其他的一些设置节点的位置、颜色等各种配置的不多介绍了。查文档吧！</p>
+</li>
+</ul>
+<h2 id="4-2-分析数据"><a href="#4-2-分析数据" class="headerlink" title="4.2 分析数据"></a>4.2 分析数据</h2><p>介绍了两个网络分析工具</p>
+<h3 id="4-2-1-TcpDump"><a href="#4-2-1-TcpDump" class="headerlink" title="4.2.1 TcpDump"></a>4.2.1 TcpDump</h3><p>读取输出pacap文件</p>
+<p>介绍了TcpDump命令的格式</p>
+<p>然后用first这个例子做了个演示</p>
+<h3 id="4-2-2-Wireshark"><a href="#4-2-2-Wireshark" class="headerlink" title="4.2.2 Wireshark"></a>4.2.2 Wireshark</h3><p>界面友好功能强大。</p>
+<h2 id="4-3-统计模块status"><a href="#4-3-统计模块status" class="headerlink" title="4.3 统计模块status"></a>4.3 统计模块status</h2><p>这一节介绍了自带的example里对status框架的使用。</p>
+<p>还有一个shell了用于自动往里输入。</p>
+<p>具体的内容我也看得懵懵。</p>
+<p>而且这个模块是用来干啥的啊。和之前的分析数据的模块有啥不一样啊。</p>
+<p>先往下看吧。</p>
+<h2 id="4-4-绘图工具-Gnuplot"><a href="#4-4-绘图工具-Gnuplot" class="headerlink" title="4.4 绘图工具 Gnuplot"></a>4.4 绘图工具 Gnuplot</h2><p>介绍了这个工具咋用。把捕获的数据变成图表。</p>
+<h1 id="5-ns-3内核"><a href="#5-ns-3内核" class="headerlink" title="5 ns-3内核"></a>5 ns-3内核</h1><h2 id="5-1-组织结构"><a href="#5-1-组织结构" class="headerlink" title="5.1 组织结构"></a>5.1 组织结构</h2><h2 id="5-2-随机变量"><a href="#5-2-随机变量" class="headerlink" title="5.2 随机变量"></a>5.2 随机变量</h2><p>讲了生成随机种子的方法</p>
 
             </div>
             <hr>

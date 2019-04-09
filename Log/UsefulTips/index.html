@@ -4,16 +4,18 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="UsefulTips, 炫杉">
-    <meta name="description" content="偏技术性的小姿势
+    <meta name="keywords" content="Useful Tips, 炫杉">
+    <meta name="description" content="
+偏技术性的小姿势
+使用一些软件中遇到的问题，记录以便下次查阅
+
+Mac使用相关问题已单独开了一篇文章。
 
 Shell相关
 touch xxx.x 新建文件
 
 ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目录
--C 按列列出文件
-
-清屏: edit菜单里找。Terminal:⌃+⌘+L iTerm:⌘">
+-C">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +23,7 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>UsefulTips | 炫杉</title>
+    <title>Useful Tips | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -188,13 +190,13 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        UsefulTips
+                        Useful Tips
                     </div>
                 </div>
             </div>
@@ -365,7 +367,11 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>偏技术性的小姿势</p>
+                <ul>
+<li>偏技术性的小姿势</li>
+<li>使用一些软件中遇到的问题，记录以便下次查阅</li>
+</ul>
+<p>Mac使用相关问题已单独开了<a href="../MacTips">一篇文章</a>。</p>
 <a id="more"></a>
 <h1 id="Shell相关"><a href="#Shell相关" class="headerlink" title="Shell相关"></a>Shell相关</h1><ul>
 <li><p><code>touch xxx.x</code> 新建文件</p>
@@ -393,54 +399,77 @@ mvn exec:java
 <li>Finder到终端：拖窗口到终端界面</li>
 <li>终端到Finder：<code>open .</code></li>
 </ul>
-<h1 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h1><h2 id="添加alias"><a href="#添加alias" class="headerlink" title="添加alias"></a>添加alias</h2><p>在 <code>.zshrc</code>这个文件里配置</p>
-<p>注意例子：<code>alias blog=&quot;cd Documents/Hexo&quot;</code></p>
-<p>其中<code>blog=&quot;xxx&quot;</code>等号两边不允许有空格！不然alias会失效。</p>
-<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><p>参考文章：<a href="https://www.cnblogs.com/kenz520/p/8259432.html" target="_blank" rel="noopener">https://www.cnblogs.com/kenz520/p/8259432.html</a></p>
-<ul>
+<h1 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h1><h2 id="美化-amp-增强"><a href="#美化-amp-增强" class="headerlink" title="美化&amp;增强"></a>美化&amp;增强</h2><ul>
 <li><p>iTerm2 -&gt; Make iTerm2 Default Term</p>
 </li>
-<li><p>配色：<a href="http://ethanschoonover.com/solarized" target="_blank" rel="noopener">http://ethanschoonover.com/solarized</a></p>
+<li><p>配色改成这个：<a href="http://ethanschoonover.com/solarized" target="_blank" rel="noopener">http://ethanschoonover.com/solarized</a></p>
 </li>
-<li><p>oh_my_zsh：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh</a></p>
-<p>装好后配置主题：</p>
-<ul>
-<li>修改<code>~/.zshrc</code>文件的ZSH_THEME=“”属性为”agnoster”</li>
 </ul>
-</li>
-<li><p>字体：</p>
+<h2 id="改用zsh"><a href="#改用zsh" class="headerlink" title="改用zsh"></a>改用zsh</h2><p><code>chsh -s /bin/zsh</code>  (默认使用bash) </p>
+<h2 id="添加alias"><a href="#添加alias" class="headerlink" title="添加alias"></a>添加alias</h2><p>在 <code>.zshrc</code>这个文件里配置</p>
+<p>注意例子：<code>alias blog=&quot;cd Documents/Hexo&quot;</code></p>
+<p>其中<code>blog=&quot;xxx&quot;</code>等号两边不允许有空格！不然alias会失效。</p>
+<h2 id="安装和配置oh-my-zsh"><a href="#安装和配置oh-my-zsh" class="headerlink" title="安装和配置oh_my_zsh"></a>安装和配置<strong>oh_my_zsh</strong></h2><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh</a></p>
+<ul>
+<li>装好后配置主题：</li>
+</ul>
+<p>修改<code>~/.zshrc</code>文件的 <code>ZSH_THEME=&quot;&quot;</code> 属性为<code>&quot;agnoster&quot;</code></p>
+<ul>
+<li>改字体：  agnoster这个主题只认等宽字体</li>
+</ul>
 <p>克隆这个仓库到本地：<a href="https://github.com/powerline/fonts.git" target="_blank" rel="noopener">https://github.com/powerline/fonts.git</a></p>
-<p>运行里面的 <code>install.sh</code> 就装好了</p>
-</li>
+<p>运行里面的 <code>install.sh</code> 就装好了字体。</p>
+<p>然后在iTerm的设置里选一个还上就行了。</p>
+<ul>
+<li><strong>路径前缀的user@MacBook太长不好看，缩短：</strong><br><strong>编辑<code>~/.oh-my-zsh/themes/agnoster.zsh-theme</code>主体文件，将里面的<code>build_prompt</code>下的<code>prompt_context</code>字段在前面加<code>#</code>注释掉即可</strong></li>
 </ul>
 <h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><ul>
 <li><p>命令提示与补全</p>
 <ol>
-<li>克隆仓库到本地 ~/.oh-my-zsh/custom/plugins 路径下<br><code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></li>
-<li>用 vim 编辑 .zshrc 文件，找到插件设置命令，默认是 <code>plugins=(git)</code> ，我们把它修改为<code>plugins=(zsh-autosuggestions git)</code></li>
+<li><p><code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code>  </p>
+<blockquote>
+<p>克隆仓库到本地 ~/.oh-my-zsh/custom/plugins 路径下</p>
+</blockquote>
+</li>
+<li><p>编辑 <code>.zshrc</code> 文件，找到插件设置命令，默认是 <code>plugins=(git)</code> ，我们把它修改为<code>plugins=(zsh-autosuggestions git)</code></p>
+</li>
 </ol>
+<blockquote>
 <p>PS：当你重新打开终端时可能看不到变化，可能你的字体颜色太淡了，我们把其改亮一些：</p>
-<ol>
-<li><code>cd ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions</code></li>
-<li>用 vim 编辑 zsh-autosuggestions.zsh 文件，修改<code>ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=10&#39;</code></li>
-</ol>
+</blockquote>
+<p>编辑<code>~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh</code>文件。修改<code>ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=10&#39;</code></p>
 </li>
 <li><p>语法高亮效果</p>
 <ol>
-<li>使用homebrew包管理工具安装 zsh-syntax-highlighting 插件<br><code>brew install zsh-syntax-highlighting</code><br>如果电脑上还没有安装homebrew，请先安装homebrew<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></li>
-<li>配置.zshrc文件，插入一行<br><code>source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</code></li>
-<li>加载.zshrc配置<br><code>source ~/.zshrc</code></li>
-<li>重新打开iTerm2窗口（或新打开一个iTerm2窗口）即可以看到效果</li>
+<li><p>如果电脑上还没有安装homebrew，请先安装homebrew<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
+<p>使用homebrew包管理工具安装 zsh-syntax-highlighting 插件<br><code>brew install zsh-syntax-highlighting</code></p>
+</li>
+<li><p>配置<code>.zshrc</code>文件，插入一行<br><code>source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</code></p>
+</li>
+<li><p><code>source ~/.zshrc</code>(刷新加载.zshrc配置)</p>
+<p>或新打开一个iTerm2窗口即可以看到效果</p>
+</li>
 </ol>
 </li>
 </ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
-<li>iTerm2 默认使用bash改用zsh解决方法：<code>chsh -s /bin/zsh</code></li>
 <li>iTerm2 zsh切换回原来的dash：<code>chsh -s /bin/bash</code></li>
 <li>卸载<code>oh my zsh</code>，在命令行输入：<code>uninstall_oh_my_zsh</code></li>
-<li>路径前缀的XX@XX太长，缩短问题：<br>编辑<code>~/.oh-my-zsh/themes/agnoster.zsh-theme</code>主体文件，将里面的<code>build_prompt</code>下的<code>prompt_context</code>字段在前面加<code>#</code>注释掉即可</li>
+<li>本节参考文章：<a href="https://www.cnblogs.com/kenz520/p/8259432.html" target="_blank" rel="noopener">https://www.cnblogs.com/kenz520/p/8259432.html</a></li>
 </ol>
-<h1 id="Markdown相关"><a href="#Markdown相关" class="headerlink" title="Markdown相关"></a>Markdown相关</h1><h2 id="Markdown-写上标下标"><a href="#Markdown-写上标下标" class="headerlink" title="Markdown 写上标下标"></a>Markdown 写上标下标</h2><ol>
+<h1 id="卸载Adobe-Creative-Cloud"><a href="#卸载Adobe-Creative-Cloud" class="headerlink" title="卸载Adobe Creative Cloud:"></a>卸载Adobe Creative Cloud:</h1><p>官方卸载工具：</p>
+<p><a href="https://helpx.adobe.com/cn/creative-cloud/help/uninstall-creative-cloud-desktop-app.html" target="_blank" rel="noopener">https://helpx.adobe.com/cn/creative-cloud/help/uninstall-creative-cloud-desktop-app.html</a></p>
+<h1 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h1><h2 id="去掉编号前的·"><a href="#去掉编号前的·" class="headerlink" title="去掉编号前的·"></a>去掉编号前的·</h2><p>修改【样式】-【段落】-这两个勾去掉就好了。<img src="../../images/image-20190221201012482.png" alt="image-20190221201012482"></p>
+<h1 id="PPT"><a href="#PPT" class="headerlink" title="PPT"></a>PPT</h1><ul>
+<li>原来PPT可以存成<code>.ppsx</code> 的格式，双击打开就直接播放（可与防止被改动</li>
+</ul>
+<h1 id="Markdown相关"><a href="#Markdown相关" class="headerlink" title="Markdown相关"></a>Markdown相关</h1><h2 id="Markdown折叠效果"><a href="#Markdown折叠效果" class="headerlink" title="Markdown折叠效果"></a>Markdown折叠效果</h2><p><details><br>  <summary>就类似这样：Click to expand</summary><br>  这里不能插入Markdown了<br></details><br>其实就是用HTML的<code>&lt;details&gt;</code>标签：</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>details</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">></span></span>Click to expand<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">></span></span>
+  whatever
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>details</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Markdown-写上标下标"><a href="#Markdown-写上标下标" class="headerlink" title="Markdown 写上标下标"></a>Markdown 写上标下标</h2><ol>
 <li><p>HTML</p>
 <pre><code> &lt;!--利用HTML--&gt;
  &lt;sub&gt;上标&lt;/sub&gt;
@@ -454,44 +483,6 @@ mvn exec:java
 </li>
 </ol>
 <p>如：<code>$x^p_{ij}$</code> ==&gt; $x^p_{ij}$</p>
-<h1 id="Mac相关"><a href="#Mac相关" class="headerlink" title="Mac相关"></a>Mac相关</h1><h2 id="环境变量问题"><a href="#环境变量问题" class="headerlink" title="环境变量问题"></a>环境变量问题</h2><ol>
-<li>在<code>.bash</code>的文件中加路径<ul>
-<li>zsh则是添加到 <code>.zshrc</code>中 </li>
-</ul>
-</li>
-<li>手动放快捷方式到<code>usr/bin</code>或<code>usr/local/bin</code>目录下</li>
-</ol>
-<blockquote>
-<p>延伸：Mac系统的bash环境变量，加载顺序为：<br>/etc/profile<br>/etc/paths<br>~/.bash_profile<br>~/.bash_login<br>~/.profile<br>~/.bashrc</p>
-</blockquote>
-<p>设置PATH的语法都为：</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#中间用冒号隔开</span>
-<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span>:<span class="token operator">&lt;</span>PATH 1<span class="token operator">></span>:<span class="token operator">&lt;</span>PATH 2<span class="token operator">></span>:<span class="token operator">&lt;</span>PATH 3<span class="token operator">></span>:------:<span class="token operator">&lt;</span>PATH N<span class="token operator">></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="显示-隐藏文件"><a href="#显示-隐藏文件" class="headerlink" title="显示/隐藏文件"></a>显示/隐藏文件</h2><p>在Finder：<code>Command+Shift+.</code></p>
-<h2 id="app已损坏-打不开"><a href="#app已损坏-打不开" class="headerlink" title=".app已损坏 打不开"></a>.app已损坏 打不开</h2><p><code>sudo spctl --master-disable</code></p>
-<h2 id="打开macOS原生的NTFS"><a href="#打开macOS原生的NTFS" class="headerlink" title="打开macOS原生的NTFS"></a>打开macOS原生的NTFS</h2><ul>
-<li><p><code>diskutil list</code> 找到你要写入的磁盘名</p>
-</li>
-<li><p><strong>开启读写NTFS：</strong></p>
-<p><code>sudo vim /etc/fstab</code></p>
-<p>在这个fstab文件里加入一句：</p>
-<p><strong><code>LABEL=你的磁盘名字 none ntfs rw,auto,nobrowse</code></strong></p>
-<p> <code>:wq</code>  保存退出</p>
-</li>
-<li><p>重新插入U盘  （此时桌面上看不到了）</p>
-<p> 在Finder里 ⌘+⇧+G 输入 <code>/Volumes</code> </p>
-</li>
-</ul>
-<h2 id="Mac终端下出现bogon的解决办法"><a href="#Mac终端下出现bogon的解决办法" class="headerlink" title="Mac终端下出现bogon的解决办法"></a>Mac终端下出现bogon的解决办法</h2><p><code>sudo scutil --set HostName your-hostname</code></p>
-<h2 id="Mac更改MAC地址（外接网卡）"><a href="#Mac更改MAC地址（外接网卡）" class="headerlink" title="Mac更改MAC地址（外接网卡）"></a>Mac更改MAC地址（外接网卡）</h2><p><code>sudo ifconfig en9 ether aa:bb:cc:dd:ee</code></p>
-<p>但是我外接了Type-C转网线的口，找到对应的也是en9，命令运行后，再用<code>ifconfig</code>看发现mac地址并没有更改成功。<br>在网上又搜了搜，原来需要<strong>装驱动</strong>。<br>这篇文章对这个问题写得相当明白了：<a href="https://blog.csdn.net/u014051620/article/details/75050934" target="_blank" rel="noopener">https://blog.csdn.net/u014051620/article/details/75050934</a></p>
-<h2 id="配置网络：无效的服务器地址-BasicIPv6ValidationError"><a href="#配置网络：无效的服务器地址-BasicIPv6ValidationError" class="headerlink" title="配置网络：无效的服务器地址 BasicIPv6ValidationError"></a>配置网络：无效的服务器地址 BasicIPv6ValidationError</h2><pre><code>networksetup -listallnetworkservices //列出所有网络服务信息;
-networksetup -setv6off &quot;Ethernet 2&quot;  //停止对应网卡的ipV6服务;
-networksetup -setmanual &quot;Ethernet 2&quot; 10.10.22.222 255.255.255.0 10.10.22.1 //手动设置
-</code></pre><h2 id="10-14以后Safari装扩展"><a href="#10-14以后Safari装扩展" class="headerlink" title="10.14以后Safari装扩展"></a>10.14以后Safari装扩展</h2><p>cd到有 <code>.safariextz</code>文件的目录。</p>
-<p>执行<code>xar -xf 拓展名.safariextz</code> 就可以解包</p>
-<p>然后添加扩展，运行即可。详细教程：<a href="https://sspai.com/post/47303" target="_blank" rel="noopener">https://sspai.com/post/47303</a></p>
 <h1 id="Sublime相关"><a href="#Sublime相关" class="headerlink" title="Sublime相关"></a>Sublime相关</h1><p>这几个问题怕是用过sublime的都解决过吧~记录一下防止下次碰到再百度了。</p>
 <!--more-->
 <h2 id="加入subl命令"><a href="#加入subl命令" class="headerlink" title="加入subl命令"></a>加入subl命令</h2><p><code>sudo ln -s &#39;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&#39; /usr/local/bin/subl&#39;</code></p>
@@ -677,7 +668,7 @@ networksetup -setmanual &quot;Ethernet 2&quot; 10.10.22.222 255.255.255.0 10.10.
                     </span>
                     <a href="https://ixs.im" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Log/UsefulTips/" class="b-link-green">UsefulTips</a>
+                    <a href="/Log/UsefulTips/" class="b-link-green">Useful Tips</a>
                 </p>
             </div>
         </div>

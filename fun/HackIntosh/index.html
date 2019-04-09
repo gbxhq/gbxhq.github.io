@@ -364,7 +364,8 @@ sudo diskutil mount disk4s1  # 挂载USB的EFI分区
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>然后EFI分区就可以在Finder里看到了。</p>
 <p>把U盘里能用的Clover整个放进去就完事。</p>
-<h1 id="装好后配置"><a href="#装好后配置" class="headerlink" title="装好后配置"></a>装好后配置</h1><h2 id="开启HiDPI"><a href="#开启HiDPI" class="headerlink" title="开启HiDPI"></a>开启HiDPI</h2><p>刚装了黑苹果会发现显示效果特别不清楚。开启HiDPI后可以在显示器设置里选择缩放效果。字的显示啥的会变得清晰很多。具体开启HiDPI的方法网上有人制作了shell。装好后百度一下就搞定。</p>
+<h1 id="装好后配置"><a href="#装好后配置" class="headerlink" title="装好后配置"></a>装好后配置</h1><h2 id="开启HiDPI"><a href="#开启HiDPI" class="headerlink" title="开启HiDPI"></a>开启HiDPI</h2><p>刚装了黑苹果会发现显示效果特别不清楚。开启HiDPI后可以在显示器设置里选择缩放效果。字的显示啥的会变得清晰很多。具体开启HiDPI的方法网上有人制作了shell。项目地址：</p>
+<p><a href="https://github.com/xzhih/one-key-hidpi/blob/master/README-zh.md" target="_blank" rel="noopener">https://github.com/xzhih/one-key-hidpi/blob/master/README-zh.md</a></p>
 <h2 id="Clover的配置"><a href="#Clover的配置" class="headerlink" title="Clover的配置"></a>Clover的配置</h2><p>用Clover Config那个软件配置很方便。注意这个软件是实时保存的。所以要备份好之前的plist文件。</p>
 <ul>
 <li>Boot栏有个选项是使用上次的启动项挺好。还能设置等待时间。</li>
@@ -377,7 +378,9 @@ sudo diskutil mount disk4s1  # 挂载USB的EFI分区
 <p>改用U盘里的Clover打开了macOS，跳了半天EFI文件夹还是不行。</p>
 <p><strong>正解：</strong></p>
 <p>在Windows下一个<strong>EasyUEFI</strong>，手动添加Clover文件夹下的一个<code>x66.efi</code>到UEFI启动项搞定。</p>
-<h1 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h1><p>应该是还有时间不同步的问题没解决  但是周末时间不够了也没去解决。</p>
+<h1 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h1><h2 id="WiFi-amp-Bluetooth"><a href="#WiFi-amp-Bluetooth" class="headerlink" title="WiFi&amp;Bluetooth"></a>WiFi&amp;Bluetooth</h2><p>这个英特尔的无解。目前采用外挂WiFi。蓝牙则没有。</p>
+<p>后续准备换DW1560吧。</p>
+<h2 id="时间显示"><a href="#时间显示" class="headerlink" title="时间显示"></a>时间显示</h2><p>应该是还有时间不同步的问题没解决  但是周末时间不够了也没去解决。</p>
 <p>这是我电脑上保存的解决这个问题的方法：</p>
 <blockquote>
 <p>windows虽然为了兼容性，一直沿用本地时间，但是在注册表中有一个设置可以让它使用UTC，这个正是我们需要的，修改注册表就好了。<br>让windows也使用Universal Time，这样即使在不联网的情况下，时钟仍然是正确的特别注意的是：取消Boot Camp的Apple时间服务，不然时不时Apple时间服务会把时间调正回去。<br>1）开始菜单，运行regedit<br>2）打开TimeZoneInformation，位置<br>HKEY_LOCAL_MACHINE＼SYSTEM＼CurrentControlSet＼Control＼TimeZoneInformation<br>3）右击-&gt;创建一个新的DWORD，数值名称 RealTimeIsUniversal 数值数据 1 (十六进制) 注意大小写，修改完成确定并且把regedit关了。<br>4）打开时间设置，取消“自动与Internet时间服务器同步”<br>5）取消Apple时间服务，控制面板-&gt;管理工具-&gt;服务，里面有个“Apple时间服务”，右击它然后选择属性，启动类型选择禁用、停止</p>
