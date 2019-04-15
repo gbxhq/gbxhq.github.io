@@ -9,11 +9,9 @@
 
 独立贴
 插图问题
-
 在Git仓库设置一个分支推送源码，主分支负责展示
-
 有时候想传一个静态的HTML页面直接放在Source文件夹，不想被Hexo g的时候渲染，怎么办呢？
-He">
+Hexo">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -348,17 +346,22 @@ He">
                 <p>汇总一下Hexo遇到的问题，以及以后出现问题都会更新到这里</p>
 <a id="more"></a>
 <h1 id="独立贴"><a href="#独立贴" class="headerlink" title="独立贴"></a>独立贴</h1><ul>
-<li><p><a href="../HexoPic">插图问题</a></p>
-</li>
-<li><p><a href="../Hexo_set_branch">在Git仓库设置一个分支推送源码，主分支负责展示</a></p>
-</li>
-<li><p>有时候想传一个静态的HTML页面直接放在Source文件夹，不想被<code>Hexo g</code>的时候渲染，怎么办呢？</p>
-<p><a href="../Hexo_set_extral">Hexo渲染设置例外</a></p>
-</li>
-<li><p><a href="../Hexo01/#toc-heading-11">Hexo同时推送到多个仓库</a></p>
-</li>
+<li><a href="../HexoPic">插图问题</a></li>
+<li><a href="../Hexo_set_branch">在Git仓库设置一个分支推送源码，主分支负责展示</a></li>
+<li>有时候想传一个静态的HTML页面直接放在Source文件夹，不想被<code>Hexo g</code>的时候渲染，怎么办呢？</li>
+<li><a href="../Hexo_set_extral">Hexo渲染设置例外</a></li>
+<li><a href="../Hexo01/#toc-heading-11">Hexo同时推送到多个仓库</a></li>
 </ul>
-<h1 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h1><h2 id="node-1532-DEP0061-DeprecationWarning-fs-SyncWriteStream-is-deprecated"><a href="#node-1532-DEP0061-DeprecationWarning-fs-SyncWriteStream-is-deprecated" class="headerlink" title="(node:1532) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated."></a><code>(node:1532) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.</code></h2><p>解决，<code>/你的Hexo根目录/node_modules/hexo-admin/node_modules/hexo-fs/lib/fs.js</code>这个文件，打开，<br>718行:<code>exports.SyncWriteStream = fs.SyncWriteStream;</code> //注释掉 。<br>完工</p>
+<h1 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h1><h2 id="DeprecationWarning-fs-SyncWriteStream-is-deprecated"><a href="#DeprecationWarning-fs-SyncWriteStream-is-deprecated" class="headerlink" title="DeprecationWarning: fs.SyncWriteStream is deprecated."></a><code>DeprecationWarning: fs.SyncWriteStream is deprecated.</code></h2><p>解决，<code>/你的Hexo根目录/node_modules/hexo-admin/node_modules/hexo-fs/lib/fs.js</code>这个文件，打开，<br>718行:<code>exports.SyncWriteStream = fs.SyncWriteStream;</code> //注释掉 。<br>完工</p>
+<h2 id="unknown-block-tag-xx"><a href="#unknown-block-tag-xx" class="headerlink" title="unknown block tag: xx"></a>unknown block tag: xx</h2><p>Hexo还真是脆弱啊。报错信息是这样的：</p>
+<p><img src="https://0pic.oss-cn-beijing.aliyuncs.com/20190415150313.png" alt=""></p>
+<p>可以看到 关键的报错语句是 unknown block tag: F</p>
+<p>在某个文件的58行 54列</p>
+<p><strong>关键是大哥你都定位不到是哪一个文件吗！给我来个(unknown path)</strong></p>
+<p>于是我在网上搜。有个人写到：他在NexT这个主题有个自定义的标签是用<code>{</code> <code>%</code> 标签名 <code>%</code> <code>}</code>这种方式来建立的。我就去全文搜我的文件里出现的<code>{</code>  <code>%</code>  只有一处：是<a href="../../Log/UsefulTips">这篇文章</a></p>
+<p><img src="https://0pic.oss-cn-beijing.aliyuncs.com/20190415150459.png" alt=""></p>
+<p>太脆弱啦。连放在代码里的都不行。真是服了。</p>
+<p>删了就解决了。</p>
 
             </div>
             <hr>

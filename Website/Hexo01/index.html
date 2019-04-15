@@ -376,12 +376,13 @@
 <p>然而部署都 github.io ，ping 最快也得100 ms【香港节点 2ms，然并卵】</p>
 <p>自定义域名方法：</p>
 <blockquote>
-<p>1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如<a href="https://link.zhihu.com/?target=http%3A//xxxx.com" target="_blank" rel="noopener">http://xxxx.com</a>，<strong>注意前面没有http://，也没有www</strong>，然后使用<code>hexo g &amp;&amp; hexo d</code>上传部署。</p>
-<p>2、在域名解析提供商，下面以dnspod为例。<br>（1）先添加一个CNAME，主机记录写@，后面记录值写上你的<a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a><br>（2）再添加一个CNAME，主机记录写www，后面记录值也是<a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a><br>这样别人用www和不用www都能访问你的网站（其实www的方式，会先解析成<a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a>，然后根据CNAME再变成<a href="https://link.zhihu.com/?target=http%3A//xxx.com" target="_blank" rel="noopener">http://xxx.com</a>，即中间是经过一次转换的）。上面，我们用的是CNAME别名记录，也有人使用A记录，后面的记录值是写github page里面的ip地址，但有时候IP地址会更改，导致最后解析不正确，所以还是推荐用CNAME别名记录要好些，不建议用IP。3、等十分钟左右，刷新浏览器，用你自己域名访问下试试</p>
+<p>1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如xxxx.com，<strong>注意前面没有http://，也没有www</strong>，然后使用<code>hexo g &amp;&amp; hexo d</code>上传部署。</p>
+<p>2、在域名解析提供商，下面以dnspod为例。<br>（1）先添加一个CNAME，主机记录写@，后面记录值写上你的<a href="http://xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a><br>（2）再添加一个CNAME，主机记录写www，后面记录值也是<a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a><br>这样别人用www和不用www都能访问你的网站（其实www的方式，会先解析成<a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a>，然后根据CNAME再变成<a href="https://link.zhihu.com/?target=http%3A//xxx.com" target="_blank" rel="noopener">http://xxx.com</a>，即中间是经过一次转换的）。上面，我们用的是CNAME别名记录，也有人使用A记录，后面的记录值是写github page里面的ip地址，但有时候IP地址会更改，导致最后解析不正确，所以还是推荐用CNAME别名记录要好些，不建议用IP。</p>
+<p>3、等十分钟左右，刷新浏览器，用你自己域名访问下试试</p>
 <p>作者：skycrown链接：<a href="https://www.zhihu.com/question/31377141/answer/87541858" target="_blank" rel="noopener">https://www.zhihu.com/question/31377141/answer/87541858</a></p>
 <p>来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 </blockquote>
-<p>访问下试试 <a href="https://o--o.win">https://o--o.win</a></p>
+<p>访问下试试 <a href="https://o--o.win" target="_blank" rel="noopener">https://o--o.win</a></p>
 <h2 id="同时部署到github和coding"><a href="#同时部署到github和coding" class="headerlink" title="同时部署到github和coding"></a>同时部署到github和coding</h2><p>根据Hexo的官方文档，只需要这么设置：</p>
 <blockquote>
 <p>deploy:<br>​    type: git<br>​    message: [message]<br>​    repo:<br>​        github: <repository url="">,[branch]<br>​        gitcafe: <repository url="">,[branch] </repository></repository></p>
@@ -629,29 +630,31 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Python/Python廖雪峰练习/">
+                <a href="/Note/SQL/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Python廖雪峰练习">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="SQL手册笔记">
                         
-                        <span class="card-title">Python廖雪峰练习</span>
+                        <span class="card-title">SQL手册笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！
+                    <div class="summary">noSql数据库满天飞的情况下，安下心来让SQL尘埃落定吧。（出来混总要还的😌）《SQL必知必会》读书笔记，Ben Forta著。
 
-函数的参数def pr</div>
+了解SQLStructured Query Language 结构化查询语言
+基础语法
+|   表示 在</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-02-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/Note/" class="post-category" target="_blank">
+                                    Note
                                 </a>
                             
                             
@@ -661,8 +664,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/SQL/" target="_blank">
+                        <span class="chip bg-color">SQL</span>
                     </a>
                     
                 </div>

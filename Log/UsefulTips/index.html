@@ -311,6 +311,10 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
                                 <span class="chip bg-color">tips</span>
                             </a>
                         
+                            <a href="/tags/Heroku/" target="_blank">
+                                <span class="chip bg-color">Heroku</span>
+                            </a>
+                        
                             <a href="/tags/Shell/" target="_blank">
                                 <span class="chip bg-color">Shell</span>
                             </a>
@@ -321,14 +325,6 @@ ls -a查看隐藏文件包括“.”和“..” -A不包括“.”和“..”目
                         
                             <a href="/tags/Markdown/" target="_blank">
                                 <span class="chip bg-color">Markdown</span>
-                            </a>
-                        
-                            <a href="/tags/Mac/" target="_blank">
-                                <span class="chip bg-color">Mac</span>
-                            </a>
-                        
-                            <a href="/tags/Heroku/" target="_blank">
-                                <span class="chip bg-color">Heroku</span>
                             </a>
                         
                     </div>
@@ -411,38 +407,46 @@ mvn exec:java
 <p>其中<code>blog=&quot;xxx&quot;</code>等号两边不允许有空格！不然alias会失效。</p>
 <h2 id="安装和配置oh-my-zsh"><a href="#安装和配置oh-my-zsh" class="headerlink" title="安装和配置oh_my_zsh"></a>安装和配置<strong>oh_my_zsh</strong></h2><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh</a></p>
 <ul>
-<li>装好后配置主题：</li>
+<li>via curl</li>
 </ul>
-<p>修改<code>~/.zshrc</code>文件的 <code>ZSH_THEME=&quot;&quot;</code> 属性为<code>&quot;agnoster&quot;</code></p>
-<ul>
-<li>改字体：  agnoster这个主题只认等宽字体</li>
+<pre><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+</code></pre><ul>
+<li>via wget</li>
 </ul>
+<pre><code>sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
+</code></pre><p>安装好了ohmyzsh之后：</p>
+<h3 id="配置主题："><a href="#配置主题：" class="headerlink" title="配置主题："></a>配置主题：</h3><p>修改<code>~/.zshrc</code>文件的 <code>ZSH_THEME=&quot;&quot;</code> 属性为<code>&quot;agnoster&quot;</code></p>
+<h3 id="改字体"><a href="#改字体" class="headerlink" title="改字体"></a>改字体</h3><p>agnoster这个主题只认等宽字体</p>
 <p>克隆这个仓库到本地：<a href="https://github.com/powerline/fonts.git" target="_blank" rel="noopener">https://github.com/powerline/fonts.git</a></p>
 <p>运行里面的 <code>install.sh</code> 就装好了字体。</p>
 <p>然后在iTerm的设置里选一个还上就行了。</p>
-<ul>
-<li><strong>路径前缀的user@MacBook太长不好看，缩短：</strong><br><strong>编辑<code>~/.oh-my-zsh/themes/agnoster.zsh-theme</code>主体文件，将里面的<code>build_prompt</code>下的<code>prompt_context</code>字段在前面加<code>#</code>注释掉即可</strong></li>
-</ul>
-<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><ul>
-<li><p>命令提示与补全</p>
-<ol>
+<h3 id="前缀"><a href="#前缀" class="headerlink" title="前缀"></a>前缀</h3><p><strong>路径前缀的user@MacBook太长不好看，缩短：</strong><br><strong>编辑<code>~/.oh-my-zsh/themes/agnoster.zsh-theme</code>主体文件，将里面的<code>build_prompt</code>下的<code>prompt_context</code>字段在前面加<code>#</code>注释掉即可</strong></p>
+<blockquote>
+<p>改这里学到一个小技巧：</p>
+<p>由于<code>oh_my_zsh</code>时常会有版本更新，为了避免我们修改的跟更新的版本有冲突，建议不要修改<code>agnoster.zsh-theme</code>，而是将其拷贝出来，命名为自己的主题文件，比如叫做<code>myagnoster.zsh-theme</code>，然后只对<code>myagnoster.zsh-theme</code>进行修改。<br>2、修改后将<code>~/.zshrc</code>中的<code>ZSH_THEME=&quot;myagnoster&quot;</code></p>
+</blockquote>
+<p>定制修改</p>
+<pre class="line-numbers language-shell"><code class="language-shell">prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里把<code>@%m</code>去掉就去掉了机器名。估计%m是表示机器变量。</p>
+<p><img src="https://0pic.oss-cn-beijing.aliyuncs.com/prompt_context.png" alt=""></p>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><h3 id="命令提示与补全"><a href="#命令提示与补全" class="headerlink" title="命令提示与补全"></a>命令提示与补全</h3><ol>
 <li><p><code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code>  </p>
 <blockquote>
 <p>克隆仓库到本地 ~/.oh-my-zsh/custom/plugins 路径下</p>
 </blockquote>
 </li>
 <li><p>编辑 <code>.zshrc</code> 文件，找到插件设置命令，默认是 <code>plugins=(git)</code> ，我们把它修改为<code>plugins=(zsh-autosuggestions git)</code></p>
-</li>
-</ol>
 <blockquote>
 <p>PS：当你重新打开终端时可能看不到变化，可能你的字体颜色太淡了，我们把其改亮一些：</p>
 </blockquote>
 <p>编辑<code>~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh</code>文件。修改<code>ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=10&#39;</code></p>
 </li>
-<li><p>语法高亮效果</p>
-<ol>
+</ol>
+<h3 id="语法高亮效果"><a href="#语法高亮效果" class="headerlink" title="语法高亮效果"></a>语法高亮效果</h3><ol>
 <li><p>如果电脑上还没有安装homebrew，请先安装homebrew<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
 <p>使用homebrew包管理工具安装 zsh-syntax-highlighting 插件<br><code>brew install zsh-syntax-highlighting</code></p>
+<p>不是Mac就把这个地址<a href="https://github.com/zsh-users/zsh-syntax-highlighting.git" target="_blank" rel="noopener">https://github.com/zsh-users/zsh-syntax-highlighting.git</a> clone到下面那个路径<code>/usr/local/share/</code></p>
 </li>
 <li><p>配置<code>.zshrc</code>文件，插入一行<br><code>source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</code></p>
 </li>
@@ -450,8 +454,8 @@ mvn exec:java
 <p>或新打开一个iTerm2窗口即可以看到效果</p>
 </li>
 </ol>
-</li>
-</ul>
+<h3 id="其他插件"><a href="#其他插件" class="headerlink" title="其他插件"></a>其他插件</h3><p>  <code>plugins=(z zsh-autosuggestions git d)</code></p>
+<p>  z那个是看以前cd过的目录</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
 <li>iTerm2 zsh切换回原来的dash：<code>chsh -s /bin/bash</code></li>
 <li>卸载<code>oh my zsh</code>，在命令行输入：<code>uninstall_oh_my_zsh</code></li>
@@ -459,63 +463,19 @@ mvn exec:java
 </ol>
 <h1 id="卸载Adobe-Creative-Cloud"><a href="#卸载Adobe-Creative-Cloud" class="headerlink" title="卸载Adobe Creative Cloud:"></a>卸载Adobe Creative Cloud:</h1><p>官方卸载工具：</p>
 <p><a href="https://helpx.adobe.com/cn/creative-cloud/help/uninstall-creative-cloud-desktop-app.html" target="_blank" rel="noopener">https://helpx.adobe.com/cn/creative-cloud/help/uninstall-creative-cloud-desktop-app.html</a></p>
-<h1 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h1><h2 id="去掉编号前的·"><a href="#去掉编号前的·" class="headerlink" title="去掉编号前的·"></a>去掉编号前的·</h2><p>修改【样式】-【段落】-这两个勾去掉就好了。<img src="../../images/image-20190221201012482.png" alt="image-20190221201012482"></p>
+<h1 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h1><h2 id="去掉编号前的·"><a href="#去掉编号前的·" class="headerlink" title="去掉编号前的·"></a>去掉编号前的·</h2><p>修改【样式】-【段落】-这两个勾去掉就好了。<img src="https://0pic.oss-cn-beijing.aliyuncs.com/wordtips.png" alt=""></p>
 <h1 id="PPT"><a href="#PPT" class="headerlink" title="PPT"></a>PPT</h1><ul>
 <li>原来PPT可以存成<code>.ppsx</code> 的格式，双击打开就直接播放（可与防止被改动</li>
 </ul>
-<h1 id="Markdown相关"><a href="#Markdown相关" class="headerlink" title="Markdown相关"></a>Markdown相关</h1><h2 id="Markdown折叠效果"><a href="#Markdown折叠效果" class="headerlink" title="Markdown折叠效果"></a>Markdown折叠效果</h2><p><details><br>  <summary>就类似这样：Click to expand</summary><br>  这里不能插入Markdown了<br></details><br>其实就是用HTML的<code>&lt;details&gt;</code>标签：</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>details</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>summary</span><span class="token punctuation">></span></span>Click to expand<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>summary</span><span class="token punctuation">></span></span>
+<h1 id="Markdown相关"><a href="#Markdown相关" class="headerlink" title="Markdown相关"></a>Markdown相关</h1><h2 id="Markdown折叠效果"><a href="#Markdown折叠效果" class="headerlink" title="Markdown折叠效果"></a>Markdown折叠效果</h2><details><br>  <summary>就类似这样：Click to expand</summary><br>  这里不能插入Markdown了<br></details><br>其实就是用HTML的<code>&lt;details&gt;</code>标签：<br><br><code>html
+&lt;details&gt;
+  &lt;summary&gt;Click to expand&lt;/summary&gt;
   whatever
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>details</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Markdown-写上标下标"><a href="#Markdown-写上标下标" class="headerlink" title="Markdown 写上标下标"></a>Markdown 写上标下标</h2><ol>
-<li><p>HTML</p>
-<pre><code> &lt;!--利用HTML--&gt;
- &lt;sub&gt;上标&lt;/sub&gt;
- &lt;sup&gt;下标&lt;/sup&gt;
-</code></pre><p> 例如<br> <code>X&lt;sub&gt;1&lt;/sub&gt;</code> ==&gt; X<sub>1</sub><br> <code>Y&lt;sup&gt;2345&lt;/sup&gt;</code> ==&gt;Y<sup>2345</sup></p>
-</li>
-<li><p>MathJax<br>MathJax不仅可以打上下标，还可以打双标。</p>
-<blockquote>
-<p>（1）两个符号$$中间是公式的内容<br>（2）^ 符号后接的字符为上标<br>（3）_ 符号后接的字符为下标<br>（4）如果同时有两个下标，则需要使用{}来将符号括起来 </p>
-</blockquote>
-</li>
-</ol>
-<p>如：<code>$x^p_{ij}$</code> ==&gt; $x^p_{ij}$</p>
-<h1 id="Sublime相关"><a href="#Sublime相关" class="headerlink" title="Sublime相关"></a>Sublime相关</h1><p>这几个问题怕是用过sublime的都解决过吧~记录一下防止下次碰到再百度了。</p>
-<!--more-->
-<h2 id="加入subl命令"><a href="#加入subl命令" class="headerlink" title="加入subl命令"></a>加入subl命令</h2><p><code>sudo ln -s &#39;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&#39; /usr/local/bin/subl&#39;</code></p>
-<h2 id="Sublime3屏蔽更新"><a href="#Sublime3屏蔽更新" class="headerlink" title="Sublime3屏蔽更新"></a>Sublime3屏蔽更新</h2><p><code>&quot;update_check&quot;: false,</code></p>
-<!---more--->
-<ol>
-<li><p> Setting-User里添加<code>&quot;update_check&quot;: false,</code><br> <strong>一定要带，</strong><br> <strong>一定要带，</strong><br> <strong>一定要带，</strong></p>
-</li>
-<li><p> 再从网上找个能用的序列号：</p>
-</li>
-</ol>
-<p>—– BEGIN LICENSE —–<br>sgbteam<br>Single User License<br>EA7E-1153259<br>8891CBB9 F1513E4F 1A3405C1 A865D53F<br>115F202E 7B91AB2D 0D2A40ED 352B269B<br>76E84F0B CD69BFC7 59F2DFEF E267328F<br>215652A3 E88F9D8F 4C38E3BA 5B2DAAE4<br>969624E7 DC9CD4D5 717FB40C 1B9738CF<br>20B3C4F1 E917B5B3 87C38D9C ACCE7DD8<br>5F7EF854 86B9743C FADC04AA FB0DA5C0<br>F913BE58 42FEA319 F954EFDD AE881E0B<br>—— END LICENSE ——</p>
-<p>2017.7.1可用</p>
-<h2 id="中文乱码问题"><a href="#中文乱码问题" class="headerlink" title="中文乱码问题"></a>中文乱码问题</h2><p>安装<code>ConvertToUtf8</code>和<code>GBK</code>两个包</p>
-<h2 id="支持C-11"><a href="#支持C-11" class="headerlink" title="支持C++11"></a>支持C++11</h2><p>tools–&gt;new build sys</p>
-<p>输入：</p>
-<pre><code>{
-    &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &#39;${file}&#39; -std=c++11 -stdlib=libc++ -o &#39;${file_path}/${file_base_name}&#39;&quot;],
-    &quot;file_regex&quot;: &quot;^(..{FNXX==XXFN}*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,
-    &quot;working_dir&quot;: &quot;${file_path}&quot;,
-    &quot;selector&quot;: &quot;source.c, source.c++&quot;,
-    &quot;variants&quot;:
-    [
-        {
-        &quot;name&quot;: &quot;Run&quot;,
-        &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &#39;${file}&#39; -std=c++11 -stdlib=libc++ -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; open -a Terminal.app &#39;${file_path}/${file_base_name}&#39;&quot;]
-        }
-    ]
-}
-</code></pre><p>保存的时候注意后缀不要改，是<code>.sublime-build</code></p>
-<p>如果想调用iTerm2把里面的<code>Terminal.app</code>换成<code>iTerm.app</code>就行了。</p>
-<p>换成iTerm之后程序执行完iTerm会自己关闭窗口，需要在设置里修改一下默认配置文件：</p>
-<p><img src="http://p66eruxmw.bkt.clouddn.com/20180904153603023933676.png" alt="20180904153603023933676.png"></p>
+&lt;/details&gt;</code><br><br>## Markdown 写上标下标<br><br>1. HTML<br><br>    <code>&lt;!--利用HTML--&gt;
+    &lt;sub&gt;上标&lt;/sub&gt;
+    &lt;sup&gt;下标&lt;/sup&gt;</code><br>    例如<br>    <code>X&lt;sub&gt;1&lt;/sub&gt;</code> ==&gt; X<sub>1</sub><br>    <code>Y&lt;sup&gt;2345&lt;/sup&gt;</code> ==&gt;Y<sup>2345</sup><br><br>2. MathJax<br>MathJax不仅可以打上下标，还可以打双标。<br>&gt; （1）两个符号$$中间是公式的内容<br>&gt; （2）^ 符号后接的字符为上标<br>&gt; （3）_ 符号后接的字符为下标<br>&gt; （4）如果同时有两个下标，则需要使用{}来将符号括起来<br><br>如：<code>$x^p_{ij}$</code> ==&gt; $x^p_{ij}$<br><br><br><br># Sublime相关<br><br><del>这几个问题怕是用过sublime的都解决过吧~记录一下防止下次碰到再百度了。</del><br><br><details><br>    <summary>我已转战 VS Code 🙂 本节内容全部折叠</summary><br>  <h5>加入subl命令</h5><br><code>sudo ln -s &#39;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&#39; /usr/local/bin/subl&#39;</code><br><h5>Sublime3屏蔽更新</h5><br><code>&quot;update_check&quot;: false,</code><br><li>Setting-User里添加<code>&quot;update_check&quot;: false,</code><br><strong>一定要带，</strong><br><strong>一定要带，</strong><br><strong>一定要带，</strong></li><br><li>再从网上找个能用的序列号：</li><br>—– BEGIN LICENSE —–<br>sgbteam<br>Single User License<br>EA7E-1153259<br>8891CBB9 F1513E4F 1A3405C1 A865D53F<br>115F202E 7B91AB2D 0D2A40ED 352B269B<br>76E84F0B CD69BFC7 59F2DFEF E267328F<br>215652A3 E88F9D8F 4C38E3BA 5B2DAAE4<br>969624E7 DC9CD4D5 717FB40C 1B9738CF<br>20B3C4F1 E917B5B3 87C38D9C ACCE7DD8<br>5F7EF854 86B9743C FADC04AA FB0DA5C0<br>F913BE58 42FEA319 F954EFDD AE881E0B<br>—— END LICENSE ——<br>2017.7.1可用<br><h5>中文乱码问题</h5><br>安装<code>ConvertToUtf8</code>和<code>GBK</code>两个包<br><h5>支持C++11</h5><br>tools–&gt;new build sys<br>输入：<br><pre><code>{<br>    &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &#39;${file}&#39; -std=c++11 -stdlib=libc++ -o &#39;${file_path}/${file_base_name}&#39;&quot;],<br>    &quot;file_regex&quot;: &quot;^(..{FNXX==XXFN}<em>):([0-9]+):?([0-9]+)?:? (.</em>)$&quot;,<br>    &quot;working_dir&quot;: &quot;${file_path}&quot;,<br>    &quot;selector&quot;: &quot;source.c, source.c++&quot;,<br>    &quot;variants&quot;:<br>    [<br>        {<br>        &quot;name&quot;: &quot;Run&quot;,<br>        &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;g++ &#39;${file}&#39; -std=c++11 -stdlib=libc++ -o &#39;${file_path}/${file_base_name}&#39; &amp;&amp; open -a Terminal.app &#39;${file_path}/${file_base_name}&#39;&quot;]<br>        }<br>    ]<br>}<br></code></pre><br>保存的时候注意后缀不要改，是<code>.sublime-build</code><br>如果想调用iTerm2把里面的<code>Terminal.app</code>换成<code>iTerm.app</code>就行了。<br>换成iTerm之后程序执行完iTerm会自己关闭窗口，需要在设置里修改一下默认配置文件.<br><br></details>
+
+
 <h1 id="Heroku"><a href="#Heroku" class="headerlink" title="Heroku"></a>Heroku</h1><h2 id="连接PGSQL"><a href="#连接PGSQL" class="headerlink" title="连接PGSQL"></a>连接PGSQL</h2><p>想给紫玉搭一个Typecho的博客，结果得用pgsql的数据库。</p>
 <ol>
 <li>添加环境扩展：<a href="https://elements.heroku.com/addons/heroku-postgresql" target="_blank" rel="noopener">https://elements.heroku.com/addons/heroku-postgresql</a></li>
@@ -907,6 +867,13 @@ i18ni18n（其来源是英文单词 internationalization的</div>
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
