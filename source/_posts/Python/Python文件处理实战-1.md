@@ -106,7 +106,7 @@ f.writelines(lines)
 f.close()
 ```
 ### 运行结果
-![image-201803241116234](http://p66eruxmw.bkt.clouddn.com/image-201803241116234.png)
+![七牛图挂]()
 
 
 ## 批量处理整个文件夹

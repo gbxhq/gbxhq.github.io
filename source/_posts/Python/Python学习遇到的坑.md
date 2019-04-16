@@ -13,7 +13,7 @@ tags: Python
 # matplotlib 画图show()不显示图
 
 1. `Spyder设置（Cmd + ，）`-->`IPython Console`-->`Graphics`-->`Backend 改成 QT5`
-![](http://p66eruxmw.bkt.clouddn.com/15335471016933.jpg)
+[七牛图挂 有空补]
 2. 更改完设置后要新开一个IPython Console才会生效。
 
 

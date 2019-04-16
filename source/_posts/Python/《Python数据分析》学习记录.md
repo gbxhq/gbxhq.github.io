@@ -193,7 +193,7 @@ ufuns(元素级数组方法)
 分别返回一个表示“哪些元素是有穷的(非inf,feiNaN)”或“哪些元素是无穷的”的布尔型数组
 `cos、cosh、sin、Sinh、tan、tanh`
 普通型和双曲型三角函数
-![](../../images/15221187685515.jpg)
+![](https://0pic.oss-cn-beijing.aliyuncs.com/15221187685515.jpg)
 
 ### 将条件逻辑表述为数组运算
 `np.where`
@@ -324,7 +324,7 @@ arch['b'] #可单独访问
 
 
 创建方法
-![](../../images/15223741416892.jpg)
+![](https://0pic.oss-cn-beijing.aliyuncs.com/15223741416892.jpg)
 P123表待插入
 ### 索引对象
 - Index对象是**不可修改**的
