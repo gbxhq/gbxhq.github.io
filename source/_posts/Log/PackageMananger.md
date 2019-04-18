@@ -219,4 +219,22 @@ Mac直接用`brew install` Linux用yum
 
 后来还不行。在 npm 前加了 `sudo`搞定了
 
+# /usr/bin/env: node: No such file or directory
 
+解压完成node.js 之后，通过npm命令安装grunt-cli会出现没有对应文件夹的错误
+
+```
+/usr/bin/env: node: No such file or directory
+1
+```
+
+解决办法：
+创建一个软连接将自己的node的执行文件指到/usr/bin/node上：
+
+```
+ln -s %node的解压目录%/bin/node /usr/bin/node
+1
+```
+
+原理（若有错误请指正）：
+env是一个脚本解释器，bin目录下无该文件，将查找环境变量的配置，也没有。将node指向bin文件夹后，env将会可以执行node脚本文件。
