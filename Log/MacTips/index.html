@@ -382,9 +382,7 @@ sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plis">
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h1 id="显示-隐藏文件"><a href="#显示-隐藏文件" class="headerlink" title="显示/隐藏文件"></a>显示/隐藏文件</h1><p>在Finder：<code>Command+Shift+.</code></p>
 <h1 id="app已损坏-打不开"><a href="#app已损坏-打不开" class="headerlink" title=".app已损坏 打不开"></a>.app已损坏 打不开</h1><p><code>sudo spctl --master-disable</code></p>
-<h1 id="打开macOS原生的NTFS"><a href="#打开macOS原生的NTFS" class="headerlink" title="打开macOS原生的NTFS"></a>打开macOS原生的NTFS</h1><blockquote>
-<p>PS:这方法不咋好使。老老实实用Tuxera Disk Mananger吧</p>
-</blockquote>
+<h1 id="打开macOS原生的NTFS"><a href="#打开macOS原生的NTFS" class="headerlink" title="打开macOS原生的NTFS"></a>打开macOS原生的NTFS</h1><p><strong>PS:这方法不咋好使。老老实实用Tuxera Disk Mananger吧</strong></p>
 <ul>
 <li><p><code>diskutil list</code> 找到你要写入的磁盘名</p>
 </li>
@@ -411,6 +409,8 @@ networksetup -setmanual &quot;Ethernet 2&quot; 10.10.22.222 255.255.255.0 10.10.
 <p>老老实实上4K。不差那点钱。在Mac上得到的效果远超你强开HiDPI</p>
 <p><del><a href="https://comsysto.github.io/Display-Override-PropertyList-File-Parser-and-Generator-with-HiDPI-Support-For-Scaled-Resolutions/" target="_blank" rel="noopener">https://comsysto.github.io/Display-Override-PropertyList-File-Parser-and-Generator-with-HiDPI-Support-For-Scaled-Resolutions/</a></del></p>
 <h1 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h1><p>Mac下的一些实用的命令行 <a href="https://github.com/chinsyo/commandline" target="_blank" rel="noopener">https://github.com/chinsyo/commandline</a></p>
+<p>隐藏/显示</p>
+<p><code>chflags hidden abc</code><br><code>chflags nohidden abc</code></p>
 
             </div>
             <hr>

@@ -297,12 +297,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LeetCode/" target="_blank">
-                                <span class="chip bg-color">LeetCode</span>
-                            </a>
-                        
                             <a href="/tags/Cpp/" target="_blank">
                                 <span class="chip bg-color">Cpp</span>
+                            </a>
+                        
+                            <a href="/tags/LeetCode/" target="_blank">
+                                <span class="chip bg-color">LeetCode</span>
                             </a>
                         
                     </div>
@@ -446,6 +446,29 @@ phead<span class="token punctuation">.</span>next <span class="token operator">=
 <p>注意此题简单的一个重要条件就是：</p>
 <p><strong>给点节点为非末尾节点</strong></p>
 <p>这样就不会有删除最后一个节点的情况。</p>
+<h1 id="240-搜索二维矩阵ii"><a href="#240-搜索二维矩阵ii" class="headerlink" title="240 搜索二维矩阵ii"></a>240 搜索二维矩阵ii</h1><p>剑指Offer第三题 </p>
+<p>注意：修剪的时候可以行列同时进行。我的100%代码：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">bool searchMatrix(vector<vector<int>>& matrix, int target) {
+    int m = matrix.size();
+    if(m==0)
+        return false;
+    int n = matrix[0].size();
+    if(n==0)
+        return false;
+    n--;
+    while(matrix[0][n]>=target&&n>=0){
+        if(matrix[0][n]==target)
+            return true;
+        n--;
+    }
+    if(n<0) return="" false;="" int="" i="0;" while(i<m&&matrix[i][n]<="target)" {="" if(i<m&&matrix[i][n]="=target)" true;="" i++;="" }="" if(i="=m)" 修剪完毕="" while(i!="m&&n!=-1){" if(matrix[i][n]="=target)">target)
+            n--;
+        else
+            i++;
+    }
+    return false;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></0)></vector<int></code></pre>
 <h1 id="263丑数"><a href="#263丑数" class="headerlink" title="263丑数"></a>263丑数</h1><ul>
 <li>没考虑输入0的情况</li>
 <li>加了 禁止 i/o 同步的代码后，时间从 8ms–&gt; 0ms</li>

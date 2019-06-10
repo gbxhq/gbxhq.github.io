@@ -353,6 +353,12 @@ Linux
 <p><strong>赋所有者权限</strong><br><code>chown -R root:root /home/fb</code></p>
 <p><code>-R</code>是递归整个文件夹</p>
 </li>
+<li><p>软链接：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h2><ul>
 <li><p>创建root用户</p>
 <pre class="line-numbers language-shell"><code class="language-shell">useradd zoey #建用户
 passwd zoey #改密码
@@ -364,9 +370,47 @@ passwd zoey #改密码
 <li><p>给某个用户换成zsh:</p>
 <p><code>chsh -s /bin/zsh/ zoey</code></p>
 </li>
-<li></li>
 </ul>
-<h2 id="安装SFTP"><a href="#安装SFTP" class="headerlink" title="安装SFTP"></a>安装SFTP</h2><p>1.安装sftp服务</p>
+<h2 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h2><p><code>crontab [-u username] [-l|-e|-r]</code></p>
+<p>参数：</p>
+<p>​    -u: 只有root才能进行这个任务，也即帮其他用户新建/删除crontab工作调度;</p>
+<p>​    -e: 编辑crontab 的工作内容;</p>
+<p>​    -l: 查阅crontab的工作内容;</p>
+<p>​    -r: 删除所有的crontab的工作内容，若仅要删除一项，请用-e去编辑。</p>
+<p>具体使用的例子，看菜鸟教程给的<a href="https://www.runoob.com/w3cnote/linux-crontab-tasks.html" target="_blank" rel="noopener">这些实例</a>就差不多了。</p>
+<h1 id="后台任务"><a href="#后台任务" class="headerlink" title="后台任务"></a>后台任务</h1><h2 id="nohup的方式"><a href="#nohup的方式" class="headerlink" title="nohup的方式"></a><code>nohup</code>的方式</h2><h4 id="1、nohup-command-amp"><a href="#1、nohup-command-amp" class="headerlink" title="1、nohup command &amp;"></a>1、<code>nohup command &amp;</code></h4><p>例如 <code>nohup jupyter notebook &amp;</code>实现在后台不挂起地启动<code>jupyter</code>任务，关闭终端，仍还运行，<code>nohup</code> 指的是不挂起，而&amp;是后台运行，默认情况会在当前目录生成<code>nohup.out</code>，记录原本在控制台的输出情况</p>
+<h4 id="2、找到进程PID-关闭在前面后台执行的进程的步骤，首先找到其进程PID"><a href="#2、找到进程PID-关闭在前面后台执行的进程的步骤，首先找到其进程PID" class="headerlink" title="2、找到进程PID(关闭在前面后台执行的进程的步骤，首先找到其进程PID)"></a>2、找到进程PID(关闭在前面后台执行的进程的步骤，首先找到其进程PID)</h4><pre><code>ps -ef | grep xxxx1
+</code></pre><p><code>ps -ef</code>查看本机所有的进程；<code>grep xxxx</code>代表过滤找到条件<code>xxxx</code>的项目</p>
+<h4 id="3、kill掉进程"><a href="#3、kill掉进程" class="headerlink" title="3、kill掉进程"></a>3、kill掉进程</h4><pre><code>kill -9 具体的PID
+</code></pre><p>用这个方法时，我遇到一个问题就是我的Python代码里用<code>embed()</code>这一句来阻塞进程转到ipython，这样会和这种后台运行的方式冲突，或许是日志没法完成。具体解决方法没找到，但是找到了下面这种后台运行的方法：</p>
+<h2 id="screen的方式"><a href="#screen的方式" class="headerlink" title="screen的方式"></a>screen的方式</h2><p>先<code>screen</code>然后把程序跑起来。然后<code>ctrl+a</code> 然后按 <code>d</code></p>
+<p>完事~</p>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><p>screen 创建一个新shell</p>
+<p>Ctrl +a 然后d 退出当前shell</p>
+<p>Ctrl +a 然后k 杀死当前shell</p>
+<p>screen -ls 查看正在进行的子shell</p>
+<p>screen -r [session name] 返回这个screen</p>
+<h3 id="杀死方法："><a href="#杀死方法：" class="headerlink" title="杀死方法："></a>杀死方法：</h3><p>方法一：<br><code>screen -X -S [session # you want to kill] quit</code><br>比如</p>
+<pre class="line-numbers language-shell"><code class="language-shell">[root@localhost ~]# screen -ls
+There are screens on:
+        9975.admin   (Detached)
+        4588.scheduler    (Detached)
+
+[root@localhost ~]# screen -X -S 4588 quit
+[root@localhost ~]# screen -ls
+There is a screen on:
+        9975.pts-0.localhost    (Detached)
+1 Socket in /var/run/screen/S-root.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以看到，4588会话已经没有了。</p>
+<p>方法二：<br>激活screen：</p>
+<p><code>screen -r session_name</code><br> 并利用exit退出并kiil掉session。</p>
+<h3 id="乱码问题"><a href="#乱码问题" class="headerlink" title="乱码问题"></a>乱码问题</h3><p>解决办法：在 <code>~/.screenrc</code> 里加入如下设置:</p>
+<pre><code>#编码
+defutf8 on
+defencoding utf8
+encoding UTF-8 UTF-8
+</code></pre><h1 id="安装SFTP"><a href="#安装SFTP" class="headerlink" title="安装SFTP"></a>安装SFTP</h1><p>1.安装sftp服务</p>
 <p><code>sudo apt-get install openssh-server</code></p>
 <p>2.修改配置文件</p>
 <p><code>sudo vim /etc/ssh/sshd_config</code></p>
@@ -378,7 +422,11 @@ Subsystem sftp internal-sftp
 找到PermitRootLogin no一行，改为PermitRootLogin yes   让root用户可以登录SFTP
 </code></pre><p>3.重启sshd服务</p>
 <p><code>service ssh restart</code></p>
-<h2 id="apt-get-install-E-无法定位软件包问题"><a href="#apt-get-install-E-无法定位软件包问题" class="headerlink" title="apt-get install E: 无法定位软件包问题"></a>apt-get install E: 无法定位软件包问题</h2><p>在etc/ap的sources.list 添加镜像源</p>
+<h1 id="Package-Management-Problems"><a href="#Package-Management-Problems" class="headerlink" title="Package Management Problems"></a>Package Management Problems</h1><h2 id="yum"><a href="#yum" class="headerlink" title="yum"></a>yum</h2><p><code>File &quot;/usr/bin/yum&quot;, line 30 except KeyboardInterrupt, e:</code></p>
+<p>解决方法：</p>
+<p>修改<code>/usr/bin/yum</code>文件中的第一行为<code>#!/usr/bin/python2.7</code></p>
+<h2 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h2><p><code>apt-get install E: 无法定位软件包</code></p>
+<p>在etc/ap的sources.list 添加镜像源</p>
 <p><code>deb http://archive.ubuntu.com/ubuntu/ trusty main universe restricted multiverse</code></p>
 <p>然后<code>sudo apt-get update</code> </p>
 <p>接着安装就可以了</p>
@@ -390,22 +438,37 @@ Subsystem sftp internal-sftp
 <h1 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h1><p>vim都学了无数次了。但图形界面下我无法拒绝VS Code。这回不得不用vim的时候，还是把该记的记一记吧。</p>
 <p>重新拿起来这分曾经的<a href="../fun/vimtutor_cn">教程</a></p>
 <ul>
-<li><code>:q!</code> 不保存退出</li>
-<li><code>x</code> 删除</li>
-<li><code>$</code> <code>0</code> <code>^</code> 定位到行尾、首</li>
-<li><code>w</code> <code>e</code> 下一个单词首/尾</li>
-<li><code>G</code> <code>gg</code> <code>Ctrl+g</code> 文件末行/首行 定位信息</li>
-<li><code>u</code> <code>U</code> <code>Ctrl+R</code> 恢复/恢复整行 撤销恢复</li>
-<li><code>p</code> 粘贴</li>
-<li><code>r</code> 代替</li>
-<li><code>c/d</code>+<code>数字</code>+<code>对象</code>  更改/删除</li>
-<li><code>/</code> <code>?</code> n/N  搜索   CTRL-O 使你返回到以前的位置，CTRL-I 回到以后的位置</li>
-<li><code>%</code>  放在括号上可以匹配括号</li>
-<li>:s/a/b  替换   type   :#,#s/old/new/g    其中，#,#是要更改的行号的范围<pre><code> Type   :%s/old/new/g      更改全文件中的所有事件。
- Type   :%s/old/new/gc      更改全文件中的所有事件,并给出替换与否的提示。  
-</code></pre></li>
-<li><code>yw</code>复制单词  <code>yy</code>复制整行 前面加数字是复制n行</li>
+<li><p><code>:q!</code> 不保存退出</p>
+</li>
+<li><p><code>x</code> 删除</p>
+</li>
+<li><p><code>$</code> <code>0</code> <code>^</code> 定位到行尾、首</p>
+</li>
+<li><p><code>w</code> <code>e</code> 下一个单词首/尾</p>
+</li>
+<li><p><code>G</code> <code>gg</code> <code>Ctrl+g</code> 文件末行/首行 定位信息</p>
+</li>
+<li><p><code>u</code> <code>U</code> <code>Ctrl+R</code> 恢复/恢复整行 撤销恢复</p>
+</li>
+<li><p><code>p</code> 粘贴</p>
+</li>
+<li><p><code>r</code> 代替</p>
+</li>
+<li><p><code>c/d</code>+<code>数字</code>+<code>对象</code>  更改/删除</p>
+</li>
+<li><p><code>/</code> <code>?</code> n/N  搜索   CTRL-O 使你返回到以前的位置，CTRL-I 回到以后的位置</p>
+</li>
+<li><p><code>%</code>  放在括号上可以匹配括号</p>
+</li>
+<li><p><code>:s/a/b</code>  替换a和b</p>
+<p> <code>:#,#s/old/new/g</code>   其中，#,#是要更改的行号的范围<br>  <code>:%s/old/new/g</code>      更改全文件中的所有事件。</p>
+<p>  <code>:%s/old/new/gc</code>      更改全文件中的所有事件,并给出替换与否的提示。  </p>
+</li>
+<li><p><code>yw</code>复制单词  <code>yy</code>复制整行 前面加数字是复制n行</p>
+</li>
 </ul>
+<h3 id="vim中文乱码"><a href="#vim中文乱码" class="headerlink" title="vim中文乱码"></a>vim中文乱码</h3><p> 编辑~/.vimrc文件，加上如下几行：</p>
+<p>   set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936<br>   set termencoding=utf-8<br>   set encoding=utf-8</p>
 <h1 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h1><p>参考文章：<a href="https://www.jianshu.com/p/e321cc362e5d" target="_blank" rel="noopener">https://www.jianshu.com/p/e321cc362e5d</a></p>
 <p>报错：<code>ImportError: No module named &#39;requests.packages.urllib3&#39;</code></p>
 <p>解决：<code>pip install --upgrade --force-reinstall &#39;requests==2.6.0&#39; urllib3</code></p>
@@ -603,30 +666,40 @@ Subsystem sftp internal-sftp
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/Python/Python学习遇到的坑/">
+                <a href="/Website/HelloJs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Problems in studying Python">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="HelloJs">
                         
-                        <span class="card-title">Problems in studying Python</span>
+                        <span class="card-title">HelloJs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">一些杂碎问题不至于写一篇文章了。放在这收集吧。
+                    <div class="summary">高铁上没事干，入门一波Js。
 
-Spyder使用IPython Console弹出绘图窗口的设置方法matplotlib 画图show()不显示图
-Spyder设置（Cmd + ，）–&gt;IPython Console</div>
+Tips
+分号；可选
+标识符以字母、下划线和美元符号开始
+大小写敏感
+
+GrammarVarvar a = 10 声明变量
+docunment.write(a) 输出
+赋值为null可清除变量
+
+点击运算
+
+</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-06
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-08-14
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/Website/" class="post-category" target="_blank">
+                                    Website
                                 </a>
                             
                             
@@ -636,8 +709,12 @@ Spyder设置（Cmd + ，）–&gt;IPython Console</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/js/" target="_blank">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>

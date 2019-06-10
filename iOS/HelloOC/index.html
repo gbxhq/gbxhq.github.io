@@ -1,0 +1,1187 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="HelloOC, 炫杉">
+    <meta name="description" content="Hello?
+🙂🙂🙂
+😌😌😌
+🙁🙁🙁
+
+Notes
+#import &amp;lt;...&amp;gt;表示包含系统自带的文件，#import &amp;quot;...&amp;quot;表示包含开发人员自己创建的文件
+
+BasicsFunction">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>HelloOC | 炫杉</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        HelloOC
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Obj-C/" target="_blank">
+                                <span class="chip bg-color">Obj-C</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/iOS/" class="post-category" target="_blank">
+                                iOS
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-09-05
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Hello?</p>
+<p>🙂🙂🙂</p>
+<p>😌😌😌</p>
+<p>🙁🙁🙁</p>
+<a id="more"></a>
+<h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><ul>
+<li><code>#import &lt;...&gt;</code>表示包含系统自带的文件，<code>#import &quot;...&quot;</code>表示包含开发人员自己创建的文件</li>
+</ul>
+<h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><pre class="line-numbers language-objective-c"><code class="language-objective-c">- (return_type) method_name:( argumentType1 )argumentName1 
+joiningArgument2:( argumentType2 )argumentName2 ... 
+joiningArgumentn:( argumentTypen )argumentNamen {
+   body of the function
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Interface-and-Implementation"><a href="#Interface-and-Implementation" class="headerlink" title="Interface and Implementation"></a>Interface and Implementation</h2><p>A interface file <code>MyClass.h</code></p>
+<pre class="line-numbers language-objc"><code class="language-objc">@interface MyClass:NSObject { 
+   // class variable declared here
+}
+// class properties declared here
+// class methods and instance methods declared here
+@end
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>A implementation file <code>MyClass.m</code></p>
+<pre class="line-numbers language-objc"><code class="language-objc">@implementation MyClass
+   // class methods defined here
+@end
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="Object-Creation"><a href="#Object-Creation" class="headerlink" title="Object Creation"></a>Object Creation</h2><pre class="line-numbers language-objc"><code class="language-objc">MyClass  *objectName = [[MyClass alloc]init] ;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><p>Method is declared in Objective C as follows −</p>
+<pre class="line-numbers language-objc"><code class="language-objc">-(returnType)methodName:(typeName) variable1 :(typeName)variable2;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>An example is shown below.</p>
+<pre class="line-numbers language-objc"><code class="language-objc">-(void)calculateAreaForRectangleWithLength:(CGfloat)length 
+andBreadth:(CGfloat)breadth;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>其中 <strong>andBreadth</strong> 就是为了方便对函数进行阅读的可选字段</p>
+<pre class="line-numbers language-objc"><code class="language-objc">[self calculateAreaForRectangleWithLength:30 andBreadth:20];
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Class-Methods"><a href="#Class-Methods" class="headerlink" title="Class Methods"></a>Class Methods</h3><p>类方法不需要创建类对象可被直接访问。</p>
+<p>没有任何变量和关联对象。ex:</p>
+<pre class="line-numbers language-objc"><code class="language-objc">+(void)simpleClassMethod;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>假设属于MyClass类。可以直接这么访问：</p>
+<pre class="line-numbers language-objc"><code class="language-objc">[MyClass simpleClassMethod];
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Instance-Methods"><a href="#Instance-Methods" class="headerlink" title="Instance Methods"></a>Instance Methods</h3><p>Instance methods can be accessed only after creating an object for the class. Memory is allocated to the instance variables. An example instance method is shown below.</p>
+<pre><code>-(void)simpleInstanceMethod; 
+</code></pre><p>It can be accessed after creating an object for the class as follows −</p>
+<pre class="line-numbers language-objc"><code class="language-objc">MyClass  *objectName = [[MyClass alloc]init] ;
+[objectName simpleInstanceMethod];
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="Important-Data-Types-in-Objective-C"><a href="#Important-Data-Types-in-Objective-C" class="headerlink" title="Important Data Types in Objective C"></a>Important Data Types in Objective C</h2><table>
+<thead>
+<tr>
+<th>Sr.No.</th>
+<th>Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>NSString</strong>It is used for representing a string.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>CGfloat</strong>It is used for representing a floating point value (normal float is also allowed but it’s better to use CGfloat).</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>NSInteger</strong>It is used for representing integer.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>BOOL</strong>It is used for representing Boolean (YES or NO are BOOL types allowed).j</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Printing-Logs"><a href="#Printing-Logs" class="headerlink" title="Printing Logs"></a>Printing Logs</h2><p>NSLog - used for printing a statement. It will be printed in the device logs and debug console in release and debug modes respectively. For example,</p>
+<pre><code>NSlog(@&quot;&quot;);
+</code></pre><h2 id="Control-Structures"><a href="#Control-Structures" class="headerlink" title="Control Structures"></a>Control Structures</h2><p>Most of the control structures are same as in C and C++, except for a few additions like for in statement.</p>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><p>For an external class to access the class, variable properties are used. For example,</p>
+<pre><code>@property(nonatomic , strong) NSString *myString;
+</code></pre><h3 id="Accessing-Properties"><a href="#Accessing-Properties" class="headerlink" title="Accessing Properties"></a>Accessing Properties</h3><p>You can use dot operator to access properties. To access the above property, we will do the following.</p>
+<pre><code>self.myString = @&quot;Test&quot;;
+</code></pre><p>You can also use the set method as follows −</p>
+<pre><code>[self setMyString:@&quot;Test&quot;];
+</code></pre><h2 id="Categories"><a href="#Categories" class="headerlink" title="Categories"></a>Categories</h2><p>Categories are used to add methods to the existing classes. By this way, we can add method to classes for which we don’t have even implementation files where the actual class is defined. A sample category for our class is as follows −</p>
+<pre class="line-numbers language-objc"><code class="language-objc">@interface MyClass(customAdditions)
+- (void)sampleCategoryMethod;
+@end
+
+@implementation MyClass(categoryAdditions)
+
+-(void)sampleCategoryMethod {
+   NSLog(@"Just a test category");
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><p>NSMutableArray and NSArray are the array classes used in objective C. As the name suggests, the former is mutable and the latter is immutable. An example is shown below.</p>
+<pre class="line-numbers language-objc"><code class="language-objc">NSMutableArray *aMutableArray = [[NSMutableArray alloc]init];
+[anArray addObject:@"firstobject"];
+NSArray *aImmutableArray = [[NSArray alloc]
+initWithObjects:@"firstObject",nil];
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a>Dictionary</h2><p>NSMutableDictionary and NSDictionary are the dictionary classes used in objective C. As the name suggests, the former is mutable and the latter is immutable. An example is shown below.</p>
+<pre class="line-numbers language-objc"><code class="language-objc">NSMutableDictionary *aMutableDictionary = [[NSMutableArray alloc]init];
+[aMutableDictionary setObject:@"firstobject" forKey:@"aKey"];
+NSDictionary*aImmutableDictionary= [[NSDictionary alloc]initWithObjects:[NSArray arrayWithObjects:
+@"firstObject",nil] forKeys:[ NSArray arrayWithObjects:@"aKey"]];
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这文章不错</p>
+<p><a href="https://www.cnblogs.com/lucan727/p/3883666.html" target="_blank" rel="noopener">https://www.cnblogs.com/lucan727/p/3883666.html</a></p>
+<h1 id="Delegates"><a href="#Delegates" class="headerlink" title="Delegates"></a>Delegates</h1><h2 id="EX"><a href="#EX" class="headerlink" title="EX."></a>EX.</h2><p>假设对象A唤起对象B完成一个动作。一旦完成A会知道并作出相应动作。这就是代理完成的。其中：</p>
+<ul>
+<li>A是B的代理对象</li>
+<li>B将有A的参考</li>
+<li>A会执行B的代理方法</li>
+<li>B会用代理方法给A通知</li>
+</ul>
+<h1 id="成员变量的封装"><a href="#成员变量的封装" class="headerlink" title="成员变量的封装"></a>成员变量的封装</h1><p>二、OC中成员变量的命名规范以及注意事项</p>
+<p>1、命名规范–.成员变量都以下划线“_”开头</p>
+<p>　　1）为了跟get方法的名称区分开</p>
+<p>　　2）一看到下划线开头的变量，肯定是成员变量</p>
+<p>2、注意事项–以后的成员变量最好不要写@public，因为@public修饰的成员变量可以被别人乱改</p>
+<pre class="line-numbers language-objective-c"><code class="language-objective-c">/*
+成员变量的命名规范
+*/
+
+#import <foundation foundation.h="">
+
+// 声明
+@interface Person : NSObject
+{
+    // 成员变量都以下划线 _ 开头
+    // 1.可以跟get方法的名称区分开
+    // 2.一看到下划线开头的变量，肯定是成员变量
+    int _age;
+}
+
+- (void) setAge:(int)newAge;
+
+- (int) age;
+
+@end
+
+// 实现
+@implementation Person
+
+- (void) setAge:(int)newAge
+{
+    _age = newAge;
+}
+
+- (int) age
+{
+    return _age;
+}
+
+@end
+
+int main()
+{
+    Person *p = [Person new];
+    [p setAge:20];
+
+    int age2 = [p age];
+
+    NSLog(@"年龄是%i", age2);
+
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></foundation></code></pre>
+<h1 id="类方法和对象方法"><a href="#类方法和对象方法" class="headerlink" title="类方法和对象方法"></a>类方法和对象方法</h1><p>先说一下，类里的才叫方法。外面的那叫函数。</p>
+<p>一、OC中的对象方法</p>
+<p>　　1.<strong>以减号“-”开头</strong></p>
+<p>　　2.只能让对象调用，没有对象，这个方法根本不可能被执行</p>
+<p>　　3.对象方法能访问实例变量（也就是成员变量）</p>
+<p>二、OC中的类方法</p>
+<p>　　1.<strong>以加号“+”开头</strong></p>
+<p>　　2.只能用类名调用，对象不能调用</p>
+<p>　　3.类方法中不能访问实例变量（也就是成员变量）</p>
+<p>　　4.适用场合：当不需要访问成员变量的时候，尽量用类方法</p>
+<p><strong>值得注意的是类方法和对象方法可以同名，但是慎用啊！</strong></p>
+<h1 id="类的description方法"><a href="#类的description方法" class="headerlink" title="类的description方法"></a>类的description方法</h1><pre class="line-numbers language-objective-c"><code class="language-objective-c">#import <foundation foundation.h="">
+
+// Person的声明
+@interface Person : NSObject
+{
+    int _age;
+}
+
+- (void) setAge:(int)age;
+- (int) age;
+
+@end
+
+// Person的实现
+@implementation Person
+
+- (void) setAge:(int)age
+{
+    _age = age;
+}
+
+- (int) age
+{
+    return _age;
+}
+
+//重写父类-description方法，利用NSString类的类方法stringWithFormat方法拼接字符串
+//使得重写的-description方法返回自己想要的内容
+- (NSString *) description
+{
+    return [NSString stringWithFormat:@"age=%d", _age];
+}
+
+@end
+
+
+int main()
+{
+    Person *p = [Person new];
+    [p setAge:29];
+
+    // 输出所有的OC对象都用%@
+    // 默认情况下对象的输出信息：<person: 0x7fedc9c09720="">
+    // 类名 + 对象的内存地址
+
+    // 给指针变量p所指向的对象发送一条-description消息
+    // 会调用对象的-description方法，并且把-description方法返回的OC字符串输出到屏幕上
+    NSLog(@"Person对象：%@", p);
+    /*
+    // 指针变量p的地址
+    NSLog(@"指针变量p的地址：%p", &p);
+    // 对象的地址
+    NSLog(@"这个Person对象的地址：%p", p);
+     */
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></person:></foundation></code></pre>
+<h2 id="property"><a href="#property" class="headerlink" title="@property"></a>@property</h2><p>还记得我们之前定义属性的时候，在{…}中进行定义，而且定义完之后还有可能需要实现get/set方法，这里我们直接使用@property关键字进行定义：</p>
+<p>@property NSString *userName;<br>这样定义完之后，我们就可以使用这个属性了：<br>这样定义的方式之后，这个属性就会自动有set/get方法了</p>
+<p>第一步生成_userName属性</p>
+<p>第二步为_userName属性自动生成set/get方法</p>
+<p>这样定义是不是比以前方便多了</p>
+<p>下面再来看一下他还有三个值可以设置：</p>
+<pre class="line-numbers language-objc"><code class="language-objc">@property(atomic,retain,readwrite) Dog *dog;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>1、第一个位置的值：</p>
+<p><code>atomic</code>:线程保护的，默认</p>
+<p><code>nonatomic</code>:线程不保护的</p>
+<p>2、第二个位置的值：</p>
+<p><code>assign</code>:直接赋值，默认</p>
+<p><code>retain</code>:保留对象,内部会自动调用retain方法，引用计数+1</p>
+<p><code>copy</code>:拷贝对象</p>
+<p>3、第三个位置的值：</p>
+<p><code>readwrite</code>:生成get/set方法，默认</p>
+<p><code>readonly</code>:只生成get方法</p>
+<p>因为我们使用@property定义属性之后，如果我们想修改这个属性的名称(不想让它是_开头的)，就可以使用@synthesize关键字来对属性名称进行修改</p>
+<pre class="line-numbers language-objc"><code class="language-objc">@synthesize userName = $userName;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Objective-C中NSString与int和float的相互转换"><a href="#Objective-C中NSString与int和float的相互转换" class="headerlink" title="Objective-C中NSString与int和float的相互转换"></a><a href="https://www.cnblogs.com/davidgu/p/5304981.html" target="_blank" rel="noopener">Objective-C中NSString与int和float的相互转换</a></h1><pre class="line-numbers language-objective-c"><code class="language-objective-c">NSString *tempA = @"123";
+
+NSString *tempB = @"456";
+
+
+
+1，字符串拼接
+
+ NSString *newString = [NSString stringWithFormat:@"%@%@",tempA,tempB];
+
+
+
+2，字符转int
+
+int intString = [newString intValue];
+
+
+
+3，int转字符
+
+NSString *stringInt = [NSString stringWithFormat:@"%d",intString];
+
+
+
+4，字符转float
+
+ float floatString = [newString floatValue];
+
+
+
+5，float转字符
+
+NSString *stringFloat = [NSString stringWithFormat:@"%f",intString];
+
+
+
+四舍五入问题
+
+
+
+-(NSString *)notRounding:(float)price afterPoint:(int)position{
+
+    NSDecimalNumberHandler* roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundDown scale:position raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
+
+    NSDecimalNumber *ouncesDecimal;
+
+    NSDecimalNumber *roundedOunces;
+
+
+
+    ouncesDecimal = [[NSDecimalNumber alloc] initWithFloat:price];
+
+    roundedOunces = [ouncesDecimal decimalNumberByRoundingAccordingToBehavior:roundingBehavior];
+
+    [ouncesDecimal release];
+
+    return [NSString stringWithFormat:@"%@",roundedOunces];
+
+}
+
+介绍一下参数：
+
+price:需要处理的数字，
+
+position：保留小数点第几位，
+
+然后调用
+
+
+
+    float s =0.126;
+
+    NSString *sb = [self notRounding:s afterPoint:2];
+
+    NSLog(@"sb = %@",sb);
+
+输出结果为：sb = 0.12
+
+
+
+接下来介绍NSDecimalNumberHandler初始化时的关键参数：decimalNumberHandlerWithRoundingMode：NSRoundDown，
+
+NSRoundDown代表的就是 只舍不入。
+
+scale的参数position代表保留小数点后几位。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://ixs.im" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/iOS/HelloOC/" class="b-link-green">HelloOC</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/Algorithm/LeetCode101-200/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="LeetCode 101-200">
+                        
+                        <span class="card-title">LeetCode 101-200</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">知识点：  摩尔投票算法[169]   reverse()的理解[189]     位运算136   string.erase()[171]     
+
+101.对称二叉树
+开始写成了判断节点的两个孩子是否相同。完全整错了题。
+
+用两个前序</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
+                    </a>
+                    
+                    <a href="/tags/LeetCode/" target="_blank">
+                        <span class="chip bg-color">LeetCode</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/Algorithm/LeetCode1-50/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="LeetCode 1-50题">
+                        
+                        <span class="card-title">LeetCode 1-50题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">知识点：Hash、双指针[1]     int的范围[7]     stack、ascii[20]str.substr(pos,n)注意n是子串长 [14]     
+代码基本都在这里了：https://github.com/ixsim/O</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
+                    </a>
+                    
+                    <a href="/tags/LeetCode/" target="_blank">
+                        <span class="chip bg-color">LeetCode</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            2019&nbsp;Hexo驱动&nbsp;主题matery
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    View <span id="busuanzi_value_site_pv" class="white-color"></span> times
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    
+                    ,&nbsp;<i class="fa fa-users"></i> <span id="busuanzi_value_site_uv" class="white-color"></span> 
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:chinalixs@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=6956820" class="tooltipped" data-tooltip="QQ联系我: 6956820" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7e1dcb528a848f5e66324d4cbfd4e1cd";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

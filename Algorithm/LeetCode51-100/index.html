@@ -7,8 +7,9 @@
     <meta name="keywords" content="LeetCode51-100, 炫杉">
     <meta name="description" content="int的范围、牛顿迭代法[69]      copy(1.begin,1.end,2.begin)、rbegin\rend[88]
 
-51N皇后52N皇后 II53. 最大子序和暴力写出来了。人家怎么就想到这么写呢：
-int res = I">
+51N皇后过是过了。击败5%。代码太辣鸡了啊。
+看了一下。
+dfs的环节是没问题的。4个参数。i是当前放旗">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -300,12 +301,12 @@ int res = I">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LeetCode/" target="_blank">
-                                <span class="chip bg-color">LeetCode</span>
-                            </a>
-                        
                             <a href="/tags/Cpp/" target="_blank">
                                 <span class="chip bg-color">Cpp</span>
+                            </a>
+                        
+                            <a href="/tags/LeetCode/" target="_blank">
+                                <span class="chip bg-color">LeetCode</span>
                             </a>
                         
                     </div>
@@ -346,7 +347,58 @@ int res = I">
             <div id="articleContent">
                 <p><code>int的范围、牛顿迭代法</code><a href="#69x 的平方根">[69]</a>      <code>copy(1.begin,1.end,2.begin)、rbegin\rend</code><a href="#88合并两个有序数组">[88]</a></p>
 <a id="more"></a>
-<h1 id="51N皇后"><a href="#51N皇后" class="headerlink" title="51N皇后"></a>51N皇后</h1><h1 id="52N皇后-II"><a href="#52N皇后-II" class="headerlink" title="52N皇后 II"></a>52N皇后 II</h1><h1 id="53-最大子序和"><a href="#53-最大子序和" class="headerlink" title="53. 最大子序和"></a>53. 最大子序和</h1><p>暴力写出来了。人家怎么就想到这么写呢：</p>
+<h1 id="51N皇后"><a href="#51N皇后" class="headerlink" title="51N皇后"></a>51N皇后</h1><p>过是过了。击败5%。代码太辣鸡了啊。</p>
+<p>看了一下。</p>
+<p>dfs的环节是没问题的。4个参数。i是当前放旗子的行。n是棋盘大小。后面传入1个vector是棋盘。这三个参数是回溯用的。最后一个&amp;ans传地址进来存答案。</p>
+<p>下面这个代码是0ms的。在check环节的思路我没看懂。我是比较笨的方法 横、竖、正反对角线挨着检查的。我看4ms的答案也是和我一样的方法啊。不知道自己哪里有问题！</p>
+<p>有时间看看别人如何Check的：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">class Solution {
+bool check(int cur, vector<int>& place)
+{
+    for(int i = 0; i < cur; i++)
+    {
+        if(place[i] == place[cur] || abs(place[i]-place[cur]) == cur - i)
+            return false;
+    }
+    return true;
+}
+void dfs(int cur, int n, vector<int>& place, vector<vector<string>>& ans)
+{
+    if(cur == n)
+    {
+        vector<string> curans;
+        for(int i = 0; i < n; i++)
+        {
+            string currow(n, '.');
+            currow[place[i]] = 'Q';
+            curans.push_back(currow);
+        }
+        ans.push_back(curans);
+        return;
+    }
+    if(cur < n)
+    {
+        for(int i = 0; i < n; i++)
+        {
+            place[cur] = i;
+            if(check(cur, place))
+            {
+                dfs(cur+1, n, place, ans);
+            }
+        }
+    }
+
+}
+public:
+    vector<vector<string>> solveNQueens(int n) {
+        vector<vector<string>> ans;
+        vector<int> place(n, 0);
+        dfs(0, n, place, ans);
+        return ans;
+    }
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></int></vector<string></vector<string></string></vector<string></int></int></code></pre>
+<h1 id="52N皇后-II"><a href="#52N皇后-II" class="headerlink" title="52N皇后 II"></a>52N皇后 II</h1><h1 id="53-最大子序和"><a href="#53-最大子序和" class="headerlink" title="53. 最大子序和"></a>53. 最大子序和</h1><p>暴力写出来了。人家怎么就想到这么写呢：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> res <span class="token operator">=</span> INT_MIN<span class="token punctuation">,</span> curSum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     curSum <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>curSum <span class="token operator">+</span> num<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>

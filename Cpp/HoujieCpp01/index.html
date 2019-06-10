@@ -307,12 +307,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/cpp/" target="_blank">
-                                <span class="chip bg-color">cpp</span>
-                            </a>
-                        
                             <a href="/tags/Note/" target="_blank">
                                 <span class="chip bg-color">Note</span>
+                            </a>
+                        
+                            <a href="/tags/cpp/" target="_blank">
+                                <span class="chip bg-color">cpp</span>
                             </a>
                         
                     </div>
@@ -363,6 +363,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>我发现在Clion新建一个类会自动生成的：</p>
 <p><img src="../../images/image-20181119111214121.jpg" alt="image-20181119111214121">其中HOUJIE是我这个项目的名字~</p>
+<blockquote>
+<p>这么做的意义在哪？</p>
+</blockquote>
 <h1 id="3-构造函数"><a href="#3-构造函数" class="headerlink" title="3 构造函数"></a>3 构造函数</h1><ul>
 <li><p>inline函数，在class body内<strong>定义</strong>完成， <strong>比较快 比较好</strong>。但由于 你要写的函数太复杂，很难将她变成inline。而且就算你把函数写在了class里，是不是inline函数仍由编译器决定。</p>
 <ul>
@@ -380,7 +383,7 @@
 </li>
 <li><p>关于overloading</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token function">complex</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">double</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-<span class="token function">complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//可以吗？不可以，因为上一个函数有默认值。两个参数都有默认值，就是可以都不传入，因此冲突</span>
+<span class="token function">complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//可以吗？不可以，因为上一个同名函数的两个参数都有默认值，就是可以都不传入，因此冲突</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 </ul>
@@ -914,12 +917,12 @@ Problems
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Cpp/" target="_blank">
-                        <span class="chip bg-color">Cpp</span>
-                    </a>
-                    
                     <a href="/tags/Note/" target="_blank">
                         <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
                     </a>
                     
                 </div>
