@@ -365,6 +365,10 @@ while (array[i]<target &&="" i<n)="" i++;="" 正解：把控制i溢出的表达�
 <li></li>
 </ul>
 <h1 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h1><p>char：字符型与整型相比只是更加节省内存。（在所有数据类型中，char类型占用的内存空间最少）所以可以用来代替int使用</p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p><strong>局部数组：</strong>没有默认值，如果声明的时候不定义，则会出现随机数（undefined）；如果声明的长度与赋值长度不相等，则有，声明的长度&gt;赋值长度，后面用0补足，声明的长度&gt;赋值长度，发生编译错误；</p>
+<p><strong>全局数组：</strong>声明时不赋值，默认值为0 </p>
+<p><strong>指针new：</strong>动态获取的内存，默认值undefined</p>
+<p>关于数组初始化，这里写的很详细！<a href="https://www.cnblogs.com/bluecagalli/p/9511126.html" target="_blank" rel="noopener">https://www.cnblogs.com/bluecagalli/p/9511126.html</a></p>
 <h1 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h1><p>容器是连续的内存区。有1.5倍的容量大小。可以避免开数组设置大小的问题。</p>
 <h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul>
 <li><p>默认构造函数</p>
@@ -396,6 +400,8 @@ vector<span class="token operator">&lt;</span>ST<span class="token operator">></
 </li>
 </ul>
 <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><ul>
+<li><p><a href="http://www.cnblogs.com/Cmpl/archive/2012/01/01/2309710.html" target="_blank" rel="noopener">头文件string与string.h的区别</a><a href="https://www.cnblogs.com/curo0119/p/8304924.html" target="_blank" rel="noopener">https://www.cnblogs.com/curo0119/p/8304924.html</a></p>
+</li>
 <li><p>string对象的操作</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">istringstream os
 os<span class="token operator">&lt;&lt;</span>s   <span class="token comment" spellcheck="true">//s写入到输出流os中。返回os</span>
@@ -405,8 +411,35 @@ s<span class="token punctuation">.</span><span class="token function">size</span
 s<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">//n从0计</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
+<li><pre class="line-numbers language-c++"><code class="language-c++">//std::string的大小写转换
+transform(strA.begin(), strA.end(), strA.begin(), ::toupper);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 </ul>
-<h2 id="npos"><a href="#npos" class="headerlink" title="npos"></a>npos</h2><p>在MSDN中有如下说明：</p>
+<h2 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h2><pre class="line-numbers language-c++"><code class="language-c++">int a, b;
+scanf("%d%d", &a, &b);
+sprintf(buf, "%d", a + b);
+puts(buf);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以把数据输出到字符串中  </p>
+<h2 id="npos"><a href="#npos" class="headerlink" title="npos"></a>npos</h2><ul>
+<li><p>用法</p>
+<pre class="line-numbers language-c++"><code class="language-c++">//find 函数 返回jk 在s 中的下标位置 
+position = s.find("jk");
+ if (position != s.npos)  //如果没找到，返回一个特别的标志c++中用npos表示，npos取值是4294967295，
+ {
+  cout << "position is : " << position << endl;
+ }
+ else
+ {
+  cout << "Not found the flag" + flag;
+ } 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>原理：</p>
+</li>
+</ul>
+<p>在MSDN中有如下说明：</p>
 <blockquote>
 <p>basic_string::npos<br>static const size_type npos = -1;//定义<br>The constant is the largest representable value of type size_type. It is assuredly larger than max_size(); hence <strong>it serves as either a very large value or as a special code</strong>.</p>
 </blockquote>
@@ -496,6 +529,44 @@ set<span class="token operator">&lt;</span><span class="token keyword">int</span
 <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="结构体比较"><a href="#结构体比较" class="headerlink" title="结构体比较"></a>结构体比较</h1><p><strong>注意：经测试，比较函数必须写在全局函数里</strong></p>
+<pre class="line-numbers language-c++"><code class="language-c++">//比较函数，对结构体进行排序 
+int cmp(student s1,student s2){
+    if(s1.height!=s2.height){
+        return s1.height > s2.height;
+    }
+
+    else if(s1.height == s2.height){
+        return strcmp(s1.name,s2.name) < 0;    
+    }    
+}
+sort(stu,stu+number,cmp);
+//sort应该是在#include<algorithm>中
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></algorithm></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">#include<algorithm>
+bool sortApple(struct apple a, struct apple b){
+        return a.y < b.y; //升序排列
+}
+sort(vt.begin(), vt.end(), sortApple);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></algorithm></code></pre>
+<p>然后如果是基本类型假如是int,第三个参数可以使用系统自带的<code>less&lt;int&gt;()</code>或者<code>greater&lt;int&gt;()</code></p>
+<h1 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h1><p><a href="https://www.cnblogs.com/liaocheng/p/4371796.html" target="_blank" rel="noopener">https://www.cnblogs.com/liaocheng/p/4371796.html</a></p>
+<pre class="line-numbers language-c++"><code class="language-c++">//写文件实例
+#include<fstream>
+
+ofstream File("xxx/xxx.txt",ios::out); //打开，没有回创建
+if(File.fail()){
+  cout<<"error"<<endl; exit(0);="" }="" else="" cout="" <<"opened"<<endl;="" file="" <<="" "hello."="" <<endl;="" 写入。若有内容会清空="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></"error"<<endl;></fstream></code></pre>
+<h1 id="ifdef和-endif"><a href="#ifdef和-endif" class="headerlink" title="#ifdef和#endif"></a>#ifdef和#endif</h1><p>选择性编译</p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include<iostream>  
+#include<cstdio>  
+
+#define DEBUG  //至于这个DEBUG的名字，可以随心定义 如果注释掉这一句，下面的输出语句则不会编译！
+
+using namespace std;  
+int main(){  
+#ifdef DEBUG  //如果你前面改掉了DEBUG的名字，呢么这里记得要改
+    cout<<"hello world"<<endl;="" #endif="" return="" 0;="" }="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></"hello></cstdio></iostream></code></pre>
 <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><ul>
 <li><p><code>void func(char * arr, int x)</code> 你在定义的这个函数里 写 <code>x++</code> 这种句子。会报错? x是个形参，怎么能 变来变去呢？</p>
 <p>但是我觉得应该可以变啊。我得去试试再。</p>
