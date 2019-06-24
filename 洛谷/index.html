@@ -444,6 +444,69 @@ sort(ans1.begin(),ans1.begin()+K,cmp2);
 </li>
 </ul>
 <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="P1177-【模板】快速排序"><a href="#P1177-【模板】快速排序" class="headerlink" title="P1177 【模板】快速排序"></a><a href="https://www.luogu.org/problemnew/show/P1177" target="_blank" rel="noopener"><strong>P1177</strong> 【模板】快速排序</a></h3><p>惊喜啊！我写快排超时了！！！纳尼。。。太好了啊。如果没有洛谷OJ。我都不知道其实我的快排都是有问题的！！！赶紧去改了！</p>
+<p>看了这篇题解，<a href="https://www.luogu.org/blog/adamding/solution-p1177" target="_blank" rel="noopener">https://www.luogu.org/blog/adamding/solution-p1177</a> 和这篇博客<a href="https://blog.csdn.net/hacker00011000/article/details/52176100说明了快速排序的几个问题：" target="_blank" rel="noopener">https://blog.csdn.net/hacker00011000/article/details/52176100说明了快速排序的几个问题：</a></p>
+<ul>
+<li>已经有序的情况，每次只能安排好第一个元素 退化成O(n^2)的冒泡</li>
+<li>区间分割较小时，还是会层层递归</li>
+<li>大量重复数字时，(快排是不稳定的嘛)，也会处理。</li>
+</ul>
+<p>针对上面三个情况，楼主提出三种优化：</p>
+<ul>
+<li>随机比较</li>
+<li>小区间直接插入排序</li>
+<li><strong>在一次分割结束后，可以把与Key相等的元素聚在一起，继续下次分割时，不用再对与key相等元素分割</strong></li>
+</ul>
+<hr>
+<p>哎。我最后也没弄明白为啥它这个解法能过。</p>
+<p><a href="https://blog.csdn.net/u011815404/article/details/79889355" target="_blank" rel="noopener">https://blog.csdn.net/u011815404/article/details/79889355</a></p>
+<p>问了龙哥，果然好使。上面这个人的写法。更像归并！</p>
+<p>主要思想：取中间的数做标杆。然后每一趟循环之后，数组的左右两侧，左边的一定小于右边的。</p>
+<hr>
+<p>最后找到了我的错误：就是这种情况：</p>
+<pre class="line-numbers language-c++"><code class="language-c++"> int m = a[(i+j)/2];
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>是用m取出来和后面的比较呢。还是</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int m = (i+j)/2;
+a[m];
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这样呢？</p>
+<p>一定要看后面 i和j 会不会变啊！</p>
+<p>然后根据情况决定。</p>
+<hr>
+<p>排序这一组后面的题，借助于sort函数，基本都没写。但是基础的几个排序算法我还是很需要去加深的。就先这样吧继续往下刷了。</p>
+<h2 id="排序Ex"><a href="#排序Ex" class="headerlink" title="排序Ex"></a>排序Ex</h2><h3 id="P1583-P1051-P1093"><a href="#P1583-P1051-P1093" class="headerlink" title="P1583 P1051 P1093"></a><strong>P1583</strong> P1051 P1093</h3><ul>
+<li><p>[x] 不要重做标记 </p>
+<p>P1583本身很简单，只不过题意中有个序号，有个编号。要看清都用来做什么、输出什么。</p>
+<p>后面两个题一样没技术含量</p>
+</li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="P1012-拼数"><a href="#P1012-拼数" class="headerlink" title="P1012 拼数"></a><a href="https://www.luogu.org/problemnew/show/P1012" target="_blank" rel="noopener"><strong>P1012</strong> 拼数</a></h3><p>令人窒息的操作</p>
+<pre class="line-numbers language-c++"><code class="language-c++">bool cmp(string s1,string s2){
+  return s1+s2<s2+s1; }="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></s2+s1;></code></pre>
+<h3 id="P1603-斯诺登的密码"><a href="#P1603-斯诺登的密码" class="headerlink" title="P1603 斯诺登的密码"></a><a href="https://www.luogu.org/problemnew/show/P1603" target="_blank" rel="noopener"><strong>P1603</strong> 斯诺登的密码</a></h3><p>虽然AC了。但我竟然之前傻傻地要把int转成string再比较。这题直接用int输出就行啊。</p>
+<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><h3 id="P1090-合并果子"><a href="#P1090-合并果子" class="headerlink" title="P1090 合并果子"></a><a href="https://www.luogu.org/problemnew/show/P1090" target="_blank" rel="noopener"><strong>P1090</strong> 合并果子</a></h3><p>开始我每次都用sort()对数组拍一次序，找到最小的2组合并。但是：超时了。</p>
+<p>对啊。只要找到最小的两组就行了。为啥要对整个数组排序呢。那样复杂度怎么也是$\Theta(nlog_n)$及以上的啊。而我遍历整个数组找到最小的数只需要n次。</p>
+<p>看到一个STL优先队列的解法：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">priority_queue<int,vector<int>,greater<int> >q;
+int main(){
+    cin>>n;
+    for(int i=1;i<=n;i++) cin="">>x,q.push(x);
+    while(q.size()>=2){
+        int a=q.top(); q.pop();
+        int b=q.top(); q.pop();
+        ans+=a+b;
+        q.push(a+b);
+    }
+    cout<<ans<<endl; return="" 0;="" }="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></ans<<endl;></=n;i++)></int></int,vector<int></code></pre>
+<p>看来proirty可以实现每次有插入删除的时候都执行换位操作。</p>
+<p><strong>需要注意的是，优先队列里使用从greater排序，是把大的放到了最后面（不同于sort里的调用）。所以题解中的<code>q.top</code>以及<code>q.pop</code>都是针对【对首元素】的</strong></p>
+<p>查了下：<code>priority_queue</code>比较方式默认用operator&lt;，所以如果把后面2个参数缺省的话，优先队列就是大顶堆（降序），队头元素最大。</p>
+<h3 id="P1181-数列分段Section-I"><a href="#P1181-数列分段Section-I" class="headerlink" title="P1181 数列分段Section I"></a><a href="https://www.luogu.org/problemnew/show/P1181" target="_blank" rel="noopener"><strong>P1181</strong> 数列分段Section I</a></h3><p>讨论：这题为何贪心是最优？</p>
+<blockquote>
+<p>贪心多用反证法证明、如果这样划分不是最优，则假设有xxx解法是最优，最后推出矛盾。</p>
+</blockquote>
+<h3 id="P1208-USACO1-3-混合牛奶-Mixing-Milk"><a href="#P1208-USACO1-3-混合牛奶-Mixing-Milk" class="headerlink" title="P1208 [USACO1.3]混合牛奶 Mixing Milk"></a><a href="https://www.luogu.org/problemnew/show/P1208" target="_blank" rel="noopener"><strong>P1208</strong> [USACO1.3]混合牛奶 Mixing Milk</a></h3><p>用sort对结构体排序。结果呢，人家数据是5000个一样的。5000个结构体排序，能跑出来吗。</p>
+<p>改用边输入，边判断大小并插入。</p>
 
             </div>
             <hr>
@@ -636,30 +699,58 @@ sort(ans1.begin(),ans1.begin()+K,cmp2);
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/HDU-OJ/">
+                <a href="/洛谷/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="洛谷训练场刷题记录">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">洛谷训练场刷题记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"></div>
+                    <div class="summary">
+进村第一个任务Pass
+顺序与分支P1422 小玉家的电费控制输出精度：cout.xxx(); 待查询
+
+P1089 津津的储蓄计划注意 int 和 float 相乘，输出格式用 “%d” 数字会面目全非
+
+P1909 买铅笔INT_MA</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-11
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            ixsim
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/luoguOJ/" target="_blank">
+                        <span class="chip bg-color">luoguOJ</span>
+                    </a>
+                    
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
+                    </a>
+                    
+                    <a href="/tags/Algorithm/" target="_blank">
+                        <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -682,13 +773,13 @@ sort(ans1.begin(),ans1.begin()+K,cmp2);
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">
+Problems
+报错：type does not provide a call operator
+解决：给报错那句的变量换个名字吧。冲突了~
 
-传入空vector情况不考虑
-m = array[0].size();这么写如果传入空数组直接溢出
+[ ] 初始化一个map，我还没往里存东西。它的end()是什么值？
 
-二维数组考虑传入一个元素的情况，即传入形如[[x,x,x,x]]这种
-
-循环读输入用：while(cin&gt;&gt;x) 或 wh</div>
+防止下标溢出要先判断</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-06

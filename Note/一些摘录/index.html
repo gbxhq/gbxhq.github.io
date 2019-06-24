@@ -4,8 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="炫杉">
-    <meta name="description" content="炫杉">
+    <meta name="keywords" content="一些摘录, 炫杉">
+    <meta name="description" content="
+1.MySQL的“utf8mb4”是真正的“UTF-8”。
+2.MySQL的“utf8”是一种“专属的编码”，它能够编码的Unicode字符并不多。
+如果你在使用MySQL或MariaDB，不要用utf8编码，改用utf8mb4。这里（ ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>炫杉</title>
+    <title>一些摘录 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -180,13 +183,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        
+                        一些摘录
                     </div>
                 </div>
             </div>
@@ -295,12 +298,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Note/" target="_blank">
+                                <span class="chip bg-color">Note</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Note/" class="post-category" target="_blank">
+                                Note
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -308,7 +324,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-12
+                    2019-05-14
                 </div>
 
                 
@@ -324,7 +340,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <a id="more"></a>
+<p>1.MySQL的“utf8mb4”是真正的“UTF-8”。</p>
+<p>2.MySQL的“utf8”是一种“专属的编码”，它能够编码的Unicode字符并不多。</p>
+<p>如果你在使用MySQL或MariaDB，不要用<code>utf8</code>编码，改用<code>utf8mb4</code>。这里（ <a href="https://mathiasbynens.be/notes/mysql-utf8mb4#utf8-to-utf8mb4" target="_blank" rel="noopener">https://mathiasbynens.be/notes/mysql-utf8mb4#utf8-to-utf8mb4</a> ）提供了一个指南用于将现有数据库的字符编码从<code>utf8</code>转成<code>utf8mb4</code></p>
+<p>参考：<a href="https://mp.weixin.qq.com/s/LXEyeAUn4ZR2j71x9uNRjg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/LXEyeAUn4ZR2j71x9uNRjg</a></p>
+<h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><p><a href="https://mp.weixin.qq.com/s/H5LIRjCVzlMKy-RrfKbFmA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/H5LIRjCVzlMKy-RrfKbFmA</a></p>
+
             </div>
             <hr>
 
@@ -471,7 +493,7 @@
                     </span>
                     <a href="https://ixs.im" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/HDU-OJ/" class="b-link-green"></a>
+                    <a href="/Note/一些摘录/" class="b-link-green">一些摘录</a>
                 </p>
             </div>
         </div>
@@ -516,33 +538,50 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/HDU-OJ/">
+                <a href="/Python/PythonProblems/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Python Problems Notes">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Python Problems Notes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"></div>
+                    <div class="summary">Python相关杂记录，方便自己查阅，没技术含量。
+
+pip更换源mac用户文件夹下没有.pip文件夹，自己建就行。 系统自带的在~/Library/Application Support/pip/pip.conf
+code ~/.pip/</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-23
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            ixsim
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -553,33 +592,29 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/洛谷/">
+                <a href="/Log/multiPath_papers/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="洛谷训练场刷题记录">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="几篇多路径文献">
                         
-                        <span class="card-title">洛谷训练场刷题记录</span>
+                        <span class="card-title">几篇多路径文献</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-进村第一个任务Pass
-顺序与分支P1422 小玉家的电费控制输出精度：cout.xxx(); 待查询
-
-P1089 津津的储蓄计划注意 int 和 float 相乘，输出格式用 “%d” 数字会面目全非
-
-P1909 买铅笔INT_MA</div>
+                    <div class="summary">https://doi.org/10.1051/matecconf/201925205018
+The simulation study on the multipath adaptive video transmission
+https:/</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
-                                    Algorithm
+                            <a href="/categories/PhD/" class="post-category" target="_blank">
+                                    PhD
                                 </a>
                             
                             
@@ -589,16 +624,16 @@ P1909 买铅笔INT_MA</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/luoguOJ/" target="_blank">
-                        <span class="chip bg-color">luoguOJ</span>
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
                     </a>
                     
-                    <a href="/tags/Cpp/" target="_blank">
-                        <span class="chip bg-color">Cpp</span>
+                    <a href="/tags/Paper/" target="_blank">
+                        <span class="chip bg-color">Paper</span>
                     </a>
                     
-                    <a href="/tags/Algorithm/" target="_blank">
-                        <span class="chip bg-color">Algorithm</span>
+                    <a href="/tags/MultiPath/" target="_blank">
+                        <span class="chip bg-color">MultiPath</span>
                     </a>
                     
                 </div>

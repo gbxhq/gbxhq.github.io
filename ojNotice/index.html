@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <meta name="keywords" content="OJ刷题注意事项, 炫杉">
     <meta name="description" content="
+Problems
+报错：type does not provide a call operator
+解决：给报错那句的变量换个名字吧。冲突了~
 
-传入空vector情况不考虑
-m = array[0].size();这么写如果传入空数组直接溢出
+[ ] 初始化一个map，我还没往里存东西。它的end()是什么值？
 
-二维数组考虑传入一个元素的情况，即传入形如[[x,x,x,x]]这种
-
-循环读输入用：while(cin&amp;gt;&amp;gt;x) 或 wh">
+防止下标溢出要先判断">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -345,7 +345,17 @@ m = array[0].size();这么写如果传入空数组直接溢出
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <a id="more"></a>
-<ul>
+<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><ul>
+<li><p>报错：<code>type does not provide a call operator</code></p>
+<p>解决：给报错那句的变量换个名字吧。冲突了~</p>
+</li>
+<li><p>[ ] 初始化一个map，我还没往里存东西。它的end()是什么值？</p>
+</li>
+<li><p>防止下标溢出要先判断下标。例子：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">//下面的循环：i++到array溢出时，循环无法进行，最终卡死在这里。
+while (array[i]<target &&="" i<n)="" i++;="" 正解：把控制i溢出的表达式i<n放在前面="" while="" (i<n="" array[i]<target="" )="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></target></code></pre>
+</li>
+<li></li>
 <li><p>传入空vector情况不考虑</p>
 <p><code>m = array[0].size();</code>这么写如果传入空数组直接溢出</p>
 </li>
@@ -390,7 +400,7 @@ unsigned long long
 </li>
 <li></li>
 </ul>
-
+<h1 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h1>
             </div>
             <hr>
 

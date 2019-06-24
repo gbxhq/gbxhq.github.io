@@ -7,11 +7,13 @@
     <meta name="keywords" content="C++学习笔记, 炫杉">
     <meta name="description" content="语法的笔记。用到啥就复制点。仅供个人查阅~
 
-Problems
-报错：type does not provide a call operator
-解决：给报错那句的变量换个名字吧。冲突了~
+基本
+(int)(3*1.5) 默认向下取整得到4
 
-[ ] 初始化一个map，我还没往里存东西。它的">
+char：字符型与整型相比只是更加节省内存。（在所有数据类型中，char类型占用的内存空间最少）所以可以用来代替int使用
+
+
+数组局部数组">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -349,57 +351,54 @@ Problems
             <div id="articleContent">
                 <p>语法的笔记。用到啥就复制点。仅供个人查阅~</p>
 <a id="more"></a>
-<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><ul>
-<li><p>报错：<code>type does not provide a call operator</code></p>
-<p>解决：给报错那句的变量换个名字吧。冲突了~</p>
+<h1 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h1><ul>
+<li><p><code>(int)(3*1.5)</code> 默认向下取整得到4</p>
 </li>
-<li><p>[ ] 初始化一个map，我还没往里存东西。它的end()是什么值？</p>
+<li><p>char：字符型与整型相比只是更加节省内存。（在所有数据类型中，char类型占用的内存空间最少）所以可以用来代替int使用</p>
 </li>
-<li><p><code>cin</code>怎么结束输入</p>
-<p>Mac下是<code>ctrl + D</code> Win 下是 <code>ctrl + Z</code></p>
-</li>
-<li><p>防止下标溢出要先判断下标。例子：</p>
-<pre class="line-numbers language-c++"><code class="language-c++">//下面的循环：i++到array溢出时，循环无法进行，最终卡死在这里。
-while (array[i]<target &&="" i<n)="" i++;="" 正解：把控制i溢出的表达式i<n放在前面="" while="" (i<n="" array[i]<target="" )="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></target></code></pre>
-</li>
-<li></li>
 </ul>
-<h1 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h1><p>char：字符型与整型相比只是更加节省内存。（在所有数据类型中，char类型占用的内存空间最少）所以可以用来代替int使用</p>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p><strong>局部数组：</strong>没有默认值，如果声明的时候不定义，则会出现随机数（undefined）；如果声明的长度与赋值长度不相等，则有，声明的长度&gt;赋值长度，后面用0补足，声明的长度&gt;赋值长度，发生编译错误；</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p><strong>局部数组：</strong>没有默认值，如果声明的时候不定义，则会出现随机数（undefined）；如果声明的长度与赋值长度不相等，则有，声明的长度&gt;赋值长度，后面用0补足，声明的长度&gt;赋值长度，发生编译错误；</p>
 <p><strong>全局数组：</strong>声明时不赋值，默认值为0 </p>
 <p><strong>指针new：</strong>动态获取的内存，默认值undefined</p>
 <p>关于数组初始化，这里写的很详细！<a href="https://www.cnblogs.com/bluecagalli/p/9511126.html" target="_blank" rel="noopener">https://www.cnblogs.com/bluecagalli/p/9511126.html</a></p>
-<h1 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h1><p>容器是连续的内存区。有1.5倍的容量大小。可以避免开数组设置大小的问题。</p>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul>
-<li><p>默认构造函数</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">vt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10个0</span>
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">vt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10个1</span>
+<h2 id="Char-字符串数组"><a href="#Char-字符串数组" class="headerlink" title="Char* 字符串数组"></a>Char* 字符串数组</h2><p>参考：<a href="https://www.cnblogs.com/kungfupanda/archive/2012/06/15/2456931.html" target="_blank" rel="noopener">https://www.cnblogs.com/kungfupanda/archive/2012/06/15/2456931.html</a></p>
+<p>我就抄点我用到的     定义与初始化</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> str<span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"I am happy"</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//可以省略花括号，如下所示</span>
+<span class="token keyword">char</span> str<span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"I am happy"</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>数组地址初始化</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">vt</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>a<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>注意：上述这种字符数组的整体赋值只能在字符数组<strong>初始化</strong>时使用，不能用于字符数组的<strong>赋值</strong>。但是字符串指针就可以这么赋值：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> <span class="token operator">*</span>a<span class="token punctuation">;</span>
+a <span class="token operator">=</span> <span class="token string">"I love China."</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>文档中看到的方法，编译过不了?</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp">std<span class="token operator">::</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> v1<span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<p>输出方式</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"http://c.biancheng.net"</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//通过变量输出</span>
+<span class="token function">puts</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//通过变量输出</span>
+cout <span class="token operator">&lt;&lt;</span> str <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//C++可以这样</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Note！关于声明时赋值"><a href="#Note！关于声明时赋值" class="headerlink" title="Note！关于声明时赋值"></a>Note！关于声明时赋值</h3><p>c++ 里面 如果你写</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> <span class="token operator">*</span>af <span class="token operator">=</span><span class="token string">"bbbb"</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-</ul>
-<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><ul>
-<li><p>迭代器</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp">ST tmp<span class="token punctuation">;</span>
-vector<span class="token operator">&lt;</span>ST<span class="token operator">></span><span class="token operator">::</span> iterator iter<span class="token punctuation">;</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span>iter <span class="token operator">=</span> vt<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>iter <span class="token operator">!=</span> vt<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>iter<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    tmp <span class="token operator">=</span> <span class="token operator">*</span>iter<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//取到了</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p><code>at()</code> 括号里是下标。跟数组一样访问就行了。<code>tmp=vt.at(5);</code></p>
-</li>
-</ul>
-<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><ul>
+<p>会报错<code>Conversion from string literal to &#39;char *&#39; is deprecated</code>  </p>
+<p>这是什么原因呢，书上是这么写的：</p>
+<p>c++从c语言继承下来的一种通用结构是c风格字符串，char 字符串字面值就是这中类型的实例，而字符串字面值的类型是const char 类型的数组，是以空字符null结束的字符数组。</p>
+<pre><code>char ca1[] = &quot;hello&quot;;//正确 包换null
+char ca2[] = {&#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;};//不含null
+char ca3[] = {&#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;,&#39;\0&#39;};//包含null
+</code></pre><p>代码可以看出，ca1和ca3是属于c风格字符串。<br>现在回到问题中，那么正确的写法是什么呢？</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> af<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>af <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>以上两种方式都是正确的，而为什么要加上const，因为char字符串字面值是不允许修改的，原因如下：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>ak <span class="token operator">=</span><span class="token string">"ffff"</span><span class="token punctuation">;</span>
+ak <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>ok，编译正确，这里并木有修改 * ak的值，而是把ak重新指向了“hello”</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>ak <span class="token operator">=</span><span class="token string">"ffff"</span><span class="token punctuation">;</span>
+<span class="token operator">*</span>ak <span class="token operator">=</span> <span class="token string">"h"</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>编译有错误“Read-only variable is  not assignable”</p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ul>
 <li><p><a href="http://www.cnblogs.com/Cmpl/archive/2012/01/01/2309710.html" target="_blank" rel="noopener">头文件string与string.h的区别</a><a href="https://www.cnblogs.com/curo0119/p/8304924.html" target="_blank" rel="noopener">https://www.cnblogs.com/curo0119/p/8304924.html</a></p>
 </li>
 <li><p>string对象的操作</p>
@@ -416,13 +415,13 @@ transform(strA.begin(), strA.end(), strA.begin(), ::toupper);
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h2 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h2><pre class="line-numbers language-c++"><code class="language-c++">int a, b;
+<h3 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h3><pre class="line-numbers language-c++"><code class="language-c++">int a, b;
 scanf("%d%d", &a, &b);
 sprintf(buf, "%d", a + b);
 puts(buf);
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>可以把数据输出到字符串中  </p>
-<h2 id="npos"><a href="#npos" class="headerlink" title="npos"></a>npos</h2><ul>
+<h3 id="npos"><a href="#npos" class="headerlink" title="npos"></a>npos</h3><ul>
 <li><p>用法</p>
 <pre class="line-numbers language-c++"><code class="language-c++">//find 函数 返回jk 在s 中的下标位置 
 position = s.find("jk");
@@ -460,51 +459,49 @@ position = s.find("jk");
 <p>​                 <strong>npos:        4294967295</strong></p>
 <p>​                 <strong>size_t max:  4294967295</strong></p>
 <p>可见他们是相等的，也就是说npos表示size_t的最大值</p>
-<h1 id="Char-字符串数组"><a href="#Char-字符串数组" class="headerlink" title="Char* 字符串数组"></a>Char* 字符串数组</h1><p>参考：<a href="https://www.cnblogs.com/kungfupanda/archive/2012/06/15/2456931.html" target="_blank" rel="noopener">https://www.cnblogs.com/kungfupanda/archive/2012/06/15/2456931.html</a></p>
-<p>我就抄点我用到的     定义与初始化</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> str<span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"I am happy"</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//可以省略花括号，如下所示</span>
-<span class="token keyword">char</span> str<span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"I am happy"</span><span class="token punctuation">;</span>
+<h1 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h1><h2 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h2><p>容器是连续的内存区。有1.5倍的容量大小。可以避免开数组设置大小的问题。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><ul>
+<li><p>默认构造函数</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">vt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10个0</span>
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">vt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10个1</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>注意：上述这种字符数组的整体赋值只能在字符数组<strong>初始化</strong>时使用，不能用于字符数组的<strong>赋值</strong>。但是字符串指针就可以这么赋值：</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> <span class="token operator">*</span>a<span class="token punctuation">;</span>
-a <span class="token operator">=</span> <span class="token string">"I love China."</span>
+</li>
+<li><p>数组地址初始化</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">vt</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>a<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>输出方式</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"http://c.biancheng.net"</span><span class="token punctuation">;</span>
-<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//通过变量输出</span>
-<span class="token function">puts</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//通过变量输出</span>
-cout <span class="token operator">&lt;&lt;</span> str <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//C++可以这样</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Note！关于声明时赋值"><a href="#Note！关于声明时赋值" class="headerlink" title="Note！关于声明时赋值"></a>Note！关于声明时赋值</h2><p>c++ 里面 如果你写</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> <span class="token operator">*</span>af <span class="token operator">=</span><span class="token string">"bbbb"</span><span class="token punctuation">;</span>
+</li>
+<li><p>文档中看到的方法，编译过不了?</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">std<span class="token operator">::</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> v1<span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>会报错<code>Conversion from string literal to &#39;char *&#39; is deprecated</code>  </p>
-<p>这是什么原因呢，书上是这么写的：</p>
-<p>c++从c语言继承下来的一种通用结构是c风格字符串，char 字符串字面值就是这中类型的实例，而字符串字面值的类型是const char 类型的数组，是以空字符null结束的字符数组。</p>
-<pre><code>char ca1[] = &quot;hello&quot;;//正确 包换null
-char ca2[] = {&#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;};//不含null
-char ca3[] = {&#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;,&#39;\0&#39;};//包含null
-</code></pre><p>代码可以看出，ca1和ca3是属于c风格字符串。<br>现在回到问题中，那么正确的写法是什么呢？</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> af<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
-<span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>af <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>以上两种方式都是正确的，而为什么要加上const，因为char字符串字面值是不允许修改的，原因如下：</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>ak <span class="token operator">=</span><span class="token string">"ffff"</span><span class="token punctuation">;</span>
-ak <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>ok，编译正确，这里并木有修改 * ak的值，而是把ak重新指向了“hello”</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>ak <span class="token operator">=</span><span class="token string">"ffff"</span><span class="token punctuation">;</span>
-<span class="token operator">*</span>ak <span class="token operator">=</span> <span class="token string">"h"</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>编译有错误“Read-only variable is  not assignable”</p>
-<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p>遍历</p>
+</li>
+</ul>
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><ul>
+<li><p>迭代器</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">ST tmp<span class="token punctuation">;</span>
+vector<span class="token operator">&lt;</span>ST<span class="token operator">></span><span class="token operator">::</span> iterator iter<span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>iter <span class="token operator">=</span> vt<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>iter <span class="token operator">!=</span> vt<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>iter<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    tmp <span class="token operator">=</span> <span class="token operator">*</span>iter<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//取到了</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><code>at()</code> 括号里是下标。跟数组一样访问就行了。<code>tmp=vt.at(5);</code></p>
+</li>
+</ul>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>遍历</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span><span class="token operator">::</span>iterator iter<span class="token punctuation">;</span>
 iter <span class="token operator">=</span> _map<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">while</span><span class="token punctuation">(</span>iter <span class="token operator">!=</span> _map<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     cout <span class="token operator">&lt;&lt;</span> iter<span class="token operator">-</span><span class="token operator">></span>first <span class="token operator">&lt;&lt;</span> <span class="token string">" : "</span> <span class="token operator">&lt;&lt;</span> iter<span class="token operator">-</span><span class="token operator">></span>second <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
     iter<span class="token operator">++</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> numList<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<p>查找：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">if(map.find('x')!= _map.end())
+  找到了;
+else
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> numList<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//1.set add</span>
 set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> numSet<span class="token punctuation">;</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">6</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//2.1insert into set</span>
@@ -529,27 +526,6 @@ set<span class="token operator">&lt;</span><span class="token keyword">int</span
 <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="结构体比较"><a href="#结构体比较" class="headerlink" title="结构体比较"></a>结构体比较</h1><p><strong>注意：经测试，比较函数必须写在全局函数里</strong></p>
-<pre class="line-numbers language-c++"><code class="language-c++">//比较函数，对结构体进行排序 
-int cmp(student s1,student s2){
-    if(s1.height!=s2.height){
-        return s1.height > s2.height;
-    }
-
-    else if(s1.height == s2.height){
-        return strcmp(s1.name,s2.name) < 0;    
-    }    
-}
-sort(stu,stu+number,cmp);
-//sort应该是在#include<algorithm>中
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></algorithm></code></pre>
-<pre class="line-numbers language-c++"><code class="language-c++">#include<algorithm>
-bool sortApple(struct apple a, struct apple b){
-        return a.y < b.y; //升序排列
-}
-sort(vt.begin(), vt.end(), sortApple);
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></algorithm></code></pre>
-<p>然后如果是基本类型假如是int,第三个参数可以使用系统自带的<code>less&lt;int&gt;()</code>或者<code>greater&lt;int&gt;()</code></p>
 <h1 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h1><p><a href="https://www.cnblogs.com/liaocheng/p/4371796.html" target="_blank" rel="noopener">https://www.cnblogs.com/liaocheng/p/4371796.html</a></p>
 <pre class="line-numbers language-c++"><code class="language-c++">//写文件实例
 #include<fstream>
@@ -557,17 +533,39 @@ sort(vt.begin(), vt.end(), sortApple);
 ofstream File("xxx/xxx.txt",ios::out); //打开，没有回创建
 if(File.fail()){
   cout<<"error"<<endl; exit(0);="" }="" else="" cout="" <<"opened"<<endl;="" file="" <<="" "hello."="" <<endl;="" 写入。若有内容会清空="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></"error"<<endl;></fstream></code></pre>
-<h1 id="ifdef和-endif"><a href="#ifdef和-endif" class="headerlink" title="#ifdef和#endif"></a>#ifdef和#endif</h1><p>选择性编译</p>
-<pre class="line-numbers language-c++"><code class="language-c++">#include<iostream>  
-#include<cstdio>  
-
-#define DEBUG  //至于这个DEBUG的名字，可以随心定义 如果注释掉这一句，下面的输出语句则不会编译！
-
-using namespace std;  
-int main(){  
-#ifdef DEBUG  //如果你前面改掉了DEBUG的名字，呢么这里记得要改
-    cout<<"hello world"<<endl;="" #endif="" return="" 0;="" }="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></"hello></cstdio></iostream></code></pre>
-<h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><ul>
+<h1 id="Algorithm-h"><a href="#Algorithm-h" class="headerlink" title="Algorithm.h"></a>Algorithm.h</h1><h2 id="Sort"><a href="#Sort" class="headerlink" title="Sort()"></a>Sort()</h2><p><strong>注意：经测试，比较函数必须写在全局函数里</strong></p>
+<pre class="line-numbers language-c++"><code class="language-c++">struct stu{
+    int id;
+    int grade;
+    stu(int a=0,int b=0):id(a),grade(b){}//这么初始化很方便 但是参数一定别忘记赋初值！！！！！！！！！！
+};//比较函数，对结构体进行排序 
+bool cmp(stu s1,stu s2){
+    if(s1.grade!=s2.grade)
+        return s1.grade>s2.grade;//大的放前面
+    else
+        return s1.id<s2.id; 成绩一样学号小的在前="" }="" sort(stu,stu+number,cmp);="" sort应该是在#include<algorithm="">中
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></s2.id;></code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">#include<algorithm>
+bool sortApple(struct apple a, struct apple b){
+        return a.y < b.y; //升序排列
+}
+sort(vt.begin(), vt.end(), sortApple);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></algorithm></code></pre>
+<p>然后如果是基本类型假如是int,第三个参数可以使用系统自带的<code>less&lt;int&gt;()</code>或者<code>greater&lt;int&gt;()</code></p>
+<p>然后说说sort的前两个参数: 第一个是数组基地址，第二个是长度+1。</p>
+<p>如对a[0..i]排序需要传入sort(a,a+i+1)才行。</p>
+<h2 id="unique"><a href="#unique" class="headerlink" title="unique"></a>unique</h2><p>可以提出所有连续的数并缩减到一个.</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span><span class="token comment" spellcheck="true">//unique in &lt;algorithm></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ints<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token function">unique</span><span class="token punctuation">(</span>ints<span class="token punctuation">,</span>ints<span class="token operator">+</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>cout<span class="token operator">&lt;&lt;</span>ints<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span><span class="token string">' '</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最后输出:<code>1 2 3 5 10</code></p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
 <li><p><code>void func(char * arr, int x)</code> 你在定义的这个函数里 写 <code>x++</code> 这种句子。会报错? x是个形参，怎么能 变来变去呢？</p>
 <p>但是我觉得应该可以变啊。我得去试试再。</p>
 </li>
@@ -577,7 +575,20 @@ int main(){
 </li>
 <li><p>枚举类型成员都是整型变量。可以为负。不设初值就是上一个变量+1。<code>enum a {sum=9,mon=-1,tue};</code> 打印tue的值就是0.</p>
 </li>
+<li><p><code>cin</code>怎么结束输入</p>
+<p>Mac下是<code>ctrl + D</code> Win 下是 <code>ctrl + Z</code></p>
+</li>
 </ul>
+<h2 id="ifdef和-endif"><a href="#ifdef和-endif" class="headerlink" title="#ifdef和#endif"></a>#ifdef和#endif</h2><p>选择性编译</p>
+<pre class="line-numbers language-c++"><code class="language-c++">#include<iostream>  
+#include<cstdio>  
+
+#define DEBUG  //至于这个DEBUG的名字，可以随心定义 如果注释掉这一句，下面的输出语句则不会编译！
+
+using namespace std;  
+int main(){  
+#ifdef DEBUG  //如果你前面改掉了DEBUG的名字，呢么这里记得要改
+    cout<<"hello world"<<endl;="" #endif="" return="" 0;="" }="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></"hello></cstdio></iostream></code></pre>
 
             </div>
             <hr>
