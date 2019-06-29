@@ -358,13 +358,13 @@ DFSP1219 八皇后弱智一样的我，还建立NxN的矩阵来模拟。
 <blockquote>
 <p>求解的个数用深搜，求最优解用广搜。</p>
 </blockquote>
-<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h2 id="P1219-八皇后"><a href="#P1219-八皇后" class="headerlink" title="P1219 八皇后"></a><a href="https://www.luogu.org/problemnew/show/P1219" target="_blank" rel="noopener"><strong>P1219</strong> 八皇后</a></h2><p>弱智一样的我，还建立NxN的矩阵来模拟。</p>
-<p>结果呢，检查(check)时要遍历整个棋盘，最终导致只能过部分。</p>
+<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h2 id="P1219-八皇后"><a href="#P1219-八皇后" class="headerlink" title="P1219 八皇后"></a><a href="https://www.luogu.org/problemnew/show/P1219" target="_blank" rel="noopener"><strong>P1219</strong> 八皇后</a></h2><p><del>弱智一样的我，还建立NxN的矩阵来模拟。</del></p>
+<p><del>结果呢，检查(check)时要遍历整个棋盘，最终导致只能过部分。</del></p>
 <hr>
-<p>看了人家解法。根本不用二维矩阵。</p>
-<p>dfs(i)，因为传进来的i是行号，可以保证这一行只有一个。</p>
+<p>根本不用二维矩阵。</p>
+<p><code>dfs(i)</code>，因为传进来的i是行号，可以保证这一行只有一个。</p>
 <p>然后这一行放在第j列可以吗？根本不用遍历棋盘。</p>
-<p>只需要三个check数组，在标志位。</p>
+<p>只需要三个check数组，做标志位。</p>
 <h2 id="P1019-单词接龙"><a href="#P1019-单词接龙" class="headerlink" title="P1019 单词接龙"></a><a href="https://www.luogu.org/problemnew/show/P1019" target="_blank" rel="noopener"><strong>P1019</strong> 单词接龙</a></h2><p>这题我晚上做的。代码觉得没问题但是跑起来没输出。就睡了。第二天起来，删了几句代码精简了下结构。也不知道因为改了哪，直接AC了。</p>
 <p>总之这题虽是基础的DFS。但我思路还挺清晰的。有空可以回看一下代码！</p>
 <hr>
@@ -928,6 +928,13 @@ P1909 买铅笔INT_</div>
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
