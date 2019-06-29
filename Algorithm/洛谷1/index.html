@@ -4,12 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C++学习笔记, 炫杉">
-    <meta name="description" content="
-conversion function 转换函数class Fraction{
-public:
-    Fraction(int num,int den=1)
-        : m_mumerator(num),m_denominato">
+    <meta name="keywords" content="洛谷训练场刷题记录1, 炫杉">
+    <meta name="description" content="新手场和普及场前6关
+
+新手场顺序与分支P1422 小玉家的电费控制输出精度：cout.xxx(); 待查询
+
+P1089 津津的储蓄计划注意 int 和 float 相乘，输出格式用 “%d” 数字会面目全非
+
+P1909 买铅笔INT_">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +19,7 @@ public:
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++学习笔记 | 炫杉</title>
+    <title>洛谷训练场刷题记录1 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -184,13 +186,13 @@ public:
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++学习笔记
+                        洛谷训练场刷题记录1
                     </div>
                 </div>
             </div>
@@ -301,12 +303,16 @@ public:
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/cpp/" target="_blank">
-                                <span class="chip bg-color">cpp</span>
+                            <a href="/tags/luoguOJ/" target="_blank">
+                                <span class="chip bg-color">luoguOJ</span>
                             </a>
                         
-                            <a href="/tags/Note/" target="_blank">
-                                <span class="chip bg-color">Note</span>
+                            <a href="/tags/Cpp/" target="_blank">
+                                <span class="chip bg-color">Cpp</span>
+                            </a>
+                        
+                            <a href="/tags/Algorithm/" target="_blank">
+                                <span class="chip bg-color">Algorithm</span>
                             </a>
                         
                     </div>
@@ -317,8 +323,8 @@ public:
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/cpp/" class="post-category" target="_blank">
-                                cpp
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                Algorithm
                             </a>
                         
                     </div>
@@ -329,7 +335,7 @@ public:
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-12-06
+                    2019-06-11
                 </div>
 
                 
@@ -345,74 +351,168 @@ public:
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <a id="more"></a>
-<h1 id="conversion-function-转换函数"><a href="#conversion-function-转换函数" class="headerlink" title="conversion function 转换函数"></a>conversion function 转换函数</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Fraction</span><span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token function">Fraction</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span><span class="token keyword">int</span> den<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token operator">:</span> <span class="token function">m_mumerator</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">m_denominator</span><span class="token punctuation">(</span>den<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
-    <span class="token keyword">operator</span> <span class="token keyword">double</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>m_numerator<span class="token operator">/</span><span class="token punctuation">,</span>_denominator<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token keyword">private</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> m_numerator<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> m_denominator<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><code>operator double()</code>注意： 1，不需要写返回类型（本来就是返回double，写了还可能写错） 2，加const（一定不会改数据，也不需要参数）</p>
-<h1 id="non-explicit-one-argument-constructor"><a href="#non-explicit-one-argument-constructor" class="headerlink" title="non-explicit one argument constructor"></a>non-explicit one argument constructor</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Fraction</span><span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token function">Fraction</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span><span class="token keyword">int</span> den<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token operator">:</span> <span class="token function">m_mumerator</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">m_denominator</span><span class="token punctuation">(</span>den<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
-    Fraction <span class="token keyword">operator</span><span class="token operator">+</span><span class="token punctuation">(</span><span class="token keyword">const</span> Fraction <span class="token operator">&amp;</span> f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token function">Fraction</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token keyword">private</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> m_numerator<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> m_denominator<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-cpp"><code class="language-cpp">Fraction <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-Fraction d <span class="token operator">=</span> f<span class="token operator">+</span><span class="token number">4</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>4会调构造函数，变成 Fraction类型。两个Fraction可以执行 + 操作。</p>
-<p>但是，如果这时候再加上上一节的 conversion 函数，</p>
-<p> f+4 .f可以变成double；4可以变成Fraction 。两条路都能走。编译器就不知道怎么相加了。</p>
-<p>这时候怎么让编译器明确选哪条路呢？</p>
-<h2 id="explicit"><a href="#explicit" class="headerlink" title="explicit"></a>explicit</h2><p>构造函数写成</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">explicit</span> <span class="token function">Fraction</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span><span class="token keyword">int</span> den<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token operator">:</span> <span class="token function">m_mumerator</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">m_denominator</span><span class="token punctuation">(</span>den<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p> 这个关键字告诉编译器。不要私自用这个构造函数。只有我主动用才能构造。</p>
-<p> 标准库里用到的转换函数：</p>
-<p><img src="../../images/image-20181213201520146-4703320.png" alt="image-20181213201520146"></p>
-<h1 id="pointer-like-classes"><a href="#pointer-like-classes" class="headerlink" title="pointer-like classes"></a>pointer-like classes</h1><p><strong>智能指针</strong><img src="../../images/image-20181213203709979-4704630.png" alt="image-20181213203709979">看圆圈里的，<code>-&gt;</code>这个符号比较特殊。 返回的结果会一直调用下去。所以 重载后的<code>-&gt;</code>解引用返回了 px后，自动又出现一个 <code>-&gt;</code>往下指向<code>method()</code></p>
-<p><strong>迭代器</strong></p>
-<p><img src="../../images/image-20181213205148560-4705508.png" alt="image-20181213205148560"></p>
-<p>这里不太懂。</p>
-<h1 id="function-like-classes"><a href="#function-like-classes" class="headerlink" title="function-like classes"></a>function-like classes</h1><p>重载了 <code>（）</code>的类。</p>
-<h1 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">namespace</span> jj01
-<span class="token punctuation">{</span>
-    <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-jjo1<span class="token operator">::</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p> 类模板使用的时候要指明类型。</p>
-<p>函数模板不需要。 因为编译器可以做“实参推导”，根据你传进的参数，推出要调用什么类型。</p>
+                <p>新手场和普及场前6关</p>
+<a id="more"></a>
+<h1 id="新手场"><a href="#新手场" class="headerlink" title="新手场"></a>新手场</h1><h2 id="顺序与分支"><a href="#顺序与分支" class="headerlink" title="顺序与分支"></a>顺序与分支</h2><h3 id="P1422-小玉家的电费"><a href="#P1422-小玉家的电费" class="headerlink" title="P1422 小玉家的电费"></a>P1422 小玉家的电费</h3><p>控制输出精度：cout.xxx(); 待查询</p>
+<hr>
+<h3 id="P1089-津津的储蓄计划"><a href="#P1089-津津的储蓄计划" class="headerlink" title="P1089 津津的储蓄计划"></a><a href="https://www.luogu.org/problemnew/show/P1089" target="_blank" rel="noopener"><strong>P1089</strong> 津津的储蓄计划</a></h3><p>注意 int 和 float 相乘，输出格式用 “%d” 数字会面目全非</p>
+<hr>
+<h3 id="P1909-买铅笔"><a href="#P1909-买铅笔" class="headerlink" title="P1909 买铅笔"></a><a href="https://www.luogu.org/problemnew/show/P1909" target="_blank" rel="noopener"><strong>P1909</strong> 买铅笔</a></h3><p>INT_MAX存在&lt;limits.h&gt;里，不加.h也不行</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="P1035-级数求和"><a href="#P1035-级数求和" class="headerlink" title="P1035 级数求和"></a>P1035 级数求和</h3><ul>
+<li>我写了一个求和的函数Sn(int x)，然后把x从1到n开始试。这样其实n=3的时候，又要从新从1加到3。n等于4的时候，又要重新从1加到4。上一次的结果就全部浪费了。导致最后超时。<strong>所以要边加边判断。</strong></li>
+<li>涉及到int和float夹杂在一起的运算，特别是结果要是float的。一定要处处注意不要写整形参数，1要写成1.0  0要写成0.00   最好有double！</li>
+<li><p>仔细分析n++后，最后输出的那个n，是ans+1了还是就是ans。</p>
+</li>
+<li><p>[ ] 重刷标记</p>
+</li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="P1047-校门外的树"><a href="#P1047-校门外的树" class="headerlink" title="P1047 校门外的树"></a><a href="https://www.luogu.org/problemnew/show/P1047" target="_blank" rel="noopener"><strong>P1047</strong> 校门外的树</a></h3><p>数组声明后不遍历赋值，并不是默认都是0.(不同于Vector)</p>
+<p>延伸：</p>
 <blockquote>
-<p> 模板函数都是半编译。最开始的时候编译能过，但是传入参数后，能不能编译不一定了。</p>
+<p><strong>局部数组：</strong>没有默认值，如果声明的时候不定义，则会出现随机数（undefined）；如果声明的长度与赋值长度不相等，则有，声明的长度&gt;赋值长度，后面用0补足，声明的长度&gt;赋值长度，发生编译错误；</p>
+<p><strong>全局数组：</strong>声明时不赋值，默认值为0 </p>
+<p><strong>指针new：</strong>动态获取的内存，默认值undefined</p>
 </blockquote>
-<p>EX：<code>&lt;T&gt; bool isbigger(T a,T b){ return a&gt;b}</code> 模板这么写没问题。但是传进来两个石头。class石头如果重载了 <code>&gt;</code> 就能编译过。不然就不行了。</p>
-<h2 id="member-Template"><a href="#member-Template" class="headerlink" title="member Template"></a>member Template</h2><p><img src="../../images/image-20181213211637206-4706997.png" alt="image-20181213211637206"></p>
-<p>在外层的T确定之后，里面的U也可以变化。</p>
-<p>第9集。Mark。</p>
-<h1 id="specialization-特化"><a href="#specialization-特化" class="headerlink" title="specialization 特化"></a>specialization 特化</h1><p> <img src="../../images/image-20181213212717859-4707637.png" alt="image-20181213212717859"></p>
-<h2 id="偏特化"><a href="#偏特化" class="headerlink" title="偏特化"></a>偏特化</h2><p><strong>个数上的偏</strong><img src="../../images/image-20181213212909049-4707749.png" alt="image-20181213212909049"></p>
-<p>泛化的T。如果可以为1个位的东西。特化一下，就可以省空间。</p>
-<p><strong>范围上的偏</strong></p>
-<p><img src="../../images/image-20181213213314743-4707994.png" alt="image-20181213213314743"></p>
-<p>就是繁化过的东西再泛化一次。这个东西就有两个泛化的版本。</p>
-<p>注意区分这个和第一个完全的特化。</p>
-<h1 id="template-template-parameter-模板模板参数"><a href="#template-template-parameter-模板模板参数" class="headerlink" title="template template parameter 模板模板参数"></a>template template parameter 模板模板参数</h1><p><img src="../../images/image-20181213213835919-4708315.png" alt="image-20181213213835919"></p>
+<h2 id="简单字符串"><a href="#简单字符串" class="headerlink" title="简单字符串"></a>简单字符串</h2><h3 id="P1308-统计单词数"><a href="#P1308-统计单词数" class="headerlink" title="P1308 统计单词数"></a>P1308 统计单词数</h3><p>要高性能？怎么都做错了。</p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> Mark</li>
+</ul>
+<h2 id="过程函数与递归"><a href="#过程函数与递归" class="headerlink" title="过程函数与递归"></a>过程函数与递归</h2><h3 id="P1028-数的计算"><a href="#P1028-数的计算" class="headerlink" title="P1028 数的计算"></a>P1028 数的计算</h3><p>递归的方法我写出来了。但是超时。</p>
+<p>我每次跑都会把之前算过的值重新跑一遍。最后相当于浪费了很多。</p>
+<p>解决方法就是：用数组存每个n的结果，然后读取就可以了。</p>
+<h3 id="P1036-选数"><a href="#P1036-选数" class="headerlink" title="P1036 选数"></a>P1036 选数</h3><p>就是递归写排列组合，我竟写了这么久。</p>
+<p>不写代码就是手生啊。</p>
+<h2 id="Boss战入门1"><a href="#Boss战入门1" class="headerlink" title="Boss战入门1"></a>Boss战入门1</h2><h3 id="P2089-烤鸡"><a href="#P2089-烤鸡" class="headerlink" title="P2089 烤鸡"></a><a href="https://www.luogu.org/problemnew/show/P2089" target="_blank" rel="noopener"><strong>P2089</strong> 烤鸡</a></h3><p>走前就是写不出来思绪混乱。周末回来后，思路比较清晰。划重点：学会把递归的现有结果暂存到数组中！然后把数组当做变量传入下一次递归。思路清晰。</p>
+<h2 id="Boss战入门2"><a href="#Boss战入门2" class="headerlink" title="Boss战入门2"></a>Boss战入门2</h2><h3 id="P1464-Function"><a href="#P1464-Function" class="headerlink" title="P1464 Function"></a><strong>P1464</strong> Function</h3><p>这题有个题解说用”记忆宏”，如下：(类似树状数组里定义左右孩子)</p>
+<p><code>#define W_MEM(x,y,z) (w_mem[x][y][z] ? w_mem[x][y][z] : w_mem[x][y][z] = w(x, y, z))</code></p>
+<h3 id="P1014-Cantor表"><a href="#P1014-Cantor表" class="headerlink" title="P1014 Cantor表"></a><a href="https://www.luogu.org/problemnew/show/P1014" target="_blank" rel="noopener"><strong>P1014</strong> Cantor表</a></h3><p>简单题，不看</p>
+<h3 id="P1307-数字反转"><a href="#P1307-数字反转" class="headerlink" title="P1307 数字反转"></a><a href="https://www.luogu.org/problemnew/show/P1307" target="_blank" rel="noopener"><strong>P1307</strong> 数字反转</a></h3><p>j—到i后的情况 是if(j&gt;i)还是if(j&gt;=i) </p>
+<p>最好模拟一下。不然有些极端情况还是考虑不到。</p>
+<p>==&gt;说白了不就是<strong>如果j==i的时候要不要执行下面的语句</strong></p>
+<h1 id="普及练习场"><a href="#普及练习场" class="headerlink" title="普及练习场"></a>普及练习场</h1><h2 id="简单模拟"><a href="#简单模拟" class="headerlink" title="简单模拟"></a>简单模拟</h2><h3 id="P1003-铺地毯"><a href="#P1003-铺地毯" class="headerlink" title="P1003 铺地毯"></a>P1003 铺地毯</h3><ul>
+<li><p>开数组开这么大干啥？没必要真的用数组模拟出一个地面。</p>
+<p>只需要用一个数组记录下来每次输入的四个坐标就行了啊。</p>
+<ul>
+<li>边输入(cin)，可以直接把数存到数组里</li>
+</ul>
+</li>
+</ul>
+<h3 id="P1067-多项式输出"><a href="#P1067-多项式输出" class="headerlink" title="P1067 多项式输出"></a><a href="https://www.luogu.org/problemnew/show/P1067" target="_blank" rel="noopener"><strong>P1067</strong> 多项式输出</a></h3><ul>
+<li>没考虑系数是1的情况 输出了 <code>1x</code>  <code>-1x</code>这种尴尬</li>
+<li>没考虑x次数是1输出 <code>x^1</code> </li>
+</ul>
+<h3 id="P1056-排座椅"><a href="#P1056-排座椅" class="headerlink" title="P1056 排座椅"></a><a href="https://www.luogu.org/problemnew/show/P1056" target="_blank" rel="noopener"><strong>P1056</strong> 排座椅</a></h3><p>贪心入门 涉及知识点主要：</p>
+<ul>
+<li><p>结构体排序</p>
+<pre class="line-numbers language-c++"><code class="language-c++">bool cmp(s a,s b){//注意这个比较函数一定要写全局里
+ return a.value<b.value; 这就是小的放前面="" }="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></b.value;></code></pre>
+</li>
+<li><p>利用结构体排序，达到对一组数的值排序后，输出原下标的结果</p>
+<p>(因为<strong>题目输出结果是下标从小到大输出</strong>)开始我比较笨，先把结构体排序后。又把下标存起来。又排序。</p>
+<p>正解：直接写两个排序规则，第一个是按值，第二个是按下标：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">sort(ans1.begin(),ans1.end(),cmp);
+sort(ans1.begin(),ans1.begin()+K,cmp2);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这样第一行对值排序了。 第二行拿出排序后的前K个(要求输出的)，再按下标排序就符合输出要求了。</p>
+</li>
+</ul>
+<h2 id="交叉模拟"><a href="#交叉模拟" class="headerlink" title="交叉模拟"></a>交叉模拟</h2><h3 id="P1031-均分纸牌"><a href="#P1031-均分纸牌" class="headerlink" title="P1031 均分纸牌"></a><a href="https://www.luogu.org/problemnew/show/P1031" target="_blank" rel="noopener"><strong>P1031</strong> 均分纸牌</a></h3><ul>
+<li>想到思路很重要，这一题竟然只要每次都从左往右移动，就能成功。</li>
+<li>在循环中，遇到可以跳过(<code>if(xxx)continue;</code>)的情况，记得要把一些标志位(如<code>flag</code>)清空掉。不然虽然循环continue了，但上一次循环的”脏数据”会继续影响下面的循环。</li>
+</ul>
+<h3 id="P1042-乒乓球"><a href="#P1042-乒乓球" class="headerlink" title="P1042 乒乓球"></a><a href="https://www.luogu.org/problemnew/show/P1042" target="_blank" rel="noopener"><strong>P1042</strong> 乒乓球</a></h3><p>简单题Pass</p>
+<h3 id="P1098-字符串的展开"><a href="#P1098-字符串的展开" class="headerlink" title="P1098 字符串的展开"></a>P1098 字符串的展开</h3><p>这题繁琐不要重做，但要看看这几个要点</p>
+<ul>
+<li><p><code>replace()</code></p>
+<p>我是把<code>&#39;a&#39;</code>换成<code>str</code>，然后注意的就是，第二个参数是长度。</p>
+<p>所以要写成<code>s.replace(s.find(&#39; &#39;),1,str)</code>  开始把第二个参数当成了</p>
+</li>
+<li><p>for(auto x:s){ }这种只能访问遍历。<strong>不能对x做修改</strong>啊脑子抽。</p>
+<ul>
+<li><p>那为啥我用下标遍历OJ还是报错？</p>
+<p>答，用下标遍历不会报错，只不过报了个War，因为下标是int，<code>.length()</code>是无符号。</p>
+</li>
+</ul>
+</li>
+<li><p><code>transform(temp.begin(),temp.end(),temp.begin(),::toupper);</code> 这种写法要会。特别是最后一个参数。</p>
+</li>
+</ul>
+<h3 id="P1086-花生采摘"><a href="#P1086-花生采摘" class="headerlink" title="P1086 花生采摘"></a><a href="https://www.luogu.org/problemnew/show/P1086" target="_blank" rel="noopener"><strong>P1086</strong> 花生采摘</a></h3><p>花生这题简单的模拟。顺利AC。出了点小差错：</p>
+<ul>
+<li><p>if的情况写完没有对应的else。</p>
+<p>这题里，我对数组循环遍历。if(xxx)就继续往下执行。结果if不成立没有对循环break;导致循环继续跑下去。要谨慎！</p>
+</li>
+</ul>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="P1177-【模板】快速排序"><a href="#P1177-【模板】快速排序" class="headerlink" title="P1177 【模板】快速排序"></a><a href="https://www.luogu.org/problemnew/show/P1177" target="_blank" rel="noopener"><strong>P1177</strong> 【模板】快速排序</a></h3><p>惊喜啊！我写快排超时了！！！纳尼。。。太好了啊。如果没有洛谷OJ。我都不知道其实我的快排都是有问题的！！！赶紧去改了！</p>
+<p>看了这篇题解，<a href="https://www.luogu.org/blog/adamding/solution-p1177" target="_blank" rel="noopener">https://www.luogu.org/blog/adamding/solution-p1177</a> 和这篇博客<a href="https://blog.csdn.net/hacker00011000/article/details/52176100说明了快速排序的几个问题：" target="_blank" rel="noopener">https://blog.csdn.net/hacker00011000/article/details/52176100说明了快速排序的几个问题：</a></p>
+<ul>
+<li>已经有序的情况，每次只能安排好第一个元素 退化成O(n^2)的冒泡</li>
+<li>区间分割较小时，还是会层层递归</li>
+<li>大量重复数字时，(快排是不稳定的嘛)，也会处理。</li>
+</ul>
+<p>针对上面三个情况，楼主提出三种优化：</p>
+<ul>
+<li>随机比较</li>
+<li>小区间直接插入排序</li>
+<li><strong>在一次分割结束后，可以把与Key相等的元素聚在一起，继续下次分割时，不用再对与key相等元素分割</strong></li>
+</ul>
+<hr>
+<p>哎。我最后也没弄明白为啥它这个解法能过。</p>
+<p><a href="https://blog.csdn.net/u011815404/article/details/79889355" target="_blank" rel="noopener">https://blog.csdn.net/u011815404/article/details/79889355</a></p>
+<p>问了龙哥，果然好使。上面这个人的写法。更像归并！</p>
+<p>主要思想：取中间的数做标杆。然后每一趟循环之后，数组的左右两侧，左边的一定小于右边的。</p>
+<hr>
+<p>最后找到了我的错误：就是这种情况：</p>
+<pre class="line-numbers language-c++"><code class="language-c++"> int m = a[(i+j)/2];
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>是用m取出来和后面的比较呢。还是</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int m = (i+j)/2;
+a[m];
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这样呢？</p>
+<p>一定要看后面 i和j 会不会变啊！</p>
+<p>然后根据情况决定。</p>
+<hr>
+<p>排序这一组后面的题，借助于sort函数，基本都没写。但是基础的几个排序算法我还是很需要去加深的。就先这样吧继续往下刷了。</p>
+<h2 id="排序Ex"><a href="#排序Ex" class="headerlink" title="排序Ex"></a>排序Ex</h2><h3 id="P1583-P1051-P1093"><a href="#P1583-P1051-P1093" class="headerlink" title="P1583 P1051 P1093"></a><strong>P1583</strong> P1051 P1093</h3><ul>
+<li><p>[x] 不要重做标记 </p>
+<p>P1583本身很简单，只不过题意中有个序号，有个编号。要看清都用来做什么、输出什么。</p>
+<p>后面两个题一样没技术含量</p>
+</li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="P1012-拼数"><a href="#P1012-拼数" class="headerlink" title="P1012 拼数"></a><a href="https://www.luogu.org/problemnew/show/P1012" target="_blank" rel="noopener"><strong>P1012</strong> 拼数</a></h3><p>令人窒息的操作</p>
+<pre class="line-numbers language-c++"><code class="language-c++">bool cmp(string s1,string s2){
+  return s1+s2<s2+s1; }="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></s2+s1;></code></pre>
+<h3 id="P1603-斯诺登的密码"><a href="#P1603-斯诺登的密码" class="headerlink" title="P1603 斯诺登的密码"></a><a href="https://www.luogu.org/problemnew/show/P1603" target="_blank" rel="noopener"><strong>P1603</strong> 斯诺登的密码</a></h3><p>虽然AC了。但我竟然之前傻傻地要把int转成string再比较。这题直接用int输出就行啊。</p>
+<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><h3 id="P1090-合并果子"><a href="#P1090-合并果子" class="headerlink" title="P1090 合并果子"></a><a href="https://www.luogu.org/problemnew/show/P1090" target="_blank" rel="noopener"><strong>P1090</strong> 合并果子</a></h3><p>开始我每次都用sort()对数组拍一次序，找到最小的2组合并。但是：超时了。</p>
+<p>对啊。只要找到最小的两组就行了。为啥要对整个数组排序呢。那样复杂度怎么也是$\Theta(nlog_n)$及以上的啊。而我遍历整个数组找到最小的数只需要n次。</p>
+<p>看到一个STL优先队列的解法：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">priority_queue<int,vector<int>,greater<int> >q;
+int main(){
+    cin>>n;
+    for(int i=1;i<=n;i++) cin="">>x,q.push(x);
+    while(q.size()>=2){
+        int a=q.top(); q.pop();
+        int b=q.top(); q.pop();
+        ans+=a+b;
+        q.push(a+b);
+    }
+    cout<<ans<<endl; return="" 0;="" }="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></ans<<endl;></=n;i++)></int></int,vector<int></code></pre>
+<p>看来proirty可以实现每次有插入删除的时候都执行换位操作。</p>
+<p><strong>需要注意的是，优先队列里使用从greater排序，是把大的放到了最后面（不同于sort里的调用）。所以题解中的<code>q.top</code>以及<code>q.pop</code>都是针对【对首元素】的</strong></p>
+<p>查了下：<code>priority_queue</code>比较方式默认用operator&lt;，所以如果把后面2个参数缺省的话，优先队列就是大顶堆（降序），队头元素最大。</p>
+<h3 id="P1181-数列分段Section-I"><a href="#P1181-数列分段Section-I" class="headerlink" title="P1181 数列分段Section I"></a><a href="https://www.luogu.org/problemnew/show/P1181" target="_blank" rel="noopener"><strong>P1181</strong> 数列分段Section I</a></h3><p>讨论：这题为何贪心是最优？</p>
+<blockquote>
+<p>贪心多用反证法证明、如果这样划分不是最优，则假设有xxx解法是最优，最后推出矛盾。</p>
+</blockquote>
+<h3 id="P1208-USACO1-3-混合牛奶-Mixing-Milk"><a href="#P1208-USACO1-3-混合牛奶-Mixing-Milk" class="headerlink" title="P1208 [USACO1.3]混合牛奶 Mixing Milk"></a><a href="https://www.luogu.org/problemnew/show/P1208" target="_blank" rel="noopener"><strong>P1208</strong> [USACO1.3]混合牛奶 Mixing Milk</a></h3><p>用sort对结构体排序。结果呢，人家数据是5000个一样的。神奇的事情发生了。这个用例能不能过，竟然就在一=号只差：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">bool cmp(farmer f1,farmer f2){
+    if(f1.price!=f2.price)
+        return f1.price<f2.price; else="" return="" f1.count="">f2.count;//这样就能过
+              return f1.count>=f2.count;//这样就不能过！！！
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></f2.price;></code></pre>
+<p>以后还是不要多加<code>=</code>号了！</p>
 
             </div>
             <hr>
@@ -560,7 +660,7 @@ jjo1<span class="token operator">::</span><span class="token function">func</spa
                     </span>
                     <a href="https://ixs.im" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Cpp/Houjiecpp02/" class="b-link-green">C++学习笔记</a>
+                    <a href="/Algorithm/洛谷1/" class="b-link-green">洛谷训练场刷题记录1</a>
                 </p>
             </div>
         </div>
@@ -607,29 +707,30 @@ jjo1<span class="token operator">::</span><span class="token function">func</spa
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/Note/DeferencesbetweenStackandHeap/">
+                <a href="/Algorithm/逆序对/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Deferences between Stack and Heap">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="逆序对">
                         
-                        <span class="card-title">Deferences between Stack and Heap</span>
+                        <span class="card-title">逆序对</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">参考文章：https://www.cnblogs.com/ChenZhongzhou/p/5685537.html https://blog.csdn.net/yangyong0717/article/details/78001609
-
-概</div>
+                    <div class="summary">
+“逆序对”归并和线段树两种解法。这道经典题存在于任何一个算法题库中，故单独拿出分析讨论。
+暴力如果仅仅是用暴力、普通的分治方法。遇到数据量较大时内存不够。
+归并归并排序的时间复杂度用归并法解此题之前先考虑一下，为何归并排序的时间复杂度是$</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-09
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-26
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Note/" class="post-category" target="_blank">
-                                    Note
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
@@ -639,8 +740,8 @@ jjo1<span class="token operator">::</span><span class="token function">func</spa
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
+                    <a href="/tags/Algorithm/" target="_blank">
+                        <span class="chip bg-color">Algorithm</span>
                     </a>
                     
                 </div>
@@ -654,33 +755,34 @@ jjo1<span class="token operator">::</span><span class="token function">func</spa
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Website/HexoIssues/">
+                <a href="/ojNotice/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Hexo使用问题总结">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="OJ刷题注意事项">
                         
-                        <span class="card-title">Hexo使用问题总结</span>
+                        <span class="card-title">OJ刷题注意事项</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">汇总一下Hexo遇到的问题，以及以后出现问题都会更新到这里
+                    <div class="summary">
+Problems
+报错：type does not provide a call operator
+解决：给报错那句的变量换个名字吧。冲突了~
 
-独立贴
-插图问题
-在Git仓库设置一个分支推送源码，主分支负责展示
-有时候想传一个静态的HTML页面直接放在Source文件夹，不想被Hexo g的时候渲染，怎么办呢？
-Hexo</div>
+[ ] 初始化一个map，我还没往里存东西。它的end()是什么值？
+
+防止下标溢出要先判断</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Website/" class="post-category" target="_blank">
-                                    Website
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
@@ -690,8 +792,8 @@ Hexo</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/cpp/" target="_blank">
+                        <span class="chip bg-color">cpp</span>
                     </a>
                     
                 </div>
