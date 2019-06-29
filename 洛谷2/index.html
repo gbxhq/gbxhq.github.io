@@ -4,10 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo建站问题总结, 炫杉">
-    <meta name="description" content="昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。
-本托管在coding上，不过云里雾里，弄得还是不满意。
-今天决定换成Hexo。再托管在Git上。一节课的功夫，很顺利的就完成了。写个文章记录下。">
+    <meta name="keywords" content="洛谷训练场刷题记录2, 炫杉">
+    <meta name="description" content="普及练习场
+知识点汇总：DFS、BFS、快速幂、高精【P1045 麦森数】、负进制【P1017 进制转换】
+
+
+求解的个数用深搜，求最优解用广搜。
+
+DFSP1219 八皇后弱智一样的我，还建立NxN的矩阵来模拟。
+结果呢，检查(check">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hexo建站问题总结 | 炫杉</title>
+    <title>洛谷训练场刷题记录2 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -182,13 +187,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hexo建站问题总结
+                        洛谷训练场刷题记录2
                     </div>
                 </div>
             </div>
@@ -299,8 +304,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/" target="_blank">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/luoguOJ/" target="_blank">
+                                <span class="chip bg-color">luoguOJ</span>
+                            </a>
+                        
+                            <a href="/tags/Cpp/" target="_blank">
+                                <span class="chip bg-color">Cpp</span>
+                            </a>
+                        
+                            <a href="/tags/Algorithm/" target="_blank">
+                                <span class="chip bg-color">Algorithm</span>
                             </a>
                         
                     </div>
@@ -311,8 +324,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Website/" class="post-category" target="_blank">
-                                Website
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                Algorithm
                             </a>
                         
                     </div>
@@ -323,7 +336,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-03-21
+                    2019-06-26
                 </div>
 
                 
@@ -339,58 +352,19 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>昨天收到一封域名过期的邮件，顺手上去看了看有没有合适的域名。顺手也就搭了个Jekyll的博客。</p>
-<p>本托管在coding上，不过云里雾里，弄得还是不满意。</p>
-<p>今天决定换成Hexo。再托管在Git上。一节课的功夫，很顺利的就完成了。写个文章记录下。</p>
+                <p>普及练习场</p>
+<p>知识点汇总：DFS、BFS、快速幂、高精【P1045 麦森数】、负进制【<a href="https://www.luogu.org/problemnew/show/P1017" target="_blank" rel="noopener"><strong>P1017</strong> 进制转换</a>】</p>
 <a id="more"></a>
-<p>今天博客就算是搭建完成了。</p>
-<h1 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h1><h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><p>参考<a href="https://hexo.io/docs/" target="_blank" rel="noopener">官方文档</a>，安装还是顺利的。</p>
-<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p><a href="http://theme-next.iissnan.com" target="_blank" rel="noopener">Next主题</a>。Hexo半壁江山了快😂😂😂</p>
-<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><h2 id="分类创建"><a href="#分类创建" class="headerlink" title="分类创建"></a>分类创建</h2><p>下载了Next主题。默认是没有开启分类的。查阅文档，找到了创建命令：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">hexo new page <span class="token string">"categorie"</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后打开自动建立的<code>index.md</code> 加入一行：</p>
-<pre><code>type: &quot;categories&quot;
-</code></pre><h2 id="设置多Tag"><a href="#设置多Tag" class="headerlink" title="设置多Tag"></a>设置多Tag</h2><p>只需要在tag标签里这么写：</p>
-<pre><code>tag: [tag1,tag2,...]
-</code></pre><h2 id="md文件命名"><a href="#md文件命名" class="headerlink" title="md文件命名"></a>md文件命名</h2><blockquote>
-<p>在终端下，Hexo new 出的文章被完全放在<code>-post</code>一个文件夹下。</p>
-<p>时间长了这个文件夹岂不是会很乱？</p>
-<p>可是我也不想用Jekyll那种日期的命名方式。</p>
-<p>我是想用子文件夹来当做分类，感觉管理起来也方便很多。</p>
-</blockquote>
-<p>暂时用<code>date-title</code>命名的方式吧。</p>
-<h2 id="插图问题"><a href="#插图问题" class="headerlink" title="插图问题"></a>插图问题</h2><p><img src="../../images/image-201803221954468-2721386.png" alt="image-201803221954468"></p>
-<h2 id="插入媒体"><a href="#插入媒体" class="headerlink" title="插入媒体"></a>插入媒体</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=544918737&auto=1&height=66"><br></iframe>
-
-<pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span> <span class="token attr-name">frameborder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span> <span class="token attr-name">border</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">marginwidth</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">marginheight</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span>330</span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span>86</span> 
-<span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//music.163.com/outchain/player?type<span class="token punctuation">=</span>2&amp;id<span class="token punctuation">=</span>544918737&amp;auto<span class="token punctuation">=</span>1&amp;height<span class="token punctuation">=</span>66<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>看来Hexo是支持<code>iframe</code>的</p>
 <blockquote>
-<p>支持嵌入HTML</p>
+<p>求解的个数用深搜，求最优解用广搜。</p>
 </blockquote>
-<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>手上有个空闲的<code>.win</code>域名。就先凑合用着吧。<code>.io</code> 等博客成型了就买一个。</p>
-<p>试了下把代码部署到 coding.net 上 ,<a href="https://ixsim.coding.me" target="_blank" rel="noopener">访问地址</a>，ping 的平均延迟都能低于50ms </p>
-<p>然而部署都 github.io ，ping 最快也得100 ms【香港节点 2ms，然并卵】</p>
-<p>自定义域名方法：</p>
-<blockquote>
-<p>1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如xxxx.com，<strong>注意前面没有http://，也没有www</strong>，然后使用<code>hexo g &amp;&amp; hexo d</code>上传部署。</p>
-<p>2、在域名解析提供商，下面以dnspod为例。<br>（1）先添加一个CNAME，主机记录写@，后面记录值写上你的<a href="http://xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a><br>（2）再添加一个CNAME，主机记录写www，后面记录值也是<a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a><br>这样别人用www和不用www都能访问你的网站（其实www的方式，会先解析成<a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a>，然后根据CNAME再变成<a href="https://link.zhihu.com/?target=http%3A//xxx.com" target="_blank" rel="noopener">http://xxx.com</a>，即中间是经过一次转换的）。上面，我们用的是CNAME别名记录，也有人使用A记录，后面的记录值是写github page里面的ip地址，但有时候IP地址会更改，导致最后解析不正确，所以还是推荐用CNAME别名记录要好些，不建议用IP。</p>
-<p>3、等十分钟左右，刷新浏览器，用你自己域名访问下试试</p>
-<p>作者：skycrown链接：<a href="https://www.zhihu.com/question/31377141/answer/87541858" target="_blank" rel="noopener">https://www.zhihu.com/question/31377141/answer/87541858</a></p>
-<p>来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-</blockquote>
-<p>访问下试试 <a href="https://o--o.win" target="_blank" rel="noopener">https://o--o.win</a></p>
-<h2 id="同时部署到github和coding"><a href="#同时部署到github和coding" class="headerlink" title="同时部署到github和coding"></a>同时部署到github和coding</h2><p>根据Hexo的官方文档，只需要这么设置：</p>
-<blockquote>
-<p>deploy:<br>​    type: git<br>​    message: [message]<br>​    repo:<br>​        github: <repository url="">,[branch]<br>​        gitcafe: <repository url="">,[branch] </repository></repository></p>
-</blockquote>
-<p>Example:</p>
-<p><img src="http://p66eruxmw.bkt.clouddn.com/15220318479586.jpg" alt=""></p>
-<p>Note: <code>&lt;repository url&gt;,[branch]</code>   中 <code>,</code>后不要跟空格直接根branch名。</p>
-<p>最终还是把域名绑在了Coding。速度快多了。</p>
+<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h2 id="P1219-八皇后"><a href="#P1219-八皇后" class="headerlink" title="P1219 八皇后"></a><a href="https://www.luogu.org/problemnew/show/P1219" target="_blank" rel="noopener"><strong>P1219</strong> 八皇后</a></h2><p>弱智一样的我，还建立NxN的矩阵来模拟。</p>
+<p>结果呢，检查(check)时要遍历整个棋盘，最终导致只能过部分。</p>
+<hr>
+<p>看了人家解法。根本不用二维矩阵。</p>
+<p>dfs(i)，因为传进来的i是行号，可以保证这一行只有一个。</p>
+<p>然后这一行放在第j列可以吗？根本不用遍历棋盘。</p>
+<p>只需要三个check数组，在标志位。</p>
 
             </div>
             <hr>
@@ -538,7 +512,7 @@
                     </span>
                     <a href="https://ixs.im" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Website/Hexo01/" class="b-link-green">Hexo建站问题总结</a>
+                    <a href="/洛谷2/" class="b-link-green">洛谷训练场刷题记录2</a>
                 </p>
             </div>
         </div>
@@ -585,31 +559,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/Python/《Python数据分析》学习记录/">
+                <a href="/Algorithm/逆序对/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="《Python数据分析》学习记录">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="逆序对">
                         
-                        <span class="card-title">《Python数据分析》学习记录</span>
+                        <span class="card-title">逆序对</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是阅读《Python for Data Analysis》的读书笔记。
-
-第一章 准备工作不用准备了。🙂🙂🙂要啥有啥。
-第二章 引言list 手动统计from collections improt defaultdict
-def g</div>
+                    <div class="summary">
+“逆序对”归并和线段树两种解法。这道经典题存在于任何一个算法题库中，故单独拿出分析讨论。
+暴力如果仅仅是用暴力、普通的分治方法。遇到数据量较大时内存不够。
+归并归并排序的时间复杂度用归并法解此题之前先考虑一下，为何归并排序的时间复杂度是$</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-26
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
@@ -619,16 +592,8 @@ def g</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
-                    </a>
-                    
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/Data-Analysis/" target="_blank">
-                        <span class="chip bg-color">Data Analysis</span>
+                    <a href="/tags/Algorithm/" target="_blank">
+                        <span class="chip bg-color">Algorithm</span>
                     </a>
                     
                 </div>
@@ -642,29 +607,33 @@ def g</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Python/Python廖雪峰练习/">
+                <a href="/Algorithm/洛谷1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Python廖雪峰练习">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="洛谷训练场刷题记录1">
                         
-                        <span class="card-title">Python廖雪峰练习</span>
+                        <span class="card-title">洛谷训练场刷题记录1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">这是刚学Python的第一天，对着Python廖雪峰的教程做的练习。莫烦的教程虽然简单上手快，但是廖雪峰的这个练习还是不错的，让我回想起当初学C的一个寒假，我对着OJ和一个同学做那些“无聊”的题目。一晃就是四年啊！
+                    <div class="summary">新手场和普及场前6关
 
-函数的参数def pr</div>
+新手场顺序与分支P1422 小玉家的电费控制输出精度：cout.xxx(); 待查询
+
+P1089 津津的储蓄计划注意 int 和 float 相乘，输出格式用 “%d” 数字会面目全非
+
+P1909 买铅笔INT_</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-21
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
                                 </a>
                             
                             
@@ -674,8 +643,16 @@ def g</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/luoguOJ/" target="_blank">
+                        <span class="chip bg-color">luoguOJ</span>
+                    </a>
+                    
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
+                    </a>
+                    
+                    <a href="/tags/Algorithm/" target="_blank">
+                        <span class="chip bg-color">Algorithm</span>
                     </a>
                     
                 </div>
