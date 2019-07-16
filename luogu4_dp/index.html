@@ -1,0 +1,968 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="洛谷训练4-动归专题, 炫杉">
+    <meta name="description" content="背包问题、线性动归、多维动归、技巧与记忆化《背包问题九讲》
+
+背包九讲01\完全\多重\混合
+01（每个物品仅1个 总容量V不用装满）
+for i=1..n
+      for j=V..v[i]
+              ans[j]=">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>洛谷训练4-动归专题 | 炫杉</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        洛谷训练4-动归专题
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/luoguOJ/" target="_blank">
+                                <span class="chip bg-color">luoguOJ</span>
+                            </a>
+                        
+                            <a href="/tags/Cpp/" target="_blank">
+                                <span class="chip bg-color">Cpp</span>
+                            </a>
+                        
+                            <a href="/tags/Algorithm/" target="_blank">
+                                <span class="chip bg-color">Algorithm</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                Algorithm
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-07-03
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>背包问题、线性动归、多维动归、技巧与记忆化<br><a href="https://www.kancloud.cn/kancloud/pack/70124" target="_blank" rel="noopener">《背包问题九讲》</a></p>
+<a id="more"></a>
+<h1 id="背包九讲"><a href="#背包九讲" class="headerlink" title="背包九讲"></a>背包九讲</h1><h2 id="01-完全-多重-混合"><a href="#01-完全-多重-混合" class="headerlink" title="01\完全\多重\混合"></a>01\完全\多重\混合</h2><ul>
+<li><p>01（每个物品仅1个 总容量V不用装满）</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">.</span>n
+      <span class="token keyword">for</span> j<span class="token operator">=</span>V<span class="token punctuation">.</span><span class="token punctuation">.</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+              ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>ans<span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>完全（商品可多次取）</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">.</span>n
+      <span class="token keyword">for</span> j<span class="token operator">=</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span>V
+              ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>ans<span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>多重（有1个的有n个的）</p>
+</li>
+</ul>
+<ul>
+<li>混合</li>
+</ul>
+<h2 id="二维费用"><a href="#二维费用" class="headerlink" title="二维费用"></a>二维费用</h2><p>2种总容量。每个物品2种费用、2种价值。用二维数组即可。</p>
+<h2 id="分组的背包"><a href="#分组的背包" class="headerlink" title="分组的背包"></a>分组的背包</h2><p>物品被划分为若干组。每个组之间物品相互冲突，最多选1件。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">for</span> 所有的组k
+        <span class="token keyword">for</span> j<span class="token operator">=</span>V<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token number">0</span>
+            <span class="token keyword">for</span> i<span class="token operator">=</span>k里所有物品
+                    f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意V层循环必须包裹i层</p>
+<h2 id="有依赖的背包"><a href="#有依赖的背包" class="headerlink" title="有依赖的背包"></a>有依赖的背包</h2><h2 id="泛化物品"><a href="#泛化物品" class="headerlink" title="泛化物品"></a>泛化物品</h2><h2 id="分组的背包问题"><a href="#分组的背包问题" class="headerlink" title="分组的背包问题"></a>分组的背包问题</h2><h2 id="P1060-开心的金明"><a href="#P1060-开心的金明" class="headerlink" title="P1060 开心的金明"></a><a href="https://www.luogu.org/problemnew/show/P1060" target="_blank" rel="noopener"><strong>P1060</strong> 开心的金明</a></h2><p>启蒙文章：<a href="https://www.luogu.org/blog/user21354/solution-p1060" target="_blank" rel="noopener">https://www.luogu.org/blog/user21354/solution-p1060</a></p>
+<ul>
+<li><p>[x] 看懂几种优化过程</p>
+<p>一维常数优化的bound啥意思</p>
+</li>
+</ul>
+<h3 id="关于一维常数优化"><a href="#关于一维常数优化" class="headerlink" title="关于一维常数优化"></a>关于一维常数优化</h3><p>看了几篇文章。终于自己理解出了常数优化的意思。主要是很多文章讲得迷迷糊糊，还有的给的方程是错的。要么就是w和v这种字母乱用文章也不解释清楚代表啥就放公式！</p>
+<p>下面我来说说自己的理解。二维的情况就不说了。先看一维优化后代码是这样的：</p>
+<p>总容量V 每个物品容量v[i] 每个物品价值w[i]</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">.</span>n
+    <span class="token keyword">for</span> j<span class="token operator">=</span>V<span class="token punctuation">.</span><span class="token punctuation">.</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token comment" spellcheck="true">//容量小于v[i]的肯定放不下v[i] 没必要更新</span>
+        ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>max<span class="token punctuation">{</span>ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>ans<span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>核心思想：</p>
+<blockquote>
+<p>思考，是不是整个循环跑下来。我们只不过是要个ans数组的最后一个元素。</p>
+<p>假设总容量V=20.5个商品 我们不就想要个ans[20]吗？</p>
+<p>那i=5时，是不是执行一次更新ans[20]就好了。没必要再更新ans[19]了吧？</p>
+<p>假设第5个物品容量v[5]=3，我们是不是只需要ans[17]这个结果就行了？</p>
+<p>在i=4的那层循环里，假设v[4]=3,那我只需要更新到ans[17-3]即ans[14]就可以了啊。因为有了ans[14]，如果物4和5都需要被放进去。我们还有足够的6个空间放啊。</p>
+<p>所以我们需要一个常数优化。尽可能地提高V的下界（这样更新的次数就少了）</p>
+</blockquote>
+<p>看代码：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">.</span>n
+  sumV<span class="token operator">-</span><span class="token operator">=</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//i个物品总容量和为sumV，减去第i个的v[i]，就是剩下物品需要的容量和。只要更新到这里就足够后面的物品i+1到n全放进去的容量了。</span>
+    bound<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>V<span class="token operator">-</span>sumV<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//v[i]和V-sumV选一个最大的即可。如果比v[i]还小，第i个肯定放不进去，ans不必更新；如果比V-sumV还小更新了后面也用不到。就像刚刚说的，第5个商品只需要看ans[17]就可以了。ans[16]是多少都无所谓啊。我ans[17]里存的数肯定比你ans[16]还大。ans[16]在后面i的循环中也不可能被用到。</span>
+    <span class="token keyword">for</span> j<span class="token operator">=</span>V<span class="token punctuation">.</span><span class="token punctuation">.</span>bound
+            ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>ans<span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="P1064-金明的预算方案"><a href="#P1064-金明的预算方案" class="headerlink" title="P1064 金明的预算方案"></a><a href="https://www.luogu.org/problemnew/show/P1064" target="_blank" rel="noopener"><strong>P1064</strong> 金明的预算方案</a></h2><p>采用<strong>分组的思路</strong>。毕竟这题附件最多两个。可以枚举出4种情况。<strong>这四种情况就是一组。</strong></p>
+<p>然而枚举的方法毕竟不适合附件多的情况。看看别人的解法吧！</p>
+<p>这题的小坑：</p>
+<ul>
+<li>附件编号是商品的总编号。由于我是分组存。要对总编号和我自己的分组编号做一个映射。</li>
+<li>权重是 价格*价值。</li>
+</ul>
+<h2 id="P1164-小A点菜"><a href="#P1164-小A点菜" class="headerlink" title="P1164** 小A点菜"></a><a href="https://www.luogu.org/problemnew/show/P1164" target="_blank" rel="noopener">P1164** 小A点菜</a></h2><ul>
+<li><p>[ ] 这道题不知道是不是我对动归还不熟悉的问题。对状态转移方程的理解只能说是，停在表面，不敢往深了思考。有点似会非会。</p>
+<p>重刷标记！</p>
+</li>
+</ul>
+<h2 id="P1048-采药和P1616-疯狂的采药"><a href="#P1048-采药和P1616-疯狂的采药" class="headerlink" title="P1048 采药和P1616 疯狂的采药"></a><a href="https://www.luogu.org/problemnew/show/P1048" target="_blank" rel="noopener"><strong>P1048</strong> 采药</a>和<a href="https://www.luogu.org/problemnew/show/P1616" target="_blank" rel="noopener"><strong>P1616</strong> 疯狂的采药</a></h2><p>采药就是基本的0-1背包。而疯狂的采药则是完全背包。</p>
+<p>下面先看一下他们dp遍历的过程：</p>
+<p><img src="https://0pic.oss-cn-beijing.aliyuncs.com/20190709150842.png" alt=""></p>
+<p>都采用一维数组优化，</p>
+<p>输入数据为：容量m=20 物品数量n=3</p>
+<p>分别是 ①v=50,w=100 ②v=15,w=1 ③v=1,w=2</p>
+<p>第一个商品一定放不进去。我们不做讨论。主要看2、3</p>
+<ul>
+<li><p>0-1背包:容量m从20开始，循环条件m&gt;=v[i].</p>
+<ul>
+<li><p>i=2时，ans[20]~ans[15]都更新了。ans[14]循环停止。</p>
+</li>
+<li><p>i=3时，ans[20]=max(1,ans[20-1]+2)</p>
+<p>就是容量为19时的最大值1，加上第三个物品，更新最大值3</p>
+</li>
+</ul>
+</li>
+<li><p>完全背包:m从0开始到到20。</p>
+<ul>
+<li>i=2时，一直到ans[15]才能放进去。</li>
+</ul>
+<blockquote>
+<p>划重点 看下面</p>
+</blockquote>
+<ul>
+<li><p>i=3时,ans[1]=2, ans[2]=max(0,<code>ans[1]+2</code>)=max(0,<code>4</code>)=4</p>
+<p>看到没,容量为2时，最大值是容量为1时的，再放进去一个③。③被放了两次。这就是完全背包问题。</p>
+<p>记得用一维数组做。用二维的是<code>ans[i][j]=ans[i-1]xxx</code>，从状态转移方程上就限定了，第i个物品不会被多次存入。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="P1049-装箱问题"><a href="#P1049-装箱问题" class="headerlink" title="P1049 装箱问题"></a><strong>P1049</strong> 装箱问题</h2><p>水题。</p>
+<h1 id="线性动归"><a href="#线性动归" class="headerlink" title="线性动归"></a>线性动归</h1><h1 id="多维动归"><a href="#多维动归" class="headerlink" title="多维动归"></a>多维动归</h1><h1 id="技巧与记忆化"><a href="#技巧与记忆化" class="headerlink" title="技巧与记忆化"></a>技巧与记忆化</h1>
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://ixs.im" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/luogu4_dp/" class="b-link-green">洛谷训练4-动归专题</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/luogu5/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="洛谷训练5-高精">
+                        
+                        <span class="card-title">洛谷训练5-高精</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+高精P1601 A+B Problem注意：0+0的情况！
+最后倒序输出的时候。如果maxLen一直减到了-1.再让maxLen归零。
+
+输入str转int存入时记得-&#39;0&#39;
+
+关键代码：
+void sum(int bit</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/luoguOJ/" target="_blank">
+                        <span class="chip bg-color">luoguOJ</span>
+                    </a>
+                    
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
+                    </a>
+                    
+                    <a href="/tags/Algorithm/" target="_blank">
+                        <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/Algorithm/luogu3_2fen_list_tree/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="洛谷训记录3-二分/链表/树">
+                        
+                        <span class="card-title">洛谷训记录3-二分/链表/树</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">知识点：【P1182 数列分段Section II答案二分、前缀和】
+
+递推与递归二分台阶问题和数的划分。其实就代表了排列和组合两种情况。排列，和顺序有关。组合，不管顺序只看元素。所以要彻底搞清下面的两个问题！
+P1192 台阶问题k=2时</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/luoguOJ/" target="_blank">
+                        <span class="chip bg-color">luoguOJ</span>
+                    </a>
+                    
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
+                    </a>
+                    
+                    <a href="/tags/Algorithm/" target="_blank">
+                        <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            2019&nbsp;Hexo驱动&nbsp;主题matery
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    View <span id="busuanzi_value_site_pv" class="white-color"></span> times
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    
+                    ,&nbsp;<i class="fa fa-users"></i> <span id="busuanzi_value_site_uv" class="white-color"></span> 
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:chinalixs@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=6956820" class="tooltipped" data-tooltip="QQ联系我: 6956820" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7e1dcb528a848f5e66324d4cbfd4e1cd";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

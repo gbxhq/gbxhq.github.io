@@ -302,12 +302,12 @@ Problems
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Cpp/" target="_blank">
-                                <span class="chip bg-color">Cpp</span>
-                            </a>
-                        
                             <a href="/tags/Note/" target="_blank">
                                 <span class="chip bg-color">Note</span>
+                            </a>
+                        
+                            <a href="/tags/Cpp/" target="_blank">
+                                <span class="chip bg-color">Cpp</span>
                             </a>
                         
                     </div>
@@ -399,7 +399,7 @@ if(node!=null){
     }
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6重建二叉树"><a href="#6重建二叉树" class="headerlink" title="6重建二叉树"></a>6重建二叉树</h2><p>确定递归思路后全靠自己一口气撸下来，⌘ + R , 测试没问题 。提交OJ。PASS。这一周看书最爽的一次AC。</p>
+<h2 id="6重建二叉树"><a href="#6重建二叉树" class="headerlink" title="6重建二叉树"></a>6重建二叉树</h2><p>确定递归思路后一口气撸下来，⌘ + R , 测试没问题 。提交OJ。PASS。这一周看书最爽的一次AC。</p>
 <h2 id="7用两个栈实现队列"><a href="#7用两个栈实现队列" class="headerlink" title="7用两个栈实现队列"></a>7用两个栈实现队列</h2><p>虽然自己写AC了。但是方案不如书上。</p>
 <p>我是借助stack2进行pop, 每次pop完再回传给stack1。</p>
 <p>其实不需要的。好好考虑考虑吧！</p>
@@ -774,14 +774,12 @@ ListNode<span class="token operator">*</span> p2<span class="token operator">=</
 <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>提示，1，可以简化。2，<code>x==0</code>最好写 <code>0 == x</code>  3，if(a==b)return true; 建议改成 if(!=)return false; 为啥？</p>
-<p>最好改成了<code>return (x &amp; 1) == 0;</code></p>
+<p>最后改成了<code>return (x &amp; 1) == 0;</code></p>
 </li>
-<li><p>开始没考虑输入1的情况。但是我自己分奇数偶数做的，牛客AC了。</p>
-</li>
-<li><p>牛客的测试用例绝对不全。LeetCode过不了85这个用例。</p>
-<p>后来发现，我的算法确实有问题。（那牛客都能AC，坑爹啊！）</p>
-</li>
-<li><p>[ ] 这题我实际上算是没做出来，重刷标记。（最近心烦意乱不想再折腾这题了）</p>
+<li><p><del>开始没考虑输入1的情况。但是我自己分奇数偶数做的，牛客AC了。</del></p>
+<p>我自己用的辣鸡方法不要再看！</p>
+<p>书上介绍的是尺取法。</p>
+<p>尺取法过不了LeetCode 829.因为LeetCode输入数据规模大。必须寻找一个Log_n算法</p>
 </li>
 <li><p>[ ] LeetCode标记，参考文章。<a href="https://blog.csdn.net/curry3030/article/details/80701612" target="_blank" rel="noopener">https://blog.csdn.net/curry3030/article/details/80701612</a></p>
 </li>
@@ -1175,12 +1173,12 @@ ListNode<span class="token operator">*</span> p2<span class="token operator">=</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/cpp/" target="_blank">
-                        <span class="chip bg-color">cpp</span>
-                    </a>
-                    
                     <a href="/tags/Note/" target="_blank">
                         <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/cpp/" target="_blank">
+                        <span class="chip bg-color">cpp</span>
                     </a>
                     
                 </div>

@@ -7,8 +7,8 @@
     <meta name="keywords" content="MasterTheorem, 炫杉">
     <meta name="description" content="Master Therem，翻译成：主定理、主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的。
 
-一般情况下先简单看先O(lg(k))，
-在二分查找、堆的操作中，一次操作就可以减少一半的工作量，一次循环就少一半，效率不就是">
+时间复杂度分析过程一般情况下先简单看先O(log(k))，
+在二分查找、堆的操作中，一次操作就可以减少一半的工作量，一次循环">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -342,11 +342,11 @@
             <div id="articleContent">
                 <p>Master Therem，翻译成：主定理、主方法、主项定理、大师定理。我个人觉得翻译成大师定理不错，酷酷的。</p>
 <p><a id="more"></a></p>
-<h1 id="一般情况下"><a href="#一般情况下" class="headerlink" title="一般情况下"></a>一般情况下</h1><p>先简单看先O(<strong>lg(k)</strong>)，</p>
-<p>在二分查找、堆的操作中，一次操作就可以减少一半的工作量，一次循环就少一半，效率不就是 <strong>lg(k)</strong> 嘛。</p>
-<h1 id="递归的时间复杂度"><a href="#递归的时间复杂度" class="headerlink" title="递归的时间复杂度"></a>递归的时间复杂度</h1><p>问题在于，对于递归求解的时间复杂度分析。</p>
+<h1 id="时间复杂度分析过程"><a href="#时间复杂度分析过程" class="headerlink" title="时间复杂度分析过程"></a>时间复杂度分析过程</h1><h2 id="一般情况下"><a href="#一般情况下" class="headerlink" title="一般情况下"></a>一般情况下</h2><p>先简单看先O(<strong>log(k)</strong>)，</p>
+<p>在二分查找、堆的操作中，一次操作就可以减少一半的工作量，一次循环就少一半，效率不就是 <strong>log(k)</strong> 嘛。</p>
+<h2 id="递归的时间复杂度"><a href="#递归的时间复杂度" class="headerlink" title="递归的时间复杂度"></a>递归的时间复杂度</h2><p>问题在于，对于递归求解的时间复杂度分析。</p>
 <p>下面的内容转自 架构师之路公众号</p>
-<h2 id="案例一：计算-1到n的和"><a href="#案例一：计算-1到n的和" class="headerlink" title="案例一：计算 1到n的和"></a><strong>案例一：计算 1到n的和</strong></h2><p><strong>时间复杂度分析。</strong></p>
+<h3 id="案例一：计算-1到n的和"><a href="#案例一：计算-1到n的和" class="headerlink" title="案例一：计算 1到n的和"></a><strong>案例一：计算 1到n的和</strong></h3><p><strong>时间复杂度分析。</strong></p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> n<span class="token operator">+</span><span class="token function">sum</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -391,7 +391,7 @@ f(1)    =1
 <p><strong>即得到</strong>：</p>
 <p>f(n)=n</p>
 <p>已经有那么点意思了哈，再来个复杂点的算法。</p>
-<h2 id="案例二：二分查找binary-search，"><a href="#案例二：二分查找binary-search，" class="headerlink" title="案例二：二分查找binary_search，"></a><strong>案例二：二分查找binary_search，</strong></h2><p><strong>时间复杂度分析。</strong></p>
+<h3 id="案例二：二分查找binary-search，"><a href="#案例二：二分查找binary-search，" class="headerlink" title="案例二：二分查找binary_search，"></a><strong>案例二：二分查找binary_search，</strong></h3><p><strong>时间复杂度分析。</strong></p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">BS</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> <span class="token keyword">int</span> high<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
 
          <span class="token keyword">if</span> <span class="token punctuation">(</span>low<span class="token operator">></span>high<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
@@ -410,7 +410,7 @@ f(1)    =1
 
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>二分查找，单纯从递归算法来分析，怎能知道其时间复杂度是O(lg(n))呢？</strong></p>
+<p><strong>二分查找，单纯从递归算法来分析，怎能知道其时间复杂度是O(log(n))呢？</strong></p>
 <p>仍用f(n)来表示数据量为n时，算法的计算次数，很容易知道：</p>
 <ul>
 <li>当n=1时，bs函数只计算1次</li>
@@ -443,12 +443,12 @@ f(n/2^(m-1))=f(n/2^m)+1
 <p><code>f(n)=f(n/2^m)+m</code></p>
 <p>再配合【式子A】：</p>
 <p><code>f(1)=1</code></p>
-<p>即，n/2^m=1时, f(n/2^m)=1, 此时m=lg(n), 这一步，这是分析这个算法的关键。 </p>
-<p>将m=lg(n)带入，<strong>得到</strong>：</p>
-<p><code>f(n)=1+lg(n)</code> </p>
+<p>即，n/2^m=1时, f(n/2^m)=1, 此时m=log(n), 这一步，这是分析这个算法的关键。 </p>
+<p>将m=log(n)带入，<strong>得到</strong>：</p>
+<p><code>f(n)=1+log(n)</code> </p>
 <p><strong>神奇不神奇？</strong></p>
 <p>最后，大boss，快速排序递归算法，时间复杂度的分析过程。</p>
-<h2 id="案例三：快速排序quick-sort"><a href="#案例三：快速排序quick-sort" class="headerlink" title="案例三：快速排序quick_sort"></a><strong>案例三：快速排序quick_sort</strong></h2><p><strong>时间复杂度分析。</strong></p>
+<h3 id="案例三：快速排序quick-sort"><a href="#案例三：快速排序quick-sort" class="headerlink" title="案例三：快速排序quick_sort"></a><strong>案例三：快速排序quick_sort</strong></h3><p><strong>时间复杂度分析。</strong></p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">quick_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> inthigh<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>low<span class="token operator">==</span>high<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token function">partition</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> low<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -479,17 +479,17 @@ f(n/4)    =n/4+2*f(n/8)
 …
 f(n/2^(m-1))=n/2^(m-1)+2f(n/2^m) 
 </code></pre><p>上面共m个等式，逐步带入，于是得到：</p>
-<p>f(n)    =n+2*f(n/2)</p>
+<p>f(n)=n+2*f(n/2)</p>
 <p>​    =n+2<em>[n/2+2</em>f(n/4)]=2n+4*f(n/4)</p>
 <p>​    =2n+4<em>[n/4+2</em>f(n/8)]=3n+8f(n/8)</p>
 <p>​    =…</p>
 <p>​    =m<em>n+2^m</em>f(n/2^m)</p>
 <p>再配合【式子A】：</p>
 <p>f(1)=1</p>
-<p>即，n/2^m=1时, f(n/2^m)=1, 此时m=lg(n), 这一步，这是分析这个算法的关键。</p>
-<p>将m=lg(n)带入，<strong>得到：</strong></p>
-<p>f(n)=lg(n)<em>n+2^(lg(n))</em>f(1)=n*lg(n)+n</p>
-<p>故，快速排序的时间复杂度是n*lg(n)。</p>
+<p>即，$\frac{n}{2^m}=1$时, $f(\frac{n}{2^m})=1$, 此时m=log(n), 这一步，这是分析这个算法的关键。</p>
+<p>将m=log(n)带入，<strong>得到：</strong></p>
+<p>$f(n)=n·log(n)+2^{log(n)}·f(1)=nlog(n)+n$</p>
+<p>故，快速排序的时间复杂度是n*log(n)。</p>
 <p><strong>wacalei，有点意思哈！</strong></p>
 <blockquote>
 <p><em>画外音：额，估计83%的同学没有细究看，花5分钟细思上述过程，一定有收获。</em></p>
@@ -497,9 +497,45 @@ f(n/2^(m-1))=n/2^(m-1)+2f(n/2^m)
 <p><strong>总结</strong></p>
 <ul>
 <li><strong>for循环</strong>的时间复杂度往往是O(n)</li>
-<li><strong>树的高度</strong>的时间复杂度往往是O(lg(n))</li>
-<li><strong>二分查找</strong>的时间复杂度是O(lg(n))，<strong>快速排序</strong>的时间复杂度n*(lg(n))</li>
+<li><strong>树的高度</strong>的时间复杂度往往是O(log(n))</li>
+<li><strong>二分查找</strong>的时间复杂度是O(log(n))，<strong>快速排序</strong>的时间复杂度n*(log(n))</li>
 </ul>
+<h1 id="主定理"><a href="#主定理" class="headerlink" title="主定理"></a>主定理</h1><h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>设 a&gt;=1 和 b&gt;1 为常数，设f(n)为一函数，T(n)有递归式</p>
+<p>$T(n)=a·T(\frac{n}{b})+c·n^d$,则</p>
+<p>$$T(n)=\left{\begin{matrix}<br>O(n^dlog(n) ,if\ a=b^d\<br>O(n^d),if\ a&lt;b^d\<br>O(n^{log_ba}),if\ a&gt;b^d)<br>\end{matrix}\right.$$</p>
+<h2 id="详细分析"><a href="#详细分析" class="headerlink" title="详细分析"></a>详细分析</h2><p>转自：ghj1222 <a href="https://www.cnblogs.com/oier/p/9454539.html" target="_blank" rel="noopener">https://www.cnblogs.com/oier/p/9454539.html</a></p>
+<p>先介绍几个符号的含义。</p>
+<p>符号Θ，读音西塔，既是上界也是下界，等于，严格贴紧。</p>
+<p>符号O，读音殴，表示上界，小于等于，贴紧未知。</p>
+<p>符号o，读音也是殴，小于，不贴紧。</p>
+<p>符号Ω，读音偶眯嘎，表示下界，大于等于，贴紧未知。</p>
+<p>符号ω，读音也是偶眯嘎，表示下界，大于，不贴紧。</p>
+<p>上面的“贴紧”是我根据tight翻译过来的(不是很准确啊)，大概就是是否严格等于的意思吧。</p>
+<p>意思就是Θ是平均时间复杂度，O是最坏情况下的复杂度，Ω是最好情况下的复杂度。</p>
+<p>假设我们有递推关系式：</p>
+<p>$\begin{aligned}T(n)=aT\left(\frac n b\right)+f(n)\end{aligned}$</p>
+<p>其中，n为问题的规模、a为递推下子问题的数量，$\frac{n}{b}$为每个子问题的规模，f(n)为递推后做的额外的计算工作。</p>
+<p> 1.假设存在常数ϵ&gt;0ϵ&gt;0，使得f(n)=O(nlogb(a)−ϵ)f(n)=O(nlogb⁡(a)−ϵ)，则T(n)=Θ(nlogba)T(n)=Θ(nlogba)。</p>
+<p>具体意思是f(n)的上界是n的幂次，且logb(a)logb(a)比这个幂次要大，则时间复杂度为这个n的logb(a)logb(a)次。</p>
+<p>例子：二叉树的遍历。T(n)=2T(n2)+Θ(1)T(n)=2T(n2)+Θ(1)。其中a=2a=2，b=2b=2，f(n)=1f(n)=1，此时ϵ=1ϵ=1。T(n)=Θ(n)T(n)=Θ(n)。</p>
+<p> 2.假设存在常数k≥0k≥0，使得f(n)=Θ(nlogbalogkn)f(n)=Θ(nlogb⁡alogk⁡n)，则T(n)=Θ(nlogbalogk+1n)T(n)=Θ(nlogbalogk+1⁡n)。</p>
+<p>具体意思是f(n)是n的logb(a)logb(a)次，再乘以一个log，则复杂度是f(n)的复杂度再乘以一个log。</p>
+<p>例子：归并排序。T(n)=2T(n2)+Θ(n)T(n)=2T(n2)+Θ(n)。其中a=2a=2，b=2b=2，f(n)=nf(n)=n，此时k=0k=0。T(n)=Θ(nlog2n)T(n)=Θ(nlog2⁡n)。</p>
+<p>例子：二分搜索（折半搜索）。T(n)=T(n2)+Θ(1)T(n)=T(n2)+Θ(1)，其中a=1a=1，b=2b=2，f(n)=1f(n)=1，此时k=0k=0，则T(n)=Θ(log2n)T(n)=Θ(log2n)。</p>
+<p> 3.假设存在常数ϵ&gt;0ϵ&gt;0 ，有f(n)=Ω(nlogb(a)+ϵ)f(n)=Ω(nlogb⁡(a)+ϵ)，同时存在常数c&lt;1c&lt;1以及充分大的nn满足 af(nb)≤cf(n)af(nb)≤cf(n)那么 T(n)=Θ(f(n))T(n)=Θ(f(n))。</p>
+<p>这个感觉没啥用啊。。。</p>
+<h2 id="【例题】"><a href="#【例题】" class="headerlink" title="【例题】"></a>【例题】</h2><p>【NOIP2017初赛】若某算法的计算时间表示为递推关系式：</p>
+<p>T(N)=2T(N2)+NlogNT(N)=2T(N2)+Nlog⁡N，T(1)=1T(1)=1，则该算法的时间复杂度为<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>__</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>。</p>
+<p>A.O(N) B.O(Nlog2N) C.O(Nlog22N) D.O(N2)A.O(N) B.O(Nlog2⁡N) C.O(Nlog22⁡N) D.O(N2)</p>
+<p>【解析】套用情况2中的k=1的情况，则T(n)=Θ(Nlog22N)T(n)=Θ(Nlog22⁡N)，选C</p>
+<p>【NOIP2016初赛】若某算法的计算时间表示为递推关系式：</p>
+<p>T(N)=2T(N4)+N−−√T(N)=2T(N4)+N，T(1)=1T(1)=1，则该算法的时间复杂度为<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>__</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>。</p>
+<p>A.O(N) B.O(N−−√) C.O(N−−√log2N) D.O(N2)A.O(N) B.O(N) C.O(Nlog2⁡N) D.O(N2)</p>
+<p>【解析】套用情况2中的k=0的情况，则T(n)=Θ(sqrt(N)log2N)T(n)=Θ(sqrt(N)log2⁡N)，选C</p>
+<p>【NOIP2015初赛】某算法的计算时间表示为递推关系式：</p>
+<p>T(N)=T(N−1)+NT(N)=T(N−1)+N，T(0)=1T(0)=1。则该算法的时间复杂度为<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>__</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>。</p>
+<p>A.O(log22N) B.O(Nlog2N) C.O(N) D.O(N2)A.O(log22⁡N) B.O(Nlog2⁡N) C.O(N) D.O(N2)</p>
+<p>【解析】难道这个就要用主定理了？容易推导出T(N)=T(0)+1+…+n=1+N∗(N+1)2T(N)=T(0)+1+…+n=1+N∗(N+1)2，则时间复杂度为O(N2)O(N2)，选D</p>
 
             </div>
             <hr>

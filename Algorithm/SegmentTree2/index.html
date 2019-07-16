@@ -363,17 +363,18 @@
 <p>只改动他们的老祖宗，并<strong>在他们的祖宗上做一个标记</strong>。以后啥事需要用到儿子了，一看父亲上有标记，就知道这个儿子还需要被更新。</p>
 </blockquote>
 <p>下面的代码就是根据父亲rt，和对应的区间长度l，往下pushDown懒标记。</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">pushDown</span><span class="token punctuation">(</span><span class="token keyword">int</span> rt<span class="token punctuation">,</span><span class="token keyword">int</span> l<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">pushDown</span><span class="token punctuation">(</span><span class="token keyword">int</span> rt<span class="token punctuation">,</span><span class="token keyword">int</span> len<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>lazy<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//这个点有lazyTag才往下下发lazyTag</span>
+                              <span class="token comment" spellcheck="true">//lazyTag里存的值是"要延迟加载的"值，例子就是10</span>
         lazy<span class="token punctuation">[</span>lson<span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span>lazy<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token punctuation">;</span>
         lazy<span class="token punctuation">[</span>rson<span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span>lazy<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-        tree<span class="token punctuation">[</span>lson<span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span>lazy<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>l<span class="token operator">-</span>l<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里要注意</span>
-        tree<span class="token punctuation">[</span>rson<span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span>lazy<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>l<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        tree<span class="token punctuation">[</span>lson<span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span>lazy<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>len<span class="token operator">-</span>len<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里要注意</span>
+        tree<span class="token punctuation">[</span>rson<span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span>lazy<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>len<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         lazy<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//清除父亲的标记</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注意第6行：举个例子来说明，rt代表的区间<code>[1,7]</code>，长度l为7，7/2=3.</p>
 <p>而<code>[1,7]</code>的左右儿子是<code>[1,4]</code>和<code>[5,7]</code>这两个。左儿子长度为4,右儿子长度为3。</p>
 <p>第6行那么写，就是要处理区间长度为奇数的情况，由于是完全二叉树，rt的左儿子代表的区间一定更长。</p>
@@ -445,7 +446,7 @@ query [3,5] (5,5) 12
 </code></pre><p>如我们所愿，</p>
 <p>第5行，查询区间(5，6)，6不属于[3,5]，</p>
 <p>往下执行到了pushDown(6),第6行输出了<code>pushDown rt:6 len:2</code>。</p>
-<p>这时候我们如果再打印一下，就会发现，30的两个孩子8和2已经全部加载，成了18和12~</p>
+<p>这时候我们如果再打印一下，就会发现，30的两个孩子8和2已经全部完成了延迟加载，成了18和12~</p>
 <p><code>[1]:76 [2]:46 [3]:30 [4]:15 [5]:31 [6]:30 [7]:0 [8]:6 [9]:9 [10]:5 [11]:6 [12]:18 [13]:12 [14]:0</code></p>
 <h1 id="线段树完全版"><a href="#线段树完全版" class="headerlink" title="线段树完全版"></a>线段树完全版</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//线段树 求解区间最值问题</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>

@@ -359,8 +359,8 @@ n个人围成一圈，编号  0~n-1；
 <p>先看第一轮出列的人是谁：</p>
 <p>无论m和n哪个大，<code>m%n</code>都是下一轮的第一个人。</p>
 <p>假设上一轮出列的人是 k 。</p>
-<pre><code>原序列:    {0···k-1 , k ,  k+1(m%n)···n-1}        //n个人
-K出列:    {0···k-1 ,        k+1(m%n)···n-1}    //n-1个人
+<pre><code>原序列:    {0···k-1 , k ,  k+1(就是m%n)···n-1}        //n个人
+K出列:    {0···k-1 ,        , k+1(就是m%n)···n-1}    //n-1个人
 ⚠️重点标记⚠️ 最后我们会回来用到上面👆
 </code></pre><p>这时候问题由  (m,n) 的退化成了  (m,n-1)的，其实每次退化，m都不会变。</p>
 <p>所以我们可以直接说，<strong>问题从 F(n) 退化成了 F(n-1) 的</strong>。</p>
@@ -369,7 +369,7 @@ K出列:    {0···k-1 ,        k+1(m%n)···n-1}    //n-1个人
 <p>这一轮还有 n-1个数，重新编号肯定是 0到n-2呗，</p>
 <p> k+<strong>1</strong> 变成了 <strong>0</strong>，k+<strong>2</strong> 变成了 <strong>1</strong>，</p>
 <p>最后一个数 k+<strong>n-1</strong> 变成了 <strong>n-2</strong>。 而我们都知道， <strong>k-1</strong>就是 <strong>k+n-1</strong> 。</p>
-<p>这时候我们思考一个问题， 给你一个这一轮新编的序号 x 。你怎么算出它在第一轮序号？</p>
+<p>这时候我们思考一个问题， <strong>给你一个这一轮新编的序号 x 。你怎么算出它在第一轮序号？</strong></p>
 <p>是不是 <code>(x+k+1)%n</code>就可以？举几个例子：</p>
 <blockquote>
 <p>x=<strong>0</strong>,   (<strong>0</strong>+k+1)%n = k+<strong>1</strong></p>
@@ -397,9 +397,8 @@ K出列:    {0···k-1 ,        k+1(m%n)···n-1}    //n-1个人
 <p>所以推导公式其实就是</p>
 <p>F(n) =[ F(n-1)+ m%n ]%n  ==化简==&gt;  F(n) =[ F(n-1)+ m ]%n</p>
 <p>所以这道题其实就是求函数</p>
-<pre><code>        F(n) =[ F(n-1)+ m ]%n ,n&gt;1
-F(n)=
-        0, n=1
+<pre><code>F(n) = [ F(n-1)+ m ]%n ,n&gt;1
+F(n) = 0, n=1
 </code></pre><p>对着这公式代码写起来就太容易了吧？</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span><span class="token keyword">int</span> m<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>

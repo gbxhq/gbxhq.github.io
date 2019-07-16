@@ -356,15 +356,16 @@
 <span class="token macro property">#<span class="token directive keyword">define</span> rson rt&lt;&lt;1|1</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> m (l+r)>>1</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>解释：在数组中，第i节点的左孩子lson就是 ix2,有孩子rson就是 ix2+1</p>
+<p>解释：在数组中，第i节点的左孩子lson是 i*2,rson是 i*2+1</p>
+<p><strong>rt树数组的下标,[l..r]为数据数组下标</strong></p>
 <h1 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h1><p>先介绍 pushUp 方法，在我们建树和更新的时候要用，</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">pushUp</span><span class="token punctuation">(</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span>
     tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>tree<span class="token punctuation">[</span>lson<span class="token punctuation">]</span><span class="token punctuation">,</span>tree<span class="token punctuation">[</span>rson<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>解释：传入root节点下标，通过它的左右孩子值，取二者最大的存入</p>
-<p>然后就是 建树的过程：</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">,</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<p>然后就是 递归地建树的过程：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">,</span><span class="token keyword">int</span> rt<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//rt树数组的下标,[l..r]为数据数组下标</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">==</span>r<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//是叶节点，存数并返回(叶节点不必执行pushUp)</span>
     <span class="token punctuation">{</span>
         tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span> <span class="token operator">=</span> vt<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//从vt里读取数据存入tree中</span>
@@ -373,13 +374,13 @@
     <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token function">build</span><span class="token punctuation">(</span>l<span class="token punctuation">,</span>m<span class="token punctuation">,</span>lson<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">build</span><span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">,</span>rson<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">pushUp</span><span class="token punctuation">(</span>rt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pushUp</span><span class="token punctuation">(</span>rt<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//每层递归执行到这句，rt的左右儿子肯定是存好了的</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>解释：如果是叶节点，从vt中取数存入。如果不是，分别递归地建左右子树。（建左右的子树的过程中一定可以把改存入的叶节点都存入），最后执行pushUp，根据我们的叶节点，就能层层Up把父节点的值存入了。</p>
 <p>比如我们的vt中存入：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> vt<span class="token punctuation">{</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token function">build</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">build</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1号为根，节点范围数组[1..7]</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>打印tree看一下：<img src="../../images/image-20181123162104795.png" alt="image-20181123162104795"></p>
 <p><code>[1]:9 [2]:9 [3]:8 [4]:9 [5]:6 [6]:8 [7]:0 [8]:6 [9]:9 [10]:5 [11]:6 [12]:8 [13]:2</code></p>
@@ -417,13 +418,13 @@ update6<span class="token punctuation">,</span><span class="token number">6</spa
         <span class="token keyword">return</span> tree<span class="token punctuation">[</span>rt<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> ans <span class="token operator">=</span> INT_MIN<span class="token punctuation">;</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>L<span class="token operator">&lt;=</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span>
         ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span><span class="token function">query</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>R<span class="token punctuation">,</span>l<span class="token punctuation">,</span>m<span class="token punctuation">,</span>lson<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//找左半部分的最大值存入ans</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>R<span class="token operator">>=</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span><span class="token function">query</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>R<span class="token punctuation">,</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">,</span>rson<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//和右半部分最大值比较得</span>
     <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>

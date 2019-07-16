@@ -6,13 +6,14 @@
     <meta charset="utf-8">
     <meta name="keywords" content="OJ刷题注意事项, 炫杉">
     <meta name="description" content="
-Problems
+Problems本蒟蒻犯过的错
+
 报错：type does not provide a call operator
 解决：给报错那句的变量换个名字吧。冲突了~
 
 [ ] 初始化一个map，我还没往里存东西。它的end()是什么值？
 
-防止下标溢出要先判断">
+防止">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -345,7 +346,8 @@ Problems
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <a id="more"></a>
-<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><ul>
+<h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><p>本蒟蒻犯过的错</p>
+<ul>
 <li><p>报错：<code>type does not provide a call operator</code></p>
 <p>解决：给报错那句的变量换个名字吧。冲突了~</p>
 </li>
@@ -361,7 +363,8 @@ while (array[i]<target &&="" i<n)="" i++;="" 正解：把控制i溢出的表达�
 </li>
 <li><p>二维数组考虑传入一个元素的情况，即传入形如[[x,x,x,x]]这种</p>
 </li>
-<li><p>循环读输入用：<code>while(cin&gt;&gt;x)</code> 或 <code>while(scanf()!=EOF)</code></p>
+<li><p>循环读输入用：<code>while(cin&gt;&gt;x)</code> </p>
+<p>或 <code>while(scanf()!=EOF)</code></p>
 <p>一行一行地读：</p>
 <pre class="line-numbers language-c++"><code class="language-c++">string line;
 while(getline(cin,line));
@@ -374,6 +377,25 @@ while(getline(cin,line));
 </ul>
 </li>
 <li><p>多个if后加一个else，else只会和前一个if匹配。</p>
+</li>
+<li><p>这个情况不好归纳，直接看例子：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">if(a<=0||b<=0||c<=0) 规则1="" {="" a="0;b=0;c=0;" }="" if(a="">20||b>20||c>20) //规则2
+{
+    a=20;b=20;c=20;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></=0||b<=0||c<=0)></code></pre>
+<p>这时候如果输入(-1,21,-1)，符合规则1和2. 要考虑这种情况！防止规则2把规则1覆盖，尽量在第二个<code>if</code>前加<code>else</code>!</p>
+</li>
+<li><p>刚声明一个vector。没指定大小。是不能用vt[0]=1赋值的==》越界</p>
+</li>
+<li><p>If(xxx) return;要慎重。是return就等于是break了。而不是continue;</p>
+</li>
+<li><p>Vector效率真不行</p>
+</li>
+<li></li>
+</ul>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ul>
+<li><p>一位一位的读01可以用<code>scanf %1d</code></p>
 </li>
 <li><p>范围问题</p>
 </li>
@@ -390,18 +412,135 @@ unsigned long long
 0～18446744073709551615  (20位数，1e19)  2^64 - 1
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>这个情况不好归纳，直接看例子：</p>
-<pre class="line-numbers language-c++"><code class="language-c++">if(a<=0||b<=0||c<=0) 规则1="" {="" a="0;b=0;c=0;" }="" if(a="">20||b>20||c>20) //规则2
-{
-    a=20;b=20;c=20;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></=0||b<=0||c<=0)></code></pre>
-<p>这时候如果输入(-1,21,-1)，符合规则1和2. 要考虑这种情况！防止规则2把规则1覆盖，尽量在第二个<code>if</code>前加<code>else</code>!</p>
-</li>
-<li><p>刚声明一个vector。没指定大小。是不能用vt[0]=1赋值的==》越界</p>
-</li>
 </ul>
-<h1 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h1>
+<h2 id="取模运算法则"><a href="#取模运算法则" class="headerlink" title="取模运算法则"></a>取模运算法则</h2><p>模运算与基本四则运算有些相似，但是除法例外。其规则如下：</p>
+<p>(a + b) % p = (a % p + b % p) % p<br>(a - b) % p = (a % p - b % p) % p<br>(a <em> b) % p = (a % p </em> b % p) % p<br>a ^ b % p = ((a % p)^b) % p<br>结合律：</p>
+<p>((a+b) % p + c) % p = (a + (b+c) % p) % p<br>((a<em>b) % p </em> c)% p = (a <em> (b</em>c) % p) % p</p>
+<p>交换律：</p>
+<p>(a + b) % p = (b+a) % p<br>(a <em> b) % p = (b </em> a) % p</p>
+<p>分配律：</p>
+<p>(a+b) % p = ( a % p + b % p ) % p<br>((a +b)% p <em> c) % p = ((a </em> c) % p + (b * c) % p) % p</p>
+<p>重要定理</p>
+<p>若a≡b (% p)，则对于任意的c，都有(a + c) ≡ (b + c) (%p)；<br>若a≡b (% p)，则对于任意的c，都有(a <em> c) ≡ (b </em> c) (%p)；<br>若a≡b (% p)，c≡d (% p)，则</p>
+<p>(a + c) ≡ (b + d) (%p)，(a - c) ≡ (b - d) (%p)，<br>(a <em> c) ≡ (b </em> d) (%p)，(a / c) ≡ (b / d) (%p)；</p>
+<h2 id="附：OJ-使用技巧"><a href="#附：OJ-使用技巧" class="headerlink" title="附：OJ 使用技巧"></a>附：OJ 使用技巧</h2><ol>
+<li>OJ 首页上有 OJ 使用手册（guide）、视频教程（video guide）、本编程作业说明（PA handbook）。</li>
+<li>在黑盒测试结果页面，有解释评测结果的含义的链接 <a href="http://dsa.cs.tsinghua.edu.cn/oj/static/submission_result_explanation.html" target="_blank" rel="noopener">http://dsa.cs.tsinghua.edu.cn/oj/static/submission_result_explanation.html</a> 。</li>
+<li>Runtime Error 的 signal 同样反映了某种信息，可以查阅相关资料了解0各个 signal 的意义。参考 <a href="http://dsa.cs.tsinghua.edu.cn/oj/static/unix_signal.html" target="_blank" rel="noopener">http://dsa.cs.tsinghua.edu.cn/oj/static/unix_signal.html</a> 。</li>
+<li>几种主要的读入数据方法，大多数情况下性能是 fread &gt; getchar &gt; scanf &gt; cin 的顺序。</li>
+<li>OJ 上的编译器采用的是 gcc（g++），对于 Linux 和 Mac 用户可以无缝衔接，而如果使用 Windows 的同学希望能够在本地编译与 OJ 编译之间较快衔接的话，可以考虑使用 MinGW。</li>
+<li>评测所依赖的输出流是 stdout，而使用 stderr 的输出不会被纳入最终评测——但如果你使用 stderr 进行调试却没有在提交中移除，这将显著地拖累你程序的性能。</li>
+<li>Windows 和 Linux 上换行符有 “\r\n” 跟 “\n” 的差别，你的程序最好有一定鲁棒性，能处理两种情况。</li>
+<li>Linux 文件系统区分大小写，因此 <code>#include &quot;foo.h&quot;</code> 不能与 <code>Foo.h</code> 对应。</li>
+<li>常用的调试工具包括 gdb、MSVC debugger、室友、小黄鸭。</li>
+<li>如果不确定某一特性是否为 OJ 所支持，不妨动手试一试。</li>
+</ol>
+<h1 id="清华OJ上写的的有用技巧"><a href="#清华OJ上写的的有用技巧" class="headerlink" title="清华OJ上写的的有用技巧"></a>清华OJ上写的的有用技巧</h1><h2 id="附：输入输出技巧"><a href="#附：输入输出技巧" class="headerlink" title="附：输入输出技巧"></a>附：输入输出技巧</h2><ol>
+<li><p>判断输入结束</p>
+<p>有些编程作业题并未指明测试数据的组数，此时需要自己判断输入结束。其实，根据题意正确处理输入数据也是同学们在这门课中需要练习的编程能力之一。</p>
+<p>处理输入的方法很简单，使用 C++ 风格的 cin，可以这样写</p>
+<pre><code>int a, b, c;
+while (cin &gt;&gt; a &gt;&gt; b &gt;&gt; c)
+{ /* blablabla */ }
+</code></pre><p>如果使用 C 风格的 scanf() 函数，则可根据其返回值做出判断，具体地可以这样写：</p>
+<pre><code>int a, b, c;
+while (scanf(&quot;%d%d%d&quot;, &amp;a, &amp;b, &amp;c) != EOF)
+{ /* blablabla */ }
+</code></pre><p>当格式输入流读到文件末尾时会返回 EOF，于是 while 退出。</p>
+</li>
+<li><p>过滤空白字符 有些题目是这样的输入格式：</p>
+<pre><code>E 6
+M
+E 2
+M
+</code></pre><p>即字母、数字混输。如果用 getchar 或 scanf 的 %c 参数，会受到行末空白符（比如空格、换行等）的困扰。cin 到字符串、scanf 的 %s 参数都会自动过滤空白符。使用标准库的功能来过滤空白符，会使程序逻辑更清晰。示例代码：</p>
+<pre><code>char buf[8];
+int x;
+while (scanf(&quot;%s&quot;, buf) != EOF) {
+  switch (buf[0]) {
+  case &#39;E&#39;:
+    scanf(&quot;%d&quot;, &amp;x);
+    /* balabala */
+  }
+}
+</code></pre></li>
+<li><p>I/O 缓存加速</p>
+<p>使用 cstdio 中的 setvbuf 函数，设置一个较大的 I/O 缓冲区，有时有很好的加速效果。用法示例：</p>
+<pre><code>setvbuf(stdin, new char[1 &lt;&lt; 20], _IOFBF, 1 &lt;&lt; 20);
+setvbuf(stdout, new char[1 &lt;&lt; 20], _IOFBF, 1 &lt;&lt; 20);
+</code></pre><p>注意：一、必须在所有 I/O 操作前调用这个函数，不能在已读入一些数据后再设置缓存；二、如果设置了 I/O 缓存，控制台输入输出可能失效。</p>
+</li>
+<li><p>重定向</p>
+<p>为便于反复测试及再现运行过程，可采用输出、输入重定向的方法。 你只需事先将输入数据存成文件，运行时系统会自动从中获取输入。其效果完全等同于你从（作为默认输入流的）键盘逐项输入。 类似地，你也可以指定另一文件，并使运行的结果自动存入其中。其效果完全等同于从（作为默认输出流的）屏幕截取输出结果。 重定向的好处很多：可以避免手工输入的出错，忠实可靠地重复测试；可以实现大规模数据的输入；可以完整精确地记录程序的输出，以便事后的对比分析；可以省去默认输入、输出流占用的大量时间，更加准确地测量程序的执行效率。</p>
+<ol>
+<li><p>方法一：修改源文件，指定重定向的输入、输出文件</p>
+<p>例如，若希望从文件 input.txt 中获取输入，将输出保存到文件 output.txt 中，则可在主程序开头增加如下语句：</p>
+<pre><code>#ifndef _OJ_
+  freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);
+  freopen(&quot;output.txt&quot;, &quot;w&quot;, stdout);
+#endif
+</code></pre><p>注意：如果用 C++ 风格的 cin / cout 的话，还要在前面引用头文件的部分加入 <code>#include &lt;cstdio&gt;</code>。</p>
+<p>OJ 在编译程序的时候会定义名为 <code>_OJ_</code> 的宏，所以上面这段语句会在 OJ 运行的时候被跳过。</p>
+</li>
+<li><p>方法二：在 IDE 中通过设置命令行，重定向输入、输出文件 以 Visual Studio 为例，可打开对应工程的“属性页”，在“配置属性”下的“调试”页，设置“命令行参数”。</p>
+<p>输入参数不多时，可直接键入。例如 ADD 一题，键入“100 200”即可。若其中包含特殊字符，则需以’^’引导，或者使用一对半角括号消除歧义。</p>
+<p>若输入参数多，且不止一行，则可将其存成一个文件。比如，可在“命令行参数”中键入:</p>
+<p><code>&lt; D:\test\input.txt</code>（注意起始字符”&lt;”不能省略）</p>
+<p>为将程序的输出保存至指定文件，可在“命令行参数”中继续键入：</p>
+<p><code>&gt; D:\result\output.txt</code>（同样地，起始字符”&gt;”也不能省略）</p>
+<p>若不希望覆盖文件原有的内容，只需用”&gt;&gt;”替换以上的”&gt;”，即可将每次运行的输出追加至 D:\result\output.txt。</p>
+<p>输入、输出的重定向可同时采用并生效。比如可在“命令行参数”中键入：</p>
+<p><code>&lt; D:\test\input.txt &gt;&gt; D:\result\output.txt</code></p>
+<p>重定向文件的具体路径与文件名可自行选择，但若包含空格，则需使用一对半角引号消除歧义，比如：</p>
+<p><code>&lt; &quot;D:\my test\input.txt&quot; &gt;&gt; &quot;D:\my result\output.txt&quot;</code></p>
+</li>
+</ol>
+</li>
+<li><p>帮助资料</p>
+<p>关于输入输出的进一步问题，可以自己查阅相关手册或资料。</p>
+<p>也可参考标准手册，以上输入输出方法都是 C / C++ 标准输入输出，在 manual 中都有详细介绍。</p>
+<p>cin：<a href="http://www.cplusplus.com/reference/iostream/cin/" target="_blank" rel="noopener">http://www.cplusplus.com/reference/iostream/cin/</a></p>
+<p>scanf：<a href="http://linux.die.net/man/3/scanf" target="_blank" rel="noopener">http://linux.die.net/man/3/scanf</a></p>
+<p>对比：<a href="http://www.byvoid.com/blog/fast-readfile/" target="_blank" rel="noopener">http://www.byvoid.com/blog/fast-readfile/</a></p>
+</li>
+</ol>
+<h2 id="附：一些常见逻辑错误"><a href="#附：一些常见逻辑错误" class="headerlink" title="附：一些常见逻辑错误"></a>附：一些常见逻辑错误</h2><ol>
+<li><p>swtich 里忘记加 break，导致多个case 后的语句都被执行。</p>
+</li>
+<li><p><code>int *a = new int[n]</code> 误写成 <code>int *a = new int(n)</code>。前者申请了 n 个 int 的空间；而后者只申请了一个 int 的空间，并初始化为 n。</p>
+</li>
+<li><p>在函数里开了很大的数组，导致运行时栈溢出。错误示例：</p>
+<pre><code>int main() {
+  int a[10000000];
+  return 0;
+}
+</code></pre><p>可以使用动态内存分配，避免栈溢出，例如：</p>
+<pre><code>int main() {
+  int *a = new int[10000000];
+  delete[] a;
+  return 0;
+}
+</code></pre></li>
+<li><p>计算溢出。错误示例：</p>
+<pre><code>int a = 1000000, b = 1000000;
+long long c = a * b;
+</code></pre><p>程序会先在 int 范围内计算 <code>a * b</code>，最后把溢出后的结果赋值给 c。正确写法是 <code>c = (long long)a * (long long)b</code>。</p>
+</li>
+<li><p>有返回值的函数漏 return 语句。</p>
+<p>行为是不确定的，有的编译器会恰巧返回你想要返回的变量，而一般不会。</p>
+</li>
+<li><p>memcpy 的源地址和目标地址有重叠。</p>
+</li>
+</ol>
+<h2 id="附：Visual-Studio-msvc-与-GNU-gcc-的差异"><a href="#附：Visual-Studio-msvc-与-GNU-gcc-的差异" class="headerlink" title="附：Visual Studio msvc 与 GNU gcc 的差异"></a>附：Visual Studio msvc 与 GNU gcc 的差异</h2><ol>
+<li>msvc 可能会自动 include 一些头文件，gcc 编译提示函数找不到。</li>
+<li>使用 scanf 等函数会警告 <code>not safe(warning 4996)</code>，msvc 推荐使用 scanf_s ，但是这个不属于 C / C++ 标准，gcc 没有。</li>
+<li>gcc 也没有 itoa（数字转换为字符串的函数）。</li>
+<li>gcc 上，模板类继承模板类，two phase name lookup，调用父类函数会提示找不到，需要用 this-&gt; 调用。</li>
+<li>gcc 禁止 void main。main 函数必须 return 0，如果返回值非 0，也会被认为是运行时错误，不得分。</li>
+<li><a href="http://dsa.cs.tsinghua.edu.cn/oj/static/submission_result_explanation.html" target="_blank" rel="noopener">http://dsa.cs.tsinghua.edu.cn/oj/static/submission_result_explanation.html</a> 列出了一些常见编译错误的解决方法。</li>
+</ol>
+
             </div>
             <hr>
 
@@ -595,13 +734,13 @@ unsigned long long
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/Algorithm/洛谷1/">
+                <a href="/Algorithm/luogu0_entry/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="洛谷训练场刷题记录1">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="洛谷记录0-入门">
                         
-                        <span class="card-title">洛谷训练场刷题记录1</span>
+                        <span class="card-title">洛谷记录0-入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

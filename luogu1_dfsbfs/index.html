@@ -1,0 +1,1051 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="洛谷记录1-DFS/BFS, 炫杉">
+    <meta name="description" content="普及练习场
+知识点汇总：DFS、BFS、☆杨辉三角P1118 USACO06FEB 数字三角形☆
+
+
+求解的个数用深搜，求最优解用广搜。
+
+DFSP1219 八皇后弱智一样的我，还建立NxN的矩阵来模拟。
+结果呢，检查(check)时要遍历">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>洛谷记录1-DFS/BFS | 炫杉</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        洛谷记录1-DFS/BFS
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/luoguOJ/" target="_blank">
+                                <span class="chip bg-color">luoguOJ</span>
+                            </a>
+                        
+                            <a href="/tags/Cpp/" target="_blank">
+                                <span class="chip bg-color">Cpp</span>
+                            </a>
+                        
+                            <a href="/tags/Algorithm/" target="_blank">
+                                <span class="chip bg-color">Algorithm</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                Algorithm
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-06-26
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>普及练习场</p>
+<p>知识点汇总：DFS、BFS、☆杨辉三角<a href="https://www.luogu.org/problemnew/show/P1118" target="_blank" rel="noopener">P1118 USACO06FEB 数字三角形</a>☆</p>
+<a id="more"></a>
+<blockquote>
+<p>求解的个数用深搜，求最优解用广搜。</p>
+</blockquote>
+<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h2 id="P1219-八皇后"><a href="#P1219-八皇后" class="headerlink" title="P1219 八皇后"></a><a href="https://www.luogu.org/problemnew/show/P1219" target="_blank" rel="noopener"><strong>P1219</strong> 八皇后</a></h2><p><del>弱智一样的我，还建立NxN的矩阵来模拟。</del></p>
+<p><del>结果呢，检查(check)时要遍历整个棋盘，最终导致只能过部分。</del></p>
+<hr>
+<p>根本不用二维矩阵。</p>
+<p><code>dfs(i)</code>，因为传进来的i是行号，可以保证这一行只有一个。</p>
+<p>然后这一行放在第j列可以吗？根本不用遍历棋盘。</p>
+<p>只需要三个check数组，做标志位。</p>
+<h2 id="P1019-单词接龙"><a href="#P1019-单词接龙" class="headerlink" title="P1019 单词接龙"></a><a href="https://www.luogu.org/problemnew/show/P1019" target="_blank" rel="noopener"><strong>P1019</strong> 单词接龙</a></h2><p>这题我晚上做的。代码觉得没问题但是跑起来没输出。就睡了。第二天起来，删了几句代码精简了下结构。也不知道因为改了哪，直接AC了。</p>
+<p>总之这题虽是基础的DFS。但我思路还挺清晰的。有空可以回看一下代码！</p>
+<hr>
+<blockquote>
+<p>注意：能不“模拟”的尽量别搞这么复杂，就像八皇后没必要传入一个棋盘一样！</p>
+</blockquote>
+<h2 id="P1101-单词方阵"><a href="#P1101-单词方阵" class="headerlink" title="P1101 单词方阵"></a><strong>P1101</strong> 单词方阵</h2><p>先说一下我的一些问题：</p>
+<ul>
+<li>往一个方向搜就搜到头，没想到搜够7个字符就停止</li>
+</ul>
+<p>然后看到题解人家在做8个方向时，用了一个二维数组，分别存i和j的变量：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> dir<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//八向的常量数组</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h1><h2 id="P1162-填涂颜色"><a href="#P1162-填涂颜色" class="headerlink" title="P1162 填涂颜色"></a><a href="https://www.luogu.org/problemnew/show/P1162" target="_blank" rel="noopener"><strong>P1162</strong> 填涂颜色</a></h2><p>BFS第一道，龙哥说BFS就是队列。树的层序遍历。</p>
+<p>那这题我就会了啊。但是经历了下面的波折：</p>
+<ul>
+<li><p>用了queue做，思路很清晰。看关键代码：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">while (!q1.empty()){
+        xy temp=q1.front();
+        int i=temp.x,j=temp.y;
+        if(a[i+1][j]==0)
+            q1.push(xy(i+1,j));
+        if(a[i][j+1]==0)
+            q1.push(xy(i,j+1));
+        if(a[i-1][j]==0)
+            q1.push(xy(i-1,j));
+        if(a[i][j-1]==0)
+            q1.push(xy(i,j-1));//四个方向找联通块，找到入队
+        a[i][j]=2;
+        q1.pop();
+        cout<<"computing\n"; }="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></"computing\n";></code></pre>
+<p>5个用例，最后一个数据过不了，下载了看，30x30矩阵，然后外圈是1中间全0.应该是卡在四个方向寻找那里了。这么多数都入队。（特别我没考虑到上面的写法让<strong>很多点多次入队</strong>）</p>
+</li>
+<li><p>以为是queque的问题，看了题解，准备用数组做。</p>
+<p>数组模拟队列，用两个下标控制队头队尾。调试后发现1、5用例AC。234又过不了。Debug后找出了下面的错误：</p>
+<ul>
+<li><p>每次取队头begin后，不把它先存到另一个变量了。直接在begin上操作。导致每入队一个数，队头就后移。</p>
+</li>
+<li><p>这次知道把begin取出来用另一个变量来控制往里存树了。1-4用例AC。第五个又超时了。Debug一下发现队列的下标都到2000多了。照理说我30x30的矩阵，所有的点入队才900个点而已啊！怎么会有这么多点入队呢。</p>
+<p>这时候才领悟到：<strong>很多点多次入队</strong></p>
+<p><strong>应该发现是0联通块，直接改成2，然后再把它入队。不然另外和Ta相邻的点，又看到Ta符合条件又会让它入队</strong>。AC</p>
+</li>
+</ul>
+</li>
+<li><p>发现不是queue问题后。改又了queue版代码，AC。</p>
+</li>
+<li><p>最后：操作i\j下标记得用方向数组啊。美观很多。</p>
+</li>
+</ul>
+<h2 id="P1032-字串变换"><a href="#P1032-字串变换" class="headerlink" title="P1032 字串变换"></a><strong>P1032</strong> 字串变换</h2><p>这个数据太刁钻了：</p>
+<pre><code>abaaaba abcdaba
+a b
+b d
+d e
+e f
+f g
+g c
+</code></pre><p>哎。我最后特判的。</p>
+<h2 id="P1141-01迷宫"><a href="#P1141-01迷宫" class="headerlink" title="P1141 01迷宫"></a><a href="https://www.luogu.org/problemnew/show/P1141" target="_blank" rel="noopener"><strong>P1141</strong> 01迷宫</a></h2><ul>
+<li><p>我发现传vector变量的地方可以直接传<code>{1,2,3,4,5}</code>进去</p>
+<p>这样我就不用使用一个结构体来存(x,y)坐标了啊。直接：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">queue<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> queue1<span class="token punctuation">;</span>
+queue1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>i<span class="token punctuation">,</span>j<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>方便。</p>
+</li>
+<li><p><code># 2 9 10</code>三个用例超时。#2是一个1000*1000的矩阵。10w条数据。我已经使用了记忆化搜索。实在想不到哪里可以优化了。</p>
+</li>
+<li><p>好像想出来我的问题了，我虽然使用了记忆化。但是我是把遍历到的联通块每个点的答案都存了起来。就是说我求出来了整个地图的解。看似读取快了。实际计算了很多不必须要的答案。应该只求输入里有的点就好。</p>
+</li>
+</ul>
+<h2 id="P1126-机器人搬重物"><a href="#P1126-机器人搬重物" class="headerlink" title="P1126 机器人搬重物"></a><a href="https://www.luogu.org/problemnew/show/P1126" target="_blank" rel="noopener"><strong>P1126</strong> 机器人搬重物</a></h2><p>拿到题：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//先分析一下。输入坐标其实是球的右下角。</span>
+<span class="token comment" spellcheck="true">// 所以在判断下、右墙面时，直接判断。判断上、左墙面时，要隔两个身位。</span>
+<span class="token comment" spellcheck="true">//初步思路就是这样。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Notice:</p>
+<ul>
+<li>如果这个方向有障碍就不用看走更多步数的情况了，不是说走3步那个地方没有障碍就能走过去。可能障碍在走两步那出现。</li>
+</ul>
+<h2 id="P1443-马的遍历"><a href="#P1443-马的遍历" class="headerlink" title="P1443 马的遍历"></a><a href="https://www.luogu.org/problemnew/show/P1443" target="_blank" rel="noopener"><strong>P1443</strong> 马的遍历</a></h2><p>简单bfs，需要注意的是答案要求5个字符左对齐: <code>%-5d</code></p>
+<p>如果是c++则要：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">cout<span class="token punctuation">.</span><span class="token function">setf</span><span class="token punctuation">(</span>std<span class="token operator">::</span>ios<span class="token operator">::</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//左对齐，全局有效</span>
+cout<span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//宽度，每次设置只影响下一次cout</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="带有技巧的搜索"><a href="#带有技巧的搜索" class="headerlink" title="带有技巧的搜索"></a>带有技巧的搜索</h1><h2 id="P1118-USACO06FEB-数字三角形"><a href="#P1118-USACO06FEB-数字三角形" class="headerlink" title="P1118 USACO06FEB 数字三角形"></a><a href="https://www.luogu.org/problemnew/show/P1118" target="_blank" rel="noopener">P1118 USACO06FEB 数字三角形</a></h2><h3 id="关于杨辉三角"><a href="#关于杨辉三角" class="headerlink" title="关于杨辉三角"></a>关于杨辉三角</h3><p>记住下面两个知识点，</p>
+<ul>
+<li><p>通项公式</p>
+<p>第n行的第m个数 其实是排列组合数$C_{n-1}^{m-1}$</p>
+<p>如第4行4个数是$C_3^0=1,C_3^1=3,C_3^2=3,C_3^3=1$</p>
+<p>第5行5个数是$C_4^0=1,C_4^1=4,C_4^2=\frac{4\times3}{2\times1}=6,C_4^3=4,C_4^4=1$</p>
+</li>
+<li><p>利用前一个数求后一个，</p>
+<p><strong>$第i个数=第{i-1}个数\times \frac{n-i}{i},i取0到n-1$</strong></p>
+<p><strong>记住这段代码</strong>：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> a<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//假设求第n行</span>
+a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//两端赋值1</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">*</span><span class="token number">2</span><span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token operator">-</span>i<span class="token punctuation">]</span>
+              <span class="token operator">=</span><span class="token punctuation">(</span>n<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token operator">*</span>pc<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">/</span>i<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//利用对称一次填充两个</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>细节：</p>
+<ul>
+<li><p><code>a[0]</code>对应<code></code>a[n-1]<code>,故</code>a[i]<code>对应</code>a[n-1-i]`</p>
+</li>
+<li><p>如求第4行 $a_0=a_3=1$ <strong>首尾先赋值</strong></p>
+<p>$a_1=a_3=a_0\times\frac{4-1}{1}=1\times3=3$ <strong>对称填充</strong></p>
+<p>求第5行 $a_0=a_4=1$ <strong>首尾先赋值</strong></p>
+<p>$a_1=a_3=a_0\times\frac{5-1}{1}=1\times4=4$ <strong>对称填充</strong></p>
+<p>$a_2=a_1\times\frac{5-2}{2}=4\times\frac{3}{2}=6$</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>回到此题</p>
+<h3 id="dfs法"><a href="#dfs法" class="headerlink" title="dfs法"></a>dfs法</h3><p>有了杨辉三角做系数。配合DFS对1-N的数做个排列组合。所有的情况都选出来这题就解决了。下面说一下这题的剪枝：</p>
+<ul>
+<li>开始我是把所有的情况都dfs了。然后<strong>当枚举结束时</strong>，计算sum是不是要求的数。然后如果累加的过程中如果sum超了，就不再往下算了。</li>
+<li>但是仔细想想。这不还是枚举出了所有的情况吗。随后一步求sum我优化个屁啊。</li>
+<li>正解：在<strong>DFS的过程中</strong>，取一个数就加到sum里，<strong>这样不用等枚举结束，就能把行不通的路减掉</strong>。</li>
+</ul>
+<h3 id="next-permutation"><a href="#next-permutation" class="headerlink" title="next_permutation"></a>next_permutation</h3><p>容易看出这题不用dfs的话可以借助<code>&lt;algorithm.h&gt;</code>里的<code>next_permutation()</code>，</p>
+<p>默认是从小到大排序的。比如原来是1234.那么next_permutation()就是1243。</p>
+<p>问题在于如何剪枝。（不然就是全部枚举的dfs，和上面一样）</p>
+<ul>
+<li><p>当发现已经不行时，对后面的数进行sort。并让大的在前。</p>
+<p>例子：现在数组为 2 3 1 4</p>
+<p>处理完23发现 23开头的都不行。（那就没必要枚举出 2341了。）</p>
+<p><code>sort(,,greater&lt;int&gt;())</code>后数组变成 2341 跳出循环</p>
+<p>再次执行next_permutation()就跳过了（剪枝了）</p>
+</li>
+</ul>
+<h2 id="P1434-SHOI2002-滑雪"><a href="#P1434-SHOI2002-滑雪" class="headerlink" title="P1434 SHOI2002 滑雪"></a><a href="https://www.luogu.org/problemnew/show/P1434" target="_blank" rel="noopener">P1434 SHOI2002 滑雪</a></h2><ul>
+<li><p>开始想错了思路。搞成了联通块。后来仔细想想这题不是找联通块啊。并不是上下左右能走过去就要计算在路径里的。每次路径必须保证数字越来越大才行的。</p>
+</li>
+<li><p>改造了node，加入了一个长度属性。#2超时过不了（上面联通块的却能过#2 可笑）。开启O2优化后AC。</p>
+</li>
+<li><p>现在研究一下如何不开启O2过#2</p>
+<p>未果</p>
+</li>
+</ul>
+<h2 id="P1433-吃奶酪"><a href="#P1433-吃奶酪" class="headerlink" title="P1433 吃奶酪"></a><a href="https://www.luogu.org/problemnew/show/P1433" target="_blank" rel="noopener"><strong>P1433</strong> 吃奶酪</a></h2><p>dfs顺利AC。也没做啥优化：</p>
+<ul>
+<li>仅仅是判断当前长度已经小于min就不往下了，剪枝。</li>
+<li>看题解有个人，是吧n个点两两访问的距离求出来存好了。这样在数据规模比较大的时候应该是有用的。不然很多时候两个点的距离要重复算。<ul>
+<li>进一步优化这个思路。可以先不算出所有点两两间距离。dfs过程中算一个存一个，下次用到就直接取。用不到更省心。</li>
+</ul>
+</li>
+</ul>
+<p>问题：</p>
+<ul>
+<li>第一次没AC：传入的点坐标也是double类型啊！谁说坐标就得是int!</li>
+</ul>
+<p>BFS就是队列。而我写DFS也觉得就是那么一套模板。总结下，每次我写基本都是这样：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> 统计是否结束用的sum<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//传进来做的必要处理</span>
+
+    <span class="token punctuation">}</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//剪枝条件</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//遍历结束</span>
+      <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//对解做出判断</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+      <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span>n<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//继续dfs</span>
+          <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>visited<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//没被访问) </span>
+        <span class="token punctuation">{</span>
+              a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>visited<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//访问标记</span>
+               <span class="token function">dfs</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> sum<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">{</span>回档处理<span class="token punctuation">}</span>
+                 a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>visited<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>善于总结！加油。</p>
+<h2 id="P1074-靶形数独"><a href="#P1074-靶形数独" class="headerlink" title="P1074 靶形数独"></a><a href="https://www.luogu.org/problemnew/show/P1074" target="_blank" rel="noopener"><strong>P1074</strong> 靶形数独</a></h2>
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://ixs.im" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/luogu1_dfsbfs/" class="b-link-green">洛谷记录1-DFS/BFS</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/Algorithm/逆序对/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="逆序对">
+                        
+                        <span class="card-title">逆序对</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+“逆序对”归并和线段树两种解法。这道经典题存在于任何一个算法题库中，故单独拿出分析讨论。
+暴力如果仅仅是用暴力、普通的分治方法。遇到数据量较大时内存不够。
+归并归并排序的时间复杂度用归并法解此题之前先考虑一下，为何归并排序的时间复杂度是$</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Algorithm/" target="_blank">
+                        <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/Algorithm/luogu0_entry/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="洛谷记录0-入门">
+                        
+                        <span class="card-title">洛谷记录0-入门</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">新手场和普及场前6关
+
+新手场顺序与分支P1422 小玉家的电费控制输出精度：cout.xxx(); 待查询
+
+P1089 津津的储蓄计划注意 int 和 float 相乘，输出格式用 “%d” 数字会面目全非
+
+P1909 买铅笔INT_</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
+                                    Algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/luoguOJ/" target="_blank">
+                        <span class="chip bg-color">luoguOJ</span>
+                    </a>
+                    
+                    <a href="/tags/Cpp/" target="_blank">
+                        <span class="chip bg-color">Cpp</span>
+                    </a>
+                    
+                    <a href="/tags/Algorithm/" target="_blank">
+                        <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            2019&nbsp;Hexo驱动&nbsp;主题matery
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    View <span id="busuanzi_value_site_pv" class="white-color"></span> times
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    
+                    ,&nbsp;<i class="fa fa-users"></i> <span id="busuanzi_value_site_uv" class="white-color"></span> 
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:chinalixs@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=6956820" class="tooltipped" data-tooltip="QQ联系我: 6956820" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7e1dcb528a848f5e66324d4cbfd4e1cd";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
