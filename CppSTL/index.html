@@ -4,14 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="排序算法, 炫杉">
-    <meta name="description" content="该和排序算法做个了结了
-
-15种排序算法动态演示这个视频是在网上看到的。
-
-
-那我们就跟着视频来写出这15种排序算法吧。这15种排序分别是：
-1.简单选择排序2.插入排序3.快速排序4.合并排序5.堆排序6.基数排序7.最高有效位排序8.内">
+    <meta name="keywords" content="C++ STL, 炫杉">
+    <meta name="description" content="C++ STL | 炫杉">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>排序算法 | 炫杉</title>
+    <title>C++ STL | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -186,13 +180,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        排序算法
+                        C++ STL
                     </div>
                 </div>
             </div>
@@ -301,33 +295,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Cpp/" target="_blank">
-                                <span class="chip bg-color">Cpp</span>
-                            </a>
-                        
-                            <a href="/tags/Algorithm/" target="_blank">
-                                <span class="chip bg-color">Algorithm</span>
-                            </a>
-                        
-                            <a href="/tags/Sort/" target="_blank">
-                                <span class="chip bg-color">Sort</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Algorithm/" class="post-category" target="_blank">
-                                Algorithm
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -335,7 +308,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-11-05
+                    2019-07-18
                 </div>
 
                 
@@ -351,91 +324,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>该和排序算法做个了结了</p>
-<a id="more"></a>
-<h1 id="15种排序算法动态演示"><a href="#15种排序算法动态演示" class="headerlink" title="15种排序算法动态演示"></a>15种排序算法动态演示</h1><p>这个视频是在网上看到的。</p>
-<iframe frameborder="0" width="100%" height="500px" src="https://v.qq.com/txp/iframe/player.html?vid=t0396emm8oy" allowfullscreen="true"></iframe>
-
-<p>那我们就跟着视频来写出这15种排序算法吧。这15种排序分别是：</p>
-<p><a href="#简单选择排序">1.简单选择排序</a><br><a href="#直接插入排序">2.插入排序</a><br><a href="#快速排序">3.快速排序</a><br><a href="#合并排序">4.合并排序</a><br><a href="#堆排序">5.堆排序</a><br><a href="#基数排序">6.基数排序</a><br><a href="#最高有效位排序">7.最高有效位排序</a><br><a href="#内省排序">8.内省排序</a><br><a href="#适应性归并排序">9.适应性归并排序</a><br><a href="#希尔排序">10.希尔排序（缩小增量，插入排序的改进版）</a><br><a href="#冒泡排序">11.冒泡排序</a><br><a href="#鸡尾酒排序">12.鸡尾酒排序（定向冒泡，选择排序的一种）</a><br><a href="#地精排序">13.地精排序（写法最简单的排序）</a><br><a href="#双调排序">14.双调排序</a><br><a href="#Bogo排序">15.Bogo排序（等量子计算时代唯一的算法，穷举法）</a></p>
-<h1 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h1><p>简单选择排序，每次找到一个最小的。放到前面。</p>
-<p>效率自然是 O(n2)</p>
-<h1 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h1><p>加哨兵的核心：</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        vt<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>vt<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> j<span class="token operator">=</span>i<span class="token number">-1</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span>vt<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>vt<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span>
-            vt<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> vt<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        vt<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> vt<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>作用</p>
-<ul>
-<li><p>把每次要插入的目标放到vt[0]的位置，</p>
-</li>
-<li><p>让循环的结束条件<code>vt[j]&gt;vt[0]</code> 一定可以结束。</p>
-<p>因为当<strong>目标值</strong>是最小的时候，<strong>第一个元素vt[1]</strong>都比<strong>目标</strong>大，<strong>vt[1]</strong>会后移到<strong>vt[2]</strong>上。</p>
-<p><code>j--</code> 则 j就变成了0  。<code>vt[0]&gt;vt[0]</code>不成立，循环结束。且要插入的位置正是 0+1 = 1。目标值放在了位置1上。</p>
-</li>
-</ul>
-<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>核心就是i和j两个坐标的移动：</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> vt<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&amp;&amp;</span>i<span class="token operator">&lt;</span>j<span class="token punctuation">)</span><span class="token punctuation">{</span> 
-    j<span class="token operator">--</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>j<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//这里只要判断i&lt;j防止已经相遇就好了</span>
-    vt<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>vt<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    i<span class="token operator">++</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>注意的地方：</p>
-<ul>
-<li><p>进入快排，先把传入的i和j两个参数存起啦，最后递归的时候要用</p>
-</li>
-<li><p>第一行，不要忘记 <code>&amp;&amp; i&lt;j</code>    </p>
-<p>不要写成 &lt;= 。那样会导致和x一样的数没做处理。跳过去了就。</p>
-<p>应当放到x的左侧才对==》<strong>快排是不稳定的</strong></p>
-</li>
-<li><p>注意上面的第4行，我开始写的是：<code>if(x&gt;vt[j] &amp;&amp; i&lt;j)</code>。错在哪？</p>
-<p>上一步的循环条件是 <code>x&lt;vt[j]</code> <strong>与 &lt; 相对的</strong>不是 &gt; 而<strong>是 &gt;=</strong>啊。</p>
-<p>所以要写成 <code>x&lt;=vt[j]</code>，<strong>干脆不写！一定不写记住！</strong>。</p>
-</li>
-</ul>
-<h1 id="合并排序"><a href="#合并排序" class="headerlink" title="合并排序"></a>合并排序</h1><ul>
-<li>归并的拆分的递归思路特别好。要记住两个函数参数怎么设。</li>
-<li>需要占用空间啊（要有个临时数组去合并结果）。</li>
-</ul>
-<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><p><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/HeapSort.html</a></p>
-<h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p><a href="http://www.cs.usfca.edu/~galles/visualization/RadixSort.html" target="_blank" rel="noopener">http://www.cs.usfca.edu/~galles/visualization/RadixSort.html</a></p>
-<p>我完全按照算法的思想。把数一次次存到map里写出来的。</p>
-<p>貌似正规的写法不用这么「扯」。</p>
-<p>说下我的写法吧：</p>
-<ol>
-<li><p>按个位数当下标key，先全存到第一个map里</p>
-</li>
-<li><p>建立一个allMap，根据最高位数exp，往allMap里存map。</p>
-</li>
-<li><p>遍历上一层的map。因为上一层的map是按个位数排好序的。</p>
-<p>取出这个数。判断它的十位。存到这一层的map里。</p>
-</li>
-</ol>
-<ul>
-<li><p>map里如果value是存的vector，那不需要初始化就可以直接push_back的。</p>
-<p>比如，<code>map[1].push_back(99);</code> 这种写法是没错的。</p>
-</li>
-</ul>
-<h1 id="最高有效位排序"><a href="#最高有效位排序" class="headerlink" title="最高有效位排序"></a>最高有效位排序</h1><p>这和基数排序啥区别啊。就是从高位开始判断的基数排序？</p>
-<h1 id="内省排序"><a href="#内省排序" class="headerlink" title="内省排序"></a>内省排序</h1><h1 id="适应性归并排序"><a href="#适应性归并排序" class="headerlink" title="适应性归并排序"></a>适应性归并排序</h1><h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><h1 id="鸡尾酒排序"><a href="#鸡尾酒排序" class="headerlink" title="鸡尾酒排序"></a>鸡尾酒排序</h1><h1 id="地精排序"><a href="#地精排序" class="headerlink" title="地精排序"></a>地精排序</h1><h1 id="双调排序"><a href="#双调排序" class="headerlink" title="双调排序"></a>双调排序</h1><h1 id="Bogo排序"><a href="#Bogo排序" class="headerlink" title="Bogo排序"></a>Bogo排序</h1><h1 id="完美排序"><a href="#完美排序" class="headerlink" title="完美排序"></a>完美排序</h1><p>思想：</p>
-<ul>
-<li><code>if</code>i位置比j位置小，二者交换。</li>
-<li>循环结束条件 i等于j</li>
-<li>三分数组，先递归前2/3。再递归2/3。再递归前2/3</li>
-</ul>
-<p>代码美观。<br>效率低。</p>
-<p><a href="/Downloads/sort.cpp">代码下载</a></p>
-<p>最后看一个娱乐的。24中排序算法同时运行，拿个更快呢？</p>
-<iframe frameborder="0" width="100%" height="500px" src="https://v.qq.com/txp/iframe/player.html?vid=x0528v6hypr" allowfullscreen="true"></iframe>
-
-
+                <a id="more"></a>
             </div>
             <hr>
 
@@ -582,7 +471,7 @@
                     </span>
                     <a href="https://ixs.im" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Algorithm/排序算法/" class="b-link-green">排序算法</a>
+                    <a href="/CppSTL/" class="b-link-green">C++ STL</a>
                 </p>
             </div>
         </div>
@@ -627,49 +516,33 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/Website/HexoPic/">
+                <a href="/CppSTL/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo插本地图不借助插件和图床">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="C++ STL">
                         
-                        <span class="card-title">Hexo插本地图不借助插件和图床</span>
+                        <span class="card-title">C++ STL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">收到七牛云的【测试域名过期通知】时，我不得不写下这篇文章了。
-
-怎么让Hexo插入本地图时，本地预览和推送都能正常显示呢？
-
-
-插件方案网上搜了下，用这个hexo-asset-image插件的比较多：
-然而让我不能接受的就是，用这个插件必须</div>
+                    <div class="summary"></div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-18
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Website/" class="post-category" target="_blank">
-                                    Website
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            ixsim
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -680,35 +553,33 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/WebRTC/APPRTC分析记录/">
+                <a href="/Flask上手/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="APPRTC分析记录">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Flask上手">
                         
-                        <span class="card-title">APPRTC分析记录</span>
+                        <span class="card-title">Flask上手</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">  WebRTC iOS端官方Demo 看 APPRTC 源码的记录
-  
-AppRTCMobile根目录
-ARDAppClient+Internal.h
+                    <div class="summary">
+创建虚拟环境python3 -m venv venv
+激活. venv/bin/activate
 
-ARDAppClient.h
-ARDAppClient.m
+WSGI: Web Server Gateway Interface 的缩写，即 Web 服务器网关接口。
 
-ARDAppEngi</div>
+</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-01
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/WebRTC/" class="post-category" target="_blank">
-                                    WebRTC
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
                                 </a>
                             
                             
@@ -718,8 +589,8 @@ ARDAppEngi</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Note/" target="_blank">
-                        <span class="chip bg-color">Note</span>
+                    <a href="/tags/Flask/" target="_blank">
+                        <span class="chip bg-color">Flask</span>
                     </a>
                     
                 </div>

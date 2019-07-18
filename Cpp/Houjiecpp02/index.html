@@ -359,6 +359,11 @@ public:
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>operator double()</code>注意： 1，不需要写返回类型（本来就是返回double，写了还可能写错） 2，加const（一定不会改数据，也不需要参数）</p>
+<p>有了这个转换函数 就可以让 double和fraction 相加了。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">Fraction <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> ans<span class="token operator">=</span>f<span class="token operator">+</span><span class="token number">4</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>编译器发现。f可转double，于是转了相加。  </p>
 <h1 id="non-explicit-one-argument-constructor"><a href="#non-explicit-one-argument-constructor" class="headerlink" title="non-explicit one argument constructor"></a>non-explicit one argument constructor</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Fraction</span><span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">Fraction</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span><span class="token keyword">int</span> den<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
@@ -374,8 +379,8 @@ public:
 <pre class="line-numbers language-cpp"><code class="language-cpp">Fraction <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 Fraction d <span class="token operator">=</span> f<span class="token operator">+</span><span class="token number">4</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>4会调构造函数，变成 Fraction类型。两个Fraction可以执行 + 操作。</p>
-<p>但是，如果这时候再加上上一节的 conversion 函数，</p>
+<p>由于没有转换函数。<code>f+4</code>里的f无法转换成double,而4会调构造函数（刚好只需要一个int参数就能构造），变成 <code>Fraction</code>类型。两个<code>Fraction</code>可以执行 + 操作。</p>
+<p>但是，如果这时候再加上 上一节的 conversion 函数，</p>
 <p> f+4 .f可以变成double；4可以变成Fraction 。两条路都能走。编译器就不知道怎么相加了。</p>
 <p>这时候怎么让编译器明确选哪条路呢？</p>
 <h2 id="explicit"><a href="#explicit" class="headerlink" title="explicit"></a>explicit</h2><p>构造函数写成</p>
@@ -389,14 +394,16 @@ Fraction d <span class="token operator">=</span> f<span class="token operator">+
 <p><strong>迭代器</strong></p>
 <p><img src="../../images/image-20181213205148560-4705508.png" alt="image-20181213205148560"></p>
 <p>这里不太懂。</p>
-<h1 id="function-like-classes"><a href="#function-like-classes" class="headerlink" title="function-like classes"></a>function-like classes</h1><p>重载了 <code>（）</code>的类。</p>
+<h1 id="function-like-classes"><a href="#function-like-classes" class="headerlink" title="function-like classes"></a>function-like classes</h1><p>重载了<code>()</code>的类。</p>
+<p>标准库里有很多这种。干啥的呢？后面貌似会讲。</p>
 <h1 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h1><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">namespace</span> jj01
 <span class="token punctuation">{</span>
     <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 jjo1<span class="token operator">::</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p> 类模板使用的时候要指明类型。</p>
+<h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p><code>&lt;class T&gt;</code>里的<code>class</code>和<code>typename</code>用哪个都行</p>
+<p> 类模板使用的时候要指明类型。</p>
 <p>函数模板不需要。 因为编译器可以做“实参推导”，根据你传进的参数，推出要调用什么类型。</p>
 <blockquote>
 <p> 模板函数都是半编译。最开始的时候编译能过，但是传入参数后，能不能编译不一定了。</p>
@@ -405,14 +412,83 @@ jjo1<span class="token operator">::</span><span class="token function">func</spa
 <h2 id="member-Template"><a href="#member-Template" class="headerlink" title="member Template"></a>member Template</h2><p><img src="../../images/image-20181213211637206-4706997.png" alt="image-20181213211637206"></p>
 <p>在外层的T确定之后，里面的U也可以变化。</p>
 <p>第9集。Mark。</p>
-<h1 id="specialization-特化"><a href="#specialization-特化" class="headerlink" title="specialization 特化"></a>specialization 特化</h1><p> <img src="../../images/image-20181213212717859-4707637.png" alt="image-20181213212717859"></p>
+<h1 id="specialization-特化"><a href="#specialization-特化" class="headerlink" title="specialization 特化"></a>specialization 特化</h1><p>看下面的代码。如果Key传进来的是char\int\long 就会走这三段。 <img src="../../images/image-20181213212717859-4707637.png" alt="image-20181213212717859"></p>
 <h2 id="偏特化"><a href="#偏特化" class="headerlink" title="偏特化"></a>偏特化</h2><p><strong>个数上的偏</strong><img src="../../images/image-20181213212909049-4707749.png" alt="image-20181213212909049"></p>
 <p>泛化的T。如果可以为1个位的东西。特化一下，就可以省空间。</p>
 <p><strong>范围上的偏</strong></p>
 <p><img src="../../images/image-20181213213314743-4707994.png" alt="image-20181213213314743"></p>
-<p>就是繁化过的东西再泛化一次。这个东西就有两个泛化的版本。</p>
+<p>就是泛化过的东西再泛化一次。这个东西就有两个泛化的版本。</p>
 <p>注意区分这个和第一个完全的特化。</p>
 <h1 id="template-template-parameter-模板模板参数"><a href="#template-template-parameter-模板模板参数" class="headerlink" title="template template parameter 模板模板参数"></a>template template parameter 模板模板参数</h1><p><img src="../../images/image-20181213213835919-4708315.png" alt="image-20181213213835919"></p>
+<h1 id="13-STL"><a href="#13-STL" class="headerlink" title="13 STL"></a>13 STL</h1><p>这节课只是科普。不用看了。</p>
+<h1 id="14-三个主题"><a href="#14-三个主题" class="headerlink" title="14 三个主题"></a>14 三个主题</h1><h2 id="variadic-templates"><a href="#variadic-templates" class="headerlink" title="variadic templates"></a>variadic templates</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//没有参数传进来时，结束</span>
+
+<span class="token punctuation">}</span>
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> T<span class="token punctuation">,</span><span class="token keyword">typename</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> Types<span class="token operator">></span>
+<span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">const</span> T<span class="token operator">&amp;</span> firstArg<span class="token punctuation">,</span><span class="token keyword">const</span> Types<span class="token operator">&amp;</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span>firstArg<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//取出第一个参数，打印</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//递归地打印后面的一包参数</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//用法：</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token number">7.5</span><span class="token punctuation">,</span><span class="token string">"hello"</span><span class="token punctuation">,</span>bitset<span class="token operator">&lt;</span><span class="token number">16</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">377</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//输出结果：</span>
+<span class="token number">7.5</span>
+hello
+<span class="token number">00000000101111001</span>
+<span class="token number">42</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>sizeof...(args)</code>可以得到args里面有几个</p>
+<h2 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h2><p>这个我常用。pass</p>
+<h2 id="ranged-base-for"><a href="#ranged-base-for" class="headerlink" title="ranged-base for"></a>ranged-base for</h2><p><code>for(auto a:vt){cout&lt;&lt;a;}</code>这种我常用，但是不能改里面的内容。于是有了这种写法：</p>
+<p><code>for(auto&amp; a:vt){a+=1;}</code>取引用就OK了。</p>
+<h1 id="15-reference"><a href="#15-reference" class="headerlink" title="15 reference"></a>15 reference</h1><p><img src="https://0pic.oss-cn-beijing.aliyuncs.com/20190717160153.png" alt=""></p>
+<p>其中的r是x的代表。所以sizeof(r)得到了8. 但其实这是一种假象！</p>
+<ul>
+<li><p>[ ] <code>const</code>是不是函数签名的一部分？</p>
+<p>函数签名就是说区分两个函数是否相同。</p>
+<p>答案竟然是是。</p>
+<blockquote>
+<p>  查到了：这是由于c++制定的规则，当const和non-const版本同时存在，const object只会调用const版本，non-const object只会调用non-const版本。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p>16是之前讲过的复习 继承&amp;复合关系下的构造和析构顺序</p>
+<h1 id="17-vptr和vtbl"><a href="#17-vptr和vtbl" class="headerlink" title="17 vptr和vtbl"></a>17 vptr和vtbl</h1><p>vptr：虚指针 指向虚函数</p>
+<p>vtbl: 虚table（里面存了</p>
+<p>动态绑定三要素：</p>
+<ul>
+<li>是指针</li>
+<li>指向子类</li>
+<li>调用虚函数</li>
+</ul>
+<h1 id="18-关于this"><a href="#18-关于this" class="headerlink" title="18 关于this"></a>18 关于this</h1><p>所有的成员函数都有隐藏参数this</p>
+<h1 id="19-动态绑定"><a href="#19-动态绑定" class="headerlink" title="19 动态绑定"></a>19 动态绑定</h1><p>17~19讲的是一个东西</p>
+<h1 id="19-2-const"><a href="#19-2-const" class="headerlink" title="19.2 const"></a>19.2 const</h1><p>讲了刚刚我不解搜到的这个知识点：当const和non-const版本同时存在，const object只会调用const版本，non-const object只会调用non-const版本。</p>
+<p>non-const object可以调用const成员函数，反之则不行。</p>
+<h1 id="21-Operator-new-delete-重载"><a href="#21-Operator-new-delete-重载" class="headerlink" title="21 Operator new/delete 重载"></a>21 Operator new/delete 重载</h1><p>new三个动作：1.执行operator new 分配内存 2. 3.执行ctor</p>
+<p>delete 两个动作: 1.执行dtor 2.operator delete</p>
+<p>重载<code>operator new,new[],delete,delete[]</code>，</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//可重载全局的::operator new</span>
+<span class="token keyword">inline</span> <span class="token keyword">void</span><span class="token operator">*</span> <span class="token keyword">operator</span> <span class="token keyword">new</span><span class="token punctuation">(</span>size_t size<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">myAlloc</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">inline</span> <span class="token keyword">void</span> <span class="token keyword">operator</span> <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> ptr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">myFree</span><span class="token punctuation">(</span>ptr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span><span class="token operator">*</span> <span class="token function">myAlloc</span><span class="token punctuation">(</span>size_t size<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token function">malloc</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">myFree</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> ptr<span class="token punctuation">)</span><span class="token punctuation">{</span>retun <span class="token function">free</span><span class="token punctuation">(</span>ptr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//或在class中</span>
+<span class="token keyword">class</span> <span class="token class-name">Foo</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">void</span><span class="token operator">*</span> <span class="token keyword">operator</span> <span class="token keyword">new</span><span class="token punctuation">(</span>size_t size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token keyword">operator</span> <span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">,</span>size_t<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//size_t是可选参数</span>
+<span class="token punctuation">}</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="22-example"><a href="#22-example" class="headerlink" title="22 example"></a>22 example</h1><p>说delete的重载不会被执行，仅仅用于抛出异常（在new时调用ctor失败会抛出）。</p>
+<p>而且不写也行。说明你不在乎异常。</p>
+<h1 id="24-example"><a href="#24-example" class="headerlink" title="24 example"></a>24 example</h1><p>举了标准库string里重载new的例子：什么时候要重载呢？当你想无声无息不知不觉地多分配一些空间的时候。</p>
 
             </div>
             <hr>
