@@ -93,15 +93,6 @@
         </a>
     </li>
     
-    <li class="hide-on-med-and-down">
-        <a href="https://oo1.win" class="waves-effect waves-light">
-            
-            <i class="fa fa-star"></i>
-            
-            <span>Bookmark</span>
-        </a>
-    </li>
-    
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="搜索"></i>
@@ -160,15 +151,6 @@
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
                 关于
-            </a>
-        </li>
-        
-        <li>
-            <a href="https://oo1.win" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-star"></i>
-                
-                Bookmark
             </a>
         </li>
         
@@ -339,7 +321,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.6k
+                        2.7k
                     </div>
                     
 
@@ -480,7 +462,7 @@
 </blockquote>
 <p>可以。能传&amp;尽量传&amp;。</p>
 <blockquote>
-<p>os为啥不加<code>const</code>？ os会改变吗？</p>
+<p>输出流os为啥不加<code>const</code>？ os会改变吗？</p>
 </blockquote>
 <p>其实， <strong>&lt;&lt; 这个输出符号就是把右侧的东西丢到 os 里</strong>。所以os是不能加&amp;的！</p>
 <blockquote>
@@ -517,7 +499,9 @@
 <p>告一段落。第6集是总结。可以重刷。</p>
 <p>Problems:</p>
 <ul>
-<li>如果把+重载设计在class里，为啥就不能应付复数+double？</li>
+<li><p>如果把+重载设计在class里，为啥就不能应付复数+double？</p>
+<p>+是双目运算。必须有两个参数的。重载在class里只能有一个参数。</p>
+</li>
 </ul>
 <h1 id="7-Big-Three-拷贝构造-拷贝赋值-析构"><a href="#7-Big-Three-拷贝构造-拷贝赋值-析构" class="headerlink" title="7 Big Three 拷贝构造 拷贝赋值 析构"></a>7 Big Three 拷贝构造 拷贝赋值 析构</h1><ul>
 <li><p>class with pointer members 必須有 copy ctor 和 copy op=</p>
@@ -531,7 +515,7 @@
 </li>
 <li><p>由上一条得出拷贝赋值的写法：</p>
 <p><code>inline ClassA&amp; ClassA::operator=(const ClassA&amp; aaa)</code>{</p>
-<ol>
+<ol start="0">
 <li><p><strong><code>if (this == &amp;aaa)</code></strong></p>
 <p> ​    <strong><code>return *this</code></strong></p>
 </li>
@@ -595,13 +579,13 @@
 
 <span class="token keyword">inline</span> myString<span class="token operator">&amp;</span> <span class="token keyword">const</span> myString<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> myString <span class="token operator">&amp;</span>oneStr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token comment" spellcheck="true">//    if(this == oneStr)❌</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">==</span> <span class="token operator">&amp;</span>oneStr<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//this是一个指针！</span>
 <span class="token comment" spellcheck="true">//        return this;❌</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">==</span> <span class="token operator">&amp;</span>oneStr<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//this是一个指针！</span>
         <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">//    delete this.m_Data;❌❌❌❌❌ 一定不要忘了[]</span>
     <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> m_Data<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>m_Data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token function">strlen</span><span class="token punctuation">(</span>oneStr<span class="token punctuation">.</span>m_Data<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//我使用.语法自动变成->语法。为什么？</span>
+    <span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>m_Data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token function">strlen</span><span class="token punctuation">(</span>oneStr<span class="token punctuation">.</span>m_Data<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token function">strcpy</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">-</span><span class="token operator">></span>m_Data<span class="token punctuation">,</span>oneStr<span class="token punctuation">.</span>m_Data<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//其实this->全可以省略。只写m_Data就好</span>
 
 <span class="token comment" spellcheck="true">//    return this; ❌</span>
@@ -695,7 +679,7 @@ ostream<span class="token operator">&amp;</span> <span class="token keyword">ope
 </ul>
 <p>Prototype 设计模式</p>
 <p>场景：要设计一个框架，父类A。不知道未来自己的子类名。</p>
-<p>父类A，子类B里有一个静态的成员b，一个私有构造函数1。当b构造时，构造函数ctor1里能把b送到A的原型容器中。A就存到了B的object。（<strong>画外音：</strong>现在A有了B的object，即b。）</p>
+<p>父类名A，A的子类B里有一个静态的成员b，一个私有构造函数ctor1。当b构造时，构造函数ctor1里能把b送到A的原型容器中。A就存到了B的object。（<strong>画外音：</strong>现在A有了B的object，即b。）</p>
 <p>再从B里写一个clone(),功能就是new一个B。但这个new就不能用构造函数1来构造了，必须新写一个构造函数ctor2，为了和ctor1区分。在ctor2参数设一个int。调用时随便传个int进去就行了。</p>
 <p>这样A就可以用b调用clone(),从而new出一个自己的孩子。</p>
 

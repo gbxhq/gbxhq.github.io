@@ -92,15 +92,6 @@ for i=1..n
         </a>
     </li>
     
-    <li class="hide-on-med-and-down">
-        <a href="https://oo1.win" class="waves-effect waves-light">
-            
-            <i class="fa fa-star"></i>
-            
-            <span>Bookmark</span>
-        </a>
-    </li>
-    
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="搜索"></i>
@@ -159,15 +150,6 @@ for i=1..n
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
                 关于
-            </a>
-        </li>
-        
-        <li>
-            <a href="https://oo1.win" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-star"></i>
-                
-                Bookmark
             </a>
         </li>
         
@@ -342,14 +324,14 @@ for i=1..n
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.3k
+                        1.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        6 分
                     </div>
                     
                 
@@ -468,7 +450,28 @@ for i=1..n
 </li>
 </ul>
 <h2 id="P1049-装箱问题"><a href="#P1049-装箱问题" class="headerlink" title="P1049 装箱问题"></a><strong>P1049</strong> 装箱问题</h2><p>水题。</p>
-<h1 id="线性动归"><a href="#线性动归" class="headerlink" title="线性动归"></a>线性动归</h1><h1 id="多维动归"><a href="#多维动归" class="headerlink" title="多维动归"></a>多维动归</h1><h1 id="技巧与记忆化"><a href="#技巧与记忆化" class="headerlink" title="技巧与记忆化"></a>技巧与记忆化</h1>
+<h1 id="线性动归"><a href="#线性动归" class="headerlink" title="线性动归"></a>线性动归</h1><h2 id="P1020-导弹拦截"><a href="#P1020-导弹拦截" class="headerlink" title="P1020 导弹拦截"></a><a href="https://www.luogu.org/problemnew/show/P1020" target="_blank" rel="noopener"><strong>P1020</strong> 导弹拦截</a></h2><p>最长不升序列和最短上升序列</p>
+<p>好题！</p>
+<p>需要注意的是lower/upper_bound这个方法:</p>
+<ul>
+<li>必须传入有序的数列，且根据排序规则传入一个compare方法</li>
+<li>返回值是一个指针，故 <code>-vt.begin()</code>得到的是数组下标，为什么会得到？肯定是因为重载了<code>-</code></li>
+</ul>
+<p>实例：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> vt <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">auto</span> p1 <span class="token operator">=</span> <span class="token function">lower_bound</span><span class="token punctuation">(</span>vt<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>vt<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">-</span>vt<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//1 第一个2</span>
+    <span class="token keyword">auto</span> p2 <span class="token operator">=</span> <span class="token function">upper_bound</span><span class="token punctuation">(</span>vt<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>vt<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">-</span>vt<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//4 3的位置</span>
+
+    <span class="token comment" spellcheck="true">//下面vt改成降序</span>
+    vt <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//最后传入的比较函数也应改成greater&lt;int>()</span>
+    <span class="token keyword">auto</span> p3 <span class="token operator">=</span> <span class="token function">lower_bound</span><span class="token punctuation">(</span>vt<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>vt<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span>greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-</span>vt<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">auto</span> p4 <span class="token operator">=</span> <span class="token function">upper_bound</span><span class="token punctuation">(</span>vt<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>vt<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span>greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-</span>vt<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>  可以理解为：在有序序列中插入一个元素a，lower_bound返回的是能插入的最小的坐标，upper返回的是最大的坐标。</p>
+</blockquote>
+<h1 id="多维动归"><a href="#多维动归" class="headerlink" title="多维动归"></a>多维动归</h1><h1 id="技巧与记忆化"><a href="#技巧与记忆化" class="headerlink" title="技巧与记忆化"></a>技巧与记忆化</h1>
             </div>
             <hr>
 

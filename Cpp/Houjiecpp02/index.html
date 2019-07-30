@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C++学习笔记, 炫杉">
+    <meta name="keywords" content="炫杉">
     <meta name="description" content="
 conversion function 转换函数class Fraction{
 public:
@@ -17,7 +17,7 @@ public:
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++学习笔记 | 炫杉</title>
+    <title>炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -90,15 +90,6 @@ public:
         </a>
     </li>
     
-    <li class="hide-on-med-and-down">
-        <a href="https://oo1.win" class="waves-effect waves-light">
-            
-            <i class="fa fa-star"></i>
-            
-            <span>Bookmark</span>
-        </a>
-    </li>
-    
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="搜索"></i>
@@ -160,15 +151,6 @@ public:
             </a>
         </li>
         
-        <li>
-            <a href="https://oo1.win" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-star"></i>
-                
-                Bookmark
-            </a>
-        </li>
-        
         
     </ul>
 </div>
@@ -184,13 +166,13 @@ public:
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++学习笔记
+                        
                     </div>
                 </div>
             </div>
@@ -336,7 +318,7 @@ public:
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.3k
+                        1.4k
                     </div>
                     
 
@@ -426,7 +408,7 @@ jjo1<span class="token operator">::</span><span class="token function">func</spa
 <h2 id="member-Template"><a href="#member-Template" class="headerlink" title="member Template"></a>member Template</h2><p><img src="../../images/image-20181213211637206-4706997.png" alt="image-20181213211637206"></p>
 <p>在外层的T确定之后，里面的U也可以变化。</p>
 <p>第9集。Mark。</p>
-<h1 id="specialization-特化"><a href="#specialization-特化" class="headerlink" title="specialization 特化"></a>specialization 特化</h1><p>看下面的代码。如果Key传进来的是char\int\long 就会走这三段。 <img src="../../images/image-20181213212717859-4707637.png" alt="image-20181213212717859"></p>
+<h1 id="specialization-特化"><a href="#specialization-特化" class="headerlink" title="specialization 特化"></a>specialization 特化</h1><p>关键字<code>template&lt;&gt;</code> 看下面的代码。如果Key传进来的是char\int\long 就会走这三段。 <img src="../../images/image-20181213212717859-4707637.png" alt="image-20181213212717859"></p>
 <h2 id="偏特化"><a href="#偏特化" class="headerlink" title="偏特化"></a>偏特化</h2><p><strong>个数上的偏</strong><img src="../../images/image-20181213212909049-4707749.png" alt="image-20181213212909049"></p>
 <p>泛化的T。如果可以为1个位的东西。特化一下，就可以省空间。</p>
 <p><strong>范围上的偏</strong></p>
@@ -435,7 +417,8 @@ jjo1<span class="token operator">::</span><span class="token function">func</spa
 <p>注意区分这个和第一个完全的特化。</p>
 <h1 id="template-template-parameter-模板模板参数"><a href="#template-template-parameter-模板模板参数" class="headerlink" title="template template parameter 模板模板参数"></a>template template parameter 模板模板参数</h1><p><img src="../../images/image-20181213213835919-4708315.png" alt="image-20181213213835919"></p>
 <h1 id="13-STL"><a href="#13-STL" class="headerlink" title="13 STL"></a>13 STL</h1><p>这节课只是科普。不用看了。</p>
-<h1 id="14-三个主题"><a href="#14-三个主题" class="headerlink" title="14 三个主题"></a>14 三个主题</h1><h2 id="variadic-templates"><a href="#variadic-templates" class="headerlink" title="variadic templates"></a>variadic templates</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//没有参数传进来时，结束</span>
+<h1 id="14-三个主题"><a href="#14-三个主题" class="headerlink" title="14 三个主题"></a>14 三个主题</h1><h2 id="variadic-templates"><a href="#variadic-templates" class="headerlink" title="variadic templates"></a>variadic templates</h2><p>一包参数</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//没有参数传进来时，结束</span>
 
 <span class="token punctuation">}</span>
 <span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> T<span class="token punctuation">,</span><span class="token keyword">typename</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> Types<span class="token operator">></span>
@@ -470,7 +453,13 @@ hello
 <p>16是之前讲过的复习 继承&amp;复合关系下的构造和析构顺序</p>
 <h1 id="17-vptr和vtbl"><a href="#17-vptr和vtbl" class="headerlink" title="17 vptr和vtbl"></a>17 vptr和vtbl</h1><p>vptr：虚指针 指向虚函数</p>
 <p>vtbl: 虚table（里面存了</p>
-<p>动态绑定三要素：</p>
+<p>静态绑定，编译器编译成：<code>call xxx地址</code>调用。</p>
+<p>动态绑定，通过指针调用虚函数。通过指针vptr找到vtbl，再找到函数：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">-</span><span class="token operator">></span>vptr<span class="token punctuation">)</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//或</span>
+<span class="token punctuation">(</span><span class="token operator">*</span>p<span class="token operator">-</span><span class="token operator">></span>vptr<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>如果符合三要素编译器就会动态绑定：</p>
 <ul>
 <li>是指针</li>
 <li>指向子类</li>
@@ -478,9 +467,9 @@ hello
 </ul>
 <h1 id="18-关于this"><a href="#18-关于this" class="headerlink" title="18 关于this"></a>18 关于this</h1><p>所有的成员函数都有隐藏参数this</p>
 <h1 id="19-动态绑定"><a href="#19-动态绑定" class="headerlink" title="19 动态绑定"></a>19 动态绑定</h1><p>17~19讲的是一个东西</p>
-<h1 id="19-2-const"><a href="#19-2-const" class="headerlink" title="19.2 const"></a>19.2 const</h1><p>讲了刚刚我不解搜到的这个知识点：当const和non-const版本同时存在，const object只会调用const版本，non-const object只会调用non-const版本。</p>
+<h1 id="19-2-const"><a href="#19-2-const" class="headerlink" title="19.2 const"></a>19.2 const</h1><p>讲了刚刚我不懂搜到的这个知识点：当const和non-const版本同时存在，const object只会调用const版本，non-const object只会调用non-const版本。</p>
 <p>non-const object可以调用const成员函数，反之则不行。</p>
-<h1 id="21-Operator-new-delete-重载"><a href="#21-Operator-new-delete-重载" class="headerlink" title="21 Operator new/delete 重载"></a>21 Operator new/delete 重载</h1><p>new三个动作：1.执行operator new 分配内存 2. 3.执行ctor</p>
+<h1 id="21-Operator-new-delete-重载"><a href="#21-Operator-new-delete-重载" class="headerlink" title="21 Operator new/delete 重载"></a>21 Operator new/delete 重载</h1><p>new三个动作：1.执行operator new 分配内存 2.转型 3.执行ctor</p>
 <p>delete 两个动作: 1.执行dtor 2.operator delete</p>
 <p>重载<code>operator new,new[],delete,delete[]</code>，</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//可重载全局的::operator new</span>
@@ -526,7 +515,7 @@ hello
                     </span>
                     <a href="https://ixs.im" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/Cpp/Houjiecpp02/" class="b-link-green">C++学习笔记</a>
+                    <a href="/Cpp/Houjiecpp02/" class="b-link-green"></a>
                 </p>
             </div>
         </div>

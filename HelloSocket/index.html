@@ -1,0 +1,894 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="HelloSocket, 炫杉">
+    <meta name="description" content="
+样例要用到的几个头文件
+#include &amp;lt;stdio.h&gt;
+#include &amp;lt;string.h&gt;
+#include &amp;lt;stdlib.h&gt;
+#include &amp;lt;unistd.h&gt;
+#include &amp;lt;arp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>HelloSocket | 炫杉</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">炫杉</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">炫杉</div>
+        <div class="logo-desc">
+            
+            提着鸟笼的老头站在一旁拍我肩膀 我猜他想的应该和我一样
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        HelloSocket
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Note/" target="_blank">
+                                <span class="chip bg-color">Note</span>
+                            </a>
+                        
+                            <a href="/tags/cpp/" target="_blank">
+                                <span class="chip bg-color">cpp</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/cpp/" class="post-category" target="_blank">
+                                cpp
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-07-29
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        2.6k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        10 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <a id="more"></a>
+<h1 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h1><p>要用到的几个头文件</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;arpa/inet.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/socket.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;netinet/in.h></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>  Linux把Socket当成一个文件，可以write(),read(),close()</p>
+</blockquote>
+<ul>
+<li>Server</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> _s <span class="token operator">=</span> <span class="token function">socket</span><span class="token punctuation">(</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//创建套接字</span>
+sockaddr_in _sin<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//用来设参数 绑定ip、port</span>
+<span class="token comment" spellcheck="true">/*
+设参数
+*/</span>
+
+<span class="token function">bind</span><span class="token punctuation">(</span>_s<span class="token punctuation">,</span><span class="token punctuation">(</span>sockaddr<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>_sin<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>_sin<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//绑定</span>
+
+<span class="token function">listen</span><span class="token punctuation">(</span>_s<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//被动监听</span>
+<span class="token comment" spellcheck="true">//_s一直处于"睡眠"，知道客户端发起请求才被"唤醒"</span>
+
+<span class="token comment" spellcheck="true">//绑定和监听失败都会返回-1</span>
+
+sockaddr_in _c<span class="token punctuation">;</span>
+socklen_t clnt_addr_size <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>_c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> _c <span class="token operator">=</span> <span class="token function">accept</span><span class="token punctuation">(</span>_s<span class="token punctuation">,</span> <span class="token punctuation">(</span>sockaddr<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>_c<span class="token punctuation">,</span> <span class="token operator">&amp;</span>clnt_addr_size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//向客户端发送数据</span>
+<span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Hello World!"</span><span class="token punctuation">;</span>
+<span class="token function">write</span><span class="token punctuation">(</span>_c<span class="token punctuation">,</span> str<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>关闭两个socket
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>Client</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//也是先搞一个socket(),一个sockaddr设的是要连的服务器信息</span>
+<span class="token comment" spellcheck="true">//然后不用bind()，用connect()</span>
+<span class="token function">connect</span><span class="token punctuation">(</span>_s<span class="token punctuation">,</span> <span class="token punctuation">(</span>sockaddr<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>serv_addr<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>serv_addr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">char</span> buffer<span class="token punctuation">[</span><span class="token number">40</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">read</span><span class="token punctuation">(</span>_s<span class="token punctuation">,</span>buffer<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>关于Windows</p>
+<p>Windows 下的 socket 程序和 Linux 思路相同，但细节有所差别：<br>1) Windows 下的 socket 程序依赖 Winsock.dll 或 ws2_32.dll，必须提前加载。DLL 有两种加载方式，请查看：<a href="http://c.biancheng.net/cpp/html/2754.html" target="_blank" rel="noopener">动态链接库DLL的加载</a></p>
+<p>2) Linux 使用“文件描述符”的概念，而 Windows 使用“文件句柄”的概念；Linux 不区分 socket 文件和普通文件，而 Windows 区分；Linux 下 socket() 函数的返回值为 int 类型，而 Windows 下为 SOCKET 类型，也就是句柄。</p>
+<p>3) Linux 下使用 read() / write() 函数读写，而 Windows 下使用 recv() / send() 函数发送和接收。</p>
+<p>4) 关闭 socket 时，Linux 使用 close() 函数，而 Windows 使用 closesocket() 函数。</p>
+</li>
+</ul>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="socket"><a href="#socket" class="headerlink" title="socket()"></a>socket()</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">socket</span><span class="token punctuation">(</span><span class="token keyword">int</span> af<span class="token punctuation">,</span> <span class="token keyword">int</span> type<span class="token punctuation">,</span> <span class="token keyword">int</span> protocol<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li><p>af:address family. ipv4:AF_INET4 ipv6:AF_INET6</p>
+</li>
+<li><p>type:数据传输方式</p>
+<ul>
+<li>SOCK_STREAM 表示面向连接的数据传输方式。数据可以准确无误地到达另一台计算机，如果损坏或丢失，可以重新发送，但效率相对较慢。常见的 http 协议就使用 SOCK_STREAM 传输数据，因为要确保数据的正确性，否则网页不能正常解析.</li>
+<li>SOCK_DGRAM 表示无连接的数据传输方式。计算机只管传输数据，不作数据校验，如果数据在传输中损坏，或者没有到达另一台计算机，是没有办法补救的。也就是说，数据错了就错了，无法重传。因为 SOCK_DGRAM 所做的校验工作少，所以效率比 SOCK_STREAM 高。</li>
+</ul>
+<blockquote>
+<p>  注意：SOCK_DGRAM 没有想象中的糟糕，不会频繁的丢失数据，数据错误只是小概率事件。</p>
+</blockquote>
+<p>有可能多种协议使用同一种数据传输方式，所以在 socket 编程中，需要同时指明数据传输方式和协议。</p>
+</li>
+<li><p>protocol:常用的有 IPPROTO_TCP 和 IPPTOTO_UDP 不用多介绍</p>
+</li>
+</ul>
+<p>一般情况下有了 af 和 type 两个参数就可以创建套接字了，可以将 protocol 的值设为 0，系统会自动推演出应该使用什么协议。</p>
+<p>除非遇到这样的情况：有两种不同的协议支持同一种地址类型和数据传输类型。如果我们不指明使用哪种协议，操作系统是没办法自动推演的。</p>
+<p><strong>socket() 函数用来创建套接字，确定套接字的各种属性</strong></p>
+<h2 id="bind-和connect"><a href="#bind-和connect" class="headerlink" title="bind()和connect()"></a>bind()和connect()</h2><p><strong>服务器端要用 bind() 函数将套接字与特定的IP地址和端口绑定起来，只有这样，流经该IP地址和端口的数据才能交给套接字处理；而客户端要用 connect() 函数建立连接。</strong></p>
+<p>两个函数参数一毛一样。看一个即可。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">int</span> sock<span class="token punctuation">,</span> <span class="token keyword">struct</span> sockaddr <span class="token operator">*</span>addr<span class="token punctuation">,</span> socklen_t addrlen<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Linux</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>第二个参数addr都是先声明一个sockaddr_in,再强转sockaddr。</p>
+<p>先看下 sockaddr_in 结构体：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> sockaddr_in<span class="token punctuation">{</span>
+    sa_family_t     sin_family<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//地址族（Address Family），也就是地址类型</span>
+    uint16_t        sin_port<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//16位的端口号</span>
+    <span class="token keyword">struct</span> in_addr  sin_addr<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//32位IP地址</span>
+    <span class="token keyword">char</span>            sin_zero<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//不使用，一般用0填充</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>sin_family 取值需和socket()第一个参数保持一致</p>
+</li>
+<li><p>端口号 需用<code>htons()</code>函数转换</p>
+<p>范围0~65536。其中0-1023一般由系统分配给特定的服务程序,如Web:80 FTP:21</p>
+</li>
+<li><p>最后一个char用0填充</p>
+</li>
+<li><p>结构体in_addr:</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> in_addr<span class="token punctuation">{</span>
+    in_addr_t  s_addr<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//32位的IP地址</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><code>in_addr_t</code>其实就是<code>unsigned long</code>，4个Byte</p>
+<p>也就是说，s_addr 是一个整数，而IP地址是一个字符串，所以需要 inet_addr() 函数进行转换，例如：<code>unsigned long ip = inet_addr(&quot;127.0.0.1&quot;);</code></p>
+<p>所以其实我们声明的<code>sockaddr_in</code>里有一个叫<code>sin_addr</code>的<code>in_addr</code>里有一个叫<code>s_addr</code>的<code>in_addr_t</code>，我们需要给这个s_addr赋值来设ip地址：</p>
+<p><code>serv_addr.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);</code></p>
+</li>
+</ul>
+<p>再看这个:</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> sockaddr<span class="token punctuation">{</span>
+    sa_family_t  sin_family<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//地址族（Address Family），也就是地址类型</span>
+    <span class="token keyword">char</span>         sa_data<span class="token punctuation">[</span><span class="token number">14</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//IP地址和端口号</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>第一个参数<code>family</code>一样，不讨论。<code>char[14]</code>14字节，在sockaddr_in中。<code>port</code>2Byte，<code>IP</code>4Byte，<code>char[8]</code>8Byte,一共14Byte。就是说强转是完全没问题的。而sockaddr_in提供了参数用于赋值,更方便好用。</p>
+<p>另外还有 sockaddr_in6，用来保存 IPv6 地址，它的定义如下：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> sockaddr_in6 <span class="token punctuation">{</span> 
+    sa_family_t sin6_family<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//(2)地址类型，取值为AF_INET6</span>
+    in_port_t sin6_port<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//(2)16位端口号</span>
+    uint32_t sin6_flowinfo<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//(4)IPv6流信息</span>
+    <span class="token keyword">struct</span> in6_addr sin6_addr<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//(4)具体的IPv6地址</span>
+    uint32_t sin6_scope_id<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//(4)接口范围ID</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="listen-和accept"><a href="#listen-和accept" class="headerlink" title="listen()和accept()"></a>listen()和accept()</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">listen</span><span class="token punctuation">(</span><span class="token keyword">int</span> sock<span class="token punctuation">,</span> <span class="token keyword">int</span> backlog<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Linux</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>listen()可以让sock进入被动监听状态，backlog为请求队列最大长度。</p>
+<p>如果将 backlog 的值设置为 <code>SOMAXCONN</code>，就由系统来决定请求队列长度，这个值一般比较大，可能是几百，或者更多。当请求队列满时，就不再接收新的请求，对于 Linux，客户端会收到 ECONNREFUSED 错误，对于 Windows，客户端会收到 WSAECONNREFUSED 错误。</p>
+<p>注意：listen() 只是让套接字处于监听状态，并没有接收请求。listen() 后面的代码会继续执行，直到遇到 accept()。accept() 会阻塞程序执行（后面代码不能被执行），直到有新的请求到来。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">accept</span><span class="token punctuation">(</span><span class="token keyword">int</span> sock<span class="token punctuation">,</span> <span class="token keyword">struct</span> sockaddr <span class="token operator">*</span>addr<span class="token punctuation">,</span> socklen_t <span class="token operator">*</span>addrlen<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Linux</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>accept()返回一个新的socket,来和客户端通信,连接了参数中的sock和addr(存着<strong>客户端的IP和port</strong>)。</p>
+<p>值得注意的是最后一个参数，addr的大小，要求传入的 是一个socklen_t型的指针，因此需要先声明出一个变量，传其地址进入。</p>
+<h2 id="发送和接收"><a href="#发送和接收" class="headerlink" title="发送和接收"></a>发送和接收</h2><pre class="line-numbers language-cpp"><code class="language-cpp">send<span class="token operator">/</span><span class="token function">recv</span><span class="token punctuation">(</span>SOCKET sock<span class="token punctuation">,</span><span class="token keyword">void</span><span class="token operator">*</span> buf<span class="token punctuation">,</span><span class="token keyword">int</span> len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>会读len个字节保存到缓冲区buf</p>
+<h2 id="阻塞模式"><a href="#阻塞模式" class="headerlink" title="阻塞模式"></a>阻塞模式</h2><p>对于TCP套接字（默认情况下），当使用 write()/send() 发送数据时：</p>
+<p>1) 首先会检查缓冲区，如果缓冲区的可用空间长度小于要发送的数据，那么 write()/send() 会被阻塞（暂停执行），直到缓冲区中的数据被发送到目标机器，腾出足够的空间，才唤醒 write()/send() 函数继续写入数据。</p>
+<p>2) 如果TCP协议正在向网络发送数据，那么输出缓冲区会被锁定，不允许写入，write()/send() 也会被阻塞，直到数据发送完毕缓冲区解锁，write()/send() 才会被唤醒。</p>
+<p>3) 如果要写入的数据大于缓冲区的最大长度，那么将分批写入。</p>
+<p>4) 直到所有数据被写入缓冲区 write()/send() 才能返回。</p>
+<p>当使用 read()/recv() 读取数据时：<br>1) 首先会检查缓冲区，如果缓冲区中有数据，那么就读取，否则函数会被阻塞，直到网络上有数据到来。</p>
+<p>2) 如果要读取的数据长度小于缓冲区中的数据长度，那么就不能一次性将缓冲区中的所有数据读出，剩余数据将不断积压，直到有 read()/recv() 函数再次读取。</p>
+<p>3) 直到读取到数据后 read()/recv() 函数才会返回，否则就一直被阻塞。</p>
+<p>这就是TCP套接字的阻塞模式。所谓阻塞，就是上一步动作没有完成，下一步动作将暂停，直到上一步动作完成后才能继续，以保持同步性。</p>
+<h2 id="粘包"><a href="#粘包" class="headerlink" title="粘包"></a>粘包</h2><p>由于数据“无边界性”会出现粘包问题。</p>
+<p>举例：服务器B宕机10秒，此时客户端A向B发送3个包。3个包同时存入缓冲区，B恢复后，从缓冲区一次性读入的就是粘在一起了的三个包。</p>
+<h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><p>三次握手</p>
+<p><img src="http://c.biancheng.net/cpp/uploads/allimg/151020/1-151020132J32G.jpg" alt="img"></p>
+<p>四次挥手</p>
+<p><img src="http://c.biancheng.net/cpp/uploads/allimg/151020/1-15102015224Wc.jpg" alt="img"></p>
+<p>具体看我的TCP/IP笔记吧。放图就是回忆一下</p>
+<h2 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown()"></a>shutdown()</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token keyword">int</span> sock<span class="token punctuation">,</span> <span class="token keyword">int</span> howto<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Linux</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>sock 为需要断开的套接字，howto 为断开方式。<br>howto 在 Linux 下有以下取值：</p>
+<ul>
+<li><p>SHUT_RD：断开输入流。套接字无法接收数据（即使输入缓冲区收到数据也被抹去），无法调用输入相关函数。</p>
+</li>
+<li><p>SHUT_WR：断开输出流。套接字无法发送数据，但如果输出缓冲区中还有未传输的数据，则将传递到目标主机。</p>
+</li>
+<li><p>SHUT_RDWR：同时断开 I/O 流。相当于分两次调用 shutdown()，其中一次以 SHUT_RD 为参数，另一次以 SHUT_WR 为参数。</p>
+</li>
+</ul>
+<p>默认情况下，close()/closesocket() 会立即向网络中发送FIN包，不管输出缓冲区中是否还有数据，而shutdown() 会等输出缓冲区中的数据传输完毕再发送FIN包。也就意味着，调用 close()/closesocket() 将丢失输出缓冲区中的数据，而调用 shutdown() 不会。</p>
+<h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><p>无需经历连接过程，不必调用listen()和accept().</p>
+<p>TCP套接字知道目标地址信息。但UDP套接字不会保持连接状态，每次传输数据都要添加目标地址信息，</p>
+<p>在某种意义上无法明确区分服务器端和客户端，只是因为其提供服务而称为服务器端，希望各位读者不要误解。</p>
+<h2 id="几个转换函数"><a href="#几个转换函数" class="headerlink" title="几个转换函数"></a>几个转换函数</h2><p><code>htonl(INADDR_ANY)</code> 利用常数 <code>INADDR_ANY</code> 自动获取IP地址有一个明显的好处，就是当软件安装到其他服务器或者服务器IP地址改变时，不用再更改源码重新编译，也不用在启动软件时手动输入。而且，如果一台计算机中已分配多个IP地址（例如路由器），那么只要端口号一致，就可以从不同的IP地址接收数据。所以，服务器中优先考虑使用INADDR_ANY；而客户端中除非带有一部分服务器功能，否则不会采用。</p>
+<p>host to network 后面+ s 代表short short就只有两个字节。只能用来转port</p>
+<p>后面加l 是long 可以用来转ip地址</p>
+<p>还有个后面是ll的肯定是long long，或许能用来转ipv6吧。个人猜测。</p>
+<p>然后<code>inet_addr(&quot;127.0.0.1&quot;);</code>这个是把字符串转u_int,用来设ip</p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://ixs.im" class="b-link-green">炫杉</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/HelloSocket/" class="b-link-green">HelloSocket</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC8yOTg2My82NDI5">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/HelloSocket/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="HelloSocket">
+                        
+                        <span class="card-title">HelloSocket</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+样例要用到的几个头文件
+#include &lt;stdio.h>
+#include &lt;string.h>
+#include &lt;stdlib.h>
+#include &lt;unistd.h>
+#include &lt;arp</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/cpp/" class="post-category" target="_blank">
+                                    cpp
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/cpp/" target="_blank">
+                        <span class="chip bg-color">cpp</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/CppSTLAlgorithm/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C++STL算法相关源码">
+                        
+                        <span class="card-title">C++STL算法相关源码</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+算法看不见Containers，对其一无所知。算法的提问，由迭代器Iterators来回答。
+所以Iterators必须能够回答算法的所有提问（记得之前看过的5大Traits）。
+如果算法问到了迭代器不会的，编译到那一行，报错。
+迭代器的</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/cpp/" class="post-category" target="_blank">
+                                    cpp
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/cpp/" target="_blank">
+                        <span class="chip bg-color">cpp</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            2019&nbsp;Hexo驱动&nbsp;主题matery
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    View <span id="busuanzi_value_site_pv" class="white-color"></span> times
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    
+                    ,&nbsp;<i class="fa fa-users"></i> <span id="busuanzi_value_site_uv" class="white-color"></span> 
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/ixsim" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:chinalixs@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=6956820" class="tooltipped" data-tooltip="QQ联系我: 6956820" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7e1dcb528a848f5e66324d4cbfd4e1cd";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

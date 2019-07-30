@@ -4,9 +4,16 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C++ STL相关, 炫杉">
-    <meta name="description" content="STL用都还玩不明白呢。现在我却要看源码了。这是为什么呢。
-">
+    <meta name="keywords" content="C++ STL容器相关源码, 炫杉">
+    <meta name="description" content="
+
+容器分类
+顺序容器：Array（两端封闭）、Vector（尾开放）、Deque（两端开放）、List（非连续空间）
+关联容器：Set/Multiset Map/Multimap：红黑树
+Unorded Map/Set
+
+
+前面一直在铺垫">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++ STL相关 | 炫杉</title>
+    <title>C++ STL容器相关源码 | 炫杉</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -87,15 +94,6 @@
         </a>
     </li>
     
-    <li class="hide-on-med-and-down">
-        <a href="https://oo1.win" class="waves-effect waves-light">
-            
-            <i class="fa fa-star"></i>
-            
-            <span>Bookmark</span>
-        </a>
-    </li>
-    
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="搜索"></i>
@@ -157,15 +155,6 @@
             </a>
         </li>
         
-        <li>
-            <a href="https://oo1.win" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-star"></i>
-                
-                Bookmark
-            </a>
-        </li>
-        
         
     </ul>
 </div>
@@ -181,13 +170,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++ STL相关
+                        C++ STL容器相关源码
                     </div>
                 </div>
             </div>
@@ -296,12 +285,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Note/" target="_blank">
+                                <span class="chip bg-color">Note</span>
+                            </a>
+                        
+                            <a href="/tags/cpp/" target="_blank">
+                                <span class="chip bg-color">cpp</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/cpp/" class="post-category" target="_blank">
+                                cpp
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -316,14 +322,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        24
+                        1.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        6 分
                     </div>
                     
                 
@@ -339,8 +345,192 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>STL用都还玩不明白呢。现在我却要看源码了。这是为什么呢。</p>
-<a id="more"></a>
+                <a id="more"></a>
+<ul>
+<li><p>容器分类</p>
+<p>顺序容器：Array（两端封闭）、Vector（尾开放）、Deque（两端开放）、List（非连续空间）</p>
+<p>关联容器：Set/Multiset Map/Multimap：红黑树</p>
+<p>Unorded Map/Set</p>
+</li>
+</ul>
+<p>前面一直在铺垫。开始终于到正片了。</p>
+<h1 id="11分配器"><a href="#11分配器" class="headerlink" title="11分配器"></a>11分配器</h1><p><code>operator new</code>，先调<code>allocator&lt;T&gt;</code>,最终都是调用<code>malloc</code>，而malloc会根据操作系统去调用操作系统的接口。</p>
+<p>delete调用的就是deallocate。</p>
+<p>但其实<code>allocate</code>开销很大。因为我们自己的数据很小。但却要开辟很多“必要的”空间。</p>
+<p>G2.9使用了一个更好的分配器 <code>alloc</code>,其源代码会在内存课里讲。</p>
+<p>4.9中改名pool_alloc，且不再使用。不知道为啥。</p>
+<h1 id="顺序容器"><a href="#顺序容器" class="headerlink" title="顺序容器"></a>顺序容器</h1><h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><p>一个list的大小。G2.9中是4，G4.9中是8.这个大小是容器控制本身用的。和容器里有100个元素没关系。</p>
+<h2 id="13-14-list"><a href="#13-14-list" class="headerlink" title="13~14 list"></a>13~14 list</h2><p>先讲讲最有代表性的链表。</p>
+<p>iteraotr里重载了++, ++(int), <code>*()</code>, -&gt;()这些东西。所以才让我们用起来，可以前后移动、可以 <code>*</code> 取数据。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">T<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">*</span>node<span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+T<span class="token operator">*</span> <span class="token keyword">operator</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span><span class="token punctuation">(</span><span class="token keyword">operator</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://0pic.oss-cn-beijing.aliyuncs.com/20190722103610.png" alt=""></p>
+<p><code>list.end()</code>应该是最后一个元素的下一个。一个空白节点。</p>
+<h2 id="15-trait"><a href="#15-trait" class="headerlink" title="15 trait"></a>15 trait</h2><p>为了解决“某个”算法，iterator必须提供的5种associated types</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> _Tp<span class="token operator">></span>
+<span class="token keyword">struct</span> _List_iterator
+<span class="token punctuation">{</span>
+    <span class="token keyword">typedef</span> std<span class="token operator">::</span>bidirectional_iterator_tag iterator_category<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//区分双向</span>
+    <span class="token keyword">typedef</span> _Tp value_type<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//存的类型</span>
+    <span class="token keyword">typedef</span> _Tp<span class="token operator">*</span> pointer<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//标准库从不用</span>
+    <span class="token keyword">typedef</span> _Tp<span class="token operator">&amp;</span> reference<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//标准库从不用</span>
+    <span class="token keyword">typedef</span> ptrdiff_t difference_type<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//距离</span>
+    <span class="token comment" spellcheck="true">//这个ptrdiff_t是标准库中定义的一个unsigned long（如果还是存不下头和尾的距离，那就失效咯。）</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>有了上面的typedef, 算法中会直接这么调用：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">temelate<span class="token operator">&lt;</span><span class="token keyword">typename</span> I<span class="token operator">></span>
+<span class="token keyword">inline</span> <span class="token keyword">void</span> <span class="token function">algorithm</span><span class="token punctuation">(</span>I a<span class="token punctuation">,</span>I b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    I<span class="token operator">::</span>iterator_category
+    I<span class="token operator">::</span>value_type
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>但如果上面的算法传入的不是一个iterator而是一个普通指针，直接这么“回答”肯定出错了。</p>
+<p>Iterator Trait的出现是用以分离class iterators 和 non-class iterators</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">I</span><span class="token operator">></span>
+<span class="token keyword">struct</span> iterator_traits<span class="token punctuation">{</span>
+    <span class="token keyword">typedef</span> <span class="token keyword">typename</span> I<span class="token operator">::</span>value_type value_type<span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">></span>
+<span class="token keyword">struct</span> iterator_traits<span class="token operator">&lt;</span>T<span class="token operator">*</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果传入的一个指针</span>
+    <span class="token keyword">typedef</span> T value_type<span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">></span>
+<span class="token keyword">struct</span> iterator_traits<span class="token operator">&lt;</span><span class="token keyword">const</span> T<span class="token operator">*</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">typedef</span> T value_type<span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>有了traits后，算法调用就可以这样：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">typename</span> I<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">></span>
+<span class="token keyword">void</span> <span class="token function">algorithm</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">typename</span> iterator_traits<span class="token operator">&lt;</span>I<span class="token operator">></span><span class="token operator">::</span>value_type v1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="16-vector"><a href="#16-vector" class="headerlink" title="16 vector"></a>16 vector</h2><p>扩充不能原地扩充。要找到足够的空间(2倍)后，把原来的vector搬过去。</p>
+<h2 id="17-Array"><a href="#17-Array" class="headerlink" title="17 Array"></a>17 Array</h2><h2 id="18-Deque"><a href="#18-Deque" class="headerlink" title="18 Deque"></a>18 Deque</h2><h2 id="19-Deque如何模拟连续空间"><a href="#19-Deque如何模拟连续空间" class="headerlink" title="19 Deque如何模拟连续空间"></a>19 Deque如何模拟连续空间</h2><p>迭代器会对减号做operator重载，所以可以用减号得到<code>.size()</code></p>
+<h1 id="关联容器"><a href="#关联容器" class="headerlink" title="关联容器"></a>关联容器</h1><h2 id="20R-B-tree"><a href="#20R-B-tree" class="headerlink" title="20R-B tree"></a>20R-B tree</h2><p>我们<strong>不应</strong>使用rb_tree的iterators改变元素值，会破坏排列。</p>
+<p>rb_tree提供两种insertion操作：<code>insert_unique()</code>和<code>insert_equal()</code> , 分别用于key是否可相同的情况。</p>
+<p>看源码（G2.9）:</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Key</span><span class="token punctuation">,</span>
+          <span class="token keyword">class</span> <span class="token class-name">Value</span><span class="token punctuation">,</span>
+          <span class="token keyword">class</span> <span class="token class-name">KeyOfValue</span><span class="token punctuation">,</span>
+          <span class="token keyword">class</span> <span class="token class-name">Compare</span><span class="token punctuation">,</span>
+          <span class="token keyword">class</span> <span class="token class-name">Alloc</span> <span class="token operator">=</span> alloc<span class="token operator">></span><span class="token comment" spellcheck="true">//传五个模板参数</span>
+<span class="token keyword">class</span> <span class="token class-name">rb_tree</span><span class="token punctuation">{</span>
+<span class="token keyword">protected</span><span class="token operator">:</span>
+    <span class="token keyword">typedef</span> __rb_tree_node<span class="token operator">&lt;</span>Value<span class="token operator">></span> rb_tree_node<span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">typedef</span> rb_tree_node<span class="token operator">*</span> link_type<span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">protected</span><span class="token operator">:</span>
+    <span class="token comment" spellcheck="true">//仅有三条数据</span>
+    size_type node_count<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//节点数量</span>
+    link_type header<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//头结点(可以方便很多计算)</span>
+    Compare key_compare<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//key的大小比较规则；function object</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>关键数据。node_count占4个字节，header是个指针4个字节，key_compare是个仿函数，大小是0（其并没有数据），但大小为0的class编译器编译后大小为1 。所以总大小为9，9要对齐4，所以一个rb_tree大小为12。</p>
+<p>下面我们建一个rb_tree对象试试:</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">rb_tree<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span>
+        <span class="token keyword">int</span><span class="token punctuation">,</span>
+        identity<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span>
+        less<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span>
+myTree<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中identity是G2.9中的一个函数，并不在其他C库中:</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">></span>
+<span class="token keyword">struct</span> identity <span class="token operator">:</span> <span class="token keyword">public</span> unary_funciton<span class="token operator">&lt;</span>T<span class="token punctuation">,</span>T<span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> T<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">const</span> T<span class="token operator">&amp;</span> x<span class="token punctuation">)</span><span class="token keyword">const</span> <span class="token punctuation">{</span><span class="token keyword">return</span> x<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>传x进去就返回一个x, 就是说key就是value。其实G2.9中的set这个参数就是传入的identity。</p>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>刚刚说了，set初始化要传的是: &lt;int,compare, alloc&gt; 第一个int传进去，调用rb_tree时其实是传了两个int。</p>
+<p>而identity就是默认的也改不了。其他版的C++中没有这个函数，但也用了功能一样的函数来传入。</p>
+<p>set中的iterator这么定义：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">typedef</span> <span class="token keyword">typename</span> rep_type<span class="token operator">::</span>const_iterator iterator<span class="token punctuation">;</span> 
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>把一个const_iterator命名成了iterator，这就限定了这个iterator是不能乱改的。以保证其key不允许改变。避免使用者改了，破坏了rb_tree结构。</p>
+<p>set中有个一rb_tree，所有的事都由它来完成。</p>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>看map，我猜和set不一样的地方应该在于key和value不同，identity肯定不能用了，下面去看看是不是呢？</p>
+<p>果然，identity的地方传入的是一个叫<code>select1st&lt;value_type&gt;</code>的东西。</p>
+<ul>
+<li><p>但是前两个参数和我想的不一样。map中前两个传入的是key和value的类型，但这两个传入的类型，在构建rb_tree时并没有直接用。key直接传入了，但rb_tree的第二个参数传入了一个<code>pair&lt;const Key, T&gt;</code>。把key和value组合成pair传入rb_tree当value，而且pair中的Key是const类型来保证Key是不能被改变。</p>
+</li>
+<li><p>而rb_tree的第三个参数，<code>select1st&lt;value_type&gt;</code>，就是取出第二个参数（一对pair）的第一个做key。不多解释了！很通明了。当然这个<code>select1st&lt;value_type&gt;</code>是GC特有的一个函数，其他版本的库也有类似实现。</p>
+</li>
+<li><p>关于map的<code>[]</code>重载：</p>
+<p>如果找不到，会返回一个最适合插入的iterator。具体还有疑惑。</p>
+</li>
+</ul>
+<h1 id="23HashTable"><a href="#23HashTable" class="headerlink" title="23HashTable"></a>23HashTable</h1><p>rehash: 如果元素个数比篮子总个数多。篮子个数增加大致2倍</p>
+<p>（存在个数序列）{53,97,193,,389,769···}</p>
+<p>完全是经验。没有科学依据。</p>
+<p>看源码.</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Vlaue</span><span class="token punctuation">,</span> <span class="token keyword">class</span> <span class="token class-name">Key</span><span class="token punctuation">,</span>
+          <span class="token keyword">class</span> <span class="token class-name">HashFcn</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//计算位置</span>
+          <span class="token keyword">class</span> <span class="token class-name">ExtractKey</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//从元素中取Key</span>
+          <span class="token keyword">class</span> <span class="token class-name">EuqalKey</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//如何比较Key</span>
+          <span class="token keyword">class</span> <span class="token class-name">Alloc</span><span class="token operator">=</span>alloc<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>基本上类似rb_tree. HashFcn是它独有的。 ExtractKey 相当于KeyOfValue, EuqalKey 相当于 Compare.</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">hashtable</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">typedef</span> HashFcn hasher<span class="token punctuation">;</span>
+    <span class="token keyword">typedef</span> EuqalKey key_equal<span class="token punctuation">;</span>
+    <span class="token keyword">typedef</span> size_t size_type<span class="token punctuation">;</span>
+
+<span class="token keyword">private</span><span class="token operator">:</span>
+    hasher hash<span class="token punctuation">;</span>
+    key_equal equals<span class="token punctuation">;</span>
+    ExtractKey get_key<span class="token punctuation">;</span>
+
+    <span class="token keyword">typedef</span> __hashtable_node<span class="token operator">&lt;</span>Value<span class="token operator">></span> node<span class="token punctuation">;</span>
+
+    vector<span class="token operator">&lt;</span>node<span class="token operator">*</span><span class="token punctuation">,</span>Alloc<span class="token operator">></span> buckets<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//最外层存篮子的是个vector，这也是hashtable对外的情况</span>
+    size_type num_elements<span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    size_type <span class="token function">bucket_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> buckets<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>下面跟着的三个typedef不管了。</p>
+<p>看private的数据：hash就是hashFunction, equals是比较Key的方法，get_key就是拿Key。对应我上面模板参数里注释的三条。</p>
+<p>然后是一个vector定义的篮子和元素总个数。</p>
+<p>下面计算一下hashtable大小:</p>
+<p>三个仿函数，本来没数据，但说过多次了，没有0字节的，三个都是1字节。</p>
+<p>然后是一个vector，vector里有三个指针（start,finish,storage)，大小12.  size_type大小4. </p>
+<p>12+4+3=19==》4的倍数20.</p>
+<p>然后看一下篮子里的节点node源码:</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Value</span><span class="token operator">></span>
+<span class="token keyword">struct</span> __hashtable_node <span class="token punctuation">{</span>
+    __hashtable_node<span class="token operator">*</span> next<span class="token punctuation">;</span>
+    Value val<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>明显看出，就是个链表。里面一个Val一个next指针。</p>
+<p>然后看一下它的迭代器:</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">template</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">Value</span><span class="token punctuation">,</span> <span class="token keyword">class</span> <span class="token class-name">Key</span><span class="token punctuation">,</span>
+          <span class="token keyword">class</span> <span class="token class-name">HashFcn</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//计算位置</span>
+          <span class="token keyword">class</span> <span class="token class-name">ExtractKey</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//从元素中取Key</span>
+          <span class="token keyword">class</span> <span class="token class-name">EuqalKey</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//如何比较Key</span>
+          <span class="token keyword">class</span> <span class="token class-name">Alloc</span><span class="token operator">=</span>alloc<span class="token operator">></span>
+<span class="token keyword">struct</span> __hashtable_iterator <span class="token punctuation">{</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    node<span class="token operator">*</span> cur<span class="token punctuation">;</span>
+    hashtable<span class="token operator">*</span> ht<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>两个指针一个用于在node里移动，一个用于node移动到头后返回找下一个Node.</p>
+<p><code>hash</code>没有提供<code>std::string</code></p>
+<h2 id="unordered"><a href="#unordered" class="headerlink" title="unordered"></a>unordered</h2><p>C++11之后，hash_map/set</p>
+
             </div>
             <hr>
 
@@ -363,7 +553,7 @@
                     </span>
                     <a href="https://ixs.im" class="b-link-green">炫杉</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/CppSTL/" class="b-link-green">C++ STL相关</a>
+                    <a href="/CppSTL/" class="b-link-green">C++ STL容器相关源码</a>
                 </p>
             </div>
         </div>
@@ -408,34 +598,51 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/CppSTL/">
+                <a href="/CppSTLAlgorithm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="C++ STL相关">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C++STL算法相关源码">
                         
-                        <span class="card-title">C++ STL相关</span>
+                        <span class="card-title">C++STL算法相关源码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">STL用都还玩不明白呢。现在我却要看源码了。这是为什么呢。
-</div>
+                    <div class="summary">
+算法看不见Containers，对其一无所知。算法的提问，由迭代器Iterators来回答。
+所以Iterators必须能够回答算法的所有提问（记得之前看过的5大Traits）。
+如果算法问到了迭代器不会的，编译到那一行，报错。
+迭代器的</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-23
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            ixsim
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/cpp/" class="post-category" target="_blank">
+                                    cpp
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Note/" target="_blank">
+                        <span class="chip bg-color">Note</span>
+                    </a>
+                    
+                    <a href="/tags/cpp/" target="_blank">
+                        <span class="chip bg-color">cpp</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
