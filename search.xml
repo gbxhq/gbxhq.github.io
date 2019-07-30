@@ -78,29 +78,6 @@
     </entry>
     
     <entry>
-      <title>Flask上手</title>
-      <link href="/Flask%E4%B8%8A%E6%89%8B/"/>
-      <url>/Flask%E4%B8%8A%E6%89%8B/</url>
-      
-        <content type="html"><![CDATA[<a id="more"></a><p>创建虚拟环境<code>python3 -m venv venv</code></p><p>激活<code>. venv/bin/activate</code></p><ul><li>WSGI: Web Server Gateway Interface 的缩写，即 Web 服务器网关接口。</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Flask </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>洛谷记录2-分治/简单数学</title>
       <link href="/Algorithm/luogu2_fenzhi_math/"/>
       <url>/Algorithm/luogu2_fenzhi_math/</url>
