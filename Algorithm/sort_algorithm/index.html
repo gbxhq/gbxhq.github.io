@@ -89,6 +89,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="搜索"></i>
@@ -147,6 +156,15 @@
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
                 关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
             </a>
         </li>
         
@@ -356,12 +374,13 @@ for(int i=2;i&lt;n;i++){
         vt[j+1] = vt[0];//循环走完 j+1的位置就是i的归宿 因为j的位置是比小的
               //这么一轮下来，[1,i]这一段就是有序的了
 }</code><br><br>作用<br><br>- 把每次要插入的目标放到vt[0]的位置，<br><br>- 让循环的结束条件<code>vt[j]&gt;vt[0]</code> 一定可以结束。<br><br>  因为当<strong>目标值</strong>是最小的时候，<strong>第一个元素vt[1]</strong>都比<strong>目标</strong>大，<strong>vt[1]</strong>会后移到<strong>vt[2]</strong>上。<br><br>  <code>j--</code> 则 j就变成了0  。<code>vt[0]&gt;vt[0]</code>不成立，循环结束。且要插入的位置正是 0+1 = 1。目标值放在了位置1上。<br><br>复杂度分析：<br><br>- 最好比较n-1次 移动0次<br>- 最坏比较(n+2)(n-1)/2次 移动(n+2)(n-1)/2次<br>- 平均：(n^2)/4 时间复杂度O(n^2)<br><br>## 折半插入<br><br>寻找位置的过程用折半查找，<br><br>平均比较次数 nlogn 移动次数 n^2/4<br><br>时间复杂度O(N<sup>2</sup>)<br><br>## 二路插入<br><br>用一个辅助链表，减少移动的次数。<br><br>最终移动次数 $n^2/8$ ，相当于以第一个元素为哨兵分成了两个比它大、小的部分，再移动这两个部分。<br><br>复杂度$O(n^2)$<br><br>## 希尔排序<br><br>不稳定<br><br>分别选Delta10\5\3\1为增量。然后对每个位置的数进行插入排序。<br><br>实验数据表名效率约为 N^1.3<br><br># 交换类排序<br><br>## 冒泡排序<br><br>每一轮排序：都将【无序序列】中，关键字最大的那个一上升到【有序序列】中。<br><br>优化结束条件：本轮没有进行交换。<br><br>### 复杂度<br><br>- 最好<br><br>  比较 n-1  移动 0<br><br>- 最坏<br><br>  比较 n(n-1)/2 移动 3n(n-1)/2<br><br>- O(n<sup>2</sup>)<br><br><br>## 快速排序<br><br>核心就是i和j两个坐标的移动：<br><br><code>cpp
-while (x &lt; vt[j]&amp;&amp;i&lt;j){//这里不要带&lt;=! 等于的情况不能跳过，要把和它一样的这个数放前面，不然它就永远都过不去了！
-    j--;
-}
-if(i&lt;j){//这里只要判断i&lt;j防止已经相遇就好了
-    vt[i]=vt[j];
-    i++;
+while (i&lt;j){
+    while (a[j]&gt;=temp &amp;&amp; i&lt;j)
+        j--;
+    a[i] = a[j];
+    while (a[i]&lt;=temp &amp;&amp; i&lt;j)
+        i++;
+    a[j] = a[i];
 }</code><br><br>注意的地方：<br><br>- 进入快排，先把传入的i和j两个参数存起啦，最后递归的时候要用<br><br>- 第一行，不要忘记 <code>&amp;&amp; i&lt;j</code><br><br>  不要写成 &lt;= 。那样会导致和x一样的数没做处理。跳过去了就。<br><br>  应当放到x的左侧才对==》<strong>快排是不稳定的</strong><br><br>- 注意上面的第4行，我开始写的是：<code>if(x&gt;vt[j] &amp;&amp; i&lt;j)</code>。错在哪？<br><br>  上一步的循环条件是 <code>x&lt;vt[j]</code> <strong>与 &lt; 相对的</strong>不是 &gt; 而<strong>是 &gt;=</strong>啊。<br><br>  所以要写成 <code>x&lt;=vt[j]</code>，<strong>干脆不写！一定不写记住！</strong>。<br><br>- 关于快排的稳定性：<br><br>  之前想错了。稳定性和比较时带不带&gt;=号没关系。因为在和其他元素比较时，a也会被移动。<br><br>### 优化<br><br>- 对于有序的情况，快排退化成On2，因此不采用每个区间的第一个元素作为“标杆”，而是用区间[i,j]的首、中、尾三个元素做比较，来做为标杆进行排序。<br><br>  <strong>重点来了！</strong><br><br>  怎么让这个元素做标杆呢！我之前还在傻傻地改代码！！！<br><br>  其实只要在原来的快排代码上，选出标杆之后，把标杆位置的数和i位置的数swap一下就行了啊！！！这样还是从第一个数做标杆。但第一个数已经成了我们想用的那个。<br><br>  - x,y,z如何判断y是不是中间值呢？<code>if(y&gt;=x&amp;&amp;y&lt;=z)</code>是不对的。还要<code>||(y&lt;=x&amp;&amp;y&gt;=z)</code><br><br># 合并排序<br><br>- 归并的拆分的递归思路特别好。要记住两个函数参数怎么设。<br>- 需要占用空间啊（要有个临时数组去合并结果）。<br><br># 堆排序<br><br><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/HeapSort.html</a><br><br># 基数排序<br><br><a href="http://www.cs.usfca.edu/~galles/visualization/RadixSort.html" target="_blank" rel="noopener">http://www.cs.usfca.edu/~galles/visualization/RadixSort.html</a><br><br>我完全按照算法的思想。把数一次次存到map里写出来的。<br><br>貌似正规的写法不用这么「扯」。<br><br>说下我的写法吧：<br><br>1. 按个位数当下标key，先全存到第一个map里<br><br>2. 建立一个allMap，根据最高位数exp，往allMap里存map。<br><br>3. 遍历上一层的map。因为上一层的map是按个位数排好序的。<br><br>   取出这个数。判断它的十位。存到这一层的map里。<br><br>- map里如果value是存的vector，那不需要初始化就可以直接push_back的。<br><br>  比如，<code>map[1].push_back(99);</code> 这种写法是没错的。<br><br># 最高有效位排序<br><br>这和基数排序啥区别啊。就是从高位开始判断的基数排序？<br><br># 内省排序<br># 适应性归并排序<br><br><br># 鸡尾酒排序<br># 地精排序<br># 双调排序<br># Bogo排序<br><br># 完美排序<br><br>思想：<br>- <code>if</code>i位置比j位置小，二者交换。<br>- 循环结束条件 i等于j<br>- 三分数组，先递归前2/3。再递归2/3。再递归前2/3<br><br>代码美观。<br>效率低。<br><br><a href="/Downloads/sort.cpp">代码下载</a><br><br><br><br>最后看一个娱乐的。24中排序算法同时运行，拿个更快呢？<br><br><iframe frameborder="0" width="100%" height="500px" src="https://v.qq.com/txp/iframe/player.html?vid=x0528v6hypr" allowfullscreen="true"></iframe>
 
             </div>

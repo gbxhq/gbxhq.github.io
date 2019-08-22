@@ -90,6 +90,15 @@ public:
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="搜索"></i>
@@ -148,6 +157,15 @@ public:
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
                 关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
             </a>
         </li>
         
@@ -487,8 +505,7 @@ hello
     <span class="token keyword">void</span><span class="token operator">*</span> <span class="token keyword">operator</span> <span class="token keyword">new</span><span class="token punctuation">(</span>size_t size<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token keyword">operator</span> <span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">,</span>size_t<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//size_t是可选参数</span>
 <span class="token punctuation">}</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="22-example"><a href="#22-example" class="headerlink" title="22 example"></a>22 example</h1><p>说delete的重载不会被执行，仅仅用于抛出异常（在new时调用ctor失败会抛出）。</p>
 <p>而且不写也行。说明你不在乎异常。</p>
 <h1 id="24-example"><a href="#24-example" class="headerlink" title="24 example"></a>24 example</h1><p>举了标准库string里重载new的例子：什么时候要重载呢？当你想无声无息不知不觉地多分配一些空间的时候。</p>

@@ -90,6 +90,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="搜索"></i>
@@ -148,6 +157,15 @@
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
                 关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
             </a>
         </li>
         
@@ -314,14 +332,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        4.6k
+                        4.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        16 分
+                        17 分
                     </div>
                     
                 
@@ -360,6 +378,7 @@
 </li>
 </ul>
 <h2 id="3-2-IP首部"><a href="#3-2-IP首部" class="headerlink" title="3.2 IP首部"></a>3.2 IP首部</h2><p><img src="http://docs.52im.net/extend/docs/book/tcpip/vol1/3/images2/52im_1.png" alt=""></p>
+<p><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/85c05fb1-5546-4c50-9221-21f231cdc8c5.jpg" alt=""></p>
 <ul>
 <li><p>版本：4</p>
 </li>
@@ -369,10 +388,22 @@
 <li><p>TOS: 3bit的优先权字段（如今没用）</p>
 <p>4bit的子字段（只能有一个位置1）和1bit的未用位（必须置）：</p>
 <p>因此这5bit只有4种情况：10000、01000、00100、00010</p>
-<p>这是种就是tcpdump的命令输出：0x10\0x08\0x04\0x02这四个十六进制数</p>
+<p>这4种就是tcpdump的命令输出：0x10\0x08\0x04\0x02这四个十六进制数</p>
 <p><img src="http://docs.52im.net/extend/docs/book/tcpip/vol1/3/images2/52im_2.png" alt="图3-2 服务类型字段推荐值"></p>
 </li>
-<li><p>总长 16bit IP数据报最长65535字节。但大多数链路层都会分片，<strong>而且，</strong>主机也要求不能接收超过576字节的数据报。</p>
+<li><p>总长：包括首部长度和数据部分长度。16bit IP数据报最长65535字节。但大多数链路层都会分片，<strong>而且，</strong>主机也要求不能接收超过576字节的数据报。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>生存时间</strong> ：TTL，它的存在是为了防止无法交付的数据报在互联网中不断兜圈子。以路由器跳数为单位，当 TTL 为 0 时就丢弃数据报。</p>
+</li>
+<li><p><strong>协议</strong> ：指出携带的数据应该上交给哪个协议进行处理，例如 ICMP、TCP、UDP 等。</p>
+</li>
+<li><p><strong>首部检验和</strong> ：因为数据报每经过一个路由器，都要重新计算检验和，因此检验和不包含数据部分可以减少计算的工作量。</p>
+</li>
+<li><p><strong>标识</strong> : 在数据报长度过长从而发生分片的情况下，相同数据报的不同分片具有相同的标识符。</p>
+</li>
+<li><p><strong>片偏移</strong> : 和标识符一起，用于发生分片的情况。片偏移的单位为 8 字节。</p>
 </li>
 </ul>
 <h2 id="3-3-路由选择"><a href="#3-3-路由选择" class="headerlink" title="3.3 路由选择"></a>3.3 路由选择</h2><p>所有的IP路由选择只为数据报传输提供下一站路由器的IP地址。它假定下一站路由器比发送数据报的主机更接近目的，而且下一站路由器与该主机是直接相连的。</p>
@@ -426,18 +457,26 @@
 
  （3）参数问题 
 
- （4）改变路由 
+ （4）改变路由 (Redirect)
 
  **查询报文**： 
 
- （1）会送请求和回答 
+ （1）回送(Echo)请求和回答 
 
  （2）时间戳请求和回答 
 
  8位 细分不同报文 
 
  16位校验和 对整个报文进行循环冗余校验（CRC）检验报文是否损坏 
-</code></pre><blockquote>
+</code></pre><p>应用：</p>
+<ul>
+<li><p>ping：向目的主机发送ICMP Echo请求报文，会收到回答报文。以估算数据包RTT和丢包率</p>
+</li>
+<li><p>Traceroute 是 ICMP 的另一个应用，用来跟踪一个分组从源点到终点的路径。</p>
+<p>Traceroute 发送的 IP 数据报封装的是无法交付的 UDP 用户数据报，并由目的主机发送终点不可达差错报告报文。</p>
+</li>
+</ul>
+<blockquote>
 <p>  至此，就能有效的让数据报在网络层和数据链路层间交付了      </p>
 </blockquote>
 <h2 id="传输层："><a href="#传输层：" class="headerlink" title="传输层："></a>传输层：</h2><pre><code> 只关心通信的起始端和目的端，不关心数据包的中转过程 

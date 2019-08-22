@@ -86,6 +86,15 @@
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="搜索"></i>
@@ -144,6 +153,15 @@
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
                 关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
             </a>
         </li>
         
@@ -382,11 +400,11 @@ s<span class="token punctuation">[</span>n<span class="token punctuation">]</spa
 </li>
 </ul>
 <h1 id="824-山羊拉丁文"><a href="#824-山羊拉丁文" class="headerlink" title="824. 山羊拉丁文"></a>824. 山羊拉丁文</h1><ul>
-<li><p>用istringsteam挨个读单词并处理。处理后加一个空格。</p>
+<li><p>用istringstream挨个读单词并处理。处理后加一个空格。</p>
 <p>注意，这样句子最后就会多一个空格。需要输出<code>ans.substr(0,ans.size()-1)</code></p>
 </li>
 <li><p>把单词的第一个字母放到最后的方法：</p>
-<pre class="line-numbers language-cpp"><code class="language-cpp">stringsteam oss<span class="token punctuation">;</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp">stringstream oss<span class="token punctuation">;</span>
 oss<span class="token operator">&lt;&lt;</span>word<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>word<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>

@@ -93,6 +93,15 @@ DFSP1219 八皇后弱智一样的我，还建立NxN的矩阵来模拟。
         </a>
     </li>
     
+    <li class="hide-on-med-and-down">
+        <a href="https://oo1.win" class="waves-effect waves-light">
+            
+            <i class="fa fa-star"></i>
+            
+            <span>Bookmark</span>
+        </a>
+    </li>
+    
     <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="搜索"></i>
@@ -151,6 +160,15 @@ DFSP1219 八皇后弱智一样的我，还建立NxN的矩阵来模拟。
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
                 关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://oo1.win" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-star"></i>
+                
+                Bookmark
             </a>
         </li>
         
@@ -325,14 +343,14 @@ DFSP1219 八皇后弱智一样的我，还建立NxN的矩阵来模拟。
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.8k
+                        433
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        7 分
+                        1 分
                     </div>
                     
                 
@@ -379,27 +397,17 @@ DFSP1219 八皇后弱智一样的我，还建立NxN的矩阵来模拟。
 <ul>
 <li><p>用了queue做，思路很清晰。看关键代码：</p>
 <pre class="line-numbers language-c++"><code class="language-c++">while (!q1.empty()){
-        xy temp=q1.front();
+        node temp=q1.front();
         int i=temp.x,j=temp.y;
-        if(a[i+1][j]==0)
-            q1.push(xy(i+1,j));
-        if(a[i][j+1]==0)
-            q1.push(xy(i,j+1));
-        if(a[i-1][j]==0)
-            q1.push(xy(i-1,j));
-        if(a[i][j-1]==0)
-            q1.push(xy(i,j-1));//四个方向找联通块，找到入队
-        a[i][j]=2;
-        q1.pop();
-        cout<<"computing\n"; }="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></"computing\n";></code></pre>
+        for(int k=0;k<4;k++){ 四个方向找联通块，找到入队="" if(a[i+dir[k][0]][j+dir[k][1]]="=0)" q1.push(node(i+dir[k][0],j+dir[k][1]))="" }="" a[i][j]="2;" q1.pop();="" cout<<"computing\n";="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></4;k++){></code></pre>
 <p>5个用例，最后一个数据过不了，下载了看，30x30矩阵，然后外圈是1中间全0.应该是卡在四个方向寻找那里了。这么多数都入队。（特别我没考虑到上面的写法让<strong>很多点多次入队</strong>）</p>
 </li>
-<li><p>以为是queque的问题，看了题解，准备用数组做。</p>
+<li><p>以为是queue的问题(其实不是，queue完全可以AC)，看了题解，准备用数组做。</p>
 <p>数组模拟队列，用两个下标控制队头队尾。调试后发现1、5用例AC。234又过不了。Debug后找出了下面的错误：</p>
 <ul>
 <li><p>每次取队头begin后，不把它先存到另一个变量了。直接在begin上操作。导致每入队一个数，队头就后移。</p>
 </li>
-<li><p>这次知道把begin取出来用另一个变量来控制往里存树了。1-4用例AC。第五个又超时了。Debug一下发现队列的下标都到2000多了。照理说我30x30的矩阵，所有的点入队才900个点而已啊！怎么会有这么多点入队呢。</p>
+<li><p>这次知道把begin取出来用另一个变量来控制往里存数了。1-4用例AC。第五个又超时了。Debug一下发现队列的下标都到2000多了。照理说我30x30的矩阵，所有的点入队才900个点而已啊！怎么会有这么多点入队呢。</p>
 <p>这时候才领悟到：<strong>很多点多次入队</strong></p>
 <p><strong>应该发现是0联通块，直接改成2，然后再把它入队。不然另外和Ta相邻的点，又看到Ta符合条件又会让它入队</strong>。AC</p>
 </li>
@@ -421,11 +429,12 @@ g c
 </code></pre><p>哎。我最后特判的。</p>
 <h2 id="P1141-01迷宫"><a href="#P1141-01迷宫" class="headerlink" title="P1141 01迷宫"></a><a href="https://www.luogu.org/problemnew/show/P1141" target="_blank" rel="noopener"><strong>P1141</strong> 01迷宫</a></h2><ul>
 <li><p>我发现传vector变量的地方可以直接传<code>{1,2,3,4,5}</code>进去</p>
+<p><strong>样例2过不了竟是因为用了这种结构。改用结构体之后直接ac</strong></p>
 <p>这样我就不用使用一个结构体来存(x,y)坐标了啊。直接：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">queue<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> queue1<span class="token punctuation">;</span>
 queue1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>i<span class="token punctuation">,</span>j<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>方便。</p>
+<p>方便。但以后还是老老实实结构体吧</p>
 </li>
 <li><p><code># 2 9 10</code>三个用例超时。#2是一个1000*1000的矩阵。10w条数据。我已经使用了记忆化搜索。实在想不到哪里可以优化了。</p>
 </li>
@@ -459,8 +468,8 @@ cout<span class="token punctuation">.</span><span class="token function">width</
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> a<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//假设求第n行</span>
 a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//两端赋值1</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">*</span><span class="token number">2</span><span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token operator">-</span>i<span class="token punctuation">]</span>
-              <span class="token operator">=</span><span class="token punctuation">(</span>n<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token operator">*</span>pc<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">/</span>i<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//利用对称一次填充两个</span>
+    a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token operator">-</span>i<span class="token punctuation">]</span>
+          <span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token operator">/</span>i<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//利用对称一次填充两个</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>细节：</p>
 <ul>
