@@ -369,8 +369,20 @@
 <pre class="line-numbers language-c++"><code class="language-c++">void merge(vector<int> &data,int i1,int j1,int i2,int j2){
     vector<int> tmp;
     int i=i1;
-    while (i1<=j1&&i2<=j2){ if(data[i1]<="data[i2]){" tmp.push_back(data[i1]);="" i1++;="" }="" else{="" tmp.push_back(data[i2]);="" i2++;="" ans+="j1-i1+1;" while="" (i1<="j1){" (i2<="j2){" for(int="" x:tmp){="" data[i++]="x;" return;="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></=j1&&i2<=j2){></int></int></code></pre>
+    while (i1<=j1 &&="" i2<="j2){" if(data[i1]<="data[i2]){" tmp.push_back(data[i1++]);="" }="" else{="" tmp.push_back(data[i2++]);="" ans+="j1-i1+1;" while="" (i1<="j1)" (i2<="j2)" for(int="" x:tmp)="" data[i++]="x;" return;="" <span="" aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></=j1></int></int></code></pre>
 <p>ans要声明成long long型，因为5e5大小的数组传进来，随便有几个逆序的ans就好大。</p>
+<p>注意两个点：</p>
+<ul>
+<li><p>二分时要分割成(i,m,m+1,j)</p>
+<p>不要分成(i,m-1,m,j)这样(1,2)区间会被分成:</p>
+<p>(1,0,1,2)无限循环进入(1,2)</p>
+</li>
+<li><p>合并时的条件是(i&lt;=m &amp;&amp; m+1&lt;=j)</p>
+<p>要带上等于号！ </p>
+<p>因为不能保证两个式子都是小于的。万一有一个等于就无法进入合并了。</p>
+<p>比如(1,2,3,3) 虽然(3,3)不用处理，但是（1,2）要处理啊。</p>
+</li>
+</ul>
 <h1 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h1>
             </div>
             <hr>

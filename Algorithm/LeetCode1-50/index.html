@@ -450,8 +450,7 @@
     size_t occPos<span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span>subStringEnd<span class="token punctuation">;</span>subStringEnd<span class="token operator">&lt;</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>subStringEnd<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">//查找subStringStart位置之后是否有要插入的字符</span>
         occPos <span class="token operator">=</span> subString<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>subStringEnd<span class="token punctuation">]</span><span class="token punctuation">,</span>subStringStart<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//如果subString中已有带插入字符，将子串中已有字符的位置(occPos)</span>
-        <span class="token comment" spellcheck="true">//的下一位置(occPos + 1)设置为无重复子串的开始位置,即向右移动滑窗</span>
+        <span class="token comment" spellcheck="true">//如果subString中已有带插入字符，将子串中已有字符的位置(occPos)的下一位置(occPos + 1)设置为无重复子串的开始位置,即向右移动滑窗</span>
         <span class="token comment" spellcheck="true">//不断调整无重复子字符串的开始位置</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>occPos <span class="token operator">!=</span> string<span class="token operator">::</span>npos<span class="token punctuation">)</span><span class="token punctuation">{</span>
             subStringStart <span class="token operator">=</span> occPos <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> 
@@ -462,7 +461,7 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> maxLength<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="04二叉树的最大深度"><a href="#04二叉树的最大深度" class="headerlink" title="04二叉树的最大深度"></a>04二叉树的最大深度</h1><p>必备</p>
 <h1 id="5最长回文子串"><a href="#5最长回文子串" class="headerlink" title="5最长回文子串"></a>5最长回文子串</h1><p>没想到我的方法效率还不错。</p>
 <h1 id="6-Z字形变换"><a href="#6-Z字形变换" class="headerlink" title="6.Z字形变换"></a>6.Z字形变换</h1><p>水题。用一个flag记录存入的方向即可。详情看代码。</p>

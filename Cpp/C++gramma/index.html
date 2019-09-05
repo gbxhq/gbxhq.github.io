@@ -339,14 +339,14 @@ char：字符型与整型相比只是">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.5k
+                        2.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        10 分
+                        11 分
                     </div>
                     
                 
@@ -387,7 +387,7 @@ char：字符型与整型相比只是">
   <span class="token keyword">const</span> <span class="token keyword">int</span><span class="token operator">*</span> <span class="token keyword">const</span> c <span class="token operator">=</span> z<span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>  a不能修改所指的内容。但是能指向其他地方。</p>
-<p>  b能修改所指的内容。但是不能指向其他地方。</p>
+<p>  b能修改所指的内容。但是禁止修改b本身（不能指向其他地方）。</p>
 <p>  c都不能。</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">  <span class="token keyword">const</span> <span class="token keyword">int</span><span class="token operator">&amp;</span> a <span class="token operator">=</span> x<span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">//这种写法可以禁止引用修改它所指向的变量</span>
@@ -446,6 +446,11 @@ ak <span class="token operator">=</span> <span class="token string">"hello"</spa
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>编译有错误“Read-only variable is  not assignable”</p>
 <h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ul>
+<li><p>string 转 char*: </p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">  string a <span class="token operator">=</span> <span class="token string">"123"</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token function">atoi</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p><a href="http://www.cnblogs.com/Cmpl/archive/2012/01/01/2309710.html" target="_blank" rel="noopener">头文件string与string.h的区别</a><a href="https://www.cnblogs.com/curo0119/p/8304924.html" target="_blank" rel="noopener">https://www.cnblogs.com/curo0119/p/8304924.html</a></p>
 </li>
 <li><p>这篇文章后面对string基操介绍挺全<a href="https://www.luogu.org/blog/co2021/solution-p1032" target="_blank" rel="noopener">https://www.luogu.org/blog/co2021/solution-p1032</a></p>
@@ -458,8 +463,7 @@ os<span class="token operator">&lt;&lt;</span>s   <span class="token comment" sp
 is<span class="token operator">>></span>s    <span class="token comment" spellcheck="true">//从输入流is读取字符串赋给s，返回is。</span>
 s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-s<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">//n从0计</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><pre class="line-numbers language-c++"><code class="language-c++">//std::string的大小写转换
 transform(strA.begin(), strA.end(), strA.begin(), ::toupper);
@@ -472,6 +476,21 @@ sprintf(buf, "%d", a + b);
 puts(buf);
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>可以把数据输出到字符串中  </p>
+<p>c++11标准增加了全局函数std::to_string:</p>
+<p><code>string s = to_string(123);</code></p>
+<p><strong>一.利用stringstream类</strong></p>
+<p>字符串到整数</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">stringstream <span class="token function">sstr</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> x<span class="token punctuation">;</span>
+sstr <span class="token operator">>></span> x<span class="token punctuation">;</span>（即从sstr中提取数据<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p> 整数到字符串</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">stringstream sstr<span class="token punctuation">;</span>
+<span class="token keyword">int</span> x<span class="token punctuation">;</span>
+sstr <span class="token operator">&lt;&lt;</span> x<span class="token punctuation">;</span>
+string str <span class="token operator">=</span> sstr<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>缺点：处理大量数据转换速度较慢。stringstream不会主动释放内存，如果要在程序中用同一个流，需要适时地清除一下缓存（用stream.str(“”)和stream.clear()).</p>
 <h3 id="npos"><a href="#npos" class="headerlink" title="npos"></a>npos</h3><ul>
 <li><p>用法</p>
 <pre class="line-numbers language-c++"><code class="language-c++">//find 函数 返回jk 在s 中的下标位置 
@@ -510,6 +529,25 @@ position = s.find("jk");
 <p>​                 <strong>npos:        4294967295</strong></p>
 <p>​                 <strong>size_t max:  4294967295</strong></p>
 <p>可见他们是相等的，也就是说npos表示size_t的最大值</p>
+<h2 id="stream"><a href="#stream" class="headerlink" title="stream"></a>stream</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;sstream></span></span>
+stringstream ss<span class="token punctuation">;</span>
+<span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+ss<span class="token operator">>></span>a<span class="token punctuation">;</span>
+string s <span class="token operator">=</span> ss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//stream转string</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>用这个可以实现各种转string。需要注意的是：</p>
+<p><strong>ss一直不会清空。ss一直不会清空。ss一直不会清空。</strong>要这么清空：</p>
+<p><code>ss.str(&quot;&quot;)</code> 就是把空字符串赋值给它</p>
+<h3 id="分割单词"><a href="#分割单词" class="headerlink" title="分割单词"></a>分割单词</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sstream></span></span>
+<span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//s是一个句子。有空格有单词</span>
+    istringstream <span class="token function">is</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//把String s变成一个输入流is</span>
+    string word <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>is <span class="token operator">>></span> word<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//对word进行操作</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><ul>
 <li><p>禁止在栈中实例化的类：</p>
 <p>栈空间有限。如果一个类中有大量数据。应尽可能在栈中实例化它，而只允许在堆上创建其实例。做法：</p>
@@ -625,6 +663,11 @@ vector<span class="token operator">&lt;</span>ST<span class="token operator">></
 <li><p><code>at()</code> 括号里是下标。跟数组一样访问就行了。<code>tmp=vt.at(5);</code></p>
 </li>
 </ul>
+<h3 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h3><pre class="line-numbers language-cpp"><code class="language-cpp"> v<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span><span class="token function">unique</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>unique()函数<strong>将重复的元素放到vector的尾部</strong> 然后返回指向第<strong>一个重复元素的迭代器</strong>再用erase函数擦除从这个元素到最后元素的所有的元素</p>
+<h3 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token function">count</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>a<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>value<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p>优先队列<code>priority_queue</code> 默认排序方式是&lt;,且注意<code>q.top()</code>是最大值。如果想让<code>q.top()</code>是最小值，比较函数应使用<code>greater()</code>，和sort是反着的。</p>
 <p>下面重点说一下队列里的元素是自定义结构体的情况（需要重载运算符）</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> cmp1<span class="token punctuation">{</span>

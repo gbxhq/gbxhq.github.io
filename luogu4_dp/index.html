@@ -376,7 +376,7 @@ for i=1..n
 </li>
 <li><p>完全（商品可多次取）</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">.</span>n
-      <span class="token keyword">for</span> j<span class="token operator">=</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span>V
+      <span class="token keyword">for</span> j<span class="token operator">=</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span>V <span class="token comment" spellcheck="true">//区别在此</span>
               ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>ans<span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>

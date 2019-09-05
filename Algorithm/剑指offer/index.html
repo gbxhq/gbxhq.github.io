@@ -9,8 +9,9 @@
 代码基本都在这里了：https://github.com/ixsim/OJ
 
 Problems
- P25这个例子。先学好C++基础吧！
- P28 C#和C++不">
+[ ] P31单例模式
+  class A{
+      sta">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -337,14 +338,14 @@ Problems
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        6.1k
+                        6.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        23 分
+                        24 分
                     </div>
                     
                 
@@ -364,28 +365,64 @@ Problems
 <p>代码基本都在这里了：<a href="https://github.com/ixsim/OJ" target="_blank" rel="noopener">https://github.com/ixsim/OJ</a></p>
 <a id="more"></a>
 <h1 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h1><ul>
-<li style="list-style: none"><input type="checkbox"> P25这个例子。先学好C++基础吧！</li>
-<li style="list-style: none"><input type="checkbox"> P28 C#和C++不一样那一段。在堆上分配内存和在栈上分配内存有什么不同。</li>
-<li style="list-style: none"><input type="checkbox"> P31单例模式  研究不了 PASS </li>
-<li style="list-style: none"><input type="checkbox"> 红黑树    据说和30题有关</li>
-<li style="list-style: none"><input type="checkbox"> P75 斐波那契的公式法</li>
-<li style="list-style: none"><input type="checkbox"> P82 位运算相关的题目和笔记是薄弱环节</li>
-<li style="list-style: none"><input type="checkbox"> <a href="#11 数值的整数次方">11 数值的整数次方</a> 高效法重刷标记</li>
-<li style="list-style: none"><input type="checkbox"> <a href="#12 打印1到n位最大数">12</a> 递归法重刷</li>
-<li style="list-style: none"><input type="checkbox"> 15 重刷</li>
-<li style="list-style: none"><input type="checkbox"> 17 递归重刷</li>
-<li style="list-style: none"><input type="checkbox"> 18 重刷</li>
-<li style="list-style: none"><input type="checkbox"> 26 重刷</li>
-<li style="list-style: none"><input type="checkbox"> 30题 解法二回看</li>
-<li style="list-style: none"><input type="checkbox"> 35相关题目回看</li>
-<li style="list-style: none"><input type="checkbox"> <strong>36 逆序对</strong> 不解释</li>
-<li style="list-style: none"><input type="checkbox"> 40 重刷</li>
-<li style="list-style: none"><input type="checkbox"> 41 其实没做出来</li>
-<li style="list-style: none"><input type="checkbox" checked> 45 约瑟夫写推导</li>
-<li style="list-style: none"><input type="checkbox"> 53 正则匹配</li>
+<li><p>[ ] P31单例模式</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">  <span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+      <span class="token keyword">static</span> A <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">private</span><span class="token operator">:</span>
+      <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">A</span><span class="token punctuation">(</span>A<span class="token operator">&amp;</span> rth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token operator">~</span><span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  A A<span class="token operator">::</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">static</span> A a<span class="token punctuation">;</span>
+      <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>[ ] 这个代码啥问题</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">  <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">-</span><span class="token operator">></span>left<span class="token operator">||</span>p<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">swap</span><span class="token punctuation">(</span>p<span class="token operator">-</span><span class="token operator">></span>left<span class="token punctuation">,</span>p<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token comment" spellcheck="true">//这样就不行</span>
+  <span class="token comment" spellcheck="true">//这样就可以</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">-</span><span class="token operator">></span>left<span class="token operator">||</span>p<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      TreeNode <span class="token operator">*</span>temp <span class="token operator">=</span> p<span class="token operator">-</span><span class="token operator">></span>left<span class="token punctuation">;</span>
+      p<span class="token operator">-</span><span class="token operator">></span>left <span class="token operator">=</span> p<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">;</span>
+      p<span class="token operator">-</span><span class="token operator">></span>right <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  看上去一样。但其实 swap两个指针。在里面操作半天。回来p的左右孩子还是没变化。</p>
+</li>
+<li><p>[ ] 红黑树    据说和30题有关</p>
+</li>
+<li><p>[ ] P75 斐波那契的公式法</p>
+</li>
+<li><p>[ ] P82 位运算相关的题目和笔记是薄弱环节</p>
+</li>
+<li><p>[ ] 24 二刷还是没思路</p>
+</li>
+<li><p>[ ] 27 重刷 递归方法</p>
+</li>
+<li><p>[ ] 30题 解法二回看</p>
+</li>
+<li><p>[ ] 35相关题目回看</p>
+</li>
+<li><p>[ ] 37 书上方法</p>
+</li>
+<li><p>[ ] 39-1 书上方法</p>
+</li>
+<li><p>[ ] 40 重刷</p>
+</li>
+<li><p>[ ] 41 其实没做出来</p>
+</li>
+<li><p>[x] 45 约瑟夫写推导</p>
+</li>
+<li><p>[ ] 53 正则匹配</p>
+</li>
 </ul>
 <h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><ul>
 <li>在C/C++中，数组作为函数的参数进行传递时，数组就自动退化为同类型的指针。</li>
+<li>需要倒着再干啥的考虑【栈】</li>
 <li>很多需要快速找到最大值或最小值的问题都可以用【堆】来解决</li>
 <li>由于精度原因不能用等号判断两个小数是否相等。如果两个小数差的绝对值很小，就可以认为他们相等</li>
 <li>我们有成熟的O(N)算法得到数组中任意第k大的数字</li>
@@ -428,16 +465,12 @@ if(node!=null){
 <li><p>位运算效率远高于乘除。尽可能得用位运算代替乘除。</p>
 </li>
 </ul>
-<h1 id="第三章-高质量代码"><a href="#第三章-高质量代码" class="headerlink" title="第三章 高质量代码"></a>第三章 高质量代码</h1><h2 id="11-数值的整数次方"><a href="#11-数值的整数次方" class="headerlink" title="11 数值的整数次方"></a>11 数值的整数次方</h2><p>马马虎虎地过了，看了书后发现，我并没有考虑底数是特殊值的情况。（只分了指数的情况）</p>
-<p>其实底数也有特殊情况。就是底数为0的时候，指数为负要抛出异常。</p>
+<h1 id="第三章-高质量代码"><a href="#第三章-高质量代码" class="headerlink" title="第三章 高质量代码"></a>第三章 高质量代码</h1><h2 id="11-快速幂"><a href="#11-快速幂" class="headerlink" title="11 快速幂"></a>11 快速幂</h2><p>马马虎虎地过了，看了书后发现，我并没有考虑底数是特殊值的情况。（只分了指数的情况）</p>
 <p>Note：</p>
 <ul>
 <li>用全局变量的方式抛出异常。</li>
-<li>由于底数是double型，不能直接用==判断是否是0。要专门写一个函数来判断。</li>
-</ul>
-<p>然后就是高效的解法：</p>
-<ul>
-<li style="list-style: none"><input type="checkbox"> 这个解法一定要重刷！</li>
+<li style="list-style: none"><input type="checkbox"> 由于<strong>底数是double型，不能直接用==判断是否是0</strong>。要专门写一个函数来判断！！！</li>
+<li style="list-style: none"><input type="checkbox"> 指数为负的情况！！！</li>
 </ul>
 <h2 id="12-打印1到n位最大数"><a href="#12-打印1到n位最大数" class="headerlink" title="12 打印1到n位最大数"></a>12 打印1到n位最大数</h2><p>不能用int型。要用string型。</p>
 <ul>
@@ -560,7 +593,38 @@ if(node!=null){
 <h2 id="27-二叉树与双向链表"><a href="#27-二叉树与双向链表" class="headerlink" title="27 二叉树与双向链表"></a>27 二叉树与双向链表</h2><p>先中序遍历，存到栈里。</p>
 <p>然后再设置左右子树就很简单了。</p>
 <p>思路好想，关键是输入为null的特殊情况我一直没处理。导致过不了。</p>
-<h2 id="28-字符串的排列"><a href="#28-字符串的排列" class="headerlink" title="28 字符串的排列"></a>28 字符串的排列</h2><p>全排列嘛。我知道要用递归写。可是就是钻进了牛角尖。一时间想不出来递归的参数怎么设置。</p>
+<ul>
+<li><p>[ ] 书上是递归方法。</p>
+<p><code>`</code>cpp</p>
+<pre><code>TreeNode* Convert(TreeNode* pRootOfTree)
+{
+    if(pRootOfTree == nullptr) return nullptr;
+    TreeNode* pre = nullptr;
+
+    convertHelper(pRootOfTree, pre);
+
+    TreeNode* res = pRootOfTree;
+    while(res -&gt;left)
+        res = res -&gt;left;
+    return res;
+}
+
+void convertHelper(TreeNode* cur, TreeNode*&amp; pre)
+{
+    if(cur == nullptr) return;
+
+    convertHelper(cur -&gt;left, pre);
+
+    cur -&gt;left = pre;
+    if(pre) pre -&gt;right = cur;
+    pre = cur;
+
+    convertHelper(cur -&gt;right, pre);
+</code></pre></li>
+</ul>
+<pre><code>    }
+```
+</code></pre><h2 id="28-字符串的排列"><a href="#28-字符串的排列" class="headerlink" title="28 字符串的排列"></a>28 字符串的排列</h2><p>全排列嘛。我知道要用递归写。可是就是钻进了牛角尖。一时间想不出来递归的参数怎么设置。</p>
 <ul>
 <li>multiset是允许key相同的set</li>
 <li>输入的string 为<code>“”</code>时，要特判！</li>
@@ -666,8 +730,20 @@ if(node!=null){
 <ul>
 <li>书上方法固然更好，写起来也更轻松。然而我竟然发现我刚刚的用最后一位补齐的方法，时间和空间效率都比后来改的方法好啊~哈哈哈</li>
 </ul>
-<h2 id="34-丑数"><a href="#34-丑数" class="headerlink" title="34 丑数"></a>34 丑数</h2><p>看了书上的好方法来做的。嘻嘻。</p>
-<p>LeetCode上还有个超级丑数，明天去做一下看看。</p>
+<h2 id="34-丑数"><a href="#34-丑数" class="headerlink" title="34 丑数"></a>34 丑数</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> a<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+a<span class="token punctuation">[</span><span class="token number">0</span> <span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> t2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> t3 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> t5 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> newValue <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token function">min</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>t2<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">,</span>a<span class="token punctuation">[</span>t3<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>a<span class="token punctuation">[</span>t5<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    a<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> newValue<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>t2<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span><span class="token operator">&lt;=</span>newValue<span class="token punctuation">)</span>
+        t2<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>t3<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">3</span><span class="token operator">&lt;=</span>newValue<span class="token punctuation">)</span>
+        t3<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>t5<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">5</span><span class="token operator">&lt;=</span>newValue<span class="token punctuation">)</span>
+        t5<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="35-第一个只出现一次的字符"><a href="#35-第一个只出现一次的字符" class="headerlink" title="35 第一个只出现一次的字符"></a>35 第一个只出现一次的字符</h2><ul>
 <li><p>map里存的顺序并不是按你存入的顺序。而是字典序。比如<code>g</code>先进入map，e后进入map。但是<code>e</code>会放在<code>g</code>前面。</p>
 </li>
@@ -695,9 +771,7 @@ if(node!=null){
 <h2 id="37-链表的公共节点"><a href="#37-链表的公共节点" class="headerlink" title="37 链表的公共节点"></a>37 链表的公共节点</h2><ul>
 <li><p>[x] 这是为什么？</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp">ListNode<span class="token operator">*</span> p1<span class="token operator">=</span>pHead1<span class="token punctuation">,</span>p2<span class="token operator">=</span>pHead2<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这样就会报错no viable conversion from 'ListNode *' to 'ListNode'</span>
-ListNode<span class="token operator">*</span> p1<span class="token operator">=</span>pHead1；
-ListNode<span class="token operator">*</span> p2<span class="token operator">=</span>pHead2；<span class="token comment" spellcheck="true">//这才可以</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>因为p2前要加<code>*</code> （不然的话其实Clion会有💡自动提示让你分开定义）</p>
 </li>
 <li><p>没判断可能不存在公共节点的问题。shit。题目这样说根本就是一定存在啊。坑爹~</p>
@@ -767,6 +841,7 @@ ListNode<span class="token operator">*</span> p2<span class="token operator">=</
     <span class="token keyword">int</span> all<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token operator">:</span>data<span class="token punctuation">)</span>
         all <span class="token operator">^</span><span class="token operator">=</span> x<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//all是全部异或的结果</span>
+
     <span class="token comment" spellcheck="true">//找到x第一个是1的位（这个位就是 num1和num2 在此位不同所致</span>
     <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>all<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">// &amp;1 就是只保留这个数的最后一位</span>
@@ -780,7 +855,7 @@ ListNode<span class="token operator">*</span> p2<span class="token operator">=</
             <span class="token operator">*</span>num2 <span class="token operator">^</span><span class="token operator">=</span> x<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="41-1和为S的连续序列"><a href="#41-1和为S的连续序列" class="headerlink" title="41-1和为S的连续序列"></a>41-1和为S的连续序列</h2><ul>
 <li><p>Clion真强啊。我的代码本来这样：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>

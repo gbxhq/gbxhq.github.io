@@ -406,7 +406,9 @@ while(getline(cin,line));
 </li>
 <li><p>Vector效率真不行</p>
 </li>
-<li></li>
+<li><p><strong>reference to non-static member function must be called</strong></p>
+<p> 报这个错是因为sort(a,a+n,cmp)时，传的cmp里表面看2个参数，实际是3个参数（this指针），造成了参数不匹配。把cmp函数设成static即可（不含this指针了）</p>
+</li>
 </ul>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ul>
 <li><p>一位一位的读01可以用<code>scanf %1d</code></p>

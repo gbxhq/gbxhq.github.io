@@ -337,7 +337,7 @@ Linux命令加不加”-“1.单- ">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        6 分
                     </div>
                     
                 
@@ -398,7 +398,7 @@ passwd zoey #改密码
 </code></pre><p><code>ps -ef</code>查看本机所有的进程；<code>grep xxxx</code>代表过滤找到条件<code>xxxx</code>的项目</p>
 <h4 id="3、kill掉进程"><a href="#3、kill掉进程" class="headerlink" title="3、kill掉进程"></a>3、kill掉进程</h4><pre><code>kill -9 具体的PID
 </code></pre><p>用这个方法时，我遇到一个问题就是我的Python代码里用<code>embed()</code>这一句来阻塞进程转到ipython，这样会和这种后台运行的方式冲突，或许是日志没法完成。具体解决方法没找到，但是找到了下面这种后台运行的方法：</p>
-<h2 id="screen的方式"><a href="#screen的方式" class="headerlink" title="screen的方式"></a>screen的方式</h2><p>先<code>screen</code>然后把程序跑起来。然后<code>ctrl+a</code> 然后按 <code>d</code></p>
+<h2 id="screen的方式"><a href="#screen的方式" class="headerlink" title="screen的方式"></a>screen的方式</h2><p>先<code>screen -S name</code>然后把程序跑起来。然后<code>ctrl+a</code> 然后按 <code>d</code></p>
 <p>完事~</p>
 <h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><p>screen 创建一个新shell</p>
 <p>Ctrl +a 然后d 退出当前shell</p>
